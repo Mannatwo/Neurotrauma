@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="Russian" nowhitespace="false" translatedname="Русский">
+
+<!-- ITEMS -->
+
+<entityname.mannitolplus>Маннитол плюс</entityname.mannitolplus>
+<entitydescription.mannitolplus>Улучшенная версия маннитола. Используется для быстрого лечения нейротравмы.</entitydescription.mannitolplus>
+
+<entityname.artificialbrain>Искусственный мозг</entityname.artificialbrain>
+<entitydescription.artificialbrain>Искусственный мозг, удерживающий тело живым при отсутствии оригинального мозга.</entitydescription.artificialbrain>
+
+<entityname.surgeonclothes>Одежда хирурга</entityname.surgeonclothes>
+<entitydescription.surgeonclothes>Стерильная одежда хирурга для предотвращения инфицирования во время операции.</entitydescription.surgeonclothes>
+
+<entityname.surgicalmask>Хирургическая маска</entityname.surgicalmask>
+<entitydescription.surgicalmask>Маска, предохраняющая вашего пациента от воздушно-капельных патогенов во время операции.</entitydescription.surgicalmask>
+
+<entityname.brainjar>Сосуд для мозгов</entityname.brainjar>
+<entitydescription.brainjar>КОнтейнер для хранения мозгов сколь угодно долго</entitydescription.brainjar>
+
+<entityname.surgicaldrapes>Хирургическая простыня</entityname.surgicaldrapes>
+<entitydescription.surgicaldrapes>Стерильные простыни для предотвращения инфицирования во время операции.</entitydescription.surgicaldrapes>
+
+
+<!-- AFFLICTIONS -->
+
+<afflictionname.preventativepermit>Превентивные меры</afflictionname.preventativepermit>
+<afflictiondescription.preventativepermit>Меньший риск серьёзных травм.</afflictiondescription.preventativepermit>
+
+<afflictionname.artificialbrain>Искусственный мозг</afflictionname.artificialbrain>
+<afflictiondescription.artificialbrain>Пациент совершенно без сознания, но тело всё ещё живёт.</afflictiondescription.artificialbrain>
+
+
+<!-- JOBS -->
+
+<jobname.surgeon>Хирург</jobname.surgeon>
+<jobdescription.surgeon>В то время как медики предназначены для быстрого реагирования, хирург специализируется на оптимизации хирургических процедур. Ниже риск инфецирования, ускоренные действия, и всё остальное что так или иначе связано с хирургией.</jobdescription.surgeon>
+
+<skillname.surgery>Хирургия</skillname.surgery>
+
+<!-- TALENTS -->
+
+<talenttree.researcher>Исследователь</talenttree.researcher>
+<talenttree.hospitalizer>Госпитализатор</talenttree.hospitalizer>
+<talenttree.fieldsurgeon>Полевой хирург</talenttree.fieldsurgeon>
+
+<talentname.ntsp_autoimmune>Аутоиммунное подавление</talentname.ntsp_autoimmune>
+<talentdescription.ntsp_autoimmune>Органы, которые вы трансплантируете, никогда не отторгаются.</talentdescription.ntsp_autoimmune>
+
+<talentname.ntsp_firemanscarry>Оперативное спасение</talentname.ntsp_firemanscarry>
+
+<talentname.ntsp_properfol>Профессионал в обращении с пропофолом</talentname.ntsp_properfol>
+<talentdescription.ntsp_properfol>[itemname], применяемый вами, подействует мгновенно.</talentdescription.ntsp_properfol>
+
+<talentname.ntsp_soothingsurgeon>Бережный хирург</talentname.ntsp_soothingsurgeon>
+<talentdescription.ntsp_soothingsurgeon>Люди, которых вы оперируете, меньше страдают от травматического шока</talentdescription.ntsp_soothingsurgeon>
+
+<talentname.ntsp_imadoctornota>Я врач, а не...</talentname.ntsp_imadoctornota>
+
+<talentname.ntsp_preventativepermit>Превентивные меры</talentname.ntsp_preventativepermit>
+<talentdescription.ntsp_preventativepermit>Последний, кого вы лечили, получает [physicalresistance]% сопротивления урону и в меньшей степени подвержен серьёзным ранениям.</talentdescription.ntsp_preventativepermit>
+
+<talentname.ntsp_medicallicence>Медицинская лицензия</talentname.ntsp_medicallicence>
+<talentdescription.ntsp_medicallicence>Извлекаемые вами органы продаются по полной цене.</talentdescription.ntsp_medicallicence>
+
+<talentname.ntsp_bedsidemanner>Постельный режим</talentname.ntsp_bedsidemanner>
+<talentdescription.ntsp_bedsidemanner>Пациенты вокруг вас быстрее пассивно лечатся. Эффект удвоен для тех, кто лежит на кровати.</talentdescription.ntsp_bedsidemanner>
+
+<talentname.ntsp_rinseandrepeat>Отмоется!</talentname.ntsp_rinseandrepeat>
+<talentdescription.ntsp_rinseandrepeat>Дренажи, эндоваскулярные баллоны и иглы больше не расходуются при использовании.</talentdescription.ntsp_rinseandrepeat>
+
+<talentname.ntsp_underpressure>Под давлением</talentname.ntsp_underpressure>
+<talentdescription.ntsp_underpressure>Пациенты без сознания вокруг вас на [amount]% устойчивее к кровопотере, урону органам и нейротравме.</talentdescription.ntsp_underpressure>
+
+<talentname.ntsp_rapiddeoployment>Быстрое развёртывание</talentname.ntsp_rapiddeoployment>
+<talentdescription.ntsp_rapiddeoployment>Получите дополнительную скорость передвижения, равную [проценту навыка]% от вашего хирургического навыка.</talentdescription.ntsp_rapiddeoployment>
+
+<talentname.ntsp_humanmachine>Человек-машина</talentname.ntsp_humanmachine>
+
+<talentname.ntsp_firstaidtraining>Первая помощь</talentname.ntsp_firstaidtraining>
+<talentname.ntsp_mannitol>Маннитоловый маньяк</talentname.ntsp_mannitol>
+<talentname.ntsp_frankenstein>Др. Франкенштейн</talentname.ntsp_frankenstein>
+
+<!--A1.1-->
+
+<entityname.skillbooksurgery>'Как лечить не надо'</entityname.skillbooksurgery>
+<entitydescription.skillbooksurgery>Справочник, описывающий множество хирургических процедур и их проведение.</entitydescription.skillbooksurgery>
+
+<entityname.triagetag>Распределительный ярлык (автоматический)</entityname.triagetag>
+<entitydescription.triagetag>Ярлык, используемый для эффективного определения типа и срочности медицинской помощи, необходимой пациенту в случае массовых жертв.</entitydescription.triagetag>
+
+<entityname.manualtriagetag>Распределительный ярлык (вручную)</entityname.manualtriagetag>
+<entitydescription.manualtriagetag>Ярлык ручного распределения. Примените к ногам зеленый цвет, к рукам — желтый, к туловищу — красный, а к голове — черный</entitydescription.manualtriagetag>
+
+<entityname.experimentaltreatment>Экспериментальное лечение</entityname.experimentaltreatment>
+<entitydescription.experimentaltreatment>В высшей степени экспериментальный препарат, который может причинить как мало, так и много как хорошего, так и плохого.</entitydescription.experimentaltreatment>
+
+<talentname.ntsp_experimental>Неэтичное получение</talentname.ntsp_experimental>
+
+</infotexts>

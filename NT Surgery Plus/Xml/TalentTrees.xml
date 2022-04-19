@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+<TalentTrees>
+
+  <TalentTree jobidentifier="surgeon">
+    <SubTree identifier="researcher">
+      <TalentOptions>
+        <TalentOption identifier="ntsp_autoimmune"/>
+        <TalentOption identifier="ntsp_humanmachine"/>
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="ntsp_firstaidtraining"/>
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="ntsp_mannitol"/>
+        <TalentOption identifier="ntsp_experimental"/>
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="ntsp_frankenstein"/>
+      </TalentOptions>
+    </SubTree>
+    <SubTree identifier="hospitalizer">
+      <TalentOptions>
+        <TalentOption identifier="ntsp_bedsidemanner"/>
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="ntsp_underpressure"/>
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="ntsp_rinseandrepeat"/>
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="ntsp_medicallicence"/>
+      </TalentOptions>
+    </SubTree>
+    <SubTree identifier="fieldsurgeon">
+      <TalentOptions>
+        <TalentOption identifier="ntsp_rapiddeoployment"/>
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="ntsp_properfol"/>
+        <TalentOption identifier="ntsp_firemanscarry"/>
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="ntsp_preventativepermit"/>
+        <TalentOption identifier="ntsp_imadoctornota"/>
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="ntsp_soothingsurgeon"/>
+      </TalentOptions>
+    </SubTree>
+  </TalentTree>
+  
+</TalentTrees>
+</Override>

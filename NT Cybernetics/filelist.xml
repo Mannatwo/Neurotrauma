@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="NT Cybernetics" path="Mods/NT Cybernetics/filelist.xml" corepackage="false" gameversion="0.16.7.0" steamworkshopid="2788543375" installtime="1648956413">
+  <Afflictions file="Mods/NT Cybernetics/Xml/Afflictions.xml" />
+  <Item file="Mods/NT Cybernetics/Xml/items.xml" />
+  <Text file="Mods/NT Cybernetics/Localization/English/English.xml" />
+  <None file="Mods/NT Cybernetics/Lua/ForcedAutorun/init.lua" />
+  <None file="Mods/NT Cybernetics/Lua/Scripts/humanupdate.lua" />
+  <None file="Mods/NT Cybernetics/Lua/Scripts/items.lua" />
+  <None file="Mods/NT Cybernetics/Lua/Scripts/ondamaged.lua" />
+  <None file="Mods/NT Cybernetics/Images/AfflictionIcons.png" />
+  <None file="Mods/NT Cybernetics/Lua/Scripts/testing.lua" />
+  <None file="Mods/NT Cybernetics/Sound/cyberbite1.ogg" />
+  <None file="Mods/NT Cybernetics/Sound/cyberbite2.ogg" />
+  <None file="Mods/NT Cybernetics/Sound/cyberbite3.ogg" />
+  <None file="Mods/NT Cybernetics/Sound/cyberblunt1.ogg" />
+  <None file="Mods/NT Cybernetics/Sound/cyberblunt10.ogg" />
+  <None file="Mods/NT Cybernetics/Sound/cyberblunt11.ogg" />
+  <None file="Mods/NT Cybernetics/Sound/cyberblunt2.ogg" />
+  <None file="Mods/NT Cybernetics/Sound/cyberblunt3.ogg" />
+  <None file="Mods/NT Cybernetics/Sound/cyberblunt4.ogg" />
+  <None file="Mods/NT Cybernetics/Sound/cyberblunt5.ogg" />
+  <None file="Mods/NT Cybernetics/Sound/cyberblunt6.ogg" />
+  <None file="Mods/NT Cybernetics/Sound/cyberblunt7.ogg" />
+  <None file="Mods/NT Cybernetics/Sound/cyberblunt8.ogg" />
+  <None file="Mods/NT Cybernetics/Sound/cyberblunt9.ogg" />
+  <None file="Mods/NT Cybernetics/Sound/cyberdeath1.ogg" />
+  <None file="Mods/NT Cybernetics/Sound/cyberdeath2.ogg" />
+  <None file="Mods/NT Cybernetics/Sound/cyberdeath3.ogg" />
+  <None file="Mods/NT Cybernetics/Sound/screwdriver1.ogg" />
+  <None file="Mods/NT Cybernetics/Sound/screwdriver2.ogg" />
+  <None file="Mods/NT Cybernetics/Sound/welding1.ogg" />
+  <None file="Mods/NT Cybernetics/Sound/welding2.ogg" />
+  <None file="Mods/NT Cybernetics/Sound/welding3.ogg" />
+  <None file="Mods/NT Cybernetics/Sound/welding4.ogg" />
+  <None file="Mods/NT Cybernetics/Sound/welding5.ogg" />
+  <None file="Mods/NT Cybernetics/Lua/Scripts/helperfunctions.lua" />
+  <None file="Mods/NT Cybernetics/Images/InGameItemIconAtlas.png" />
+  <None file="Mods/NT Cybernetics/Images/InventoryItemIconAtlas.png" />
+</contentpackage>

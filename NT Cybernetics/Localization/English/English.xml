@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="English" nowhitespace="false" translatedname="English">
+
+<!-- ITEMS -->
+
+<entityname.cyberarm>Cyberarm</entityname.cyberarm>
+<entitydescription.cyberarm>An arm made of metal and electronics. Doesn't bleed. Use after amputation to install.</entitydescription.cyberarm>
+
+<entityname.cyberleg>Cyberleg</entityname.cyberleg>
+<entitydescription.cyberleg>A leg made of metal and electronics. Doesn't bleed. Use after amputation to install.</entitydescription.cyberleg>
+
+<!-- AFFLICTIONS -->
+
+<afflictionname.ntc_cyberlimb></afflictionname.ntc_cyberlimb>
+<afflictiondescription.ntc_cyberlimb></afflictiondescription.ntc_cyberlimb>
+
+<afflictionname.ntc_cyberarm>Cyberarm</afflictionname.ntc_cyberarm>
+<afflictiondescription.ntc_cyberarm>The arm is made of metal and electronics</afflictiondescription.ntc_cyberarm>
+
+<afflictionname.ntc_cyberleg>Cyberleg</afflictionname.ntc_cyberleg>
+<afflictiondescription.ntc_cyberleg>The leg is made of metal and electronics</afflictiondescription.ntc_cyberleg>
+
+
+<afflictionname.ntc_loosescrews>Loose screws</afflictionname.ntc_loosescrews>
+<afflictiondescription.ntc_loosescrews>Some screws look dangerously close to falling out. Rattling can be heard when moving the limb.</afflictiondescription.ntc_loosescrews>
+
+<afflictionname.ntc_damagedelectronics>Damaged electronics</afflictionname.ntc_damagedelectronics>
+<afflictiondescription.ntc_damagedelectronics>The limb occasionally emits sparks of electricity. Some subsystems are reporting outages.</afflictiondescription.ntc_damagedelectronics>
+
+<afflictionname.ntc_bentmetal>Bent metal</afflictionname.ntc_bentmetal>
+<afflictiondescription.ntc_bentmetal>The limb is bending in an unintended direction.</afflictiondescription.ntc_bentmetal>
+
+<afflictionname.ntc_materialloss>Material loss</afflictionname.ntc_materialloss>
+<afflictiondescription.ntc_materialloss>Parts of the limb are gone.</afflictiondescription.ntc_materialloss>
+
+
+<afflictionname.></afflictionname.>
+<afflictiondescription.></afflictiondescription.>
+
+</infotexts>

@@ -1,0 +1,5 @@
+
+This credits section is small and pathetic right now, please don't look at it
+
+Viktor Livingshield - Russian localization
+Evil Factory - Lua help

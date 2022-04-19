@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Afflictions>
+
+  <!-- Artifical limb
+  invisible
+  converts all regular damage types to cybernetic specific ones -->
+  <Affliction
+    name=""
+    identifier="ntc_cyberlimb"
+    description=""
+    healableinmedicalclinic="false"
+    targets="human"
+    type="gaze"
+    isbuff="true"
+    limbspecific="true"
+    maxstrength="100"
+    showiconthreshold="500"
+    showinhealthscannerthreshold="500"
+    iconcolors="76,102,145,255;76,102,145,255">
+		<icon texture="Mods/NT Cybernetics/Images/AfflictionIcons.png" sheetindex="0,0" sheetelementsize="128,128" origin="0,0"/>
+  </Affliction>
+
+  <!-- Cyberarm
+  converts the arm into a cyberarm -->
+  <Affliction
+    name=""
+    identifier="ntc_cyberarm"
+    description=""
+    healableinmedicalclinic="false"
+    targets="human"
+    type="resistance"
+    isbuff="true"
+    limbspecific="true"
+    maxstrength="100"
+    showiconthreshold="1"
+    showinhealthscannerthreshold="500"
+    iconcolors="76,102,145,255;76,102,145,255">
+		<icon texture="Mods/NT Cybernetics/Images/AfflictionIcons.png" sheetindex="5,0" sheetelementsize="128,128" origin="0,0"/>
+  </Affliction>
+
+  <!-- Cyberleg
+  converts the leg into a cyberleg -->
+  <Affliction
+    name=""
+    identifier="ntc_cyberleg"
+    description=""
+    healableinmedicalclinic="false"
+    targets="human"
+    type="resistance"
+    isbuff="true"
+    limbspecific="true"
+    maxstrength="100"
+    showiconthreshold="1"
+    showinhealthscannerthreshold="500"
+    iconcolors="76,102,145,255;76,102,145,255">
+		<icon texture="Mods/NT Cybernetics/Images/AfflictionIcons.png" sheetindex="6,0" sheetelementsize="128,128" origin="0,0"/>
+  </Affliction>
+
+  <!-- /// cyberlimb damage types /// -->
+
+  <!-- Loose screws
+  a cyber damage type, caused by trauma, movement
+  increases susceptibility to material loss -->
+  <Affliction
+    name=""
+    identifier="ntc_loosescrews"
+    description=""
+    healableinmedicalclinic="false"
+    targets="human"
+    isbuff="false"
+    limbspecific="true"
+    maxstrength="100"
+    showiconthreshold="1"
+    showinhealthscannerthreshold="500"
+    iconcolors="191,171,57,255;191,57,57,255"> <!-- 191,171,57,255;191,57,57,255 -->
+		<icon texture="Mods/NT Cybernetics/Images/AfflictionIcons.png" sheetindex="1,0" sheetelementsize="128,128" origin="0,0"/>
+  </Affliction>
+
+  <!-- Damaged electronics
+  a cyber damage type, caused by water and trauma
+  increases susceptibility to material loss -->
+  <Affliction
+    name=""
+    identifier="ntc_damagedelectronics"
+    description=""
+    healableinmedicalclinic="false"
+    targets="human"
+    isbuff="false"
+    limbspecific="true"
+    maxstrength="100"
+    showiconthreshold="1"
+    showinhealthscannerthreshold="500"
+    iconcolors="191,171,57,255;191,57,57,255">
+		<icon texture="Mods/NT Cybernetics/Images/AfflictionIcons.png" sheetindex="2,0" sheetelementsize="128,128" origin="0,0"/>
+  </Affliction>
+
+  <!-- Bent metal
+  a cyber damage type, caused by trauma
+  increases susceptibility to material loss, decreases movement speed -->
+  <Affliction
+    name=""
+    identifier="ntc_bentmetal"
+    description=""
+    healableinmedicalclinic="false"
+    targets="human"
+    isbuff="false"
+    limbspecific="true"
+    maxstrength="100"
+    showiconthreshold="1"
+    showinhealthscannerthreshold="500"
+    iconcolors="191,171,57,255;191,57,57,255">
+		<icon texture="Mods/NT Cybernetics/Images/AfflictionIcons.png" sheetindex="3,0" sheetelementsize="128,128" origin="0,0"/>
+  </Affliction>
+
+  <!-- Material loss
+  a cyber damage type, caused by trauma
+  if too high, the limb is lost -->
+  <Affliction
+    name=""
+    identifier="ntc_materialloss"
+    description=""
+    healableinmedicalclinic="false"
+    targets="human"
+    isbuff="false"
+    limbspecific="true"
+    maxstrength="100"
+    showiconthreshold="1"
+    showinhealthscannerthreshold="500"
+    iconcolors="191,171,57,255;191,57,57,255">
+		<icon texture="Mods/NT Cybernetics/Images/AfflictionIcons.png" sheetindex="4,0" sheetelementsize="128,128" origin="0,0"/>
+  </Affliction>
+
+</Afflictions>

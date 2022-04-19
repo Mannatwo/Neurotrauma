@@ -1,0 +1,526 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+
+  <Item name="" identifier="cyberarm" category="Equipment" cargocontaineridentifier="mediccrate"
+          Tags="smallitem,medical,surgery" description="" useinhealthinterface="True" scale="0.4">
+    <Price baseprice="500" soldeverywhere="false">
+      <Price locationtype="outpost" multiplier="1.3" sold="true" minavailable="0"/>
+      <Price locationtype="city" multiplier="1.3" sold="true" minavailable="0"/>
+      <Price locationtype="research" multiplier="1" sold="true" minavailable="1"/>
+      <Price locationtype="military" multiplier="1.2" sold="true" minavailable="0"/>
+      <Price locationtype="mine" multiplier="1.3" sold="true" minavailable="0"/>
+    </Price>
+    <PreferredContainer primary="toxcontainer" spawnprobability="0.2"/>
+    <PreferredContainer primary="locker"/>
+    <Fabricate suitablefabricators="fabricator" requiredtime="60">
+      <RequiredSkill identifier="mechanical" level="70"/>
+      <RequiredSkill identifier="medical" level="20"/>
+      <RequiredItem identifier="titaniumaluminiumalloy"/>
+      <RequiredItem identifier="titaniumaluminiumalloy"/>
+      <RequiredItem identifier="steel"/>
+      <RequiredItem identifier="steel"/>
+      <RequiredItem identifier="steel"/>
+      <RequiredItem identifier="steel"/>
+      <RequiredItem identifier="fpgacircuit"/>
+      <RequiredItem identifier="fpgacircuit"/>
+      <RequiredItem identifier="fpgacircuit"/>
+      <RequiredItem identifier="fpgacircuit"/>
+      <RequiredItem identifier="fulgurium"/>
+    </Fabricate>
+    <Deconstruct time="30">
+      <Item identifier="titaniumaluminiumalloy"/>
+      <Item identifier="titaniumaluminiumalloy"/>
+      <Item identifier="steel"/>
+      <Item identifier="steel"/>
+      <Item identifier="steel"/>
+      <Item identifier="steel"/>
+      <Item identifier="fpgacircuit"/>
+      <Item identifier="fpgacircuit"/>
+      <Item identifier="fpgacircuit"/>
+      <Item identifier="fpgacircuit"/>
+      <Item identifier="fulgurium"/>
+    </Deconstruct>
+    <Sprite texture="Mods/NT Cybernetics/Images/InGameItemIconAtlas.png" sourcerect="10,4,228,47" origin="0.5,0.5" depth="0.6" />
+    <InventoryIcon texture="Mods/NT Cybernetics/Images//InventoryItemIconAtlas.png" sourcerect="0,0,128,128" origin="0.5,0.5"/>
+    <Body width="114" height="23" density="50"/>
+    <MeleeWeapon slots="RightHand+LeftHand,Any" controlpose="true" aimpos="45,10" handle1="-10,0" handle2="0,5" holdangle="60" reload="1" range="100" combatpriority="20" msg="ItemMsgPickUpSelect">
+      <Attack structuredamage="10" itemdamage="5" targetimpulse="10">
+        <Affliction identifier="blunttrauma" strength="10" />
+        <Affliction identifier="stun" strength="0.5" />
+        <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
+      </Attack>
+    </MeleeWeapon>
+  </Item>
+
+  <Item name="" identifier="cyberleg" category="Equipment" cargocontaineridentifier="mediccrate"
+          Tags="smallitem,medical,surgery" description="" useinhealthinterface="True" scale="0.4">
+    <Price baseprice="500" soldeverywhere="false">
+      <Price locationtype="outpost" multiplier="1.3" sold="true" minavailable="0"/>
+      <Price locationtype="city" multiplier="1.3" sold="true" minavailable="0"/>
+      <Price locationtype="research" multiplier="1" sold="true" minavailable="1"/>
+      <Price locationtype="military" multiplier="1.2" sold="true" minavailable="0"/>
+      <Price locationtype="mine" multiplier="1.3" sold="true" minavailable="0"/>
+    </Price>
+    <PreferredContainer primary="toxcontainer" spawnprobability="0.2"/>
+    <PreferredContainer primary="locker"/>
+    <Fabricate suitablefabricators="fabricator" requiredtime="60">
+      <RequiredSkill identifier="mechanical" level="70"/>
+      <RequiredSkill identifier="medical" level="20"/>
+      <RequiredItem identifier="titaniumaluminiumalloy"/>
+      <RequiredItem identifier="titaniumaluminiumalloy"/>
+      <RequiredItem identifier="steel"/>
+      <RequiredItem identifier="steel"/>
+      <RequiredItem identifier="steel"/>
+      <RequiredItem identifier="steel"/>
+      <RequiredItem identifier="fpgacircuit"/>
+      <RequiredItem identifier="fpgacircuit"/>
+      <RequiredItem identifier="fpgacircuit"/>
+      <RequiredItem identifier="fpgacircuit"/>
+      <RequiredItem identifier="fulgurium"/>
+    </Fabricate>
+    <Deconstruct time="30">
+      <Item identifier="titaniumaluminiumalloy"/>
+      <Item identifier="titaniumaluminiumalloy"/>
+      <Item identifier="steel"/>
+      <Item identifier="steel"/>
+      <Item identifier="steel"/>
+      <Item identifier="steel"/>
+      <Item identifier="fpgacircuit"/>
+      <Item identifier="fpgacircuit"/>
+      <Item identifier="fpgacircuit"/>
+      <Item identifier="fpgacircuit"/>
+      <Item identifier="fulgurium"/>
+    </Deconstruct>
+    <Sprite texture="Mods/NT Cybernetics/Images/InGameItemIconAtlas.png" sourcerect="4,64,63,238" origin="0.5,0.5" depth="0.6" />
+    <InventoryIcon texture="Mods/NT Cybernetics/Images//InventoryItemIconAtlas.png" sourcerect="128,0,128,128" origin="0.5,0.5"/>
+    <Body width="30" height="115" density="50"/>
+    <MeleeWeapon slots="RightHand+LeftHand,Any" controlpose="true" aimpos="45,10" handle1="-10,0" handle2="0,5" holdangle="330" reload="1" range="100" combatpriority="20" msg="ItemMsgPickUpSelect">
+      <Attack structuredamage="10" itemdamage="5" targetimpulse="10">
+        <Affliction identifier="blunttrauma" strength="10" />
+        <Affliction identifier="stun" strength="0.5" />
+        <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
+      </Attack>
+    </MeleeWeapon>
+  </Item>
+
+
+  <!-- SFX items -->
+
+  <Item name="." identifier="ntcsfx_screwdriver" category="hidden" description=".">
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
+    <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
+    <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
+      <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
+        <Sound file="Mods/NT Cybernetics/Sound/screwdriver1.ogg" type="OnUse" range="500"/>
+        <Sound file="Mods/NT Cybernetics/Sound/screwdriver2.ogg" type="OnUse" range="500"/>
+      </StatusEffect>
+      <StatusEffect type="always" target="This" disabledeltatime="true" delay="1" stackable="false">
+        <Remove/>
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+  <Item name="." identifier="ntcsfx_cyberblunt" category="hidden" description=".">
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
+    <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
+    <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
+      <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
+        <Sound file="Mods/NT Cybernetics/Sound/cyberblunt1.ogg" type="OnUse" range="500"/>
+        <Sound file="Mods/NT Cybernetics/Sound/cyberblunt2.ogg" type="OnUse" range="500"/>
+        <Sound file="Mods/NT Cybernetics/Sound/cyberblunt3.ogg" type="OnUse" range="500"/>
+        <Sound file="Mods/NT Cybernetics/Sound/cyberblunt4.ogg" type="OnUse" range="500"/>
+        <Sound file="Mods/NT Cybernetics/Sound/cyberblunt5.ogg" type="OnUse" range="500"/>
+        <Sound file="Mods/NT Cybernetics/Sound/cyberblunt6.ogg" type="OnUse" range="500"/>
+        <Sound file="Mods/NT Cybernetics/Sound/cyberblunt7.ogg" type="OnUse" range="500"/>
+        <Sound file="Mods/NT Cybernetics/Sound/cyberblunt8.ogg" type="OnUse" range="500"/>
+        <Sound file="Mods/NT Cybernetics/Sound/cyberblunt9.ogg" type="OnUse" range="500"/>
+        <Sound file="Mods/NT Cybernetics/Sound/cyberblunt10.ogg" type="OnUse" range="500"/>
+        <Sound file="Mods/NT Cybernetics/Sound/cyberblunt11.ogg" type="OnUse" range="500"/>
+      </StatusEffect>
+      <StatusEffect type="always" target="This" disabledeltatime="true" delay="1" stackable="false">
+        <Remove/>
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+  <Item name="." identifier="ntcsfx_cyberbite" category="hidden" description=".">
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
+    <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
+    <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
+      <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
+        <Sound file="Mods/NT Cybernetics/Sound/cyberbite1.ogg" type="OnUse" range="500"/>
+        <Sound file="Mods/NT Cybernetics/Sound/cyberbite2.ogg" type="OnUse" range="500"/>
+        <Sound file="Mods/NT Cybernetics/Sound/cyberbite3.ogg" type="OnUse" range="500"/>
+      </StatusEffect>
+      <StatusEffect type="always" target="This" disabledeltatime="true" delay="1" stackable="false">
+        <Remove/>
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+  <Item name="." identifier="ntcsfx_cyberdeath" category="hidden" description=".">
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
+    <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
+    <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
+      <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
+        <Sound file="Mods/NT Cybernetics/Sound/cyberdeath1.ogg" type="OnUse" range="500"/>
+        <Sound file="Mods/NT Cybernetics/Sound/cyberdeath2.ogg" type="OnUse" range="500"/>
+        <Sound file="Mods/NT Cybernetics/Sound/cyberdeath3.ogg" type="OnUse" range="500"/>
+      </StatusEffect>
+      <StatusEffect type="always" target="This" disabledeltatime="true" delay="1" stackable="false">
+        <Remove/>
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+  <Item name="." identifier="ntcsfx_welding" category="hidden" description=".">
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
+    <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
+    <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
+      <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
+        <Sound file="Mods/NT Cybernetics/Sound/welding1.ogg" type="OnUse" range="500"/>
+        <Sound file="Mods/NT Cybernetics/Sound/welding2.ogg" type="OnUse" range="500"/>
+        <Sound file="Mods/NT Cybernetics/Sound/welding3.ogg" type="OnUse" range="500"/>
+        <Sound file="Mods/NT Cybernetics/Sound/welding4.ogg" type="OnUse" range="500"/>
+        <Sound file="Mods/NT Cybernetics/Sound/welding5.ogg" type="OnUse" range="500"/>
+      </StatusEffect>
+      <StatusEffect type="always" target="This" disabledeltatime="true" delay="1" stackable="false">
+        <Remove/>
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+
+  <!-- VFX items -->
+  <Item name="." identifier="ntcvfx_malfunction" category="hidden" description=".">
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
+    <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
+    <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
+      <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
+        <Sound file="Content/Items/Electricity/Zap1.ogg" type="OnUse" range="500"/>
+        <Sound file="Content/Items/Electricity/Zap2.ogg" type="OnUse" range="500"/>
+        <Sound file="Content/Items/Electricity/Zap3.ogg" type="OnUse" range="500"/>
+        <Sound file="Content/Items/Electricity/Zap4.ogg" type="OnUse" range="500"/>
+        <Sound file="Content/Items/Electricity/Zap5.ogg" type="OnUse" range="500"/>
+        <Explosion range="50.0" stun="0" force="5.0" smoke="false" flash="true" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+        <ParticleEmitter particle="spark" particleburstamount="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" scalemin="0.5" scalemax="1"/>
+      </StatusEffect>
+      <StatusEffect type="always" target="This" disabledeltatime="true" delay="1" stackable="false">
+        <Remove/>
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+
+  <!-- overrides -->
+
+  <!-- screwdrivers -->
+  <Override>
+    <Item name="" identifier="screwdriver" category="Equipment" Tags="smallitem,simpletool,tool,electricalrepairtool" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True" useinhealthinterface="True">
+      <PreferredContainer primary="reactorcab" minamount="1" maxamount="4" spawnprobability="1"/>
+      <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" minamount="0" maxamount="3" spawnprobability="0.25"/>
+      <PreferredContainer primary="outpostcrewcabinet" minamount="1" maxamount="2" spawnprobability="0.5"/>
+      <PreferredContainer primary="outposttrashcan" minamount="0" maxamount="1" spawnprobability="0.25" />
+      <PreferredContainer secondary="locker"/>
+      <Price baseprice="10" >
+        <Price locationtype="outpost" multiplier="1" minavailable="10" />
+        <Price locationtype="city" multiplier="0.9" minavailable="15" />
+        <Price locationtype="research" multiplier="1.25" minavailable="10" />
+        <Price locationtype="military" multiplier="1.25" minavailable="10" />
+        <Price locationtype="mine" multiplier="1" minavailable="10" />
+      </Price>
+      <Deconstruct time="10">
+        <Item identifier="iron" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="10">
+        <RequiredSkill identifier="mechanical" level="20" />
+        <RequiredItem identifier="iron" />
+      </Fabricate>
+      <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="512,0,64,64" origin="0.5,0.5" />
+      <Sprite texture="Content/Items/Tools/tools.png" sourcerect="227,189,64,14" depth="0.55" origin="0.5,0.5" />
+      <Body width="60" height="12" density="50" />
+      <SuitableTreatment identifier="ntc_loosescrews" suitability="50"/>
+      <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-10,0" holdangle="60" reload="1.0" range="50" combatpriority="7" msg="ItemMsgPickUpSelect">
+        <Attack structuredamage="4" itemdamage="2" targetimpulse="2">
+          <Affliction identifier="lacerations" strength="5" />
+          <Affliction identifier="bleeding" strength="2" />
+          <Affliction identifier="stun" strength="0.2" />
+          <Sound file="Content/Sounds/Damage/LimbSlash1.ogg" selectionmode="random" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash2.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash3.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash4.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash5.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500" />
+        </Attack>
+      </MeleeWeapon>
+      <aitarget sightrange="500" soundrange="250" fadeouttime="1" />
+      <Quality>
+        <QualityStat stattype="RepairSpeed" value="0.1"/>
+      </Quality>
+      <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    </Item>
+  </Override>
+  <Override>
+    <Item name="" identifier="screwdriverhardened" variantof="screwdriver" inventoryiconcolor="110,120,110,255" spritecolor="110,120,110" addedrepairspeedmultiplier="0.25" useinhealthinterface="True">
+      <PreferredContainer spawnprobability="0" />
+      <PreferredContainer spawnprobability="0" />
+      <PreferredContainer spawnprobability="0" />
+      <PreferredContainer spawnprobability="0" />
+      <Price baseprice="+150">
+        <Price locationtype="outpost" multiplier="1" sold="false" />
+        <Price locationtype="city" multiplier="0.9" sold="false" />
+        <Price locationtype="research" multiplier="1.25" sold="false" />
+        <Price locationtype="military" multiplier="1.25" sold="false" />
+        <Price locationtype="mine" multiplier="1" sold="false" />
+      </Price>
+      <Deconstruct>
+        <Item identifier="iron" />
+        <Item identifier="depletedfuel" />
+        <Item identifier="depletedfuel" />
+      </Deconstruct>
+      <Fabricate requiresrecipe="true">
+        <RequiredItem identifier="screwdriver" />
+        <RequiredItem identifier="depletedfuel" />
+        <RequiredItem identifier="depletedfuel" />
+      </Fabricate>
+      <SuitableTreatment identifier="ntc_loosescrews" suitability="50"/>
+      <MeleeWeapon reload="*1.3">
+        <Attack targetimpulse="8" penetration="0.25">
+          <Affliction identifier="lacerations" strength="10" />
+          <Affliction identifier="radiationsickness" strength="1" />
+          <Affliction identifier="stun" strength="0.3" />
+        </Attack>
+      </MeleeWeapon>
+    </Item>
+  </Override>
+  <Override>
+    <Item name="" identifier="screwdriverdementonite" descriptionidentifier="dementonitetool" variantof="screwdriver" inventoryiconcolor="136,142,166,255" spritecolor="136,142,166" addedrepairspeedmultiplier="0.4" useinhealthinterface="True">
+      <PreferredContainer spawnprobability="0" />
+      <PreferredContainer spawnprobability="0" />
+      <PreferredContainer spawnprobability="0" />
+      <PreferredContainer spawnprobability="0" />
+      <Price baseprice="+200">
+        <Price locationtype="outpost" multiplier="1" sold="false" />
+        <Price locationtype="city" multiplier="0.9" sold="false" />
+        <Price locationtype="research" multiplier="1.25" sold="false" />
+        <Price locationtype="military" multiplier="1.25" sold="false" />
+        <Price locationtype="mine" multiplier="1" sold="false" />
+      </Price>
+      <Deconstruct>
+        <Item identifier="iron" />
+        <Item identifier="dementonite" />
+      </Deconstruct>
+      <Fabricate requiresrecipe="true">
+        <RequiredItem identifier="screwdriver" />
+        <RequiredItem identifier="dementonite" />
+      </Fabricate>
+      <SuitableTreatment identifier="ntc_loosescrews" suitability="50"/>
+      <MeleeWeapon reload="*0.7">
+        <Attack targetimpulse="8">
+          <Affliction identifier="lacerations" strength="7.5" />
+          <Affliction identifier="psychosis" strength="5" />
+          <Affliction identifier="stun" strength="0.2" />
+        </Attack>
+        <StatusEffect type="OnFailure" target="Character">
+          <Sound file="Content/Items/Alien/AlienTurret1.ogg" range="500" />
+          <Affliction identifier="psychosis" strength="10" />
+        </StatusEffect>
+      </MeleeWeapon>
+    </Item>
+  </Override>
+  <!-- fpga circuit -->
+  <Override>
+    <Item name="" identifier="fpgacircuit" category="Electrical" Tags="smallitem,signal" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" useinhealthinterface="True">
+      <Price baseprice="80">
+        <Price locationtype="outpost" multiplier="1" />
+        <Price locationtype="city" multiplier="0.9" />
+        <Price locationtype="research" multiplier="1.25" />
+        <Price locationtype="military" multiplier="1" />
+        <Price locationtype="mine" multiplier="1" />
+      </Price>
+      <PreferredContainer secondary="wreckreactorcab,abandonedreactorcab" minamount="0" maxamount="1" spawnprobability="0.06" />
+      <PreferredContainer primary="reactorcab,storagecab" />
+      <Deconstruct time="5">
+        <Item identifier="plastic" />
+        <Item identifier="copper" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="5">
+        <RequiredSkill identifier="electrical" level="15" />
+        <RequiredItem identifier="plastic" />
+        <RequiredItem identifier="copper" />
+      </Fabricate>
+      <SuitableTreatment identifier="ntc_damagedelectronics" suitability="50"/>
+      <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="512,64,64,64" origin="0.5,0.5" />
+      <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="225,33,36,36" origin="0.5,0.5" />
+      <Body width="36" height="36" density="30" />
+      <Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgPickUpSelect" />
+    </Item>
+  </Override>
+  <!-- welding tool -->
+  <Override>
+    <Item name="" identifier="weldingtool" category="Equipment" Tags="smallitem,weldingequipment,tool" cargocontaineridentifier="metalcrate" description="" Scale="0.5" impactsoundtag="impact_metal_light" useinhealthinterface="True">
+      <PreferredContainer primary="engcab" minamount="2" maxamount="4" spawnprobability="1"/>
+      <PreferredContainer primary="supplycab" minamount="1" maxamount="1" spawnprobability="0.125"/>
+      <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" minamount="0" maxamount="1" spawnprobability="0.2"/>
+      <PreferredContainer primary="outpostcrewcabinet" minamount="0" maxamount="1" spawnprobability="0.25"/>
+      <PreferredContainer secondary="locker"/>
+      <Price baseprice="75" >
+        <Price locationtype="outpost" multiplier="1" minavailable="3" />
+        <Price locationtype="city" multiplier="0.9" minavailable="5" />
+        <Price locationtype="research" multiplier="1.25" minavailable="2" />
+        <Price locationtype="military" multiplier="1.25" minavailable="2" />
+        <Price locationtype="mine" multiplier="0.9" minavailable="10" />
+      </Price>
+      <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="64,64,64,64" origin="0.5,0.5" />
+      <Sprite texture="Content/Items/Tools/tools.png" sourcerect="0,3,152,88" depth="0.55" origin="0.5,0.5" />
+      <!-- the item takes 10 seconds to break down in a deconstructor and turns into steel and plastic -->
+      <Deconstruct time="10">
+        <Item identifier="steel" />
+        <Item identifier="plastic" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="20">
+        <RequiredSkill identifier="mechanical" level="30" />
+        <RequiredItem identifier="steel" />
+        <RequiredItem identifier="plastic" />
+      </Fabricate>
+      <!-- physics body -->
+      <Body width="150" height="60" density="40" />
+      <!-- the character will hold the item 50 pixels in front of him, with his hands at the handle1 and handle2 positions -->
+      <SuitableTreatment identifier="ntc_bentmetal" suitability="50"/>
+      <Holdable slots="Any,RightHand+LeftHand" controlpose="true" aimpos="60,0" handle1="-62,-16" handle2="-10,-6" msg="ItemMsgPickUpSelect" />
+      <RepairTool firedamage="10.0" structurefixamount="2.0" range="150" barrelpos="35,10" particles="weld" repairmultiple="true" repairthroughwalls="false" combatpriority="10" levelwallfixamount="-0.425" targetforce="10">
+        <!-- the item must contain a welding fuel tank for it to work -->
+        <RequiredItems items="weldingtoolfuel,oxygensource" type="Contained" msg="ItemMsgWeldingFuelRequired" />
+        <ParticleEmitter particle="weld" particlespersecond="50" copyentityangle="true"/>
+        <ParticleEmitterHitStructure particle="weldspark" particlespersecond="200" anglemin="-40" anglemax="40" velocitymin="200" velocitymax="800" />
+        <ParticleEmitterHitStructure particle="GlowDot" particlespersecond="60" emitinterval="0.7" particleamount="10" scalemin="0.9" scalemax="1.0" anglemin="0" anglemax="360" velocitymin="10" velocitymax="50" />
+        <ParticleEmitterHitStructure particle="MistSmoke" particlespersecond="20" anglemin="-10" anglemax="10" velocitymin="0" velocitymax="50" />
+        <ParticleEmitterHitItem identifiers="door,hatch,ductblock" particle="weldspark" particlespersecond="200" anglemin="-40" anglemax="40" velocitymin="200" velocitymax="800" />
+        <ParticleEmitterHitItem identifiers="door,hatch,ductblock" particle="MistSmoke" particlespersecond="20" anglemin="-10" anglemax="10" velocitymin="10" velocitymax="100" />
+        <ParticleEmitterHitCharacter particle="fleshsmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="100" />
+        <sound file="Content/Items/Tools/WeldingLoop.ogg" type="OnUse" range="500.0" loop="true" />
+        <!-- when using, the contained welding fuel tank will detoriate (= lose fuel) -->
+        <StatusEffect type="OnUse" targettype="Contained" targets="weldingfueltank" Condition="-1.0" />
+        <StatusEffect type="OnUse" targettype="Contained" targets="incendiumfueltank" Condition="-0.6" />
+        <!-- welding a door, it will get stuck after a while -->
+        <StatusEffect type="OnUse" targettype="UseTarget" targets="door,ductblock" Stuck="5.0" Condition="3.0" />
+        <!-- do burn damage to characters -->
+        <StatusEffect type="OnUse" targettype="Limb">
+          <Affliction identifier="burn" amount="1.0" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" targettype="UseTarget" Condition="-3.0" />
+        <StatusEffect type="OnUse" targettype="Contained" targets="oxygentank" delay="1.0" stackable="false" Condition="-100.0" disabledeltatime="true">
+          <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="5000" />
+          <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="5000" />
+          <Explosion range="250.0" structuredamage="50" force="3.0" ignorefireeffectsfortags="oxygensource,weldingtoolfuel">
+            <Affliction identifier="burn" strength="50" />
+            <Affliction identifier="stun" strength="4" />
+          </Explosion>
+        </StatusEffect>
+        <StatusEffect type="OnUse" targettype="Contained" targets="oxygenitetank" delay="1.0" stackable="false" Condition="-100.0" disabledeltatime="true">
+          <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="5000" />
+          <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="5000" />
+          <Explosion range="250.0" structuredamage="110" force="6.0" ignorefireeffectsfortags="oxygensource,weldingtoolfuel">
+            <Affliction identifier="burn" strength="75" />
+            <Affliction identifier="stun" strength="4" />
+          </Explosion>
+        </StatusEffect>
+        <!-- the tool can fix structures, i.e. walls and windows -->
+        <Fixable identifier="structure" />
+        <!-- mechanic skill 20 required to use the item -->
+        <RequiredSkill identifier="mechanical" level="20" />
+        <!-- if the skill requirement isn't met the welding fuel will be used 3 times as fast -->
+        <StatusEffect type="OnFailure" targettype="Contained" targets="weldingfueltank" Condition="-3.0" />
+        <StatusEffect type="OnFailure" targettype="Contained" targets="incendiumfueltank" Condition="-1.5" />
+        <LightComponent LightColor="1.0,0.9,0.7,1.0" Flicker="0.5">
+          <sprite texture="Content/Items/Electricity/lightsprite.png" origin="0.5,0.5" />
+        </LightComponent>
+      </RepairTool>
+      <!-- one welding fuel or oxygen tank can be contained inside the welding tool -->
+      <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="8,-35" containedspritedepth="0.56" containedstateindicatorstyle="tank">
+        <Containable items="weldingtoolfuel,oxygensource" />
+      </ItemContainer>
+      <aitarget sightrange="2000" soundrange="500" fadeouttime="3" />
+      <Quality>
+        <QualityStat stattype="RepairToolStructureRepairMultiplier" value="0.1"/>
+      </Quality>
+      <Upgrade gameversion="0.10.0.0" scale="0.5" />
+      <Upgrade gameversion="0.14.0.0">
+        <RepairTool>
+          <RequiredItems items="weldingtoolfuel,oxygensource" type="Contained" msg="ItemMsgWeldingFuelRequired" />
+        </RepairTool>
+      </Upgrade>
+      <Upgrade gameversion="0.15.4.0">
+        <ItemContainer itempos="8,-35"/>
+      </Upgrade>      
+    </Item>
+  </Override>
+  <!-- steel -->
+  <Override>
+    <Item name="" identifier="steel" category="Material" maxstacksize="8" Tags="smallitem,petfood3" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.4" impactsoundtag="impact_metal_light" useinhealthinterface="True">
+      <PreferredContainer primary="storagecab" minamount="1" maxamount="4" spawnprobability="1"/>
+      <PreferredContainer secondary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.06"/>
+      <PreferredContainer secondary="locker" />
+      <Price baseprice="20" >
+        <Price locationtype="outpost" multiplier="1.3" minavailable="7"/>
+        <Price locationtype="city" multiplier="1.25" minavailable="10" />
+        <Price locationtype="research" multiplier="1" minavailable="6" />
+        <Price locationtype="military" multiplier="0.9" minavailable="15" />
+        <Price locationtype="mine" multiplier="0.9" minavailable="20" />
+      </Price>
+      <Fabricate suitablefabricators="fabricator" requiredtime="5">
+        <RequiredSkill identifier="mechanical" level="20" />
+        <RequiredItem identifier="carbon" />
+        <RequiredItem identifier="iron" />
+      </Fabricate>
+      <Deconstruct time="5">
+        <Item identifier="carbon" copycondition="true"/>
+        <Item identifier="iron" copycondition="true"/>
+      </Deconstruct>
+      <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,128,64,64" />
+      <Sprite texture="Content/Items/Materials/CraftingElements1.png" sourcerect="4,171,54,27" depth="0.55" origin="0.5,0.5" />
+      <Body width="50" height="25" density="50" />
+      <SuitableTreatment identifier="ntc_materialloss" suitability="50"/>
+      <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+        <!-- Remove the item when fully used -->
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+      </Holdable>
+      <AiTarget sightrange="1000" static="true" />
+    </Item>
+  </Override>
+  <!-- crowbar -->
+  <Override>
+    <Item name="" identifier="crowbar" category="Equipment" Tags="smallitem,tool,simpletool,dooropeningtool,crowbaritem" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True" useinhealthinterface="True">
+      <PreferredContainer primary="engcab" minamount="0" maxamount="1" spawnprobability="1"/>
+      <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" minamount="0" maxamount="3" spawnprobability="0.25"/>
+      <PreferredContainer primary="outpostcrewcabinet" minamount="1" maxamount="2" spawnprobability="0.5"/>
+      <PreferredContainer secondary="locker"/>
+      <Price baseprice="10">
+        <Price locationtype="outpost" multiplier="1" minavailable="10" />
+        <Price locationtype="city" multiplier="0.9" minavailable="15" />
+        <Price locationtype="research" multiplier="1.25" minavailable="10" />
+        <Price locationtype="military" multiplier="1.25" minavailable="10" />
+        <Price locationtype="mine" multiplier="1" minavailable="10" />
+      </Price>
+      <Deconstruct time="10">
+        <Item identifier="iron" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="20">
+        <RequiredSkill identifier="mechanical" level="30" />
+        <RequiredItem identifier="iron" />
+      </Fabricate>
+      <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="576,0,64,64" origin="0.5,0.5" />
+      <Sprite texture="Content/Items/Tools/tools.png" sourcerect="227,225,130,30" depth="0.55" origin="0.5,0.5" />
+      <Body width="120" height="20" density="50" />
+      <MeleeWeapon slots="RightHand+LeftHand,Any" controlpose="true" aimpos="45,10" handle1="-10,0" handle2="0,5" holdangle="60" reload="1" range="100" combatpriority="20" msg="ItemMsgPickUpSelect">
+        <Attack structuredamage="10" itemdamage="5" targetimpulse="10">
+          <Affliction identifier="blunttrauma" strength="10" />
+          <Affliction identifier="stun" strength="0.5" />
+          <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
+        </Attack>
+      </MeleeWeapon>
+      <aitarget sightrange="1000" soundrange="500" fadeouttime="1" />
+      <Quality>
+        <QualityStat stattype="StrikingPowerMultiplier" value="0.1"/>
+      </Quality>
+      <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    </Item>
+  </Override>
+ 
+</Items>
