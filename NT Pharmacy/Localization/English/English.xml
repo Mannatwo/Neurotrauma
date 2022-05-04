@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="English" nowhitespace="false" translatedname="English">
+
+	<!-- ChemMaster 2k -->
+	<entityname.chemmaster>ChemMaster 2000</entityname.chemmaster>
+	<entitydescription.chemmaster>A machine that makes pills out of chemicals loaded inside.</entitydescription.chemmaster>
+	
+	<lua.chemerror.header>ChemMaster 2000 - ERROR!:</lua.chemerror.header>
+	<lua.chemerror.invaliditem>{id} is not a valid ingredient.</lua.chemerror.invaliditem>
+	<lua.chemerror.invalidcategory.base>{id} is not a valid pill base.</lua.chemerror.invalidcategory.base>
+	<lua.chemerror.invalidcategory.binder>{id} is not a valid pill binder.</lua.chemerror.invalidcategory.binder>
+	<lua.chemerror.invalidcategory.filler>{id} is not a valid pill filler.</lua.chemerror.invalidcategory.filler>
+	<lua.chemerror.invalidcategory.active>{id} is not a valid active ingredient for pills.</lua.chemerror.invalidcategory.active>
+	<lua.chemerror.invalidcategory.dye>{id} is not a valid pill dye.</lua.chemerror.invalidcategory.dye>
+	<lua.chemerror.outputfull>The output slot is full.</lua.chemerror.outputfull>
+	<lua.chemerror.missingbase>Missing pill base.</lua.chemerror.missingbase>
+	<lua.chemerror.missingbinder>Missing pill binder.</lua.chemerror.missingbinder>
+	<lua.chemerror.missingactive>Missing active ingredients.</lua.chemerror.missingactive>
+	<lua.chemerror.capacity>This configuration can only support up to {cap} active ingredients.</lua.chemerror.capacity>
+	<lua.chemerror.yield>This configuration would not yield any pills.</lua.chemerror.yield>
+	<label.cm_makeone>Make one</label.cm_makeone>
+	<label.cm_makeall>Make all</label.cm_makeall>
+	<label.cm_description>Pill description</label.cm_description>
+	
+	<!-- Pill analyzer -->
+	<entityname.chemalyzer>Pill analyzer</entityname.chemalyzer>
+	<entitydescription.chemalyzer>Displays the composition of pills that are placed inside.</entitydescription.chemalyzer>
+	<label.ca_analyze>Analyze</label.ca_analyze>
+	<lua.chemalyzer.header>Ingredients:</lua.chemalyzer.header>
+	<label.ca_rename>Set description</label.ca_rename>
+	
+	<!-- pill combos -->
+	<pillcombo.antihusk>Antihusk</pillcombo.antihusk>
+	
+	<!-- other items -->
+	<entityname.custompill>Custom pill</entityname.custompill>
+	<entityname.custompill_horsepill>Horse pill</entityname.custompill_horsepill>
+	<entityname.custompill_tablets>Tablets</entityname.custompill_tablets>
+	<entitydescription.custompill>Who knows what effects this pill could have?</entitydescription.custompill>
+	<entitydescription.custompill_horsepill>Quite big for you to haphazardly shove into your mouth.</entitydescription.custompill_horsepill>
+	<entitydescription.custompill_tablets>It can't be that bad, right?</entitydescription.custompill_tablets>
+	
+	<!-- containers -->
+	<entityname.antidotetoolbox>Antidote container</entityname.antidotetoolbox>
+	<entityname.machinetoolbox>Machine container</entityname.machinetoolbox>
+	<entityname.bonetoolbox>Bone container</entityname.bonetoolbox>
+	<entityname.biohazardtoolbox>Biohazard container</entityname.biohazardtoolbox>
+	<entityname.bufftoolbox>Buff container</entityname.bufftoolbox>
+	
+	<entityname.surgerycrate>Surgery crate</entityname.surgerycrate>
+	<entityname.antidotecrate>Antidote crate</entityname.antidotecrate>
+	<entityname.machinecrate>Machine crate</entityname.machinecrate>
+	<entityname.bonecrate>Bone crate</entityname.bonecrate>
+	<entityname.biohazardcrate>Biohazard crate</entityname.biohazardcrate>
+	<entityname.buffcrate>Buff crate</entityname.buffcrate>
+
+</infotexts>

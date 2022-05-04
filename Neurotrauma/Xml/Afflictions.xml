@@ -17,14 +17,14 @@
     healableinmedicalclinic="false"
     iconcolors="255,255,255,255;255,255,255,255">
 
-    <!--<afflictionoverlay texture="Mods/Neurotrauma/Images/luabotomy.png"/>-->
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons2.png" sheetindex="5,0" sheetelementsize="128,128" origin="0,0"/>
+    <!--<afflictionoverlay texture="%ModDir%/Images/luabotomy.png"/>-->
+    <icon texture="%ModDir%/Images/AfflictionIcons2.png" sheetindex="5,0" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- /// Heart Stuff /// -->
   
   <!-- Ventricular Tachycardia / Rapid Heartbeat
-  Exposed Symptom, counters hypoxemia and hypotension-->
+  Exposed Symptom -->
   <Affliction
     name=""
     identifier="tachycardia"
@@ -32,15 +32,34 @@
     limbspecific="false"
     indicatorlimb="Torso"
     showiconthreshold="1"
-    showinhealthscannerthreshold="10"
-    maxstrength="2"
+    showinhealthscannerthreshold="1000"
+    maxstrength="100"
     targets="human"
     type="gaze"
     isbuff="false"
     healableinmedicalclinic="false"
     iconcolors="255,90,0,255;255,90,0,255">
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="1,1" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="1,1" sheetelementsize="128,128" origin="0,0"/>
+  </Affliction>
+
+  <!-- Ventricular Fibrillation / The heart going funky mode
+  Exposed Symptom -->
+  <Affliction
+    name=""
+    identifier="fibrillation"
+    description=""
+    healableinmedicalclinic="false"
+    type="gaze"
+    isbuff="false"
+    limbspecific="false"
+    indicatorlimb="Torso"
+    showiconthreshold="1"
+    showinhealthscannerthreshold="1000"
+    maxstrength="100"
+    iconcolors="255,45,0,255;255,45,0,255">
+
+    <icon texture="%ModDir%/Images/AfflictionIcons2.png" sheetindex="2,0" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Cardiac Arrest
@@ -59,7 +78,7 @@
     isbuff="false"
     maxstrength="10">
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="0,1" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,1" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Heart Attack
@@ -122,7 +141,7 @@
     selfcauseofdeathdescription="Your heart got removed."
     iconcolors="84,211,211,255;84,211,211,255"
     maxstrength="2">
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="3,5" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,5" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
 
@@ -145,7 +164,7 @@
     showinhealthscannerthreshold="0.1"
     maxstrength="50">
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sourcerect="0,128,128,128" color="0,255,0,255" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sourcerect="0,128,128,128" color="0,255,0,255" origin="0,0"/>
   </Affliction>
 
   <!-- Neurotrauma / Low oxygen presence in the brain
@@ -207,7 +226,7 @@
     showinhealthscannerthreshold="0"
     maxstrength="50">
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="1,0" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="1,0" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Coma
@@ -257,7 +276,7 @@
         <Affliction identifier="cerebralhypoxia" amount="0.8" />
       </StatusEffect>
     </Effect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="4,5" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="4,5" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
 
@@ -284,7 +303,7 @@
     <Effect minstrength="0" maxstrength="5" strengthchange="10" />
     <Effect minstrength="5" maxstrength="200" strengthchange="0" />
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sourcerect="128,128,128,128" color="68,157,198,255" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sourcerect="128,128,128,128" color="68,157,198,255" origin="0,0"/>
   </Affliction>
 
   <!-- Hypoxemia / Low oxygen presence in blood
@@ -304,7 +323,7 @@
     showiconthreshold="300"
     maxstrength="100">
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sourcerect="128,128,128,128" color="68,157,198,255" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sourcerect="128,128,128,128" color="68,157,198,255" origin="0,0"/>
   </Affliction>
 
   <!-- /// Lung Stuff /// -->
@@ -325,7 +344,7 @@
     showinhealthscannerthreshold="100"
     maxstrength="2">
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="3,0" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,0" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Hyperventilation
@@ -345,7 +364,7 @@
     maxstrength="2"
     iconcolors="255,90,0,255;255,90,0,255">
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="4,0" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="4,0" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Hypoventilation
@@ -365,7 +384,7 @@
     maxstrength="2"
     iconcolors="255,90,0,255;255,90,0,255">
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="5,0" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="5,0" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Dyspnea / Shortness of breath
@@ -385,7 +404,7 @@
     maxstrength="2"
     iconcolors="255,90,0,255;255,90,0,255">
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="6,0" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="6,0" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Alkalosis
@@ -404,7 +423,7 @@
     showinhealthscannerthreshold="500"
     maxstrength="100">
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sourcerect="0,128,128,128" color="0,255,0,255" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sourcerect="0,128,128,128" color="0,255,0,255" origin="0,0"/>
   </Affliction>
 
   <!-- Acidosis
@@ -423,7 +442,7 @@
     showinhealthscannerthreshold="500"
     maxstrength="100">
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sourcerect="0,128,128,128" color="0,255,0,255" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sourcerect="0,128,128,128" color="0,255,0,255" origin="0,0"/>
   </Affliction>
 
   <!-- Pneumothroax / collapsed lung / causes shortness of breath, tachycardia, hyperventilation, hypotension, chest pain
@@ -488,7 +507,7 @@
     iconcolors="84,211,211,255;84,211,211,255"
     maxstrength="2">
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="1,5" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="1,5" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
 
@@ -534,7 +553,7 @@
     iconcolors="84,211,211,255;84,211,211,255"
     maxstrength="3">
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="2,5" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="2,5" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
 
@@ -579,7 +598,7 @@
     showinhealthscannerthreshold="1"
     maxstrength="2">
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sourcerect="0,128,128,128" color="0,255,0,255" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sourcerect="0,128,128,128" color="0,255,0,255" origin="0,0"/>
   </Affliction>
 
   <!-- Stimulated bone growth / the thing that cures bonedeath / bonedamage
@@ -600,7 +619,7 @@
     <Effect minstrength="0" maxstrength="100" strengthchange="-0.5">
     </Effect>
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="2,4" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="2,4" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
 
@@ -645,7 +664,7 @@
     iconcolors="84,211,211,255;84,211,211,255"
     maxstrength="2">
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="0,5" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,5" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
 
@@ -695,7 +714,7 @@
         <ReduceAffliction identifier="bleeding" strength="0.5"/>
       </StatusEffect>
     </Effect>
-		<icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="1,4" sheetelementsize="128,128" origin="0,0"/>
+		<icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="1,4" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -743,7 +762,7 @@
       </StatusEffect>
     </PeriodicEffect>
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="1,4" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="1,4" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>  
 
   <!-- Splint 
@@ -761,7 +780,7 @@
     showinhealthscannerthreshold="500"
     isbuff="true"> 
     <Effect minstrength="0" maxstrength="100" strengthchange="-0.1"/>
-		<icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sourcerect="384,128,128,128" color="10,193,114,255" origin="0,0"/>
+		<icon texture="%ModDir%/Images/AfflictionIcons.png" sourcerect="384,128,128,128" color="10,193,114,255" origin="0,0"/>
   </Affliction>
 
   <!-- Bandaged
@@ -779,7 +798,7 @@
     showinhealthscannerthreshold="200"
     isbuff="true"> 
     <Effect minstrength="0" maxstrength="100"/>
-		<icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="0,4" sheetelementsize="128,128" origin="0,0"/>
+		<icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,4" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Dirty bandage
@@ -795,7 +814,7 @@
     showiconthreshold="0.1"
     showinhealthscannerthreshold="200"
     isbuff="false">
-		<icon texture="Mods/Neurotrauma/Images/AfflictionIcons2.png" sheetindex="3,0" sheetelementsize="128,128" origin="0,0"/>
+		<icon texture="%ModDir%/Images/AfflictionIcons2.png" sheetindex="3,0" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Gypsum cast
@@ -820,7 +839,7 @@
         <ReduceAffliction identifier="la_fracture" amount="2.33"/>
       </StatusEffect>
     </Effect>
-		<icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="2,4" sheetelementsize="128,128" origin="0,0"/>
+		<icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="2,4" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Needle in chest
@@ -865,7 +884,7 @@
 			<ReduceAffliction identifier="infectedwound" amount="1.5"/>
 		</StatusEffect>
     </Effect>
-		<icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="3,4" sheetelementsize="128,128" origin="0,0"/>
+		<icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,4" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   
 
@@ -885,10 +904,10 @@
     <Effect minstrength="0" maxstrength="6" strengthchange="2">
       <StatusEffect target="Limb">
         <Conditional gypsumcast="eq 0"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak4.ogg"  selectionmode="random"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak3.ogg"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak2.ogg"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak1.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak4.ogg"  selectionmode="random"/>
+        <sound file="%ModDir%/Sound/bonebreak3.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak2.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak1.ogg"/>
       </StatusEffect>
     </Effect>
     <Effect minstrength="6" maxstrength="100" strengthchange="2"/>
@@ -905,7 +924,7 @@
       </StatusEffect>
     </PeriodicEffect>
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="6,2" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="6,2" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -922,10 +941,10 @@
     <Effect minstrength="0" maxstrength="6" strengthchange="2">
       <StatusEffect target="Limb">
         <Conditional gypsumcast="eq 0"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak4.ogg"  selectionmode="random"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak3.ogg"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak2.ogg"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak1.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak4.ogg"  selectionmode="random"/>
+        <sound file="%ModDir%/Sound/bonebreak3.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak2.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak1.ogg"/>
       </StatusEffect>
     </Effect>
     <Effect minstrength="6" maxstrength="100" strengthchange="2"/>
@@ -941,7 +960,7 @@
         <Affliction identifier="pain_extremity" indicatorlimb="Limb" amount="2"/>
       </StatusEffect>
     </PeriodicEffect>
-		<icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="6,2" sheetelementsize="128,128" origin="0,0"/>
+		<icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="6,2" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   
   <Affliction
@@ -959,10 +978,10 @@
     <Effect minstrength="0" maxstrength="6" strengthchange="2">
       <StatusEffect target="Limb">
         <Conditional gypsumcast="eq 0"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak4.ogg"  selectionmode="random"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak3.ogg"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak2.ogg"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak1.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak4.ogg"  selectionmode="random"/>
+        <sound file="%ModDir%/Sound/bonebreak3.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak2.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak1.ogg"/>
         <Affliction identifier="severepain" amount="1" />
       </StatusEffect>
     </Effect>
@@ -980,7 +999,7 @@
       </StatusEffect>
     </PeriodicEffect>
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="6,2" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="6,2" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -997,10 +1016,10 @@
     <Effect minstrength="0" maxstrength="6" strengthchange="2">
       <StatusEffect target="Limb">
         <Conditional gypsumcast="eq 0"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak4.ogg"  selectionmode="random"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak3.ogg"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak2.ogg"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak1.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak4.ogg"  selectionmode="random"/>
+        <sound file="%ModDir%/Sound/bonebreak3.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak2.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak1.ogg"/>
         <Affliction identifier="severepain" amount="1" />
       </StatusEffect>
     </Effect>
@@ -1018,7 +1037,7 @@
       </StatusEffect>
     </PeriodicEffect>
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="6,2" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="6,2" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   
   <Affliction
@@ -1035,10 +1054,10 @@
     
     <Effect minstrength="0" maxstrength="6" strengthchange="2">
     <StatusEffect target="Character">
-    <sound file="Mods/Neurotrauma/Sound/bonebreak4.ogg"  selectionmode="random"/>
-    <sound file="Mods/Neurotrauma/Sound/bonebreak3.ogg"/>
-    <sound file="Mods/Neurotrauma/Sound/bonebreak2.ogg"/>
-    <sound file="Mods/Neurotrauma/Sound/bonebreak1.ogg"/>
+    <sound file="%ModDir%/Sound/bonebreak4.ogg"  selectionmode="random"/>
+    <sound file="%ModDir%/Sound/bonebreak3.ogg"/>
+    <sound file="%ModDir%/Sound/bonebreak2.ogg"/>
+    <sound file="%ModDir%/Sound/bonebreak1.ogg"/>
     </StatusEffect>
     </Effect>
     <Effect minstrength="6" maxstrength="100" strengthchange="2"/>
@@ -1060,7 +1079,7 @@
     <Affliction identifier="pneumothorax" amount="5" probability="0.3" />
     </StatusEffect>
     </PeriodicEffect>
-		<icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="6,2" sheetelementsize="128,128" origin="0,0"/>
+		<icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="6,2" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   
   <Affliction
@@ -1077,10 +1096,10 @@
 
     <Effect minstrength="0" maxstrength="6" strengthchange="2">
       <StatusEffect target="Character">
-        <sound file="Mods/Neurotrauma/Sound/bonebreak4.ogg"  selectionmode="random"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak3.ogg"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak2.ogg"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak1.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak4.ogg"  selectionmode="random"/>
+        <sound file="%ModDir%/Sound/bonebreak3.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak2.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak1.ogg"/>
       </StatusEffect>
     </Effect>
     <Effect minstrength="6" maxstrength="100" strengthchange="2"/>
@@ -1102,7 +1121,7 @@
     <Affliction identifier="t_paralysis" amount="5" probability="0.6" />
     </StatusEffect>
     </PeriodicEffect>
-		<icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="1,3" sheetelementsize="128,128" origin="0,0"/>
+		<icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="1,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -1118,10 +1137,10 @@
 
     <Effect minstrength="0" maxstrength="6" strengthchange="2">
       <StatusEffect target="Character">
-        <sound file="Mods/Neurotrauma/Sound/bonebreak4.ogg"  selectionmode="random"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak3.ogg"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak2.ogg"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak1.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak4.ogg"  selectionmode="random"/>
+        <sound file="%ModDir%/Sound/bonebreak3.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak2.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak1.ogg"/>
       </StatusEffect>
     </Effect>
     <Effect minstrength="6" maxstrength="100" strengthchange="2"/>
@@ -1149,7 +1168,7 @@
       <Affliction identifier="cerebralhypoxia" amount="30" probability="0.15" />
     </StatusEffect>
     </PeriodicEffect>
-		<icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="2,3" sheetelementsize="128,128" origin="0,0"/>
+		<icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="2,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   
   <Affliction
@@ -1166,10 +1185,10 @@
 
     <Effect minstrength="0" maxstrength="6" strengthchange="10">
       <StatusEffect target="Character">
-        <sound file="Mods/Neurotrauma/Sound/bonebreak4.ogg"  selectionmode="random"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak3.ogg"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak2.ogg"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak1.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak4.ogg"  selectionmode="random"/>
+        <sound file="%ModDir%/Sound/bonebreak3.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak2.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak1.ogg"/>
         <Affliction identifier="severepain" amount="1" />
       </StatusEffect>
     </Effect>
@@ -1187,7 +1206,7 @@
       </StatusEffect>
     </PeriodicEffect>
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="0,3" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -1203,10 +1222,10 @@
 
     <Effect minstrength="0" maxstrength="6" strengthchange="10">
       <StatusEffect target="Character">
-        <sound file="Mods/Neurotrauma/Sound/bonebreak4.ogg"  selectionmode="random"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak3.ogg"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak2.ogg"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak1.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak4.ogg"  selectionmode="random"/>
+        <sound file="%ModDir%/Sound/bonebreak3.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak2.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak1.ogg"/>
         <Affliction identifier="severepain" amount="1" />
       </StatusEffect>
     </Effect>
@@ -1224,7 +1243,7 @@
       </StatusEffect>
     </PeriodicEffect>
     
-		<icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="0,3" sheetelementsize="128,128" origin="0,0"/>
+		<icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -1240,10 +1259,10 @@
 
     <Effect minstrength="0" maxstrength="6" strengthchange="1.5">
       <StatusEffect target="Character">
-        <sound file="Mods/Neurotrauma/Sound/bonebreak4.ogg"  selectionmode="random"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak3.ogg"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak2.ogg"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak1.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak4.ogg"  selectionmode="random"/>
+        <sound file="%ModDir%/Sound/bonebreak3.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak2.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak1.ogg"/>
       </StatusEffect>
     </Effect>
     <Effect minstrength="6" maxstrength="100" strengthchange="1.5"/>
@@ -1259,7 +1278,7 @@
         <Affliction identifier="pain_extremity" indicatorlimb="Limb" amount="2"/>
       </StatusEffect>
     </PeriodicEffect>
-		<icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="0,3" sheetelementsize="128,128" origin="0,0"/>
+		<icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -1275,10 +1294,10 @@
 
     <Effect minstrength="0" maxstrength="6" strengthchange="1.5">
       <StatusEffect target="Character">
-        <sound file="Mods/Neurotrauma/Sound/bonebreak4.ogg"  selectionmode="random"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak3.ogg"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak2.ogg"/>
-        <sound file="Mods/Neurotrauma/Sound/bonebreak1.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak4.ogg"  selectionmode="random"/>
+        <sound file="%ModDir%/Sound/bonebreak3.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak2.ogg"/>
+        <sound file="%ModDir%/Sound/bonebreak1.ogg"/>
       </StatusEffect>
     </Effect>
     <Effect minstrength="6" maxstrength="100" strengthchange="1.5"/>
@@ -1294,7 +1313,7 @@
         <Affliction identifier="pain_extremity" indicatorlimb="Limb" amount="2"/>
       </StatusEffect>
     </PeriodicEffect>
-		<icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="0,3" sheetelementsize="128,128" origin="0,0"/>
+		<icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   
   <!-- Arterial bleedings -->
@@ -1325,7 +1344,7 @@
         <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="blood" decalsize="0.85" shockwave="false" underwaterbubble="false" />
       </StatusEffect>
     </PeriodicEffect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -1354,7 +1373,7 @@
         <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="blood" decalsize="0.85" shockwave="false" underwaterbubble="false" />
       </StatusEffect>
     </PeriodicEffect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <Affliction
@@ -1384,7 +1403,7 @@
         <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="blood" decalsize="0.85" shockwave="false" underwaterbubble="false" />
       </StatusEffect>
     </PeriodicEffect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -1413,7 +1432,7 @@
         <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="blood" decalsize="0.85" shockwave="false" underwaterbubble="false" />
       </StatusEffect>
     </PeriodicEffect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <Affliction
@@ -1442,7 +1461,7 @@
       </StatusEffect>
     </PeriodicEffect>
     
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -1469,7 +1488,7 @@
         <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="blood" decalsize="0.85" shockwave="false" underwaterbubble="false" />
       </StatusEffect>
     </PeriodicEffect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Immunity / your immune system. heals you passively if high enough
@@ -1505,7 +1524,7 @@
     showinhealthscannerthreshold="20"
     showiconthreshold="700">
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sourcerect="640,0,128,128" color="139,60,42,255" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sourcerect="640,0,128,128" color="139,60,42,255" origin="0,0"/>
   </Affliction>
 
   <!-- Sepsis / Bacteria in the blood, systemic infection and life-threatening complications, gangrene
@@ -1524,7 +1543,7 @@
     showiconthreshold="700"
     maxstrength="100"> 
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sourcerect="768,0,128,128" color="139,60,42,255" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sourcerect="768,0,128,128" color="139,60,42,255" origin="0,0"/>
   </Affliction>
 
   <!-- Necrosis / Cell death caused by infection among other things
@@ -1551,7 +1570,7 @@
     <Effect minstrength="50" maxstrength="100"
       minvitalitydecrease="15"
       maxvitalitydecrease="25"/>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="7,3" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="7,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Gangrene / Cell death caused by cut off bloodflow.
@@ -1577,7 +1596,7 @@
     <Effect minstrength="50" maxstrength="100"
       minvitalitydecrease="15"
       maxvitalitydecrease="25"/>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="6,3" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="6,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
 
@@ -1596,10 +1615,9 @@
     showiconthreshold="700"
     maxstrength="100">
     <Effect minstrength="0" maxstrength="100" strengthchange="-1">
-    <StatusEffect target="Character">
-      <Conditional ishuman="true" cardiacarrest="lt 0.5"/>
-      <Affliction identifier="bloodpressure" amount="1" />
-    </StatusEffect>
+      <StatusEffect target="Character">
+        <StatValue stattype="MeleeAttackMultiplier" minvalue="0.2" maxvalue="0.2" />
+      </StatusEffect>
       <StatusEffect target="Character" comparison="and">
         <Conditional analgesia="lte 4.5" />
         <Conditional ishuman="true" />
@@ -1631,7 +1649,7 @@
         <Affliction identifier="bloodpressure" amount="3"/>
       </StatusEffect>
     </Effect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Ringer's solution / increases blood pressure, even into potentially unwanted and harmful regions.
@@ -1655,7 +1673,7 @@
         <Affliction identifier="bloodpressure" amount="3"/>
       </StatusEffect>
     </Effect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Mannitol / heals cerebral hypoxia *if* hypotension and hypoxemia are low enough.
@@ -1680,7 +1698,7 @@
         <ReduceAffliction identifier="cerebralhypoxia" amount="1"/>
       </StatusEffect>
     </Effect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Immunosuppressant / decreases immunity
@@ -1704,7 +1722,7 @@
         <ReduceAffliction identifier="immunity" amount="4"/>
       </StatusEffect>
     </Effect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Thiamine / heals organs
@@ -1722,7 +1740,7 @@
     showinhealthscannerthreshold="200"
     maxstrength="100">
     <Effect minstrength="0" maxstrength="100" strengthchange="-0.25"/>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Streptokinase / heals heart attack, stops clotting
@@ -1740,7 +1758,7 @@
     showinhealthscannerthreshold="200"
     maxstrength="100">
     <Effect minstrength="0" maxstrength="100" strengthchange="-0.25"/>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Broad spectrum antibiotics / heals sepsis, husk infection, grants husk immunity.
@@ -1770,7 +1788,7 @@
         <Affliction identifier="lungdamage" amount="0.1"/>
       </StatusEffect>
     </Effect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Lets you drag people around at full speed
@@ -1780,7 +1798,7 @@
     <Effect minstrength="0" maxstrength="100" strengthchange="-50">
       <AbilityFlag flagtype="MoveNormallyWhileDragging" />
     </Effect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sourcerect="0,256,128,128" color="139,60,42,255" origin="0,0" />
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sourcerect="0,256,128,128" color="139,60,42,255" origin="0,0" />
   </Affliction>
 
   <!-- stasis -->
@@ -1796,7 +1814,7 @@
     <Effect minstrength="0" maxstrength="10">
       <StatusEffect target="Character" lockhands="true" setvalue="true"/>
     </Effect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sourcerect="0,256,128,128" color="139,60,42,255" origin="0,0" />
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sourcerect="0,256,128,128" color="139,60,42,255" origin="0,0" />
   </Affliction>
 
   <!-- Slowdown
@@ -1814,7 +1832,7 @@
     showinhealthscannerthreshold="500"
     isbuff="false"> 
     <Effect minstrength="0" maxstrength="100" MinSpeedMultiplier="1" MaxSpeedMultiplier="0"/>
-		<icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="0,4" sheetelementsize="128,128" origin="0,0"/>
+		<icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,4" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
 
@@ -1971,7 +1989,7 @@
       </StatusEffect>
     </PeriodicEffect>
     
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sourcerect="256,0,128,128" color="68,157,198,255" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sourcerect="256,0,128,128" color="68,157,198,255" origin="0,0"/>
   </Affliction>
 
   <!-- Give In / pulling the plug
@@ -2020,7 +2038,7 @@
     maxstrength="0.5"
     iconcolors="200,0,0,255;200,0,0,255">
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="0,6" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,6" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -2037,7 +2055,7 @@
     maxstrength="0.5"
     iconcolors="200,0,0,255;200,0,0,255">
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="1,6" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="1,6" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -2058,7 +2076,7 @@
       <StatusEffect tags="rleglock" target="Character" duration="0.1" stackable="false" />
     </Effect>
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="2,6" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="2,6" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -2079,7 +2097,7 @@
       <StatusEffect tags="lleglock" target="Character" duration="0.1" stackable="false" />
     </Effect>
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="3,6" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,6" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -2106,7 +2124,7 @@
 			maxvitalitydecrease="10">
     </Effect>
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="4,6" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="4,6" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <Affliction
@@ -2130,7 +2148,7 @@
       </StatusEffect>
     </Effect>
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="0,6" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,6" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -2153,7 +2171,7 @@
       </StatusEffect>
     </Effect>
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="1,6" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="1,6" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -2177,7 +2195,7 @@
       </StatusEffect>
     </Effect>
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="2,6" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="2,6" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -2202,7 +2220,7 @@
     </Effect>
 
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="3,6" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,6" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -2219,7 +2237,7 @@
     maxstrength="100"
     iconcolors="127,127,127,255;127,127,127,255">
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="4,6" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="4,6" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <Affliction
@@ -2245,8 +2263,7 @@
       </StatusEffect>
     </Effect>
       
-
-    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="896,896,128,128" color="195,136,60,255" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons2.png" sheetindex="6,0" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -2279,7 +2296,7 @@
     showinhealthscannerthreshold="500"
     isbuff="true"
     maxstrength="100">
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="0,6" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,6" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -2292,7 +2309,7 @@
     showinhealthscannerthreshold="500"
     isbuff="true"
     maxstrength="100">
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="0,6" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,6" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -2305,7 +2322,7 @@
     showinhealthscannerthreshold="500"
     isbuff="true"
     maxstrength="100">
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="0,6" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,6" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -2318,7 +2335,7 @@
     showiconthreshold="500"
     showinhealthscannerthreshold="500"
     maxstrength="100">
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="0,6" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,6" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
     
@@ -2545,25 +2562,25 @@
         <Conditional ishuman="true" />
         <Conditional ismale="true"/>
         <Conditional sym_cough="gte 1"/>
-        <Sound file="Mods/Neurotrauma/Sound/Voice/male_cough1.ogg" selectionmode="Random" />
-        <Sound file="Mods/Neurotrauma/Sound/Voice/male_cough2.ogg" />
-        <Sound file="Mods/Neurotrauma/Sound/Voice/male_cough3.ogg" />
-        <Sound file="Mods/Neurotrauma/Sound/Voice/male_cough4.ogg" />
+        <Sound file="%ModDir%/Sound/Voice/male_cough1.ogg" selectionmode="Random" />
+        <Sound file="%ModDir%/Sound/Voice/male_cough2.ogg" />
+        <Sound file="%ModDir%/Sound/Voice/male_cough3.ogg" />
+        <Sound file="%ModDir%/Sound/Voice/male_cough4.ogg" />
       </StatusEffect>
       <StatusEffect target="Character" comparison="and">
         <Conditional ishuman="true" />
         <Conditional isfemale="true"/>
         <Conditional sym_cough="gte 1"/>
-        <Sound file="Mods/Neurotrauma/Sound/Voice/female_cough1.ogg" selectionmode="Random" />
-        <Sound file="Mods/Neurotrauma/Sound/Voice/female_cough2.ogg" />
-        <Sound file="Mods/Neurotrauma/Sound/Voice/female_cough3.ogg" />
-        <Sound file="Mods/Neurotrauma/Sound/Voice/female_cough4.ogg" />
-        <Sound file="Mods/Neurotrauma/Sound/Voice/female_cough5.ogg" />
-        <Sound file="Mods/Neurotrauma/Sound/Voice/female_cough6.ogg" />
+        <Sound file="%ModDir%/Sound/Voice/female_cough1.ogg" selectionmode="Random" />
+        <Sound file="%ModDir%/Sound/Voice/female_cough2.ogg" />
+        <Sound file="%ModDir%/Sound/Voice/female_cough3.ogg" />
+        <Sound file="%ModDir%/Sound/Voice/female_cough4.ogg" />
+        <Sound file="%ModDir%/Sound/Voice/female_cough5.ogg" />
+        <Sound file="%ModDir%/Sound/Voice/female_cough6.ogg" />
       </StatusEffect>
     </PeriodicEffect>
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="7,0" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="7,0" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Pale skin / Exposed Symptom -->
@@ -2586,7 +2603,7 @@
       minbodytint="255,255,255,0"
       maxbodytint="255,255,255,200"/>
     
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="0,0" sheetelementsize="128,128" color="255,255,255,255" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,0" sheetelementsize="128,128" color="255,255,255,255" origin="0,0"/>
   </Affliction>
 
   <!-- Lightheadedness / Exposed Symptom -->
@@ -2606,7 +2623,7 @@
     iconcolors="255,90,0,255;255,90,0,255">
 
     <Effect minstrength="0" maxstrength="2" mingrainstrength="0.5" maxgrainstrength="0.25"/>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons2.png" sheetindex="0,0" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons2.png" sheetindex="0,0" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Blurred vision / Exposed Symptom -->
@@ -2627,7 +2644,7 @@
     <Effect minstrength="0" maxstrength="2"
       minscreenblur="0.0"
       maxscreenblur="1.0"/>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="3,1" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,1" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Confusion / Exposed Symptom -->
@@ -2650,7 +2667,7 @@
       maxscreendistort="0.5"
       minradialdistort="0.0"
       maxradialdistort="0.5"/>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="2,1" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="2,1" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Headache / Exposed Symptom -->
@@ -2676,7 +2693,7 @@
       maxradialdistort="0.5"
       mingrainstrength="0.0"
       maxgrainstrength="0.5"/>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons2.png" sheetindex="1,0" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons2.png" sheetindex="1,0" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Leg swelling / Exposed Symptom -->
@@ -2695,7 +2712,7 @@
     iconcolors="255,90,0,255;255,90,0,255">
 
     <Effect minstrength="0" maxstrength="2"/>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="4,1" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="4,1" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   
   <!-- Weakness / Exposed Symptom -->
@@ -2716,7 +2733,7 @@
     <Effect minstrength="0" maxstrength="2">
       <StatValue stattype="MeleeAttackMultiplier" minvalue="-0.2" maxvalue="-0.8" />
     </Effect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="5,1" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="5,1" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Wheezing / Exposed Symptom -->
@@ -2735,7 +2752,7 @@
     iconcolors="255,90,0,255;255,90,0,255">
     <!--TODO: add wheezing sound-->
     <Effect minstrength="0" maxstrength="2"/>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="6,1" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="6,1" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Vomiting / Exposed Symptom -->
@@ -2790,7 +2807,7 @@
       </StatusEffect>
     </PeriodicEffect>
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="7,1" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="7,1" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Vomiting Blood / Exposed Symptom -->
@@ -2838,7 +2855,7 @@
       </StatusEffect>
     </PeriodicEffect>
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="7,1" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="7,1" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Fever / Exposed Symptom -->
@@ -2855,7 +2872,7 @@
     showinhealthscannerthreshold="100"
     maxstrength="2"
     iconcolors="255,90,0,255;255,90,0,255">
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="0,2" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,2" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Abdominal Discomfort / Exposed Symptom -->
@@ -2873,7 +2890,7 @@
     maxstrength="2"
     iconcolors="255,90,0,255;255,90,0,255">
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="1,2" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="1,2" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Bloating / Exposed Symptom -->
@@ -2891,7 +2908,7 @@
     maxstrength="2"
     iconcolors="255,90,0,255;255,90,0,255">
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="1,2" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="1,2" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Jaundice / Exposed Symptom -->
@@ -2913,7 +2930,7 @@
       maxvitalitydecrease="0"
       minbodytint="255,255,0,0"
       maxbodytint="255,255,0,120"/>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="0,0" sheetelementsize="128,128" color="255,255,0,255" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,0" sheetelementsize="128,128" color="255,255,0,255" origin="0,0"/>
   </Affliction>
 
   <!-- Sweating / Exposed Symptom -->
@@ -2934,7 +2951,7 @@
     <Effect minstrength="0" maxstrength="2">
       <!--TODO: add particles-->
     </Effect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="2,2" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="2,2" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Palpitations / Exposed Symptom -->
@@ -2955,7 +2972,7 @@
     <Effect minstrength="0" maxstrength="2">
       <!--TODO: add sound-->
     </Effect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons2.png" sheetindex="2,0" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons2.png" sheetindex="2,0" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Unconsciousness / Exposed Symptom -->
@@ -2972,7 +2989,7 @@
     showinhealthscannerthreshold="100"
     maxstrength="2">
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="3,2" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,2" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Inflammation / Exposed Symptom -->
@@ -2989,7 +3006,7 @@
     maxstrength="2"
     iconcolors="255,90,0,255;255,90,0,255">
     
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="4,3" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="4,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Spasm / Exposed Symptom -->
@@ -3014,7 +3031,7 @@
       </StatusEffect>
     </PeriodicEffect>
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="7,2" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="7,2" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Craving / Exposed Symptom -->
@@ -3133,15 +3150,15 @@ thats what the vomiting symptom is for -->
     <Effect minstrength="0" maxstrength="2" strengthchange="-1000">
       <StatusEffect target="Character" comparison="and" disabledeltatime="true" stackable="false" duration="3" checkconditionalalways="false">
         <Conditional ishuman="true" ismale="true" analgesia="lte 0" anesthesia="lte 0" sym_unconsciousness="lte 0" />
-        <Sound file="Mods/Neurotrauma/Sound/Voice/male_onfire1.ogg" selectionmode="Random" />
-        <Sound file="Mods/Neurotrauma/Sound/Voice/male_onfire2.ogg" />
-        <Sound file="Mods/Neurotrauma/Sound/Voice/male_onfire3.ogg" />
+        <Sound file="%ModDir%/Sound/Voice/male_onfire1.ogg" selectionmode="Random" />
+        <Sound file="%ModDir%/Sound/Voice/male_onfire2.ogg" />
+        <Sound file="%ModDir%/Sound/Voice/male_onfire3.ogg" />
       </StatusEffect>
       <StatusEffect target="Character" comparison="and" disabledeltatime="true" stackable="false" duration="3" checkconditionalalways="false">
         <Conditional ishuman="true" isfemale="true" analgesia="lte 0" anesthesia="lte 0" sym_unconsciousness="lte 0" />
-        <Sound file="Mods/Neurotrauma/Sound/Voice/woman_agony1.ogg" selectionmode="Random" />
-        <Sound file="Mods/Neurotrauma/Sound/Voice/woman_agony2.ogg" />
-        <Sound file="Mods/Neurotrauma/Sound/Voice/woman_agony3.ogg" />
+        <Sound file="%ModDir%/Sound/Voice/woman_agony1.ogg" selectionmode="Random" />
+        <Sound file="%ModDir%/Sound/Voice/woman_agony2.ogg" />
+        <Sound file="%ModDir%/Sound/Voice/woman_agony3.ogg" />
       </StatusEffect>
       <StatusEffect target="Character" comparison="or" disabledeltatime="true" stackable="false" duration="1" checkconditionalalways="false">
         <Conditional analgesia="gt 0" anesthesia="gt 0" sym_unconsciousness="gt 0"/>
@@ -3153,7 +3170,7 @@ thats what the vomiting symptom is for -->
       </StatusEffect>
     </Effect>
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sourcerect="256,0,128,128" color="68,157,198,255" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sourcerect="256,0,128,128" color="68,157,198,255" origin="0,0"/>
   </Affliction>
 
   <!-- Acute severe pain lite / same as above without the stun -->
@@ -3171,15 +3188,15 @@ thats what the vomiting symptom is for -->
     <Effect minstrength="0" maxstrength="2" strengthchange="-6">
       <StatusEffect target="Character" comparison="and" disabledeltatime="true" stackable="false" duration="3" checkconditionalalways="false">
         <Conditional ishuman="true" ismale="true" analgesia="lte 0" anesthesia="lte 0" sym_unconsciousness="lte 0" />
-        <Sound file="Mods/Neurotrauma/Sound/Voice/male_onfire1.ogg" selectionmode="Random" />
-        <Sound file="Mods/Neurotrauma/Sound/Voice/male_onfire2.ogg" />
-        <Sound file="Mods/Neurotrauma/Sound/Voice/male_onfire3.ogg" />
+        <Sound file="%ModDir%/Sound/Voice/male_onfire1.ogg" selectionmode="Random" />
+        <Sound file="%ModDir%/Sound/Voice/male_onfire2.ogg" />
+        <Sound file="%ModDir%/Sound/Voice/male_onfire3.ogg" />
       </StatusEffect>
       <StatusEffect target="Character" comparison="and" disabledeltatime="true" stackable="false" duration="3" checkconditionalalways="false">
         <Conditional ishuman="true" isfemale="true" analgesia="lte 0" anesthesia="lte 0" sym_unconsciousness="lte 0" />
-        <Sound file="Mods/Neurotrauma/Sound/Voice/woman_agony1.ogg" selectionmode="Random" />
-        <Sound file="Mods/Neurotrauma/Sound/Voice/woman_agony2.ogg" />
-        <Sound file="Mods/Neurotrauma/Sound/Voice/woman_agony3.ogg" />
+        <Sound file="%ModDir%/Sound/Voice/woman_agony1.ogg" selectionmode="Random" />
+        <Sound file="%ModDir%/Sound/Voice/woman_agony2.ogg" />
+        <Sound file="%ModDir%/Sound/Voice/woman_agony3.ogg" />
       </StatusEffect>
       <StatusEffect target="Character" comparison="or" disabledeltatime="true" stackable="false" duration="1" checkconditionalalways="false">
         <Conditional analgesia="gt 0" anesthesia="gt 0" sym_unconsciousness="gt 0"/>
@@ -3187,7 +3204,7 @@ thats what the vomiting symptom is for -->
       </StatusEffect>
     </Effect>
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sourcerect="256,0,128,128" color="68,157,198,255" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sourcerect="256,0,128,128" color="68,157,198,255" origin="0,0"/>
   </Affliction>
 
 
@@ -3235,7 +3252,7 @@ thats what the vomiting symptom is for -->
       </StatusEffect>
     </PeriodicEffect>
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sourcerect="256,0,128,128" color="68,157,198,255" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sourcerect="256,0,128,128" color="68,157,198,255" origin="0,0"/>
   </Affliction>
 
     <!-- shock pain / invisible (yet very apparent) Symptom, caused by traumatic shock -->
@@ -3281,7 +3298,7 @@ thats what the vomiting symptom is for -->
       </StatusEffect>
     </PeriodicEffect>
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sourcerect="256,0,128,128" color="68,157,198,255" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sourcerect="256,0,128,128" color="68,157,198,255" origin="0,0"/>
   </Affliction>
 
   <!-- Chest pain / exposed Symptom -->
@@ -3305,7 +3322,7 @@ thats what the vomiting symptom is for -->
         <Affliction identifier="pain" amount="4"/>
       </StatusEffect>
     </PeriodicEffect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="1,2" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="1,2" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- abdominal pain / exposed Symptom -->
@@ -3329,7 +3346,7 @@ thats what the vomiting symptom is for -->
         <Affliction identifier="pain" amount="4"/>
       </StatusEffect>
     </PeriodicEffect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="1,2" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="1,2" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- extremity pain / exposed Symptom, caused by dislocations and fractures -->
@@ -3345,15 +3362,12 @@ thats what the vomiting symptom is for -->
     showinhealthscannerthreshold="100"
     showiconthreshold="1"
     iconcolors="255,90,0,255;255,90,0,255">
-    <Effect minstrength="0" maxstrength="1" strengthchange="-0.1"/>
-    <Effect minstrength="1" maxstrength="10" strengthchange="-0.5"/>
-
     <PeriodicEffect mininterval="4" maxinterval="4">
       <StatusEffect target="Character" disabledeltatime="true" stackable="false" delay="1" checkconditionalalways="false">
         <Affliction identifier="pain" amount="4"/>
       </StatusEffect>
     </PeriodicEffect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="7,2" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="7,2" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
 
@@ -3384,7 +3398,7 @@ thats what the vomiting symptom is for -->
         <Affliction identifier="traumaticshock" amount="2"/>
       </StatusEffect>
     </Effect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="0,7" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,7" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Clamped bleeding -->
@@ -3402,7 +3416,7 @@ thats what the vomiting symptom is for -->
     showiconthreshold="1"
     iconcolors="84,211,211,255;84,211,211,255">
     <Effect minstrength="0" maxstrength="100" strengthchange="20"/>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="1,7" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="1,7" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Drilled bones -->
@@ -3423,7 +3437,7 @@ thats what the vomiting symptom is for -->
         <Affliction identifier="traumaticshock" amount="1.5"/>
       </StatusEffect>
     </Effect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="4,7" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="4,7" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Retracted skin -->
@@ -3445,7 +3459,7 @@ thats what the vomiting symptom is for -->
         <Affliction identifier="traumaticshock" amount="2"/>
       </StatusEffect>
     </Effect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="2,7" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="2,7" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Stitched incision -->
@@ -3461,7 +3475,7 @@ thats what the vomiting symptom is for -->
     iconcolors="84,211,211,255;84,211,211,255"
     showiconthreshold="1">
     <Effect minstrength="0" maxstrength="100" strengthchange="-1" />
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="3,7" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,7" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -3478,7 +3492,7 @@ thats what the vomiting symptom is for -->
     <Effect minstrength="0" maxstrength="100" strengthchange="-0.2" multiplybymaxvitality="true"
       minvitalitydecrease="0"
       maxvitalitydecrease="0.8"/>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="5,3" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="5,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
 
@@ -3501,7 +3515,7 @@ thats what the vomiting symptom is for -->
         <Affliction identifier="traumaticshock" amount="1.5"/>
       </StatusEffect>
     </Effect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="5,7" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="5,7" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -3521,7 +3535,7 @@ thats what the vomiting symptom is for -->
         <Affliction identifier="traumaticshock" amount="1.5"/>
       </StatusEffect>
     </Effect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="5,7" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="5,7" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -3541,7 +3555,7 @@ thats what the vomiting symptom is for -->
         <Affliction identifier="traumaticshock" amount="1.5"/>
       </StatusEffect>
     </Effect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="5,7" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="5,7" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
     name=""
@@ -3561,7 +3575,7 @@ thats what the vomiting symptom is for -->
         <Affliction identifier="traumaticshock" amount="1.5"/>
       </StatusEffect>
     </Effect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="5,7" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="5,7" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Traumatic Shock / caused by operating w/o table or analgesia
@@ -3593,7 +3607,7 @@ thats what the vomiting symptom is for -->
         <Affliction identifier="shockpain" amount="10"/>
       </StatusEffect>
     </Effect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="3,2" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,2" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Analgesia / Insensitivity to pain
@@ -3627,7 +3641,7 @@ thats what the vomiting symptom is for -->
       </StatusEffect>
     </Effect>
 
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="2,1" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="2,1" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Anesthesia / Numbing of the senses
@@ -3672,7 +3686,7 @@ thats what the vomiting symptom is for -->
         <ReduceAffliction identifier="anesthesia" amount="1000"/>
       </StatusEffect>
     </Effect>
-    <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="3,1" sheetelementsize="128,128" color="10,193,114,255" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,1" sheetelementsize="128,128" color="10,193,114,255" origin="0,0"/>
   </Affliction>
 
   <!-- Table / Proper surgery conditions
@@ -3707,10 +3721,10 @@ thats what the vomiting symptom is for -->
     showinhealthscannerthreshold="700"
     showiconthreshold="700"
     maxstrength="100">
-    <Effect minstrength="0" maxstrength="100" strengthchange="-6.8">
+    <Effect minstrength="0" maxstrength="100" strengthchange="-20">
       <StatusEffect target="Character">
-        <ReduceAffliction identifier="oxygenlow" amount="10" />
-        <ReduceAffliction identifier="respiratoryarrest" amount="100" />
+        <Conditional lungremoved="lte 0"/>
+        <ReduceAffliction identifier="oxygenlow" amount="20" />
       </StatusEffect>
     </Effect>
     <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="256,896,128,128" color="10,193,114,255" origin="0,0"/>
@@ -4127,7 +4141,7 @@ thats what the vomiting symptom is for -->
           minvitalitydecrease="0"
           maxvitalitydecrease="2">
       </Effect>
-      <icon texture="Mods/Neurotrauma/Images/AfflictionIcons2.png" sheetindex="4,0" sheetelementsize="128,128" origin="0,0"/>
+      <icon texture="%ModDir%/Images/AfflictionIcons2.png" sheetindex="4,0" sheetelementsize="128,128" origin="0,0"/>
     </InternalDamage>
   </Override>
   <Override>

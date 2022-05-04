@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="Russian" nowhitespace="false" translatedname="Русский">
+
+<!-- ITEMS -->
+
+<entityname.cyberarm>Кибернетическая рука</entityname.cyberarm>
+<entitydescription.cyberarm>Рука из сплавов и электроники. Не кровоточит. Используйте после ампутации для установки.</entitydescription.cyberarm>
+
+<entityname.cyberleg>Кибернетическая нога</entityname.cyberleg>
+<entitydescription.cyberleg>Нога из сплавов и электроники. Не кровоточит. Используйте после ампутации для установки.</entitydescription.cyberleg>
+
+<!-- AFFLICTIONS -->
+
+<afflictionname.ntc_cyberlimb></afflictionname.ntc_cyberlimb>
+<afflictiondescription.ntc_cyberlimb></afflictiondescription.ntc_cyberlimb>
+
+<afflictionname.ntc_cyberarm>Кибернетическая рука</afflictionname.ntc_cyberarm>
+<afflictiondescription.ntc_cyberarm>Рука сделана из металла и электроники.</afflictiondescription.ntc_cyberarm>
+
+<afflictionname.ntc_cyberleg>Кибернетическая нога</afflictionname.ntc_cyberleg>
+<afflictiondescription.ntc_cyberleg>Нога сделана из металла и электроники.</afflictiondescription.ntc_cyberleg>
+
+
+<afflictionname.ntc_loosescrews>Незатянутый болт</afflictionname.ntc_loosescrews>
+<afflictiondescription.ntc_loosescrews>Некоторые болты волнительно близки к выпаданию. При движении конечностью можно услышать дребезжание.</afflictiondescription.ntc_loosescrews>
+
+<afflictionname.ntc_damagedelectronics>Повреждённая электроника</afflictionname.ntc_damagedelectronics>
+<afflictiondescription.ntc_damagedelectronics>Конечность время от времени искрит. Некоторые подсистемы выведены из строя.</afflictiondescription.ntc_damagedelectronics>
+
+<afflictionname.ntc_bentmetal>Погнутый металл</afflictionname.ntc_bentmetal>
+<afflictiondescription.ntc_bentmetal>Конечность гнётся не туда куда нужно.</afflictiondescription.ntc_bentmetal>
+
+<afflictionname.ntc_materialloss>Потеря материала</afflictionname.ntc_materialloss>
+<afflictiondescription.ntc_materialloss>Части конечности отсутствуют.</afflictiondescription.ntc_materialloss>
+
+
+<afflictionname.></afflictionname.>
+<afflictiondescription.></afflictiondescription.>
+
+</infotexts>

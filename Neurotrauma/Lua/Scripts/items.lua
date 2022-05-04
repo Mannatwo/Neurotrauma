@@ -8,7 +8,7 @@ Hook.Add("item.applyTreatment", "NT.itemused", function(item, usingCharacter, ta
         limb == nil 
     then return end
     
-    local identifier = item.Prefab.Identifier
+    local identifier = item.Prefab.Identifier.Value
 
     local methodtorun = NT.ItemMethods[identifier] -- get the function associated with the identifer
     if(methodtorun~=nil) then 
@@ -61,7 +61,7 @@ NT.ItemMethods.healthscanner = function(item, usingCharacter, targetCharacter, l
 
             if (strength > prefab.ShowInHealthScannerThreshold and afflimbtype==limbtype) then
                 -- add the affliction to the readout
-                readoutstring = readoutstring.."\n"..value.Prefab.Name..": "..strength.."%"
+                readoutstring = readoutstring.."\n"..value.Prefab.Name.Value..": "..strength.."%"
                 afflictionsdisplayed = afflictionsdisplayed + 1
             end
         end
@@ -94,7 +94,7 @@ NT.ItemMethods.bloodanalyzer = function(item, usingCharacter, targetCharacter, l
 
     -- spawn donor card
     local containedItem = item.OwnInventory.GetItemAt(0)
-    local hasCartridge = containedItem ~= nil and containedItem.Prefab.Identifier == "bloodcollector"
+    local hasCartridge = containedItem ~= nil and containedItem.Prefab.Identifier.Value == "bloodcollector"
     if hasCartridge then 
         HF.RemoveItem(containedItem)
         local bloodtype = NT.GetBloodtype(targetCharacter)
@@ -109,9 +109,9 @@ NT.ItemMethods.bloodanalyzer = function(item, usingCharacter, targetCharacter, l
         local strength = HF.Round(value.Strength)
         local prefab = value.Prefab
 
-        if (strength > 2 and HF.TableContains(NT.HematologyDetectable,prefab.Identifier)) then
+        if (strength > 2 and HF.TableContains(NT.HematologyDetectable,prefab.Identifier.Value)) then
             -- add the affliction to the readout
-            readoutstring = readoutstring.."\n"..value.Prefab.Name..": "..strength.."%"
+            readoutstring = readoutstring.."\n"..value.Prefab.Name.Value..": "..strength.."%"
             afflictionsdisplayed = afflictionsdisplayed + 1
         end
     end
@@ -422,6 +422,7 @@ NT.ItemMethods.streptokinase = function(item, usingCharacter, targetCharacter, l
     local limbtype = limb.type
 
     HF.AddAffliction(targetCharacter,"heartattack",-100,usingCharacter)
+    HF.AddAffliction(targetCharacter,"hemotransfusionshock",-100,usingCharacter)
     HF.AddAffliction(targetCharacter,"afstreptokinase",50,usingCharacter)
     
     -- make stroke worse if present
@@ -433,6 +434,71 @@ NT.ItemMethods.streptokinase = function(item, usingCharacter, targetCharacter, l
 
     HF.RemoveItem(item)
     HF.GiveItem(targetCharacter,"ntsfx_syringe")
+end
+
+NT.ItemMethods.defibrillator = function(item, usingCharacter, targetCharacter, limb)
+    if item.Condition <= 0 then return end
+
+    local containedItem = item.OwnInventory.GetItemAt(0)
+    if containedItem==nil then return end
+    local hasVoltage = containedItem.Condition > 0
+
+    if hasVoltage then 
+        HF.GiveItem(targetCharacter,"ntsfx_manualdefib")
+        containedItem.Condition = containedItem.Condition-10
+        if containedItem.Prefab.Identifier.Value ~= "fulguriumbatterycell" then containedItem.Condition = containedItem.Condition-10 end
+
+        local successChance = (HF.GetSkillLevel(usingCharacter,"medical")/100)^2
+        local arrestSuccessChance = (HF.GetSkillLevel(usingCharacter,"medical")/100)^4
+        local arrestFailChance = (1-(HF.GetSkillLevel(usingCharacter,"medical")/100))^2 * 0.3
+
+        Timer.Wait(function()
+            HF.AddAffliction(targetCharacter,"stun",2,usingCharacter)
+            if HF.Chance(successChance) then
+                HF.SetAffliction(targetCharacter,"tachycardia",0,usingCharacter)
+                HF.SetAffliction(targetCharacter,"fibrillation",0,usingCharacter)
+            end
+            if HF.Chance(arrestSuccessChance) then
+                HF.SetAffliction(targetCharacter,"cardiacarrest",0,usingCharacter)
+            elseif HF.Chance(arrestFailChance) then
+                HF.SetAffliction(targetCharacter,"cardiacarrest",100,usingCharacter)
+            end
+        end, 2000)
+    end
+end
+NT.ItemMethods.aed = function(item, usingCharacter, targetCharacter, limb)
+    if item.Condition <= 0 then return end
+
+    local containedItem = item.OwnInventory.GetItemAt(0)
+    if containedItem==nil then return end
+    local hasVoltage = containedItem.Condition > 0
+
+    if hasVoltage then 
+        local actionRequired =
+            HF.HasAffliction(targetCharacter,"tachycardia",5)
+            or HF.HasAffliction(targetCharacter,"fibrillation",1)
+            or HF.HasAffliction(targetCharacter,"cardiacarrest") 
+
+        if not actionRequired then
+            HF.GiveItem(targetCharacter,"ntsfx_defib2")
+        else
+            HF.GiveItem(targetCharacter,"ntsfx_defib1")
+
+            containedItem.Condition = containedItem.Condition-10
+            if containedItem.Prefab.Identifier.Value ~= "fulguriumbatterycell" then containedItem.Condition = containedItem.Condition-10 end
+    
+            local arrestSuccessChance = HF.Clamp((HF.GetSkillLevel(usingCharacter,"medical")/200),0.2,0.4)
+
+            Timer.Wait(function()
+                HF.AddAffliction(targetCharacter,"stun",2,usingCharacter)
+                HF.SetAffliction(targetCharacter,"tachycardia",0,usingCharacter)
+                HF.SetAffliction(targetCharacter,"fibrillation",0,usingCharacter)
+                if HF.Chance(arrestSuccessChance) then
+                    HF.SetAffliction(targetCharacter,"cardiacarrest",0,usingCharacter)
+                end
+            end, 3200)
+        end
+    end
 end
 
 -- surgery
@@ -690,7 +756,7 @@ NT.ItemMethods.organscalpel_brain = function(item, usingCharacter, targetCharact
                         -- use server spawn method
                         local prefab = ItemPrefab.GetItemPrefab("braintransplant")
                         local client = HF.CharacterToClient(targetCharacter)
-                        Entity.Spawner.AddToSpawnQueue(prefab, usingCharacter.WorldPosition, nil, nil, function(item)
+                        Entity.Spawner.AddItemToSpawnQueue(prefab, usingCharacter.WorldPosition, nil, nil, function(item)
                             usingCharacter.Inventory.TryPutItem(item, nil, {InvSlotType.Any})
                             postSpawnFunction(item,targetCharacter,client)
                         end)
@@ -977,7 +1043,7 @@ NT.ItemStartsWithMethods.wrench = function(item, usingCharacter, targetCharacter
     end
 end
 NT.ItemStartsWithMethods.bloodpack = function(item, usingCharacter, targetCharacter, limb) 
-    local identifier = item.Prefab.Identifier
+    local identifier = item.Prefab.Identifier.Value
     local packtype = string.sub(identifier, string.len("bloodpack")+1)
     
     local packhasantibodyA = string.find(packtype, "a")
@@ -1009,3 +1075,4 @@ NT.ItemStartsWithMethods.bloodpack = function(item, usingCharacter, targetCharac
     HF.GiveItem(usingCharacter,"emptybloodpack")
     HF.GiveItem(targetCharacter,"ntsfx_syringe")
 end
+

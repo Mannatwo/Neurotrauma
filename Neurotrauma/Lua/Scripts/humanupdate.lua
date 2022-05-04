@@ -17,17 +17,726 @@ end)
 
 -- gets run once every two seconds
 function NT.Update()
-    -- for every human
-    for _, character in pairs(Character.CharacterList) do
+
+    local updateHumans = {}
+    local amountHumans = 0
+
+    -- fetchcharacters to update
+    for key, character in pairs(Character.CharacterList) do
         if (character.IsHuman and not character.IsDead) then
-            -- we spread the characters out over a timespan of half a second so the load isnt done all at once
-            Timer.Wait(function()
-                NT.UpdateHuman(character)
-            end, math.random()*500)
+            table.insert(updateHumans, character)
+            amountHumans = amountHumans + 1
         end
     end
 
+    -- we spread the characters out over the duration of an update so that the load isnt done all at once
+    for key, value in pairs(updateHumans) do
+        -- make sure theyre still alive and human
+        if (value.IsHuman and not value.IsDead) then
+            Timer.Wait(function ()
+                NT.UpdateHuman(value)
+            end, ((key + 1) / amountHumans) * NT.Deltatime * 1000)
+        end
+    end
 end
+
+-- some local functions to avoid code duplicates
+local function limbLockedInitial(c,limbtype,key)
+    return not NTC.GetSymptomFalse(c.character,key) and (NTC.GetSymptom(c.character,key)
+            or (c.afflictions.t_paralysis.strength > 0 or c.afflictions.tla_amputation.strength > 0 or c.afflictions.sla_amputation.strength > 0)
+            or (HF.GetAfflictionStrengthLimb(c.character,limbtype,"bandaged",0) <= 0 and c.afflictions.la_dislocation.strength > 0)
+            or (HF.GetAfflictionStrengthLimb(c.character,limbtype,"gypsumcast",0) <= 0 and c.afflictions.la_fracture.strength > 0))
+end
+local function organDamageCalc(c,damagevalue)
+    if (damagevalue >= 99) then return 100 end
+    return damagevalue - 0.01 * c.stats.healingrate * c.stats.specificOrganDamageHealMultiplier * NT.Deltatime
+end
+local function kidneyDamageCalc(c,damagevalue)
+    if (damagevalue >= 99) then return 100 end
+    if (damagevalue >= 50) then 
+        if (damagevalue <= 51) then return damagevalue end
+        return damagevalue - 0.01 * c.stats.healingrate * c.stats.specificOrganDamageHealMultiplier * NT.Deltatime 
+    end
+    return damagevalue - 0.02 * c.stats.healingrate * c.stats.specificOrganDamageHealMultiplier * NT.Deltatime
+end
+local function isExtremity(type) 
+    return not type==LimbType.Torso and not type==LimbType.Head
+end
+local limbtypes = {
+    LimbType.Torso,
+    LimbType.Head,
+    LimbType.LeftArm,
+    LimbType.RightArm,
+    LimbType.LeftLeg,
+    LimbType.RightLeg,
+}
+
+-- define all the afflictions and their update functions
+NT.Afflictions = {
+    -- Arterial cuts
+    t_arterialcut={},
+    -- Fractures, dislocations and amputations
+    t_fracture={},h_fracture={},la_fracture={},ra_fracture={},ll_fracture={},rl_fracture={},
+    tla_amputation={},tra_amputation={},tll_amputation={},trl_amputation={},
+    sla_amputation={},sra_amputation={},sll_amputation={},srl_amputation={},
+    ra_dislocation={},la_dislocation={},rl_dislocation={},ll_dislocation={},
+    t_paralysis={},
+    
+    -- Organ conditions
+    cardiacarrest={update=function(c,i)
+        -- triggers
+        if( not NTC.GetSymptomFalse(c.character,"triggersym_cardiacarrest") and (NTC.GetSymptom(c.character,"triggersym_cardiacarrest")
+        or c.stats.stasis or c.afflictions.heartremoved.strength > 0 or c.afflictions.brainremoved.strength > 0
+        or (c.afflictions.heartdamage.strength > 99 and HF.Chance(0.3))
+        or (c.afflictions.traumaticshock.strength > 20 and HF.Chance(0.1))
+        or (c.afflictions.coma.strength > 40 and HF.Chance(0.03))
+        or (c.afflictions.hypoxemia.strength > 80 and HF.Chance(0.01))
+        or (c.afflictions.fibrillation.strength > 10 and HF.Chance((c.afflictions.fibrillation.strength/100)^4))
+        )) then
+            c.afflictions[i].strength = c.afflictions[i].strength+10
+        end
+    end},
+    respiratoryarrest={update=function(c,i)
+        -- passive regen
+        c.afflictions[i].strength = c.afflictions[i].strength-0.05*NT.Deltatime
+        -- triggers
+        if( not NTC.GetSymptomFalse(c.character,"triggersym_respiratoryarrest") and (NTC.GetSymptom(c.character,"triggersym_respiratoryarrest")
+        or c.stats.stasis or c.afflictions.lungremoved.strength > 0 or c.afflictions.brainremoved.strength > 0
+        or (c.afflictions.lungdamage.strength > 99 and HF.Chance(0.3))
+        or (c.afflictions.traumaticshock.strength > 10 and HF.Chance(0.1))
+        or ((c.afflictions.cerebralhypoxia.strength > 100 or c.afflictions.hypoxemia.strength > 70) and HF.Chance(0.1)))
+        ) then
+            c.afflictions[i].strength = c.afflictions[i].strength+10
+        end
+    end},
+    pneumothorax={update=function(c,i)
+        if c.afflictions[i].strength > 0 then
+        c.afflictions[i].strength = c.afflictions[i].strength + NT.Deltatime * 0.5 end
+    end
+    },
+    tamponade={update=function(c,i)
+        if c.afflictions[i].strength > 0 then
+        c.afflictions[i].strength = c.afflictions[i].strength + NT.Deltatime * 0.5 end
+    end
+    },
+    heartattack={update=function(c,i)
+        c.afflictions[i].strength = c.afflictions[i].strength - NT.Deltatime
+
+        -- triggers
+        if( not NTC.GetSymptomFalse(c.character,"triggersym_heartattack") and not c.stats.stasis and c.afflictions.afstreptokinase.strength <= 0 and c.afflictions.heartremoved.strength <= 0 and (NTC.GetSymptom(c.character,"triggersym_heartattack")
+        or (c.afflictions.bloodpressure.strength > 150 and HF.Chance((c.afflictions.bloodpressure.strength-150)/50*0.02)))
+        ) then
+            c.afflictions[i].strength = c.afflictions[i].strength+50
+        end
+    end
+    },
+    -- Organs removed
+    brainremoved={},heartremoved={},lungremoved={},
+    -- Organ damage
+    cerebralhypoxia={max=200,update=function(c,i)
+        if c.stats.stasis then return end
+        -- calculate new neurotrauma
+        c.afflictions[i].strength = c.afflictions[i].strength + 
+            ( -0.1*c.stats.healingrate +                        -- passive regen
+            c.afflictions.hypoxemia.strength/100 +              -- from hypoxemia
+            HF.Clamp(c.afflictions.stroke.strength,0,20)*0.1 +  -- from stroke
+            c.afflictions.sepsis.strength/100*0.4 +             -- from sepsis
+            c.afflictions.liverdamage.strength/800 +            -- from liverdamage
+            c.afflictions.kidneydamage.strength/1000            -- from kidneydamage
+        )*NTC.GetMultiplier(c.character,"neurotraumagain")      -- NTC multiplier
+        * (1-HF.Clamp(c.afflictions.afmannitol.strength,0,0.5)) -- half if mannitol
+        * NT.Deltatime
+        c.afflictions[i].strength = HF.Clamp(c.afflictions[i].strength,0,200)
+    end
+    },
+    heartdamage={update=function(c,i) if c.stats.stasis then return end c.afflictions[i].strength = organDamageCalc(c,c.afflictions[i].strength + NTC.GetMultiplier(c.character,"heartdamagegain")*(c.stats.neworgandamage + HF.Clamp(c.afflictions.heartattack.strength,0,0.5) * NT.Deltatime)) end},
+    lungdamage={update=function(c,i) if c.stats.stasis then return end c.afflictions[i].strength = organDamageCalc(c,c.afflictions.lungdamage.strength + NTC.GetMultiplier(c.character,"lungdamagegain")*(c.stats.neworgandamage + math.max(c.afflictions.radiationsickness.strength-25,0)/800*NT.Deltatime)) end},
+    liverdamage={update=function(c,i)
+        if c.stats.stasis then return end
+        c.afflictions[i].strength = organDamageCalc(c,c.afflictions.liverdamage.strength + NTC.GetMultiplier(c.character,"liverdamagegain")*c.stats.neworgandamage) 
+        if c.afflictions[i].strength >= 99 and not NTC.GetSymptom(c.character,"sym_hematemesis") and HF.Chance(0.05) then
+            -- if liver failed: 5% chance for 6-20 seconds of blood vomiting and internal bleeding
+            NTC.SetSymptomTrue(c.character,"sym_hematemesis",math.random(3,10))
+            c.afflictions.internalbleeding.strength = c.afflictions.internalbleeding.strength+2
+        end
+    end
+    },
+    kidneydamage={update=function(c,i)
+        if c.stats.stasis then return end
+        c.afflictions[i].strength = kidneyDamageCalc(c,c.afflictions.kidneydamage.strength + NTC.GetMultiplier(c.character,"kidneydamagegain")*(c.stats.neworgandamage + HF.Clamp((c.afflictions.bloodpressure.strength-120)/160,0,0.5)*NT.Deltatime*0.5))
+        if c.afflictions[i].strength >= 60 and not NTC.GetSymptom(c.character,"sym_vomiting") and HF.Chance((c.afflictions[i].strength-60)/40*0.07) then
+            -- at 60% kidney damage: 0% chance for vomiting
+            -- at 100% kidney damage: 7% chance for vomiting
+            NTC.SetSymptomTrue(c.character,"sym_vomiting",math.random(3,10))
+        end
+    end
+    },
+    bonedamage={update=function(c,i)
+        if c.stats.stasis then return end
+        c.afflictions[i].strength = organDamageCalc(c,c.afflictions.bonedamage.strength + NTC.GetMultiplier(c.character,"bonedamagegain")*(c.afflictions.sepsis.strength/500 + c.afflictions.hypoxemia.strength/1000 + math.max(c.afflictions.radiationsickness.strength-25,0)/600)*NT.Deltatime)
+        if(c.afflictions[i].strength < 90) then c.afflictions[i].strength = c.afflictions[i].strength - (c.stats.bonegrowthCount*0.3) * NT.Deltatime
+        elseif(c.stats.bonegrowthCount >= 6) then c.afflictions[i].strength = c.afflictions[i].strength - 2 * NT.Deltatime end
+        if(c.afflictions.kidneydamage.strength > 70) then c.afflictions[i].strength = c.afflictions[i].strength + (c.afflictions.kidneydamage.strength-70)/30*0.15*NT.Deltatime end
+    end
+    },
+    organdamage={max=200,update=function(c,i) if c.stats.stasis then return end c.afflictions[i].strength = c.afflictions[i].strength + c.stats.neworgandamage - 0.03 * c.stats.healingrate * NT.Deltatime end},
+    -- Blood
+    sepsis={update=function(c,i)
+        if c.stats.stasis then return end
+        if(c.afflictions.afantibiotics.strength > 0.1) then c.afflictions[i].strength = c.afflictions[i].strength - NT.Deltatime end
+        if(c.afflictions[i].strength > 0.1 and not c.stats.stasis) then c.afflictions[i].strength = c.afflictions[i].strength + 0.05 * NT.Deltatime end 
+    end
+    },
+    immunity={default=-1,update=function(c,i)
+        if c.stats.stasis then return end
+        if c.afflictions[i].strength==-1 then
+            -- no immunity affliction!
+            -- assume it has been wiped by "revive" or "heal all", attempt to assign new blood type
+            c.afflictions[i].strength = 100
+            NT.TryRandomizeBlood(c.character)
+        end
+        c.afflictions[i].strength = HF.Clamp(c.afflictions[i].strength+(0.5+c.afflictions[i].strength/100)*NT.Deltatime,1,100)
+    end
+    },
+    bloodloss={max=200},
+    bloodpressure={min=5,max=200,default=90,update=function(c,i)
+        if c.stats.stasis then return end
+        -- calculate new blood pressure
+        local desiredbloodpressure =
+            (c.stats.bloodamount
+            - c.afflictions.tamponade.strength/2                    -- -50 if full tamponade
+            + HF.Clamp(c.afflictions.afadrenaline.strength*10,0,30)          -- +30 if adrenaline
+            ) * 
+            (1+0.5*((c.afflictions.liverdamage.strength/100)^2)) *  -- elevated if full liver damage
+            (1+0.5*((c.afflictions.kidneydamage.strength/100)^2)) * -- elevated if full kidney damage
+            (1 + c.afflictions.alcoholwithdrawal.strength/200 ) *   -- elevated if alcohol withdrawal
+            ((100-c.afflictions.traumaticshock.strength)/100)       -- none if full traumatic shock
+            * NTC.GetMultiplier(c.character,"bloodpressure")
+        local bloodpressurelerp = 0.2
+        -- adjust three times slower to heightened blood pressure
+        if(desiredbloodpressure>c.afflictions.bloodpressure.strength) then bloodpressurelerp = bloodpressurelerp/3 end
+        c.afflictions.bloodpressure.strength = HF.Clamp(HF.Round(HF.Lerp(c.afflictions.bloodpressure.strength,desiredbloodpressure,bloodpressurelerp)),5,200)
+    end
+    },
+    hypoxemia={update=function(c,i)
+        if c.stats.stasis then return end
+        -- completely cancel out hypoxemia regeneration if penumothorax is full
+        c.stats.availableoxygen = math.min(c.stats.availableoxygen,100-c.afflictions.pneumothorax.strength/2)
+
+        local hypoxemiagain = NTC.GetMultiplier(c.character,"hypoxemiagain")
+        local regularHypoxemiaChange = (c.stats.availableoxygen-50) / 8
+        if regularHypoxemiaChange > 0 then
+            -- not enough oxygen, increase hypoxemia
+            regularHypoxemiaChange = regularHypoxemiaChange * hypoxemiagain
+        else
+            -- enough oxygen, decrease hypoxemia
+            regularHypoxemiaChange = regularHypoxemiaChange * 2
+        end
+        c.afflictions.hypoxemia.strength = HF.Clamp(c.afflictions.hypoxemia.strength + (
+            - math.min(0,(c.afflictions.bloodpressure.strength-70) / 7) * hypoxemiagain    -- loss because of low blood pressure (-10 at 0 bp)
+            - math.min(0,(c.stats.bloodamount-60) / 4) * hypoxemiagain      -- loss because of low blood amount (-15 at 0 blood)
+            - regularHypoxemiaChange                                -- change because of oxygen in lungs (-6.25 <> +12.5)
+        )* NT.Deltatime,0,100)
+    end
+    },
+    hemotransfusionshock={},
+    -- Other
+    oxygenlow={max=200,update=function(c,i)
+        -- respiratory arrest? -> oxygen in lungs rapidly decreases
+        if c.afflictions.respiratoryarrest.strength > 0 then
+            c.afflictions.oxygenlow.strength = c.afflictions.oxygenlow.strength+15*NT.Deltatime
+        end
+    end
+    },
+    radiationsickness={max=200,update=function(c,i)
+        c.afflictions[i].strength = c.afflictions[i].strength - NT.Deltatime * 0.02
+    end
+    },
+    stasis={},
+    internalbleeding={update=function(c,i)
+        if c.stats.stasis then return end
+        c.afflictions[i].strength = c.afflictions[i].strength - NT.Deltatime * 0.02 * c.stats.clottingrate
+        if c.afflictions[i].strength > 0 then
+            c.afflictions.bloodloss.strength = c.afflictions.bloodloss.strength + c.afflictions[i].strength * (1/40) * NT.Deltatime
+        end
+    end
+    },
+    acidosis={update=function(c,i)
+        if c.stats.stasis then return end
+        c.afflictions[i].strength = c.afflictions[i].strength
+            - NT.Deltatime * 0.03
+            + (HF.Clamp(c.afflictions.hypoventilation.strength,0,1) * 0.09
+            + HF.Clamp(c.afflictions.respiratoryarrest.strength+c.afflictions.cardiacarrest.strength,0,1) * 0.18
+            + math.max(0,c.afflictions.kidneydamage.strength - 80)/20*0.1) * NT.Deltatime
+    end
+    },
+    alkalosis={update=function(c,i)
+        if not c.stats.stasis then
+            c.afflictions[i].strength = c.afflictions[i].strength
+                - NT.Deltatime * 0.03
+                + HF.Clamp(c.afflictions.hyperventilation.strength,0,1) * 0.09 * NT.Deltatime
+                + HF.Clamp(c.afflictions.sym_vomiting.strength,0,1) * 0.1 * NT.Deltatime
+                + HF.Clamp(HF.GetAfflictionStrength(c.character,"nausea",0),0,1) * 0.1 * NT.Deltatime
+        end
+        if(c.afflictions.acidosis.strength > 1 and c.afflictions.alkalosis.strength > 1) then 
+            local min = math.min(c.afflictions.acidosis.strength,c.afflictions.alkalosis.strength)
+            c.afflictions.acidosis.strength = c.afflictions.acidosis.strength - min
+            c.afflictions.alkalosis.strength = c.afflictions.alkalosis.strength - min
+        end
+    end
+    },
+    seizure={update=function(c,i)
+        c.afflictions[i].strength = c.afflictions[i].strength - NT.Deltatime
+
+        -- triggers
+        if( not NTC.GetSymptomFalse(c.character,"triggersym_seizure") and not c.stats.stasis and (NTC.GetSymptom(c.character,"triggersym_seizure")
+            or (c.afflictions.stroke.strength > 1 and HF.Chance(0.05)) or (c.afflictions.acidosis.strength > 60 and HF.Chance(0.05))
+            or (c.afflictions.alkalosis.strength > 60 and HF.Chance(0.05)) or HF.Chance(HF.Minimum(c.afflictions.radiationsickness.strength,50,0)/200*0.1)
+            or (c.afflictions.alcoholwithdrawal.strength > 50 and HF.Chance(c.afflictions.alcoholwithdrawal.strength/1000)))
+        ) then
+            c.afflictions[i].strength = c.afflictions[i].strength+10
+        end
+
+        -- check for spasm trigger
+        if (c.afflictions[i].strength > 0.1) then
+            for type in limbtypes do
+                if(HF.Chance(0.5)) then 
+                    HF.AddAfflictionLimb(c.character,"spasm",type,10)
+                end
+            end
+            
+        end
+    end
+    },
+    stroke={update=function(c,i)
+        if c.stats.stasis then return end
+        c.afflictions[i].strength = c.afflictions[i].strength - (1/20)*c.stats.clottingrate* NT.Deltatime
+
+        -- triggers
+        if( not NTC.GetSymptomFalse(c.character,"triggersym_stroke") and not c.stats.stasis and (NTC.GetSymptom(c.character,"triggersym_stroke")
+        or (c.afflictions.bloodpressure.strength > 150 and HF.Chance((c.afflictions.bloodpressure.strength-150)/50*0.02+HF.Clamp(c.afflictions.afstreptokinase.strength,0,1)*0.05)))
+        ) then
+            c.afflictions[i].strength = c.afflictions[i].strength+5
+        end
+    end
+    },
+    coma={update=function(c,i)
+        if c.stats.stasis then return end
+        c.afflictions[i].strength = c.afflictions[i].strength - NT.Deltatime / 5
+
+        -- triggers
+        if( not NTC.GetSymptomFalse(c.character,"triggersym_coma") and not c.stats.stasis and (NTC.GetSymptom(c.character,"triggersym_coma")
+        or (c.afflictions.cardiacarrest.strength > 1 and HF.Chance(0.05)) or (c.afflictions.stroke.strength > 1 and HF.Chance(0.05))
+        or(c.afflictions.acidosis.strength > 60 and HF.Chance(0.05+(c.afflictions.acidosis.strength-60)/100)))) then
+            c.afflictions[i].strength = c.afflictions[i].strength+14
+        end
+    end
+    },
+    stun={},
+    slowdown={update=function(c,i)
+        c.afflictions[i].strength = HF.Clamp(100 * (1-c.stats.speedmultiplier),0,100)
+    end
+    },
+    traumaticshock={},
+    alcoholwithdrawal={},opiatewithdrawal={},chemwithdrawal={},
+    opiateoverdose={},
+    -- Drugs
+    analgesia={max=200},anesthesia={},drunk={max=200},
+    afadrenaline={},afantibiotics={},afthiamine={},
+    afstreptokinase={},afmannitol={},
+
+    -- /// Symptoms ///
+    --==============================================================================
+    sym_unconsciousness={
+        update=function(c,i)
+            local isUnconscious = not NTC.GetSymptomFalse(c.character,i) and ( NTC.GetSymptom(c.character,i)
+                or c.stats.stasis or c.afflictions.brainremoved.strength > 0 or (c.character.Vitality <= 0 and not HF.HasAbilityFlag(c.character,12))
+                or c.afflictions.cerebralhypoxia.strength > 100 or c.afflictions.coma.strength > 15
+                or c.afflictions.hypoxemia.strength > 80 or c.afflictions.t_arterialcut.strength>0 or c.afflictions.seizure.strength > 0.1 )
+            c.afflictions[i].strength = HF.BoolToNum(isUnconscious,2)
+            if isUnconscious then c.afflictions.stun.strength = math.max(7,c.afflictions.stun.strength) end
+        end
+    },
+    tachycardia={
+        update=function(c,i)
+            -- harmless symptom (doesnt lead to fibrillation)
+            local hasSymHarmless =
+                not NTC.GetSymptomFalse(c.character,i) and c.afflictions.cardiacarrest.strength < 1 and c.afflictions.heartremoved.strength < 1 and (NTC.GetSymptom(c.character,i)
+                or c.afflictions.sepsis.strength > 20 or c.stats.bloodamount < 60
+                or c.afflictions.acidosis.strength > 20 or c.afflictions.pneumothorax.strength > 30
+                or c.afflictions.afadrenaline.strength > 1 or c.afflictions.alcoholwithdrawal.strength > 75)
+            c.afflictions[i].strength = math.max(c.afflictions[i].strength,HF.BoolToNum(hasSymHarmless,2))
+            
+            -- harmful symptom (leads to fibrillation and cardiac arrest)
+            local fibrillationSpeed = -0.1
+                + HF.Clamp(c.afflictions.t_arterialcut.strength,0,2)            -- aortic rupture (very fast)
+                + HF.Clamp(c.afflictions.acidosis.strength/200,0,0.5)           -- acidosis (slow)
+                + HF.Clamp(0.9-(c.afflictions.bloodpressure.strength/90),0,1)*2 -- low blood pressure (varies)
+            if fibrillationSpeed>0 then
+                if c.afflictions.afadrenaline > 0 then -- if adrenaline, fibrillate half as fast
+                    fibrillationSpeed = fibrillationSpeed/2
+                end
+            end
+            if c.afflictions.cardiacarrest.strength > 0 or c.afflictions.heartremoved.strength > 0 then
+                fibrillationSpeed = -1000
+            end
+            
+            -- fibrillation multiplier
+            if fibrillationSpeed > 0 then fibrillationSpeed = fibrillationSpeed * NTC.GetMultiplier(c.character,"fibrillation") end
+
+            if c.afflictions.fibrillation.strength <= 0 then -- havent reached fibrillation yet
+                c.afflictions[i].strength = c.afflictions[i].strength + fibrillationSpeed*5*NT.Deltatime
+                -- we reached max tachycardia, switch over to fibrillation
+                if c.afflictions[i].strength >= 100 then
+                    c.afflictions.fibrillation.strength = 5
+                    c.afflictions[i].strength = 0
+                end
+            else -- have reached fibrillation
+                c.afflictions[i].strength = 0 -- set tachycardia to 0
+                c.afflictions.fibrillation.strength = c.afflictions.fibrillation.strength + fibrillationSpeed*NT.Deltatime
+            end
+
+        end
+    },
+    fibrillation={update=function(c,i)
+        -- see above for vfib accumulation logic
+        if NTC.GetSymptomFalse(c.character,i) or c.afflictions.cardiacarrest.strength >= 1 or c.afflictions.heartremoved.strength >= 1 then
+            c.afflictions[i].strength=0
+        end
+    end
+    }, 
+    hyperventilation={
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(
+        not NTC.GetSymptomFalse(c.character,i) and c.afflictions.respiratoryarrest.strength < 1 and (NTC.GetSymptom(c.character,i)
+        or c.afflictions.hypoxemia.strength > 10 or c.afflictions.bloodpressure.strength < 80 or c.afflictions.afadrenaline.strength > 1
+        or c.afflictions.pneumothorax.strength > 15 or c.afflictions.sepsis.strength > 15)
+        ,2)end
+    },
+    hypoventilation={
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(
+        not NTC.GetSymptomFalse(c.character,i) and c.afflictions.respiratoryarrest.strength < 1 and (NTC.GetSymptom(c.character,i)
+        or c.afflictions.analgesia.strength > 20 or c.afflictions.anesthesia.strength > 40),2)
+        if(c.afflictions.hyperventilation.strength>0 and c.afflictions.hypoventilation.strength>0) then 
+            c.afflictions.hyperventilation.strength = 0
+            c.afflictions.hypoventilation.strength = 0
+        end
+    end
+    },
+    dyspnea={
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(
+        not NTC.GetSymptomFalse(c.character,i) and c.afflictions.respiratoryarrest.strength <= 0 and (NTC.GetSymptom(c.character,i)
+        or c.afflictions.heartattack.strength > 1 or c.afflictions.heartdamage.strength > 80 or c.afflictions.hypoxemia.strength > 20 or
+        c.afflictions.lungdamage.strength > 45 or c.afflictions.pneumothorax.strength > 40 or c.afflictions.tamponade.strength > 10 or
+        (c.afflictions.hemotransfusionshock.strength>0 and c.afflictions.hemotransfusionshock.strength < 70))
+        ,2)end
+    },
+    sym_cough={
+        update=function(c,i)
+        c.afflictions[i].strength = HF.BoolToNum(
+        not NTC.GetSymptomFalse(c.character,i) and c.afflictions.sym_unconsciousness.strength<=0 and (NTC.GetSymptom(c.character,i)
+        or c.afflictions.lungdamage.strength > 50 or c.afflictions.heartdamage.strength > 50 or c.afflictions.tamponade.strength > 20)
+        ,2)end
+    },
+    sym_paleskin={
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(
+        not NTC.GetSymptomFalse(c.character,i) and (NTC.GetSymptom(c.character,i) or c.stats.bloodamount < 60 or c.afflictions.bloodpressure.strength < 50)
+        ,2)end
+    },
+    sym_lightheadedness={
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(
+        not NTC.GetSymptomFalse(c.character,i) and c.afflictions.sym_unconsciousness.strength<=0 and (NTC.GetSymptom(c.character,i) or c.afflictions.bloodpressure.strength < 60)
+        ,2)end
+    },
+    sym_blurredvision={
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and c.afflictions.sym_unconsciousness.strength<=0 and (NTC.GetSymptom(c.character,i)
+        or c.afflictions.bloodpressure.strength < 55),2)end
+    },
+    sym_confusion={
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and c.afflictions.sym_unconsciousness.strength<=0 and (NTC.GetSymptom(c.character,i)
+        or c.afflictions.acidosis.strength > 15 or c.afflictions.bloodpressure.strength < 30
+        or c.afflictions.hypoxemia.strength > 50 or c.afflictions.sepsis.strength > 40
+        or c.afflictions.alcoholwithdrawal.strength > 80),2)end
+    },
+    sym_headache={
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and c.afflictions.sym_unconsciousness.strength<=0 and not c.stats.sedated and (NTC.GetSymptom(c.character,i)
+        or c.stats.bloodamount < 50 or c.afflictions.acidosis.strength > 20
+        or c.afflictions.stroke.strength > 1 or c.afflictions.hypoxemia.strength > 40
+        or c.afflictions.bloodpressure.strength < 60 or c.afflictions.alcoholwithdrawal.strength > 50
+        or c.afflictions.h_fracture.strength>0),2)end
+    },
+    sym_legswelling={
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and HF.GetAfflictionStrength(c.character,"rl_cyber",0) < 0.1 and (NTC.GetSymptom(c.character,i)
+        or c.afflictions.liverdamage.strength > 40 or c.afflictions.kidneydamage.strength > 60
+        or c.afflictions.heartdamage.strength > 80),2)end
+    },
+    sym_weakness={
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and (NTC.GetSymptom(c.character,i)
+        or c.afflictions.tamponade.strength > 30 or c.stats.bloodamount < 40 or c.afflictions.acidosis.strength > 35),2)end
+    },
+    sym_wheezing={
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and c.afflictions.respiratoryarrest.strength<=0 and (NTC.GetSymptom(c.character,i)
+        or (c.afflictions.hemotransfusionshock.strength>0 and c.afflictions.hemotransfusionshock.strength < 90)),2)end
+    },
+    sym_vomiting={
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and (NTC.GetSymptom(c.character,i)
+        or c.afflictions.drunk.strength > 100
+        or (c.afflictions.hemotransfusionshock.strength>0 and c.afflictions.hemotransfusionshock.strength < 40)
+        or c.afflictions.alcoholwithdrawal.strength > 60),2)end
+    },
+    sym_nausea={
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and (NTC.GetSymptom(c.character,i)
+        or c.afflictions.kidneydamage.strength > 60 or c.afflictions.radiationsickness.strength > 80
+        or (c.afflictions.hemotransfusionshock.strength>0 and c.afflictions.hemotransfusionshock.strength < 90)
+        or c.stats.withdrawal > 40),2)end
+    },
+    sym_hematemesis={
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and (NTC.GetSymptom(c.character,i)
+        or c.afflictions.internalbleeding.strength > 50),2)end
+    },
+    sym_fever={
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and (NTC.GetSymptom(c.character,i)
+        or c.afflictions.sepsis.strength > 5 or c.afflictions.alcoholwithdrawal.strength > 90),2)end
+    },
+    sym_abdomdiscomfort={
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and c.afflictions.sym_unconsciousness.strength<=0 and (NTC.GetSymptom(c.character,i)
+        or c.afflictions.liverdamage.strength > 65),2)end
+    },
+    sym_bloating={
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and (NTC.GetSymptom(c.character,i)
+        or c.afflictions.liverdamage.strength > 50),2)end
+    },
+    sym_jaundice={
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and (NTC.GetSymptom(c.character,i)
+        or c.afflictions.liverdamage.strength > 80),2)end
+    },
+    sym_sweating={
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and (NTC.GetSymptom(c.character,i)
+        or c.afflictions.heartattack.strength > 1 or c.stats.withdrawal > 30),2)end
+    },
+    sym_palpitations={
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and c.afflictions.cardiacarrest.strength<=0 and (NTC.GetSymptom(c.character,i)
+        or c.afflictions.alkalosis.strength > 20),2)end
+    },
+    sym_craving={
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and c.afflictions.sym_unconsciousness.strength<=0 and (NTC.GetSymptom(c.character,i)
+        or c.stats.withdrawal > 20),2)end
+    },
+    pain_abdominal={
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and c.afflictions.sym_unconsciousness.strength<=0 and not c.stats.sedated and (NTC.GetSymptom(c.character,i)
+        or (c.afflictions.hemotransfusionshock.strength>0 and c.afflictions.hemotransfusionshock.strength < 80)
+        or c.afflictions.t_arterialcut.strength > 0),2)end
+    },
+    pain_chest={
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and c.afflictions.sym_unconsciousness.strength<=0 and (NTC.GetSymptom(c.character,i)
+        or (c.afflictions.hemotransfusionshock.strength>0 and c.afflictions.hemotransfusionshock.strength < 60)
+        or c.afflictions.t_fracture.strength>0 or c.afflictions.t_arterialcut.strength > 0),2)end
+    },
+    luabotomy={
+        update=function(c,i) c.afflictions[i].strength = 0 end
+    },
+}
+-- define all the limb specific afflictions and their update functions
+NT.LimbAfflictions = {
+    bandaged={update=function(c,limbaff,i)
+        -- turning a bandage into a dirty bandage
+        local wounddamage = limbaff.burn.strength+limbaff.lacerations.strength+limbaff.gunshotwound.strength+limbaff.bitewounds.strength+limbaff.explosiondamage.strength
+        local bandageDirtifySpeed = 0.1 + wounddamage/100 + limbaff.bleeding.strength/20
+        if limbaff[i].strength > 0 then 
+            limbaff[i].strength=limbaff[i].strength-bandageDirtifySpeed*NT.Deltatime 
+            if limbaff[i].strength <= 0 then 
+                limbaff.dirtybandage.strength = math.max(limbaff.dirtybandage.strength,1)
+                limbaff[i].strength = 0
+            end
+        end
+        if limbaff.dirtybandage.strength > 0 then limbaff.dirtybandage.strength=limbaff.dirtybandage.strength+bandageDirtifySpeed*NT.Deltatime end
+    
+        -- bandage slowdown
+        if limbaff[i].strength > 0 or limbaff.dirtybandage.strength > 0 then
+            c.stats.speedmultiplier = c.stats.speedmultiplier*0.9
+        end
+    end
+    },
+    dirtybandage={}, -- for bandage dirtifaction logic see above
+    gypsumcast={update=function(c,limbaff,i)
+        -- gypsum slowdown
+        if limbaff[i].strength > 0 then
+            c.stats.speedmultiplier = c.stats.speedmultiplier*0.8
+        end
+    end
+    },
+    ointmented={},
+    bonegrowth={update=function(c,limbaff,i,type)
+        if limbaff[i].strength <= 0 then
+            -- check for bone death fracture triggers
+            if (c.afflictions.bonedamage.strength > 90 and HF.Chance(0.01)) then 
+                NT.BreakLimb(c.character,type)
+            end
+        end
+    end
+    },
+    arteriesclamp={},
+    -- damage
+    bleeding={update=function(c,limbaff,i)
+        if(limbaff[i].strength > 0 and math.abs(c.stats.clottingrate-1) > 0.05) then limbaff[i].strength = limbaff[i].strength - (c.stats.clottingrate-1) * 0.1 * NT.Deltatime end
+    end
+    },
+    burn={max=200,update=function(c,limbaff,i)
+        limbaff[i].strength = limbaff[i].strength - (c.afflictions.immunity.prev/3000 + HF.Clamp(limbaff.bandaged.strength,0,1)*0.1)*c.stats.healingrate*NT.Deltatime
+    end
+    },
+    lacerations={max=200,update=function(c,limbaff,i)
+        limbaff[i].strength = limbaff[i].strength - (c.afflictions.immunity.prev/3000 + HF.Clamp(limbaff.bandaged.strength,0,1)*0.1)*c.stats.healingrate*NT.Deltatime
+    end
+    },
+    gunshotwound={max=200,update=function(c,limbaff,i)
+        limbaff[i].strength = limbaff[i].strength - (c.afflictions.immunity.prev/3000 + HF.Clamp(limbaff.bandaged.strength,0,1)*0.1)*c.stats.healingrate*NT.Deltatime
+    end
+    },
+    bitewounds={max=200,update=function(c,limbaff,i)
+        limbaff[i].strength = limbaff[i].strength - (c.afflictions.immunity.prev/3000 + HF.Clamp(limbaff.bandaged.strength,0,1)*0.1)*c.stats.healingrate*NT.Deltatime
+    end
+    },
+    explosiondamage={max=200,update=function(c,limbaff,i)
+        limbaff[i].strength = limbaff[i].strength - (c.afflictions.immunity.prev/3000 + HF.Clamp(limbaff.bandaged.strength,0,1)*0.1)*c.stats.healingrate*NT.Deltatime
+    end
+    },
+    blunttrauma={max=200,update=function(c,limbaff,i)
+        limbaff[i].strength = limbaff[i].strength - (c.afflictions.immunity.prev/8000 + HF.Clamp(limbaff.bandaged.strength,0,1)*0.1)*c.stats.healingrate*NT.Deltatime
+    end
+    },
+    internaldamage={max=200,update=function(c,limbaff,i)
+        limbaff[i].strength = limbaff[i].strength - 0.05*c.stats.healingrate*NT.Deltatime
+    end
+    },
+    -- other
+    infectedwound={update=function(c,limbaff,i)
+        local infectindex = ( -c.afflictions.immunity.prev/200 - HF.Clamp(limbaff.bandaged.strength,0,1)*1.5 - limbaff.ointmented.strength*3 + limbaff.burn.strength/20 + limbaff.lacerations.strength/40 + limbaff.bitewounds.strength/30 + limbaff.gunshotwound.strength/40 + limbaff.explosiondamage.strength/40 )*NT.Deltatime
+        -- if(hassym_inflammation) then infectindex = infectindex-0.8*NT.Deltatime end
+        local wounddamage = limbaff.burn.strength+limbaff.lacerations.strength+limbaff.gunshotwound.strength+limbaff.bitewounds.strength+limbaff.explosiondamage.strength
+        if(limbaff.dirtybandage.strength > 10 and wounddamage > 5) then infectindex = infectindex+(wounddamage/40+limbaff.dirtybandage.strength/20)*NT.Deltatime end
+        limbaff[i].strength = limbaff[i].strength + infectindex/5
+        c.afflictions.immunity.strength = c.afflictions.immunity.strength - HF.Clamp(infectindex/3,0,10)
+    end
+    },
+    foreignbody={update=function(c,limbaff,i,type)
+        if(limbaff[i].strength < 15) then limbaff[i].strength = limbaff[i].strength-0.05*c.stats.healingrate*NT.Deltatime end
+
+        -- check for arterial cut triggers and foreign body sepsis
+        local foreignbodycutchance = ((HF.Minimum(limbaff[i].strength,20)/100)^4)*0.5
+        if (limbaff.bleeding.strength > 80 or HF.Chance(foreignbodycutchance)) then
+            NT.ArteryCutLimb(c.character,type)
+        end
+
+        -- sepsis
+        local sepsischance = HF.Minimum(limbaff.gangrene.strength,15,0) / 400 + HF.Minimum(limbaff.infectedwound.strength,50) / 1000 + foreignbodycutchance
+        if(HF.Chance(sepsischance)) then
+            c.afflictions.sepsis.strength = c.afflictions.sepsis.strength + NT.Deltatime
+        end
+    end
+    },
+    gangrene={update=function(c,limbaff,i,type)
+        if(isExtremity(type)) then 
+            if(limbaff[i].strength < 15 and limbaff[i].strength > 0) then limbaff[i].strength = limbaff[i].strength - 0.01*c.stats.healingrate*NT.Deltatime end
+            if(c.afflictions.sepsis.strength > 5) then limbaff[i].strength = limbaff[i].strength + HF.BoolToNum(HF.Chance(0.1+c.afflictions.sepsis.strength/300),1) * NT.Deltatime end
+            if(limbaff.arteriesclamp.strength > 0) then limbaff[i].strength = limbaff[i].strength + HF.BoolToNum(HF.Chance(0.1),1) * 0.5 * NT.Deltatime end
+        end
+    end
+    },
+    inflammation={update=function(c,limbaff,i)
+        limbaff[i].strength = limbaff[i].strength + (-0.1+
+            HF.BoolToNum(limbaff.infectedwound.strength > 10 or limbaff.foreignbody.strength > 15,0.15)) * NT.Deltatime
+    end
+    },
+    pain_extremity={max=10,update=function(c,limbaff,i)
+        limbaff[i].strength = limbaff[i].strength + -0.5 * NT.Deltatime
+    end
+    },
+}
+-- define the stats and multipliers
+NT.CharStats = {
+    healingrate={getter=function(c) return NTC.GetMultiplier(c.character,"healingrate") end},
+    specificOrganDamageHealMultiplier={getter=function(c) return NTC.GetMultiplier(c.character,"anyspecificorgandamage") + HF.Clamp(c.afflictions.afthiamine.strength,0,1)*4 end},
+    neworgandamage={getter=function(c) return (c.afflictions.sepsis.strength/300 + c.afflictions.hypoxemia.strength/400 + math.max(c.afflictions.radiationsickness.strength-25,0)/400)*NTC.GetMultiplier(c.character,"anyorgandamage")*NT.Deltatime end},
+    clottingrate={getter=function(c) return
+        HF.Clamp(1-c.afflictions.liverdamage.strength/100,0,1)
+        *c.stats.healingrate
+        *HF.Clamp(1-c.afflictions.afstreptokinase.strength,0,1)
+        *NTC.GetMultiplier(c.character,"clottingrate") end
+    },
+
+    bloodamount={getter=function(c) return HF.Clamp(100-c.afflictions.bloodloss.strength,0,100) end},
+    stasis={getter=function(c) return c.afflictions.stasis.strength>0 end},
+    sedated={getter=function(c) return c.afflictions.analgesia.strength > 0 or c.afflictions.anesthesia.strength > 10 or c.afflictions.drunk.strength > 30 or c.stats.stasis end},
+    withdrawal={getter=function(c) return math.max(
+        c.afflictions.opiatewithdrawal.strength,
+        c.afflictions.chemwithdrawal.strength,
+        c.afflictions.alcoholwithdrawal.strength) end
+    },
+    availableoxygen={getter=function(c)
+        local res = HF.Clamp(c.character.Oxygen,0,100)
+        -- heart isnt pumping blood? no new oxygen is getting into the bloodstream, no matter how oxygen rich the air in the lungs
+        res = res * (1-c.afflictions.fibrillation.strength/100)
+        if c.afflictions.cardiacarrest.strength > 1 then res = 0 end
+        return res end
+    },
+    speedmultiplier={getter=function(c)
+        local res = 1
+        if c.afflictions.t_paralysis.strength>0 then res = -9001 end
+
+        if(c.afflictions.sym_vomiting.strength>0) then res = res*0.8 end
+        if(c.afflictions.sym_nausea.strength>0) then res = res*0.9 end
+        if(c.afflictions.anesthesia.strength > 0) then res = res*0.5 end
+        if(c.afflictions.opiateoverdose.strength > 50) then res = res*0.5 end
+
+        if(c.stats.withdrawal > 80) then res = res*0.5
+        elseif(c.stats.withdrawal > 40) then res = res*0.7
+        elseif(c.stats.withdrawal > 20) then res = res*0.9 end
+
+        if(c.afflictions.drunk.strength > 80) then res = res*0.5
+        elseif(c.afflictions.drunk.strength > 40) then res = res*0.7
+        elseif(c.afflictions.drunk.strength > 20) then res = res*0.8 end
+
+        res = res+c.afflictions.afadrenaline.strength/100 -- mitigate slowing effects if doped up on epinephrine
+
+        res = res * NTC.GetSpeedMultiplier(c.character)
+
+        return res
+    end},
+    
+
+    lockleftarm={getter=function(c) return limbLockedInitial(c,LimbType.LeftArm,"lockleftarm") end
+    },
+    lockrightarm={getter=function(c) return limbLockedInitial(c,LimbType.RightArm,"lockrightarm") end
+    },
+    lockleftleg={getter=function(c) return limbLockedInitial(c,LimbType.LeftLeg,"lockleftleg") end
+    },
+    lockrightleg={getter=function(c) return limbLockedInitial(c,LimbType.RightLeg,"lockrightleg") end
+    },
+
+    wheelchaired={getter=function(c)
+        local outerwearItem = c.character.Inventory.GetItemAt(4)
+        c.stats.wheelchaired = outerwearItem ~= nil and outerwearItem.Prefab.Identifier.Value == "wheelchair"
+        if c.stats.wheelchaired then
+            c.stats.lockleftleg = c.stats.lockleftarm
+            c.stats.lockrightleg = c.stats.lockrightarm
+        end
+        -- leg slowdown
+        if(c.stats.lockleftleg or c.stats.lockrightleg) then c.stats.speedmultiplier = c.stats.speedmultiplier*0.5 end
+        if(c.stats.lockleftleg and c.stats.lockrightleg) then c.afflictions.stun.strength = math.max(c.afflictions.stun.strength,5) end
+    end
+    },
+
+    bonegrowthCount={getter=function(c)
+        local res = 0
+        for type in limbtypes do
+            if HF.GetAfflictionStrengthLimb(c.character,type,"bonegrowth",0) > 0 then res=res+1 end
+        end
+        return res
+    end
+    },
+    
+}
+
 
 function NT.UpdateHuman(character)
 
@@ -36,597 +745,77 @@ function NT.UpdateHuman(character)
         val(character)
     end
 
-    -- fetch environmental oxygen and bloodamount
-    local availableoxygen = HF.Clamp(character.Oxygen,0,100) -- percentile, 0-100
-    local bloodloss = HF.GetAfflictionStrength(character,"bloodloss",0)
-    local prevbloodloss = bloodloss
-    local bloodamount = HF.Clamp(100-bloodloss,0,100)
+    local charData = {character=character,afflictions={},stats={}}
 
-    -- fetch blood pressure
-    local bloodpressureaff = character.CharacterHealth.GetAffliction("bloodpressure")
-    local bloodpressure = 100
-    local prevbloodpressure=-1
-    if(bloodpressureaff~=nil) then
-        bloodpressure = HF.Round(bloodpressureaff.Strength)
-        prevbloodpressure = bloodpressure
-    else -- no blood pressure affliction, add it now
-        bloodpressureaff = AfflictionPrefab.Prefabs["bloodpressure"].Instantiate(100,character)
-        bloodpressure=100
+    -- fetch all the current affliction data
+    for identifier,data in pairs(NT.Afflictions) do
+        local strength = HF.GetAfflictionStrength(character,identifier,data.default or 0)
+        charData.afflictions[identifier] = {prev=strength,strength=strength}
     end
-
-    -- fetch blood oxygen
-    local hypoxemia = HF.GetAfflictionStrength(character,"hypoxemia",0)
-    local prevhypoxemia = hypoxemia
-
-    -- fetch states and change the strength of some strengthchange afflictions
-    local stasis = HF.HasAffliction(character,"stasis",0.1)
-    local t_fracture = HF.HasAffliction(character,"t_fracture",0.1) -- rib fracture
-    local t_arterialcut = HF.HasAffliction(character,"t_arterialcut",0.1) -- aorticrupture
-
-    local respiratoryarrest = HF.GetAfflictionStrength(character,"respiratoryarrest",0)
-    local removedlung = HF.GetAfflictionStrength(character,"lungremoved",0)
-    local prevrespiratoryarrest = respiratoryarrest
-    local cardiacarrest = HF.GetAfflictionStrength(character,"cardiacarrest",0)
-    local removedheart = HF.GetAfflictionStrength(character,"heartremoved",0)
-    local prevcardiacarrest = cardiacarrest
-    if(respiratoryarrest > 1 or cardiacarrest > 1) then availableoxygen = 0 end
-    local removedbrain = HF.GetAfflictionStrength(character,"brainremoved",0)
-
-    -- organ damage
-    local heartdamage = HF.GetAfflictionStrength(character,"heartdamage",0)
-    local prevheartdamage = heartdamage
-    local lungdamage = HF.GetAfflictionStrength(character,"lungdamage",0)
-    local prevlungdamage = lungdamage
-    local liverdamage = HF.GetAfflictionStrength(character,"liverdamage",0)
-    local prevliverdamage = liverdamage
-    local kidneydamage = HF.GetAfflictionStrength(character,"kidneydamage",0)
-    local prevkidneydamage = kidneydamage
-    local bonedamage = HF.GetAfflictionStrength(character,"bonedamage",0)
-    local prevbonedamage = bonedamage
-    local organdamage = HF.GetAfflictionStrength(character,"organdamage",0)
-    local prevorgandamage = organdamage
-
-    -- sepsis
-    local sepsis = HF.GetAfflictionStrength(character,"sepsis",0)
-    local prevsepsis = sepsis
-    local antibiotics = HF.GetAfflictionStrength(character,"afantibiotics",0)
-    if(antibiotics > 0.1) then sepsis = sepsis - NT.Deltatime end
-    if(sepsis > 0.1 and not stasis) then sepsis = sepsis + 0.05 * NT.Deltatime end
-
-    -- neurotrauma (yoo is this a reference to the barotrauma mod by the name of neurotrauma? truly unruly.)
-    local neurotrauma = HF.GetAfflictionStrength(character,"cerebralhypoxia",0)
-    local prevneurotrauma = neurotrauma
-
-    -- immunity
-    local immunity = 100
-    local previmmunity = 100
-    if(HF.HasAffliction(character,"immunity",0.5)) then 
-        immunity = HF.GetAfflictionStrength(character,"immunity",0)
-        previmmunity = immunity
-    else 
-        -- no immunity affliction! this shouldn't happen.
-        -- it probably got removed by heal all or revive
-        -- assume that blood type has also been lost and assign new bloodtype
-        immunity = 100
-        previmmunity = 0
-        NT.TryRandomizeBlood(character)
+    -- fetch and calculate all the current stats
+    for identifier,data in pairs(NT.CharStats) do
+        if data.getter ~= nil then charData.stats[identifier] = data.getter(charData)
+        else charData.stats[identifier] = data.default or 1 end
     end
-    immunity = HF.Clamp(immunity+(0.5+immunity/100)*NT.Deltatime,1,100)
-
-    -- radiation sickness
-    local rads = HF.GetAfflictionStrength(character,"radiationsickness",0)
-    local prevrads = rads
-    rads = rads - NT.Deltatime * 0.02
-
-    -- internal bleeding
-    local internalbleeding = HF.GetAfflictionStrength(character,"internalbleeding",0)
-    local previnternalbleeding = internalbleeding
-    internalbleeding = internalbleeding - NT.Deltatime * 0.02
+    -- update non-limb-specific afflictions
+    for identifier,data in pairs(NT.Afflictions) do
+        if data.update ~= nil then
+        data.update(charData,identifier) end
+    end
     
 
-    -- acid- and alkalosis
-    local acidosis = HF.GetAfflictionStrength(character,"acidosis",0)
-    local alkalosis = HF.GetAfflictionStrength(character,"alkalosis",0)
-    local prevacidosis = acidosis
-    local prevalkalosis = alkalosis
-    acidosis = HF.Clamp(acidosis-0.03*NT.Deltatime,0,100)
-    alkalosis = HF.Clamp(alkalosis-0.03*NT.Deltatime,0,100)
-    if(acidosis > 1 and alkalosis > 1) then 
-        local min = math.min(acidosis,alkalosis)
-        acidosis = acidosis - min
-        alkalosis = alkalosis - min
+    -- update and apply limb specific stuff
+    local function FetchLimbData(type)
+        local keystring = tostring(type).."afflictions"
+        charData[keystring] = {}
+        for identifier,data in pairs(NT.LimbAfflictions) do
+            local strength = HF.GetAfflictionStrengthLimb(character,type,identifier,data.default or 0)
+            charData[keystring][identifier] = {prev=strength,strength=strength}
+        end
     end
-
-    -- niche injuries and statuses
-    local pneumothorax = HF.GetAfflictionStrength(character,"pneumothorax",0)
-    local prevpneumothorax = pneumothorax
-    if(pneumothorax > 0) then pneumothorax=pneumothorax+0.5*NT.Deltatime end
-    local tamponade = HF.GetAfflictionStrength(character,"tamponade",0)
-    local prevtamponade = tamponade
-    if(tamponade > 0) then tamponade=tamponade+0.5*NT.Deltatime end
-    local hemoshock = HF.GetAfflictionStrength(character,"hemotransfusionshock",0)
-    local heartattack = HF.GetAfflictionStrength(character,"heartattack",0)
-    local prevheartattack = heartattack
-    heartattack = heartattack - NT.Deltatime
-    local seizure = HF.GetAfflictionStrength(character,"seizure",0)
-    local prevseizure= seizure
-    seizure = seizure - NT.Deltatime
-    local stroke = HF.GetAfflictionStrength(character,"stroke",0)
-    local prevstroke = stroke
-    local coma = HF.GetAfflictionStrength(character,"coma",0)
-    local prevcoma = coma
-    coma = coma - NT.Deltatime/5
-    local stun = HF.GetAfflictionStrength(character,"stun",0)
-    local prevstun = stun
-    local slowdown = HF.GetAfflictionStrength(character,"slowdown",0)
-    local prevslowdown = slowdown
-    local speedmultiplier = 1
-    local traumaticshock = HF.GetAfflictionStrength(character,"traumaticshock",0)
-
-    -- anesthesia and drugs
-    local analgesia = HF.GetAfflictionStrength(character,"analgesia",0)
-    local anesthesia = HF.GetAfflictionStrength(character,"anesthesia",0)
-    local drunk = HF.GetAfflictionStrength(character,"drunk",0)
-    local adrenaline = HF.GetAfflictionStrength(character,"afadrenaline",0)
-    local thiamine = HF.GetAfflictionStrength(character,"afthiamine",0)
-    local streptokinase = HF.GetAfflictionStrength(character,"afstreptokinase",0)
-    local mannitol = HF.GetAfflictionStrength(character,"afmannitol",0)
-    local sedated = analgesia > 0 or anesthesia > 10 or drunk > 30 or stasis
-
-    -- addiction
-    local alcoholwithdrawal = HF.GetAfflictionStrength(character,"alcoholwithdrawal",0)
-    local withdrawal = math.max(
-        HF.GetAfflictionStrength(character,"opiatewithdrawal",0),
-        HF.GetAfflictionStrength(character,"chemwithdrawal",0),
-        alcoholwithdrawal)
-    local overdose = HF.GetAfflictionStrength(character,"opiateoverdose",0)
-
-    
-
-    -- /// Calculate limbs ///
-    local healMultiplier = NTC.GetMultiplier(character,"healingrate")
-    local prelimbimmunity = immunity
-    local clottingMultiplier = HF.Clamp(1-liverdamage/100,0,1)*healMultiplier*HF.Clamp(1-streptokinase,0,1)
-    local bonegrowthCount = 0
-
-    local function updateLimb(character,limbtype)
-
-        local function isExtremity() 
-            return not limbtype==LimbType.Torso and not limbtype==LimbType.Head
+    local function UpdateLimb(type)
+        local keystring = tostring(type).."afflictions"
+        for identifier,data in pairs(NT.LimbAfflictions) do
+            if data.update ~= nil then
+            data.update(charData,charData[keystring],identifier,type) end
         end
-
-        -- /// fetch stats ///
-
-        local bandaged = HF.GetAfflictionStrengthLimb(character,limbtype,"bandaged",0)
-        local bandagedClamped = HF.Clamp(bandaged,0,1)
-        local prevbandaged = bandaged
-        local dirtybandage = HF.GetAfflictionStrengthLimb(character,limbtype,"dirtybandage",0)
-        local prevdirtybandage = dirtybandage
-        -- slowdown on bandage and gypsum
-        if bandaged > 0.1 or dirtybandage > 0.1 then speedmultiplier = speedmultiplier * 0.9 end
-        local gypsumd = HF.Clamp(HF.GetAfflictionStrengthLimb(character,limbtype,"gypsumcast",0),0,1)
-        if (gypsumd > 0.1) then speedmultiplier = speedmultiplier * 0.8 end
-
-        local ointmented = HF.Clamp(HF.GetAfflictionStrengthLimb(character,limbtype,"ointmented",0),0,1)
-        local bonegrowth = HF.Clamp(HF.GetAfflictionStrengthLimb(character,limbtype,"bonegrowth",0),0,1)
-        if (bonegrowth > 0.1) then bonegrowthCount = bonegrowthCount+1 end
-        local bleeding = HF.GetAfflictionStrengthLimb(character,limbtype,"bleeding",0)
-        local prevbleeding = bleeding
-        -- clotting modification
-        if(bleeding > 0 and math.abs(clottingMultiplier-1) > 0.05) then bleeding = bleeding - (clottingMultiplier-1) * 0.1 * NT.Deltatime end
-
-        -- physical damage types
-        local burn = HF.GetAfflictionStrengthLimb(character,limbtype,"burn",0)
-        local prevburn = burn
-        burn = burn - (prelimbimmunity/3000 + bandagedClamped*0.1)*healMultiplier*NT.Deltatime
-        local lacerations = HF.GetAfflictionStrengthLimb(character,limbtype,"lacerations",0)
-        local prevlacerations = lacerations
-        lacerations = lacerations - (prelimbimmunity/3000 + bandagedClamped*0.1)*healMultiplier*NT.Deltatime
-        local gunshotwound = HF.GetAfflictionStrengthLimb(character,limbtype,"gunshotwound",0)
-        local prevgunshotwound = gunshotwound
-        gunshotwound = gunshotwound - (prelimbimmunity/3000 + bandagedClamped*0.1)*healMultiplier*NT.Deltatime
-        local bitewounds = HF.GetAfflictionStrengthLimb(character,limbtype,"bitewounds",0)
-        local prevbitewounds = bitewounds
-        bitewounds = bitewounds - (prelimbimmunity/3000 + bandagedClamped*0.1)*healMultiplier*NT.Deltatime
-        local explosiondamage = HF.GetAfflictionStrengthLimb(character,limbtype,"explosiondamage",0)
-        local prevexplosiondamage = explosiondamage
-        explosiondamage = explosiondamage - (prelimbimmunity/3000 + bandagedClamped*0.1)*healMultiplier*NT.Deltatime
-        local blunttrauma = HF.GetAfflictionStrengthLimb(character,limbtype,"blunttrauma",0)
-        local prevblunttrauma = blunttrauma
-        blunttrauma = blunttrauma - (prelimbimmunity/8000 + bandagedClamped*0.1)*healMultiplier*NT.Deltatime
-        local internaldamage = HF.GetAfflictionStrengthLimb(character,limbtype,"internaldamage",0)
-        local previnternaldamage = internaldamage
-        internaldamage = internaldamage - 0.05*healMultiplier*NT.Deltatime
-        -- infection
-        local infectedwound = HF.GetAfflictionStrengthLimb(character,limbtype,"infectedwound",0)
-        local previnfectedwound = infectedwound
-        -- foreign bodies
-        local foreignbody = HF.GetAfflictionStrengthLimb(character,limbtype,"foreignbody",0)
-        local prevforeignbody = foreignbody
-        if(foreignbody < 15) then foreignbody = foreignbody-0.05*healMultiplier*NT.Deltatime end
-        -- gangrene
-        local gangrene = 0
-        local prevgangrene = 0
-        if(isExtremity()) then 
-            gangrene = HF.GetAfflictionStrengthLimb(character,limbtype,"gangrene",0)
-            prevgangrene = gangrene
-            if(gangrene < 15 and gangrene > 0) then gangrene = gangrene - 0.01*healMultiplier*NT.Deltatime end
-            if(sepsis > 5) then gangrene = gangrene + HF.BoolToNum(HF.Chance(0.1+sepsis/300),1) * NT.Deltatime end
-            local arteriesclamp = HF.GetAfflictionStrengthLimb(character,limbtype,"arteriesclamp",0)
-            if(arteriesclamp > 0) then gangrene = gangrene + HF.BoolToNum(HF.Chance(0.1),1) * 0.5 * NT.Deltatime end
-        end
-
-        -- /// calculate infection and immunity ///
-        local hassym_inflammation = infectedwound > 10 or foreignbody > 15
-        local infectindex = ( -prelimbimmunity/200 - bandagedClamped*1.5 - ointmented*3 + burn/20 + lacerations/40 + bitewounds/30 + gunshotwound/40 + explosiondamage/40 )*NT.Deltatime
-        if(hassym_inflammation) then infectindex = infectindex-0.8*NT.Deltatime end
-        local wounddamage = burn+lacerations+gunshotwound+bitewounds+explosiondamage
-        if(dirtybandage > 10 and wounddamage > 5) then infectindex = infectindex+(wounddamage/40+dirtybandage/20)*NT.Deltatime end
-        infectedwound = infectedwound + infectindex/5
-        immunity = immunity - HF.Clamp(infectindex/3,0,10)
-
-        -- turning a bandage into a dirty bandage
-        local bandageDirtifySpeed = 0.1 + wounddamage/100 + bleeding/20
-        if bandaged > 0 then 
-            bandaged=bandaged-bandageDirtifySpeed*NT.Deltatime 
-            if bandaged <= 0 then 
-                dirtybandage = math.max(dirtybandage,1)
-                bandaged = 0
+    end
+    local function ApplyLimb(type)
+        local keystring = tostring(type).."afflictions"
+        for identifier,data in pairs(charData[keystring]) do
+            local newval = HF.Clamp(
+            data.strength,
+            NT.LimbAfflictions[identifier].min or 0,
+            NT.LimbAfflictions[identifier].max or 100)
+            if newval ~= data.prev then
+                HF.SetAfflictionLimb(character,identifier,type,newval)
             end
         end
-        if dirtybandage > 0 then dirtybandage=dirtybandage+bandageDirtifySpeed*NT.Deltatime end
-
-        -- check for arterial cut triggers and foreign body sepsis
-        local foreignbodycutchance = ((HF.Minimum(foreignbody,20)/100)^4)*0.5
-        if (bleeding > 80 or HF.Chance(foreignbodycutchance)) then
-            if(limbtype==LimbType.RightArm) then HF.AddAfflictionLimb(character,"ra_arterialcut",limbtype,1)
-            elseif(limbtype==LimbType.LeftArm) then HF.AddAfflictionLimb(character,"la_arterialcut",limbtype,1)
-            elseif(limbtype==LimbType.RightLeg) then HF.AddAfflictionLimb(character,"rl_arterialcut",limbtype,1)
-            elseif(limbtype==LimbType.LeftLeg) then HF.AddAfflictionLimb(character,"ll_arterialcut",limbtype,1)
-            elseif(limbtype==LimbType.Torso) then HF.AddAfflictionLimb(character,"t_arterialcut",limbtype,1)
-            elseif(limbtype==LimbType.Head) then HF.AddAfflictionLimb(character,"h_arterialcut",limbtype,1)
-            end
-        end
-
-        -- sepsis
-        local sepsischance = HF.Minimum(gangrene,15,0) / 400 + HF.Minimum(infectedwound,50) / 1000 + foreignbodycutchance
-        if(HF.Chance(sepsischance)) then
-            sepsis = sepsis + NT.Deltatime
-        end
-
-        -- check for bone death fracture triggers
-        if (bonegrowth <= 0.1 and bonedamage > 90 and HF.Chance(0.01)) then 
-            if(limbtype==LimbType.RightArm) then HF.AddAfflictionLimb(character,"ra_fracture",limbtype,1)
-            elseif(limbtype==LimbType.LeftArm) then HF.AddAfflictionLimb(character,"la_fracture",limbtype,1)
-            elseif(limbtype==LimbType.RightLeg) then HF.AddAfflictionLimb(character,"rl_fracture",limbtype,1)
-            elseif(limbtype==LimbType.LeftLeg) then HF.AddAfflictionLimb(character,"ll_fracture",limbtype,1)
-            elseif(limbtype==LimbType.Torso) then HF.AddAfflictionLimb(character,"t_fracture",limbtype,1)
-            elseif(limbtype==LimbType.Head) then
-                if(HF.Chance(0.5)) then HF.AddAfflictionLimb(character,"h_fracture",limbtype,1)
-                else HF.AddAfflictionLimb(character,"n_fracture",limbtype,1) end
-            end
-        end
-
-        -- check for spasm trigger
-        if (seizure > 0.1) then 
-            if(HF.Chance(0.5)) then 
-                HF.AddAfflictionLimb(character,"spasm",limbtype,10)
-            end
-        end
-
-        -- /// apply changes ///
-
-        HF.ApplyAfflictionChangeLimb(character,limbtype,"burn",burn,prevburn,0,200)
-        HF.ApplyAfflictionChangeLimb(character,limbtype,"bleeding",bleeding,prevbleeding,0,100)
-        HF.ApplyAfflictionChangeLimb(character,limbtype,"lacerations",lacerations,prevlacerations,0,200)
-        HF.ApplyAfflictionChangeLimb(character,limbtype,"gunshotwound",gunshotwound,prevgunshotwound,0,200)
-        HF.ApplyAfflictionChangeLimb(character,limbtype,"bitewounds",bitewounds,prevbitewounds,0,200)
-        HF.ApplyAfflictionChangeLimb(character,limbtype,"explosiondamage",explosiondamage,prevexplosiondamage,0,200)
-        HF.ApplyAfflictionChangeLimb(character,limbtype,"blunttrauma",blunttrauma,prevblunttrauma,0,200)
-        HF.ApplyAfflictionChangeLimb(character,limbtype,"internaldamage",internaldamage,previnternaldamage,0,200)
-        HF.ApplyAfflictionChangeLimb(character,limbtype,"foreignbody",foreignbody,prevforeignbody,0,100)
-        HF.ApplyAfflictionChangeLimb(character,limbtype,"infectedwound",infectedwound,previnfectedwound,0,100)
-        HF.ApplyAfflictionChangeLimb(character,limbtype,"gangrene",gangrene,prevgangrene,0,100)
-        HF.ApplyAfflictionChangeLimb(character,limbtype,"dirtybandage",dirtybandage,prevdirtybandage,0,100)
-        HF.ApplyAfflictionChangeLimb(character,limbtype,"bandaged",bandaged,prevbandaged,0,100)
-    
-        HF.ApplySymptomLimb(character,limbtype,"inflammation",hassym_inflammation,true)
     end
 
-    -- being in stasis completely halts activity in limbs
-    if(not stasis) then
-        updateLimb(character,LimbType.Torso)
-        updateLimb(character,LimbType.Head)
-        updateLimb(character,LimbType.LeftLeg)
-        updateLimb(character,LimbType.RightLeg)
-        updateLimb(character,LimbType.LeftArm)
-        updateLimb(character,LimbType.RightArm)
-
-        immunity = HF.Clamp(immunity,1,100)
-    end
-
-    -- arm locking
-    local la_fracture = HF.GetAfflictionStrength(character,"la_fracture",0)
-    local ra_fracture = HF.GetAfflictionStrength(character,"ra_fracture",0)
-    local tla_amputation = HF.GetAfflictionStrength(character,"tla_amputation",0)
-    local tra_amputation = HF.GetAfflictionStrength(character,"tra_amputation",0)
-    local sla_amputation = HF.GetAfflictionStrength(character,"sla_amputation",0)
-    local sra_amputation = HF.GetAfflictionStrength(character,"sra_amputation",0)
-    local ra_dislocation = HF.GetAfflictionStrength(character,"dislocation3",0)
-    local la_dislocation = HF.GetAfflictionStrength(character,"dislocation4",0)
-    local t_paralysis = HF.GetAfflictionStrength(character,"t_paralysis",0)
-    if(t_paralysis > 0) then speedmultiplier=0 end
-
-    local lockleftarm = not NTC.GetSymptomFalse(character,"lockleftarm") and (NTC.GetSymptom(character,"lockleftarm") or (t_paralysis > 0 or tla_amputation > 0 or sla_amputation > 0) or (HF.GetAfflictionStrengthLimb(character,LimbType.LeftArm,"bandaged",0) <= 0 and la_dislocation > 0) or (HF.GetAfflictionStrengthLimb(character,LimbType.LeftArm,"gypsumcast",0) <= 0 and la_fracture > 0))
-    local lockrightarm = not NTC.GetSymptomFalse(character,"lockrightarm") and (NTC.GetSymptom(character,"lockrightarm") or (t_paralysis > 0 or tra_amputation > 0 or sra_amputation > 0) or (HF.GetAfflictionStrengthLimb(character,LimbType.RightArm,"bandaged",0) <= 0 and ra_dislocation > 0) or (HF.GetAfflictionStrengthLimb(character,LimbType.RightArm,"gypsumcast",0) <= 0 and ra_fracture > 0))
-
-    local leftlockitem = character.Inventory.FindItemByIdentifier("armlock2",false)
-    local rightlockitem = character.Inventory.FindItemByIdentifier("armlock1",false)
-    local leftarmlocked = leftlockitem ~= nil
-    local rightarmlocked = rightlockitem ~= nil
-
-    if(leftarmlocked and not lockleftarm) then HF.RemoveItem(leftlockitem) end
-    if(rightarmlocked and not lockrightarm) then HF.RemoveItem(rightlockitem) end
-
-    if(not leftarmlocked and lockleftarm) then HF.ForceArmLock(character,"armlock2") end
-    if(not rightarmlocked and lockrightarm) then HF.ForceArmLock(character,"armlock1") end
-
-    local lockhands = lockleftarm and lockrightarm
-
-    -- leg function
-    local ll_fracture = HF.GetAfflictionStrength(character,"ll_fracture",0)
-    local rl_fracture = HF.GetAfflictionStrength(character,"rl_fracture",0)
-    local tll_amputation = HF.GetAfflictionStrength(character,"tll_amputation",0)
-    local trl_amputation = HF.GetAfflictionStrength(character,"trl_amputation",0)
-    local sll_amputation = HF.GetAfflictionStrength(character,"sll_amputation",0)
-    local srl_amputation = HF.GetAfflictionStrength(character,"srl_amputation",0)
-    local rl_dislocation = HF.GetAfflictionStrength(character,"dislocation1",0)
-    local ll_dislocation = HF.GetAfflictionStrength(character,"dislocation2",0)
-
-    local lockleftleg = not NTC.GetSymptomFalse(character,"lockleftleg") and (NTC.GetSymptom(character,"lockleftleg") or (t_paralysis > 0 or tll_amputation > 0 or sll_amputation > 0) or (HF.GetAfflictionStrengthLimb(character,LimbType.LeftLeg,"bandaged",0) <= 0 and ll_dislocation > 0) or (HF.GetAfflictionStrengthLimb(character,LimbType.LeftLeg,"gypsumcast",0) <= 0 and ll_fracture > 0))
-    local lockrightleg = not NTC.GetSymptomFalse(character,"lockrightleg") and (NTC.GetSymptom(character,"lockrightleg") or (t_paralysis > 0 or trl_amputation > 0 or srl_amputation > 0) or (HF.GetAfflictionStrengthLimb(character,LimbType.RightLeg,"bandaged",0) <= 0 and rl_dislocation > 0) or (HF.GetAfflictionStrengthLimb(character,LimbType.LeftLeg,"gypsumcast",0) <= 0 and rl_fracture > 0))
-
-    -- wheelchair
-    local outerwearItem = character.Inventory.GetItemAt(4)
-    local usesWheelchair = outerwearItem ~= nil and outerwearItem.Prefab.Identifier == "wheelchair"
-    if usesWheelchair then
-        lockleftleg = lockleftarm
-        lockrightleg = lockrightarm
-    end
-
-    if(lockleftleg or lockrightleg) then speedmultiplier = speedmultiplier*0.5 end
-
-    if(lockleftleg and lockrightleg) then stun = math.max(stun,5) end
-
-    -- /// Calculate afflictions ///
-
-    if(not stasis) then 
-
-        -- bloodloss
-        if internalbleeding > 0 then
-            bloodloss = bloodloss + internalbleeding * (1/40) * NT.Deltatime
+    -- stasis completely halts activity in limbs
+    if not charData.stats.stasis then
+        for type in limbtypes do
+            FetchLimbData(type)
         end
-
-        -- calculate new blood pressure
-        local desiredbloodpressure =
-            (bloodamount - tamponade/2) * -- halved if full tamponade
-            (1+0.5*((liverdamage/100)*(liverdamage/100))) * -- elevated if full liver damage
-            (1+0.5*((kidneydamage/100)*(kidneydamage/100))) * -- elevated if full kidney damage
-            (1 + alcoholwithdrawal/200 ) * -- elevated if alcohol withdrawal
-            ((100-traumaticshock)/100) -- none if full traumatic shock
-            * NTC.GetMultiplier(character,"bloodpressure")
-
-        local bloodpressurelerp = 0.2
-        if(desiredbloodpressure>bloodpressure) then bloodpressurelerp = bloodpressurelerp/3 end
-        bloodpressure = HF.Clamp(HF.Round(HF.Lerp(bloodpressure,desiredbloodpressure,bloodpressurelerp)),5,200)
-
-        -- /// calculate new hypoxemia ///
-
-        -- completely cancel out hypoxemia regeneration if penumothorax is full
-        availableoxygen = math.min(availableoxygen,100-pneumothorax/2)
-        
-        local hypoxemiagain = NTC.GetMultiplier(character,"hypoxemiagain")
-        local regularHypoxemiaChange = (availableoxygen-50) / 8
-        if regularHypoxemiaChange > 0 then
-            -- not enough oxygen, increase hypoxemia
-            regularHypoxemiaChange = regularHypoxemiaChange * hypoxemiagain
-        else
-            regularHypoxemiaChange = regularHypoxemiaChange * 2
+        for type in limbtypes do
+            UpdateLimb(type)
         end
-
-        hypoxemia = HF.Clamp(hypoxemia + (
-            - math.min(0,(bloodpressure-70) / 7) * hypoxemiagain    -- loss because of low blood pressure (-10 at 0 bp)
-            - math.min(0,(bloodamount-60) / 4) * hypoxemiagain      -- loss because of low blood amount (-15 at 0 blood)
-            - regularHypoxemiaChange                                -- change because of oxygen in lungs (-6.25 <> +12.5)
-        )* NT.Deltatime,0,100)
-
-        -- calculate new neurotrauma
-        neurotrauma = neurotrauma + 
-            ( -0.1*healMultiplier +                     -- passive regen
-            hypoxemia/100 +                             -- from hypoxemia
-            HF.Clamp(stroke,0,20)*0.1 +                  -- from stroke
-            sepsis/100*0.4 +                            -- from sepsis
-            liverdamage/800 +                           -- from liverdamage
-            kidneydamage/1000                             -- from kidneydamage
-        )*NTC.GetMultiplier(character,"neurotraumagain") -- NTC multiplier
-        * (1-HF.Clamp(mannitol,0,0.5))                  -- half if mannitol
-        * NT.Deltatime
-        neurotrauma = HF.Clamp(neurotrauma,0,200)
-
-        -- /// calculate organ damage ///
-        local specificOrganDamageHealMultiplier = NTC.GetMultiplier(character,"anyspecificorgandamage") + HF.Clamp(thiamine,0,1)*4
-        local neworgandamage = (sepsis/300 + hypoxemia/400 + math.max(rads-25,0)/400)*NTC.GetMultiplier(character,"anyorgandamage")*NT.Deltatime
-        if(stasis) then neworgandamage=0 end
-        local function organDamageCalc(damagevalue)
-            if (damagevalue >= 99) then return 100 end
-            return damagevalue - 0.01 * healMultiplier * specificOrganDamageHealMultiplier * NT.Deltatime
+        for type in limbtypes do
+            ApplyLimb(type)
         end
-        local function kidneyDamageCalc(damagevalue)
-            if (damagevalue >= 99) then return 100 end
-            if (damagevalue >= 50) then 
-                if (damagevalue <= 51) then return damagevalue end
-                return damagevalue - 0.01 * healMultiplier * specificOrganDamageHealMultiplier * NT.Deltatime 
-            end
-            return damagevalue - 0.02 * healMultiplier * specificOrganDamageHealMultiplier * NT.Deltatime
+    end
+
+    -- apply non-limb-specific changes
+    for identifier,data in pairs(charData.afflictions) do
+        local newval = HF.Clamp(
+            data.strength,
+            NT.Afflictions[identifier].min or 0,
+            NT.Afflictions[identifier].max or 100)
+        if newval ~= data.prev then
+            HF.SetAffliction(character,identifier,newval)
         end
-
-        heartdamage = organDamageCalc(heartdamage + NTC.GetMultiplier(character,"heartdamagegain")*(neworgandamage + HF.Clamp(heartattack,0,0.5) * NT.Deltatime))
-        lungdamage = organDamageCalc(lungdamage + NTC.GetMultiplier(character,"lungdamagegain")*(neworgandamage + math.max(rads-25,0)/800*NT.Deltatime))
-        liverdamage = organDamageCalc(liverdamage + NTC.GetMultiplier(character,"liverdamagegain")*neworgandamage)
-        kidneydamage = kidneyDamageCalc(kidneydamage + NTC.GetMultiplier(character,"kidneydamagegain")*(neworgandamage + HF.Clamp((bloodpressure-120)/160,0,0.5)*NT.Deltatime*0.5))
-        bonedamage = organDamageCalc(bonedamage + NTC.GetMultiplier(character,"bonedamagegain")*(sepsis/500 + hypoxemia/1000 + math.max(rads-25,0)/600)*NT.Deltatime)
-        organdamage = organdamage + neworgandamage - 0.03 * healMultiplier * NT.Deltatime
-
-        if(bonedamage < 90) then bonedamage = bonedamage - (0.05 + bonegrowthCount*0.3) * healMultiplier * NT.Deltatime
-        elseif(bonegrowthCount >= 6) then bonedamage = bonedamage - 2 * NT.Deltatime end
-        if(kidneydamage > 70) then bonedamage = bonedamage + (kidneydamage-70)/30*0.15*NT.Deltatime end
-        
     end
-
-    
-
-    -- /// calculate symptoms ///
-    -- I am deeply sorry for anyone unfortunate enough to stumble upon this behemoth of code
-
-    if liverdamage >= 99 and not NTC.GetSymptom(character,"sym_hematemesis") and HF.Chance(0.05) then
-        -- if liver failed: 5% chance for 6-20 seconds of blood vomiting and internal bleeding
-        NTC.SetSymptomTrue(character,"sym_hematemesis",math.random(3,10))
-        internalbleeding = internalbleeding+2
-    end
-    if kidneydamage >= 60 and not NTC.GetSymptom(character,"sym_vomiting") and HF.Chance((kidneydamage-60)/40*0.07) then
-        -- at 60% kidney damage: 0% chance for vomiting
-        -- at 100% kidney damage: 7% chance for vomiting
-        NTC.SetSymptomTrue(character,"sym_vomiting",math.random(3,10))
-    end
-
-    local hassym_unconsciousness = not NTC.GetSymptomFalse(character,"sym_unconsciousness") and ( NTC.GetSymptom(character,"sym_unconsciousness") or stasis or removedbrain > 0 or (character.Vitality <= 0 and not HF.HasAbilityFlag(character,12)) or neurotrauma > 100 or coma > 15 or hypoxemia > 80 or t_arterialcut or seizure > 0.1 )
-    local hassym_tachycardia = not NTC.GetSymptomFalse(character,"tachycardia") and cardiacarrest < 1 and (NTC.GetSymptom(character,"tachycardia") or sepsis > 20 or bloodamount < 60 or bloodpressure < 80 or acidosis > 20 or pneumothorax > 30 or t_arterialcut or adrenaline > 1 or alcoholwithdrawal > 75)
-    local hassym_hyperventilation = not NTC.GetSymptomFalse(character,"hyperventilation") and respiratoryarrest < 1 and (NTC.GetSymptom(character,"hyperventilation") or hypoxemia > 10 or bloodpressure < 80 or pneumothorax > 15 or sepsis > 15)
-    local hassym_hypoventilation = not NTC.GetSymptomFalse(character,"hypoventilation") and respiratoryarrest < 1 and (NTC.GetSymptom(character,"hypoventilation") or analgesia > 20 or anesthesia > 40)
-    if(hassym_hyperventilation and hassym_hypoventilation) then 
-        hassym_hyperventilation = false
-        hassym_hypoventilation = false
-    end
-    local hassym_dyspnea = not NTC.GetSymptomFalse(character,"dyspnea") and respiratoryarrest < 1 and (NTC.GetSymptom(character,"dyspnea") or heartattack > 1 or heartdamage > 80 or hypoxemia > 20 or lungdamage > 45 or pneumothorax > 40 or tamponade > 10 or (hemoshock>0 and hemoshock < 70))
-    local hassym_cough = not NTC.GetSymptomFalse(character,"sym_cough") and not hassym_unconsciousness and (NTC.GetSymptom(character,"sym_cough") or lungdamage > 50 or heartdamage > 50 or tamponade > 20)
-    local hassym_paleskin = not NTC.GetSymptomFalse(character,"sym_paleskin") and (NTC.GetSymptom(character,"sym_paleskin") or bloodamount < 60 or bloodpressure < 50)
-    local hassym_lightheadedness = not NTC.GetSymptomFalse(character,"sym_lightheadedness") and not hassym_unconsciousness and (NTC.GetSymptom(character,"sym_lightheadedness") or bloodpressure < 60)
-    local hassym_blurredvision = not NTC.GetSymptomFalse(character,"sym_blurredvision") and not hassym_unconsciousness and (NTC.GetSymptom(character,"sym_blurredvision") or bloodpressure < 55)
-    local hassym_confusion = not NTC.GetSymptomFalse(character,"sym_confusion") and not hassym_unconsciousness and (NTC.GetSymptom(character,"sym_confusion") or acidosis > 15 or bloodpressure < 30 or hypoxemia > 50 or sepsis > 40 or alcoholwithdrawal > 80)
-    local hassym_headache = not NTC.GetSymptomFalse(character,"sym_headache") and not hassym_unconsciousness and not sedated and (NTC.GetSymptom(character,"sym_headache") or bloodamount < 50 or acidosis > 20 or stroke > 1 or hypoxemia > 40 or bloodpressure < 60 or alcoholwithdrawal > 50 or HF.HasAffliction(character,"h_fracture",1))
-    local hassym_legswelling = not NTC.GetSymptomFalse(character,"sym_legswelling") and HF.GetAfflictionStrength(character,"rl_cyber",0) < 0.1 and (NTC.GetSymptom(character,"sym_legswelling") or liverdamage > 40 or kidneydamage > 60 or heartdamage > 80)
-    local hassym_weakness = not NTC.GetSymptomFalse(character,"sym_weakness") and not hassym_unconsciousness and (NTC.GetSymptom(character,"sym_weakness") or tamponade > 30 or bloodamount < 40 or acidosis > 35)
-    local hassym_wheezing = not NTC.GetSymptomFalse(character,"sym_wheezing") and respiratoryarrest < 1 and (NTC.GetSymptom(character,"sym_wheezing") or (hemoshock>0 and hemoshock < 90))
-    local hassym_vomiting = not NTC.GetSymptomFalse(character,"sym_vomiting") and (NTC.GetSymptom(character,"sym_vomiting") or drunk > 100 or (hemoshock>0 and hemoshock < 40) or alcoholwithdrawal > 60)
-    local hassym_nausea = not NTC.GetSymptomFalse(character,"sym_nausea") and not hassym_unconsciousness and (NTC.GetSymptom(character,"sym_nausea") or kidneydamage > 60 or rads > 80 or (hemoshock>0 and hemoshock < 90) or withdrawal > 40)
-    local hassym_vomitingblood = not NTC.GetSymptomFalse(character,"sym_hematemesis") and (NTC.GetSymptom(character,"sym_hematemesis") or internalbleeding > 50)
-    local hassym_fever = not NTC.GetSymptomFalse(character,"sym_fever") and (NTC.GetSymptom(character,"sym_fever") or sepsis > 5 or alcoholwithdrawal > 90)
-    local hassym_abdomdiscomfort = not NTC.GetSymptomFalse(character,"sym_abdomdiscomfort") and not hassym_unconsciousness and (NTC.GetSymptom(character,"sym_abdomdiscomfort") or liverdamage > 65)
-    local hassym_bloating = not NTC.GetSymptomFalse(character,"sym_bloating") and (NTC.GetSymptom(character,"sym_bloating") or liverdamage > 50)
-    local hassym_jaundice = not NTC.GetSymptomFalse(character,"sym_jaundice") and (NTC.GetSymptom(character,"sym_jaundice") or liverdamage > 80)
-    local hassym_sweating = not NTC.GetSymptomFalse(character,"sym_sweating") and (NTC.GetSymptom(character,"sym_sweating") or heartattack > 1 or withdrawal > 30)
-    local hassym_palpitations = not NTC.GetSymptomFalse(character,"sym_palpitations") and cardiacarrest < 1 and (NTC.GetSymptom(character,"sym_palpitations") or alkalosis > 20)
-    local hassym_craving = not NTC.GetSymptomFalse(character,"sym_craving") and not hassym_unconsciousness and (NTC.GetSymptom(character,"sym_craving") or withdrawal > 20)
-    local hassym_pain_abdominal = not NTC.GetSymptomFalse(character,"pain_abdominal") and not hassym_unconsciousness and not sedated and (NTC.GetSymptom(character,"pain_abdominal") or (hemoshock>0 and hemoshock < 80) or t_arterialcut)
-    local hassym_pain_chest = not NTC.GetSymptomFalse(character,"pain_chest") and not hassym_unconsciousness and not sedated and (NTC.GetSymptom(character,"pain_chest") or (hemoshock>0 and hemoshock < 60) or t_fracture or t_arterialcut)
-
-    local triggersym_seizure = not NTC.GetSymptomFalse(character,"triggersym_seizure") and not stasis and (NTC.GetSymptom(character,"triggersym_seizure") or (stroke > 1 and HF.Chance(0.05)) or (acidosis > 60 and HF.Chance(0.05)) or (alkalosis > 60 and HF.Chance(0.05)) or HF.Chance(HF.Minimum(rads,50,0)/200*0.1) or (alcoholwithdrawal > 50 and HF.Chance(alcoholwithdrawal/1000)))
-    local triggersym_coma = not NTC.GetSymptomFalse(character,"triggersym_coma") and not stasis and (NTC.GetSymptom(character,"triggersym_coma") or (cardiacarrest > 1 and HF.Chance(0.05)) or (stroke > 1 and HF.Chance(0.05)) or (acidosis > 60 and HF.Chance(0.05+(acidosis-60)/100)))
-    local triggersym_stroke = not NTC.GetSymptomFalse(character,"triggersym_stroke") and not stasis and (NTC.GetSymptom(character,"triggersym_stroke") or (bloodpressure > 150 and HF.Chance((bloodpressure-150)/50*0.02+HF.Clamp(streptokinase,0,1)*0.05)))
-    local triggersym_heartattack = not NTC.GetSymptomFalse(character,"triggersym_heartattack") and not stasis and streptokinase <= 0 and (NTC.GetSymptom(character,"triggersym_heartattack") or (bloodpressure > 150 and HF.Chance((bloodpressure-150)/50*0.02)))
-    local triggersym_cardiacarrest = not NTC.GetSymptomFalse(character,"triggersym_cardiacarrest") and (NTC.GetSymptom(character,"triggersym_cardiacarrest") or stasis or removedheart > 0 or removedbrain > 0 or (heartdamage > 99 and HF.Chance(0.3)) or (traumaticshock > 20 and HF.Chance(0.1)) or ((coma > 40 or hypoxemia > 60 or bloodpressure < 20) and HF.Chance(0.1)))
-    local triggersym_respiratoryarrest = not NTC.GetSymptomFalse(character,"triggersym_respiratoryarrest") and (NTC.GetSymptom(character,"triggersym_respiratoryarrest") or stasis or removedlung > 0 or removedbrain > 0 or (lungdamage > 99 and HF.Chance(0.3)) or (traumaticshock > 10 and HF.Chance(0.1)) or ((neurotrauma > 100 or hypoxemia > 70) and HF.Chance(0.1)))
-
-    
-
-    -- /// do some post-symptom calculations ///
-
-    acidosis = acidosis + (HF.BoolToNum(hassym_hypoventilation,1) * 0.13 + math.max(0,kidneydamage - 80)/20*0.1) * NT.Deltatime
-    alkalosis = alkalosis + (HF.BoolToNum(hassym_hyperventilation,1) * 0.13) * NT.Deltatime
-    stroke = stroke - (1/20)*clottingMultiplier* NT.Deltatime
-
-    if(hassym_vomiting) then speedmultiplier = speedmultiplier*0.8 end
-    if(hassym_nausea) then speedmultiplier = speedmultiplier*0.9 end
-    if(anesthesia > 0) then speedmultiplier = speedmultiplier*0.5 end
-    if(overdose > 50) then speedmultiplier = speedmultiplier*0.5 end
-
-    if(withdrawal > 80) then speedmultiplier = speedmultiplier*0.5
-    elseif(withdrawal > 40) then speedmultiplier = speedmultiplier*0.7
-    elseif(withdrawal > 20) then speedmultiplier = speedmultiplier*0.9 end
-
-    if(drunk > 80) then speedmultiplier = speedmultiplier*0.5
-    elseif(drunk > 40) then speedmultiplier = speedmultiplier*0.7
-    elseif(drunk > 20) then speedmultiplier = speedmultiplier*0.8 end
-
-    speedmultiplier = speedmultiplier * NTC.GetSpeedMultiplier(character)
-    slowdown = HF.Clamp(100 * (1-speedmultiplier),0,100)
-
-    -- /// Apply changes ///
-
-    HF.ApplyAfflictionChange(character,"bloodloss",bloodloss,prevbloodloss,0,200)
-    HF.ApplyAfflictionChange(character,"bloodpressure",bloodpressure,prevbloodpressure,0,200)
-    HF.ApplyAfflictionChange(character,"hypoxemia",hypoxemia,prevhypoxemia,0,100)
-    HF.ApplyAfflictionChange(character,"heartdamage",heartdamage,prevheartdamage,0,100)
-    HF.ApplyAfflictionChange(character,"lungdamage",lungdamage,prevlungdamage,0,100)
-    HF.ApplyAfflictionChange(character,"liverdamage",liverdamage,prevliverdamage,0,100)
-    HF.ApplyAfflictionChange(character,"kidneydamage",kidneydamage,prevkidneydamage,0,100)
-    HF.ApplyAfflictionChange(character,"bonedamage",bonedamage,prevbonedamage,0,100)
-    HF.ApplyAfflictionChange(character,"organdamage",organdamage,prevorgandamage,0,200)
-    HF.ApplyAfflictionChange(character,"sepsis",sepsis,prevsepsis,0,100)
-    HF.ApplyAfflictionChange(character,"cerebralhypoxia",neurotrauma,prevneurotrauma,0,200)
-    HF.ApplyAfflictionChange(character,"immunity",immunity,previmmunity,1,100)
-    HF.ApplyAfflictionChange(character,"radiationsickness",rads,prevrads,0,200)
-    HF.ApplyAfflictionChange(character,"internalbleeding",internalbleeding,previnternalbleeding,0,100)
-    HF.ApplyAfflictionChange(character,"acidosis",acidosis,prevacidosis,0,100)
-    HF.ApplyAfflictionChange(character,"alkalosis",alkalosis,prevalkalosis,0,100)
-    HF.ApplyAfflictionChange(character,"pneumothorax",pneumothorax,prevpneumothorax,0,100)
-    HF.ApplyAfflictionChange(character,"tamponade",tamponade,prevtamponade,0,100)
-    HF.ApplyAfflictionChange(character,"stun",stun,prevstun,0,100)
-    HF.ApplyAfflictionChange(character,"slowdown",slowdown,prevslowdown,0,100)
-
-    HF.ApplyAfflictionChange(character,"heartattack",heartattack + HF.BoolToNum(triggersym_heartattack,50),prevheartattack,0,100)
-    HF.ApplyAfflictionChange(character,"seizure",seizure + HF.BoolToNum(triggersym_seizure,10),prevseizure,0,100)
-    HF.ApplyAfflictionChange(character,"stroke",stroke + HF.BoolToNum(triggersym_stroke,5),prevstroke,0,100)
-    HF.ApplyAfflictionChange(character,"coma",coma + HF.BoolToNum(triggersym_coma,14),prevcoma,0,100)
-    HF.ApplyAfflictionChange(character,"cardiacarrest",cardiacarrest + HF.BoolToNum(triggersym_cardiacarrest,10),prevcardiacarrest,0,10)
-    HF.ApplyAfflictionChange(character,"respiratoryarrest",respiratoryarrest + HF.BoolToNum(triggersym_respiratoryarrest,10),prevrespiratoryarrest,0,10)
-
-    -- /// Apply symptoms ///
-
-    HF.ApplySymptom(character,"sym_unconsciousness",hassym_unconsciousness,true)
-    HF.ApplySymptom(character,"givein",hassym_unconsciousness,true)
-    if(hassym_unconsciousness) then HF.SetAffliction(character,"stun",7) end
-    HF.ApplySymptom(character,"tachycardia",hassym_tachycardia,true)
-    HF.ApplySymptom(character,"hyperventilation",hassym_hyperventilation,true)
-    HF.ApplySymptom(character,"hypoventilation",hassym_hypoventilation,true)
-    HF.ApplySymptom(character,"dyspnea",hassym_dyspnea,true)
-    HF.ApplySymptom(character,"sym_cough",hassym_cough,true)
-    HF.ApplySymptom(character,"sym_paleskin",hassym_paleskin,true)
-    HF.ApplySymptom(character,"sym_lightheadedness",hassym_lightheadedness,true)
-    HF.ApplySymptom(character,"sym_blurredvision",hassym_blurredvision,true)
-    HF.ApplySymptom(character,"sym_confusion",hassym_confusion,true)
-    HF.ApplySymptom(character,"sym_headache",hassym_headache,true)
-    HF.ApplySymptom(character,"sym_legswelling",hassym_legswelling,true)
-    HF.ApplySymptom(character,"sym_weakness",hassym_weakness,true)
-    HF.ApplySymptom(character,"sym_wheezing",hassym_wheezing,true)
-    HF.ApplySymptom(character,"sym_vomiting",hassym_vomiting,true)
-    HF.ApplySymptom(character,"sym_nausea",hassym_nausea,true)
-    HF.ApplySymptom(character,"sym_hematemesis",hassym_vomitingblood,true)
-    HF.ApplySymptom(character,"fever",hassym_fever,true)
-    HF.ApplySymptom(character,"sym_abdomdiscomfort",hassym_abdomdiscomfort,true)
-    HF.ApplySymptom(character,"sym_bloating",hassym_bloating,true)
-    HF.ApplySymptom(character,"sym_jaundice",hassym_jaundice,true)
-    HF.ApplySymptom(character,"sym_sweating",hassym_sweating,true)
-    HF.ApplySymptom(character,"sym_palpitations",hassym_palpitations,true)
-    HF.ApplySymptom(character,"sym_craving",hassym_craving,true)
-    HF.ApplySymptom(character,"pain_abdominal",hassym_pain_abdominal,true)
-    HF.ApplySymptom(character,"pain_chest",hassym_pain_chest,true)
-    HF.ApplySymptom(character,"lockedhands",lockhands,true)
-
-    if HF.GetAfflictionStrength(character,"luabotomy",0) >= 1 then
-        HF.SetAffliction(character,"luabotomy",0)
-    end
-    
 
     -- compatibility
     NTC.TickCharacter(character)

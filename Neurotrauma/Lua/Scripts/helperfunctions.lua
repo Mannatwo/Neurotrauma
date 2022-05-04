@@ -211,7 +211,7 @@ function HF.BoolToNum(val,trueoutput)
 end
 
 function HF.GetSkillLevel(character,skilltype)
-    return character.GetSkillLevel(skilltype)
+    return character.GetSkillLevel(Identifier(skilltype))
 end
 
 function HF.GetSkillRequirementMet(character,skilltype,requiredamount)
@@ -237,7 +237,7 @@ end
 
 function HF.GiveSkill(character,skilltype,amount)
     if character ~= nil and character.Info ~= nil then
-        character.Info.IncreaseSkillLevel(skilltype, amount)
+        character.Info.IncreaseSkillLevel(Identifier(skilltype), amount)
     end
 end
 
@@ -262,7 +262,7 @@ function HF.GiveItemAtCondition(character,identifier,condition)
     if SERVER then
         -- use server spawn method
         local prefab = ItemPrefab.GetItemPrefab(identifier)
-        Entity.Spawner.AddToSpawnQueue(prefab, character.WorldPosition, nil, nil, function(item)
+        Entity.Spawner.AddItemToSpawnQueue(prefab, character.WorldPosition, nil, nil, function(item)
             item.Condition = condition
             character.Inventory.TryPutItem(item, nil, {InvSlotType.Any})
         end)
@@ -271,6 +271,26 @@ function HF.GiveItemAtCondition(character,identifier,condition)
         local item = Item(ItemPrefab.GetItemPrefab(identifier), character.WorldPosition)
         item.Condition = condition
         character.Inventory.TryPutItem(item, nil, {InvSlotType.Any})
+    end
+end
+
+function HF.SpawnItemPlusFunction(identifier,func,params,inventory,targetslot)
+    local prefab = ItemPrefab.GetItemPrefab(identifier)
+    if SERVER then
+        Entity.Spawner.AddItemToSpawnQueue(prefab, inventory.Container.Item.WorldPosition, nil, nil, function(newitem)
+            if inventory~=nil then
+                inventory.TryPutItem(newitem, targetslot,true,true,nil)
+            end
+            params["item"]=newitem
+            func(params)
+        end)
+    else
+        local newitem = Item(prefab, inventory.Container.Item.WorldPosition)
+        if inventory~=nil then
+            inventory.TryPutItem(newitem, targetslot,true,true,nil)
+        end
+        params["item"]=newitem
+        func(params)
     end
 end
 
@@ -302,10 +322,12 @@ function HF.ForceArmLock(character,identifier)
     end
 end
 
-function HF.RemoveItem(item) 
+function HF.RemoveItem(item)
+    if item == nil or item.Removed then return end
+    
     if SERVER then
         -- use server remove method
-        Item.AddToRemoveQueue(item)
+        Entity.Spawner.AddEntityToRemoveQueue(item)
     else
         -- use client remove method
         item.Remove()
@@ -423,7 +445,7 @@ function HF.PutItemInsideItem(container,identifier,index)
         if SERVER then
             -- use server spawn method
             local prefab = ItemPrefab.GetItemPrefab(identifier)
-            Entity.Spawner.AddToSpawnQueue(prefab, container.WorldPosition, nil, nil, function(item)
+            Entity.Spawner.AddItemToSpawnQueue(prefab, container.WorldPosition, nil, nil, function(item)
                 inv.TryPutItem(item, nil, {index}, true, true)
             end)
         else
@@ -475,14 +497,18 @@ function HF.HasTalent(character,talentidentifier)
     local talents = character.Info.UnlockedTalents
 
     for value in talents do
-        if value == talentidentifier then return true end
+        if value.Value == talentidentifier then return true end
     end
 
     return false
 end
 
 function HF.CharacterDistance(char1,char2) 
-    return Vector2.Distance(char1.WorldPosition,char2.WorldPosition)
+    return HF.Distance(char1.WorldPosition,char2.WorldPosition)
+end
+
+function HF.Distance(v1,v2)
+    return Vector2.Distance(v1,v2)
 end
 
 function HF.GetOuterWearIdentifier(character) 
@@ -498,7 +524,7 @@ end
 function HF.GetCharacterInventorySlotIdentifer(character,slot) 
     local item = character.Inventory.GetItemAt(slot)
     if item==nil then return nil end
-    return item.Prefab.Identifier
+    return item.Prefab.Identifier.Value
 end
 
 function HF.GetOuterWear(character) 
@@ -540,4 +566,82 @@ function HF.CombineArrays(arr1,arr2)
     for _,v in ipairs(arr2) do
         table.insert(res, v) end
     return res
+end
+
+HF.EndocrineTalents =
+{"aggressiveengineering","crisismanagement","cannedheat",
+"doubleduty","firemanscarry","fieldmedic","multitasker",
+"aceofalltrades","stillkicking","drunkensailor","trustedcaptain",
+"downwiththeship","physicalconditioning","beatcop","commando",
+"justascratch","intheflow","collegeathletics"}
+function HF.ApplyEndocrineBoost(character,talentlist)
+    talentlist=talentlist or HF.EndocrineTalents
+        
+    -- gee i sure do love translating c# into lua
+    local targetCharacter = character
+    if (targetCharacter.Info == nil) then return end
+    local talentTree = TalentTree.JobTalentTrees[character.Info.Job.Prefab.Identifier.Value] if talentTree == nil then return end
+    -- for the sake of technical simplicity, for now do not allow talents to be given if the character could unlock them in their talent tree as well
+    local disallowedTalents = {}
+    for subtree in talentTree.TalentSubTrees do for stage in subtree.TalentOptionStages do for talent in stage.Talents do
+        table.insert(disallowedTalents,talent.Identifier.Value)
+    end end end
+
+    local characterTalents = {}
+    for talent in targetCharacter.Info.UnlockedTalents do
+        table.insert(characterTalents,talent.Value)
+    end
+
+    local viableTalents = {}
+    for talent in talentlist do
+        if not HF.TableContains(disallowedTalents,talent) and not HF.TableContains(characterTalents,talent) then
+            table.insert(viableTalents,talent)
+        end
+    end
+    
+    if #viableTalents <= 0 then return end
+
+    local talent = viableTalents[math.random(#viableTalents)]
+
+    targetCharacter.GiveTalent(Identifier(talent), true);
+
+end
+
+function HF.JobMemberCount(jobidentifier)
+    local res = 0
+    for _, character in pairs(Character.CharacterList) do
+        if (character.IsHuman and not character.IsDead and character.Info.Job ~= nil) then
+            if character.Info.Job.Prefab.Identifier.Value == jobidentifier then
+                res = res + 1
+            end
+        end
+    end
+    return res
+end
+
+function HF.SendTextBox(header,msg,client)
+    if SERVER then
+        Game.SendDirectChatMessage(header, msg, nil, 7, client)
+    else
+        GUI.MessageBox(header, msg)
+    end
+end
+
+function HF.ReplaceString(original,find,replace)
+    return string.gsub(original,find,replace)
+end
+
+function HF.Explode(entity,range,force,damage,structureDamage,itemDamage,empStrength,ballastFloraStrength)
+    
+    range = range or 0
+    force = force or 0
+    damage = damage or 0
+    structureDamage = structureDamage or 0
+    itemDamage = itemDamage or 0
+    empStrength = empStrength or 0
+    ballastFloraStrength = ballastFloraStrength or 0
+
+    local explosion = Explosion(range, force, damage, structureDamage,
+        itemDamage, empStrength, ballastFloraStrength)
+    explosion.Explode(entity.WorldPosition, nil);
 end

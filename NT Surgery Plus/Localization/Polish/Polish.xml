@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="Polish" nowhitespace="false" translatedname="Polski">
+
+<!-- ITEMS -->
+
+<entityname.mannitolplus>Mannitol Forte</entityname.mannitolplus>
+<entitydescription.mannitolplus>Ulepszona wersja mannitolu. Stosuje się ją do szybkiego leczenia niedotlenienia mózgu.</entitydescription.mannitolplus>
+
+<entityname.artificialbrain>Sztuczny mózg</entityname.artificialbrain>
+<entitydescription.artificialbrain>Sztuczny przeszczep mózgu, który utrzymuje ciało przy życiu po usunięciu oryginalnego mózgu.</entitydescription.artificialbrain>
+
+<entityname.surgeonclothes>Strój chirurga</entityname.surgeonclothes>
+<entitydescription.surgeonclothes>Sterylny fartuch chirurgiczny służący do zapobiegania zakażeniom podczas operacji.</entitydescription.surgeonclothes>
+
+<entityname.surgicalmask>Maska chirurgicznak</entityname.surgicalmask>
+<entitydescription.surgicalmask>Maska, która zatrzymuje większość patogenów przenoszonych drogą powietrzną podczas operacji.</entitydescription.surgicalmask>
+
+<entityname.brainjar>Mózgo-słoik</entityname.brainjar>
+<entitydescription.brainjar>Pojemnik do bezterminowego przechowywania przeszczepów mózgu</entitydescription.brainjar>
+
+<entityname.surgicaldrapes>Obłożenia chirurbiczne</entityname.surgicaldrapes>
+<entitydescription.surgicaldrapes>Sterylne płachty zapobiegające zakażeniom podczas operacji.</entitydescription.surgicaldrapes>
+
+<entityname.skillbooksurgery>'Błąd w Sztuce Lekarskiej'</entityname.skillbooksurgery>
+<entitydescription.skillbooksurgery>Podręcznik zawierający liczne procedury chirurgiczne i kroki do ich odtworzenia.</entitydescription.skillbooksurgery>
+
+<entityname.triagetag>Znacznik triażowy (automatyczny)</entityname.triagetag>
+<entitydescription.triagetag>Etykieta, która służy do skutecznego określania rodzaju i stopnia pilności operacji wymaganej dla pacjenta w przypadku masowych incydentów.</entitydescription.triagetag>
+
+<entityname.manualtriagetag>Znacznik triażowy (ręczny)</entityname.manualtriagetag>
+<entitydescription.manualtriagetag>Ręczny identyfikator triażowy. Nałóż na nogi - kolor zielony, na ręce - kolor żółty, na tułów - kolor czerwony i na głowę - kolor czarny.</entitydescription.manualtriagetag>
+
+<entityname.experimentaltreatment>Lek w trakcie badań klinicznych</entityname.experimentaltreatment>
+<entitydescription.experimentaltreatment>Wysoce eksperymentalny lek, który może powodować zarówno małe, jak i duże korzyści lub szkody.</entitydescription.experimentaltreatment>
+
+
+<!-- AFFLICTIONS -->
+
+<afflictionname.preventativepermit>Pozwolenie prewencyjne</afflictionname.preventativepermit>
+<afflictiondescription.preventativepermit>Prawdopodobieństwo poważnych obrażeń jest mniejsze.</afflictiondescription.preventativepermit>
+
+<afflictionname.artificialbrain>Sztuczny mózg</afflictionname.artificialbrain>
+<afflictiondescription.artificialbrain>Pacjent jest trwale nieprzytomny, ale jego ciało pozostaje żywe.</afflictiondescription.artificialbrain>
+
+<afflictionname.triagetag_green>Otagowany: Niewielkie obrażenia</afflictionname.triagetag_green>
+<afflictiondescription.triagetag_green>Pacjent otrzymał tag triażowy "Niewielkie obrażenia". Nie potrzebuje operacji.</afflictiondescription.triagetag_green>
+
+<afflictionname.triagetag_yellow>Otagowany: pierwsza pomoc</afflictionname.triagetag_yellow>
+<afflictiondescription.triagetag_yellow>Pacjent otrzymał tag triażowy "Niższy priorytet". Obrażenia pacjenta nie zagrażają jego życiu.</afflictiondescription.triagetag_yellow>
+
+<afflictionname.triagetag_red>Otagowany: Natychmiastowa operacja</afflictionname.triagetag_red>
+<afflictiondescription.triagetag_red>Pacjent otrzymał tag triażowy "Natychmiastowa operacja". Jeśli nie otrzyma pomocy, umrze.</afflictiondescription.triagetag_red>
+
+<afflictionname.triagetag_black>Otagowany: Denat</afflictionname.triagetag_black>
+<afflictiondescription.triagetag_black>Stwierdzam zgon, bo umarł.</afflictiondescription.triagetag_black>
+
+
+<!-- JOBS -->
+
+<jobname.surgeon>Chirurg</jobname.surgeon>
+<jobdescription.surgeon>Podczas gdy lekarz medycyny jest lepiej przystosowany do udzielania pierwszej pomocy i szybkiego reagowania, chirurg specjalizuje się w optymalizacji procedur chirurgicznych. Mniejsze ryzyko infekcji, szybsze wykonanie – jeśli coś jest związane z chirurgią, chirurg to potrafi.</jobdescription.surgeon>
+
+<skillname.surgery>Chirurgia</skillname.surgery>
+
+<!-- TALENTS -->
+
+<talenttree.researcher>Badacz</talenttree.researcher>
+<talenttree.hospitalizer>Hospitalizator</talenttree.hospitalizer>
+<talenttree.fieldsurgeon>Chirurg polowy</talenttree.fieldsurgeon>
+
+<talentname.ntsp_autoimmune>Autoimmunosupresja</talentname.ntsp_autoimmune>
+<talentdescription.ntsp_autoimmune>Przeszczepiane narządy nigdy nie są odrzucane.</talentdescription.ntsp_autoimmune>
+
+<talentname.ntsp_firemanscarry>Ewakuacja</talentname.ntsp_firemanscarry>
+
+<talentname.ntsp_properfol>Propofolowy profesjonalista</talentname.ntsp_properfol>
+<talentdescription.ntsp_properfol>[itemname] który podasz, działa natychmiast.</talentdescription.ntsp_properfol>
+
+<talentname.ntsp_soothingsurgeon>Uspokajający chirurg</talentname.ntsp_soothingsurgeon>
+<talentdescription.ntsp_soothingsurgeon>Postaci, które operujesz, doznają mniejszego wstrząsu urazowego</talentdescription.ntsp_soothingsurgeon>
+
+<talentname.ntsp_imadoctornota>Jestem lekarzem, a nie...</talentname.ntsp_imadoctornota>
+
+<talentname.ntsp_preventativepermit>Pozwolenie prewencyjne</talentname.ntsp_preventativepermit>
+<talentdescription.ntsp_preventativepermit>Ostatnia osoba, której rozkarzesz, zyskuje [physicalresistance]% odporności na obrażenia i jest mniej narażona na poważne obrażenia.</talentdescription.ntsp_preventativepermit>
+
+<talentname.ntsp_medicallicence>Licencja lekarska</talentname.ntsp_medicallicence>
+<talentdescription.ntsp_medicallicence>Organy, które pozyskasz, sprzedajesz za pełną cenę.</talentdescription.ntsp_medicallicence>
+
+<talentname.ntsp_bedsidemanner>Dobre podejście do pacjenta</talentname.ntsp_bedsidemanner>
+<talentdescription.ntsp_bedsidemanner>Pacjenci znajdujący się obok ciebie biernie leczą się w przyspieszonym tempie. Efekt ten jest podwojony, jeśli leżą w łóżku.</talentdescription.ntsp_bedsidemanner>
+
+<talentname.ntsp_rinseandrepeat>Opłócz i odkaż</talentname.ntsp_rinseandrepeat>
+<talentdescription.ntsp_rinseandrepeat>Dreny, balony wewnątrznaczyniowe i igły nie są już zużywane podczas ich stosowania.</talentdescription.ntsp_rinseandrepeat>
+
+<talentname.ntsp_underpressure>Praca pod presją</talentname.ntsp_underpressure>
+<talentdescription.ntsp_underpressure>Nieprzytomni pacjenci obok ciebie zyskują [amount]% odporności na utratę krwi, uszkodzenia organów i niedotlenienie mózgu.</talentdescription.ntsp_underpressure>
+
+<talentname.ntsp_rapiddeoployment>Ratownik medyczny</talentname.ntsp_rapiddeoployment>
+<talentdescription.ntsp_rapiddeoployment>Zyskujesz dodatkową prędkość ruchu równą [skillpercentage]% twojej umiejętności chirurgicznej.</talentdescription.ntsp_rapiddeoployment>
+
+<talentname.ntsp_humanmachine>Człowiek-maszyna</talentname.ntsp_humanmachine>
+
+<talentname.ntsp_firstaidtraining>Postępy w medycynie</talentname.ntsp_firstaidtraining>
+<talentname.ntsp_mannitol>Mannitolowy maniak</talentname.ntsp_mannitol>
+<talentname.ntsp_experimental>Nieetyczne źródła</talentname.ntsp_experimental>
+<talentname.ntsp_frankenstein>Dr Frankenstein</talentname.ntsp_frankenstein>
+
+</infotexts>

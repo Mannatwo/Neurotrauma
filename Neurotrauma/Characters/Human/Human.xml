@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Override>
-<Character speciesname="Human" group="human" humanoid="True" hasinfo="True" usehuskappendage="True" needsair="True"
-genders="true" femaleratio="0.5" races="false" canspeak="True" caninteract="True" blooddecal="blood" noise="150"
-visibility="150" speciestranslationoverride="" displayname="" husk="False" needswater="False" usebosshealthbar="False"
-bleedparticleair="blooddrop" bleedparticlewater="waterblood" bleedparticlemultiplier="1" eatingspeed="10"
-pathfinderpriority="1" hideinsonar="False" sonardisruption="0" distantsonarrange="0" disabledistance="25000"
-  skincolors="(#f6b896, 100); (#ffac81, 100); (#fd9a6e, 100); (#ffa45e, 100); (#9e5f48, 100); (#bf743d, 100); (#cb7241, 100); (#994b2a, 100)"
-  haircolors="(#201e32, 100); (#834f21, 100); (#231816, 100); (#fbaf5d, 100); (#a93c26, 100); (#5a716b, 100); (#505f5f, 100); (#aeaeae, 100); (#a864a8, 1); (#3cb878, 1)"
-  facialhaircolors="(#201e32, 100); (#834f21, 100); (#231816, 100); (#fbaf5d, 100); (#a93c26, 100); (#5a716b, 100); (#505f5f, 100); (#aeaeae, 100)">
+<Character specifiertags="true"
+skincolors="(#fce1c6, 100); (#f3c696, 100); (#f3c696, 100); (#aa7744, 100); (#f4be98, 100); (#d69a70, 100); (#ab7046, 100); (#774929, 100); (#c8a583, 100); (#a57c53, 100); (#7a5026, 100); (#4a3219, 100); (#957966, 100); (#714d34, 100); (#532d12, 100); (#26190e, 100)"
+haircolors="(#ded7cc, 100); (#d2a36f, 100); (#c77d52, 100); (#ac4934, 100); (#d8ba85, 100); (#cd975a, 100); (#a15837, 100); (#6a3b37, 100); (#bba981, 100); (#8b7e6c, 100); (#594349, 100); (#473637, 100); (#7b8478, 100); (#494e55, 100); (#3a3a3c, 100); (#343030, 100)"
+facialhaircolors="(#ded7cc, 100); (#d2a36f, 100); (#c77d52, 100); (#ac4934, 100); (#d8ba85, 100); (#cd975a, 100); (#a15837, 100); (#6a3b37, 100); (#bba981, 100); (#8b7e6c, 100); (#594349, 100); (#473637, 100); (#7b8478, 100); (#494e55, 100); (#3a3a3c, 100); (#343030, 100)"
+SpeciesName="Human" SpeciesTranslationOverride="" DisplayName="" Group="human" Humanoid="True" HasInfo="True"
+CanInteract="True" Husk="False" UseHuskAppendage="True" NeedsAir="True" NeedsWater="False" CanSpeak="True"
+UseBossHealthBar="False" Noise="150" Visibility="150" BloodDecal="blood" BleedParticleAir="blooddrop"
+BleedParticleWater="waterblood" BleedParticleMultiplier="1" CanEat="True" EatingSpeed="10" UsePathFinding="True"
+PathFinderPriority="1" HideInSonar="False" HideInThermalGoggles="False" SonarDisruption="0" DistantSonarRange="0"
+DisableDistance="25000" SoundInterval="10">
   <name firstname="Content/Characters/Human/firstnames_[GENDER].txt" lastname="Content/Characters/Human/lastnames.txt" />
-  <ragdolls folder="Mods\Neurotrauma\Characters\Human\Ragdolls"/>
+  <ragdolls folder="%ModDir%\Characters\Human\Ragdolls"/>
   <animations folder="Content\Characters\Human\Animations"/>
 
   <StatusEffect type="always" target="This" delay="1" stackable="false" disabledeltatime="true">

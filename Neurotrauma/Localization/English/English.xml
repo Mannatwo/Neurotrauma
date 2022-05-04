@@ -90,7 +90,7 @@
 <entitydescription.mannitol>A type of sugar alcohol. It is used to aid recovery from neurotrauma. May cause organ damage.</entitydescription.mannitol>
 
 <entityname.streptokinase>Streptokinase</entityname.streptokinase>
-<entitydescription.streptokinase>A thrombolytic enzyme that breaks down blood clots. It is used to cure heart attacks. Causes worse clotting.</entitydescription.streptokinase>
+<entitydescription.streptokinase>A thrombolytic enzyme that breaks down blood clots. It is used to cure heart attacks. Decreases blood clotting.</entitydescription.streptokinase>
 
 <entityname.immunosuppressant>Azathioprine</entityname.immunosuppressant>
 <entitydescription.immunosuppressant>An immunosuppressive agent for the prevention of organ rejection.</entitydescription.immunosuppressant>
@@ -297,6 +297,9 @@ Can give blood to: AB+</entitydescription.abpluscard>
 
 <afflictionname.tachycardia>Increased heartrate</afflictionname.tachycardia>
 <afflictiondescription.tachycardia>The heart is beating in an alarmingly rapid fashion.</afflictiondescription.tachycardia>
+
+<afflictionname.fibrillation>Irregular heartbeat</afflictionname.fibrillation>
+<afflictiondescription.fibrillation>The heart is beating in a fluttery, quivering fashion.</afflictiondescription.fibrillation>
 
 <afflictionname.cardiacarrest>Cardiac arrest</afflictionname.cardiacarrest>
 <afflictiondescription.cardiacarrest>No pulse.</afflictiondescription.cardiacarrest>

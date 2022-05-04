@@ -17,7 +17,7 @@
     showiconthreshold="500"
     showinhealthscannerthreshold="500"
     iconcolors="76,102,145,255;76,102,145,255">
-		<icon texture="Mods/NT Cybernetics/Images/AfflictionIcons.png" sheetindex="0,0" sheetelementsize="128,128" origin="0,0"/>
+		<icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,0" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Cyberarm
@@ -35,7 +35,7 @@
     showiconthreshold="1"
     showinhealthscannerthreshold="500"
     iconcolors="76,102,145,255;76,102,145,255">
-		<icon texture="Mods/NT Cybernetics/Images/AfflictionIcons.png" sheetindex="5,0" sheetelementsize="128,128" origin="0,0"/>
+		<icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="5,0" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Cyberleg
@@ -53,7 +53,7 @@
     showiconthreshold="1"
     showinhealthscannerthreshold="500"
     iconcolors="76,102,145,255;76,102,145,255">
-		<icon texture="Mods/NT Cybernetics/Images/AfflictionIcons.png" sheetindex="6,0" sheetelementsize="128,128" origin="0,0"/>
+		<icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="6,0" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- /// cyberlimb damage types /// -->
@@ -73,7 +73,7 @@
     showiconthreshold="1"
     showinhealthscannerthreshold="500"
     iconcolors="191,171,57,255;191,57,57,255"> <!-- 191,171,57,255;191,57,57,255 -->
-		<icon texture="Mods/NT Cybernetics/Images/AfflictionIcons.png" sheetindex="1,0" sheetelementsize="128,128" origin="0,0"/>
+		<icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="1,0" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Damaged electronics
@@ -91,7 +91,7 @@
     showiconthreshold="1"
     showinhealthscannerthreshold="500"
     iconcolors="191,171,57,255;191,57,57,255">
-		<icon texture="Mods/NT Cybernetics/Images/AfflictionIcons.png" sheetindex="2,0" sheetelementsize="128,128" origin="0,0"/>
+		<icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="2,0" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Bent metal
@@ -109,7 +109,7 @@
     showiconthreshold="1"
     showinhealthscannerthreshold="500"
     iconcolors="191,171,57,255;191,57,57,255">
-		<icon texture="Mods/NT Cybernetics/Images/AfflictionIcons.png" sheetindex="3,0" sheetelementsize="128,128" origin="0,0"/>
+		<icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,0" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Material loss
@@ -127,7 +127,7 @@
     showiconthreshold="1"
     showinhealthscannerthreshold="500"
     iconcolors="191,171,57,255;191,57,57,255">
-		<icon texture="Mods/NT Cybernetics/Images/AfflictionIcons.png" sheetindex="4,0" sheetelementsize="128,128" origin="0,0"/>
+		<icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="4,0" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
 </Afflictions>

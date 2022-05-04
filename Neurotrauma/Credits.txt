@@ -1,5 +1,7 @@
 
-This credits section is small and pathetic right now, please don't look at it
-
 Viktor Livingshield - Russian localization
+Brian Damage - Russian localization
+Kaofan - Polish localization
+Krzeszny - Polish localization
+rermi - French localization
 Evil Factory - Lua help

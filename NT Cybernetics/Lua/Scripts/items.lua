@@ -1,6 +1,6 @@
 
 Hook.Add("item.applyTreatment", "NTCyb.itemused", function(item, usingCharacter, targetCharacter, limb)
-    local identifier = item.Prefab.Identifier
+    local identifier = item.Prefab.Identifier.Value
 
     local methodtorun = NTCyb.ItemMethods[identifier] -- get the function associated with the identifer
     if(methodtorun~=nil) then 

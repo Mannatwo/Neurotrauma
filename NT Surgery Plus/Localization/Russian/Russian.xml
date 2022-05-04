@@ -4,7 +4,7 @@
 <!-- ITEMS -->
 
 <entityname.mannitolplus>Маннитол плюс</entityname.mannitolplus>
-<entitydescription.mannitolplus>Улучшенная версия маннитола. Используется для быстрого лечения нейротравмы.</entitydescription.mannitolplus>
+<entitydescription.mannitolplus>Улучшенная версия маннитола. Используется для быстрого лечения нейротравм.</entitydescription.mannitolplus>
 
 <entityname.artificialbrain>Искусственный мозг</entityname.artificialbrain>
 <entitydescription.artificialbrain>Искусственный мозг, удерживающий тело живым при отсутствии оригинального мозга.</entitydescription.artificialbrain>
@@ -15,26 +15,26 @@
 <entityname.surgicalmask>Хирургическая маска</entityname.surgicalmask>
 <entitydescription.surgicalmask>Маска, предохраняющая вашего пациента от воздушно-капельных патогенов во время операции.</entitydescription.surgicalmask>
 
-<entityname.brainjar>Сосуд для мозгов</entityname.brainjar>
-<entitydescription.brainjar>КОнтейнер для хранения мозгов сколь угодно долго</entitydescription.brainjar>
+<entityname.brainjar>Сосуд для мозга</entityname.brainjar>
+<entitydescription.brainjar>Контейнер для долговременного хранения мозга.</entitydescription.brainjar>
 
 <entityname.surgicaldrapes>Хирургическая простыня</entityname.surgicaldrapes>
-<entitydescription.surgicaldrapes>Стерильные простыни для предотвращения инфицирования во время операции.</entitydescription.surgicaldrapes>
+<entitydescription.surgicaldrapes>Стерильные простыни для предотвращения инфицирования пациента во время операции.</entitydescription.surgicaldrapes>
 
 
 <!-- AFFLICTIONS -->
 
 <afflictionname.preventativepermit>Превентивные меры</afflictionname.preventativepermit>
-<afflictiondescription.preventativepermit>Меньший риск серьёзных травм.</afflictiondescription.preventativepermit>
+<afflictiondescription.preventativepermit>Сниженный риск серьёзных травм.</afflictiondescription.preventativepermit>
 
 <afflictionname.artificialbrain>Искусственный мозг</afflictionname.artificialbrain>
-<afflictiondescription.artificialbrain>Пациент совершенно без сознания, но тело всё ещё живёт.</afflictiondescription.artificialbrain>
+<afflictiondescription.artificialbrain>Тело пациента поддерживается живым, несмотря на отсутствие настоящего мозга.</afflictiondescription.artificialbrain>
 
 
 <!-- JOBS -->
 
 <jobname.surgeon>Хирург</jobname.surgeon>
-<jobdescription.surgeon>В то время как медики предназначены для быстрого реагирования, хирург специализируется на оптимизации хирургических процедур. Ниже риск инфецирования, ускоренные действия, и всё остальное что так или иначе связано с хирургией.</jobdescription.surgeon>
+<jobdescription.surgeon>В то время как задача медиков - быстрое реагирование, хирург специализируется на оптимизации хирургических процедур. Снижен риск инфицирования, ускорены базовые хирургические процедуры и другие хирургические мероприятия.</jobdescription.surgeon>
 
 <skillname.surgery>Хирургия</skillname.surgery>
 
@@ -45,11 +45,11 @@
 <talenttree.fieldsurgeon>Полевой хирург</talenttree.fieldsurgeon>
 
 <talentname.ntsp_autoimmune>Аутоиммунное подавление</talentname.ntsp_autoimmune>
-<talentdescription.ntsp_autoimmune>Органы, которые вы трансплантируете, никогда не отторгаются.</talentdescription.ntsp_autoimmune>
+<talentdescription.ntsp_autoimmune>Органы, которые вы трансплантируете, никогда не будут отторгнуты.</talentdescription.ntsp_autoimmune>
 
 <talentname.ntsp_firemanscarry>Оперативное спасение</talentname.ntsp_firemanscarry>
 
-<talentname.ntsp_properfol>Профессионал в обращении с пропофолом</talentname.ntsp_properfol>
+<talentname.ntsp_properfol>Эксперт по пропофолу</talentname.ntsp_properfol>
 <talentdescription.ntsp_properfol>[itemname], применяемый вами, подействует мгновенно.</talentdescription.ntsp_properfol>
 
 <talentname.ntsp_soothingsurgeon>Бережный хирург</talentname.ntsp_soothingsurgeon>
@@ -58,7 +58,7 @@
 <talentname.ntsp_imadoctornota>Я врач, а не...</talentname.ntsp_imadoctornota>
 
 <talentname.ntsp_preventativepermit>Превентивные меры</talentname.ntsp_preventativepermit>
-<talentdescription.ntsp_preventativepermit>Последний, кого вы лечили, получает [physicalresistance]% сопротивления урону и в меньшей степени подвержен серьёзным ранениям.</talentdescription.ntsp_preventativepermit>
+<talentdescription.ntsp_preventativepermit>Последний, кому вы отдали приказ, получает [physicalresistance]% сопротивления урону и в меньшей степени подвержен серьёзным ранениям.</talentdescription.ntsp_preventativepermit>
 
 <talentname.ntsp_medicallicence>Медицинская лицензия</talentname.ntsp_medicallicence>
 <talentdescription.ntsp_medicallicence>Извлекаемые вами органы продаются по полной цене.</talentdescription.ntsp_medicallicence>
@@ -83,18 +83,18 @@
 
 <!--A1.1-->
 
-<entityname.skillbooksurgery>'Как лечить не надо'</entityname.skillbooksurgery>
-<entitydescription.skillbooksurgery>Справочник, описывающий множество хирургических процедур и их проведение.</entitydescription.skillbooksurgery>
+<entityname.skillbooksurgery>'Медицинский этикет'</entityname.skillbooksurgery>
+<entitydescription.skillbooksurgery>Справочник, детально описывающий множество хирургических процедур и их проведение.</entitydescription.skillbooksurgery>
 
-<entityname.triagetag>Распределительный ярлык (автоматический)</entityname.triagetag>
-<entitydescription.triagetag>Ярлык, используемый для эффективного определения типа и срочности медицинской помощи, необходимой пациенту в случае массовых жертв.</entitydescription.triagetag>
+<entityname.triagetag>Первичная медицинская карточка (автоматическая)</entityname.triagetag>
+<entitydescription.triagetag>Ярлык, используемый для быстрого определения типа и срочности медицинской помощи, необходимой пациенту в случае массовых жертв.</entitydescription.triagetag>
 
-<entityname.manualtriagetag>Распределительный ярлык (вручную)</entityname.manualtriagetag>
-<entitydescription.manualtriagetag>Ярлык ручного распределения. Примените к ногам зеленый цвет, к рукам — желтый, к туловищу — красный, а к голове — черный</entitydescription.manualtriagetag>
+<entityname.manualtriagetag>Первичная медицинская карточка (вручную)</entityname.manualtriagetag>
+<entitydescription.manualtriagetag>Ярлык ручного распределения. При применении к ногам - зеленый цвет, к рукам — желтый, к туловищу — красный, к голове — черный.</entitydescription.manualtriagetag>
 
-<entityname.experimentaltreatment>Экспериментальное лечение</entityname.experimentaltreatment>
-<entitydescription.experimentaltreatment>В высшей степени экспериментальный препарат, который может причинить как мало, так и много как хорошего, так и плохого.</entitydescription.experimentaltreatment>
+<entityname.experimentaltreatment>Экспериментальный препарат</entityname.experimentaltreatment>
+<entitydescription.experimentaltreatment>В высшей степени экспериментальный реагент, который может причинить как мало, так и много хорошего или плохого.</entitydescription.experimentaltreatment>
 
-<talentname.ntsp_experimental>Неэтичное получение</talentname.ntsp_experimental>
+<talentname.ntsp_experimental>Неэтичные методики</talentname.ntsp_experimental>
 
 </infotexts>

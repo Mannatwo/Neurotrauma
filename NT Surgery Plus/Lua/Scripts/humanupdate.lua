@@ -80,7 +80,7 @@ function NTSP.PreUpdateHuman(character)
             end
         end
 
-        -- at max dirtyness, theres a 10% chance every update to cause sepsis
+        -- at max dirtyness, theres a 10% chance every update (two seconds) to cause sepsis
         local sepsischance = HF.Clamp(1-(sterility/100),0,1) * 0.1
 
         if HF.Chance(sepsischance) then

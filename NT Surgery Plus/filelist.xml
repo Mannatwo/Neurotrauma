@@ -1,17 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="NT Surgery Plus" path="Mods/NT Surgery Plus/filelist.xml" corepackage="false" gameversion="0.16.7.0" steamworkshopid="2790455798" installtime="1650155527">
-  <Afflictions file="Mods/NT Surgery Plus/Xml/Afflictions.xml" />
-  <Item file="Mods/NT Surgery Plus/Xml/items.xml" />
-  <Text file="Mods/NT Surgery Plus/Localization/English/English.xml" />
-  <Text file="Mods/NT Surgery Plus/Localization/Russian/Russian.xml" />
-  <Jobs file="Mods/NT Surgery Plus/Xml/Jobs.xml" />
-  <Talents file="Mods/NT Surgery Plus/Xml/TalentsSurgeon.xml" />
-  <TalentTrees file="Mods/NT Surgery Plus/Xml/TalentTrees.xml" />
-  <None file="Mods/NT Surgery Plus/Images/SurgeonClothes.png" />
-  <None file="Mods/NT Surgery Plus/Images/MainAtlas.png" />
-  <None file="Mods/NT Surgery Plus/Images/drapes.png" />
-  <None file="Mods/NT Surgery Plus/Images/drapehelmet.png" />
-  <None file="Mods/NT Surgery Plus/Lua/ForcedAutorun/init.lua" />
-  <None file="Mods/NT Surgery Plus/Lua/Scripts/humanupdate.lua" />
-  <None file="Mods/NT Surgery Plus/Lua/Scripts/items.lua" />
+<contentpackage name="NT Surgery Plus" path="%ModDir%/filelist.xml" corepackage="false" gameversion="0.16.7.0" steamworkshopid="2790455798" installtime="1650155527">
+  <Afflictions file="%ModDir%/Xml/Afflictions.xml" />
+  <Item file="%ModDir%/Xml/items.xml" />
+  <Text file="%ModDir%/Localization/English/English.xml" />
+  <Text file="%ModDir%/Localization/Russian/Russian.xml" />
+  <Text file="%ModDir%/Localization/Polish/Polish.xml" />
+  <Text file="%ModDir%/Localization/French/French.xml" />
+  <Jobs file="%ModDir%/Xml/Jobs.xml" />
+  <Talents file="%ModDir%/Xml/TalentsSurgeon.xml" />
+  <TalentTrees file="%ModDir%/Xml/TalentTrees.xml" />
+  <None file="%ModDir%/Images/SurgeonClothes.png" />
+  <None file="%ModDir%/Images/MainAtlas.png" />
+  <None file="%ModDir%/Images/drapes.png" />
+  <None file="%ModDir%/Images/drapehelmet.png" />
+  <None file="%ModDir%/Lua/Autorun/init.lua" />
+  <None file="%ModDir%/Lua/Scripts/humanupdate.lua" />
+  <None file="%ModDir%/Lua/Scripts/items.lua" />
 </contentpackage>

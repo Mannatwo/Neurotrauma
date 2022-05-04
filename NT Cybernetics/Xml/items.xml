@@ -3,12 +3,9 @@
 
   <Item name="" identifier="cyberarm" category="Equipment" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,surgery" description="" useinhealthinterface="True" scale="0.4">
-    <Price baseprice="500" soldeverywhere="false">
-      <Price locationtype="outpost" multiplier="1.3" sold="true" minavailable="0"/>
-      <Price locationtype="city" multiplier="1.3" sold="true" minavailable="0"/>
-      <Price locationtype="research" multiplier="1" sold="true" minavailable="1"/>
-      <Price locationtype="military" multiplier="1.2" sold="true" minavailable="0"/>
-      <Price locationtype="mine" multiplier="1.3" sold="true" minavailable="0"/>
+    <Price baseprice="500" soldbydefault="false">
+      <Price storeidentifier="merchantengineering" sold="true" multiplier="0.9" minavailable="1"/>
+      <Price storeidentifier="merchantresearch" sold="true" minavailable="1" />
     </Price>
     <PreferredContainer primary="toxcontainer" spawnprobability="0.2"/>
     <PreferredContainer primary="locker"/>
@@ -40,8 +37,8 @@
       <Item identifier="fpgacircuit"/>
       <Item identifier="fulgurium"/>
     </Deconstruct>
-    <Sprite texture="Mods/NT Cybernetics/Images/InGameItemIconAtlas.png" sourcerect="10,4,228,47" origin="0.5,0.5" depth="0.6" />
-    <InventoryIcon texture="Mods/NT Cybernetics/Images//InventoryItemIconAtlas.png" sourcerect="0,0,128,128" origin="0.5,0.5"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="10,4,228,47" origin="0.5,0.5" depth="0.6" />
+    <InventoryIcon texture="%ModDir%/Images//InventoryItemIconAtlas.png" sourcerect="0,0,128,128" origin="0.5,0.5"/>
     <Body width="114" height="23" density="50"/>
     <MeleeWeapon slots="RightHand+LeftHand,Any" controlpose="true" aimpos="45,10" handle1="-10,0" handle2="0,5" holdangle="60" reload="1" range="100" combatpriority="20" msg="ItemMsgPickUpSelect">
       <Attack structuredamage="10" itemdamage="5" targetimpulse="10">
@@ -54,12 +51,9 @@
 
   <Item name="" identifier="cyberleg" category="Equipment" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,surgery" description="" useinhealthinterface="True" scale="0.4">
-    <Price baseprice="500" soldeverywhere="false">
-      <Price locationtype="outpost" multiplier="1.3" sold="true" minavailable="0"/>
-      <Price locationtype="city" multiplier="1.3" sold="true" minavailable="0"/>
-      <Price locationtype="research" multiplier="1" sold="true" minavailable="1"/>
-      <Price locationtype="military" multiplier="1.2" sold="true" minavailable="0"/>
-      <Price locationtype="mine" multiplier="1.3" sold="true" minavailable="0"/>
+    <Price baseprice="500" soldbydefault="false">
+      <Price storeidentifier="merchantengineering" sold="true" multiplier="0.9" minavailable="1"/>
+      <Price storeidentifier="merchantresearch" sold="true" minavailable="1" />
     </Price>
     <PreferredContainer primary="toxcontainer" spawnprobability="0.2"/>
     <PreferredContainer primary="locker"/>
@@ -91,8 +85,8 @@
       <Item identifier="fpgacircuit"/>
       <Item identifier="fulgurium"/>
     </Deconstruct>
-    <Sprite texture="Mods/NT Cybernetics/Images/InGameItemIconAtlas.png" sourcerect="4,64,63,238" origin="0.5,0.5" depth="0.6" />
-    <InventoryIcon texture="Mods/NT Cybernetics/Images//InventoryItemIconAtlas.png" sourcerect="128,0,128,128" origin="0.5,0.5"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="4,64,63,238" origin="0.5,0.5" depth="0.6" />
+    <InventoryIcon texture="%ModDir%/Images//InventoryItemIconAtlas.png" sourcerect="128,0,128,128" origin="0.5,0.5"/>
     <Body width="30" height="115" density="50"/>
     <MeleeWeapon slots="RightHand+LeftHand,Any" controlpose="true" aimpos="45,10" handle1="-10,0" handle2="0,5" holdangle="330" reload="1" range="100" combatpriority="20" msg="ItemMsgPickUpSelect">
       <Attack structuredamage="10" itemdamage="5" targetimpulse="10">
@@ -102,8 +96,7 @@
       </Attack>
     </MeleeWeapon>
   </Item>
-
-
+  
   <!-- SFX items -->
 
   <Item name="." identifier="ntcsfx_screwdriver" category="hidden" description=".">
@@ -111,8 +104,8 @@
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
       <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
-        <Sound file="Mods/NT Cybernetics/Sound/screwdriver1.ogg" type="OnUse" range="500"/>
-        <Sound file="Mods/NT Cybernetics/Sound/screwdriver2.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/screwdriver1.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/screwdriver2.ogg" type="OnUse" range="500"/>
       </StatusEffect>
       <StatusEffect type="always" target="This" disabledeltatime="true" delay="1" stackable="false">
         <Remove/>
@@ -124,17 +117,17 @@
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
       <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
-        <Sound file="Mods/NT Cybernetics/Sound/cyberblunt1.ogg" type="OnUse" range="500"/>
-        <Sound file="Mods/NT Cybernetics/Sound/cyberblunt2.ogg" type="OnUse" range="500"/>
-        <Sound file="Mods/NT Cybernetics/Sound/cyberblunt3.ogg" type="OnUse" range="500"/>
-        <Sound file="Mods/NT Cybernetics/Sound/cyberblunt4.ogg" type="OnUse" range="500"/>
-        <Sound file="Mods/NT Cybernetics/Sound/cyberblunt5.ogg" type="OnUse" range="500"/>
-        <Sound file="Mods/NT Cybernetics/Sound/cyberblunt6.ogg" type="OnUse" range="500"/>
-        <Sound file="Mods/NT Cybernetics/Sound/cyberblunt7.ogg" type="OnUse" range="500"/>
-        <Sound file="Mods/NT Cybernetics/Sound/cyberblunt8.ogg" type="OnUse" range="500"/>
-        <Sound file="Mods/NT Cybernetics/Sound/cyberblunt9.ogg" type="OnUse" range="500"/>
-        <Sound file="Mods/NT Cybernetics/Sound/cyberblunt10.ogg" type="OnUse" range="500"/>
-        <Sound file="Mods/NT Cybernetics/Sound/cyberblunt11.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/cyberblunt1.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/cyberblunt2.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/cyberblunt3.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/cyberblunt4.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/cyberblunt5.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/cyberblunt6.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/cyberblunt7.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/cyberblunt8.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/cyberblunt9.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/cyberblunt10.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/cyberblunt11.ogg" type="OnUse" range="500"/>
       </StatusEffect>
       <StatusEffect type="always" target="This" disabledeltatime="true" delay="1" stackable="false">
         <Remove/>
@@ -146,9 +139,9 @@
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
       <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
-        <Sound file="Mods/NT Cybernetics/Sound/cyberbite1.ogg" type="OnUse" range="500"/>
-        <Sound file="Mods/NT Cybernetics/Sound/cyberbite2.ogg" type="OnUse" range="500"/>
-        <Sound file="Mods/NT Cybernetics/Sound/cyberbite3.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/cyberbite1.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/cyberbite2.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/cyberbite3.ogg" type="OnUse" range="500"/>
       </StatusEffect>
       <StatusEffect type="always" target="This" disabledeltatime="true" delay="1" stackable="false">
         <Remove/>
@@ -160,9 +153,9 @@
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
       <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
-        <Sound file="Mods/NT Cybernetics/Sound/cyberdeath1.ogg" type="OnUse" range="500"/>
-        <Sound file="Mods/NT Cybernetics/Sound/cyberdeath2.ogg" type="OnUse" range="500"/>
-        <Sound file="Mods/NT Cybernetics/Sound/cyberdeath3.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/cyberdeath1.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/cyberdeath2.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/cyberdeath3.ogg" type="OnUse" range="500"/>
       </StatusEffect>
       <StatusEffect type="always" target="This" disabledeltatime="true" delay="1" stackable="false">
         <Remove/>
@@ -174,11 +167,11 @@
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
       <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
-        <Sound file="Mods/NT Cybernetics/Sound/welding1.ogg" type="OnUse" range="500"/>
-        <Sound file="Mods/NT Cybernetics/Sound/welding2.ogg" type="OnUse" range="500"/>
-        <Sound file="Mods/NT Cybernetics/Sound/welding3.ogg" type="OnUse" range="500"/>
-        <Sound file="Mods/NT Cybernetics/Sound/welding4.ogg" type="OnUse" range="500"/>
-        <Sound file="Mods/NT Cybernetics/Sound/welding5.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/welding1.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/welding2.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/welding3.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/welding4.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/welding5.ogg" type="OnUse" range="500"/>
       </StatusEffect>
       <StatusEffect type="always" target="This" disabledeltatime="true" delay="1" stackable="false">
         <Remove/>
@@ -216,12 +209,13 @@
       <PreferredContainer primary="outpostcrewcabinet" minamount="1" maxamount="2" spawnprobability="0.5"/>
       <PreferredContainer primary="outposttrashcan" minamount="0" maxamount="1" spawnprobability="0.25" />
       <PreferredContainer secondary="locker"/>
-      <Price baseprice="10" >
-        <Price locationtype="outpost" multiplier="1" minavailable="10" />
-        <Price locationtype="city" multiplier="0.9" minavailable="15" />
-        <Price locationtype="research" multiplier="1.25" minavailable="10" />
-        <Price locationtype="military" multiplier="1.25" minavailable="10" />
-        <Price locationtype="mine" multiplier="1" minavailable="10" />
+      <Price baseprice="10" minavailable="10">
+        <Price storeidentifier="merchantoutpost" />
+        <Price storeidentifier="merchantcity" minavailable="5"  />
+        <Price storeidentifier="merchantresearch" multiplier="1.25" />
+        <Price storeidentifier="merchantmilitary" multiplier="1.25" />
+        <Price storeidentifier="merchantmine" />
+        <Price storeidentifier="merchantengineering" minavailable="10" multiplier="0.9"/>
       </Price>
       <Deconstruct time="10">
         <Item identifier="iron" />
@@ -260,13 +254,7 @@
       <PreferredContainer spawnprobability="0" />
       <PreferredContainer spawnprobability="0" />
       <PreferredContainer spawnprobability="0" />
-      <Price baseprice="+150">
-        <Price locationtype="outpost" multiplier="1" sold="false" />
-        <Price locationtype="city" multiplier="0.9" sold="false" />
-        <Price locationtype="research" multiplier="1.25" sold="false" />
-        <Price locationtype="military" multiplier="1.25" sold="false" />
-        <Price locationtype="mine" multiplier="1" sold="false" />
-      </Price>
+      <Price baseprice="+150" sold="false" />
       <Deconstruct>
         <Item identifier="iron" />
         <Item identifier="depletedfuel" />
@@ -293,13 +281,7 @@
       <PreferredContainer spawnprobability="0" />
       <PreferredContainer spawnprobability="0" />
       <PreferredContainer spawnprobability="0" />
-      <Price baseprice="+200">
-        <Price locationtype="outpost" multiplier="1" sold="false" />
-        <Price locationtype="city" multiplier="0.9" sold="false" />
-        <Price locationtype="research" multiplier="1.25" sold="false" />
-        <Price locationtype="military" multiplier="1.25" sold="false" />
-        <Price locationtype="mine" multiplier="1" sold="false" />
-      </Price>
+      <Price baseprice="+200" sold="false" />
       <Deconstruct>
         <Item identifier="iron" />
         <Item identifier="dementonite" />
@@ -326,11 +308,12 @@
   <Override>
     <Item name="" identifier="fpgacircuit" category="Electrical" Tags="smallitem,signal" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" useinhealthinterface="True">
       <Price baseprice="80">
-        <Price locationtype="outpost" multiplier="1" />
-        <Price locationtype="city" multiplier="0.9" />
-        <Price locationtype="research" multiplier="1.25" />
-        <Price locationtype="military" multiplier="1" />
-        <Price locationtype="mine" multiplier="1" />
+        <Price storeidentifier="merchantoutpost" />
+        <Price storeidentifier="merchantcity" sold="false"/>
+        <Price storeidentifier="merchantresearch" multiplier="1.25" />
+        <Price storeidentifier="merchantmilitary" />
+        <Price storeidentifier="merchantmine" />
+        <Price storeidentifier="merchantengineering" multiplier="0.9" />
       </Price>
       <PreferredContainer secondary="wreckreactorcab,abandonedreactorcab" minamount="0" maxamount="1" spawnprobability="0.06" />
       <PreferredContainer primary="reactorcab,storagecab" />
@@ -358,12 +341,13 @@
       <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" minamount="0" maxamount="1" spawnprobability="0.2"/>
       <PreferredContainer primary="outpostcrewcabinet" minamount="0" maxamount="1" spawnprobability="0.25"/>
       <PreferredContainer secondary="locker"/>
-      <Price baseprice="75" >
-        <Price locationtype="outpost" multiplier="1" minavailable="3" />
-        <Price locationtype="city" multiplier="0.9" minavailable="5" />
-        <Price locationtype="research" multiplier="1.25" minavailable="2" />
-        <Price locationtype="military" multiplier="1.25" minavailable="2" />
-        <Price locationtype="mine" multiplier="0.9" minavailable="10" />
+      <Price baseprice="75">
+        <Price storeidentifier="merchantoutpost" minavailable="3" />
+        <Price storeidentifier="merchantcity" minavailable="2" />
+        <Price storeidentifier="merchantresearch" multiplier="1.25" minavailable="2" />
+        <Price storeidentifier="merchantmilitary" multiplier="1.25" minavailable="2" />
+        <Price storeidentifier="merchantmine" multiplier="0.9" minavailable="10" />
+        <Price storeidentifier="merchantengineering" minavailable="5" multiplier="0.9"/>
       </Price>
       <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="64,64,64,64" origin="0.5,0.5" />
       <Sprite texture="Content/Items/Tools/tools.png" sourcerect="0,3,152,88" depth="0.55" origin="0.5,0.5" />
@@ -455,12 +439,12 @@
       <PreferredContainer primary="storagecab" minamount="1" maxamount="4" spawnprobability="1"/>
       <PreferredContainer secondary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.06"/>
       <PreferredContainer secondary="locker" />
-      <Price baseprice="20" >
-        <Price locationtype="outpost" multiplier="1.3" minavailable="7"/>
-        <Price locationtype="city" multiplier="1.25" minavailable="10" />
-        <Price locationtype="research" multiplier="1" minavailable="6" />
-        <Price locationtype="military" multiplier="0.9" minavailable="15" />
-        <Price locationtype="mine" multiplier="0.9" minavailable="20" />
+      <Price baseprice="20">
+        <Price storeidentifier="merchantoutpost" multiplier="1.3" minavailable="7"/>
+        <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="10" />
+        <Price storeidentifier="merchantresearch" minavailable="6" />
+        <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="15" />
+        <Price storeidentifier="merchantmine" multiplier="0.9" minavailable="20" />
       </Price>
       <Fabricate suitablefabricators="fabricator" requiredtime="5">
         <RequiredSkill identifier="mechanical" level="20" />
@@ -491,12 +475,12 @@
       <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" minamount="0" maxamount="3" spawnprobability="0.25"/>
       <PreferredContainer primary="outpostcrewcabinet" minamount="1" maxamount="2" spawnprobability="0.5"/>
       <PreferredContainer secondary="locker"/>
-      <Price baseprice="10">
-        <Price locationtype="outpost" multiplier="1" minavailable="10" />
-        <Price locationtype="city" multiplier="0.9" minavailable="15" />
-        <Price locationtype="research" multiplier="1.25" minavailable="10" />
-        <Price locationtype="military" multiplier="1.25" minavailable="10" />
-        <Price locationtype="mine" multiplier="1" minavailable="10" />
+      <Price baseprice="10" minavailable="10">
+        <Price storeidentifier="merchantoutpost" />
+        <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="15" />
+        <Price storeidentifier="merchantresearch" multiplier="1.25" />
+        <Price storeidentifier="merchantmilitary" multiplier="1.25" />
+        <Price storeidentifier="merchantmine" />
       </Price>
       <Deconstruct time="10">
         <Item identifier="iron" />

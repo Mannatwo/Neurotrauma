@@ -1,6 +1,6 @@
 
 -- set the below variable to true to enable debug and testing features
-NT.TestingEnabled = true
+NT.TestingEnabled = false
 
 Hook.Add('chatMessage', 'NT.testing', function(msg, client)
     
@@ -33,11 +33,13 @@ Hook.Add('chatMessage', 'NT.testing', function(msg, client)
         if not NT.TestingEnabled then return end
         -- insert testing stuff here
         
-        local skills = client.Character.Info.Job.Skills
+        local test = {val="true"}
 
-        for key,val in pairs(skills) do 
-            print(key,val.Identifier,val.Level)
-        end
+        local function testfunc(param) param.val="false" end
+
+        print(test.val)
+        testfunc(test)
+        print(test.val)
 
         return true
     elseif(msg=="nt2") then

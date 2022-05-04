@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="Russian" nowhitespace="false" translatedname="Русский">
+
+	<!-- ChemMaster 2k -->
+	<entityname.chemmaster>ChemMaster 2000</entityname.chemmaster>
+	<entitydescription.chemmaster>Машина, создающая пилюли из загруженных ингредиентов.</entitydescription.chemmaster>
+	
+	<lua.chemerror.header>ChemMaster 2000 - ОШИБКА!:</lua.chemerror.header>
+	<lua.chemerror.invaliditem>'{id}' - неподходящий элемент.</lua.chemerror.invaliditem>
+	<lua.chemerror.invalidcategory.base>'{id}' - неподходящая основа.</lua.chemerror.invalidcategory.base>
+	<lua.chemerror.invalidcategory.binder>'{id}' - неподходящее связующее вещество.</lua.chemerror.invalidcategory.binder>
+	<lua.chemerror.invalidcategory.filler>'{id}' - неподходящий наполнитель.</lua.chemerror.invalidcategory.filler>
+	<lua.chemerror.invalidcategory.active>'{id}' - неподходящее активное вещество.</lua.chemerror.invalidcategory.active>
+	<lua.chemerror.invalidcategory.dye>'{id}' - неподходящий краситель.</lua.chemerror.invalidcategory.dye>
+	<lua.chemerror.outputfull>Слот вывода заполнен.</lua.chemerror.outputfull>
+	<lua.chemerror.missingbase>Нет основы.</lua.chemerror.missingbase>
+	<lua.chemerror.missingbinder>Нет связующего вещества.</lua.chemerror.missingbinder>
+	<lua.chemerror.missingactive>Нет активного вещества.</lua.chemerror.missingactive>
+	<lua.chemerror.capacity>Эта смесь поддерживает не более {cap} активных ингредиентов.</lua.chemerror.capacity>
+	<lua.chemerror.yield>Эта смесь не образует пилюль.</lua.chemerror.yield>
+	<label.cm_makeone>Создать одну</label.cm_makeone>
+	<label.cm_makeall>Создать все</label.cm_makeall>
+	<label.cm_description>Описание препарата</label.cm_description>
+	
+	<!-- Pill analyzer -->
+	<entityname.chemalyzer>Медицинский анализатор</entityname.chemalyzer>
+	<entitydescription.chemalyzer>Показывает компоненты препаратов внутри.</entitydescription.chemalyzer>
+	<label.ca_analyze>Анализировать</label.ca_analyze>
+	<lua.chemalyzer.header>Ингредиенты:</lua.chemalyzer.header>
+	<label.ca_rename>Установить описание</label.ca_rename>
+	
+	<!-- pill combos -->
+	<pillcombo.antihusk>Антихаск</pillcombo.antihusk>
+	
+	<!-- other items -->
+	<entityname.custompill>Пилюля</entityname.custompill>
+	<entityname.custompill_horsepill>Огромная пилюля</entityname.custompill_horsepill>
+	<entityname.custompill_tablets>Таблетки</entityname.custompill_tablets>
+	<entitydescription.custompill>Одному лишь создателю известны эффекты этой штуки.</entitydescription.custompill>
+	<entitydescription.custompill_horsepill>Большевата чтобы так просто проглотить её.</entitydescription.custompill_horsepill>
+	<entitydescription.custompill_tablets>Хуже не будет, правда?</entitydescription.custompill_tablets>
+	
+	<!-- containers -->
+	<entityname.antidotetoolbox>Контейнер для антидотов</entityname.antidotetoolbox>
+	<entityname.machinetoolbox>Контейнер для аппаратуры</entityname.machinetoolbox>
+	<entityname.bonetoolbox>Контейнер для костей</entityname.bonetoolbox>
+	<entityname.biohazardtoolbox>Контейнер для опасных реагентов</entityname.biohazardtoolbox>
+	<entityname.bufftoolbox>Контейнер для усилений</entityname.bufftoolbox>
+	
+	<entityname.surgerycrate>Ящик для хирургии</entityname.surgerycrate>
+	<entityname.antidotecrate>Ящик для антидотов</entityname.antidotecrate>
+	<entityname.machinecrate>Ящик для аппаратуры</entityname.machinecrate>
+	<entityname.bonecrate>Ящик для костей</entityname.bonecrate>
+	<entityname.biohazardcrate>Ящик для опасных реагентов</entityname.biohazardcrate>
+	<entityname.buffcrate>ящик для усилений</entityname.buffcrate>
+
+</infotexts>

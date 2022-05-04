@@ -22,7 +22,7 @@ NTC.AddOnDamagedHook(function (characterHealth, attackResult, hitLimb)
 
     for index, value in ipairs(attackResult.Afflictions) do
         if value.Strength > 1 then 
-            identifier = value.Prefab.Identifier
+            identifier = value.Prefab.Identifier.Value
 
             if HF.TableContains(convertedDamageTypes,identifier) then
                 causeDamageTypeConversion = true 

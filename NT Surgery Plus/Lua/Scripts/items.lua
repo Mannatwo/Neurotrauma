@@ -9,6 +9,8 @@ local experimentalEffects = {
     analgesia={weight=1,afflictions={{identifier="analgesia",minstrength=20,maxstrength=100,limbspecific=false}}},
     anesthesia={weight=0.5,afflictions={{identifier="anesthesia",minstrength=1,maxstrength=100,limbspecific=false}}},
     ointmented={weight=1,afflictions={{identifier="ointmented",minstrength=20,maxstrength=100,limbspecific=true}}},
+    combatstimulant={weight=2,afflictions={{identifier="combatstimulant",minstrength=30,maxstrength=100,limbspecific=false}}},
+    pressurestabilized={weight=1,afflictions={{identifier="pressurestabilized",minstrength=30,maxstrength=100,limbspecific=false}}},
     -- other positive
     fullheal={weight=5,afflictions={
         {identifier="bleeding",minstrength=-20,maxstrength=-100,limbspecific=true},
@@ -52,6 +54,11 @@ end
 
 NT.ItemMethods.experimentaltreatment = function(item, usingCharacter, targetCharacter, limb)
     local limbtype = limb.type
+
+    -- endocrine booster
+    if HF.Chance(1/25) then
+        HF.ApplyEndocrineBoost(targetCharacter)
+    end
 
     local weightsum = 0
     for key,val in pairs(experimentalEffects) do weightsum = weightsum + val.weight end

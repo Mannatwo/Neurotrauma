@@ -4,7 +4,7 @@
 
   <!-- Researcher -->
   <Talent identifier="ntsp_humanmachine">
-    <Icon texture="Mods/NT Surgery Plus/Images/MainAtlas.png" sheetindex="2,0" sheetelementsize="128,128"/>
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="2,0" sheetelementsize="128,128"/>
     <Description tag="talentdescription.simultaneousskillgain">
       <Replace tag="[skillname1]" value="skillname.surgery" color="gui.orange"/>
       <Replace tag="[skillname2]" value="skillname.mechanical" color="gui.orange"/>
@@ -60,7 +60,7 @@
   </Talent>
 
   <Talent identifier="ntsp_firstaidtraining">
-    <Icon texture="Mods/NT Surgery Plus/Images/MainAtlas.png" sheetindex="6,1" sheetelementsize="128,128"/>
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="6,1" sheetelementsize="128,128"/>
     <Description tag="talentdescription.unlockrecipe">
       <Replace tag="[itemname]" value="entityname.aed" color="gui.orange"/>
     </Description>
@@ -77,7 +77,7 @@
   </Talent>
 
   <Talent identifier="ntsp_frankenstein">
-    <Icon texture="Mods/NT Surgery Plus/Images/MainAtlas.png" sheetindex="3,0" sheetelementsize="128,128"/>
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="3,0" sheetelementsize="128,128"/>
     <Description tag="talentdescription.additionalresistanceself">
       <Replace tag="[amount]" value="50" color="gui.green"/>
       <Replace tag="[affliction]" value="afflictionname.psychosis" color="gui.orange"/>
@@ -98,7 +98,7 @@
   </Talent>
 
   <Talent identifier="ntsp_autoimmune">
-    <Icon texture="Mods/NT Surgery Plus/Images/MainAtlas.png" sheetindex="4,0" sheetelementsize="128,128"/>
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="4,0" sheetelementsize="128,128"/>
     <Description tag="talentdescription.ntsp_autoimmune">
       <Replace tag="[itemname]" value="entityname.aed" color="gui.orange"/>
     </Description>
@@ -106,7 +106,7 @@
   </Talent>
 
   <Talent identifier="ntsp_mannitol">
-    <Icon texture="Mods/NT Surgery Plus/Images/MainAtlas.png" sheetindex="4,0" sheetelementsize="128,128"/>
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="4,0" sheetelementsize="128,128"/>
     <Description tag="talentdescription.unlockrecipe">
       <Replace tag="[itemname]" value="entityname.mannitolplus" color="gui.orange"/>
     </Description>
@@ -114,7 +114,7 @@
   </Talent>
 
   <Talent identifier="ntsp_experimental">
-    <Icon texture="Mods/NT Surgery Plus/Images/MainAtlas.png" sheetindex="4,0" sheetelementsize="128,128"/>
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="4,0" sheetelementsize="128,128"/>
     <Description tag="talentdescription.unlockrecipe">
       <Replace tag="[itemname]" value="entityname.experimentaltreatment" color="gui.orange"/>
     </Description>
@@ -124,12 +124,12 @@
   <!-- Hospitalizer -->
 
   <Talent identifier="ntsp_medicallicence">
-    <Icon texture="Mods/NT Surgery Plus/Images/MainAtlas.png" sheetindex="7,0" sheetelementsize="128,128"/>
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="7,0" sheetelementsize="128,128"/>
     <Description tag="talentdescription.ntsp_medicallicence"/>
   </Talent>
 
   <Talent identifier="ntsp_bedsidemanner">
-    <Icon texture="Mods/NT Surgery Plus/Images/MainAtlas.png" sheetindex="6,0" sheetelementsize="128,128"/>
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="6,0" sheetelementsize="128,128"/>
     <Description tag="talentdescription.ntsp_bedsidemanner"/>
     <Description tag="talentdescription.gainmissionxpanditem">
       <Replace tag="[amount]" value="40" color="gui.green"/>
@@ -155,12 +155,12 @@
   </Talent>
 
   <Talent identifier="ntsp_rinseandrepeat">
-    <Icon texture="Mods/NT Surgery Plus/Images/MainAtlas.png" sheetindex="7,1" sheetelementsize="128,128"/>
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="7,1" sheetelementsize="128,128"/>
     <Description tag="talentdescription.ntsp_rinseandrepeat"/>
   </Talent>
 
   <Talent identifier="ntsp_underpressure">
-    <Icon texture="Mods/NT Surgery Plus/Images/MainAtlas.png" sheetindex="3,0" sheetelementsize="128,128"/>
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="3,0" sheetelementsize="128,128"/>
     <Description tag="talentdescription.ntsp_underpressure">
       <Replace tag="[amount]" value="50" color="gui.green"/>
     </Description>
@@ -181,7 +181,7 @@
   <!-- Field surgeon -->
 
   <Talent identifier="ntsp_rapiddeoployment">
-    <Icon texture="Mods/NT Surgery Plus/Images/MainAtlas.png" sheetindex="5,0" sheetelementsize="128,128"/>
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="5,0" sheetelementsize="128,128"/>
     <Description tag="talentdescription.additionalstattypeself">
       <Replace tag="[amount]" value="50" color="gui.green"/>
       <Replace tag="[stattype]" value="stattypenames.swimmingspeed" color="gui.orange"/>
@@ -222,14 +222,14 @@
   </Talent>
   
   <Talent identifier="ntsp_properfol">
-    <Icon texture="Mods/NT Surgery Plus/Images/MainAtlas.png" sheetindex="4,0" sheetelementsize="128,128"/>
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="4,0" sheetelementsize="128,128"/>
     <Description tag="talentdescription.ntsp_properfol">
       <Replace tag="[itemname]" value="entityname.propofol" color="gui.orange"/>
     </Description>
   </Talent>
 
   <Talent identifier="ntsp_soothingsurgeon">
-    <Icon texture="Mods/NT Surgery Plus/Images/MainAtlas.png" sheetindex="6,0" sheetelementsize="128,128"/>
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="6,0" sheetelementsize="128,128"/>
     <Description tag="talentdescription.ntsp_soothingsurgeon"/>
     <AbilityGroupInterval>
       <Abilities>
@@ -245,7 +245,7 @@
   </Talent>
 
   <Talent identifier="ntsp_imadoctornota">
-    <Icon texture="Mods/NT Surgery Plus/Images/MainAtlas.png" sheetindex="6,1" sheetelementsize="128,128"/>
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="6,1" sheetelementsize="128,128"/>
     <Description tag="talentdescription.skillbonus">
       <Replace tag="[amount]" value="15"/>
       <Replace tag="[skillname]" value="skillname.electrical" color="gui.orange"/>
@@ -277,7 +277,7 @@
     <Description tag="talentdescription.ntsp_preventativepermit">
       <Replace tag="[physicalresistance]" value="35" color="gui.green"/>
     </Description>
-    <Icon texture="Mods/NT Surgery Plus/Images/MainAtlas.png" sheetindex="6,0" sheetelementsize="128,128"/>
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="6,0" sheetelementsize="128,128"/>
     <Description tag="talentdescription.commanderreminder"/>
     <AbilityGroupInterval>
       <Abilities>

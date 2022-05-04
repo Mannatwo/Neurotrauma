@@ -50,7 +50,7 @@
         selfcauseofdeathdescription="Your brain got removed."
         iconcolors="127,127,127,255;127,127,127,255"
         maxstrength="2">
-        <icon texture="Mods/Neurotrauma/Images/AfflictionIcons.png" sheetindex="4,5" sheetelementsize="128,128" origin="0,0"/>
+        <icon texture="%ModDir:Neurotrauma%/Images/AfflictionIcons.png" sheetindex="4,5" sheetelementsize="128,128" origin="0,0"/>
     </Affliction>
 
 <!-- Triage tags -->
@@ -68,7 +68,7 @@
         isbuff="true"
         iconcolors="0,145,14,255;0,145,14,255"
         maxstrength="2">
-        <icon texture="Mods/NT Surgery Plus/Images/MainAtlas.png" sheetindex="5,1" sheetelementsize="128,128" origin="0,0"/>
+        <icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="5,1" sheetelementsize="128,128" origin="0,0"/>
     </Affliction>
 
     <Affliction
@@ -85,7 +85,7 @@
         isbuff="true"
         iconcolors="224,193,38,255;224,193,38,255"
         maxstrength="2">
-        <icon texture="Mods/NT Surgery Plus/Images/MainAtlas.png" sheetindex="5,1" sheetelementsize="128,128" origin="0,0"/>
+        <icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="5,1" sheetelementsize="128,128" origin="0,0"/>
     </Affliction>
 
     <Affliction
@@ -102,7 +102,7 @@
         isbuff="true"
         iconcolors="188,26,26,255;188,26,26,255"
         maxstrength="2">
-        <icon texture="Mods/NT Surgery Plus/Images/MainAtlas.png" sheetindex="5,1" sheetelementsize="128,128" origin="0,0"/>
+        <icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="5,1" sheetelementsize="128,128" origin="0,0"/>
     </Affliction>
 
     <Affliction
@@ -119,6 +119,6 @@
         isbuff="true"
         iconcolors="64,64,64,255;64,64,64,255"
         maxstrength="2">
-        <icon texture="Mods/NT Surgery Plus/Images/MainAtlas.png" sheetindex="5,1" sheetelementsize="128,128" origin="0,0"/>
+        <icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="5,1" sheetelementsize="128,128" origin="0,0"/>
     </Affliction>
 </Afflictions>

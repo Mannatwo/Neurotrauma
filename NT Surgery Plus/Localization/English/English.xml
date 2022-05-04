@@ -21,9 +21,6 @@
 <entityname.surgicaldrapes>Surgical drapes</entityname.surgicaldrapes>
 <entitydescription.surgicaldrapes>Sterile sheets to prevent infection during surgery.</entitydescription.surgicaldrapes>
 
-<entityname.surgicaldrapes>Surgical drapes</entityname.surgicaldrapes>
-<entitydescription.surgicaldrapes>Sterile sheets to prevent infection during surgery.</entitydescription.surgicaldrapes>
-
 <entityname.skillbooksurgery>'Medical Misconduct'</entityname.skillbooksurgery>
 <entitydescription.skillbooksurgery>A handbook containing numerous surgical procedures and steps to reproduce them.</entitydescription.skillbooksurgery>
 
@@ -63,7 +60,7 @@
 <jobname.surgeon>Surgeon</jobname.surgeon>
 <jobdescription.surgeon>While the medical doctor is better suited for first aid and quick response, the surgeon specializes in the optimization of surgical procedures. Lower risk of infection, faster execution, if it's related to surgery, the surgeon has it.</jobdescription.surgeon>
 
-<skillname.surgery>Surgery</skillname.surgery>
+<skillname.surgery>Surgical</skillname.surgery>
 
 <!-- TALENTS -->
 

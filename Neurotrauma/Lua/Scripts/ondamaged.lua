@@ -1,22 +1,28 @@
 
 Hook.Add("character.applyDamage", "NT.ondamaged", function (characterHealth, attackResult, hitLimb)
     
+    --print(hitLimb.HealthIndex or hitLimb ~= nil)
+
     if -- invalid attack data, don't do anything
         characterHealth == nil or 
         characterHealth.Character == nil or 
-        characterHealth.Character.IsDead or 
         not characterHealth.Character.IsHuman or 
         attackResult == nil or 
         attackResult.Afflictions == nil or
         #attackResult.Afflictions <= 0 or
-        hitLimb == nil
+        hitLimb == nil or
+        hitLimb.IsSevered
     then return end
+
+    --print("made it through validation: aff count "..#attackResult.Afflictions..", is dead "..tostring(characterHealth.Character.IsDead)..", char name "..characterHealth.Character.Name)
     
+if characterHealth.Character.IsDead then return end
+
     local identifier = ""
     local methodtorun = nil
     for index, value in ipairs(attackResult.Afflictions) do
         -- execute fitting method, if available
-        identifier = value.Prefab.Identifier
+        identifier = value.Prefab.Identifier.Value
         methodtorun = NT.OnDamagedMethods[identifier]
         if methodtorun ~= nil then 
             methodtorun(characterHealth.Character,value.Strength,hitLimb.type)
@@ -127,7 +133,7 @@ NT.OnDamagedMethods.explosiondamage = function(character,strength,limbtype)
             NT.BreakLimb(character,limbtype)
         elseif NT.LimbIsBroken(character,limbtype) and not NT.LimbIsAmputated(character,limbtype) and HF.Chance(strength/60*NTC.GetMultiplier(character,"traumamputatechance")) then
             NT.TraumamputateLimb(character,limbtype) end
-        if HF.Chance(0.35) then
+        if HF.Chance(0.35) and not NT.LimbIsAmputated(character,limbtype) then
             NT.DislocateLimb(character,limbtype) end
     end
 end
@@ -231,7 +237,7 @@ NT.OnDamagedMethods.blunttrauma = function(character,strength,limbtype)
             NT.BreakLimb(character,limbtype)
         elseif strength > 15 and NT.LimbIsBroken(character,limbtype) and not NT.LimbIsAmputated(character,limbtype) and HF.Chance(strength/100*NTC.GetMultiplier(character,"traumamputatechance")) then
             NT.TraumamputateLimb(character,limbtype) end
-        if HF.Chance(HF.Clamp(strength/80,0.1,0.5)) then
+        if HF.Chance(HF.Clamp(strength/80,0.1,0.5)) and not NT.LimbIsAmputated(character,limbtype) then
             NT.DislocateLimb(character,limbtype) end
     end
 end
@@ -271,7 +277,7 @@ NT.OnDamagedMethods.internaldamage = function(character,strength,limbtype)
             NT.BreakLimb(character,limbtype)
         elseif strength > 10 and NT.LimbIsBroken(character,limbtype) and not NT.LimbIsAmputated(character,limbtype) and HF.Chance((strength-10)/60*NTC.GetMultiplier(character,"traumamputatechance")) then
             NT.TraumamputateLimb(character,limbtype) end
-        if HF.Chance(0.25) then
+        if HF.Chance(0.25) and not NT.LimbIsAmputated(character,limbtype) then
             NT.DislocateLimb(character,limbtype) end
     end
 end
@@ -293,6 +299,8 @@ function NT.BreakLimb(character,limbtype)
     limbtoaffliction[LimbType.LeftLeg] = "ll_fracture"
     limbtoaffliction[LimbType.RightArm] = "ra_fracture"
     limbtoaffliction[LimbType.LeftArm] = "la_fracture"
+    limbtoaffliction[LimbType.Head] = "h_fracture"
+    limbtoaffliction[LimbType.Torso] = "t_fracture"
     if limbtoaffliction[limbtype] == nil then return end
     HF.AddAfflictionLimb(character,limbtoaffliction[limbtype],limbtype,5)
 end
@@ -315,6 +323,18 @@ function NT.TraumamputateLimbMinusItem(character,limbtype)
     limbtoaffliction[LimbType.LeftArm] = "gate_ta_la_2"
     if limbtoaffliction[limbtype] == nil then return end
     HF.AddAfflictionLimb(character,limbtoaffliction[limbtype],limbtype,10)
+end
+
+function NT.ArteryCutLimb(character,limbtype)
+    local limbtoaffliction = {}
+    limbtoaffliction[LimbType.RightLeg] = "rl_arterialcut"
+    limbtoaffliction[LimbType.LeftLeg] = "ll_arterialcut"
+    limbtoaffliction[LimbType.RightArm] = "ra_arterialcut"
+    limbtoaffliction[LimbType.LeftArm] = "la_arterialcut"
+    limbtoaffliction[LimbType.Head] = "h_arterialcut"
+    limbtoaffliction[LimbType.Torso] = "t_arterialcut"
+    if limbtoaffliction[limbtype] == nil then return end
+    HF.AddAfflictionLimb(character,limbtoaffliction[limbtype],limbtype,5)
 end
 
 

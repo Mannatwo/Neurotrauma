@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="NT Pharmacy" path="%ModDir%/filelist.xml" corepackage="false" gameversion="0.16.7.0">
+  <None file="%ModDir%/Images/InventoryItemIconAtlas.png" />
+  <Afflictions file="%ModDir%/Xml/Afflictions.xml" />
+  <Item file="%ModDir%/Xml/items.xml" />
+  <Text file="%ModDir%/Localization/English/English.xml" />
+  <Text file="%ModDir%/Localization/Russian/Russian.xml" />
+  <None file="%ModDir%/Lua/Autorun/init.lua" />
+  <None file="%ModDir%/Lua/Scripts/humanupdate.lua" />
+  <None file="%ModDir%/Lua/Scripts/items.lua" />
+  <None file="%ModDir%/Lua/Scripts/testing.lua" />
+</contentpackage>
