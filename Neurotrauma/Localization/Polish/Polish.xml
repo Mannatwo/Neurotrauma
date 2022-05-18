@@ -298,6 +298,9 @@ Biorcy: AB+</entitydescription.abpluscard>
 <afflictionname.tachycardia>Zwiększone tętno</afflictionname.tachycardia>
 <afflictiondescription.tachycardia>Serce bije w niepokojąco szybkim tempie.</afflictiondescription.tachycardia>
 
+<afflictionname.fibrillation>Arytmia</afflictionname.fibrillation>
+<afflictiondescription.fibrillation>Skurcze mięśnia sercowego są nieregularne, występuje odczucie trzepotania.</afflictiondescription.fibrillation>
+
 <afflictionname.cardiacarrest>Zatrzymanie akcji serca</afflictionname.cardiacarrest>
 <afflictiondescription.cardiacarrest>Brak pulsu.</afflictiondescription.cardiacarrest>
 
@@ -655,6 +658,16 @@ Biorcy: AB+</entitydescription.abpluscard>
 <afflictionname.anesthesia>Znieczulenie</afflictionname.anesthesia>
 <afflictiondescription.anesthesia>U pacjenta występuje amnezja i uspokojenie wywołane lekami.</afflictiondescription.anesthesia>
 
+
+<afflictionname.burn_deg1>Oparzenie pierwszego stopnia</afflictionname.burn_deg1>
+<afflictiondescription.burn_deg1>Miejsce oparzenia jest czerwone i bolesne w dotyku.</afflictiondescription.burn_deg1>
+
+<afflictionname.burn_deg2>Oparzenie drugiego stopnia</afflictionname.burn_deg2>
+<afflictiondescription.burn_deg2>W miejscu oparzenia znajdują się bardzo bolesne pęcherze.</afflictiondescription.burn_deg2>
+
+<afflictionname.burn_deg3>Oparzenie trzeciego stopnia</afflictionname.burn_deg3>
+<afflictiondescription.burn_deg3>Miejsce oparzenia jest ciemnobrunatne i pozbawione pęcherzy, a pacjent prawie nie czuje bólu.</afflictiondescription.burn_deg3>
+
 <!-- /// Surgery /// -->
 
 <afflictionname.surgeryincision>Nacięcie chirurgiczne</afflictionname.surgeryincision>
@@ -672,16 +685,8 @@ Biorcy: AB+</entitydescription.abpluscard>
 <afflictionname.suturedi>Szyte nacięcie</afflictionname.suturedi>
 <afflictiondescription.suturedi>Nacięcie zostało zamknięte za pomocą szwów.</afflictiondescription.suturedi>
 
-<afflictionname.boncut1>Przepiłowanie kości</afflictionname.boncut1>
-<afflictiondescription.boncut1>Kość została odcięta.</afflictiondescription.boncut1>
-<afflictionname.boncut2>Przepiłowanie kości</afflictionname.boncut2>
-<afflictiondescription.boncut2>Kość została odcięta.</afflictiondescription.boncut2>
-<afflictionname.boncut3>Przepiłowanie kości</afflictionname.boncut3>
-<afflictiondescription.boncut3>Kość została odcięta.</afflictiondescription.boncut3>
-<afflictionname.boncut4>Przepiłowanie kości</afflictionname.boncut4>
-<afflictiondescription.boncut4>Kość została odcięta.</afflictiondescription.boncut4>
-<afflictionname.boncut5>Przepiłowanie kości</afflictionname.boncut5>
-<afflictiondescription.boncut5>Kość została odcięta.</afflictiondescription.boncut5>
+<afflictionname.bonecut>Przepiłowanie kości</afflictionname.bonecut>
+<afflictiondescription.bonecut>Kość została odcięta.</afflictiondescription.bonecut>
 
 <!-- /// SIGNALS /// -->
 <connection.aliveout>Żywy</connection.aliveout>

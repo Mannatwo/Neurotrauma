@@ -21,6 +21,8 @@
 	<label.cm_makeone>Make one</label.cm_makeone>
 	<label.cm_makeall>Make all</label.cm_makeall>
 	<label.cm_description>Pill description</label.cm_description>
+
+	<ItemMsgDetachCrowbar>Detach (Crowbar)</ItemMsgDetachCrowbar>
 	
 	<!-- Pill analyzer -->
 	<entityname.chemalyzer>Pill analyzer</entityname.chemalyzer>

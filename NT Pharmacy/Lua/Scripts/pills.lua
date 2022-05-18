@@ -96,7 +96,7 @@ NTP.PillData.items = {
             {type="addeffect",identifier="opiateoverdose",amount=-30},
             {type="addeffect",identifier="opiatewithdrawal",amount=-30}},
         faileffects={
-            {type="addeffect",identifier="coma",amount=-8,chance=0.5},
+            {type="addeffect",identifier="coma",amount=8,chance=0.5},
             {type="addeffect",identifier="analgesia",amount=-30},
             {type="addeffect",identifier="opiateoverdose",amount=-15},
             {type="addeffect",identifier="opiatewithdrawal",amount=-15}}

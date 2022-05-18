@@ -101,11 +101,11 @@
 
     <Repairable selectkey="Action" header="mechanicalrepairsheader" deteriorationspeed="0.50"
                 mindeteriorationdelay="60" maxdeteriorationdelay="120" RepairThreshold="80" fixDurationHighSkill="5"
-                fixDurationLowSkill="25" msg="ItemMsgRepairWrench" hudpriority="10">
+                fixDurationLowSkill="25" msg="ItemMsgRepairScrewdriver" hudpriority="10">
         <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,216" anchor="Center"
                   relativeoffset="0.0,0.27" style="ItemUI"/>
         <RequiredSkill identifier="mechanical" level="55"/>
-        <RequiredItem items="wrench" type="equipped"/>
+        <RequiredItem items="screwdriver" type="equipped"/>
         <ParticleEmitter particle="damagebubbles" particleburstamount="2" particleburstinterval="2.0"
                           particlespersecond="2" scalemin="0.5" scalemax="1.5" anglemin="0" anglemax="359"
                           velocitymin="-10" velocitymax="10" mincondition="0.0" maxcondition="50.0"/>

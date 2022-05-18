@@ -1,6 +1,6 @@
 
 -- set the below variable to true to enable debug and testing features
-NTP.TestingEnabled = true
+NTP.TestingEnabled = false
 
 Hook.Add('chatMessage', 'NTP.testing', function(msg, client)
     

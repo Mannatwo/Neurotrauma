@@ -1,5 +1,142 @@
 
 -- This file contains a bunch of useful functions that see heavy use in the other scripts.
+
+
+-- Neurotrauma functions
+
+function NT.DislocateLimb(character,limbtype,strength)
+    strength = strength or 1
+    local limbtoaffliction = {}
+    limbtoaffliction[LimbType.RightLeg] = "dislocation1"
+    limbtoaffliction[LimbType.LeftLeg] = "dislocation2"
+    limbtoaffliction[LimbType.RightArm] = "dislocation3"
+    limbtoaffliction[LimbType.LeftArm] = "dislocation4"
+    if limbtoaffliction[limbtype] == nil then return end
+    HF.AddAffliction(character,limbtoaffliction[limbtype],strength)
+end
+function NT.BreakLimb(character,limbtype,strength)
+    strength = strength or 5
+    local limbtoaffliction = {}
+    limbtoaffliction[LimbType.RightLeg] = "rl_fracture"
+    limbtoaffliction[LimbType.LeftLeg] = "ll_fracture"
+    limbtoaffliction[LimbType.RightArm] = "ra_fracture"
+    limbtoaffliction[LimbType.LeftArm] = "la_fracture"
+    limbtoaffliction[LimbType.Head] = "h_fracture"
+    limbtoaffliction[LimbType.Torso] = "t_fracture"
+    if limbtoaffliction[limbtype] == nil then return end
+    HF.AddAffliction(character,limbtoaffliction[limbtype],strength)
+end
+function NT.SurgicallyAmputateLimb(character,limbtype,strength,traumampstrength)
+    strength = strength or 100
+    traumampstrength = traumampstrength or 0
+    
+    limbtype = HF.NormalizeLimbType(limbtype)
+    local limbtoaffliction = {}
+    limbtoaffliction[LimbType.RightLeg] = "srl_amputation"
+    limbtoaffliction[LimbType.LeftLeg] = "sll_amputation"
+    limbtoaffliction[LimbType.RightArm] = "sra_amputation"
+    limbtoaffliction[LimbType.LeftArm] = "sla_amputation"
+    limbtoaffliction[LimbType.Head] = "sh_amputation"
+    if limbtoaffliction[limbtype] == nil then return end
+    HF.SetAffliction(character,limbtoaffliction[limbtype],strength)
+
+    limbtoaffliction[LimbType.RightLeg] = "trl_amputation"
+    limbtoaffliction[LimbType.LeftLeg] = "tll_amputation"
+    limbtoaffliction[LimbType.RightArm] = "tra_amputation"
+    limbtoaffliction[LimbType.LeftArm] = "tla_amputation"
+    limbtoaffliction[LimbType.Head] = "th_amputation"
+    HF.SetAffliction(character,limbtoaffliction[limbtype],traumampstrength)
+end
+function NT.TraumamputateLimb(character,limbtype)
+    local limbtoaffliction = {}
+    limbtoaffliction[LimbType.RightLeg] = "gate_ta_rl"
+    limbtoaffliction[LimbType.LeftLeg] = "gate_ta_ll"
+    limbtoaffliction[LimbType.RightArm] = "gate_ta_ra"
+    limbtoaffliction[LimbType.LeftArm] = "gate_ta_la"
+    limbtoaffliction[LimbType.Head] = "gate_ta_h"
+    if limbtoaffliction[limbtype] == nil then return end
+    HF.AddAfflictionLimb(character,limbtoaffliction[limbtype],limbtype,10)
+end
+function NT.TraumamputateLimbMinusItem(character,limbtype)
+    local limbtoaffliction = {}
+    limbtoaffliction[LimbType.RightLeg] = "gate_ta_rl_2"
+    limbtoaffliction[LimbType.LeftLeg] = "gate_ta_ll_2"
+    limbtoaffliction[LimbType.RightArm] = "gate_ta_ra_2"
+    limbtoaffliction[LimbType.LeftArm] = "gate_ta_la_2"
+    limbtoaffliction[LimbType.Head] = "gate_ta_h"
+    if limbtoaffliction[limbtype] == nil then return end
+    HF.AddAfflictionLimb(character,limbtoaffliction[limbtype],limbtype,10)
+end
+function NT.ArteryCutLimb(character,limbtype,strength)
+    strength=strength or 5
+    local limbtoaffliction = {}
+    limbtoaffliction[LimbType.RightLeg] = "rl_arterialcut"
+    limbtoaffliction[LimbType.LeftLeg] = "ll_arterialcut"
+    limbtoaffliction[LimbType.RightArm] = "ra_arterialcut"
+    limbtoaffliction[LimbType.LeftArm] = "la_arterialcut"
+    limbtoaffliction[LimbType.Head] = "h_arterialcut"
+    limbtoaffliction[LimbType.Torso] = "t_arterialcut"
+    if limbtoaffliction[limbtype] == nil then return end
+    HF.AddAffliction(character,limbtoaffliction[limbtype],strength)
+end
+
+
+function NT.LimbIsDislocated(character,limbtype)
+    local limbtoaffliction = {}
+    limbtoaffliction[LimbType.RightLeg] = "dislocation1"
+    limbtoaffliction[LimbType.LeftLeg] = "dislocation2"
+    limbtoaffliction[LimbType.RightArm] = "dislocation3"
+    limbtoaffliction[LimbType.LeftArm] = "dislocation4"
+    if limbtoaffliction[limbtype] == nil then return false end
+    return HF.HasAffliction(character,limbtoaffliction[limbtype],1)
+end
+function NT.LimbIsBroken(character,limbtype)
+    local limbtoaffliction = {}
+    limbtoaffliction[LimbType.RightLeg] = "rl_fracture"
+    limbtoaffliction[LimbType.LeftLeg] = "ll_fracture"
+    limbtoaffliction[LimbType.RightArm] = "ra_fracture"
+    limbtoaffliction[LimbType.LeftArm] = "la_fracture"
+    if limbtoaffliction[limbtype] == nil then return false end
+    return HF.HasAffliction(character,limbtoaffliction[limbtype],1)
+end
+function NT.LimbIsArterialCut(character,limbtype)
+    local limbtoaffliction = {}
+    limbtoaffliction[LimbType.RightLeg] = "rl_arterialcut"
+    limbtoaffliction[LimbType.LeftLeg] = "ll_arterialcut"
+    limbtoaffliction[LimbType.RightArm] = "ra_arterialcut"
+    limbtoaffliction[LimbType.LeftArm] = "la_arterialcut"
+    limbtoaffliction[LimbType.Head] = "h_arterialcut"
+    limbtoaffliction[LimbType.Torso] = "t_arterialcut"
+    if limbtoaffliction[limbtype] == nil then return false end
+    return HF.HasAffliction(character,limbtoaffliction[limbtype],1)
+end
+function NT.LimbIsAmputated(character,limbtype)
+    return 
+        NT.LimbIsTraumaticallyAmputated(character,limbtype) or
+        NT.LimbIsSurgicallyAmputated(character,limbtype)
+end
+function NT.LimbIsTraumaticallyAmputated(character,limbtype)
+    local limbtoaffliction = {}
+    limbtoaffliction[LimbType.RightLeg] = "trl_amputation"
+    limbtoaffliction[LimbType.LeftLeg] = "tll_amputation"
+    limbtoaffliction[LimbType.RightArm] = "tra_amputation"
+    limbtoaffliction[LimbType.LeftArm] = "tla_amputation"
+    limbtoaffliction[LimbType.Head] = "th_amputation"
+    if limbtoaffliction[limbtype] == nil then return false end
+    return HF.HasAffliction(character,limbtoaffliction[limbtype],0.1)
+end
+function NT.LimbIsSurgicallyAmputated(character,limbtype)
+    local limbtoaffliction = {}
+    limbtoaffliction[LimbType.RightLeg] = "srl_amputation"
+    limbtoaffliction[LimbType.LeftLeg] = "sll_amputation"
+    limbtoaffliction[LimbType.RightArm] = "sra_amputation"
+    limbtoaffliction[LimbType.LeftArm] = "sla_amputation"
+    limbtoaffliction[LimbType.Head] = "sh_amputation"
+    if limbtoaffliction[limbtype] == nil then return false end
+    return HF.HasAffliction(character,limbtoaffliction[limbtype],0.1)
+end
+
+
 HF = {} -- Helperfunctions
 
 function HF.Lerp(a, b, t)
@@ -29,6 +166,8 @@ end
 -- /// affliction magic ///
 ------------------------------
 function HF.GetAfflictionStrength(character,identifier,defaultvalue)
+    if character==nil or character.CharacterHealth==nil then return defaultvalue end
+
     local aff = character.CharacterHealth.GetAffliction(identifier)
     local res = defaultvalue or 0
     if(aff~=nil) then
@@ -38,6 +177,8 @@ function HF.GetAfflictionStrength(character,identifier,defaultvalue)
 end
 
 function HF.GetAfflictionStrengthLimb(character,limbtype,identifier,defaultvalue)
+    if character==nil or character.CharacterHealth==nil or character.AnimController==nil then return defaultvalue end
+
     local aff = character.CharacterHealth.GetAffliction(identifier,character.AnimController.GetLimb(limbtype))
     local res = defaultvalue or 0
     if(aff~=nil) then
@@ -47,6 +188,8 @@ function HF.GetAfflictionStrengthLimb(character,limbtype,identifier,defaultvalue
 end
 
 function HF.HasAffliction(character,identifier,minamount)
+    if character==nil or character.CharacterHealth==nil then return false end
+
     local aff = character.CharacterHealth.GetAffliction(identifier)
     local res = false
     if(aff~=nil) then
@@ -214,6 +357,11 @@ function HF.GetSkillLevel(character,skilltype)
     return character.GetSkillLevel(Identifier(skilltype))
 end
 
+function HF.GetBaseSkillLevel(character,skilltype)
+    if character == nil or character.Info == nil or character.Info.Job == nil then return 0 end
+    return character.Info.Job.GetSkillLevel(Identifier(skilltype))
+end
+
 function HF.GetSkillRequirementMet(character,skilltype,requiredamount)
     local skilllevel = HF.GetSkillLevel(character,skilltype)
     return HF.Chance(HF.Clamp(skilllevel/requiredamount,0,1))
@@ -276,6 +424,8 @@ end
 
 function HF.SpawnItemPlusFunction(identifier,func,params,inventory,targetslot)
     local prefab = ItemPrefab.GetItemPrefab(identifier)
+    if params == nil then params = {} end
+    
     if SERVER then
         Entity.Spawner.AddItemToSpawnQueue(prefab, inventory.Container.Item.WorldPosition, nil, nil, function(newitem)
             if inventory~=nil then
@@ -644,4 +794,6 @@ function HF.Explode(entity,range,force,damage,structureDamage,itemDamage,empStre
     local explosion = Explosion(range, force, damage, structureDamage,
         itemDamage, empStrength, ballastFloraStrength)
     explosion.Explode(entity.WorldPosition, nil);
+
+    HF.SpawnItemAt("ntvfx_explosion",entity.WorldPosition)
 end

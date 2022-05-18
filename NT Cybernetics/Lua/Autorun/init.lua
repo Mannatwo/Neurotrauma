@@ -1,10 +1,10 @@
 
 NTCyb = {} -- Neurotrauma Cybernetics
 NTCyb.Name="Cybernetics"
-NTCyb.Version = "A1.2.2"
-NTCyb.VersionNum = 01020200
-NTCyb.MinNTVersion = "A1.7.3h1"
-NTCyb.MinNTVersionNum = 01070301
+NTCyb.Version = "A1.2.2h1"
+NTCyb.VersionNum = 01020201
+NTCyb.MinNTVersion = "A1.7.7h2"
+NTCyb.MinNTVersionNum = 01070702
 NTCyb.Path = table.pack(...)[1]
 Timer.Wait(function() if NTC ~= nil and NTC.RegisterExpansion ~= nil then NTC.RegisterExpansion(NTCyb) end end,1)
 

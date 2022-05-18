@@ -190,10 +190,7 @@
       <StatusEffect type="OnWearing" target="Character,This" comparison="Or">
         <Conditional IsDead="false"/>
         <RequiredItem items="mobilebattery" type="Contained"/>
-        <ReduceAffliction identifier="cardiacarrest" amount="0.5"/>
-        <ReduceAffliction identifier="respiratoryarrest" amount="0.25" />
-        <Affliction identifier="bloodpressure" amount="1" />
-        <ReduceAffliction identifier="oxygenlow" amount="8"/>
+        <Affliction identifier="cpr_buff" amount="10" />
       </StatusEffect>
       <StatusEffect type="OnWearing" target="Character,This" comparison="And">
         <Conditional IsDead="false" Condition="gte 99"/>
@@ -308,7 +305,7 @@
                    origin="0.5,0.5"/>
     <sprite texture="Content/Map/Outposts/Art/MedBayAssets.png" sourcerect="96,304,416,192" depth="0.75"
             premultiplyalpha="false" origin="0.5,0.5"/>
-    <Holdable selectkey="Action" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetach" PickingTime="1"
+    <Holdable selectkey="Action" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetach" PickingTime="5"
               aimpos="85,-10" handle1="0,0" attachable="true" aimable="true">
       <StatusEffect type="OnNotContained" target="NearbyCharacters" range="100" stackable="true">
         <Affliction identifier="table" amount="2"/>
@@ -1286,21 +1283,6 @@
         <Body width="60" height="20" density="20"/>
         <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="5,0"
                      handle1="-5,0" holdangle="10" reload="1.0" msg="ItemMsgPickUpSelect">
-            <RequiredSkill identifier="medical" level="10"/>
-            <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true"/>
-            <StatusEffect type="OnFailure" target="This" Condition="-100.0" disabledeltatime="true"/>
-            <StatusEffect tags="medical" type="OnUse" target="This, Limb" duration="24.0">
-                <Sound file="%ModDir%/Sound/ointment.ogg" type="OnUse" range="500"/>
-                <ReduceAffliction identifier="burn" amount="0.5"/>
-                <ReduceAffliction identifier="infectedwound" amount="3"/>
-                <Affliction identifier="ointmented" amount="10"/>
-            </StatusEffect>
-            <StatusEffect tags="medical" type="OnFailure" target="Limb, This" duration="24.0">
-                <Sound file="%ModDir%/Sound/ointment.ogg" type="OnUse" range="500"/>
-                <ReduceAffliction identifier="burn" amount="0.3"/>
-                <ReduceAffliction identifier="infectedwound" amount="1"/>
-                <Affliction identifier="ointmented" amount="5"/>
-            </StatusEffect>
             <!-- Remove the item when fully used -->
             <StatusEffect type="OnBroken" target="This">
                 <Remove/>
@@ -2006,8 +1988,9 @@
           nonplayerteaminteractable="True" category="hidden">
         <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
         <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
-        <Holdable selectkey="Action" pickkey="Use" slots="RightHand" msg="ItemMsgDetach" PickingTime="1" aimpos="85,-10"
-                  handle1="0,0" attachable="true" aimable="true">
+        <Holdable slots="RightHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+        <!--<Holdable selectkey="Action" pickkey="Use" slots="RightHand" msg="ItemMsgDetach" PickingTime="1" aimpos="85,-10"
+                  handle1="0,0" attachable="false" aimable="false">-->
             <StatusEffect type="onnotcontained" target="This" disabledeltatime="true">
                 <Remove/>
             </StatusEffect>
@@ -2017,8 +2000,9 @@
           category="hidden">
         <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
         <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
-        <Holdable selectkey="Action" pickkey="Use" slots="LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="85,-10"
-                  handle1="0,0" attachable="true" aimable="true">
+        <Holdable slots="LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+        <!--<Holdable selectkey="Action" pickkey="Use" slots="LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="85,-10"
+                  handle1="0,0" attachable="false" aimable="false">-->
             <StatusEffect type="onnotcontained" target="This" disabledeltatime="true">
                 <Remove/>
             </StatusEffect>
@@ -2038,12 +2022,6 @@
                    throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
             <StatusEffect target="Character" type="OnSpawn">
                 <Sound file="%ModDir%/Sound/severed.ogg" range="500"/>
-            </StatusEffect>
-            <StatusEffect type="OnUse" target="Limb, This" Condition="-100.0" disabledeltatime="true" comparison="And">
-                <Conditional boncut4="gt 50"/>
-              <ReduceAffliction identifier="tra_amputation" amount="100"/>
-              <ReduceAffliction identifier="sra_amputation" amount="100"/>
-                <ReduceAffliction identifier="boncut4" amount="100"/>
             </StatusEffect>
           <!-- making the limb go kaputt if left outside of refrigeration -->
           <StatusEffect type="Always" target="This" condition="-0.2">
@@ -2077,12 +2055,6 @@
             <StatusEffect target="Character" type="OnSpawn">
                 <Sound file="%ModDir%/Sound/severed.ogg" range="500"/>
             </StatusEffect>
-            <StatusEffect type="OnUse" target="Limb, This" Condition="-100.0" disabledeltatime="true" comparison="And">
-                <Conditional boncut3="gt 50"/>
-                <ReduceAffliction identifier="tla_amputation" amount="100"/>
-                <ReduceAffliction identifier="sla_amputation" amount="100"/>
-                <ReduceAffliction identifier="boncut3" amount="100"/>
-            </StatusEffect>
           <!-- making the limb go kaputt if left outside of refrigeration -->
           <StatusEffect type="Always" target="This" condition="-0.2">
             <Conditional hastag="neq refrigerated" targetcontainer="true" />
@@ -2114,12 +2086,6 @@
                    throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
             <StatusEffect target="Character" type="OnSpawn">
                 <Sound file="%ModDir%/Sound/severed.ogg" range="500"/>
-            </StatusEffect>
-            <StatusEffect Condition="-100.0" type="OnUse" target="Limb, This" disabledeltatime="true" comparison="And">
-                <Conditional boncut2="gt 50"/>
-                <ReduceAffliction identifier="trl_amputation" amount="100"/>
-                <ReduceAffliction identifier="srl_amputation" amount="100"/>
-                <ReduceAffliction identifier="boncut2" amount="100"/>
             </StatusEffect>
           <!-- making the limb go kaputt if left outside of refrigeration -->
           <StatusEffect type="Always" target="This" condition="-0.2">
@@ -2153,12 +2119,6 @@
             <StatusEffect target="Character" type="OnSpawn">
                 <Sound file="%ModDir%/Sound/severed.ogg" range="500"/>
             </StatusEffect>
-            <StatusEffect Condition="-100.0" type="OnUse" target="Limb, This" disabledeltatime="true" comparison="And">
-                <Conditional boncut1="gt 50"/>
-                <ReduceAffliction identifier="tll_amputation" amount="100"/>
-                <ReduceAffliction identifier="sll_amputation" amount="100"/>
-                <ReduceAffliction identifier="boncut1" amount="100"/>
-            </StatusEffect>
           <!-- making the limb go kaputt if left outside of refrigeration -->
           <StatusEffect type="Always" target="This" condition="-0.2">
             <Conditional hastag="neq refrigerated" targetcontainer="true" />
@@ -2188,7 +2148,7 @@
         <Body width="60" height="90" density="20"/>
         <Throwable characterusable="true" canbecombined="true" removeoncombined="true" slots="Any,RightHand,LeftHand"
                    throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
-            <StatusEffect Condition="-100.0" type="OnUse" target="Limb, This" disabledeltatime="true" comparison="And">
+            <StatusEffect Condition="-100.0" type="OnUse" target="Character, This" disabledeltatime="true" comparison="And">
                 <Conditional sll_amputation="gt 50"/>
                 <ReduceAffliction identifier="sll_amputation" amount="100"/>
                 <!--<Affliction identifier="llp" amount="100"/>-->
@@ -2208,7 +2168,7 @@
         <Body width="60" height="90" density="20"/>
         <Throwable characterusable="true" canbecombined="true" removeoncombined="true" slots="Any,RightHand,LeftHand"
                    throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
-            <StatusEffect Condition="-100.0" type="OnUse" target="Limb, This" disabledeltatime="true" comparison="And">
+            <StatusEffect Condition="-100.0" type="OnUse" target="Character, This" disabledeltatime="true" comparison="And">
                 <Conditional srl_amputation="gt 50"/>
                 <ReduceAffliction identifier="srl_amputation" amount="100"/>
                 <!--<Affliction identifier="rlp" amount="100"/>-->
@@ -2228,7 +2188,7 @@
         <Body width="60" height="90" density="20"/>
         <Throwable characterusable="true" canbecombined="true" removeoncombined="true" slots="Any,RightHand,LeftHand"
                    throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
-            <StatusEffect Condition="-100.0" type="OnUse" target="Limb, This" disabledeltatime="true" comparison="And">
+            <StatusEffect Condition="-100.0" type="OnUse" target="Character, This" disabledeltatime="true" comparison="And">
                 <Conditional sla_amputation="gt 50"/>
                 <ReduceAffliction identifier="sla_amputation" amount="100"/>
                 <!--<Affliction identifier="lap" amount="100"/>-->
@@ -2248,7 +2208,7 @@
         <Body width="60" height="90" density="20"/>
         <Throwable characterusable="true" canbecombined="true" removeoncombined="true" slots="Any,RightHand,LeftHand"
                    throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
-            <StatusEffect Condition="-100.0" type="OnUse" target="Limb, This" disabledeltatime="true" comparison="And">
+            <StatusEffect Condition="-100.0" type="OnUse" target="Character, This" disabledeltatime="true" comparison="And">
                 <Conditional sra_amputation="gt 50"/>
                 <ReduceAffliction identifier="sra_amputation" amount="100"/>
                 <!--<Affliction identifier="rap" amount="100"/>-->
@@ -2738,7 +2698,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntsfx_mdefib1" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_defib1" category="hidden" description=".">
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent>
       <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
@@ -2749,13 +2709,24 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntsfx_mdefib2" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_defib2" category="hidden" description=".">
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent>
       <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
         <Sound file="%ModDir%/Sound/Defib2.ogg" range="1000"/>
       </StatusEffect>
       <StatusEffect type="always" target="This" disabledeltatime="true" delay="0.3" stackable="false">
+        <Remove/>
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+  <Item name="." identifier="ntsfx_ointment" category="hidden" description=".">
+    <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
+    <ItemComponent>
+      <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
+        <Sound file="%ModDir%/Sound/ointment.ogg" range="500"/>
+      </StatusEffect>
+      <StatusEffect type="always" target="This" disabledeltatime="true" delay="0.1" stackable="false">
         <Remove/>
       </StatusEffect>
     </ItemComponent>
@@ -2769,6 +2740,7 @@
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
       <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
+        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" type="OnUse" range="2000" />
         <Explosion range="150.0" structuredamage="0" force="0" applyfireeffects="false">
         </Explosion>
       </StatusEffect>
@@ -3111,28 +3083,6 @@
       <Body width="25" height="40" density="20"/>
       <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="5,0"
                    handle1="-5,0" holdangle="10" reload="1.0" msg="ItemMsgPickUpSelect">
-        <RequiredSkill identifier="medical" level="10"/>
-        <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true"/>
-        <StatusEffect type="OnFailure" target="This" Condition="-100.0" disabledeltatime="true"/>
-        <StatusEffect tags="medical" type="OnUse" target="This, Limb" duration="12.0">
-          <Sound file="Content/Items/Medical/Bandage1.ogg" type="OnUse" range="500"/>
-          <Sound file="Content/Items/Medical/Bandage2.ogg" type="OnUse" range="500"/>
-          <ReduceAffliction identifier="bleeding" amount="2"/>
-        </StatusEffect>
-        <StatusEffect tags="medical" type="OnUse" target="This, Limb" disabledeltatime="true">
-          <Affliction identifier="bandaged" amount="48"/>
-          <ReduceAffliction identifier="dirtybandage" amount="100"/>
-        </StatusEffect>
-        <StatusEffect tags="medical" type="OnFailure" target="Limb, This" duration="12.0">
-          <Sound file="Content/Items/Medical/Bandage2.ogg" type="OnUse" range="500"/>
-          <Sound file="Content/Items/Medical/Bandage1.ogg" type="OnUse" range="500"/>
-          <ReduceAffliction identifier="bleeding" amount="1.5"/>
-        </StatusEffect>
-        <StatusEffect tags="medical" type="OnFailure" target="Limb, This" disabledeltatime="true">
-          <Affliction identifier="bandaged" amount="36"/>
-          <ReduceAffliction identifier="dirtybandage" amount="100"/>
-        </StatusEffect>
-
         <!-- Remove the item when fully used -->
         <StatusEffect type="OnBroken" target="This">
           <Remove/>
@@ -3171,30 +3121,6 @@
       <SuitableTreatment identifier="dirtybandage" suitability="100"/>
       <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="5,0"
                    handle1="-5,0" holdangle="10" reload="1.0" msg="ItemMsgPickUpSelect">
-        <RequiredSkill identifier="medical" level="22"></RequiredSkill>
-        <StatusEffect type="OnFailure" target="This" Condition="-100.0" disabledeltatime="true"/>
-        <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true"/>
-        <StatusEffect tags="medical" type="OnUse" target="This, Limb" duration="12">
-          <Sound file="Content/Items/Medical/Bandage1.ogg" range="500"/>
-          <Sound file="Content/Items/Medical/Bandage2.ogg" range="500"/>
-          <ReduceAffliction identifier="bleeding" amount="4"/>
-          <ReduceAffliction identifier="burn" amount="2"/>
-        </StatusEffect>
-        <StatusEffect tags="medical" type="OnUse" target="This, Limb" disabledeltatime="true">
-          <Affliction identifier="bandaged" amount="100"/>
-          <ReduceAffliction identifier="dirtybandage" amount="100"/>
-        </StatusEffect>
-        <StatusEffect tags="medical" type="OnFailure" target="This, Limb" duration="12">
-          <Sound file="Content/Items/Medical/Bandage1.ogg" range="500"/>
-          <Sound file="Content/Items/Medical/Bandage2.ogg" range="500"/>
-          <ReduceAffliction identifier="bleeding" amount="2"/>
-          <ReduceAffliction identifier="burn" amount="1"/>
-        </StatusEffect>
-        <StatusEffect tags="medical" type="OnFailure" target="This, Limb" disabledeltatime="true">
-          <Affliction identifier="bandaged" amount="50"/>
-          <ReduceAffliction identifier="dirtybandage" amount="100"/>
-        </StatusEffect>
-
         <!-- Remove the item when fully used -->
         <StatusEffect type="OnBroken" target="This">
           <Remove/>
@@ -3669,17 +3595,6 @@
       <SuitableTreatment identifier="cardiacarrest" suitability="100"/>
       <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="5,0"
                    handle1="-5,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
-        <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true"/>
-        <StatusEffect tags="medical" type="OnUse" target="Character" duration="2">
-          <Sound file="Content/Items/Medical/Syringe.ogg" range="500"/>
-          <Affliction identifier="afadrenaline" amount="30"/>
-          <Affliction identifier="bloodpressure" amount="5"/>
-          <ReduceAffliction identifier="cardiacarrest" amount="5.1"/>
-        </StatusEffect>
-        <!-- Remove the item when fully used -->
-        <StatusEffect tags="medical" type="OnBroken" target="This">
-          <Remove/>
-        </StatusEffect>
       </MeleeWeapon>
       <Projectile characterusable="false" launchimpulse="20.0" sticktocharacters="true" launchrotation="-90">
         <StatusEffect type="OnImpact" target="This" duration="60" Condition="-100.0" disabledeltatime="true">

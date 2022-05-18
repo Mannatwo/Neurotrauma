@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="Polish" nowhitespace="false" translatedname="Polski">
+
+	<!-- ChemMaster 2k -->
+	<entityname.chemmaster>Tabletkomat 2000</entityname.chemmaster>
+	<entitydescription.chemmaster>Urządzenie wytwarzające różne tabletki i kapsułki ze związków chemicznych.</entitydescription.chemmaster>
+	
+	<lua.chemerror.header>Tabletkomat 2000 — BŁĄD!:</lua.chemerror.header>
+	<lua.chemerror.invaliditem>{id} nie jest poprawnym składnikiem.</lua.chemerror.invaliditem>
+	<lua.chemerror.invalidcategory.base>{id} nie może być bazą tabletki.</lua.chemerror.invalidcategory.base>
+	<lua.chemerror.invalidcategory.binder>{id} nie może być spoiwem tabletki.</lua.chemerror.invalidcategory.binder>
+	<lua.chemerror.invalidcategory.filler>{id} nie może być wypełniaczem tabletki.</lua.chemerror.invalidcategory.filler>
+	<lua.chemerror.invalidcategory.active>{id} nie może być substancją czynną tabletki.</lua.chemerror.invalidcategory.active>
+	<lua.chemerror.invalidcategory.dye>{id} nie może być barwnikiem tabletki.</lua.chemerror.invalidcategory.dye>
+	<lua.chemerror.outputfull>Slot wyjściowy jest zapełniony.</lua.chemerror.outputfull>
+	<lua.chemerror.missingbase>Brak bazy tabletki.</lua.chemerror.missingbase>
+	<lua.chemerror.missingbinder>Brak spoiwa tabletki.</lua.chemerror.missingbinder>
+	<lua.chemerror.missingactive>Brak substancji czynnej.</lua.chemerror.missingactive>
+	<lua.chemerror.capacity>Ta konfiguracja może pomieścić tylko do {cap} składników aktywnych.</lua.chemerror.capacity>
+	<lua.chemerror.yield>Ta konfiguracja nie wytworzyłaby ani jednej tabletki.</lua.chemerror.yield>
+	<label.cm_makeone>Stwórz jedną</label.cm_makeone>
+	<label.cm_makeall>Stwórz wszystkie</label.cm_makeall>
+	<label.cm_description>Opis tabletki</label.cm_description>
+	
+	<!-- Pill analyzer -->
+	<entityname.chemalyzer>Analizator tabletek</entityname.chemalyzer>
+	<entitydescription.chemalyzer>Wyświetla skład tabletek umieszczonych w środku.</entitydescription.chemalyzer>
+	<label.ca_analyze>Analizuj</label.ca_analyze>
+	<lua.chemalyzer.header>Składniki:</lua.chemalyzer.header>
+	<label.ca_rename>Ustaw opis</label.ca_rename>
+	
+	<!-- pill combos -->
+	<pillcombo.antihusk>Anty-Skorupnik</pillcombo.antihusk>
+	
+	<!-- other items -->
+	<entityname.custompill>Kapsułka</entityname.custompill>
+	<entityname.custompill_horsepill>Kapsułka (końska dawka)</entityname.custompill_horsepill>
+	<entityname.custompill_tablets>Tabletki</entityname.custompill_tablets>
+	<entitydescription.custompill>Kto wie, jakie skutki może mieć ten lek...</entitydescription.custompill>
+	<entitydescription.custompill_horsepill>Aż taka duża?</entitydescription.custompill_horsepill>
+	<entitydescription.custompill_tablets>Nie zaszkodzą, prawda?</entitydescription.custompill_tablets>
+	
+	<!-- containers -->
+	<entityname.antidotetoolbox>Skrzynka (Odtrutki)</entityname.antidotetoolbox>
+	<entityname.machinetoolbox>Skrzynka (Urządzenia medyczne)</entityname.machinetoolbox>
+	<entityname.bonetoolbox>Skrzynka (Leczenie kości)</entityname.bonetoolbox>
+	<entityname.biohazardtoolbox>Skrzynka (Zagrożenie biologiczne)</entityname.biohazardtoolbox>
+	<entityname.bufftoolbox>Skrzynka (Wzmocnienia)</entityname.bufftoolbox>
+	
+	<entityname.surgerycrate>Skrzynia (Narzędzia chirurgiczne)</entityname.surgerycrate>
+	<entityname.antidotecrate>Skrzynia (Odtrutki)</entityname.antidotecrate>
+	<entityname.machinecrate>Skrzynia (Urządzenia medyczne)</entityname.machinecrate>
+	<entityname.bonecrate>Skrzynia (Leczenie kości)</entityname.bonecrate>
+	<entityname.biohazardcrate>Skrzynia (Zagrożenie biologiczne)</entityname.biohazardcrate>
+	<entityname.buffcrate>Skrzynia (Wzmocnienia)</entityname.buffcrate>
+
+</infotexts>

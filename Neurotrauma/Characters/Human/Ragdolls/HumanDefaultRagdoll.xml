@@ -6,14 +6,12 @@
     <tintmask texture="%ModDir:Neurotrauma%/Images/Human/Human_[GENDER]_mask.png" />
     <damagemodifier damagemultiplier="1.1" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="gunshotwound,lacerations,blunttrauma" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
     <!--<damagemodifier damagemultiplier="1" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="bleeding,bitewounds" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />-->
-    <damagemodifier armorsector="0,360" afflictiontypes="" damagemultiplier="0" damagesound="LimbArmor" deflectprojectiles="True" afflictionidentifiers="ll_fracture,rl_fracture,la_fracture,ra_fracture,boncut1,boncut2,boncut3,boncut4,arteriesclamp,h_arterialcut,h_fracture,ll_arterialcut,rl_arterialcut,la_arterialcut,ra_arterialcut,l_fracture,a_fracture,n_fracture,t_paralysis,rupturedface,th_amputation,tra_amputation,tla_amputation,trl_amputation,tll_amputation" probabilitymultiplier="1" damageparticle="" />
   </limb>
   <limb id="1" name="Head (1)" type="Head" height="0" width="0" notes="" scale="0.5" flip="True" mirrorvertically="False" mirrorhorizontally="False" hide="False" spriteorientation="0" steerforce="0" radius="45" density="10" ignorecollisions="False" angulardamping="7" attackpriority="1" pullpos="0,0" stepoffset="0,0" refjoint="-1" mouthpos="0,0" constanttorque="0" constantangle="0" attackforcemultiplier="1" minseverancedamage="1" severedfadeouttime="10" applytailangle="False" sinefrequencymultiplier="1" sineamplitudemultiplier="1" blinkfrequency="0" blinkdurationin="0.2" blinkdurationout="0.5" blinkholdtime="0" blinkrotationin="0" blinkrotationout="45" blinkforce="50" blinktransitionin="Linear" blinktransitionout="Linear" healthindex="0" friction="0.3" restitution="0.05" inheritlimbdepth="None" onlyblinkinwater="False">
     <sprite texture="Content/Characters/Human/Human_[GENDER]_heads.png" sourcerect="0,0,128,128" depth="0.05" origin="0.5,0.5" color="255,255,255,255" deadcolor="255,255,255,255" deadcolortime="0" ignoretint="False" />
     <tintmask texture="Content/Characters/Human/Human_[GENDER]_heads_mask.png" />
     <huskmask texture="Content/Characters/Human/Human_husk_mask.png" />
     <damagemodifier damagemultiplier="3" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="gunshotwound,lacerations,blunttrauma" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
-    <damagemodifier armorsector="0,360" afflictiontypes="" damagemultiplier="0" damagesound="LimbArmor" deflectprojectiles="True" afflictionidentifiers="ll_fracture,rl_fracture,la_fracture,ra_fracture,boncut1,boncut2,boncut3,boncut4,balloonedaorta,dislocation,t_arterialcut,t_fracture,ll_arterialcut,rl_arterialcut,l_fracture,la_arterialcut,ra_arterialcut,a_fracture,pneumothorax,tamponade,eventration,tra_amputation,tla_amputation,trl_amputation,tll_amputation,sra_amputation,sla_amputation,srl_amputation,sll_amputation" probabilitymultiplier="1" damageparticle="" />
     <conditionalsprite exclusive="True">
       <conditional th_amputation="gt 0" />
       <sprite texture="%ModDir:Neurotrauma%/Images/Human/Human_[GENDER].png" sourcerect="336,420,64,48" origin="0.44,0.4" depth="0.16" color="255,255,255,255" deadcolor="255,255,255,255" deadcolortime="0" ignoretint="False" />
@@ -24,7 +22,6 @@
     <tintmask texture="%ModDir:Neurotrauma%/Images/Human/Human_[GENDER]_mask.png" />
     <damagemodifier damagemultiplier="0.7" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="gunshotwound,lacerations,blunttrauma,bitewounds" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
     <damagemodifier damagemultiplier="0.75" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="bleeding" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
-    <damagemodifier armorsector="0,360" afflictiontypes="" damagemultiplier="0" damagesound="LimbArmor" deflectprojectiles="True" afflictionidentifiers="ll_fracture,rl_fracture,la_fracture,boncut1,boncut2,boncut3,t_arterialcut,t_fracture,ll_arterialcut,rl_arterialcut,la_arterialcut,l_fracture,h_arterialcut,h_fracture,n_fracture,pneumothorax,tamponade,eventration,t_paralysis,rupturedface,th_amputation,tla_amputation,trl_amputation,tll_amputation,sh_amputation,sla_amputation,srl_amputation,sll_amputation" probabilitymultiplier="1" damageparticle="" />
   
     <conditionalsprite exclusive="False">
       <conditional ra_cyber="gt 0" />
@@ -36,7 +33,6 @@
     <tintmask texture="%ModDir:Neurotrauma%/Images/Human/Human_[GENDER]_mask.png" />
     <damagemodifier damagemultiplier="0.7" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="gunshotwound,lacerations,blunttrauma,bitewounds" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
     <damagemodifier damagemultiplier="0.75" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="bleeding" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
-    <damagemodifier armorsector="0,360" afflictiontypes="" damagemultiplier="0" damagesound="LimbArmor" deflectprojectiles="True" afflictionidentifiers="ll_fracture,rl_fracture,la_fracture,boncut1,boncut2,boncut3,t_arterialcut,t_fracture,ll_arterialcut,rl_arterialcut,la_arterialcut,l_fracture,h_arterialcut,h_fracture,n_fracture,pneumothorax,tamponade,eventration,t_paralysis,rupturedface,th_amputation,tla_amputation,trl_amputation,tll_amputation,sh_amputation,sla_amputation,srl_amputation,sll_amputation" probabilitymultiplier="1" damageparticle="" />
     
     <conditionalsprite exclusive="True">
       <conditional tra_amputation="gt 0" />
@@ -58,7 +54,6 @@
     <tintmask texture="%ModDir:Neurotrauma%/Images/Human/Human_[GENDER]_mask.png" />
     <damagemodifier damagemultiplier="0.7" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="gunshotwound,lacerations,blunttrauma,bitewounds" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
     <damagemodifier damagemultiplier="0.75" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="bleeding" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
-    <damagemodifier armorsector="0,360" afflictiontypes="" damagemultiplier="0" damagesound="LimbArmor" deflectprojectiles="True" afflictionidentifiers="ll_fracture,rl_fracture,ra_fracture,boncut1,boncut2,boncut4,balloonedaorta,t_arterialcut,t_fracture,ll_arterialcut,rl_arterialcut,ra_arterialcut,l_fracture,h_arterialcut,h_fracture,n_fracture,pneumothorax,tamponade,eventration,t_paralysis,rupturedface,th_amputation,tra_amputation,trl_amputation,tll_amputation,sh_amputation,sra_amputation,srl_amputation,sll_amputation" probabilitymultiplier="1" damageparticle="" />
   
     <conditionalsprite exclusive="False">
       <conditional la_cyber="gt 0" />
@@ -70,7 +65,6 @@
     <tintmask texture="%ModDir:Neurotrauma%/Images/Human/Human_[GENDER]_mask.png" />
     <damagemodifier damagemultiplier="0.7" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="gunshotwound,lacerations,blunttrauma,bitewounds" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
     <damagemodifier damagemultiplier="0.75" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="bleeding" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
-    <damagemodifier armorsector="0,360" afflictiontypes="" damagemultiplier="0" damagesound="LimbArmor" deflectprojectiles="True" afflictionidentifiers="ll_fracture,rl_fracture,ra_fracture,boncut1,boncut2,boncut4,balloonedaorta,t_arterialcut,t_fracture,ll_arterialcut,rl_arterialcut,ra_arterialcut,l_fracture,h_arterialcut,h_fracture,n_fracture,pneumothorax,tamponade,eventration,t_paralysis,rupturedface,th_amputation,tra_amputation,trl_amputation,tll_amputation,sh_amputation,sra_amputation,srl_amputation,sll_amputation" probabilitymultiplier="1" damageparticle="" />
     
     <conditionalsprite exclusive="True">
       <conditional tla_amputation="gt 0" />
@@ -93,7 +87,6 @@
     <tintmask texture="%ModDir:Neurotrauma%/Images/Human/Human_[GENDER]_mask.png" />
     <damagemodifier damagemultiplier="0.7" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="gunshotwound,lacerations,blunttrauma,bitewounds" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
     <damagemodifier damagemultiplier="0.75" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="bleeding" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
-    <damagemodifier armorsector="0,360" afflictiontypes="" damagemultiplier="0" damagesound="LimbArmor" deflectprojectiles="True" afflictionidentifiers="rl_fracture,la_fracture,ra_fracture,boncut2,boncut3,boncut4,balloonedaorta,t_arterialcut,t_fracture,rl_arterialcut,ra_arterialcut,la_arterialcut,a_fracture,h_arterialcut,h_fracture,n_fracture,pneumothorax,tamponade,eventration,t_paralysis,rupturedface,th_amputation,tra_amputation,tla_amputation,trl_amputation,sh_amputation,sra_amputation,sla_amputation,srl_amputation" probabilitymultiplier="1" damageparticle="" />
   
     <conditionalsprite exclusive="False">
       <conditional ll_cyber="gt 0" />
@@ -105,7 +98,6 @@
     <tintmask texture="%ModDir:Neurotrauma%/Images/Human/Human_[GENDER]_mask.png" />
     <damagemodifier damagemultiplier="0.7" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="gunshotwound,lacerations,blunttrauma,bitewounds" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
     <damagemodifier damagemultiplier="0.75" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="bleeding" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
-    <damagemodifier armorsector="0,360" afflictiontypes="" damagemultiplier="0" damagesound="LimbArmor" deflectprojectiles="True" afflictionidentifiers="rl_fracture,la_fracture,ra_fracture,boncut2,boncut3,boncut4,balloonedaorta,t_arterialcut,t_fracture,rl_arterialcut,ra_arterialcut,la_arterialcut,a_fracture,h_arterialcut,h_fracture,n_fracture,pneumothorax,tamponade,eventration,t_paralysis,rupturedface,th_amputation,tra_amputation,tla_amputation,trl_amputation,sh_amputation,sra_amputation,sla_amputation,srl_amputation" probabilitymultiplier="1" damageparticle="" />
     
     <conditionalsprite exclusive="True">
       <conditional tll_amputation="gt 0" />
@@ -128,7 +120,6 @@
     <sound tag="footstep_metal" />
     <damagemodifier damagemultiplier="0.7" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="gunshotwound,lacerations,blunttrauma,bitewounds" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
     <damagemodifier damagemultiplier="0.75" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="bleeding" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
-    <damagemodifier armorsector="0,360" afflictiontypes="" damagemultiplier="0" damagesound="LimbArmor" deflectprojectiles="True" afflictionidentifiers="rl_fracture,la_fracture,ra_fracture,boncut2,boncut3,boncut4,balloonedaorta,t_arterialcut,t_fracture,rl_arterialcut,ra_arterialcut,la_arterialcut,a_fracture,h_arterialcut,h_fracture,n_fracture,pneumothorax,tamponade,eventration,t_paralysis,rupturedface,th_amputation,tra_amputation,tla_amputation,trl_amputation,sh_amputation,sra_amputation,sla_amputation,srl_amputation" probabilitymultiplier="1" damageparticle="" />
     
     <conditionalsprite exclusive="True">
       <conditional tll_amputation="gt 0" />
@@ -150,7 +141,6 @@
     <tintmask texture="%ModDir:Neurotrauma%/Images/Human/Human_[GENDER]_mask.png" />
     <damagemodifier damagemultiplier="0.7" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="gunshotwound,lacerations,blunttrauma,bitewounds" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
     <damagemodifier damagemultiplier="0.75" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="bleeding" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
-    <damagemodifier armorsector="0,360" afflictiontypes="" damagemultiplier="0" damagesound="LimbArmor" deflectprojectiles="True" afflictionidentifiers="ll_fracture,la_fracture,ra_fracture,boncut1,boncut3,boncut4,balloonedaorta,t_arterialcut,t_fracture,ll_arterialcut,ra_arterialcut,la_arterialcut,a_fracture,h_arterialcut,h_fracture,n_fracture,pneumothorax,tamponade,eventration,t_paralysis,rupturedface,th_amputation,tra_amputation,tla_amputation,tll_amputation,sh_amputation,sra_amputation,sla_amputation,sll_amputation" probabilitymultiplier="1" damageparticle="" />
   
     <conditionalsprite exclusive="False">
       <conditional rl_cyber="gt 0" />
@@ -162,7 +152,6 @@
     <tintmask texture="%ModDir:Neurotrauma%/Images/Human/Human_[GENDER]_mask.png" />
     <damagemodifier damagemultiplier="0.7" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="gunshotwound,lacerations,blunttrauma,bitewounds" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
     <damagemodifier damagemultiplier="0.75" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="bleeding" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
-    <damagemodifier armorsector="0,360" afflictiontypes="" damagemultiplier="0" damagesound="LimbArmor" deflectprojectiles="True" afflictionidentifiers="ll_fracture,la_fracture,ra_fracture,boncut1,boncut3,boncut4,balloonedaorta,t_arterialcut,t_fracture,ll_arterialcut,ra_arterialcut,la_arterialcut,a_fracture,h_arterialcut,h_fracture,n_fracture,pneumothorax,tamponade,eventration,t_paralysis,rupturedface,th_amputation,tra_amputation,tla_amputation,tll_amputation,sh_amputation,sra_amputation,sla_amputation,sll_amputation" probabilitymultiplier="1" damageparticle="" />
     
     <conditionalsprite exclusive="True">
       <conditional trl_amputation="gt 0" />
@@ -186,7 +175,6 @@
     <sound tag="footstep_metal" />
     <damagemodifier damagemultiplier="0.7" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="gunshotwound,lacerations,blunttrauma,bitewounds" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
     <damagemodifier damagemultiplier="0.75" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="bleeding" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
-    <damagemodifier armorsector="0,360" afflictiontypes="" damagemultiplier="0" damagesound="LimbArmor" deflectprojectiles="True" afflictionidentifiers="ll_fracture,la_fracture,ra_fracture,boncut1,boncut3,boncut4,balloonedaorta,t_arterialcut,t_fracture,ll_arterialcut,ra_arterialcut,la_arterialcut,a_fracture,h_arterialcut,h_fracture,n_fracture,pneumothorax,tamponade,eventration,t_paralysis,rupturedface,th_amputation,tra_amputation,tla_amputation,tll_amputation,sh_amputation,sra_amputation,sla_amputation,sll_amputation" probabilitymultiplier="1" damageparticle="" />
     
     <conditionalsprite exclusive="True">
       <conditional trl_amputation="gt 0" />
@@ -208,14 +196,12 @@
     <tintmask texture="%ModDir:Neurotrauma%/Images/Human/Human_[GENDER]_mask.png" />
     <damagemodifier damagemultiplier="1.1" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="gunshotwound,lacerations,blunttrauma" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
     <!--<damagemodifier damagemultiplier="0.75" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="bleeding,bitewounds" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />-->
-    <damagemodifier armorsector="0,360" afflictiontypes="" damagemultiplier="0" damagesound="LimbArmor" deflectprojectiles="True" afflictionidentifiers="ll_fracture,rl_fracture,la_fracture,ra_fracture,boncut1,boncut2,boncut3,boncut4,arteriesclamp,h_arterialcut,h_fracture,ll_arterialcut,rl_arterialcut,la_arterialcut,ra_arterialcut,l_fracture,a_fracture,n_fracture,t_paralysis,rupturedface,th_amputation,tra_amputation,tla_amputation,trl_amputation,tll_amputation" probabilitymultiplier="1" damageparticle="" />
   </limb>
   <limb id="13" radius="13" width="0" height="35" name="LeftForearm (13)" type="LeftForearm" notes="" scale="1" flip="True" mirrorvertically="False" mirrorhorizontally="False" hide="False" spriteorientation="180" steerforce="0" density="10" ignorecollisions="False" angulardamping="50" attackpriority="1" pullpos="0,0" stepoffset="0,0" refjoint="-1" mouthpos="0,0" constanttorque="0" constantangle="0" attackforcemultiplier="1" minseverancedamage="1" severedfadeouttime="10" applytailangle="False" sinefrequencymultiplier="1" sineamplitudemultiplier="1" blinkfrequency="0" blinkdurationin="0.2" blinkdurationout="0.5" blinkholdtime="0" blinkrotationin="0" blinkrotationout="45" blinkforce="50" blinktransitionin="Linear" blinktransitionout="Linear" healthindex="2" friction="0.3" restitution="0.05" inheritlimbdepth="None" onlyblinkinwater="False">
     <sprite texture="" sourcerect="336,96,64,64" origin="0.5,0.5" depth="0.15" color="255,255,255,255" deadcolor="255,255,255,255" deadcolortime="0" ignoretint="False" />
     <tintmask texture="%ModDir:Neurotrauma%/Images/Human/Human_[GENDER]_mask.png" />
     <damagemodifier damagemultiplier="0.7" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="gunshotwound,lacerations,blunttrauma,bitewounds" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
     <damagemodifier damagemultiplier="0.75" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="bleeding" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
-    <damagemodifier armorsector="0,360" afflictiontypes="" damagemultiplier="0" damagesound="LimbArmor" deflectprojectiles="True" afflictionidentifiers="ll_fracture,rl_fracture,ra_fracture,boncut1,boncut2,boncut4,balloonedaorta,t_arterialcut,t_fracture,ll_arterialcut,rl_arterialcut,ra_arterialcut,l_fracture,h_arterialcut,h_fracture,n_fracture,pneumothorax,tamponade,eventration,t_paralysis,rupturedface,th_amputation,tra_amputation,trl_amputation,tll_amputation,sh_amputation,sra_amputation,srl_amputation,sll_amputation" probabilitymultiplier="1" damageparticle="" />
     
     <conditionalsprite exclusive="True">
       <conditional tla_amputation="gt 0" />
@@ -238,7 +224,6 @@
     <tintmask texture="%ModDir:Neurotrauma%/Images/Human/Human_[GENDER]_mask.png" />
     <damagemodifier damagemultiplier="0.7" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="gunshotwound,lacerations,blunttrauma,bitewounds" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
     <damagemodifier damagemultiplier="0.75" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="bleeding" damagesound="" afflictiontypes="" probabilitymultiplier="1" damageparticle="" />
-    <damagemodifier armorsector="0,360" afflictiontypes="" damagemultiplier="0" damagesound="LimbArmor" deflectprojectiles="True" afflictionidentifiers="ll_fracture,rl_fracture,la_fracture,boncut1,boncut2,boncut3,t_arterialcut,t_fracture,ll_arterialcut,rl_arterialcut,la_arterialcut,l_fracture,h_arterialcut,h_fracture,n_fracture,pneumothorax,tamponade,eventration,t_paralysis,rupturedface,th_amputation,tla_amputation,trl_amputation,tll_amputation,sh_amputation,sla_amputation,srl_amputation,sll_amputation" probabilitymultiplier="1" damageparticle="" />
 
     <conditionalsprite exclusive="True">
       <conditional tra_amputation="gt 0" />

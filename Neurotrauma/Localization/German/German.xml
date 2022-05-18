@@ -621,16 +621,7 @@ Kann geben für: AB+</entitydescription.abpluscard>
 <afflictionname.suturedi>Stitched incision</afflictionname.suturedi>
 <afflictiondescription.suturedi>An incision has been closed via sutures.</afflictiondescription.suturedi>
 
-<afflictionname.boncut1>Bones Sawed</afflictionname.boncut1>
-<afflictiondescription.boncut1>The bone has been severed.</afflictiondescription.boncut1>
-<afflictionname.boncut2>Bones Sawed</afflictionname.boncut2>
-<afflictiondescription.boncut2>The bone has been severed.</afflictiondescription.boncut2>
-<afflictionname.boncut3>Bones Sawed</afflictionname.boncut3>
-<afflictiondescription.boncut3>The bone has been severed.</afflictiondescription.boncut3>
-<afflictionname.boncut4>Bones Sawed</afflictionname.boncut4>
-<afflictiondescription.boncut4>The bone has been severed.</afflictiondescription.boncut4>
-<afflictionname.boncut5>Bones Sawed</afflictionname.boncut5>
-<afflictiondescription.boncut5>The bone has been severed.</afflictiondescription.boncut5>
-
+<afflictionname.bonecut>Bones Sawed</afflictionname.bonecut>
+<afflictiondescription.bonecut>The bone has been severed.</afflictiondescription.bonecut>
 
 </infotexts>

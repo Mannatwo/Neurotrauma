@@ -37,27 +37,30 @@ NTC.AddOnDamagedHook(function (characterHealth, attackResult, hitLimb)
     end
 end)
 
-
-NT.DislocateLimb = function(character,limbtype)
+NT.DislocateLimb = function(character,limbtype,strength)
     if NTCyb.HF.LimbIsCyber(character,limbtype) then return end
+    strength = strength or 1
     local limbtoaffliction = {}
     limbtoaffliction[LimbType.RightLeg] = "dislocation1"
     limbtoaffliction[LimbType.LeftLeg] = "dislocation2"
     limbtoaffliction[LimbType.RightArm] = "dislocation3"
     limbtoaffliction[LimbType.LeftArm] = "dislocation4"
     if limbtoaffliction[limbtype] == nil then return end
-    HF.AddAfflictionLimb(character,limbtoaffliction[limbtype],limbtype,1)
+    HF.AddAffliction(character,limbtoaffliction[limbtype],strength)
 end
 
-NT.BreakLimb = function(character,limbtype)
+NT.BreakLimb = function(character,limbtype,strength)
     if NTCyb.HF.LimbIsCyber(character,limbtype) then return end
+    strength = strength or 5
     local limbtoaffliction = {}
     limbtoaffliction[LimbType.RightLeg] = "rl_fracture"
     limbtoaffliction[LimbType.LeftLeg] = "ll_fracture"
     limbtoaffliction[LimbType.RightArm] = "ra_fracture"
     limbtoaffliction[LimbType.LeftArm] = "la_fracture"
+    limbtoaffliction[LimbType.Head] = "h_fracture"
+    limbtoaffliction[LimbType.Torso] = "t_fracture"
     if limbtoaffliction[limbtype] == nil then return end
-    HF.AddAfflictionLimb(character,limbtoaffliction[limbtype],limbtype,5)
+    HF.AddAffliction(character,limbtoaffliction[limbtype],strength)
 end
 
 end,1)

@@ -658,6 +658,17 @@ Can give blood to: AB+</entitydescription.abpluscard>
 <afflictionname.anesthesia>Anesthesia</afflictionname.anesthesia>
 <afflictiondescription.anesthesia>The patient has drug-induced amnesia and sedation.</afflictiondescription.anesthesia>
 
+
+<afflictionname.burn_deg1>First-degree burn</afflictionname.burn_deg1>
+<afflictiondescription.burn_deg1>The area is red and painful to the touch.</afflictiondescription.burn_deg1>
+
+<afflictionname.burn_deg2>Second-degree burn</afflictionname.burn_deg2>
+<afflictiondescription.burn_deg2>There are very painful blisters littering the affected area.</afflictiondescription.burn_deg2>
+
+<afflictionname.burn_deg3>Third-degree burn</afflictionname.burn_deg3>
+<afflictiondescription.burn_deg3>The patient doesn't feel pain in the now leathery, stiff area.</afflictiondescription.burn_deg3>
+
+
 <!-- /// Surgery /// -->
 
 <afflictionname.surgeryincision>Surgery incision</afflictionname.surgeryincision>
@@ -675,16 +686,8 @@ Can give blood to: AB+</entitydescription.abpluscard>
 <afflictionname.suturedi>Stitched incision</afflictionname.suturedi>
 <afflictiondescription.suturedi>An incision has been closed via sutures.</afflictiondescription.suturedi>
 
-<afflictionname.boncut1>Bones Sawed</afflictionname.boncut1>
-<afflictiondescription.boncut1>The bone has been severed.</afflictiondescription.boncut1>
-<afflictionname.boncut2>Bones Sawed</afflictionname.boncut2>
-<afflictiondescription.boncut2>The bone has been severed.</afflictiondescription.boncut2>
-<afflictionname.boncut3>Bones Sawed</afflictionname.boncut3>
-<afflictiondescription.boncut3>The bone has been severed.</afflictiondescription.boncut3>
-<afflictionname.boncut4>Bones Sawed</afflictionname.boncut4>
-<afflictiondescription.boncut4>The bone has been severed.</afflictiondescription.boncut4>
-<afflictionname.boncut5>Bones Sawed</afflictionname.boncut5>
-<afflictiondescription.boncut5>The bone has been severed.</afflictiondescription.boncut5>
+<afflictionname.bonecut>Bones Sawed</afflictionname.bonecut>
+<afflictiondescription.bonecut>The bone has been severed.</afflictiondescription.bonecut>
 
 <!-- /// SIGNALS /// -->
 <connection.aliveout>Alive</connection.aliveout>

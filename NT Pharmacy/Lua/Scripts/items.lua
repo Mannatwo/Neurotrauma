@@ -18,6 +18,7 @@ end
 end,1)
 
 local function TryCraftPills(chemmaster,user,dontreporterrors)
+
     if chemmaster == nil or user == nil then return false end
     if dontreporterrors == nil then dontreporterrors = false end
 
@@ -167,6 +168,7 @@ Hook.Add("NTP.ChemMaster.makeone", "NTP.ChemMaster.makeone", function (effect, d
 
     -- wait 250ms so that the description can update
     Timer.Wait(function() TryCraftPills(item,user) end,250)
+
 end)
 
 Hook.Add("NTP.ChemMaster.makeall", "NTP.ChemMaster.makeall", function (effect, deltaTime, item, targets, worldPosition)
@@ -220,6 +222,28 @@ Hook.Add("NTP.ChemMaster.makeall", "NTP.ChemMaster.makeall", function (effect, d
 
     recursiveUse(false)
 end)
+
+NTP.DetachChemMasters = function()
+    -- fetch items
+    local chemmasters = {}
+    for item in Item.ItemList do
+        if item.Prefab.Identifier.Value == "chemmaster" then
+            table.insert(chemmasters,item)
+        end
+    end
+    local chemMasterCount = #chemmasters
+    if chemMasterCount <= 0 then
+        print("didn't find any chemmasters to reset")
+        return
+    end
+    -- refresh chem masters
+    for item in chemmasters do
+        HF.SpawnItemAt("chemmaster",item.WorldPosition)
+        HF.RemoveItem(item)
+    end
+
+    print("successfully reset "..tostring(chemMasterCount).." chemmasters")
+end
 
 Hook.Add("NTP.Chemalyzer.analyze", "NTP.Chemalyzer.analyze", function (effect, deltaTime, item, targets, worldPosition)
     

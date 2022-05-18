@@ -298,6 +298,9 @@ Peut donner du sang à: AB+</entitydescription.abpluscard>
 <afflictionname.tachycardia>Rythme cardiaque élevé</afflictionname.tachycardia>
 <afflictiondescription.tachycardia>Le cœur bat à une vitesse alarmante.</afflictiondescription.tachycardia>
 
+<afflictionname.fibrillation>Battements irréguliers</afflictionname.fibrillation>
+<afflictiondescription.fibrillation>Le cœur bat de manière tremblotante.</afflictiondescription.fibrillation>
+
 <afflictionname.cardiacarrest>Arrêt cardiaque</afflictionname.cardiacarrest>
 <afflictiondescription.cardiacarrest>Pas de pouls.</afflictiondescription.cardiacarrest>
 
@@ -655,6 +658,16 @@ Peut donner du sang à: AB+</entitydescription.abpluscard>
 <afflictionname.anesthesia>Anesthésie</afflictionname.anesthesia>
 <afflictiondescription.anesthesia>Le patient est dans un état d'amnésie et de sédation.</afflictiondescription.anesthesia>
 
+
+<afflictionname.burn_deg1>Brûlure au premier degré</afflictionname.burn_deg1>
+<afflictiondescription.burn_deg1>La zone brûlée est rouge et douloureuse au toucher.</afflictiondescription.burn_deg1>
+
+<afflictionname.burn_deg2>Brûlure au deuxième degré</afflictionname.burn_deg2>
+<afflictiondescription.burn_deg2>Des cloques très douloureuses jonchent la zone touchée.</afflictiondescription.burn_deg2>
+
+<afflictionname.burn_deg3>Brûlure au troisième degré</afflictionname.burn_deg3>
+<afflictiondescription.burn_deg3>Le patient ne ressent pas de douleur dans la zone touchée, devenue raide et sèche.</afflictiondescription.burn_deg3>
+
 <!-- /// Surgery /// -->
 
 <afflictionname.surgeryincision>Incision</afflictionname.surgeryincision>
@@ -672,16 +685,8 @@ Peut donner du sang à: AB+</entitydescription.abpluscard>
 <afflictionname.suturedi>Incision recousue</afflictionname.suturedi>
 <afflictiondescription.suturedi>L'incision a été recousue avec des sutures.</afflictiondescription.suturedi>
 
-<afflictionname.boncut1>Os sciés</afflictionname.boncut1>
-<afflictiondescription.boncut1>L'os a été sectionné.</afflictiondescription.boncut1>
-<afflictionname.boncut2>Os sciés</afflictionname.boncut2>
-<afflictiondescription.boncut2>L'os a été sectionné.</afflictiondescription.boncut2>
-<afflictionname.boncut3>Os sciés</afflictionname.boncut3>
-<afflictiondescription.boncut3>L'os a été sectionné.</afflictiondescription.boncut3>
-<afflictionname.boncut4>Os sciés</afflictionname.boncut4>
-<afflictiondescription.boncut4>L'os a été sectionné.</afflictiondescription.boncut4>
-<afflictionname.boncut5>Os sciés</afflictionname.boncut5>
-<afflictiondescription.boncut5>L'os a été sectionné.</afflictiondescription.boncut5>
+<afflictionname.bonecut>Os sciés</afflictionname.bonecut>
+<afflictiondescription.bonecut>L'os a été sectionné.</afflictiondescription.bonecut>
 
 <!-- /// SIGNALS /// -->
 <connection.aliveout>Vivant</connection.aliveout>

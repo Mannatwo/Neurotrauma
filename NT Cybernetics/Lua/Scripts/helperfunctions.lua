@@ -40,30 +40,10 @@ function NTCyb.CyberifyLimb(character,limbtype)
 
     -- get rid of all the flesh-only stuff
     
-    HF.SetAfflictionLimb(character,"la_arterialcut",limbtype,0)
-    HF.SetAfflictionLimb(character,"ra_arterialcut",limbtype,0)
-    HF.SetAfflictionLimb(character,"ll_arterialcut",limbtype,0)
-    HF.SetAfflictionLimb(character,"rl_arterialcut",limbtype,0)
-
-    HF.SetAfflictionLimb(character,"la_fracture",limbtype,0)
-    HF.SetAfflictionLimb(character,"ra_fracture",limbtype,0)
-    HF.SetAfflictionLimb(character,"ll_fracture",limbtype,0)
-    HF.SetAfflictionLimb(character,"rl_fracture",limbtype,0)
-
-    HF.SetAfflictionLimb(character,"dislocation1",limbtype,0)
-    HF.SetAfflictionLimb(character,"dislocation2",limbtype,0)
-    HF.SetAfflictionLimb(character,"dislocation3",limbtype,0)
-    HF.SetAfflictionLimb(character,"dislocation4",limbtype,0)
-
-    HF.SetAfflictionLimb(character,"tla_amputation",limbtype,0)
-    HF.SetAfflictionLimb(character,"tra_amputation",limbtype,0)
-    HF.SetAfflictionLimb(character,"tll_amputation",limbtype,0)
-    HF.SetAfflictionLimb(character,"trl_amputation",limbtype,0)
-
-    HF.SetAfflictionLimb(character,"sla_amputation",limbtype,0)
-    HF.SetAfflictionLimb(character,"sra_amputation",limbtype,0)
-    HF.SetAfflictionLimb(character,"sll_amputation",limbtype,0)
-    HF.SetAfflictionLimb(character,"srl_amputation",limbtype,0)
+    NT.ArteryCutLimb(character,limbtype,-1000)
+    NT.BreakLimb(character,limbtype,-1000)
+    NT.DislocateLimb(character,limbtype,-1000)
+    NT.SurgicallyAmputateLimb(character,limbtype,0,0)
 
     HF.SetAfflictionLimb(character,"arteriesclamp",limbtype,0)
     HF.SetAfflictionLimb(character,"surgeryincision",limbtype,0)
@@ -82,8 +62,5 @@ function NTCyb.CyberifyLimb(character,limbtype)
     HF.SetAfflictionLimb(character,"lacerations",limbtype,0)
     HF.SetAfflictionLimb(character,"blunttrauma",limbtype,0)
 
-    HF.SetAfflictionLimb(character,"boncut1",limbtype,0)
-    HF.SetAfflictionLimb(character,"boncut2",limbtype,0)
-    HF.SetAfflictionLimb(character,"boncut3",limbtype,0)
-    HF.SetAfflictionLimb(character,"boncut4",limbtype,0)
+    HF.SetAfflictionLimb(character,"bonecut",limbtype,0)
 end

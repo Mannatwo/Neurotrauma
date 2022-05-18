@@ -425,6 +425,9 @@
 <afflictionname.bandaged>Перевязка</afflictionname.bandaged>
 <afflictiondescription.bandaged>Защищает от инфицирования, стабилизирует вывихи и переломы</afflictiondescription.bandaged>
 
+<afflictionname.dirtybandage>Грязный бинт</afflictionname.dirtybandage>
+<afflictiondescription.dirtybandage>Ранее защищавший от инфекций, теперь бинт может послужить их причиной</afflictiondescription.dirtybandage>
+
 <afflictionname.gypsumcast>Гипсовый слепок</afflictionname.gypsumcast>
 <afflictiondescription.gypsumcast>Лечит и защищает от переломов. Замедляет движение. Удалять с помощью медицинских ножниц.</afflictiondescription.gypsumcast>
 
@@ -642,6 +645,16 @@
 <afflictionname.anesthesia>Анестезия</afflictionname.anesthesia>
 <afflictiondescription.anesthesia>У пациента медикаментозная амнезия.</afflictiondescription.anesthesia>
 
+
+<afflictionname.burn_deg1>Ожог первой степени</afflictionname.burn_deg1>
+<afflictiondescription.burn_deg1>Область покраснела и болит при нажатии.</afflictiondescription.burn_deg1>
+
+<afflictionname.burn_deg2>Ожог второй степени</afflictionname.burn_deg2>
+<afflictiondescription.burn_deg2>На пораженном участке появляются очень болезненные волдыри.</afflictiondescription.burn_deg2>
+
+<afflictionname.burn_deg3>Ожог третьей степени</afflictionname.burn_deg3>
+<afflictiondescription.burn_deg3>Кожа погрубела и потеряла чувствительность</afflictiondescription.burn_deg3>
+
 <!-- /// Хирургия /// -->
 
 <afflictionname.surgeryincision>Хирургический надрез</afflictionname.surgeryincision>
@@ -659,16 +672,8 @@
 <afflictionname.suturedi>Зашитый надрез</afflictionname.suturedi>
 <afflictiondescription.suturedi>Надрез закрыт швами.</afflictiondescription.suturedi>
 
-<afflictionname.boncut1>Кость распилена</afflictionname.boncut1>
-<afflictiondescription.boncut1>Кость отделена.</afflictiondescription.boncut1>
-<afflictionname.boncut2>Кость распилена</afflictionname.boncut2>
-<afflictiondescription.boncut2>Кость отделена.</afflictiondescription.boncut2>
-<afflictionname.boncut3>Кость распилена</afflictionname.boncut3>
-<afflictiondescription.boncut3>Кость отделена.</afflictiondescription.boncut3>
-<afflictionname.boncut4>Кость распилена</afflictionname.boncut4>
-<afflictiondescription.boncut4>Кость отделена.</afflictiondescription.boncut4>
-<afflictionname.boncut5>Кость распилена</afflictionname.boncut5>
-<afflictiondescription.boncut5>Кость отделена.</afflictiondescription.boncut5>
+<afflictionname.bonecut>Кость распилена</afflictionname.bonecut>
+<afflictiondescription.bonecut>Кость отделена.</afflictiondescription.bonecut>
 
 <!-- connections -->
 
