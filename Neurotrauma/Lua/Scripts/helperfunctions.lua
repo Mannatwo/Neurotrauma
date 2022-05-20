@@ -319,6 +319,12 @@ function HF.AddAffliction(character,identifier,strength,aggressor)
     aggressor,prevstrength)
 end
 
+function HF.GetResistance(character,identifier)
+    local prefab = AfflictionPrefab.Prefabs[identifier]
+    if character == nil or character.CharacterHealth == nil or prefab==nil then return 0 end
+    return character.CharacterHealth.GetResistance(prefab)
+end
+
 -- /// misc ///
 
 function PrintChat(msg)
