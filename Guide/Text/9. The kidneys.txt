@@ -1,0 +1,10 @@
+[h1]Kidney conditions and symptoms
+sorted from most to least severe[/h1]
+
+[h1]Kidney damage[/h1]
+[previewimg=26754391;sizeOriginal,floatLeft;intdmg.png][/previewimg]
+[table][tr][th]First aid[/th][th]Treatment[/th][th]Prognosis[/th][th]Caused by[/th][th]Causes[/th][/tr][tr]
+        [td]None[/td][td]Time, kidney transplant[/td]
+ [td]Survivable, worrying if progressed to kidney failure[/td]
+    [td]Sepsis, antibiotics, radiation sickness, hypotension, hypertension[/td]
+    [td]kidney failure, nausea, vomiting, leg swelling, bone damage[/td][/tr][/table]

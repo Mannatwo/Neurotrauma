@@ -1,0 +1,43 @@
+[h1]Welcome to the official exhaustive Neurotrauma guide.
+
+[b]If you are currently in a medical emergency and there are no medical professionals around, immediately proceed to the first aid section.[/b][/h1]
+
+[h1]If you are experiencing worrying or unusual symptoms, please consult the nearest medical professional immediately.[/h1]
+
+[i][b]Remember to always wear a helmet![/b][/i]
+
+Grasping how the human body functions - or malfunctions - can take some time.
+This guide aims to provide crucial information for aspiring medical doctors until they have gathered enough experience.
+
+Doctors should always keep a medical scanner and a hematology analyzer on their person - you won't know exactly what's causing all the symptoms of your patient unless you scan them (or you have extensive knowledge)!
+
+[h1]Packing a first aid kit[/h1]
+[u][b]First aid kits for expeditions[/b][/u]
+should contain the following (more suitable items are on the left):
+[list]
+[*] Plastiseal or bandages
+[*] Sutures
+[*] At least one tourniquet
+[*] Blood packs (preferably O-), ringer's solution, saline or adrenaline
+[*] Calyxanide
+[*] Antiparalyzant
+[/list]
+It is recommended to also bring the following on an expedition:
+[list]
+[*] A fully decked out surgery kit -> 13: Surgical procedures and you
+[*] An endovascular balloon
+[*] A medical stent
+[*] Gypsum
+[/list]
+These items may save a patients life if they suffer catastrophical un-clampable bleedings of the neck or aorta that require immediate surgery.
+
+[u][b]First aid kits for accidents inside the submarine[/b][/u]
+should contain the following (more suitable items are on the left):
+[list]
+[*] Plastiseal or bandages
+[*] Sutures
+[*] At least one tourniquet
+[*] Blood packs (preferably O-), ringer's solution, saline or adrenaline
+[*] A defibrillator
+[*] Gypsum
+[/list]

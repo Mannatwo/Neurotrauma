@@ -1,0 +1,94 @@
+Welcome to the surgery section.
+
+[h1][b]Unless otherwise specified, "surgery" as a treatment refers to executing the standard surgery procedure and terminating the surgery.[/b][/h1]
+
+To perform surgery, you will at the very least need a surgery kit.
+
+[u][b]Packing a surgery kit[/b][/u]
+A surgery kit stores all the essential tools and instruments needed for surgery neatly in one place.
+Surgery kits should contain the following:
+[list]
+[*] Opioids or anesthetics (propofol, fentanyl, morphine or opium)
+[*] Scalpel
+[*] Hemostat
+[*] Skin retractors
+[*] Sutures
+[*] Blood packs (preferably O-), ringer's solution, saline or adrenaline
+[/list]
+Alternatively, one can use a surgery toolbox instead of a medical container to neatly store all of the numerous small surgery tools neatly in one package.
+
+[u][b]Packing a bone surgery kit[/b][/u]
+If you are working with bones, there might be some additional tools you need.
+Bone surgery kits should contain the following:
+[list]
+[*] Surgical drill
+[*] Surgical saw
+[*] Osteosynthesis implants
+[*] Spinal cord implants
+[/list]
+
+[h1]Standard surgery procedure[/h1]
+The standard surgery procedure is a sequence of steps that a surgeon follows to initiate surgery.
+A suture can be used at any point during the surgery to terminate the process. You should always operate at an operating table, if possible. Regular beds can be used as an alternative in a pinch.
+In case emergency surgery is required on the field (as is the case with carotid artery bleedings or aortic ruptures), dragging the patient all the way back to the submarine would waste precious seconds and do more harm than good. You will have to operate without a table.
+
+[b]A suture is the final step in any surgery. Not terminating the surgery will lead to traumatic shock and death.[/b]
+
+[table][tr][th][h1]Step 1: Anesthetics[/h1]
+Anesthesia is required for surgery to begin. Administer an opioid of your choice or propofol to the patient.[/th][/tr][/table]
+
+[previewimg=26754894;sizeOriginal,floatLeft;tile056(3).png][/previewimg]
+[table][tr][th][h1]Step 2: The incision[/h1]
+Use a scalpel on the body part that you wish to perform surgery on.[/th][/tr][/table]
+
+[previewimg=26754896;sizeOriginal,floatLeft;tile057(3).png][/previewimg]
+[table][tr][th][h1]Step 3: Clamping the bleeders[/h1]
+Use a hemostat on the body part that you incised.[/th][/tr][/table]
+
+[previewimg=26754900;sizeOriginal,floatLeft;tile058(3).png][/previewimg]
+[table][tr][th][h1]Step 4: Retracting the skin[/h1]
+Use a skin retractor on the body part that you incised.[/th][/tr][/table]
+
+
+You are now ready for more specialized applications such as osteosynthesis, amputation or organ procurement and transplantation.
+
+[h1]Osteosynthetic surgery[/h1]
+This procedure will heal fractures and bone damage.
+First, perform the standard surgery procedure.
+
+[previewimg=26754908;sizeOriginal,floatLeft;tile060(3).png][/previewimg]
+[table][tr][th][h1]Step 5: Drilling the broken bone[/h1]
+Use a surgical drill on the fractured bone.[/th][/tr][/table]
+
+[table][tr][th][h1]Step 6: The implants[/h1]
+Use osteosythesis implants on the affected bone. The fracture is now healed.[/th][/tr][/table]
+
+[h1]Organ procurement/transplant surgery[/h1]
+This procedure will extract organs from still-living humans and optionally transplant a new one.
+First, perform the standard surgery procedure on the torso.
+
+[previewimg=26755229;sizeOriginal,floatLeft;tile040(3).png][/previewimg]
+[table][tr][th][h1]Step 5: Cutting it out[/h1]
+Use one of the specialized organ procurement scalpels on the torso. You should receive the patients organ(s). If their organ damage was too high then the organ(s) will be destroyed instead.[/th][/tr][/table]
+
+[table][tr][th][h1]Step 6 (optional): The transplant[/h1]
+Put the replacement organ inside the patient.
+WARNING: If the patient is not immunosuppressed when performing this step, the organ might get rejected and be non-functional! If you plan to transplant an organ, administer an immunosuppressant first and watch the patients immunity using a hematology analyzer.[/th][/tr][/table]
+
+[h1]Amputation / limb reattachment surgery[/h1]
+This procedure will amputate one of the patients limbs.
+First, perform the standard surgery procedure on the limb you wish to amputate.
+
+[previewimg=26754909;sizeOriginal,floatLeft;tile061(3).png][/previewimg]
+[table][tr][th][h1]Step 5: Sawing the bone[/h1]
+Use the surgical saw on the affected limb. Ending the surgery now will cause the limb to amputated.[/th][/tr][/table]
+
+[table][tr][th][h1]Step 6 (optional): Reattaching the limb[/h1]
+Use the severed limb on the now sawed bone. The amputation should now be reverted.[/th][/tr][/table]
+
+Side note: bionic prosthetics can [b]not[/b] be used during surgery, but they [b]do[/b] require a surgical amputation on the affected limb to be used. Terminate the surgery after step 5, then use the prosthetic.
+
+[h1]Core decompression surgery[/h1]
+This procedure will heal bone death.
+It is best advised to first transplant a fresh kidney to the patient so the bone death doesn't return post-surgery.
+To successfully reverse bone death, you will need to perform osteosynthetic surgery [u][b]on every bodypart[/b][/u] in a relatively small amount of time. Bringing dead bones back to the living is no small feat. You should make sure to bring extra osteosynthesis implants in case something goes wrong.
