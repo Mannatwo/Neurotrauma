@@ -422,6 +422,7 @@ function HF.GiveItemAtCondition(character,identifier,condition)
     end
 end
 
+-- for use with items
 function HF.SpawnItemPlusFunction(identifier,func,params,inventory,targetslot)
     local prefab = ItemPrefab.GetItemPrefab(identifier)
     if params == nil then params = {} end
@@ -438,6 +439,29 @@ function HF.SpawnItemPlusFunction(identifier,func,params,inventory,targetslot)
         local newitem = Item(prefab, inventory.Container.Item.WorldPosition)
         if inventory~=nil then
             inventory.TryPutItem(newitem, targetslot,true,true,nil)
+        end
+        params["item"]=newitem
+        func(params)
+    end
+end
+
+-- for use with characters
+function HF.GiveItemPlusFunction(identifier,func,params,character)
+    local prefab = ItemPrefab.GetItemPrefab(identifier)
+    if params == nil then params = {} end
+    
+    if SERVER then
+        Entity.Spawner.AddItemToSpawnQueue(prefab, character.WorldPosition, nil, nil, function(newitem)
+            if character.Inventory~=nil then
+                character.Inventory.TryPutItem(newitem, nil, {InvSlotType.Any})
+            end
+            params["item"]=newitem
+            func(params)
+        end)
+    else
+        local newitem = Item(prefab, character.WorldPosition)
+        if character.Inventory~=nil then
+            character.Inventory.TryPutItem(newitem, nil, {InvSlotType.Any})
         end
         params["item"]=newitem
         func(params)

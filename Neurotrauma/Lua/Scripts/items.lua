@@ -61,7 +61,7 @@ NT.ItemMethods.healthscanner = function(item, usingCharacter, targetCharacter, l
 
             afflimbtype = HF.NormalizeLimbType(afflimbtype)
 
-            if (strength > prefab.ShowInHealthScannerThreshold and afflimbtype==limbtype) then
+            if (strength >= prefab.ShowInHealthScannerThreshold and afflimbtype==limbtype) then
                 -- add the affliction to the readout
                 readoutstring = readoutstring.."\n"..value.Prefab.Name.Value..": "..strength.."%"
                 afflictionsdisplayed = afflictionsdisplayed + 1
@@ -402,7 +402,7 @@ NT.ItemMethods.emptybloodpack = function(item, usingCharacter, targetCharacter, 
         }
 
         HF.AddAffliction(targetCharacter,"bloodloss",bloodlossinduced,usingCharacter)
-        HF.SpawnItemPlusFunction("bloodpack" .. bloodtype,postSpawnFunc,params,usingCharacter.Inventory)
+        HF.GiveItemPlusFunction("bloodpack" .. bloodtype,postSpawnFunc,params,usingCharacter)
         HF.RemoveItem(item)
     end
 end
@@ -720,7 +720,7 @@ NT.ItemMethods.organscalpel_liver = function(item, usingCharacter, targetCharact
                         condition=100-damage
                     }
 
-                    HF.SpawnItemPlusFunction(transplantidentifier,postSpawnFunc,params,usingCharacter.Inventory)
+                    HF.GiveItemPlusFunction(transplantidentifier,postSpawnFunc,params,usingCharacter)
                 end
             else
                 HF.AddAfflictionLimb(targetCharacter,"bleeding",limbtype,15,usingCharacter)
@@ -773,7 +773,7 @@ NT.ItemMethods.organscalpel_lungs = function(item, usingCharacter, targetCharact
                         condition=100-damage
                     }
 
-                    HF.SpawnItemPlusFunction(transplantidentifier,postSpawnFunc,params,usingCharacter.Inventory)
+                    HF.GiveItemPlusFunction(transplantidentifier,postSpawnFunc,params,usingCharacter)
                 end
             else
                 HF.AddAfflictionLimb(targetCharacter,"bleeding",limbtype,15,usingCharacter)
@@ -825,7 +825,7 @@ NT.ItemMethods.organscalpel_heart = function(item, usingCharacter, targetCharact
                         condition=100-damage
                     }
 
-                    HF.SpawnItemPlusFunction(transplantidentifier,postSpawnFunc,params,usingCharacter.Inventory)
+                    HF.GiveItemPlusFunction(transplantidentifier,postSpawnFunc,params,usingCharacter)
                 end
             else
                 HF.AddAfflictionLimb(targetCharacter,"bleeding",limbtype,15,usingCharacter)
@@ -873,7 +873,7 @@ NT.ItemMethods.organscalpel_kidneys = function(item, usingCharacter, targetChara
                         condition=100
                     }
 
-                    HF.SpawnItemPlusFunction(transplantidentifier,postSpawnFunc,params,usingCharacter.Inventory)
+                    HF.GiveItemPlusFunction(transplantidentifier,postSpawnFunc,params,usingCharacter)
                     damage = damage+50
                 end
                 if(damage < 95) then
@@ -901,7 +901,7 @@ NT.ItemMethods.organscalpel_kidneys = function(item, usingCharacter, targetChara
                         condition=100-(damage-50)*2
                     }
 
-                    HF.SpawnItemPlusFunction(transplantidentifier,postSpawnFunc,params,usingCharacter.Inventory)
+                    HF.GiveItemPlusFunction(transplantidentifier,postSpawnFunc,params,usingCharacter)
                 end
             else
                 HF.AddAfflictionLimb(targetCharacter,"bleeding",limbtype,15,usingCharacter)
