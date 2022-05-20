@@ -6,6 +6,7 @@ Hook.Add("character.applyDamage", "NT.ondamaged", function (characterHealth, att
     if -- invalid attack data, don't do anything
         characterHealth == nil or 
         characterHealth.Character == nil or 
+        characterHealth.Character.IsDead or
         not characterHealth.Character.IsHuman or 
         attackResult == nil or 
         attackResult.Afflictions == nil or
@@ -13,11 +14,7 @@ Hook.Add("character.applyDamage", "NT.ondamaged", function (characterHealth, att
         hitLimb == nil or
         hitLimb.IsSevered
     then return end
-
-    --print("made it through validation: aff count "..#attackResult.Afflictions..", is dead "..tostring(characterHealth.Character.IsDead)..", char name "..characterHealth.Character.Name)
     
-if characterHealth.Character.IsDead then return end
-
     local identifier = ""
     local methodtorun = nil
     for index, value in ipairs(attackResult.Afflictions) do
