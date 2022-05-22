@@ -244,15 +244,14 @@ NT.Afflictions = {
         if(c.afflictions[i].strength > 0.1 and not c.stats.stasis) then c.afflictions[i].strength = c.afflictions[i].strength + 0.05 * NT.Deltatime end 
     end
     },
-    immunity={default=-1,update=function(c,i)
-        if c.stats.stasis then return end
+    immunity={default=-1,min=5,update=function(c,i)
         if c.afflictions[i].strength==-1 then
             -- no immunity affliction!
             -- assume it has been wiped by "revive" or "heal all", attempt to assign new blood type
             c.afflictions[i].strength = 100
             NT.TryRandomizeBlood(c.character)
         end
-        c.afflictions[i].strength = HF.Clamp(c.afflictions[i].strength+(0.5+c.afflictions[i].strength/100)*NT.Deltatime,1,100)
+        c.afflictions[i].strength = HF.Clamp(c.afflictions[i].strength+(0.5+c.afflictions[i].strength/100)*NT.Deltatime,5,100)
     end
     },
     bloodloss={max=200},
