@@ -56,8 +56,8 @@ NT.ItemMethods.healthscanner = function(item, usingCharacter, targetCharacter, l
             local limb = targetCharacter.CharacterHealth.GetAfflictionLimb(value)
             local afflimbtype = LimbType.Torso
 
-            if(limb~=nil) then afflimbtype=limb.type
-            elseif(prefab.LimbSpecific) then afflimbtype = prefab.IndicatorLimb end
+            if(prefab.LimbSpecific) then afflimbtype = prefab.IndicatorLimb 
+            elseif(limb~=nil) then afflimbtype=limb.type end
 
             afflimbtype = HF.NormalizeLimbType(afflimbtype)
 
