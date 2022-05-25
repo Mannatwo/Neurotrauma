@@ -158,6 +158,17 @@
     <Price baseprice="100" soldbydefault="false">
       <Price storeidentifier="merchantmedical" minavailable="1" sold="true"/>
     </Price>
+    <Deconstruct time="15">
+      <Item identifier="fpgacircuit" />
+      <Item identifier="plastic" />
+      <Item identifier="fulgurium" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="electrical" level="50" />
+      <RequiredItem identifier="fpgacircuit" />
+      <RequiredItem identifier="plastic" />
+      <RequiredItem identifier="fulgurium" />
+    </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="704,64,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Weapons/weapons_new.png" depth="0.8" sourcerect="215,242,41,21" origin="0.5,0.5" />
     <Body width="40" height="22" density="20" />
