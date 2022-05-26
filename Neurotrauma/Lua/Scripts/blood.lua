@@ -64,3 +64,15 @@ function NT.GetBloodtype(character)
 
     return NT.RandomizeBlood(character)
 end
+
+function NT.HasBloodtype(character)
+    for index, affliction in ipairs(NT.BLOODTYPE) do
+        local conditional = character.CharacterHealth.GetAffliction(affliction[1])
+
+        if (conditional ~= nil and conditional.Strength > 0) then
+            return true
+        end
+    end
+
+    return false
+end

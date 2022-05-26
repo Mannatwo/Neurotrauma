@@ -248,9 +248,18 @@ NT.Afflictions = {
         if c.afflictions[i].strength==-1 then
             -- no immunity affliction!
             -- assume it has been wiped by "revive" or "heal all", attempt to assign new blood type
-            c.afflictions[i].strength = 100
-            NT.TryRandomizeBlood(c.character)
+            if NT.HasBloodtype(c.character) then
+                -- if blood type is already here, set immunity to the minimum
+                c.afflictions[i].strength = 5
+            else
+                -- no bloodtype -> all afflictions have been cleared, set immunity to maximum
+                c.afflictions[i].strength = 100
+                NT.TryRandomizeBlood(c.character)
+            end
         end
+        if c.stats.stasis then return end
+
+        -- immunity regeneration
         c.afflictions[i].strength = HF.Clamp(c.afflictions[i].strength+(0.5+c.afflictions[i].strength/100)*NT.Deltatime,5,100)
     end
     },
@@ -715,10 +724,13 @@ NT.LimbAfflictions = {
     },
     -- other
     infectedwound={update=function(c,limbaff,i)
+        if c.stats.stasis then return end
         local infectindex = ( -c.afflictions.immunity.prev/200 - HF.Clamp(limbaff.bandaged.strength,0,1)*1.5 - limbaff.ointmented.strength*3 + limbaff.burn.strength/20 + limbaff.lacerations.strength/40 + limbaff.bitewounds.strength/30 + limbaff.gunshotwound.strength/40 + limbaff.explosiondamage.strength/40 )*NT.Deltatime
-        -- if(hassym_inflammation) then infectindex = infectindex-0.8*NT.Deltatime end
         local wounddamage = limbaff.burn.strength+limbaff.lacerations.strength+limbaff.gunshotwound.strength+limbaff.bitewounds.strength+limbaff.explosiondamage.strength
-        if(limbaff.dirtybandage.strength > 10 and wounddamage > 5) then infectindex = infectindex+(wounddamage/40+limbaff.dirtybandage.strength/20)*NT.Deltatime end
+        -- open wounds and a dirty bandage? :grimacing:
+        if(limbaff.dirtybandage.strength > 10 and wounddamage > 5) then
+            infectindex = infectindex+(wounddamage/40+limbaff.dirtybandage.strength/20)*NT.Deltatime
+        end
         limbaff[i].strength = limbaff[i].strength + infectindex/5
         c.afflictions.immunity.strength = c.afflictions.immunity.strength - HF.Clamp(infectindex/3,0,10)
     end
