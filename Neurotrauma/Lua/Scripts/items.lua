@@ -55,10 +55,10 @@ NT.ItemMethods.healthscanner = function(item, usingCharacter, targetCharacter, l
             local prefab = value.Prefab
             local limb = targetCharacter.CharacterHealth.GetAfflictionLimb(value)
             local afflimbtype = LimbType.Torso
-
-            if(prefab.LimbSpecific) then afflimbtype = prefab.IndicatorLimb 
+            
+            if(not prefab.LimbSpecific) then afflimbtype = prefab.IndicatorLimb 
             elseif(limb~=nil) then afflimbtype=limb.type end
-
+            
             afflimbtype = HF.NormalizeLimbType(afflimbtype)
 
             if (strength >= prefab.ShowInHealthScannerThreshold and afflimbtype==limbtype) then
@@ -372,6 +372,8 @@ NT.ItemMethods.tourniquet = function(item, usingCharacter, targetCharacter, limb
     end
 end
 NT.ItemMethods.emptybloodpack = function(item, usingCharacter, targetCharacter, limb) 
+    if item.Condition <= 0 then return end
+
     if(targetCharacter.Bloodloss <= 31) then 
         local success = HF.GetSkillRequirementMet(usingCharacter,"medical",30)
         local bloodlossinduced = 30
@@ -403,7 +405,8 @@ NT.ItemMethods.emptybloodpack = function(item, usingCharacter, targetCharacter, 
 
         HF.AddAffliction(targetCharacter,"bloodloss",bloodlossinduced,usingCharacter)
         HF.GiveItemPlusFunction("bloodpack" .. bloodtype,postSpawnFunc,params,usingCharacter)
-        HF.RemoveItem(item)
+        item.Condition = 0
+        --HF.RemoveItem(item)
     end
 end
 NT.ItemMethods.propofol = function(item, usingCharacter, targetCharacter, limb) 
@@ -1273,6 +1276,8 @@ NT.ItemStartsWithMethods.wrench = function(item, usingCharacter, targetCharacter
     end
 end
 NT.ItemStartsWithMethods.bloodpack = function(item, usingCharacter, targetCharacter, limb) 
+    if item.Condition <= 0 then return end
+
     local identifier = item.Prefab.Identifier.Value
     local packtype = string.sub(identifier, string.len("bloodpack")+1)
     
@@ -1316,7 +1321,8 @@ NT.ItemStartsWithMethods.bloodpack = function(item, usingCharacter, targetCharac
         end
     end
 
-    HF.RemoveItem(item)
+    item.Condition = 0
+    --HF.RemoveItem(item)
     HF.GiveItem(usingCharacter,"emptybloodpack")
     HF.GiveItem(targetCharacter,"ntsfx_syringe")
 end
