@@ -414,8 +414,18 @@ NT.Afflictions = {
         -- arm locking
         local leftlockitem = c.character.Inventory.FindItemByIdentifier("armlock2",false)
         local rightlockitem = c.character.Inventory.FindItemByIdentifier("armlock1",false)
+
+        -- handcuffs
         local handcuffs = c.character.Inventory.FindItemByIdentifier("handcuffs",false)
         local handcuffed = handcuffs ~= nil and c.character.Inventory.FindIndex(handcuffs) <= 6
+        if handcuffed then
+            -- drop non-handcuff items
+            local leftHandItem = HF.GetItemInLeftHand(c.character)
+            local rightHandItem = HF.GetItemInRightHand(c.character)
+            if leftHandItem ~= nil and leftHandItem ~= handcuffs and leftlockitem == nil then leftHandItem.Drop(c.character) end
+            if rightHandItem ~= nil and rightHandItem ~= handcuffs and rightlockitem == nil then rightHandItem.Drop(c.character) end
+        end
+
         local leftarmlocked = leftlockitem ~= nil and not handcuffed
         local rightarmlocked = rightlockitem ~= nil and not handcuffed
 

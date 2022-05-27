@@ -707,6 +707,12 @@ function HF.GetCharacterInventorySlotIdentifer(character,slot)
     return item.Prefab.Identifier.Value
 end
 
+function HF.GetItemInRightHand(character) 
+    return HF.GetCharacterInventorySlot(character,6)
+end
+function HF.GetItemInLeftHand(character) 
+    return HF.GetCharacterInventorySlot(character,5)
+end
 function HF.GetOuterWear(character) 
     return HF.GetCharacterInventorySlot(character,4)
 end
