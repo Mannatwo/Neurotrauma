@@ -414,8 +414,10 @@ NT.Afflictions = {
         -- arm locking
         local leftlockitem = c.character.Inventory.FindItemByIdentifier("armlock2",false)
         local rightlockitem = c.character.Inventory.FindItemByIdentifier("armlock1",false)
-        local leftarmlocked = leftlockitem ~= nil
-        local rightarmlocked = rightlockitem ~= nil
+        local handcuffs = c.character.Inventory.FindItemByIdentifier("handcuffs",false)
+        local handcuffed = handcuffs ~= nil and c.character.Inventory.FindIndex(handcuffs) <= 6
+        local leftarmlocked = leftlockitem ~= nil and not handcuffed
+        local rightarmlocked = rightlockitem ~= nil and not handcuffed
 
         if(leftarmlocked and not c.stats.lockleftarm) then HF.RemoveItem(leftlockitem) end
         if(rightarmlocked and not c.stats.lockrightarm) then HF.RemoveItem(rightlockitem) end
@@ -423,7 +425,7 @@ NT.Afflictions = {
         if(not leftarmlocked and c.stats.lockleftarm) then HF.ForceArmLock(c.character,"armlock2") end
         if(not rightarmlocked and c.stats.lockrightarm) then HF.ForceArmLock(c.character,"armlock1") end
 
-        c.afflictions[i].strength = HF.BoolToNum(c.stats.lockleftarm and c.stats.lockrightarm,100)
+        c.afflictions[i].strength = HF.BoolToNum((c.stats.lockleftarm and c.stats.lockrightarm) or handcuffed,100)
     end
     },
     traumaticshock={},
