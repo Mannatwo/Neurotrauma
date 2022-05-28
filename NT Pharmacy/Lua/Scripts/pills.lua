@@ -781,9 +781,6 @@ local function GetRandomPillConfig()
         end
     end
 
-    table.insert(components,baseIdentifiers[math.random(#baseIdentifiers)])
-    table.insert(components,binderIdentifiers[math.random(#binderIdentifiers)])
-
     local bases = 1
     local binders = 1
     local actives = math.random(1,3)
