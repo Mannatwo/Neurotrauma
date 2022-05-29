@@ -178,8 +178,10 @@ end
 
 function HF.GetAfflictionStrengthLimb(character,limbtype,identifier,defaultvalue)
     if character==nil or character.CharacterHealth==nil or character.AnimController==nil then return defaultvalue end
-
-    local aff = character.CharacterHealth.GetAffliction(identifier,character.AnimController.GetLimb(limbtype))
+    local limb = character.AnimController.GetLimb(limbtype)
+    if limb==nil then return defaultvalue end
+    
+    local aff = character.CharacterHealth.GetAffliction(identifier,limb)
     local res = defaultvalue or 0
     if(aff~=nil) then
         res = aff.Strength
@@ -199,7 +201,9 @@ function HF.HasAffliction(character,identifier,minamount)
 end
 
 function HF.HasAfflictionLimb(character,identifier,limbtype,minamount)
-    local aff = character.CharacterHealth.GetAffliction(identifier,character.AnimController.GetLimb(limbtype))
+    local limb = character.AnimController.GetLimb(limbtype)
+    if limb==nil then return false end
+    local aff = character.CharacterHealth.GetAffliction(identifier,limb)
     local res = false
     if(aff~=nil) then
         res = aff.Strength >= (minamount or 0.5)

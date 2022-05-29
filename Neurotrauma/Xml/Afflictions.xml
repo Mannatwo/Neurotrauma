@@ -193,8 +193,9 @@
       maxscreenblur="1"
       minradialdistort="0"
       maxradialdistort="1"
+      MultiplyByMaxVitality="true"
       minvitalitydecrease="0"
-      maxvitalitydecrease="180">
+      maxvitalitydecrease="0.9">
     </Effect>
     <Effect minstrength="180" maxstrength="200"
       minscreendistort="1"
@@ -203,8 +204,9 @@
       maxscreenblur="1"
       minradialdistort="1"
       maxradialdistort="1"
-      minvitalitydecrease="100"
-      maxvitalitydecrease="600">
+      MultiplyByMaxVitality="true"
+      minvitalitydecrease="0.9"
+      maxvitalitydecrease="2">
     </Effect>
 
     <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,640,128,128" color="195,177,60,255" origin="0,0"/>
@@ -2167,7 +2169,6 @@
     <Effect minstrength="0" maxstrength="100">
       <StatusEffect target="Character">
         <Affliction identifier="analgesia" amount="10"/>
-        <Affliction identifier="stun" amount="2"/>
         <Affliction identifier="givein" amount="1"/>
       </StatusEffect>
     </Effect>
@@ -3574,7 +3575,6 @@ thats what the vomiting symptom is for -->
     <Effect minstrength="15" maxstrength="99"
       strengthchange="0.3">
       <StatusEffect target="Character">
-        <Affliction identifier="stun" amount="2"/>
         <Affliction identifier="table" amount="3"/>
         <ReduceAffliction type="pain" amount="100" />
       </StatusEffect>

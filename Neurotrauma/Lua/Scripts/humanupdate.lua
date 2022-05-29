@@ -204,6 +204,16 @@ NT.Afflictions = {
         * (1-HF.Clamp(c.afflictions.afmannitol.strength,0,0.5)) -- half if mannitol
         * NT.Deltatime
         c.afflictions[i].strength = HF.Clamp(c.afflictions[i].strength,0,200)
+
+        -- not in effect yet because lua doesnt like tuples which means i cant provide an accurate cause of death
+
+        -- make ABSOLUTELY SURE that characters that should be dead ARE dead
+        -- for some asinine reason all of the NPCs at stations for which you can't open the health interface are immortal
+        -- and will just continue to bleed out and stay at 200% neurotrauma without giving a singular fuck
+        -- potentially fixed by making neurotrauma vitality loss scale with 
+        -- if c.afflictions[i].strength >= 199 and not c.character.IsDead then
+        --     c.character.Kill(0,nil,true)
+        -- end
     end
     },
     heartdamage={update=function(c,i) if c.stats.stasis then return end c.afflictions[i].strength = organDamageCalc(c,c.afflictions[i].strength + NTC.GetMultiplier(c.character,"heartdamagegain")*(c.stats.neworgandamage + HF.Clamp(c.afflictions.heartattack.strength,0,0.5) * NT.Deltatime)) end},
@@ -399,7 +409,17 @@ NT.Afflictions = {
         end
     end
     },
-    stun={},
+    stun={max=30,
+        update=function(c,i)
+            if c.afflictions.t_paralysis.strength > 0 or c.afflictions.anesthesia.strength > 15 then
+                c.afflictions[i].strength = math.max(5,c.afflictions[i].strength);
+            end
+        end,
+        apply=function(c,i,newval)
+            -- using the character stun property to apply instead of an affliction so that the networking doesnt shit itself (hopefully)
+            c.character.Stun = newval;
+        end
+    },
     slowdown={update=function(c,i)
         c.afflictions[i].strength = HF.Clamp(100 * (1-c.stats.speedmultiplier),0,100)
     end
@@ -961,7 +981,11 @@ function NT.UpdateHuman(character)
             NT.LimbAfflictions[identifier].min or 0,
             NT.LimbAfflictions[identifier].max or 100)
             if newval ~= data.prev then
-                HF.SetAfflictionLimb(character,identifier,type,newval)
+                if NT.LimbAfflictions[identifier].apply == nil then
+                    HF.SetAfflictionLimb(character,identifier,type,newval)
+                else
+                    NT.LimbAfflictions[identifier].apply(charData,identifier,type,newval)
+                end
             end
         end
     end
@@ -986,7 +1010,11 @@ function NT.UpdateHuman(character)
             NT.Afflictions[identifier].min or 0,
             NT.Afflictions[identifier].max or 100)
         if newval ~= data.prev then
-            HF.SetAffliction(character,identifier,newval)
+            if NT.Afflictions[identifier].apply == nil then
+                HF.SetAffliction(character,identifier,newval)
+            else
+                NT.Afflictions[identifier].apply(charData,identifier,newval)
+            end
         end
     end
 
