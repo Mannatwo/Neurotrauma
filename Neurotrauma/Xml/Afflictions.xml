@@ -4556,10 +4556,68 @@ thats what the vomiting symptom is for -->
       healcostmultiplier="4.0">
       
       <!-- Cause burns, seizures, internal bleeding and organ damage depending on strength -->
-      <Effect minstrength="25" maxstrength="50" mingrainstrength="0" maxgrainstrength="0.25"/>
-      <Effect minstrength="50" maxstrength="200" mingrainstrength="0.25" maxgrainstrength="1"
+
+      <!-- TODO: move this to lua -->
+      <Effect minstrength="25" maxstrength="50" mingrainstrength="0" maxgrainstrength="0.25">
+        <StatusEffect target="Character" multiplyafflictionsbymaxvitality="true">
+          <Conditional ishuman="false"/>
+          <Affliction identifier="burn" amount="0.06" />
+        </StatusEffect>
+      </Effect>
+
+      <Effect minstrength="50" maxstrength="75" mingrainstrength="0.25" maxgrainstrength="1.0"
         minchromaticaberration="0.0"
-        maxchromaticaberration="5.0"/>
+        maxchromaticaberration="1.0">
+        <StatusEffect target="Character" multiplyafflictionsbymaxvitality="true">
+          <Conditional ishuman="false"/>
+          <Affliction identifier="burn" amount="0.115" />
+        </StatusEffect>
+      </Effect>
+
+      <Effect minstrength="75" maxstrength="100" mingrainstrength="1.0" maxgrainstrength="0.75"
+        minchromaticaberration="1.0"
+        maxchromaticaberration="5.0">
+        <StatusEffect target="Character" multiplyafflictionsbymaxvitality="true">
+          <Conditional ishuman="false"/>
+          <Affliction identifier="burn" amount="0.235" />
+        </StatusEffect>
+      </Effect>
+
+      <Effect minstrength="100" maxstrength="125" mingrainstrength="1.0" maxgrainstrength="1.0"
+        minchromaticaberration="1.0"
+        maxchromaticaberration="5.0">
+        <StatusEffect target="Character" multiplyafflictionsbymaxvitality="true">
+          <Conditional ishuman="false"/>
+          <Affliction identifier="burn" amount="0.395" />
+        </StatusEffect>
+      </Effect>
+
+      <Effect minstrength="125" maxstrength="150" mingrainstrength="1.0" maxgrainstrength="1.0"
+        minchromaticaberration="1.0"
+        maxchromaticaberration="5.0">
+        <StatusEffect target="Character" multiplyafflictionsbymaxvitality="true">
+          <Conditional ishuman="false"/>
+          <Affliction identifier="burn" amount="0.555" />
+        </StatusEffect>
+      </Effect>
+
+      <Effect minstrength="150" maxstrength="175" mingrainstrength="1.0" maxgrainstrength="1.0"
+        minchromaticaberration="1.0"
+        maxchromaticaberration="5.0">
+        <StatusEffect target="Character" multiplyafflictionsbymaxvitality="true">
+          <Conditional ishuman="false"/>
+          <Affliction identifier="burn" amount="0.715" />
+        </StatusEffect>
+      </Effect>
+
+      <Effect minstrength="175" maxstrength="200" mingrainstrength="1.0" maxgrainstrength="1.0"
+        minchromaticaberration="1.0"
+        maxchromaticaberration="5.0">
+        <StatusEffect target="Character" multiplyafflictionsbymaxvitality="true">
+          <Conditional ishuman="false"/>
+          <Affliction identifier="burn" amount="0.875" />
+        </StatusEffect>
+      </Effect>
       
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="896,768,128,128" color="195,136,60,255" origin="0,0"/>
     </Affliction>
