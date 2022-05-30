@@ -2149,6 +2149,11 @@
     maxstrength="100"
     iconcolors="127,127,127,255;127,127,127,255">
 
+    <Effect minstrength="0" maxstrength="100"
+      MultiplyByMaxVitality="true"
+      minvitalitydecrease="1000"
+      maxvitalitydecrease="1000"/>
+
     <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="4,6" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
