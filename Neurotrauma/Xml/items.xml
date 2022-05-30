@@ -3762,14 +3762,14 @@
         <StatusEffect type="OnFailure" target="This" Condition="-100.0" disabledeltatime="true" />
         <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
         <RequiredSkill identifier="medical" level="72" />
-        <StatusEffect tags="medical" type="OnUse" target="Character" duration="20.0">
+        <StatusEffect tags="medical" type="OnUse" target="Character" duration="30.0">
           <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
-          <Affliction identifier="organdamage" amount="0.5" />
-          <Affliction identifier="kidneydamage" amount="0.5" />
-          <Affliction identifier="heartdamage" amount="0.5" />
-          <Affliction identifier="lungdamage" amount="0.5" />
-          <Affliction identifier="liverdamage" amount="0.5" />
-          <ReduceAffliction identifier="hypoxemia" amount="10" />
+          <Affliction identifier="organdamage" amount="0.2" />
+          <Affliction identifier="kidneydamage" amount="0.2" />
+          <Affliction identifier="heartdamage" amount="0.2" />
+          <Affliction identifier="lungdamage" amount="0.2" />
+          <Affliction identifier="liverdamage" amount="0.2" />
+          <ReduceAffliction identifier="hypoxemia" amount="100" />
         </StatusEffect>
         <StatusEffect tags="medical" type="OnFailure" target="Character" duration="20.0">
           <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
@@ -3778,7 +3778,7 @@
           <Affliction identifier="heartdamage" amount="0.5" />
           <Affliction identifier="lungdamage" amount="0.5" />
           <Affliction identifier="liverdamage" amount="0.5" />
-          <ReduceAffliction identifier="hypoxemia" amount="6" />
+          <ReduceAffliction identifier="hypoxemia" amount="10" />
         </StatusEffect>
         <StatusEffect type="OnImpact" target="This" Condition="0.0" setvalue="true">
           <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="5000" selectionmode="All" />
