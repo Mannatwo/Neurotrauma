@@ -7,6 +7,7 @@
   <None file="%ModDir%/Sound/Pageturn.ogg" />
   <Afflictions file="%ModDir%/Xml/Afflictions.xml" />
   <Item file="%ModDir%/Xml/items.xml" />
+  <Sounds file="%ModDir%/Xml/sounds.xml" />
   <Text file="%ModDir%/Localization/English/English.xml" />
   <Text file="%ModDir%/Localization/Russian/Russian.xml" />
   <Text file="%ModDir%/Localization/Polish/Polish.xml" />
@@ -104,4 +105,9 @@
   <None file="%ModDir%/Sound/pills2.ogg" />
   <None file="%ModDir%/Sound/pills1.ogg" />
   <None file="%ModDir%/Sound/pills3.ogg" />
+
+  <None file="%ModDir%/Sound/BHUI/ecg1.ogg" />
+  <None file="%ModDir%/Sound/BHUI/ecg2.ogg" />
+  <None file="%ModDir%/Sound/BHUI/flatline1.ogg" />
+  <None file="%ModDir%/Sound/BHUI/flatline2.ogg" />
 </contentpackage>

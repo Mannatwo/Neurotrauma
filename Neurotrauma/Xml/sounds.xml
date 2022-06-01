@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sounds>
+	<ecg1 file="%ModDir%/Sound/BHUI/ecg1.ogg"/>
+	<ecg2 file="%ModDir%/Sound/BHUI/ecg2.ogg"/>
+	<flatline1 file="%ModDir%/Sound/BHUI/flatline1.ogg"/>
+	<flatline2 file="%ModDir%/Sound/BHUI/flatline2.ogg"/>
+</sounds>
