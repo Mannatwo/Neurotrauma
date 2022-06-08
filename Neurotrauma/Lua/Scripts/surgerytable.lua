@@ -1,4 +1,30 @@
 
+-- lifted and translated from betterhealthui
+local NormalHeartrate = 60
+local MaxTachycardiaHeartrate = 180;
+local MaxFibrillationHeartrate = 300;
+local function GetHeartrate(character)
+
+    if (character == nil or character.CharacterHealth==nil or character.IsDead) then return 0 end
+
+    local rate = NormalHeartrate
+
+    local cardiacarrest = character.CharacterHealth.GetAffliction("cardiacarrest")
+
+    -- return 0 rate if in cardiac arrest
+    if (cardiacarrest ~= nil and cardiacarrest.Strength >= 0.5) then return 0 end
+
+    local tachycardia = character.CharacterHealth.GetAffliction("tachycardia")
+    local fibrillation = character.CharacterHealth.GetAffliction("fibrillation")
+
+    if (fibrillation~=nil) then
+        rate = HF.Lerp(MaxTachycardiaHeartrate, MaxFibrillationHeartrate, fibrillation.Strength/100 * (1+math.random()*0.5))
+    elseif (tachycardia ~= nil) then
+        rate = HF.Lerp(NormalHeartrate, MaxTachycardiaHeartrate, tachycardia.Strength / 100)
+    end
+
+    return rate
+end
 
 Hook.Add("surgerytable.update", "surgerytable.update", function (effect, deltaTime, item, targets, worldPosition)
 
@@ -34,9 +60,7 @@ Hook.Add("surgerytable.update", "surgerytable.update", function (effect, deltaTi
     item.SendSignal(tostring(HF.Round(HF.GetAfflictionStrength(target,"cerebralhypoxia",0))),"neurotrauma_out")
     item.SendSignal(tostring(HF.Round(HF.GetAfflictionStrength(target,"organdamage",0))),"organdamage_out")
     
-    local heartrate = math.random(80,85)
-    if HF.HasAffliction(target,"cardiacarrest") or target.IsDead then heartrate=0
-    elseif HF.HasAffliction(target,"tachycardia") then heartrate=heartrate+math.random(90,110) end
+    local heartrate = GetHeartrate(target)
     item.SendSignal(tostring(heartrate),"heartrate_out")
 
     local breathingrate = math.random(15,18)
