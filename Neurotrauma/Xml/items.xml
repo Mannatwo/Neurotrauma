@@ -307,11 +307,11 @@
             premultiplyalpha="false" origin="0.5,0.5"/>
     <Holdable selectkey="Action" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetach" PickingTime="5"
               aimpos="85,-10" handle1="0,0" attachable="true" aimable="true">
-      <StatusEffect type="OnNotContained" target="NearbyCharacters" range="100" stackable="true">
+      <StatusEffect type="OnNotContained" target="NearbyCharacters" range="200" stackable="true">
         <Affliction identifier="table" amount="2"/>
         <Affliction identifier="alv" amount="10"/>
       </StatusEffect>
-      <StatusEffect type="Always" target="NearbyCharacters" range="100" delay="1" stackable="false">
+      <StatusEffect type="Always" target="NearbyCharacters" range="200" delay="1" stackable="false">
         <LuaHook name="surgerytable.update" />
       </StatusEffect>
     </Holdable>
@@ -3118,11 +3118,11 @@
       <sprite texture="Content/Map/Outposts/Art/MedBayAssets.png" sourcerect="96,304,416,192" depth="0.97"
               premultiplyalpha="false" origin="0.5,0.5"/>
       <ItemComponent>
-        <StatusEffect type="OnNotContained" target="NearbyCharacters" range="100" stackable="true">
+        <StatusEffect type="OnNotContained" target="NearbyCharacters" range="200" stackable="true">
           <Affliction identifier="table" amount="2"/>
           <Affliction identifier="alv" amount="10"/>
         </StatusEffect>
-        <StatusEffect type="Always" target="NearbyCharacters" range="100" delay="1" stackable="false">
+        <StatusEffect type="Always" target="NearbyCharacters" range="200" delay="1" stackable="false">
           <LuaHook name="surgerytable.update" />
         </StatusEffect>
       </ItemComponent>
