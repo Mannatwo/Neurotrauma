@@ -84,7 +84,7 @@ NT.OnDamagedMethods.gunshotwound = function(character,strength,limbtype)
             causeFullForeignBody = true
         end
         if strength >= 5 and HF.Chance(0.7) then
-            HF.AddAfflictionLimb(character,"cerebralhypoxia",limbtype,strength*HF.RandomRange(0.1,0.4)) end
+            HF.AddAffliction(character,"cerebralhypoxia",limbtype,strength*HF.RandomRange(0.1,0.4)) end
     end
 
     -- extremities
@@ -127,11 +127,11 @@ NT.OnDamagedMethods.explosiondamage = function(character,strength,limbtype)
     -- head
     if strength >= 1 and limbtype==LimbType.Head then
         if strength >= 15 and HF.Chance(math.min(strength/60,0.7)) then
-            HF.AddAfflictionLimb(character,"concussion",limbtype,10) end
+            HF.AddAffliction(character,"concussion",10) end
         if strength >= 15 and HF.Chance(math.min(strength/60,0.7)*NTC.GetMultiplier(character,"anyfracturechance")) then
             NT.BreakLimb(character,limbtype) end
         if strength >= 15 and HF.Chance(math.min(strength/60,0.7)*NTC.GetMultiplier(character,"anyfracturechance")) then
-            HF.AddAfflictionLimb(character,"n_fracture",limbtype,5) end
+            HF.AddAffliction(character,"n_fracture",5) end
         if strength >= 25 and HF.Chance(0.25) then
             HF.AddAfflictionLimb(character,"gate_ta_h",limbtype,5) end
     end
@@ -164,7 +164,7 @@ NT.OnDamagedMethods.bitewounds = function(character,strength,limbtype)
     -- head
     if strength >= 1 and limbtype==LimbType.Head then
         if strength >= 15 and HF.Chance(math.min(strength/60,0.7)) then
-            HF.AddAfflictionLimb(character,"concussion",limbtype,10) end
+            HF.AddAffliction(character,"concussion",10) end
         if strength >= 15 and HF.Chance(math.min((strength-10)/60,0.7)*NTC.GetMultiplier(character,"anyfracturechance")) then
             NT.BreakLimb(character,limbtype) end
     end
@@ -231,13 +231,13 @@ NT.OnDamagedMethods.blunttrauma = function(character,strength,limbtype)
     -- head
     if strength >= 1 and limbtype==LimbType.Head then
         if strength >= 15 and HF.Chance(math.min(strength/60,0.7)) then
-            HF.AddAfflictionLimb(character,"concussion",limbtype,10) end
+            HF.AddAffliction(character,"concussion",10) end
         if strength >= 15 and HF.Chance(math.min((strength-10)/60,0.7)*NTC.GetMultiplier(character,"anyfracturechance")) then
             NT.BreakLimb(character,limbtype) end
         if strength >= 15 and HF.Chance(math.min((strength-10)/60,0.7)*NTC.GetMultiplier(character,"anyfracturechance")) then
-            HF.AddAfflictionLimb(character,"n_fracture",limbtype,5) end
+            HF.AddAffliction(character,"n_fracture",5) end
         if strength >= 5 and HF.Chance(0.7) then
-            HF.AddAfflictionLimb(character,"cerebralhypoxia",limbtype,strength*HF.RandomRange(0.1,0.4)) end
+            HF.AddAffliction(character,"cerebralhypoxia",strength*HF.RandomRange(0.1,0.4)) end
     end
 
     -- extremities
@@ -273,11 +273,11 @@ NT.OnDamagedMethods.internaldamage = function(character,strength,limbtype)
     -- head
     if strength >= 1 and limbtype==LimbType.Head then
         if strength >= 15 and HF.Chance(math.min(strength/60,0.7)) then
-            HF.AddAfflictionLimb(character,"concussion",limbtype,10) end
+            HF.AddAffliction(character,"concussion",10) end
         if strength >= 15 and HF.Chance(math.min((strength-5)/60,0.7)*NTC.GetMultiplier(character,"anyfracturechance")) then
             NT.BreakLimb(character,limbtype) end
         if strength >= 15 and HF.Chance(math.min((strength-5)/60,0.7)*NTC.GetMultiplier(character,"anyfracturechance")) then
-            HF.AddAfflictionLimb(character,"n_fracture",limbtype,5) end
+            HF.AddAffliction(character,"n_fracture",5) end
     end
 
     -- extremities
