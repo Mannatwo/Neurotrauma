@@ -60,7 +60,7 @@ Hook.Add("surgerytable.update", "surgerytable.update", function (effect, deltaTi
     item.SendSignal(tostring(HF.Round(HF.GetAfflictionStrength(target,"cerebralhypoxia",0))),"neurotrauma_out")
     item.SendSignal(tostring(HF.Round(HF.GetAfflictionStrength(target,"organdamage",0))),"organdamage_out")
     
-    local heartrate = GetHeartrate(target)
+    local heartrate = HF.Round(GetHeartrate(target))
     item.SendSignal(tostring(heartrate),"heartrate_out")
 
     local breathingrate = math.random(15,18)
