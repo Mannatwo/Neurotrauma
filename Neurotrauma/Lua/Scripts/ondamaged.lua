@@ -84,7 +84,7 @@ NT.OnDamagedMethods.gunshotwound = function(character,strength,limbtype)
             causeFullForeignBody = true
         end
         if strength >= 5 and HF.Chance(0.7) then
-            HF.AddAffliction(character,"cerebralhypoxia",limbtype,strength*HF.RandomRange(0.1,0.4)) end
+            HF.AddAffliction(character,"cerebralhypoxia",strength*HF.RandomRange(0.1,0.4)) end
     end
 
     -- extremities
