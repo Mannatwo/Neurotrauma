@@ -840,12 +840,12 @@
       <RequiredSkill identifier="medical" level="35"/>
       <RequiredSkill identifier="mechanical" level="20"/>
       <RequiredItem identifier="titaniumaluminiumalloy"/>
-      <RequiredItem identifier="oxygeniteshard"/>
-      <RequiredItem identifier="calcium"/>
+      <RequiredItem identifier="liquidoxygenite"/>
       <RequiredItem identifier="calcium"/>
     </Fabricate>
     <Deconstruct time="10">
-      <Item identifier="titaniumaluminiumalloy"/>
+      <Item identifier="titaniumaluminiumalloy" copycondition="true" mincondition="0.1"/>
+      <Item identifier="calcium" copycondition="true" mincondition="0.1"/>
     </Deconstruct>
     <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="87,403,84,67" origin="0.5,0.5" depth="0.6" />
     <Body width="65" height="15" density="50"/>
@@ -869,12 +869,12 @@
       <RequiredSkill identifier="medical" level="70"/>
       <RequiredSkill identifier="mechanical" level="20"/>
       <RequiredItem identifier="titaniumaluminiumalloy"/>
-      <RequiredItem identifier="oxygeniteshard"/>
-      <RequiredItem identifier="calcium"/>
+      <RequiredItem identifier="liquidoxygenite"/>
       <RequiredItem identifier="calcium"/>
     </Fabricate>
     <Deconstruct time="10">
-      <Item identifier="titaniumaluminiumalloy"/>
+      <Item identifier="titaniumaluminiumalloy" copycondition="true" mincondition="0.1"/>
+      <Item identifier="calcium" copycondition="true" mincondition="0.1"/>
     </Deconstruct>
     <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="344,403,84,67" origin="0.5,0.5" depth="0.6" />
     <Body width="60" height="90" density="20"/>
