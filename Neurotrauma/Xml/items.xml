@@ -122,7 +122,7 @@
         <SuitableTreatment identifier="oxygenlow" suitability="50"/>
 
         <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="10" reload="1.0">
-          <RequiredItems identifier="oxygensource" type="Contained" msg="ItemMsgOxygenTankRequired"/>
+          <RequiredItems identifier="weldingtoolfuel,oxygensource,paint" type="Contained" msg="ItemMsgOxygenTankRequired"/>
           <StatusEffect type="OnUse" target="Character">
               <Sound file="%ModDir%/Sound/pump.ogg" range="500"/>
           </StatusEffect>
@@ -134,11 +134,29 @@
               <ReduceAffliction identifier="oxygenlow" amount="100" />
               <RequiredItem items="oxygentank" type="Contained"/>
           </StatusEffect>
-          <StatusEffect type="OnUse" target="Contained,Character" Condition="-2" comparison="and">
+          <StatusEffect type="OnUse" target="Contained,Character" Condition="-0.7" comparison="and">
               <Conditional IsDead="false"/>
               <ReduceAffliction identifier="oxygenlow" amount="100" />
               <ReduceAffliction identifier="respiratoryarrest" amount="100" />
               <RequiredItem items="oxygenitetank" type="Contained"/>
+          </StatusEffect>
+          <StatusEffect type="OnUse" target="Contained,Character" Condition="-5" comparison="and">
+              <Conditional IsDead="false"/>
+              <Affliction identifier="oxygenlow" amount="100" />
+              <!-- We do a little trolling  -->
+              <RequiredItem items="weldingfueltank" type="Contained"/>
+          </StatusEffect>
+                <StatusEffect type="OnUse" target="Contained,Character" Condition="-7" comparison="and">
+              <Conditional IsDead="false"/>
+              <Affliction identifier="oxygenlow" amount="100" />
+              <Affliction identifier="lungdamage" amount="10" />
+              <RequiredItem items="incendiumfueltank" type="Contained"/>
+          </StatusEffect>
+          <StatusEffect type="OnUse" target="Contained,Character" Condition="-5" comparison="and">
+              <Conditional IsDead="false"/>
+              <Affliction identifier="oxygenlow" amount="30" />
+              <!-- Huff paint -->
+              <RequiredItem items="paint" type="Contained"/>
           </StatusEffect>
           <StatusEffect type="OnSpawn">
             <SpawnItem spawnposition="ThisInventory" identifier="oxygentank"/>
@@ -146,7 +164,7 @@
         </MeleeWeapon>
         <Pickable msg="ItemMsgPickUpSelect"/>
         <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="tank">
-            <Containable items="oxygensource"/>
+            <Containable items="weldingtoolfuel,oxygensource,paint"/>
         </ItemContainer>
     </Item>
   <Item name="" identifier="autocpr" category="Equipment" tags="smallitem,clothing,medical" scale="0.40"
