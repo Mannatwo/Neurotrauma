@@ -125,36 +125,43 @@
           <RequiredItems identifier="weldingtoolfuel,oxygensource,paint" type="Contained" msg="ItemMsgOxygenTankRequired"/>
           <StatusEffect type="OnUse" target="Character">
               <Sound file="%ModDir%/Sound/pump.ogg" range="500"/>
+              <Conditional IsDead="false"/>
+              <ReduceAffliction identifier="oxygenlow" amount="10" />
           </StatusEffect>
           <StatusEffect type="OnUse" target="This" Condition="-100"/>
           <StatusEffect type="OnBroken" target="This" Condition="100" disabledeltatime="true" delay="1"
                         stackable="false"/>
           <StatusEffect type="OnUse" target="Contained,Character" Condition="-2" comparison="and">
               <Conditional IsDead="false"/>
-              <ReduceAffliction identifier="oxygenlow" amount="100" />
+              <ReduceAffliction identifier="oxygenlow" amount="90" />
               <RequiredItem items="oxygentank" type="Contained"/>
           </StatusEffect>
-          <StatusEffect type="OnUse" target="Contained,Character" Condition="-0.7" comparison="and">
+          <StatusEffect type="OnUse" target="Contained,Character" Condition="-2" comparison="and">
               <Conditional IsDead="false"/>
-              <ReduceAffliction identifier="oxygenlow" amount="100" />
+              <ReduceAffliction identifier="oxygenlow" amount="90" />
               <ReduceAffliction identifier="respiratoryarrest" amount="100" />
               <RequiredItem items="oxygenitetank" type="Contained"/>
           </StatusEffect>
           <StatusEffect type="OnUse" target="Contained,Character" Condition="-5" comparison="and">
               <Conditional IsDead="false"/>
-              <Affliction identifier="oxygenlow" amount="100" />
+              <Affliction identifier="oxygenlow" amount="110" />
+              <Affliction identifier="lungdamage" amount="10" />
               <!-- We do a little trolling  -->
               <RequiredItem items="weldingfueltank" type="Contained"/>
           </StatusEffect>
                 <StatusEffect type="OnUse" target="Contained,Character" Condition="-7" comparison="and">
               <Conditional IsDead="false"/>
-              <Affliction identifier="oxygenlow" amount="100" />
-              <Affliction identifier="lungdamage" amount="10" />
+              <Affliction identifier="oxygenlow" amount="110" />
+              <Affliction identifier="lungdamage" amount="20" />
+              <Affliction identifier="burn" amount="10" />
               <RequiredItem items="incendiumfueltank" type="Contained"/>
           </StatusEffect>
           <StatusEffect type="OnUse" target="Contained,Character" Condition="-5" comparison="and">
               <Conditional IsDead="false"/>
-              <Affliction identifier="oxygenlow" amount="30" />
+              <Affliction identifier="oxygenlow" amount="50" />
+              <Affliction identifier="chemaddiction" amount="5" />
+              <ReduceAffliction identifier="chemwithdrawal" amount="20" />
+              <Affliction identifier="lungdamage" amount="3" />
               <!-- Huff paint -->
               <RequiredItem items="paint" type="Contained"/>
           </StatusEffect>
