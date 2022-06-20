@@ -249,9 +249,9 @@ NT.Afflictions = {
     organdamage={max=200,update=function(c,i) if c.stats.stasis then return end c.afflictions[i].strength = c.afflictions[i].strength + c.stats.neworgandamage - 0.03 * c.stats.healingrate * NT.Deltatime end},
     -- Blood
     sepsis={update=function(c,i)
-        if c.stats.stasis then return end
         if(c.afflictions.afantibiotics.strength > 0.1) then c.afflictions[i].strength = c.afflictions[i].strength - NT.Deltatime end
-        if(c.afflictions[i].strength > 0.1 and not c.stats.stasis) then c.afflictions[i].strength = c.afflictions[i].strength + 0.05 * NT.Deltatime end 
+        if c.stats.stasis then return end
+        if(c.afflictions[i].strength > 0.1) then c.afflictions[i].strength = c.afflictions[i].strength + 0.05 * NT.Deltatime end 
     end
     },
     immunity={default=-1,min=5,update=function(c,i)
