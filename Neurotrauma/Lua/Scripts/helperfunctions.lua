@@ -489,12 +489,20 @@ function HF.SpawnItemAt(identifier,position)
 end
 
 function HF.ForceArmLock(character,identifier)
+
+    local handindex = 6
+    if(identifier=="armlock2") then handindex = 5 end
+
     if SERVER then
+        -- drop previously held item
+        local previtem = character.Inventory.GetItemAt(handindex)
+        if(previtem ~= nil) then 
+            previtem.Drop(character,true)
+        end
+
         HF.GiveItem(character,identifier)
     else
         local item = Item(ItemPrefab.GetItemPrefab(identifier), character.WorldPosition)
-        local handindex = 6
-        if(identifier=="armlock2") then handindex = 5 end
 
         -- drop previously held item
         local previtem = character.Inventory.GetItemAt(handindex)
