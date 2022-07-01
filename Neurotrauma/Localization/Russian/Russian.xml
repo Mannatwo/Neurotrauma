@@ -579,8 +579,8 @@
 <afflictionname.sym_weakness>Слабость</afflictionname.sym_weakness>
 <afflictiondescription.sym_weakness>Пациент отмечает слабость в конечностях.</afflictiondescription.sym_weakness>
 
-<afflictionname.sym_wheezing>Чихание</afflictionname.sym_wheezing>
-<afflictiondescription.sym_wheezing>Пациент издаёт высокий звук.</afflictiondescription.sym_wheezing>
+<afflictionname.sym_wheezing>Свистящие хрипы</afflictionname.sym_wheezing>
+<afflictiondescription.sym_wheezing>Пациентом при дыхании издаётся громкий шум</afflictiondescription.sym_wheezing>
 
 <afflictionname.sym_vomiting>Рвота</afflictionname.sym_vomiting>
 <afflictiondescription.sym_vomiting>Пациента периодически рвёт.</afflictiondescription.sym_vomiting>
