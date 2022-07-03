@@ -1442,9 +1442,7 @@
           description="" scale="0.5" impactsoundtag="impact_soft">
       <PreferredContainer primary="medcab" minamount="2" maxamount="3" spawnprobability="0.5"/>
       <PreferredContainer primary="outpostmedcompartment" minamount="0" maxamount="1" spawnprobability="0.15"/>
-      <Price baseprice="300">
-        <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="5"/>
-      </Price>
+      <Price baseprice="300" />
       <Deconstruct time="20">
         <Item identifier="antibloodloss1" copycondition="true" mincondition="0.1"/>
         <Item identifier="stabilozine" copycondition="true" mincondition="0.1"/>
@@ -1482,7 +1480,9 @@
         <PreferredContainer/>
 		<PreferredContainer primary="medcab" />
 		<PreferredContainer primary="outpostmedcompartment" />
-        <Price baseprice="300" />
+    <Price baseprice="300">
+      <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="5"/>
+    </Price>
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="25">
       <RequiredSkill identifier="medical" level="30"/>
       <RequiredItem identifier="alienblood"/>
@@ -1506,7 +1506,9 @@
         <PreferredContainer/>
 		<PreferredContainer primary="medcab" />
 		<PreferredContainer primary="outpostmedcompartment" />
-        <Price baseprice="200" />
+    <Price baseprice="200">
+      <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="5"/>
+    </Price>
 		<Sprite texture="%ModDir%/Images/BloodPacksAtlas.png" sourcerect="128,85,64,85" />
 		<Holdable>
 			<StatusEffect tags="medical" type="OnUse" target="Character, This">
@@ -1522,7 +1524,9 @@
         <PreferredContainer/>
 		<PreferredContainer primary="medcab" />
 		<PreferredContainer primary="outpostmedcompartment" />
-        <Price baseprice="200" />
+    <Price baseprice="200">
+      <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="5"/>
+    </Price>
 		<Sprite texture="%ModDir%/Images/BloodPacksAtlas.png" sourcerect="128,85,64,85" />
 		<Holdable>
 			<StatusEffect tags="medical" type="OnUse" target="Character, This">
@@ -1538,7 +1542,9 @@
         <PreferredContainer/>
 		<PreferredContainer primary="medcab" />
 		<PreferredContainer primary="outpostmedcompartment" />
-        <Price baseprice="150" />
+    <Price baseprice="150">
+      <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="5"/>
+    </Price>
 		<Sprite texture="%ModDir%/Images/BloodPacksAtlas.png" sourcerect="128,85,64,85" />
 		<Holdable>
 			<StatusEffect tags="medical" type="OnUse" target="Character, This">
@@ -1554,7 +1560,9 @@
         <PreferredContainer/>
 		<PreferredContainer primary="medcab" />
 		<PreferredContainer primary="outpostmedcompartment" />
-        <Price baseprice="200" />
+    <Price baseprice="200">
+      <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="5"/>
+    </Price>
 		<Sprite texture="%ModDir%/Images/BloodPacksAtlas.png" sourcerect="128,85,64,85" />
 		<Holdable>
 			<StatusEffect tags="medical" type="OnUse" target="Character, This">
@@ -1570,7 +1578,9 @@
         <PreferredContainer/>
 		<PreferredContainer primary="medcab" />
 		<PreferredContainer primary="outpostmedcompartment" />
-        <Price baseprice="150" />
+    <Price baseprice="150">
+      <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="5"/>
+    </Price>
 		<Sprite texture="%ModDir%/Images/BloodPacksAtlas.png" sourcerect="128,85,64,85" />
 		<Holdable>
 			<StatusEffect tags="medical" type="OnUse" target="Character, This">
@@ -1586,7 +1596,9 @@
         <PreferredContainer/>
 		<PreferredContainer primary="medcab" />
 		<PreferredContainer primary="outpostmedcompartment" />
-        <Price baseprice="150" />
+    <Price baseprice="150">
+      <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="5"/>
+    </Price>
 		<Sprite texture="%ModDir%/Images/BloodPacksAtlas.png" sourcerect="128,85,64,85" />
 		<Holdable>
 			<StatusEffect tags="medical" type="OnUse" target="Character, This">
@@ -1602,7 +1614,9 @@
         <PreferredContainer/>
 		<PreferredContainer primary="medcab" />
 		<PreferredContainer primary="outpostmedcompartment" />
-        <Price baseprice="100" />
+    <Price baseprice="100">
+      <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="5"/>
+    </Price>
 		<Sprite texture="%ModDir%/Images/BloodPacksAtlas.png" sourcerect="128,85,64,85" />
 		<Holdable>
 			<StatusEffect tags="medical" type="OnUse" target="Character, This">
