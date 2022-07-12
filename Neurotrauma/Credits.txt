@@ -5,3 +5,4 @@ Kaofan - Polish localization
 Krzeszny - Polish localization
 rermi - French localization
 Evil Factory - Lua help
+peelz - Bloodpack conversion code
