@@ -3738,7 +3738,7 @@ thats what the vomiting symptom is for -->
       limbspecific="false"
       indicatorlimb="Torso"
       activationthreshold="0"
-      showiconthreshold="700"
+      showiconthreshold="10000"
       showinhealthscannerthreshold="5"
       maxstrength="200">
 
@@ -4028,7 +4028,7 @@ thats what the vomiting symptom is for -->
       selfcauseofdeathdescription="You have succumbed to your internal injuries."
       limbspecific="true"
       maxstrength="200"
-      showiconthreshold="700"
+      showiconthreshold="10000"
       showinhealthscannerthreshold="5"
       damageoverlayalpha="1">
       <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true"
@@ -4122,7 +4122,7 @@ thats what the vomiting symptom is for -->
       limbspecific="false"
       indicatorlimb="Torso"
       maxstrength="200"
-      showiconthreshold="700"
+      showiconthreshold="10000"
       showinhealthscannerthreshold="10"
       healcostmultiplier="10"
       damageoverlayalpha="1">
@@ -4158,8 +4158,8 @@ thats what the vomiting symptom is for -->
       causeofdeathdescription="Burned to death"
       selfcauseofdeathdescription="You have burned to death."
       limbspecific="true"
-      showiconthreshold="700"
-      showinhealthscannerthreshold="700"
+      showiconthreshold="10000"
+      showinhealthscannerthreshold="10000"
       healcostmultiplier="4"
       maxstrength="200"
       burnoverlayalpha="1">
