@@ -7,6 +7,7 @@
   <None file="%ModDir%/Sound/Pageturn.ogg" />
   <Afflictions file="%ModDir%/Xml/Afflictions.xml" />
   <Item file="%ModDir%/Xml/items.xml" />
+  <Talents file="%ModDir%/Xml/Talents.xml" />
   <Sounds file="%ModDir%/Xml/sounds.xml" />
   <Text file="%ModDir%/Localization/English/English.xml" />
   <Text file="%ModDir%/Localization/Russian/Russian.xml" />
