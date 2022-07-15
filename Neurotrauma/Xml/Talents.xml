@@ -35,21 +35,3 @@
   </Talent>
   </Talents>
 </Override>
-      </Abilities>
-    </AbilityGroupInterval>
-    <AbilityGroupEffect abilityeffecttype="OnUseRangedWeapon">
-      <Conditions>
-        <AbilityConditionItem identifiers="harmonica"/>
-        <AbilityConditionServerRandom randomchance="0.04"/>
-      </Conditions>
-      <Abilities>
-        <CharacterAbilityApplyStatusEffectsToRandomAlly allowdifferentsub="false">
-          <StatusEffects>
-            <StatusEffect type="OnAbility" target="Character">
-              <GiveSkill skillidentifier="randomskill" amount="1"/>
-            </StatusEffect>
-          </StatusEffects>
-        </CharacterAbilityApplyStatusEffectsToRandomAlly>
-      </Abilities>
-    </AbilityGroupEffect>
-  </Talent>
