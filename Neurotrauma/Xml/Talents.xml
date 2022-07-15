@@ -1,0 +1,55 @@
+<Override>
+<Talents>
+<Talent identifier="drunkensailor">
+    <Description tag="talentdescription.drunkensailor">
+      <Replace tag="[dmgresistance]" value="25" color="gui.green"/>
+      <Replace tag="[stunresistance]" value="50" color="gui.green"/>
+      <Replace tag="[skillgainprobability]" value="4" color="gui.green"/>
+    </Description>
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="3,0" sheetelementsize="128,128"/>
+    <AbilityGroupInterval>
+      <Conditions>
+        <AbilityConditionHasAffliction afflictionidentifier="drunk"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyResistance resistanceid="damage" resistance="0.75"/>
+        <CharacterAbilityModifyResistance resistanceid="stun" resistance="0.5"/>
+        <CharacterAbilityModifyResistance resistanceid="liverdamage" resistance="1"/>
+      </Abilities>
+    </AbilityGroupInterval>
+    <AbilityGroupEffect abilityeffecttype="OnUseRangedWeapon">
+      <Conditions>
+        <AbilityConditionItem identifiers="harmonica"/>
+        <AbilityConditionServerRandom randomchance="0.04"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityApplyStatusEffectsToRandomAlly allowdifferentsub="false">
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character">
+              <GiveSkill skillidentifier="randomskill" amount="1"/>
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffectsToRandomAlly>
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+  </Talents>
+</Override>
+      </Abilities>
+    </AbilityGroupInterval>
+    <AbilityGroupEffect abilityeffecttype="OnUseRangedWeapon">
+      <Conditions>
+        <AbilityConditionItem identifiers="harmonica"/>
+        <AbilityConditionServerRandom randomchance="0.04"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityApplyStatusEffectsToRandomAlly allowdifferentsub="false">
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character">
+              <GiveSkill skillidentifier="randomskill" amount="1"/>
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffectsToRandomAlly>
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
