@@ -12,29 +12,15 @@
     <Fabricate suitablefabricators="fabricator" requiredtime="60">
       <RequiredSkill identifier="mechanical" level="70"/>
       <RequiredSkill identifier="medical" level="20"/>
-      <RequiredItem identifier="titaniumaluminiumalloy"/>
-      <RequiredItem identifier="titaniumaluminiumalloy"/>
-      <RequiredItem identifier="steel"/>
-      <RequiredItem identifier="steel"/>
-      <RequiredItem identifier="steel"/>
-      <RequiredItem identifier="steel"/>
-      <RequiredItem identifier="fpgacircuit"/>
-      <RequiredItem identifier="fpgacircuit"/>
-      <RequiredItem identifier="fpgacircuit"/>
-      <RequiredItem identifier="fpgacircuit"/>
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="2"/>
+      <RequiredItem identifier="steel" amount="4"/>
+      <RequiredItem identifier="fpgacircuit" amount="4"/>
       <RequiredItem identifier="fulgurium"/>
     </Fabricate>
     <Deconstruct time="30">
       <Item identifier="titaniumaluminiumalloy"/>
-      <Item identifier="titaniumaluminiumalloy"/>
-      <Item identifier="steel"/>
-      <Item identifier="steel"/>
-      <Item identifier="steel"/>
-      <Item identifier="steel"/>
-      <Item identifier="fpgacircuit"/>
-      <Item identifier="fpgacircuit"/>
-      <Item identifier="fpgacircuit"/>
-      <Item identifier="fpgacircuit"/>
+      <Item identifier="steel" amount="3"/>
+      <Item identifier="fpgacircuit" amount="3"/>
       <Item identifier="fulgurium"/>
     </Deconstruct>
     <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="10,4,228,47" origin="0.5,0.5" depth="0.6" />
@@ -60,29 +46,15 @@
     <Fabricate suitablefabricators="fabricator" requiredtime="60">
       <RequiredSkill identifier="mechanical" level="70"/>
       <RequiredSkill identifier="medical" level="20"/>
-      <RequiredItem identifier="titaniumaluminiumalloy"/>
-      <RequiredItem identifier="titaniumaluminiumalloy"/>
-      <RequiredItem identifier="steel"/>
-      <RequiredItem identifier="steel"/>
-      <RequiredItem identifier="steel"/>
-      <RequiredItem identifier="steel"/>
-      <RequiredItem identifier="fpgacircuit"/>
-      <RequiredItem identifier="fpgacircuit"/>
-      <RequiredItem identifier="fpgacircuit"/>
-      <RequiredItem identifier="fpgacircuit"/>
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="2"/>
+      <RequiredItem identifier="steel" amount="4"/>
+      <RequiredItem identifier="fpgacircuit" amount="4"/>
       <RequiredItem identifier="fulgurium"/>
     </Fabricate>
     <Deconstruct time="30">
       <Item identifier="titaniumaluminiumalloy"/>
-      <Item identifier="titaniumaluminiumalloy"/>
-      <Item identifier="steel"/>
-      <Item identifier="steel"/>
-      <Item identifier="steel"/>
-      <Item identifier="steel"/>
-      <Item identifier="fpgacircuit"/>
-      <Item identifier="fpgacircuit"/>
-      <Item identifier="fpgacircuit"/>
-      <Item identifier="fpgacircuit"/>
+      <Item identifier="steel" amount="3"/>
+      <Item identifier="fpgacircuit" amount="3"/>
       <Item identifier="fulgurium"/>
     </Deconstruct>
     <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="4,64,63,238" origin="0.5,0.5" depth="0.6" />
@@ -204,11 +176,13 @@
   <!-- screwdrivers -->
   <Override>
     <Item name="" identifier="screwdriver" category="Equipment" Tags="smallitem,simpletool,tool,electricalrepairtool" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True" useinhealthinterface="True">
-      <PreferredContainer primary="reactorcab" minamount="1" maxamount="4" spawnprobability="1"/>
-      <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" minamount="0" maxamount="3" spawnprobability="0.25"/>
-      <PreferredContainer primary="outpostcrewcabinet" minamount="1" maxamount="2" spawnprobability="0.5"/>
-      <PreferredContainer primary="outposttrashcan" minamount="0" maxamount="1" spawnprobability="0.25" />
-      <PreferredContainer secondary="locker"/>
+      <Preferredcontainer secondary="respawncontainer" amount="1" spawnprobability="1" notcampaign="true"/>
+      <PreferredContainer primary="reactorcab,engcab"/>
+      <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" amount="1" spawnprobability="0.2"/>  
+      <PreferredContainer primary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.5"/>
+      <PreferredContainer primary="wreckreactorcab,abandonedreactorcab" amount="1" spawnprobability="0.5"/>   
+      <PreferredContainer secondary="outpostcrewcabinet" amount="1" spawnprobability="0.3"/>
+      <PreferredContainer secondary="outposttrashcan" amount="1" spawnprobability="0.1" />
       <Price baseprice="10" minavailable="10">
         <Price storeidentifier="merchantoutpost" />
         <Price storeidentifier="merchantcity" minavailable="5"  />
@@ -217,12 +191,12 @@
         <Price storeidentifier="merchantmine" />
         <Price storeidentifier="merchantengineering" minavailable="10" multiplier="0.9"/>
       </Price>
-      <Deconstruct time="10">
+      <Deconstruct time="20">
         <Item identifier="iron" />
       </Deconstruct>
       <Fabricate suitablefabricators="fabricator" requiredtime="10">
         <RequiredSkill identifier="mechanical" level="20" />
-        <RequiredItem identifier="iron" />
+        <RequiredItem identifier="iron" amount="2" />
       </Fabricate>
       <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="512,0,64,64" origin="0.5,0.5" />
       <Sprite texture="Content/Items/Tools/tools.png" sourcerect="227,189,64,14" depth="0.55" origin="0.5,0.5" />
@@ -250,20 +224,21 @@
   </Override>
   <Override>
     <Item name="" identifier="screwdriverhardened" variantof="screwdriver" inventoryiconcolor="110,120,110,255" spritecolor="110,120,110" addedrepairspeedmultiplier="0.25" useinhealthinterface="True">
-      <PreferredContainer spawnprobability="0" />
-      <PreferredContainer spawnprobability="0" />
-      <PreferredContainer spawnprobability="0" />
-      <PreferredContainer spawnprobability="0" />
-      <Price baseprice="+150" sold="false" />
+      <PreferredContainer secondary="respawncontainer" spawnprobability="0" notcampaign="true"/>
+      <PreferredContainer primary="reactorcab,engcab" spawnprobability="0"/>
+      <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab"  spawnprobability="0"/>
+      <PreferredContainer primary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" spawnprobability="0"/>
+      <PreferredContainer primary="wreckreactorcab,abandonedreactorcab" spawnprobability="0" />
+      <PreferredContainer secondary="outpostcrewcabinet" spawnprobability="0" />
+      <PreferredContainer secondary="outposttrashcan" spawnprobability="0" />
+      <Price baseprice="200" sold="false" />
       <Deconstruct>
         <Item identifier="iron" />
-        <Item identifier="depletedfuel" />
         <Item identifier="depletedfuel" />
       </Deconstruct>
       <Fabricate requiresrecipe="true">
         <RequiredItem identifier="screwdriver" />
-        <RequiredItem identifier="depletedfuel" />
-        <RequiredItem identifier="depletedfuel" />
+        <RequiredItem identifier="depletedfuel" amount="2" />
       </Fabricate>
       <SuitableTreatment identifier="ntc_loosescrews" suitability="50"/>
       <MeleeWeapon reload="*1.3">
@@ -277,18 +252,21 @@
   </Override>
   <Override>
     <Item name="" identifier="screwdriverdementonite" descriptionidentifier="dementonitetool" variantof="screwdriver" inventoryiconcolor="136,142,166,255" spritecolor="136,142,166" addedrepairspeedmultiplier="0.4" useinhealthinterface="True">
-      <PreferredContainer spawnprobability="0" />
-      <PreferredContainer spawnprobability="0" />
-      <PreferredContainer spawnprobability="0" />
-      <PreferredContainer spawnprobability="0" />
-      <Price baseprice="+200" sold="false" />
+      <PreferredContainer secondary="respawncontainer" spawnprobability="0" notcampaign="true"/>
+      <PreferredContainer primary="reactorcab,engcab" spawnprobability="0"/>
+      <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab"  spawnprobability="0"/>
+      <PreferredContainer primary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" spawnprobability="0"/>
+      <PreferredContainer primary="wreckreactorcab,abandonedreactorcab" spawnprobability="0" />
+      <PreferredContainer secondary="outpostcrewcabinet" spawnprobability="0" />
+      <PreferredContainer secondary="outposttrashcan" spawnprobability="0" />
+      <Price baseprice="450" sold="false" />
       <Deconstruct>
         <Item identifier="iron" />
         <Item identifier="dementonite" />
       </Deconstruct>
       <Fabricate requiresrecipe="true">
         <RequiredItem identifier="screwdriver" />
-        <RequiredItem identifier="dementonite" />
+        <RequiredItem identifier="dementonite" amount="2" />
       </Fabricate>
       <SuitableTreatment identifier="ntc_loosescrews" suitability="50"/>
       <MeleeWeapon reload="*0.7">
@@ -315,8 +293,8 @@
         <Price storeidentifier="merchantmine" />
         <Price storeidentifier="merchantengineering" multiplier="0.9" />
       </Price>
-      <PreferredContainer secondary="wreckreactorcab,abandonedreactorcab" minamount="0" maxamount="1" spawnprobability="0.06" />
-      <PreferredContainer primary="reactorcab,storagecab" />
+      <PreferredContainer primary="engcab"/>
+      <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
       <Deconstruct time="5">
         <Item identifier="plastic" />
         <Item identifier="copper" />
@@ -324,7 +302,8 @@
       <Fabricate suitablefabricators="fabricator" requiredtime="5">
         <RequiredSkill identifier="electrical" level="15" />
         <RequiredItem identifier="plastic" />
-        <RequiredItem identifier="copper" />
+        <RequiredItem identifier="copper" amount="2" />
+        <RequiredItem identifier="tin" />
       </Fabricate>
       <SuitableTreatment identifier="ntc_damagedelectronics" suitability="50"/>
       <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="512,64,64,64" origin="0.5,0.5" />
@@ -336,12 +315,14 @@
   <!-- welding tool -->
   <Override>
     <Item name="" identifier="weldingtool" category="Equipment" Tags="smallitem,weldingequipment,tool" cargocontaineridentifier="metalcrate" description="" Scale="0.5" impactsoundtag="impact_metal_light" useinhealthinterface="True">
-      <PreferredContainer primary="engcab" minamount="2" maxamount="4" spawnprobability="1"/>
-      <PreferredContainer primary="supplycab" minamount="1" maxamount="1" spawnprobability="0.125"/>
-      <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" minamount="0" maxamount="1" spawnprobability="0.2"/>
-      <PreferredContainer primary="outpostcrewcabinet" minamount="0" maxamount="1" spawnprobability="0.25"/>
-      <PreferredContainer secondary="locker"/>
-      <Price baseprice="75">
+      <PreferredContainer primary="engcab" amount="1" spawnprobability="1" notcampaign="true"/>
+      <PreferredContainer secondary="supplycab" amount="1" spawnprobability="0.2" notcampaign="true"/>
+      <PreferredContainer primary="outpostsupplycab" amount="1" spawnprobability="0.5"/>
+      <PreferredContainer primary="outpostcrewcabinet" amount="1" spawnprobability="0.1"/>
+      <PreferredContainer primary="wrecksupplycab,beaconsupplycab" amount="1" spawnprobability="0.05"/>
+      <PreferredContainer primary="wreckstoragecab,abandonedstoragecab" amount="1" spawnprobability="0.05"/>
+      <PreferredContainer primary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.1"/>
+      <Price baseprice="150">
         <Price storeidentifier="merchantoutpost" minavailable="3" />
         <Price storeidentifier="merchantcity" minavailable="2" />
         <Price storeidentifier="merchantresearch" multiplier="1.25" minavailable="2" />
@@ -358,8 +339,8 @@
       </Deconstruct>
       <Fabricate suitablefabricators="fabricator" requiredtime="20">
         <RequiredSkill identifier="mechanical" level="30" />
-        <RequiredItem identifier="steel" />
-        <RequiredItem identifier="plastic" />
+        <RequiredItem identifier="steel" amount="2" />
+        <RequiredItem identifier="plastic" amount="2" />
       </Fabricate>
       <!-- physics body -->
       <Body width="150" height="60" density="40" />
@@ -436,10 +417,9 @@
   <!-- steel -->
   <Override>
     <Item name="" identifier="steel" category="Material" maxstacksize="8" Tags="smallitem,petfood3" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.4" impactsoundtag="impact_metal_light" useinhealthinterface="True">
-      <PreferredContainer primary="storagecab" minamount="1" maxamount="4" spawnprobability="1"/>
-      <PreferredContainer secondary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.06"/>
-      <PreferredContainer secondary="locker" />
-      <Price baseprice="20">
+      <PreferredContainer primary="storagecab"/>
+      <PreferredContainer secondary="wreckstorage,abandonedstoragecab" minamount="1" maxamount="2" spawnprobability="0.05"/>
+      <Price baseprice="28">
         <Price storeidentifier="merchantoutpost" multiplier="1.3" minavailable="7"/>
         <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="10" />
         <Price storeidentifier="merchantresearch" minavailable="6" />
@@ -448,8 +428,8 @@
       </Price>
       <Fabricate suitablefabricators="fabricator" requiredtime="5">
         <RequiredSkill identifier="mechanical" level="20" />
-        <RequiredItem identifier="carbon" />
-        <RequiredItem identifier="iron" />
+        <RequiredItem identifier="carbon"  />
+        <RequiredItem identifier="iron" amount="2" />
       </Fabricate>
       <Deconstruct time="5">
         <Item identifier="carbon" copycondition="true"/>
@@ -471,11 +451,12 @@
   <!-- crowbar -->
   <Override>
     <Item name="" identifier="crowbar" category="Equipment" Tags="smallitem,tool,simpletool,dooropeningtool,crowbaritem" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True" useinhealthinterface="True">
-      <PreferredContainer primary="engcab" minamount="0" maxamount="1" spawnprobability="1"/>
-      <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" minamount="0" maxamount="3" spawnprobability="0.25"/>
-      <PreferredContainer primary="outpostcrewcabinet" minamount="1" maxamount="2" spawnprobability="0.5"/>
-      <PreferredContainer secondary="locker"/>
-      <Price baseprice="10" minavailable="10">
+      <Preferredcontainer secondary="respawncontainer" amount="1" spawnprobability="1" notcampaign="true"/>
+      <PreferredContainer primary="engcab"/>
+      <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" amount="1" spawnprobability="0.1"/>
+      <PreferredContainer primary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.2"/>
+      <PreferredContainer secondary="outpostcrewcabinet" amount="1" spawnprobability="0.2"/>
+      <Price baseprice="20" minavailable="10">
         <Price storeidentifier="merchantoutpost" />
         <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="15" />
         <Price storeidentifier="merchantresearch" multiplier="1.25" />
@@ -487,7 +468,7 @@
       </Deconstruct>
       <Fabricate suitablefabricators="fabricator" requiredtime="20">
         <RequiredSkill identifier="mechanical" level="30" />
-        <RequiredItem identifier="iron" />
+        <RequiredItem identifier="iron" amount="2" />
       </Fabricate>
       <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="576,0,64,64" origin="0.5,0.5" />
       <Sprite texture="Content/Items/Tools/tools.png" sourcerect="227,225,130,30" depth="0.55" origin="0.5,0.5" />
