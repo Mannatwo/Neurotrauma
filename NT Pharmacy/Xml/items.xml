@@ -61,10 +61,8 @@
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="50">
         <RequiredSkill identifier="medical" level="50"/>
-        <RequiredItem identifier="fpgacircuit"/>
         <RequiredItem identifier="plastic"/>
         <RequiredItem identifier="steel"/>
-        <RequiredItem identifier="aluminium"/>
         <RequiredItem identifier="titaniumaluminiumalloy"/>
     </Fabricate>
 
@@ -165,7 +163,6 @@
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="20">
       <RequiredSkill identifier="electrical" level="50" />
-      <RequiredItem identifier="fpgacircuit" />
       <RequiredItem identifier="plastic" />
       <RequiredItem identifier="fulgurium" />
     </Fabricate>
@@ -198,7 +195,7 @@
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="20">
       <RequiredSkill identifier="mechanical" level="20" />
-      <Item identifier="steel" />
+      <Item identifier="steel" amount="2"/>
     </Fabricate>
     <Price baseprice="25" soldbydefault="false">
       <Price storeidentifier="merchantengineering" minavailable="4" sold="true"/>
@@ -225,7 +222,7 @@
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="20">
       <RequiredSkill identifier="mechanical" level="20" />
-      <Item identifier="steel" />
+      <Item identifier="steel" amount="2"/>
     </Fabricate>
     <Price baseprice="25" soldbydefault="false">
       <Price storeidentifier="merchantengineering" minavailable="4" sold="true"/>
@@ -252,7 +249,7 @@
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="20">
       <RequiredSkill identifier="mechanical" level="20" />
-      <Item identifier="steel" />
+      <Item identifier="steel" amount="2" />
     </Fabricate>
     <Price baseprice="25" soldbydefault="false">
       <Price storeidentifier="merchantengineering" minavailable="4" sold="true"/>
@@ -279,7 +276,7 @@
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="20">
       <RequiredSkill identifier="mechanical" level="20" />
-      <Item identifier="steel" />
+      <Item identifier="steel" amount="2" />
     </Fabricate>
     <Price baseprice="25" soldbydefault="false">
       <Price storeidentifier="merchantengineering" minavailable="4" sold="true"/>
@@ -306,7 +303,7 @@
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="20">
       <RequiredSkill identifier="mechanical" level="20" />
-      <Item identifier="steel" />
+      <Item identifier="steel" amount="2" />
     </Fabricate>
     <Price baseprice="25" soldbydefault="false">
       <Price storeidentifier="merchantengineering" minavailable="4" sold="true"/>
@@ -332,7 +329,7 @@
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="20">
       <RequiredSkill identifier="mechanical" level="20" />
-      <Item identifier="steel" />
+      <Item identifier="steel" amount="2" />
     </Fabricate>
     <Price baseprice="25" soldbydefault="false">
       <Price storeidentifier="merchantengineering" minavailable="4" sold="true"/>
@@ -350,7 +347,7 @@
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="20">
       <RequiredSkill identifier="mechanical" level="20" />
-      <Item identifier="steel" />
+      <Item identifier="steel" amount="2" />
     </Fabricate>
     <Price baseprice="25" soldbydefault="false">
       <Price storeidentifier="merchantengineering" minavailable="4" sold="true"/>
@@ -368,7 +365,7 @@
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="20">
       <RequiredSkill identifier="mechanical" level="20" />
-      <Item identifier="steel" />
+      <Item identifier="steel" amount="2" />
     </Fabricate>
     <Price baseprice="25" soldbydefault="false">
       <Price storeidentifier="merchantengineering" minavailable="4" sold="true"/>
@@ -386,7 +383,7 @@
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="20">
       <RequiredSkill identifier="mechanical" level="20" />
-      <Item identifier="steel" />
+      <Item identifier="steel" amount="2" />
     </Fabricate>
     <Price baseprice="25" soldbydefault="false">
       <Price storeidentifier="merchantengineering" minavailable="4" sold="true"/>
@@ -404,7 +401,7 @@
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="20">
       <RequiredSkill identifier="mechanical" level="20" />
-      <Item identifier="steel" />
+      <Item identifier="steel" amount="2" />
     </Fabricate>
     <Price baseprice="25" soldbydefault="false">
       <Price storeidentifier="merchantengineering" minavailable="4" sold="true"/>
@@ -422,7 +419,7 @@
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="20">
       <RequiredSkill identifier="mechanical" level="20" />
-      <Item identifier="steel" />
+      <Item identifier="steel" amount="2" />
     </Fabricate>
     <Price baseprice="25" soldbydefault="false">
       <Price storeidentifier="merchantengineering" minavailable="4" sold="true"/>
@@ -434,22 +431,5 @@
       <Containable items="smallitem,mediumitem" excludeditems="toolbox,cargoscooter" />
     </ItemContainer>
   </Item>
-
-  <!-- /// sound FX items (this is unelegant, pls fix, lua man!) /// -->
-<!--
-  <Item name="." identifier="ntsfx_selfscan" category="hidden" description=".">
-    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
-    <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
-    <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
-      <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
-        <Sound file="Mods/Neurotrauma/Sound/selfscan.ogg" range="200" volume="0.5" />
-      </StatusEffect>
-      <StatusEffect type="always" target="This" disabledeltatime="true" delay="1" stackable="false">
-        <Remove/>
-      </StatusEffect>
-    </ItemComponent>
-  </Item> -->
-
-  <!-- /// override section begins /// -->
 
 </Items>

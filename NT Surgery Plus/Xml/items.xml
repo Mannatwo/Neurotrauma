@@ -43,8 +43,6 @@
     <Deconstruct time="20">
         <Item identifier="mannitol" copycondition="true" mincondition="0.1"/>
         <Item identifier="adrenaline" copycondition="true" mincondition="0.1"/>
-        <Item identifier="liquidoxygenite" copycondition="true" mincondition="0.1"/>
-        <Item identifier="stabilozine" copycondition="true" mincondition="0.1"/>
     </Deconstruct>
     <SuitableTreatment identifier="cerebralhypoxia" suitability="30"/>
     <InventoryIcon texture="%ModDir:Neurotrauma%/Images/InventoryItemIconAtlas.png" sourcerect="128,128,64,64"
@@ -131,10 +129,8 @@
         <RequiredItem identifier="stabilozine"/>
     </Fabricate>
     <Deconstruct time="20">
-        <Item identifier="mannitol" copycondition="true" mincondition="0.1"/>
         <Item identifier="fpgacircuit" copycondition="true" mincondition="0.1"/>
         <Item identifier="aluminium" copycondition="true" mincondition="0.1"/>
-        <Item identifier="stabilozine" copycondition="true" mincondition="0.1"/>
     </Deconstruct>
     
     <Throwable characterusable="true" slots="Any,RightHand,LeftHand"
@@ -155,9 +151,7 @@
         <RequiredSkill identifier="medical" level="5"/>
         <RequiredItem identifier="plastic"/>
       </Fabricate>
-      <Deconstruct time="5">
-        <Item identifier="plastic" mincondition="0.1" outcondition="0.5"/>
-      </Deconstruct>
+      <Deconstruct time="5"/>
     <InventoryIcon texture="%ModDir%/Images/MainAtlas.png" sourcerect="256,128,64,128" origin="0.5,0.5"/>
     <Sprite texture="%ModDir%/Images/MainAtlas.png" sourcerect="256,128,64,128" depth="0.6" origin="0.5,0.5"/>
     <Body width="35" height="70" density="5"/>
@@ -181,9 +175,7 @@
         <RequiredSkill identifier="medical" level="5"/>
         <RequiredItem identifier="plastic"/>
       </Fabricate>
-      <Deconstruct time="5">
-        <Item identifier="plastic" mincondition="0.1" outcondition="0.5"/>
-      </Deconstruct>
+      <Deconstruct time="5"/>
     <InventoryIcon texture="%ModDir%/Images/MainAtlas.png" sourcerect="320,128,64,128" origin="0.5,0.5"/>
     <Sprite texture="%ModDir%/Images/MainAtlas.png" sourcerect="320,128,64,128" depth="0.6" origin="0.5,0.5"/>
     <Body width="35" height="70" density="5"/>
@@ -239,7 +231,6 @@
     </Fabricate>
     <Deconstruct time="20">
       <Item identifier="plastic" />
-      <Item identifier="rubber" />
     </Deconstruct>
     <PreferredContainer primary="medcab" minamount="0" maxamount="1" spawnprobability="0.5" />
     <PreferredContainer primary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="1" spawnprobability="0.15" />
@@ -285,7 +276,6 @@
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="20">
       <RequiredSkill identifier="medical" level="20" />
       <RequiredItem identifier="plastic" />
-      <RequiredItem identifier="organicfiber" />
     </Fabricate>
     <InventoryIcon texture="%ModDir%/Images/MainAtlas.png" sourcerect="0,128,64,64" origin="0.5,0.5" />
     <Sprite name="Surgical Mask" texture="%ModDir%/Images/MainAtlas.png" depth="0.55" sourcerect="0,134,64,44" origin="0.5,0.5" />
@@ -307,7 +297,6 @@
     <Fabricate suitablefabricators="fabricator" requiredtime="30" requiresrecipe="true">
       <Item identifier="silicon" />
       <Item identifier="steel" />
-      <Item identifier="mannitol" />
     </Fabricate>
     <Price baseprice="200" soldbydefault="false" >
     </Price>
@@ -334,7 +323,6 @@
     </Fabricate>
     <Deconstruct time="10">
         <Item identifier="plastic"/>
-        <Item identifier="fpgacircuit"/>
         <Item identifier="fpgacircuit"/>
     </Deconstruct>
     <Price baseprice="400" soldbydefault="false">
