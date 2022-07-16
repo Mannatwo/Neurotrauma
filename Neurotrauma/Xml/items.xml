@@ -4291,6 +4291,45 @@
         </StatusEffect>
       </Wearable>
     </Item>
+
+  <!-- Tonic liquid | change: vanilla heals 12 damage over 120 seconds for whatever reason. this one doesn't.-->
+    <Item name="" identifier="tonicliquid" category="Medical,Material" maxstacksize="8" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+      <Upgrade gameversion="0.10.0.0" scale="0.5" />
+      <PreferredContainer primary="medfabcab" secondary="medcontainer"/>
+      <PreferredContainer secondary="wreckmedcab,abandonedmedcab" minamount="1" maxamount="2" spawnprobability="0.1" />
+      <Price baseprice="75" minavailable="3">
+        <Price storeidentifier="merchantoutpost" />
+        <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="7" />
+        <Price storeidentifier="merchantresearch" multiplier="0.9" minavailable="10" />
+        <Price storeidentifier="merchantmilitary" multiplier="1.1" minavailable="8" />
+        <Price storeidentifier="merchantmine" multiplier="1.1" />
+      </Price>
+      <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="100" fabricationlimitmin="5" fabricationlimitmax="10"/>
+      <Fabricate suitablefabricators="medicalfabricator" requiredtime="20" amount="2">
+        <RequiredSkill identifier="medical" level="5" />
+        <RequiredItem identifier="calcium" amount="3" />
+        <RequiredItem identifier="zinc" amount="3" />
+        <RequiredItem identifier="potassium" amount="3" />
+      </Fabricate>
+      <Deconstruct time="20">
+        <Item identifier="calcium" />
+        <Item identifier="potassium" />
+        <Item identifier="zinc" />
+      </Deconstruct>
+      <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="704,704,64,64" origin="0.5,0.5" />
+      <Sprite texture="Content/Items/Medical.png" sourcerect="383,5,33,87" depth="0.6" origin="0.5,0.5" />
+      <Body width="30" height="80" density="9" />
+      <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-5,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
+        <StatusEffect tags="medical" type="OnUse" target="Character" disabledeltatime="true">
+          <Affliction identifier="durationincrease" amount="300" />
+        </StatusEffect>
+        <!-- Remove the item when fully used -->
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+      </MeleeWeapon>
+    </Item>
   
   </Override>
 </Items>
