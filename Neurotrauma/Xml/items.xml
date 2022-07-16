@@ -3613,12 +3613,11 @@
       </Projectile>
     </Item>
   <!-- Flamer (burn, baby, burn!) -->
-    <Item name="" identifier="flamer" category="Equipment" Tags="smallitem,weapon,gun" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light">
+    <Item name="" identifier="flamer" category="Equipment" Tags="smallitem,weapon,gun,mountableweapon" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
-      <PreferredContainer primary="weaponholder" spawnprobability="0.1"/>
-      <PreferredContainer primary="secarmcab" minamount="0" maxamount="2" spawnprobability="0.25"/>
-      <PreferredContainer primary="wrecksecarmcab" minamount="0" maxamount="1" spawnprobability="0.25"/>
-      <PreferredContainer secondary="locker"/>
+      <PreferredContainer primary="secarmcab" amount="1" spawnprobability="0.2" notcampaign="true"/>
+      <PreferredContainer secondary="wrecksecarmcab,abandonedsecarmcab" amount="1" spawnprobability="0.1"/>
+      <PreferredContainer secondary="armcab,weaponholder"/>
       <Price baseprice="75" sold="false">
         <Price storeidentifier="merchantoutpost" />
         <Price storeidentifier="merchantcity" multiplier="0.9" />
@@ -3664,7 +3663,7 @@
         <StatusEffect type="OnUse" targettype="Contained" targets="incendiumfueltank" Condition="-2.5" />
         <!-- do burn damage to characters -->
         <StatusEffect type="OnUse" target="UseTarget">
-          <Affliction identifier="burn" amount="2" />
+          <Affliction identifier="burn" amount="2.3" />
           <Affliction identifier="onfire" amount="0.35" />
         </StatusEffect>
         <!-- do minor burn damage to the user -->
