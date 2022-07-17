@@ -6,6 +6,7 @@
   <None file="%ModDir%/Images/Lights/scanner_Light.png" />
   <None file="%ModDir%/Sound/Pageturn.ogg" />
   <Afflictions file="%ModDir%/Xml/Afflictions.xml" />
+  <Talents file="%ModDir%/Xml/Talents.xml" />
   <Item file="%ModDir%/Xml/items.xml" />
   <Sounds file="%ModDir%/Xml/sounds.xml" />
   <Text file="%ModDir%/Localization/English/English.xml" />
