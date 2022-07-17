@@ -10,7 +10,7 @@ Hook.Add("human.CPRFailed", "NT.CPRFailed", function(animcontroller)
     local character = animcontroller.Character.SelectedCharacter
 
     HF.AddAfflictionLimb(character,"blunttrauma",LimbType.Torso,0.3)
-    if(HF.Chance(0.01)) then
+    if(HF.Chance(NT.Config.fractureChance * NT.Config.CPRFractureChance * 0.2 / HF.GetSkillLevel(animcontroller.Character,"medical"))) then
         HF.AddAffliction(character,"t_fracture",1)
     end
 end)

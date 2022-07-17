@@ -162,7 +162,7 @@ NT.Afflictions = {
 
         -- triggers
         if( not NTC.GetSymptomFalse(c.character,"triggersym_heartattack") and not c.stats.stasis and c.afflictions.afstreptokinase.strength <= 0 and c.afflictions.heartremoved.strength <= 0 and (NTC.GetSymptom(c.character,"triggersym_heartattack")
-        or (c.afflictions.bloodpressure.strength > 150 and HF.Chance((c.afflictions.bloodpressure.strength-150)/50*0.02)))
+        or (c.afflictions.bloodpressure.strength > 150 and HF.Chance(NT.Config.heartattackChance*((c.afflictions.bloodpressure.strength-150)/50*0.02))))
         ) then
             c.afflictions[i].strength = c.afflictions[i].strength+50
         end
@@ -193,16 +193,25 @@ NT.Afflictions = {
     cerebralhypoxia={max=200,update=function(c,i)
         if c.stats.stasis then return end
         -- calculate new neurotrauma
-        c.afflictions[i].strength = c.afflictions[i].strength + 
+        local gain =  
             ( -0.1*c.stats.healingrate +                        -- passive regen
             c.afflictions.hypoxemia.strength/100 +              -- from hypoxemia
             HF.Clamp(c.afflictions.stroke.strength,0,20)*0.1 +  -- from stroke
             c.afflictions.sepsis.strength/100*0.4 +             -- from sepsis
             c.afflictions.liverdamage.strength/800 +            -- from liverdamage
             c.afflictions.kidneydamage.strength/1000            -- from kidneydamage
-        )*NTC.GetMultiplier(c.character,"neurotraumagain")      -- NTC multiplier
-        * (1-HF.Clamp(c.afflictions.afmannitol.strength,0,0.5)) -- half if mannitol
+        )
         * NT.Deltatime
+
+        if gain > 0 then
+            gain = gain
+            * NTC.GetMultiplier(c.character,"neurotraumagain")      -- NTC multiplier
+            * NT.Config.neurotraumaGain                             -- Config multiplier
+            * (1-HF.Clamp(c.afflictions.afmannitol.strength,0,0.5)) -- half if mannitol
+        end
+
+        c.afflictions[i].strength = c.afflictions[i].strength + gain
+
         c.afflictions[i].strength = HF.Clamp(c.afflictions[i].strength,0,200)
 
         -- not in effect yet because lua doesnt like tuples which means i cant provide an accurate cause of death
@@ -210,7 +219,7 @@ NT.Afflictions = {
         -- make ABSOLUTELY SURE that characters that should be dead ARE dead
         -- for some asinine reason all of the NPCs at stations for which you can't open the health interface are immortal
         -- and will just continue to bleed out and stay at 200% neurotrauma without giving a singular fuck
-        -- potentially fixed by making neurotrauma vitality loss scale with 
+        -- potentially fixed by making neurotrauma vitality loss scale with max vitality
         -- if c.afflictions[i].strength >= 199 and not c.character.IsDead then
         --     c.character.Kill(0,nil,true)
         -- end
@@ -391,7 +400,7 @@ NT.Afflictions = {
 
         -- triggers
         if( not NTC.GetSymptomFalse(c.character,"triggersym_stroke") and not c.stats.stasis and (NTC.GetSymptom(c.character,"triggersym_stroke")
-        or (c.afflictions.bloodpressure.strength > 150 and HF.Chance((c.afflictions.bloodpressure.strength-150)/50*0.02+HF.Clamp(c.afflictions.afstreptokinase.strength,0,1)*0.05)))
+        or (c.afflictions.bloodpressure.strength > 150 and HF.Chance(NT.Config.strokeChance*((c.afflictions.bloodpressure.strength-150)/50*0.02+HF.Clamp(c.afflictions.afstreptokinase.strength,0,1)*0.05))))
         ) then
             c.afflictions[i].strength = c.afflictions[i].strength+5
         end
@@ -510,7 +519,10 @@ NT.Afflictions = {
             end
             
             -- fibrillation multiplier
-            if fibrillationSpeed > 0 then fibrillationSpeed = fibrillationSpeed * NTC.GetMultiplier(c.character,"fibrillation") end
+            if fibrillationSpeed > 0 then fibrillationSpeed = fibrillationSpeed
+                * NTC.GetMultiplier(c.character,"fibrillation")
+                * NT.Config.fibrillationSpeed
+            end
 
             if c.afflictions.fibrillation.strength <= 0 then -- havent reached fibrillation yet
                 c.afflictions[i].strength = c.afflictions[i].strength + fibrillationSpeed*5*NT.Deltatime
@@ -765,6 +777,11 @@ NT.LimbAfflictions = {
         if(limbaff.dirtybandage.strength > 10 and wounddamage > 5) then
             infectindex = infectindex+(wounddamage/40+limbaff.dirtybandage.strength/20)*NT.Deltatime
         end
+
+        if infectindex > 0 then
+            infectindex = infectindex * NT.Config.infectionRate
+        end
+
         limbaff[i].strength = limbaff[i].strength + infectindex/5
         c.afflictions.immunity.strength = c.afflictions.immunity.strength - HF.Clamp(infectindex/3,0,10)
     end
@@ -840,12 +857,20 @@ NT.LimbAfflictions = {
 NT.CharStats = {
     healingrate={getter=function(c) return NTC.GetMultiplier(c.character,"healingrate") end},
     specificOrganDamageHealMultiplier={getter=function(c) return NTC.GetMultiplier(c.character,"anyspecificorgandamage") + HF.Clamp(c.afflictions.afthiamine.strength,0,1)*4 end},
-    neworgandamage={getter=function(c) return (c.afflictions.sepsis.strength/300 + c.afflictions.hypoxemia.strength/400 + math.max(c.afflictions.radiationsickness.strength-25,0)/400)*NTC.GetMultiplier(c.character,"anyorgandamage")*NT.Deltatime end},
+    neworgandamage={getter=function(c)
+        return
+        (c.afflictions.sepsis.strength/300
+        + c.afflictions.hypoxemia.strength/400
+        + math.max(c.afflictions.radiationsickness.strength-25,0)/400)
+        * NTC.GetMultiplier(c.character,"anyorgandamage")
+        * NT.Config.organDamageGain*NT.Deltatime
+    end},
     clottingrate={getter=function(c) return
         HF.Clamp(1-c.afflictions.liverdamage.strength/100,0,1)
         *c.stats.healingrate
         *HF.Clamp(1-c.afflictions.afstreptokinase.strength,0,1)
-        *NTC.GetMultiplier(c.character,"clottingrate") end
+        *NTC.GetMultiplier(c.character,"clottingrate")
+    end
     },
 
     bloodamount={getter=function(c) return HF.Clamp(100-c.afflictions.bloodloss.strength,0,100) end},

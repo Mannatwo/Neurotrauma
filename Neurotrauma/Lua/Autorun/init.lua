@@ -2,9 +2,19 @@
 
 NT = {} -- Neurotrauma
 NT.Name="Neurotrauma"
-NT.Version = "A1.7.10"
-NT.VersionNum = 01071000
+NT.Version = "A1.7.11"
+NT.VersionNum = 01071100
 NT.Path = table.pack(...)[1]
+
+-- config loading
+
+-- create default config if there is no config file
+if not File.Exists(NT.Path .. "/config.json") then
+    NT.Config = dofile(NT.Path .. "/Lua/defaultconfig.lua")
+    File.Write(NT.Path .. "/config.json", json.serialize(NT.Config))
+else
+    NT.Config = json.parse(File.Read(NT.Path .. "/config.json"))
+end
 
 dofile(NT.Path.."/Lua/Scripts/helperfunctions.lua")
 
@@ -54,4 +64,5 @@ end
 -- client-side code
 if CLIENT then
     dofile(NT.Path.."/Lua/Scripts/clientonly.lua")
+    dofile(NT.Path.."/Lua/Scripts/configgui.lua")
 end
