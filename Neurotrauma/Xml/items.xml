@@ -1410,12 +1410,17 @@
   <!-- /// Blood stuff /// -->
   
   <Override>
-    <Item name="" identifier="antibloodloss2" category="Material" maxstacksize="8"
+    <Item name="" identifier="antibloodloss2" nameidentifier="bloodpackominus" category="Material" maxstacksize="8"
           cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,petfood1" useinhealthinterface="true"
           description="" scale="0.5" impactsoundtag="impact_soft">
-      <PreferredContainer primary="medcab" minamount="2" maxamount="3" spawnprobability="0.5"/>
-      <PreferredContainer primary="outpostmedcompartment" minamount="0" maxamount="1" spawnprobability="0.15"/>
-      <Price baseprice="300" />
+      <Upgrade gameversion="0.10.0.0" scale="0.5" />
+      <PreferredContainer primary="medcab" minamount="2" maxamount="3" notcampaign="true"/>
+      <PreferredContainer secondary="outpostmedcompartment,outpostmedcab" minamount="1" maxamount="2" spawnprobability="0.2"/>
+      <PreferredContainer secondary="wreckmedcab,abandonedmedcab" minamount="1" maxamount="2" spawnprobability="0.2" />
+      <PreferredContainer secondary="medcontainer"/>
+      <Price baseprice="240">
+        <Price storeidentifier="merchantmedical" multiplier="0.9"/>
+      </Price>
       <Deconstruct time="20">
         <Item identifier="antibloodloss1" copycondition="true" mincondition="0.1"/>
         <Item identifier="stabilozine" copycondition="true" mincondition="0.1"/>
@@ -1426,19 +1431,6 @@
       <Body width="80" height="42" density="11"/>
       <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0"
 					  msg="ItemMsgPickUpSelect">
-        <RequiredSkill identifier="medical" level="30"/>
-        <StatusEffect type="OnFailure" target="This" Condition="-100.0" disabledeltatime="true"/>
-        <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true"/>
-        <StatusEffect tags="medical" type="OnUse" target="Character, This" duration="10">
-          <Sound file="Content/Items/Medical/Syringe.ogg" range="500"/>
-          <ReduceAffliction identifier="bloodloss" amount="3"/>
-          <Affliction identifier="bloodpressure" amount="3"/>
-        </StatusEffect>
-        <StatusEffect tags="medical" type="OnFailure" target="Character, This" duration="10">
-          <Sound file="Content/Items/Medical/Syringe.ogg" range="500"/>
-          <ReduceAffliction identifier="bloodloss" amount="2"/>
-          <Affliction identifier="bloodpressure" amount="2"/>
-        </StatusEffect>
         <!-- Remove the item when fully used -->
         <StatusEffect type="OnBroken" target="This">
           <Remove/>
@@ -1448,157 +1440,83 @@
     </Item>
   </Override>
 
-  <Item name="" identifier="bloodpackominus" variantof="antibloodloss2">
-        <PreferredContainer/>
-        <PreferredContainer/>
-		<PreferredContainer primary="medcab" />
-		<PreferredContainer primary="outpostmedcompartment" />
+  <Item name="" identifier="bloodpackominus" nameidentifier="bloodpackominus" variantof="antibloodloss2">
+    <PreferredContainer primary="medcab" minamount="0" maxamount="0" notcampaign="true"/>
+    <PreferredContainer secondary="outpostmedcompartment,outpostmedcab" minamount="0" maxamount="0" spawnprobability="0"/>
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="0" spawnprobability="0" />
+    <PreferredContainer secondary="medcontainer"/>
     <Price baseprice="300">
-      <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="5"/>
+      <Price storeidentifier="merchantmedical" sold="false" multiplier="0.9" minavailable="5"/>
     </Price>
-    <Fabricate suitablefabricators="medicalfabricator" requiredtime="25">
+    <!--<Fabricate suitablefabricators="medicalfabricator" requiredtime="25">
       <RequiredSkill identifier="medical" level="30"/>
       <RequiredItem identifier="alienblood"/>
       <RequiredItem identifier="antibloodloss1"/>
       <RequiredItem identifier="stabilozine"/>
-    </Fabricate>
-		<!-- The texture path isn't required in `variantof` but it's better to play it safe than risk making a variant of the unmodified vanilla parent, once the game loads this mod before vanilla files due to an error -->
-		<Sprite texture="%ModDir%/Images/BloodPacksAtlas.png" sourcerect="128,85,64,85" />
-		<Holdable>
-			<StatusEffect tags="medical" type="OnUse" target="Character, This">
-				<Sound file="Content/Items/Medical/Syringe.ogg" range="500"/>
-			</StatusEffect>
-			<!-- Remove the item when fully used -->
-			<StatusEffect type="OnBroken" target="This">
-				<Remove/>
-			</StatusEffect>
-		</Holdable>
+    </Fabricate>-->
   </Item>
-  <Item name="" identifier="bloodpackoplus" variantof="antibloodloss2">
-        <PreferredContainer/>
-        <PreferredContainer/>
-		<PreferredContainer primary="medcab" />
-		<PreferredContainer primary="outpostmedcompartment" />
+  <Item name="" identifier="bloodpackoplus" nameidentifier="bloodpackoplus" variantof="antibloodloss2">
+    <PreferredContainer primary="medcab" minamount="0" maxamount="0" notcampaign="true"/>
+    <PreferredContainer secondary="outpostmedcompartment,outpostmedcab" minamount="0" maxamount="0" spawnprobability="0"/>
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="0" spawnprobability="0" />
+    <PreferredContainer secondary="medcontainer"/>
     <Price baseprice="200">
       <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="5"/>
     </Price>
-		<Sprite texture="%ModDir%/Images/BloodPacksAtlas.png" sourcerect="128,85,64,85" />
-		<Holdable>
-			<StatusEffect tags="medical" type="OnUse" target="Character, This">
-				<Sound file="Content/Items/Medical/Syringe.ogg" range="500"/>
-			</StatusEffect>
-			<StatusEffect type="OnBroken" target="This">
-				<Remove/>
-			</StatusEffect>
-		</Holdable>
   </Item>
-  <Item name="" identifier="bloodpackaminus" variantof="antibloodloss2">
-        <PreferredContainer/>
-        <PreferredContainer/>
-		<PreferredContainer primary="medcab" />
-		<PreferredContainer primary="outpostmedcompartment" />
+  <Item name="" identifier="bloodpackaminus" nameidentifier="bloodpackaminus" variantof="antibloodloss2">
+    <PreferredContainer primary="medcab" minamount="0" maxamount="0" notcampaign="true"/>
+    <PreferredContainer secondary="outpostmedcompartment,outpostmedcab" minamount="0" maxamount="0" spawnprobability="0"/>
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="0" spawnprobability="0" />
+    <PreferredContainer secondary="medcontainer"/>
     <Price baseprice="200">
       <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="5"/>
     </Price>
-		<Sprite texture="%ModDir%/Images/BloodPacksAtlas.png" sourcerect="128,85,64,85" />
-		<Holdable>
-			<StatusEffect tags="medical" type="OnUse" target="Character, This">
-				<Sound file="Content/Items/Medical/Syringe.ogg" range="500"/>
-			</StatusEffect>
-			<StatusEffect type="OnBroken" target="This">
-				<Remove/>
-			</StatusEffect>
-		</Holdable>
   </Item>
-  <Item name="" identifier="bloodpackaplus" variantof="antibloodloss2">
-        <PreferredContainer/>
-        <PreferredContainer/>
-		<PreferredContainer primary="medcab" />
-		<PreferredContainer primary="outpostmedcompartment" />
+  <Item name="" identifier="bloodpackaplus" nameidentifier="bloodpackaplus" variantof="antibloodloss2">
+    <PreferredContainer primary="medcab" minamount="0" maxamount="0" notcampaign="true"/>
+    <PreferredContainer secondary="outpostmedcompartment,outpostmedcab" minamount="0" maxamount="0" spawnprobability="0"/>
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="0" spawnprobability="0" />
+    <PreferredContainer secondary="medcontainer"/>
     <Price baseprice="150">
       <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="5"/>
     </Price>
-		<Sprite texture="%ModDir%/Images/BloodPacksAtlas.png" sourcerect="128,85,64,85" />
-		<Holdable>
-			<StatusEffect tags="medical" type="OnUse" target="Character, This">
-				<Sound file="Content/Items/Medical/Syringe.ogg" range="500"/>
-			</StatusEffect>
-			<StatusEffect type="OnBroken" target="This">
-				<Remove/>
-			</StatusEffect>
-		</Holdable>
   </Item>
-  <Item name="" identifier="bloodpackbminus" variantof="antibloodloss2">
-        <PreferredContainer/>
-        <PreferredContainer/>
-		<PreferredContainer primary="medcab" />
-		<PreferredContainer primary="outpostmedcompartment" />
+  <Item name="" identifier="bloodpackbminus" nameidentifier="bloodpackbminus" variantof="antibloodloss2">
+    <PreferredContainer primary="medcab" minamount="0" maxamount="0" notcampaign="true"/>
+    <PreferredContainer secondary="outpostmedcompartment,outpostmedcab" minamount="0" maxamount="0" spawnprobability="0"/>
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="0" spawnprobability="0" />
+    <PreferredContainer secondary="medcontainer"/>
     <Price baseprice="200">
       <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="5"/>
     </Price>
-		<Sprite texture="%ModDir%/Images/BloodPacksAtlas.png" sourcerect="128,85,64,85" />
-		<Holdable>
-			<StatusEffect tags="medical" type="OnUse" target="Character, This">
-				<Sound file="Content/Items/Medical/Syringe.ogg" range="500"/>
-			</StatusEffect>
-			<StatusEffect type="OnBroken" target="This">
-				<Remove/>
-			</StatusEffect>
-		</Holdable>
   </Item>
-  <Item name="" identifier="bloodpackbplus" variantof="antibloodloss2">
-        <PreferredContainer/>
-        <PreferredContainer/>
-		<PreferredContainer primary="medcab" />
-		<PreferredContainer primary="outpostmedcompartment" />
+  <Item name="" identifier="bloodpackbplus" nameidentifier="bloodpackbplus" variantof="antibloodloss2">
+    <PreferredContainer primary="medcab" minamount="0" maxamount="0" notcampaign="true"/>
+    <PreferredContainer secondary="outpostmedcompartment,outpostmedcab" minamount="0" maxamount="0" spawnprobability="0"/>
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="0" spawnprobability="0" />
+    <PreferredContainer secondary="medcontainer"/>
     <Price baseprice="150">
       <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="5"/>
     </Price>
-		<Sprite texture="%ModDir%/Images/BloodPacksAtlas.png" sourcerect="128,85,64,85" />
-		<Holdable>
-			<StatusEffect tags="medical" type="OnUse" target="Character, This">
-				<Sound file="Content/Items/Medical/Syringe.ogg" range="500"/>
-			</StatusEffect>
-			<StatusEffect type="OnBroken" target="This">
-				<Remove/>
-			</StatusEffect>
-		</Holdable>
   </Item>
-  <Item name="" identifier="bloodpackabminus" variantof="antibloodloss2">
-        <PreferredContainer/>
-        <PreferredContainer/>
-		<PreferredContainer primary="medcab" />
-		<PreferredContainer primary="outpostmedcompartment" />
+  <Item name="" identifier="bloodpackabminus" nameidentifier="bloodpackabminus" variantof="antibloodloss2">
+    <PreferredContainer primary="medcab" minamount="0" maxamount="0" notcampaign="true"/>
+    <PreferredContainer secondary="outpostmedcompartment,outpostmedcab" minamount="0" maxamount="0" spawnprobability="0"/>
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="0" spawnprobability="0" />
+    <PreferredContainer secondary="medcontainer"/>
     <Price baseprice="150">
       <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="5"/>
     </Price>
-		<Sprite texture="%ModDir%/Images/BloodPacksAtlas.png" sourcerect="128,85,64,85" />
-		<Holdable>
-			<StatusEffect tags="medical" type="OnUse" target="Character, This">
-				<Sound file="Content/Items/Medical/Syringe.ogg" range="500"/>
-			</StatusEffect>
-			<StatusEffect type="OnBroken" target="This">
-				<Remove/>
-			</StatusEffect>
-		</Holdable>
   </Item>
-  <Item name="" identifier="bloodpackabplus" variantof="antibloodloss2">
-        <PreferredContainer/>
-        <PreferredContainer/>
-		<PreferredContainer primary="medcab" />
-		<PreferredContainer primary="outpostmedcompartment" />
+  <Item name="" identifier="bloodpackabplus" nameidentifier="bloodpackabplus" variantof="antibloodloss2">
+    <PreferredContainer primary="medcab" minamount="0" maxamount="0" notcampaign="true"/>
+    <PreferredContainer secondary="outpostmedcompartment,outpostmedcab" minamount="0" maxamount="0" spawnprobability="0"/>
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="0" spawnprobability="0" />
+    <PreferredContainer secondary="medcontainer"/>
     <Price baseprice="100">
       <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="5"/>
     </Price>
-		<Sprite texture="%ModDir%/Images/BloodPacksAtlas.png" sourcerect="128,85,64,85" />
-		<Holdable>
-			<StatusEffect tags="medical" type="OnUse" target="Character, This">
-				<Sound file="Content/Items/Medical/Syringe.ogg" range="500"/>
-			</StatusEffect>
-			<StatusEffect type="OnBroken" target="This">
-				<Remove/>
-			</StatusEffect>
-		</Holdable>
   </Item>
 
 	
@@ -1623,9 +1541,6 @@
         <Body width="80" height="42" density="11"/>
         <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0"
                   msg="ItemMsgPickUpSelect">
-            <StatusEffect tags="medical" type="OnUse" target="Character, This">
-                <Sound file="Content/Items/Medical/Syringe.ogg" range="500"/>
-            </StatusEffect>
             <StatusEffect type="OnBroken" target="This">
                 <Remove/>
             </StatusEffect>
@@ -3087,7 +3002,7 @@
       <Deconstruct time="2"/>
       <SuitableTreatment type="bleeding" suitability="30" />
       <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
-      <Sprite texture="Medicines.png" sourcerect="310,33,26,42" depth="0.6" origin="0.5,0.5" />
+      <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="310,33,26,42" depth="0.6" origin="0.5,0.5" />
       <Body width="25" height="40" density="20" />
       <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="5,0"
                    handle1="-5,0" holdangle="10" reload="1.0" msg="ItemMsgPickUpSelect">
@@ -3114,7 +3029,7 @@
       </Fabricate>
       <Deconstruct time="2"/>
       <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="959,771,63,59" origin="0.5,0.5" />
-      <Sprite texture="Medicines.png" sourcerect="340,33,26,42" depth="0.6" origin="0.5,0.5" />
+      <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="340,33,26,42" depth="0.6" origin="0.5,0.5" />
       <Body width="25" height="40" density="20" />
       <SuitableTreatment identifier="bleeding" suitability="32"/>
       <SuitableTreatment identifier="burn" suitability="35"/>

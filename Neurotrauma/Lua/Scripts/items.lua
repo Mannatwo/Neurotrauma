@@ -404,9 +404,14 @@ NT.ItemMethods.emptybloodpack = function(item, usingCharacter, targetCharacter, 
         }
 
         HF.AddAffliction(targetCharacter,"bloodloss",bloodlossinduced,usingCharacter)
-        HF.GiveItemPlusFunction("bloodpack" .. bloodtype,postSpawnFunc,params,usingCharacter)
+
+        local bloodpackIdentifier = "bloodpack" .. bloodtype
+        if bloodtype == "ominus" then bloodpackIdentifier = "antibloodloss2" end
+
+        HF.GiveItemPlusFunction(bloodpackIdentifier,postSpawnFunc,params,usingCharacter)
         item.Condition = 0
         --HF.RemoveItem(item)
+        HF.GiveItem(targetCharacter,"ntsfx_syringe")
     end
 end
 NT.ItemMethods.propofol = function(item, usingCharacter, targetCharacter, limb) 
@@ -1177,6 +1182,58 @@ NT.ItemMethods.lleg = function(item, usingCharacter, targetCharacter, limb)
     reattachLimb(item,usingCharacter,targetCharacter,limb,LimbType.LeftLeg)
 end
 
+local function InfuseBloodpack(item, packtype, usingCharacter, targetCharacter, limb)
+    -- determine compatibility
+    local packhasantibodyA = string.find(packtype, "a")
+    local packhasantibodyB = string.find(packtype, "b")
+    local packhasantibodyRh = string.find(packtype, "plus")
+
+    local targettype = NT.GetBloodtype(targetCharacter)
+
+    local targethasantibodyA = string.find(targettype, "a")
+    local targethasantibodyB = string.find(targettype, "b")
+    local targethasantibodyRh = string.find(targettype, "plus")
+
+    local compatible = 
+    (targethasantibodyRh or not packhasantibodyRh) and
+    (targethasantibodyA or not packhasantibodyA) and
+    (targethasantibodyB or not packhasantibodyB)
+
+    if compatible then 
+        HF.AddAffliction(targetCharacter,"bloodloss",-30,usingCharacter)
+        HF.AddAffliction(targetCharacter,"bloodpressure",30,usingCharacter)
+    else
+        HF.AddAffliction(targetCharacter,"bloodloss",-20,usingCharacter)
+        HF.AddAffliction(targetCharacter,"bloodpressure",30,usingCharacter)
+        local immunity = HF.GetAfflictionStrength(targetCharacter,"immunity",100)
+        HF.AddAffliction(targetCharacter,"hemotransfusionshock",math.max(immunity-6,0),usingCharacter)
+    end
+
+    -- check if acidosis, alkalosis or sepsis
+    local tags = HF.SplitString(item.Tags,",")
+    for tag in tags do
+        if tag == "sepsis" then HF.AddAffliction(targetCharacter,"sepsis",1,usingCharacter) end
+
+        if HF.StartsWith(tag,"acid") then
+            local split = HF.SplitString(tag,":")
+            if split[2] ~= nil then HF.AddAffliction(targetCharacter,"acidosis",tonumber(split[2])/5,usingCharacter) end
+        elseif HF.StartsWith(tag,"alkal") then
+            local split = HF.SplitString(tag,":")
+            if split[2] ~= nil then HF.AddAffliction(targetCharacter,"alkalosis",tonumber(split[2])/5,usingCharacter) end
+        end
+    end
+
+    item.Condition = 0
+    --HF.RemoveItem(item)
+    HF.GiveItem(usingCharacter,"emptybloodpack")
+    HF.GiveItem(targetCharacter,"ntsfx_syringe")
+end
+NT.ItemMethods.antibloodloss2 = function(item, usingCharacter, targetCharacter, limb) 
+    if item.Condition <= 0 then return end
+
+    InfuseBloodpack(item,"ominus", usingCharacter, targetCharacter, limb)
+end
+
 -- startswith region begins
 
 -- transplants
@@ -1280,50 +1337,6 @@ NT.ItemStartsWithMethods.bloodpack = function(item, usingCharacter, targetCharac
 
     local identifier = item.Prefab.Identifier.Value
     local packtype = string.sub(identifier, string.len("bloodpack")+1)
-    
-    -- determine compatibility
-    local packhasantibodyA = string.find(packtype, "a")
-    local packhasantibodyB = string.find(packtype, "b")
-    local packhasantibodyRh = string.find(packtype, "plus")
-
-    local targettype = NT.GetBloodtype(targetCharacter)
-
-    local targethasantibodyA = string.find(targettype, "a")
-    local targethasantibodyB = string.find(targettype, "b")
-    local targethasantibodyRh = string.find(targettype, "plus")
-
-    local compatible = 
-    (targethasantibodyRh or not packhasantibodyRh) and
-    (targethasantibodyA or not packhasantibodyA) and
-    (targethasantibodyB or not packhasantibodyB)
-
-    if compatible then 
-        HF.AddAffliction(targetCharacter,"bloodloss",-30,usingCharacter)
-        HF.AddAffliction(targetCharacter,"bloodpressure",30,usingCharacter)
-    else
-        HF.AddAffliction(targetCharacter,"bloodloss",-20,usingCharacter)
-        HF.AddAffliction(targetCharacter,"bloodpressure",30,usingCharacter)
-        local immunity = HF.GetAfflictionStrength(targetCharacter,"immunity",100)
-        HF.AddAffliction(targetCharacter,"hemotransfusionshock",math.max(immunity-6,0),usingCharacter)
-    end
-
-    -- check if acidosis, alkalosis or sepsis
-    local tags = HF.SplitString(item.Tags,",")
-    for tag in tags do
-        if tag == "sepsis" then HF.AddAffliction(targetCharacter,"sepsis",1,usingCharacter) end
-
-        if HF.StartsWith(tag,"acid") then
-            local split = HF.SplitString(tag,":")
-            if split[2] ~= nil then HF.AddAffliction(targetCharacter,"acidosis",tonumber(split[2])/5,usingCharacter) end
-        elseif HF.StartsWith(tag,"alkal") then
-            local split = HF.SplitString(tag,":")
-            if split[2] ~= nil then HF.AddAffliction(targetCharacter,"alkalosis",tonumber(split[2])/5,usingCharacter) end
-        end
-    end
-
-    item.Condition = 0
-    --HF.RemoveItem(item)
-    HF.GiveItem(usingCharacter,"emptybloodpack")
-    HF.GiveItem(targetCharacter,"ntsfx_syringe")
+    InfuseBloodpack(item,packtype,usingCharacter,targetCharacter,limb)
 end
 

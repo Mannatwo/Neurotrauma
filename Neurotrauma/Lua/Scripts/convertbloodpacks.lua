@@ -2,7 +2,7 @@ LuaUserData.RegisterTypeBarotrauma("PurchasedItem")
 LuaUserData.RegisterType("System.Xml.Linq.XElement")
 
 local VANILLA_PREFAB_ID = "antibloodloss2"
-local REPLACEMENT_PREFAB_ID = "bloodpackominus"
+local DEFUNCT_PREFAB_ID = "bloodpackominus"
 
 -- Removes vanilla bloodpacks from cached stores in case the user installed
 -- this mod mid-campaign.
@@ -16,8 +16,8 @@ Hook.HookMethod("Barotrauma.Location", "LoadStores", function(instance, ptable)
     for storeId, store in pairs(instance.Stores) do
         for _, purchasedItem in pairs(store.Stock) do
             local itemId = purchasedItem.ItemPrefabIdentifier
-            if itemId == VANILLA_PREFAB_ID then
-                -- print("Removing vanilla bloodpack (qty " .. purchasedItem.Quantity .. ") from " .. tostring(storeId))
+            if itemId == DEFUNCT_PREFAB_ID then
+                -- print("Removing defunct bloodpack (qty " .. purchasedItem.Quantity .. ") from " .. tostring(storeId))
                 store.RemoveStock({purchasedItem})
             end
         end
@@ -26,15 +26,16 @@ end, Hook.HookMethodType.After)
 
 -- Replaces all vanilla bloodpack items with O- blood
 local function replaceItems()
-    local ntBloodPrefab = ItemPrefab.Prefabs[REPLACEMENT_PREFAB_ID]
+    local ntBloodPrefab = ItemPrefab.Prefabs[DEFUNCT_PREFAB_ID]
+    local vanillaBloodPrefab = ItemPrefab.Prefabs[VANILLA_PREFAB_ID]
     if ntBloodPrefab == nil then
-        print("ERROR: couldn't find " .. REPLACEMENT_PREFAB_ID)
+        print("ERROR: couldn't find " .. DEFUNCT_PREFAB_ID)
         return
     end
 
     for _, item in pairs(Item.ItemList) do
         local id = tostring(item.Prefab.Identifier)
-        if id == VANILLA_PREFAB_ID then
+        if id == DEFUNCT_PREFAB_ID then
             -- Don't replace decorative blood packs
             if item.NonInteractable then
                 return
@@ -65,7 +66,7 @@ local function replaceItems()
             item.Drop()
             Entity.Spawner.AddEntityToRemoveQueue(item)
 
-            Entity.Spawner.AddItemToSpawnQueue(ntBloodPrefab, pos, condition, quality, function(newItem)
+            Entity.Spawner.AddItemToSpawnQueue(vanillaBloodPrefab, pos, condition, quality, function(newItem)
                 newItem.Rotation = item.Rotation
                 -- Stolen items stay stolen
                 newItem.AllowStealing = item.AllowStealing
@@ -74,7 +75,7 @@ local function replaceItems()
                 if inv ~= nil then
                     if not inv.TryPutItem(newItem, slotIdx, false, true, nil) then
                         print(
-                            "ERROR: failed to replace vanilla bloodpack (" .. tostring(item) ..
+                            "ERROR: failed to replace neurotrauma bloodpack (" .. tostring(item) ..
                             ", pos " .. tostring(pos) ..
                             ", slotIdx " .. tostring(slotIdx) ..
                             ", inv " .. tostring(inv) .. ") with new item: " .. tostring(newItem)
