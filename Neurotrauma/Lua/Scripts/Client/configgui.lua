@@ -1,6 +1,6 @@
 -- I'm sorry for the eyes of anyone looking at the GUI code.
 
-local MultiLineTextBox = dofile(NT.Path .. "/Lua/Scripts/MultiLineTextBox.lua")
+local MultiLineTextBox = dofile(NT.Path .. "/Lua/Scripts/Client/MultiLineTextBox.lua")
 
 Game.AddCommand("neuro", "opens neurotrauma config", function ()
     NT.ToggleGUI()

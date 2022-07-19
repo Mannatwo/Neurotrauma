@@ -16,4 +16,8 @@ config.neurotraumaGain = 1
 config.organDamageGain = 1
 config.fibrillationSpeed = 1
 
+config.disableBotAlgorithms = true
+
+config.NTSPenableSurgicalInfection = true
+
 return config

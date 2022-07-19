@@ -2,18 +2,30 @@
 
 NT = {} -- Neurotrauma
 NT.Name="Neurotrauma"
-NT.Version = "A1.7.11"
-NT.VersionNum = 01071100
+NT.Version = "A1.7.12"
+NT.VersionNum = 01071200
 NT.Path = table.pack(...)[1]
 
 -- config loading
 
--- create default config if there is no config file
 if not File.Exists(NT.Path .. "/config.json") then
+
+    -- create default config if there is no config file
     NT.Config = dofile(NT.Path .. "/Lua/defaultconfig.lua")
     File.Write(NT.Path .. "/config.json", json.serialize(NT.Config))
+
 else
+
+    -- load existing config
     NT.Config = json.parse(File.Read(NT.Path .. "/config.json"))
+    
+    -- add missing entries
+    local defaultConfig = dofile(NT.Path .. "/Lua/defaultconfig.lua")
+    for key, value in pairs(defaultConfig) do
+        if NT.Config[key] == nil then
+            NT.Config[key] = value
+        end
+    end
 end
 
 dofile(NT.Path.."/Lua/Scripts/helperfunctions.lua")
@@ -48,21 +60,21 @@ if (Game.IsMultiplayer and SERVER) or not Game.IsMultiplayer then
         print(runstring)
     end,1) end,1)
 
-    dofile(NT.Path.."/Lua/Scripts/ntcompat.lua")
-    dofile(NT.Path.."/Lua/Scripts/blood.lua")
-    dofile(NT.Path.."/Lua/Scripts/convertbloodpacks.lua")
-    dofile(NT.Path.."/Lua/Scripts/humanupdate.lua")
-    dofile(NT.Path.."/Lua/Scripts/ondamaged.lua")
-    dofile(NT.Path.."/Lua/Scripts/items.lua")
-    dofile(NT.Path.."/Lua/Scripts/onfire.lua")
-    dofile(NT.Path.."/Lua/Scripts/cpr.lua")
-    dofile(NT.Path.."/Lua/Scripts/surgerytable.lua")
+    dofile(NT.Path.."/Lua/Scripts/Server/ntcompat.lua")
+    dofile(NT.Path.."/Lua/Scripts/Server/blood.lua")
+    dofile(NT.Path.."/Lua/Scripts/Server/convertbloodpacks.lua")
+    dofile(NT.Path.."/Lua/Scripts/Server/humanupdate.lua")
+    dofile(NT.Path.."/Lua/Scripts/Server/ondamaged.lua")
+    dofile(NT.Path.."/Lua/Scripts/Server/items.lua")
+    dofile(NT.Path.."/Lua/Scripts/Server/onfire.lua")
+    dofile(NT.Path.."/Lua/Scripts/Server/cpr.lua")
+    dofile(NT.Path.."/Lua/Scripts/Server/surgerytable.lua")
+    dofile(NT.Path.."/Lua/Scripts/Server/fuckbots.lua")
     
     dofile(NT.Path.."/Lua/Scripts/testing.lua")
 end
 
 -- client-side code
 if CLIENT then
-    dofile(NT.Path.."/Lua/Scripts/clientonly.lua")
-    dofile(NT.Path.."/Lua/Scripts/configgui.lua")
+    dofile(NT.Path.."/Lua/Scripts/Client/configgui.lua")
 end
