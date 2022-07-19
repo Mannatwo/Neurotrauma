@@ -251,6 +251,27 @@ NT.ShowGUI = function ()
         NT.Config.CPRFractureChance = CPRFractureChance.FloatValue
         OnChanged()
     end
+
+    local disableBotAlgorithms = GUI.TickBox(GUI.RectTransform(Vector2(1, 0.2), config.Content.RectTransform), "Disable bot treatment algorithms (they're laggy)")
+    disableBotAlgorithms.Selected = NT.Config.disableBotAlgorithms
+    disableBotAlgorithms.OnSelected = function ()
+        NT.Config.disableBotAlgorithms = disableBotAlgorithms.State == 3
+        OnChanged()
+    end
+
+    -- Surgery Plus specific options
+    if NTSP~=nil then
+
+        GUI.TextBlock(GUI.RectTransform(Vector2(1, 0.1), config.Content.RectTransform), "Neurotrauma surgery plus", nil, nil, GUI.Alignment.Center, true)
+
+        local NTSPenableSurgicalInfection = GUI.TickBox(GUI.RectTransform(Vector2(1, 0.2), config.Content.RectTransform), "Surgical infection")
+        NTSPenableSurgicalInfection.Selected = NT.Config.NTSPenableSurgicalInfection
+        NTSPenableSurgicalInfection.OnSelected = function ()
+            NT.Config.NTSPenableSurgicalInfection = NTSPenableSurgicalInfection.State == 3
+            OnChanged()
+        end
+
+    end
     
 --[[
 
