@@ -305,7 +305,7 @@ NT.ItemMethods.suture = function(item, usingCharacter, targetCharacter, limb)
                 if limbtoitem[limbtype] ~= nil then
                     HF.GiveItem(usingCharacter,limbtoitem[limbtype])
                 end
-                if NTSP ~= nil then HF.GiveSkill(usingCharacter,"surgery",0.5) end
+                if NTSP ~= nil and NT.Config.NTSPenableSurgerySkill then HF.GiveSkill(usingCharacter,"surgery",0.5) end
             end
         end
 
@@ -314,7 +314,7 @@ NT.ItemMethods.suture = function(item, usingCharacter, targetCharacter, limb)
             if HF.HasAfflictionLimb(targetCharacter,affidentifier,limbtype) then
                 HF.SetAfflictionLimb(targetCharacter,affidentifier,limbtype,0,usingCharacter)
 
-                if NTSP ~= nil then 
+                if NTSP ~= nil and NT.Config.NTSPenableSurgerySkill then 
                     HF.GiveSkill(usingCharacter,"surgery",skillgain)
                 else 
                     HF.GiveSkill(usingCharacter,"medical",skillgain/4)
@@ -325,7 +325,7 @@ NT.ItemMethods.suture = function(item, usingCharacter, targetCharacter, limb)
             if HF.HasAffliction(targetCharacter,affidentifier) then
                 HF.SetAffliction(targetCharacter,affidentifier,0,usingCharacter)
 
-                if NTSP ~= nil then 
+                if NTSP ~= nil and NT.Config.NTSPenableSurgerySkill then 
                     HF.GiveSkill(usingCharacter,"surgery",skillgain)
                 else 
                     HF.GiveSkill(usingCharacter,"medical",skillgain/4)
@@ -663,7 +663,7 @@ NT.ItemMethods.tweezers = function(item, usingCharacter, targetCharacter, limb)
                 local healedamount = math.min(affAmount,healamount)
                 HF.AddAfflictionLimb(targetCharacter,identifier,limbtype,-healamount,usingCharacter)
                 
-                if NTSP ~= nil and usecase=="surgery" then 
+                if NTSP ~= nil and usecase=="surgery" and NT.Config.NTSPenableSurgerySkill then 
                     HF.GiveSkillScaled(usingCharacter,"surgery",healedamount*skillgain)
                 else 
                     HF.GiveSkillScaled(usingCharacter,"medical",healedamount*skillgain/2)
@@ -982,7 +982,7 @@ NT.ItemMethods.osteosynthesisimplants = function(item, usingCharacter, targetCha
                 if HF.HasAfflictionLimb(targetCharacter,affidentifier,limbtype) then
                     HF.SetAfflictionLimb(targetCharacter,affidentifier,limbtype,0,usingCharacter)
 
-                    if NTSP ~= nil then 
+                    if NTSP ~= nil and NT.Config.NTSPenableSurgerySkill then 
                         HF.GiveSkillScaled(usingCharacter,"surgery",skillgain)
                     else 
                         HF.GiveSkillScaled(usingCharacter,"medical",skillgain/4)
@@ -993,7 +993,7 @@ NT.ItemMethods.osteosynthesisimplants = function(item, usingCharacter, targetCha
                 if HF.HasAffliction(targetCharacter,affidentifier) then
                     HF.SetAffliction(targetCharacter,affidentifier,0,usingCharacter)
 
-                    if NTSP ~= nil then 
+                    if NTSP ~= nil and NT.Config.NTSPenableSurgerySkill then 
                         HF.GiveSkillScaled(usingCharacter,"surgery",skillgain)
                     else 
                         HF.GiveSkillScaled(usingCharacter,"medical",skillgain/4)
@@ -1045,7 +1045,7 @@ NT.ItemMethods.spinalimplant = function(item, usingCharacter, targetCharacter, l
             HF.SetAffliction(targetCharacter,"t_paralysis",0,usingCharacter)
             HF.RemoveItem(item)
 
-            if NTSP ~= nil then 
+            if NTSP ~= nil and NT.Config.NTSPenableSurgerySkill then 
                 HF.GiveSkillScaled(usingCharacter,"surgery",400)
             else 
                 HF.GiveSkillScaled(usingCharacter,"medical",100)
@@ -1067,7 +1067,7 @@ NT.ItemMethods.endovascballoon = function(item, usingCharacter, targetCharacter,
         HF.AddAffliction(targetCharacter,"balloonedaorta",100,usingCharacter)
         HF.SetAffliction(targetCharacter,"internalbleeding",0,usingCharacter)
 
-        if NTSP ~= nil then 
+        if NTSP ~= nil and NT.Config.NTSPenableSurgerySkill then 
             HF.GiveSkillScaled(usingCharacter,"surgery",400)
         else 
             HF.GiveSkillScaled(usingCharacter,"medical",200)
@@ -1088,7 +1088,7 @@ NT.ItemMethods.medstent = function(item, usingCharacter, targetCharacter, limb)
         HF.SetAffliction(targetCharacter,"balloonedaorta",0,usingCharacter)
         HF.SetAffliction(targetCharacter,"t_arterialcut",0,usingCharacter)
     
-        if NTSP ~= nil then 
+        if NTSP ~= nil and NT.Config.NTSPenableSurgerySkill then 
             HF.GiveSkillScaled(usingCharacter,"surgery",800)
         else 
             HF.GiveSkillScaled(usingCharacter,"medical",400)
@@ -1109,7 +1109,7 @@ NT.ItemMethods.drainage = function(item, usingCharacter, targetCharacter, limb)
             HF.RemoveItem(item)
         end
 
-        if NTSP ~= nil then 
+        if NTSP ~= nil and NT.Config.NTSPenableSurgerySkill then 
             HF.GiveSkillScaled(usingCharacter,"surgery",400)
         else 
             HF.GiveSkillScaled(usingCharacter,"medical",200)

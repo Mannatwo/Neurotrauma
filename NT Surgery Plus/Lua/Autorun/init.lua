@@ -1,8 +1,8 @@
 
 NTSP = {} -- Neurotrauma Surgery Plus
 NTSP.Name="Surgery Plus"
-NTSP.Version = "A1.2.4"
-NTSP.VersionNum = 01020400
+NTSP.Version = "A1.2.4h1"
+NTSP.VersionNum = 01020401
 NTSP.MinNTVersion = "A1.7.12"
 NTSP.MinNTVersionNum = 01071200
 NTSP.Path = table.pack(...)[1]

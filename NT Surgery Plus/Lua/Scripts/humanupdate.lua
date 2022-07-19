@@ -66,7 +66,7 @@ function NTSP.PreUpdateHuman(character)
                 HF.CharacterDistance(character,targetcharacter) < 150
                 then
 
-                local charSterility = 10+HF.GetSkillLevel(targetcharacter,"surgery")/5
+                local charSterility = 10+HF.GetSurgerySkill(targetcharacter)/5
 
                 -- inner wear sterile? +40
                 charSterility = charSterility + 40 * HF.BoolToNum(HF.ItemHasTag(HF.GetInnerWear(targetcharacter),"sterile"))

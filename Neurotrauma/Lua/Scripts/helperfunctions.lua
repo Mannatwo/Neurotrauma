@@ -383,7 +383,7 @@ function HF.GetSurgerySkillRequirementMet(character,requiredamount)
 end
 
 function HF.GetSurgerySkill(character)
-    if NTSP ~= nil then 
+    if NTSP ~= nil and NT.Config.NTSPenableSurgerySkill then 
         return math.max(
             5,
             HF.GetSkillLevel(character,"surgery"),

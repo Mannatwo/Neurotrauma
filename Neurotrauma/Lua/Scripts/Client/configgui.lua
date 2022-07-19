@@ -271,6 +271,13 @@ NT.ShowGUI = function ()
             OnChanged()
         end
 
+        local NTSPenableSurgerySkill = GUI.TickBox(GUI.RectTransform(Vector2(1, 0.2), config.Content.RectTransform), "Surgery skill")
+        NTSPenableSurgerySkill.Selected = NT.Config.NTSPenableSurgerySkill
+        NTSPenableSurgerySkill.OnSelected = function ()
+            NT.Config.NTSPenableSurgerySkill = NTSPenableSurgerySkill.State == 3
+            OnChanged()
+        end
+
     end
     
 --[[

@@ -19,5 +19,6 @@ config.fibrillationSpeed = 1
 config.disableBotAlgorithms = true
 
 config.NTSPenableSurgicalInfection = true
+config.NTSPenableSurgerySkill = true
 
 return config
