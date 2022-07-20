@@ -4217,7 +4217,7 @@
         <Item identifier="zinc" />
       </Deconstruct>
       <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="704,704,64,64" origin="0.5,0.5" />
-      <Sprite texture="Content/Items/Medical.png" sourcerect="383,5,33,87" depth="0.6" origin="0.5,0.5" />
+      <Sprite texture="content/items/medical/medicines.png" sourcerect="383,5,33,87" depth="0.6" origin="0.5,0.5" />
       <Body width="30" height="80" density="9" />
       <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-5,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
         <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
