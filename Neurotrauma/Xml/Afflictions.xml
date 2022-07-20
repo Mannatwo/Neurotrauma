@@ -4673,6 +4673,47 @@ thats what the vomiting symptom is for -->
       <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="0,0" sheetelementsize="128,128" color="10,193,114,255" origin="0,0"/>
     </Affliction>
   </Override>
+
+  <Override>
+    <Affliction
+    identifier="combatstimulant"
+    type="talentbuff"
+    isbuff="true"
+    limbspecific="false"
+    maxstrength="100"
+    treatmentthreshold="1000"
+    iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+    <Effect minstrength="0" maxstrength="10"
+      strengthchange="-1"
+      resistancefor="stun"
+      minresistance="0"
+      maxresistance="0.45">
+      <StatusEffect target="Character" >
+        <ReduceAffliction type="damage" strength="1.0"/>
+        <ReduceAffliction type="burn" strength="1.0"/>
+        <ReduceAffliction identifier="bloodloss" strength="1.0"/>
+        <ReduceAffliction identifier="bleeding" strength="1.0"/>
+        <ReduceAffliction identifier="internalbleeding" strength="1.0"/>
+        <ReduceAffliction identifier="chemwithdrawal" strength="1.0"/>
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="10" maxstrength="100"
+      strengthchange="-1"
+      resistancefor="stun"
+      minresistance="0.45"
+      maxresistance="0.5">
+      <StatusEffect target="Character">
+        <ReduceAffliction type="damage" strength="2.0"/>
+        <ReduceAffliction type="burn" strength="2.0"/>
+        <ReduceAffliction identifier="bloodloss" strength="2.0"/>
+        <ReduceAffliction identifier="bleeding" strength="2.0"/>
+        <ReduceAffliction identifier="internalbleeding" strength="2.0"/>
+        <ReduceAffliction identifier="chemwithdrawal" strength="2.0"/>
+      </StatusEffect>
+    </Effect>
+    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="2,6" sheetelementsize="128,128" color="10,193,114,255" origin="0,0"/>
+  </Affliction>
+  </Override>
   <!-- /// Override section ends /// -->
 
 </Afflictions>
