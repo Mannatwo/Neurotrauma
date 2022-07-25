@@ -11,7 +11,8 @@
   <Text file="%ModDir%/Localization/English/English.xml" />
   <Text file="%ModDir%/Localization/Russian/Russian.xml" />
   <Text file="%ModDir%/Localization/Polish/Polish.xml" />
-  <Text file="%ModDir%/Localization/French/French.xml" />
+	<Text file="%ModDir%/Localization/French/French.xml" />
+	<Text file="%ModDir%/Localization/Korean/Korean.xml" />
   <Other file="%ModDir%/Lua/Autorun/init.lua" />
   <Other file="%ModDir%/Lua/defaultconfig.lua" />
   <Other file="%ModDir%/Lua/Scripts/Client/configgui.lua" />
