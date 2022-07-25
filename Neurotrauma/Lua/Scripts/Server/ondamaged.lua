@@ -142,7 +142,7 @@ NT.OnDamagedMethods.explosiondamage = function(character,strength,limbtype)
             NT.BreakLimb(character,limbtype)
         elseif NT.LimbIsBroken(character,limbtype) and not NT.LimbIsAmputated(character,limbtype) and HF.Chance(strength/60*NTC.GetMultiplier(character,"traumamputatechance")) then
             NT.TraumamputateLimb(character,limbtype) end
-        if HF.Chance(0.35) and not NT.LimbIsAmputated(character,limbtype) then
+        if HF.Chance(0.35*NT.Config.dislocationChance) and not NT.LimbIsAmputated(character,limbtype) then
             NT.DislocateLimb(character,limbtype) end
     end
 end
@@ -246,7 +246,7 @@ NT.OnDamagedMethods.blunttrauma = function(character,strength,limbtype)
             NT.BreakLimb(character,limbtype)
         elseif strength > 15 and NT.LimbIsBroken(character,limbtype) and not NT.LimbIsAmputated(character,limbtype) and HF.Chance(strength/100*NTC.GetMultiplier(character,"traumamputatechance")) then
             NT.TraumamputateLimb(character,limbtype) end
-        if HF.Chance(HF.Clamp(strength/80,0.1,0.5)) and not NT.LimbIsAmputated(character,limbtype) then
+        if HF.Chance(HF.Clamp(strength/80,0.1,0.5)*NT.Config.dislocationChance) and not NT.LimbIsAmputated(character,limbtype) then
             NT.DislocateLimb(character,limbtype) end
     end
 end
@@ -286,7 +286,7 @@ NT.OnDamagedMethods.internaldamage = function(character,strength,limbtype)
             NT.BreakLimb(character,limbtype)
         elseif strength > 10 and NT.LimbIsBroken(character,limbtype) and not NT.LimbIsAmputated(character,limbtype) and HF.Chance((strength-10)/60*NTC.GetMultiplier(character,"traumamputatechance")) then
             NT.TraumamputateLimb(character,limbtype) end
-        if HF.Chance(0.25) and not NT.LimbIsAmputated(character,limbtype) then
+        if HF.Chance(0.25*NT.Config.dislocationChance) and not NT.LimbIsAmputated(character,limbtype) then
             NT.DislocateLimb(character,limbtype) end
     end
 end
