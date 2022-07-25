@@ -6,7 +6,8 @@
   <Text file="%ModDir%/Localization/Russian/Russian.xml" />
   <Text file="%ModDir%/Localization/Polish/Polish.xml" />
   <Text file="%ModDir%/Localization/French/French.xml" />
-  <Jobs file="%ModDir%/Xml/Jobs.xml" />
+	<Text file="%ModDir%/Localization/Portuguese/Portuguese.xml" />
+	<Jobs file="%ModDir%/Xml/Jobs.xml" />
   <Talents file="%ModDir%/Xml/TalentsSurgeon.xml" />
   <TalentTrees file="%ModDir%/Xml/TalentTrees.xml" />
   <None file="%ModDir%/Images/SurgeonClothes.png" />

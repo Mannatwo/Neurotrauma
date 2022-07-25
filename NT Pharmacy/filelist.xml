@@ -7,7 +7,8 @@
   <Text file="%ModDir%/Localization/Russian/Russian.xml" />
   <Text file="%ModDir%/Localization/Polish/Polish.xml" />
   <Text file="%ModDir%/Localization/French/French.xml" />
-  <None file="%ModDir%/Lua/Autorun/init.lua" />
+	<Text file="%ModDir%/Localization/Portuguese/Portuguese.xml" />
+	<None file="%ModDir%/Lua/Autorun/init.lua" />
   <None file="%ModDir%/Lua/Scripts/humanupdate.lua" />
   <None file="%ModDir%/Lua/Scripts/items.lua" />
   <None file="%ModDir%/Lua/Scripts/testing.lua" />

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="Brazilian Portuguese" nowhitespace="false" translatedname="Português brasileiro">
+	<!-- ChemMaster 2k -->
+	<entityname.chemmaster>ChemMaster 2000</entityname.chemmaster>
+	<entitydescription.chemmaster>Uma máquina que cria pílulas a partir de substâncias químicas armazenadas dentro.</entitydescription.chemmaster>
+	<lua.chemerror.header>ChemMaster 2000 - ERRO!:</lua.chemerror.header>
+	<lua.chemerror.invaliditem>{id} não é um ingrediente válido.</lua.chemerror.invaliditem>
+	<lua.chemerror.invalidcategory.base>{id} não é uma base de pílula válida.</lua.chemerror.invalidcategory.base>
+	<lua.chemerror.invalidcategory.binder>{id} não é um excipiente válido.</lua.chemerror.invalidcategory.binder>
+	<lua.chemerror.invalidcategory.filler>{id} não é um enchimento válido.</lua.chemerror.invalidcategory.filler>
+	<lua.chemerror.invalidcategory.active>{id} não é um ingrediente ativo válido para pílulas.</lua.chemerror.invalidcategory.active>
+	<lua.chemerror.invalidcategory.dye>{id} não é um corante de pílula válido.</lua.chemerror.invalidcategory.dye>
+	<lua.chemerror.outputfull>O slot de saída está cheio.</lua.chemerror.outputfull>
+	<lua.chemerror.missingbase>Base de comprimidos em falta.</lua.chemerror.missingbase>
+	<lua.chemerror.missingbinder>Excipiente em falta.</lua.chemerror.missingbinder>
+	<lua.chemerror.missingactive>Ingredientes ativos em falta.</lua.chemerror.missingactive>
+	<lua.chemerror.capacity>Esta configuração só suporta até {cap} ingredientes ativos.</lua.chemerror.capacity>
+	<lua.chemerror.yield>Esta configuração não renderia nenhuma pílula.</lua.chemerror.yield>
+	<label.cm_makeone>Fazer Um</label.cm_makeone>
+	<label.cm_makeall>Fazer Tudo</label.cm_makeall>
+	<label.cm_description>Descrição da pílula</label.cm_description>
+	<ItemMsgDetachCrowbar>Desconectar (Pé-de-Cabra)</ItemMsgDetachCrowbar>
+	<!-- Pill analyzer -->
+	<entityname.chemalyzer>Analisador de Pílula</entityname.chemalyzer>
+	<entitydescription.chemalyzer>Exibe a composição das pílulas que são colocadas dentro.</entitydescription.chemalyzer>
+	<label.ca_analyze>Analisar</label.ca_analyze>
+	<lua.chemalyzer.header>Ingredientes:</lua.chemalyzer.header>
+	<label.ca_rename>Definir descrição</label.ca_rename>
+	<!-- pill combos -->
+	<pillcombo.antihusk>Anti-Parasita Carcaça</pillcombo.antihusk>
+	<!-- other items -->
+	<entityname.custompill>Pílula Personalizada</entityname.custompill>
+	<entityname.custompill_horsepill>Pílula de Cavalo</entityname.custompill_horsepill>
+	<entityname.custompill_tablets>Comprimidos</entityname.custompill_tablets>
+	<entitydescription.custompill>Quem sabe quais efeitos essa pílula poderia ter?</entitydescription.custompill>
+	<entitydescription.custompill_horsepill>Um pouco grande para você enfiar na sua boca sem querer.</entitydescription.custompill_horsepill>
+	<entitydescription.custompill_tablets>Não pode ser tão ruim, né?</entitydescription.custompill_tablets>
+	<!-- containers -->
+	<entityname.antidotetoolbox>Contêiner de Antídotos</entityname.antidotetoolbox>
+	<entityname.machinetoolbox>Contêiner de Máquinas</entityname.machinetoolbox>
+	<entityname.bonetoolbox>Contêiner de Ossos</entityname.bonetoolbox>
+	<entityname.biohazardtoolbox>Contêiner de Perigo-Biológico</entityname.biohazardtoolbox>
+	<entityname.bufftoolbox>Contêiner de Buffs</entityname.bufftoolbox>
+	<entityname.surgerycrate>Caixa de Cirurgia</entityname.surgerycrate>
+	<entityname.antidotecrate>Caixa de Antídoto</entityname.antidotecrate>
+	<entityname.machinecrate>Caixa de Máquinas</entityname.machinecrate>
+	<entityname.bonecrate>Caixa de Ossos</entityname.bonecrate>
+	<entityname.biohazardcrate>Caixa de Perigo-Biológico</entityname.biohazardcrate>
+	<entityname.buffcrate>Caixa de Buffs</entityname.buffcrate>
+</infotexts>
