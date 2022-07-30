@@ -899,7 +899,7 @@
 
   <Item name="" identifier="suture" category="Equipment" maxstacksize="16" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,surgery,surgerytool" description="" useinhealthinterface="True" scale="0.250">
-    <PreferredContainer primary="medcab" minamount="1" maxamount="2" spawnprobability="1"/>
+    <PreferredContainer primary="medcab" minamount="10" maxamount="16" spawnprobability="1"/>
     <PreferredContainer primary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="3" spawnprobability="0.5"/>
     <PreferredContainer primary="outpostmedcompartment" minamount="0" maxamount="1" spawnprobability="0.25"/>
     <Fabricate suitablefabricators="medicalfabricator" amount="4" requiredtime="10">
