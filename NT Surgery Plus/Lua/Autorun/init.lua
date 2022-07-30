@@ -3,8 +3,8 @@ NTSP = {} -- Neurotrauma Surgery Plus
 NTSP.Name="Surgery Plus"
 NTSP.Version = "A1.2.4h1"
 NTSP.VersionNum = 01020401
-NTSP.MinNTVersion = "A1.7.12"
-NTSP.MinNTVersionNum = 01071200
+NTSP.MinNTVersion = "A1.7.13"
+NTSP.MinNTVersionNum = 01071300
 NTSP.Path = table.pack(...)[1]
 Timer.Wait(function() if NTC ~= nil and NTC.RegisterExpansion ~= nil then NTC.RegisterExpansion(NTSP) end end,1)
 

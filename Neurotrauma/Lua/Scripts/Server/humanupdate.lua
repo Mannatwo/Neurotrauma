@@ -116,6 +116,7 @@ NT.Afflictions = {
     tla_amputation={},tra_amputation={},tll_amputation={},trl_amputation={},
     sla_amputation={},sra_amputation={},sll_amputation={},srl_amputation={},
     t_paralysis={},
+    alv={}, -- artificial ventilation
     needlec={update=function(c,i)
         c.afflictions[i].strength = c.afflictions[i].strength-0.15*NT.Deltatime
     end},
@@ -138,7 +139,9 @@ NT.Afflictions = {
         -- passive regen
         c.afflictions[i].strength = c.afflictions[i].strength-0.05*NT.Deltatime
         -- triggers
-        if( not NTC.GetSymptomFalse(c.character,"triggersym_respiratoryarrest") and (NTC.GetSymptom(c.character,"triggersym_respiratoryarrest")
+        if( not NTC.GetSymptomFalse(c.character,"triggersym_respiratoryarrest")
+        and
+        (NTC.GetSymptom(c.character,"triggersym_respiratoryarrest")
         or c.stats.stasis or c.afflictions.lungremoved.strength > 0 or c.afflictions.brainremoved.strength > 0
         or (c.afflictions.lungdamage.strength > 99 and HF.Chance(0.3))
         or (c.afflictions.traumaticshock.strength > 30 and HF.Chance(0.1))
@@ -352,7 +355,7 @@ NT.Afflictions = {
         c.afflictions[i].strength = c.afflictions[i].strength
             - NT.Deltatime * 0.03
             + (HF.Clamp(c.afflictions.hypoventilation.strength,0,1) * 0.09
-            + HF.Clamp(c.afflictions.respiratoryarrest.strength+c.afflictions.cardiacarrest.strength,0,1) * 0.18
+            + HF.Clamp((c.afflictions.respiratoryarrest.strength*HF.BoolToNum(c.afflictions.alv.strength<=0.1))+c.afflictions.cardiacarrest.strength,0,1) * 0.18
             + math.max(0,c.afflictions.kidneydamage.strength - 80)/20*0.1) * NT.Deltatime
     end
     },
@@ -429,7 +432,7 @@ NT.Afflictions = {
             c.character.Stun = newval;
         end
     },
-    slowdown={update=function(c,i)
+    slowdown={lateupdate=function(c,i)
         c.afflictions[i].strength = HF.Clamp(100 * (1-c.stats.speedmultiplier),0,100)
     end
     },
@@ -701,9 +704,10 @@ NT.LimbAfflictions = {
         if limbaff[i].strength > 0 or limbaff.dirtybandage.strength > 0 then
             c.stats.speedmultiplier = c.stats.speedmultiplier*0.9
         end
+
     end
     },
-    dirtybandage={}, -- for bandage dirtifaction logic see above
+    dirtybandage={},-- for bandage dirtifaction logic see above 
     gypsumcast={update=function(c,limbaff,i,type)
         -- gypsum slowdown and fracture healing
         if limbaff[i].strength > 0 then
@@ -1028,6 +1032,12 @@ function NT.UpdateHuman(character)
         for type in limbtypes do
             ApplyLimb(type)
         end
+    end
+
+    -- non-limb-specific late update (useful for things that use stats that are altered by limb specifics)
+    for identifier,data in pairs(NT.Afflictions) do
+        if data.lateupdate ~= nil then
+        data.lateupdate(charData,identifier) end
     end
 
     -- apply non-limb-specific changes

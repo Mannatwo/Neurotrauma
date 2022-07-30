@@ -1139,7 +1139,7 @@
     </Deconstruct>
     <InventoryIcon texture="%ModDir%/Images/InventoryItemIconAtlas.png" sourcerect="196,196,64,64"
                     origin="0.5,0.5"/>
-    <Sprite texture="%ModDir%/Images/InventoryItemIconAtlas.png" sourcerect="196,196,128,128" depth="0.6"
+    <Sprite texture="%ModDir%/Images/InventoryItemIconAtlas.png" sourcerect="196,196,64,64" depth="0.6"
             origin="0.5,0.5"/>
     <Body width="35" height="70" density="20"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
