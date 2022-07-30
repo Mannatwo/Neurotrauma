@@ -237,7 +237,7 @@
   </Item>
   <Item name="" identifier="traumashears" category="Equipment" cargocontaineridentifier="mediccrate"
         Tags="smallitem,medical,surgerytool" description="" useinhealthinterface="True" scale="0.5">
-      <PreferredContainer primary="toxcontainer" spawnprobability="0.2"/>
+      <PreferredContainer primary="toxcontainer" spawnprobability="1"/>
       <PreferredContainer primary="locker"/>
       <Fabricate suitablefabricators="fabricator">
         <RequiredSkill identifier="medical" level="30"/>
@@ -377,7 +377,7 @@
 
   <Item name="" identifier="advscalpel" category="Equipment" cargocontaineridentifier="mediccrate"
         Tags="smallitem,medical,surgery,surgerytool" description="" useinhealthinterface="True" scale="0.250">
-      <PreferredContainer primary="toxcontainer" spawnprobability="0.2"/>
+      <PreferredContainer primary="toxcontainer" spawnprobability="1"/>
       <PreferredContainer primary="locker"/>
       <Fabricate suitablefabricators="fabricator">
         <RequiredSkill identifier="medical" level="30"/>
@@ -410,7 +410,7 @@
   </Item>
   <Item name="" identifier="advhemostat" category="Equipment" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,surgery,surgerytool" description="" useinhealthinterface="True" scale="0.250">
-        <PreferredContainer primary="toxcontainer" spawnprobability="0.2"/>
+        <PreferredContainer primary="toxcontainer" spawnprobability="1"/>
         <PreferredContainer primary="locker"/>
         <Fabricate suitablefabricators="fabricator">
           <RequiredSkill identifier="medical" level="30"/>
@@ -435,7 +435,7 @@
     </Item>
   <Item name="" identifier="advretractors" category="Equipment" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,surgery,surgerytool" description="" useinhealthinterface="True" scale="0.2">
-    <PreferredContainer primary="toxcontainer" spawnprobability="0.2"/>
+    <PreferredContainer primary="toxcontainer" spawnprobability="1"/>
     <PreferredContainer primary="locker"/>
     <Fabricate suitablefabricators="fabricator">
       <RequiredSkill identifier="medical" level="30"/>
@@ -460,7 +460,7 @@
   </Item>
   <Item name="" identifier="surgicaldrill" category="Equipment" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,surgery" description="" useinhealthinterface="True" scale="0.250">
-    <PreferredContainer primary="toxcontainer" spawnprobability="0.2"/>
+    <PreferredContainer primary="toxcontainer" spawnprobability="1"/>
     <PreferredContainer primary="locker"/>
     <Fabricate suitablefabricators="fabricator">
       <RequiredSkill identifier="medical" level="30"/>
@@ -497,7 +497,7 @@
   </Item>
   <Item name="" identifier="surgerysaw" category="Equipment" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,surgery" description="" useinhealthinterface="True" scale="0.4">
-    <PreferredContainer primary="toxcontainer" spawnprobability="0.2"/>
+    <PreferredContainer primary="toxcontainer" spawnprobability="0.5"/>
     <PreferredContainer primary="locker"/>
     <Fabricate suitablefabricators="fabricator">
       <RequiredSkill identifier="medical" level="30"/>
@@ -528,6 +528,7 @@
   </Item>
   <Item name="" identifier="tweezers" category="Equipment" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,surgery,surgerytool" description="" useinhealthinterface="True" scale="0.150">
+    <PreferredContainer primary="toxcontainer" spawnprobability="1"/>
     <PreferredContainer primary="locker"/>
     <Fabricate suitablefabricators="fabricator">
       <RequiredSkill identifier="medical" level="30"/>
@@ -842,7 +843,7 @@
     <Price baseprice="200" soldbydefault="false">
       <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="1"/>
     </Price>
-    <PreferredContainer primary="toxcontainer" spawnprobability="0.2"/>
+    <PreferredContainer primary="toxcontainer" spawnprobability="1"/>
     <PreferredContainer primary="locker"/>
     <Fabricate suitablefabricators="fabricator">
       <RequiredSkill identifier="medical" level="35"/>
@@ -870,6 +871,7 @@
   </Item>
   <Item name="" identifier="spinalimplant" description="" scale="0.3" useinhealthinterface="True"
     Tags="smallitem,medical,surgery">
+    <PreferredContainer primary="toxcontainer" spawnprobability="0.5"/>
     <Price baseprice="200" soldbydefault="false">
       <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="1"/>
     </Price>
