@@ -416,11 +416,15 @@ NT.ItemMethods.emptybloodpack = function(item, usingCharacter, targetCharacter, 
 end
 NT.ItemMethods.propofol = function(item, usingCharacter, targetCharacter, limb) 
     local limbtype = limb.type
-
+    local anesthesiastrength = HF.GetAfflictionStrength(targetCharacter,"anesthesia",0)
     local anesthesiaGained = 1
+
     if HF.HasTalent(usingCharacter,"ntsp_properfol") then anesthesiaGained=15 end
 
-    if HF.GetAfflictionStrength(targetCharacter,"anesthesia",0) < 15 then
+    if anesthesiastrength < 15 then
+        HF.AddAffliction(targetCharacter,"anesthesia",anesthesiaGained,usingCharacter)
+    else
+    anesthesiaGained = 15-anesthesiastrength
         HF.AddAffliction(targetCharacter,"anesthesia",anesthesiaGained,usingCharacter)
     end
 
