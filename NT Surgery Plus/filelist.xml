@@ -6,6 +6,7 @@
   <Text file="%ModDir%/Localization/Russian/Russian.xml" />
   <Text file="%ModDir%/Localization/Polish/Polish.xml" />
   <Text file="%ModDir%/Localization/French/French.xml" />
+  <Text file="%ModDir%/Localization/Korean/Korean.xml" />
 	<Text file="%ModDir%/Localization/Portuguese/Portuguese.xml" />
 	<Jobs file="%ModDir%/Xml/Jobs.xml" />
   <Talents file="%ModDir%/Xml/TalentsSurgeon.xml" />

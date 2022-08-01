@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="Korean" nowhitespace="false" translatedname="Korean">
+
+	<!-- ChemMaster 2k -->
+	<entityname.chemmaster>켐마스터 2000</entityname.chemmaster>
+	<entitydescription.chemmaster>내부에 적재된 화학 물질로 알약을 만드는 기계.</entitydescription.chemmaster>
+	
+	<lua.chemerror.header>켐마스터 2000 - 에러!:</lua.chemerror.header>
+	<lua.chemerror.invaliditem>{id} 은(는) 유효한 성분이 아닙니다.</lua.chemerror.invaliditem>
+	<lua.chemerror.invalidcategory.base>{id} 은(는) 알약 베이스가 아닙니다.</lua.chemerror.invalidcategory.base>
+	<lua.chemerror.invalidcategory.binder>{id} 은(는) 유효한 알약 바인더가 아닙니다.</lua.chemerror.invalidcategory.binder>
+	<lua.chemerror.invalidcategory.filler>{id} 은(는) 유효한 알약 필러가 아닙니다.</lua.chemerror.invalidcategory.filler>
+	<lua.chemerror.invalidcategory.active>{id} 은(는) 알약의 유효한 활성 성분이 아닙니다.</lua.chemerror.invalidcategory.active>
+	<lua.chemerror.invalidcategory.dye>{id} 은(는) 유효한 알약 염료가 아닙니다.</lua.chemerror.invalidcategory.dye>
+	<lua.chemerror.outputfull>출력 슬롯이 가득 찼습니다.</lua.chemerror.outputfull>
+	<lua.chemerror.missingbase>알약 베이스가 없습니다.</lua.chemerror.missingbase>
+	<lua.chemerror.missingbinder>알약 바인더가 없습니다.</lua.chemerror.missingbinder>
+	<lua.chemerror.missingactive>활성 성분이 누락되었습니다.</lua.chemerror.missingactive>
+	<lua.chemerror.capacity>이 구성은 최대 {cap} 만큼의 활성 성분만 지원할 수 있습니다.</lua.chemerror.capacity>
+	<lua.chemerror.yield>이 구성은 알약을 생성하지 않습니다.</lua.chemerror.yield>
+	<label.cm_makeone>한 개 만들기</label.cm_makeone>
+	<label.cm_makeall>모두 만들기</label.cm_makeall>
+	<label.cm_description>알약 설명</label.cm_description>
+
+	<ItemMsgDetachCrowbar>분리 (크로우바)</ItemMsgDetachCrowbar>
+	
+	<!-- Pill analyzer -->
+	<entityname.chemalyzer>알약 분석기</entityname.chemalyzer>
+	<entitydescription.chemalyzer>안에 들어있는 알약의 구성을 표시합니다.</entitydescription.chemalyzer>
+	<label.ca_analyze>분석</label.ca_analyze>
+	<lua.chemalyzer.header>재료:</lua.chemalyzer.header>
+	<label.ca_rename>설명 설정</label.ca_rename>
+	
+	<!-- pill combos -->
+	<pillcombo.antihusk>안티 허스크</pillcombo.antihusk>
+	
+	<!-- other items -->
+	<entityname.custompill>맞춤형 알약</entityname.custompill>
+	<entityname.custompill_horsepill>말 알약</entityname.custompill_horsepill>
+	<entityname.custompill_tablets>정제(Tablets)</entityname.custompill_tablets>
+	<entitydescription.custompill>이 알약이 어떤 영향을 미칠지 누가 압니까?</entitydescription.custompill>
+	<entitydescription.custompill_horsepill>무심코 입에 쑤셔넣을 정도로 큽니다.</entitydescription.custompill_horsepill>
+	<entitydescription.custompill_tablets>그렇게 나쁠 수는 없겠죠?</entitydescription.custompill_tablets>
+	
+	<!-- containers -->
+	<entityname.antidotetoolbox>해독제 보관함</entityname.antidotetoolbox>
+	<entityname.machinetoolbox>기계 보관함</entityname.machinetoolbox>
+	<entityname.bonetoolbox>뼈 보관함</entityname.bonetoolbox>
+	<entityname.biohazardtoolbox>생물학적 위험물 보관함</entityname.biohazardtoolbox>
+	<entityname.bufftoolbox>버프 보관함</entityname.bufftoolbox>
+	
+	<entityname.surgerycrate>수술 상자</entityname.surgerycrate>
+	<entityname.antidotecrate>해독제 상자</entityname.antidotecrate>
+	<entityname.machinecrate>기계 상자</entityname.machinecrate>
+	<entityname.bonecrate>뼈 상자</entityname.bonecrate>
+	<entityname.biohazardcrate>생물학적 위험물 상자</entityname.biohazardcrate>
+	<entityname.buffcrate>버프 상자</entityname.buffcrate>
+
+</infotexts>

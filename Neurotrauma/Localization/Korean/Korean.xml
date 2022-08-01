@@ -65,13 +65,13 @@
   <entitydescription.thiamine>비타민 B1으로 알려진 이 알약은 장기(Organ) 치유에 도움이 됩니다.</entitydescription.thiamine>
   <entityname.ointment>항생제 연고</entityname.ointment>
   <entitydescription.ointment>화상 및 경미한 감염으로부터 회복을 촉진하는 살균력이 뛰어난 젤.</entitydescription.ointment>
-  <entityname.endovascballoon>혈관내 풍선</entityname.endovascballoon>
+  <entityname.endovascballoon>혈관 내 풍선</entityname.endovascballoon>
   <entitydescription.endovascballoon>파열된 주요 동맥에 풍선을 삽입합니다. 그것은 혈류를 차단하지만 출혈을 멈출 것입니다.</entitydescription.endovascballoon>
   <entityname.medstent>의료용 스텐트</entityname.medstent>
   <entitydescription.medstent>대동맥 파열 후 혈관 내 풍선을 삽입한 후 대동맥에 삽입하는 플라스틱 튜브.</entitydescription.medstent>
   <entityname.tourniquet>지혈대</entityname.tourniquet>
   <entitydescription.tourniquet>사지에 압력을 가하여 혈류를 감소시키는 장치. 일반적으로 사지에 큰 출혈이 있는 경우에 사용됩니다. 머리에 사용하면 안됩니다.</entitydescription.tourniquet>
-  <entityname.drainage>드레이너지(Drainage)</entityname.drainage>
+  <entityname.drainage>배액관</entityname.drainage>
   <entitydescription.drainage>기흉 교정 수술 시 흉강에서 공기를 빼냅니다.</entitydescription.drainage>
   <entityname.needle>바늘</entityname.needle>
   <entitydescription.needle>공기나 액체를 흉막강이나 심낭 밖으로 배출시키는 감압 밸브가 있는 바늘</entitydescription.needle>
@@ -150,13 +150,13 @@
 이 혈액형에게 공혈할 수 있음: AB+</entitydescription.abpluscard>
 
 <!-- /// New containers /// -->
-<entityname.medtoolbox>의료품 가방</entityname.medtoolbox>
+<entityname.medtoolbox>의료품 보관함</entityname.medtoolbox>
 <entitydescription.medtoolbox>약 및 의료기구를 보관할 수 있습니다.</entitydescription.medtoolbox>
-<entityname.surgerytoolbox>수술도구 가방</entityname.surgerytoolbox>
+<entityname.surgerytoolbox>수술도구 보관함</entityname.surgerytoolbox>
 <entitydescription.surgerytoolbox>수술 중 사용하는 많은 작은 물건을 보관할 수 있습니다.</entitydescription.surgerytoolbox>
-<entityname.organcrate>냉장 상자</entityname.organcrate>
+<entityname.organcrate>저온 상자</entityname.organcrate>
 <entitydescription.organcrate>소중한 이식용 장기를 보관하는 곳</entitydescription.organcrate>
-<entityname.organtoolbox>냉장 가방</entityname.organtoolbox>
+<entityname.organtoolbox>저온 보관함</entityname.organtoolbox>
 <entitydescription.organtoolbox>소중한 이식용 장기를 보관하는 곳</entitydescription.organtoolbox>
 <entityname.bodybag>바디 백</entityname.bodybag>
 <entitydescription.bodybag>사람을 더 빨리 끌 수 있습니다.</entitydescription.bodybag>

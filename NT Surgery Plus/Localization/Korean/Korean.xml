@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="Korean" nowhitespace="false" translatedname="Korean">
+
+<!-- ITEMS -->
+
+<entityname.mannitolplus>만니톨 플러스</entityname.mannitolplus>
+<entitydescription.mannitolplus>만니톨의 개선된 버전. 신경 외상을 신속하게 치료하는 데 사용됩니다.</entitydescription.mannitolplus>
+
+<entityname.artificialbrain>인공 뇌</entityname.artificialbrain>
+<entitydescription.artificialbrain>원래의 뇌를 제거해도 몸이 살아 있는 인공 뇌 이식.</entitydescription.artificialbrain>
+
+<entityname.surgeonclothes>수술복</entityname.surgeonclothes>
+<entitydescription.surgeonclothes>수술 중 감염 예방을 위한 멸균 수술용 스크럽.</entitydescription.surgeonclothes>
+
+<entityname.surgicalmask>수술 마스크</entityname.surgicalmask>
+<entitydescription.surgicalmask>수술 중 공기 부양 병원체로부터 환자를 보호하는 마스크.</entitydescription.surgicalmask>
+
+<entityname.brainjar>두뇌 항아리</entityname.brainjar>
+<entitydescription.brainjar>이식용 뇌를 무기한 보관할 수 있는 용기</entitydescription.brainjar>
+
+<entityname.surgicaldrapes>수술용 커튼</entityname.surgicaldrapes>
+<entitydescription.surgicaldrapes>수술 중 감염을 방지하기 위한 멸균 시트.</entitydescription.surgicaldrapes>
+
+<entityname.skillbooksurgery>'의료 부정 행위'</entityname.skillbooksurgery>
+<entitydescription.skillbooksurgery>수많은 수술 절차와 이를 재현하는 단계가 포함된 핸드북.</entitydescription.skillbooksurgery>
+
+<entityname.triagetag>부상자 분류 태그 (자동)</entityname.triagetag>
+<entitydescription.triagetag>대규모 사상자 발생 시 환자에게 필요한 치료의 유형과 긴급성을 효율적으로 결정하는 데 사용되는 레이블입니다.</entitydescription.triagetag>
+
+<entityname.manualtriagetag>부상자 분류 태그 (수동)</entityname.manualtriagetag>
+<entitydescription.manualtriagetag>수동 지정 부상자 분류 태그입니다. 녹색은 다리, 노란색은 팔, 빨간색은 몸통, 검은색은 머리에 붙입니다.</entitydescription.manualtriagetag>
+
+<entityname.experimentaltreatment>실험적 치료</entityname.experimentaltreatment>
+<entitydescription.experimentaltreatment>좋고 나쁨을 약간 또는 많이 유발할 수 있는 고도로 실험적인 약물.</entitydescription.experimentaltreatment>
+
+
+<!-- AFFLICTIONS -->
+
+<afflictionname.preventativepermit>예방 허가</afflictionname.preventativepermit>
+<afflictiondescription.preventativepermit>심각한 부상을 입을 가능성이 적습니다.</afflictiondescription.preventativepermit>
+
+<afflictionname.artificialbrain>인공 뇌</afflictionname.artificialbrain>
+<afflictiondescription.artificialbrain>환자는 영구적으로 의식이 없지만 몸은 살아 있습니다.</afflictiondescription.artificialbrain>
+
+<afflictionname.triagetag_green>태그: 비응급</afflictionname.triagetag_green>
+<afflictiondescription.triagetag_green>환자에게 "비응급" 분류 태그가 지정되었습니다. 치료가 필요하지 않습니다.</afflictiondescription.triagetag_green>
+
+<afflictionname.triagetag_yellow>태그: 응급</afflictionname.triagetag_yellow>
+<afflictiondescription.triagetag_yellow>환자에게 "응급" 분류 태그가 지정되었습니다. 생명을 위협하는 부상은 아닙니다.</afflictiondescription.triagetag_yellow>
+
+<afflictionname.triagetag_red>태그: 즉각</afflictionname.triagetag_red>
+<afflictiondescription.triagetag_red>환자에게 "즉각" 분류 태그가 지정되었습니다. 즉각적인 치료가 필요합니다.</afflictiondescription.triagetag_red>
+
+<afflictionname.triagetag_black>태그: 사망</afflictionname.triagetag_black>
+<afflictiondescription.triagetag_black>환자에게 "사망" 분류 태그가 지정되었습니다. 의학적 치료는 다른 환자에게 하는 것이 좋습니다.</afflictiondescription.triagetag_black>
+
+
+<!-- JOBS -->
+
+<jobname.surgeon>외과 의사</jobname.surgeon>
+<jobdescription.surgeon>의사는 응급 처치와 빠른 대응에 더 적합하지만 외과 의사는 수술 절차의 최적화를 전문으로 합니다. 외과 의사는 수술 중 감염 위험을 낮추며 수술을 빠르게 진행할 수 있습니다.</jobdescription.surgeon>
+
+<skillname.surgery>외과</skillname.surgery>
+
+<!-- TALENTS -->
+
+<talenttree.researcher>연구원</talenttree.researcher>
+<talenttree.hospitalizer>입원시키기</talenttree.hospitalizer>
+<talenttree.fieldsurgeon>현장 외과 의사</talenttree.fieldsurgeon>
+
+<talentname.ntsp_autoimmune>자가면역 억제</talentname.ntsp_autoimmune>
+<talentdescription.ntsp_autoimmune>이식한 장기가 절대 거부반응을 보이지 않습니다.</talentdescription.ntsp_autoimmune>
+
+<talentname.ntsp_firemanscarry>신속한 적출</talentname.ntsp_firemanscarry>
+
+<talentname.ntsp_properfol>프로포폴 전문가</talentname.ntsp_properfol>
+<talentdescription.ntsp_properfol>[itemname] 이 즉시 효력을 발휘합니다.</talentdescription.ntsp_properfol>
+
+<talentname.ntsp_soothingsurgeon>진정 외과 의사</talentname.ntsp_soothingsurgeon>
+<talentdescription.ntsp_soothingsurgeon>수술을 받는 사람들은 외상성 쇼크를 덜 겪습니다.</talentdescription.ntsp_soothingsurgeon>
+
+<talentname.ntsp_imadoctornota>나는 의사가 아니라...</talentname.ntsp_imadoctornota>
+
+<talentname.ntsp_preventativepermit>예방 허가</talentname.ntsp_preventativepermit>
+<talentdescription.ntsp_preventativepermit>마지막으로 부상자 분류한 대상은 [physicalresistance]% 의 피해 저항을 얻고 심각한 부상을 입을 가능성이 줄어듭니다.</talentdescription.ntsp_preventativepermit>
+
+<talentname.ntsp_medicallicence>의료 면허</talentname.ntsp_medicallicence>
+<talentdescription.ntsp_medicallicence>적출한 장기가 정가에 판매됩니다.</talentdescription.ntsp_medicallicence>
+
+<talentname.ntsp_bedsidemanner>훌륭한 침대 옆 매너</talentname.ntsp_bedsidemanner>
+<talentdescription.ntsp_bedsidemanner>옆에 있는 환자는 빠른 속도로 자연치유됩니다. 침대에 누워 있으면 효과가 배가됩니다.</talentdescription.ntsp_bedsidemanner>
+
+<talentname.ntsp_rinseandrepeat>헹구고 반복</talentname.ntsp_rinseandrepeat>
+<talentdescription.ntsp_rinseandrepeat>배액관, 혈관 내 풍선 및 바늘이 사용 후에 소모되지 않습니다.</talentdescription.ntsp_rinseandrepeat>
+
+<talentname.ntsp_underpressure>저압</talentname.ntsp_underpressure>
+<talentdescription.ntsp_underpressure>옆에 있는 의식이 없는 환자는 [amount]% 의 출혈, 장기 손상 및 신경 외상 저항을 얻습니다.</talentdescription.ntsp_underpressure>
+
+<talentname.ntsp_rapiddeoployment>신속한 투입</talentname.ntsp_rapiddeoployment>
+<talentdescription.ntsp_rapiddeoployment>수술 스킬의 [skillpercentage]% 만큼 추가 이동 속도를 얻습니다.</talentdescription.ntsp_rapiddeoployment>
+
+<talentname.ntsp_humanmachine>인간 기계</talentname.ntsp_humanmachine>
+
+<talentname.ntsp_firstaidtraining>응급처치 진행</talentname.ntsp_firstaidtraining>
+<talentname.ntsp_mannitol>만니톨광</talentname.ntsp_mannitol>
+<talentname.ntsp_experimental>비윤리적 소싱</talentname.ntsp_experimental>
+<talentname.ntsp_frankenstein>프랑켄슈타인 박사</talentname.ntsp_frankenstein>
+
+</infotexts>
