@@ -527,7 +527,7 @@ Can give blood to: AB+</entitydescription.abpluscard>
 <afflictioncauseofdeathself.necrosis>You have died from necrosis.</afflictioncauseofdeathself.necrosis>
 
 <afflictionname.gangrene>Gangrene</afflictionname.gangrene>
-<afflictiondescription.gangrene>The extremity has shrinked and turned black.</afflictiondescription.gangrene>
+<afflictiondescription.gangrene>The extremity has shrunk and turned black.</afflictiondescription.gangrene>
 
 <afflictionname.afadrenaline>Adrenaline</afflictionname.afadrenaline>
 <afflictiondescription.afadrenaline></afflictiondescription.afadrenaline>
