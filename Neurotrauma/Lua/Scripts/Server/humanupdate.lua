@@ -152,7 +152,8 @@ NT.Afflictions = {
     end},
     pneumothorax={update=function(c,i)
         if c.afflictions[i].strength > 0 then
-        c.afflictions[i].strength = c.afflictions[i].strength + NT.Deltatime * (0.5 - 1*HF.Clamp(c.afflictions.needlec.strength,0,1)) end
+        c.afflictions[i].strength = c.afflictions[i].strength
+        + NT.Deltatime * (0.5 - HF.BoolToNum(c.afflictions[i].strength > 5)*HF.Clamp(c.afflictions.needlec.strength,0,1)) end
     end
     },
     tamponade={update=function(c,i)
