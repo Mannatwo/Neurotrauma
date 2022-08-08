@@ -4095,13 +4095,13 @@
         <StatusEffect type="OnFailure" target="This" Condition="-100.0" disabledeltatime="true" />
         <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
         <RequiredSkill identifier="medical" level="37" />
-        <StatusEffect tags="medical" type="OnUse" target="Limb, This" duration="1">
+        <StatusEffect tags="medical" type="OnUse" target="Character, This" duration="1">
           <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
           <ReduceAffliction identifier="psychosis" amount="100" />
           <ReduceAffliction identifier="hallucinating" amount="100" />
           <ReduceAffliction identifier="alcoholwithdrawal" amount="100" />
         </StatusEffect>
-        <StatusEffect tags="medical" type="OnFailure" target="Limb, This" duration="1">
+        <StatusEffect tags="medical" type="OnFailure" target="Character, This" duration="1">
           <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
           <ReduceAffliction identifier="psychosis" amount="25" />
           <ReduceAffliction identifier="hallucinating" amount="25" />
