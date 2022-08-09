@@ -866,8 +866,7 @@ local function RandomizePill(item)
     NTP.SetPillFromConfig(item,GetRandomPillConfig())
 end
 function NTP.RefreshPillDescription(item)
-
-    if not HF.ItemHasTag(item,"init") then return end
+    -- if not HF.ItemHasTag(item,"init") then return end
 
     local config = NTP.TagsToPillconfig(HF.SplitString(item.Tags,","))
     if config.description == nil then return end
@@ -889,6 +888,7 @@ function NTP.RefreshPillDescription(item)
     end
 
     if SERVER then
+        item.Drop()
         Entity.Spawner.AddItemToSpawnQueue(prefab, item.WorldPosition, nil, nil, function(newpillitem)
             HF.RemoveItem(item)
             SpawnFunc(newpillitem,targetinventory)
@@ -945,13 +945,20 @@ Hook.Add("NTP.OnPillSpawned", "NTP.OnPillSpawned", function (effect, deltaTime, 
 end)
 
 Hook.Add("roundStart", "NTP.RoundStart", function()
+    Timer.Wait(function()
+        NTP.RefreshAllPills()
+    end,10000) -- maybe 10 seconds is enough?
+    
+end)
+
+function NTP.RefreshAllPills()
     -- descriptions dont get serialized, so i have to respawn
     -- every pill item every round to keep their descriptions (big oof)
 
     -- fetch pill items
     local pillItems = {}
     for item in Item.ItemList do
-        if item.Prefab.Identifier.Value == "custompill" then
+        if HF.StartsWith(item.Prefab.Identifier.Value,"custompill") then
             table.insert(pillItems,item)
         end
     end
@@ -962,4 +969,6 @@ Hook.Add("roundStart", "NTP.RoundStart", function()
 
     -- clear chem craft alls
     NTP.ActiveChemCraftalls = {}
-end)
+end
+Timer.Wait(function()
+NTP.RefreshAllPills() end,50)

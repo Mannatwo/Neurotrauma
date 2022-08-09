@@ -259,6 +259,13 @@ NT.ShowGUI = function ()
         OnChanged()
     end
 
+    local organRejection = GUI.TickBox(GUI.RectTransform(Vector2(1, 0.2), config.Content.RectTransform), "Organ rejection")
+    organRejection.Selected = NT.Config.organRejection
+    organRejection.OnSelected = function ()
+        NT.Config.organRejection = organRejection.State == 3
+        OnChanged()
+    end
+
     -- Surgery Plus specific options
     if NTSP~=nil then
 

@@ -297,6 +297,9 @@ Hook.Add("NTP.Chemalyzer.rename", "NTP.Chemalyzer.rename", function (effect, del
     if inv == nil then return end
     local containedItem = inv.GetItemAt(0)
     if containedItem==nil then return end
+    if containedItem.Condition == 1 then return end
+
+    containedItem.Condition = 1
 
     Timer.Wait(function()
         local newdescription = nil
@@ -304,9 +307,10 @@ Hook.Add("NTP.Chemalyzer.rename", "NTP.Chemalyzer.rename", function (effect, del
             newdescription=item.OriginalOutpost
         end
         local config = NTP.PillConfigFromPill(containedItem)
-        config.description = newdescription
+        config.description = HF.ReplaceString(newdescription,",","")
 
         NTP.SetPillFromConfig(containedItem,config)
         NTP.RefreshPillDescription(containedItem)
+        containedItem.Condition = 100
     end,250)
 end)

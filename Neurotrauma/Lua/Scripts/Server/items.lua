@@ -1254,7 +1254,7 @@ NT.ItemStartsWithMethods.livertransplant = function(item, usingCharacter, target
         HF.RemoveItem(item)
 
         local rejectionchance = HF.Clamp((HF.GetAfflictionStrength(targetCharacter,"immunity",0)-10)/150*NTC.GetMultiplier(usingCharacter,"organrejectionchance"),0,1)
-        if HF.Chance(rejectionchance) then
+        if HF.Chance(rejectionchance) and NT.Config.organRejection then
             HF.SetAffliction(targetCharacter,"liverdamage",100)
         end
     end
@@ -1271,7 +1271,7 @@ NT.ItemStartsWithMethods.hearttransplant = function(item, usingCharacter, target
         HF.RemoveItem(item)
 
         local rejectionchance = HF.Clamp((HF.GetAfflictionStrength(targetCharacter,"immunity",0)-10)/150*NTC.GetMultiplier(usingCharacter,"organrejectionchance"),0,1)
-        if HF.Chance(rejectionchance) then
+        if HF.Chance(rejectionchance) and NT.Config.organRejection then
             HF.SetAffliction(targetCharacter,"heartdamage",100)
         end
     end
@@ -1288,7 +1288,7 @@ NT.ItemStartsWithMethods.lungtransplant = function(item, usingCharacter, targetC
         HF.RemoveItem(item)
 
         local rejectionchance = HF.Clamp((HF.GetAfflictionStrength(targetCharacter,"immunity",0)-10)/150*NTC.GetMultiplier(usingCharacter,"organrejectionchance"),0,1)
-        if HF.Chance(rejectionchance) then
+        if HF.Chance(rejectionchance) and NT.Config.organRejection then
             HF.SetAffliction(targetCharacter,"lungdamage",100)
         end
     end
@@ -1305,7 +1305,7 @@ NT.ItemStartsWithMethods.kidneytransplant = function(item, usingCharacter, targe
         end, 5000)
 
         local rejectionchance = HF.Clamp((HF.GetAfflictionStrength(targetCharacter,"immunity",0)-10)/150*NTC.GetMultiplier(usingCharacter,"organrejectionchance"),0,1)
-        if HF.Chance(rejectionchance) then 
+        if HF.Chance(rejectionchance) and NT.Config.organRejection then 
             HF.RemoveItem(item)
             return
         end
