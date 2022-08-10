@@ -462,7 +462,7 @@
     limbspecific="False"
     indicatorlimb="Torso"
     showiconthreshold="700"
-    showinhealthscannerthreshold="10"
+    showinhealthscannerthreshold="1"
     maxstrength="100">
 
     <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="896,896,128,128" color="195,136,60,255" origin="0,0"/>
