@@ -34,7 +34,6 @@
     </Price>
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="60" requiresrecipe="true">
         <RequiredSkill identifier="medical" level="80"/>
-        <RequiredSkill identifier="surgery" level="80"/>
         <RequiredItem identifier="mannitol"/>
         <RequiredItem identifier="adrenaline"/>
         <RequiredItem identifier="liquidoxygenite"/>
