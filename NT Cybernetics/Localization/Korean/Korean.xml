@@ -4,10 +4,10 @@
 <!-- ITEMS -->
 
 <entityname.cyberarm>사이버 팔</entityname.cyberarm>
-<entitydescription.cyberarm>금속과 전자부품으로 만들어진 팔. 피가 나지 않습니다. 절단 후 설치하여 사용하십시오.</entitydescription.cyberarm>
+<entitydescription.cyberarm>금속과 전자부품으로 만들어진 팔. 피가 나지 않습니다. 해당 부위를 절단한 후 설치하십시오.</entitydescription.cyberarm>
 
 <entityname.cyberleg>사이버 다리</entityname.cyberleg>
-<entitydescription.cyberleg>금속과 전자부품으로 만든 다리. 피가 나지 않습니다. 절단 후 설치하여 사용하십시오.</entitydescription.cyberleg>
+<entitydescription.cyberleg>금속과 전자부품으로 만든 다리. 피가 나지 않습니다. 해당 부위를 절단한 후 설치하십시오.</entitydescription.cyberleg>
 
 <!-- AFFLICTIONS -->
 
@@ -15,10 +15,10 @@
 <afflictiondescription.ntc_cyberlimb></afflictiondescription.ntc_cyberlimb>
 
 <afflictionname.ntc_cyberarm>사이버 팔</afflictionname.ntc_cyberarm>
-<afflictiondescription.ntc_cyberarm>팔은 금속과 전자부품으로 만들어졌습니다.</afflictiondescription.ntc_cyberarm>
+<afflictiondescription.ntc_cyberarm>팔이 금속과 전자부품으로 만들어졌습니다.</afflictiondescription.ntc_cyberarm>
 
 <afflictionname.ntc_cyberleg>사이버 다리</afflictionname.ntc_cyberleg>
-<afflictiondescription.ntc_cyberleg>다리는 금속과 전자부품으로 만들어졌습니다.</afflictiondescription.ntc_cyberleg>
+<afflictiondescription.ntc_cyberleg>다리가 금속과 전자부품으로 만들어졌습니다.</afflictiondescription.ntc_cyberleg>
 
 
 <afflictionname.ntc_loosescrews>나사가 느슨함</afflictionname.ntc_loosescrews>
