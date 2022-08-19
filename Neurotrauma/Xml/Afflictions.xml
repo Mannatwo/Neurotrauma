@@ -3285,7 +3285,7 @@ thats what the vomiting symptom is for -->
     targets="human"
     limbspecific="false"
     maxstrength="10"
-    showinhealthscannerthreshold="0.5"
+    showinhealthscannerthreshold="1000"
     showiconthreshold="0.5"
     iconcolors="255,90,0,255;255,90,0,255">
     <Effect minstrength="0" maxstrength="1"/>
