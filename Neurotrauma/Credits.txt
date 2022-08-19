@@ -9,3 +9,5 @@ peelz - Bloodpack conversion code
 Vetinarix - Propofol maintenance
 JellyQoo - Korean localization
 MEI - Portuguese localization
+Oskar - Spanish localization
+mefy - Turkish localization

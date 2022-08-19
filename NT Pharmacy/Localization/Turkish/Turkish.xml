@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="Turkish" nowhitespace="false" translatedname="Türkçe">
+
+	<!-- ChemMaster 2k -->
+	<entityname.chemmaster>ChemMaster 2000</entityname.chemmaster>
+	<entitydescription.chemmaster>İçine yüklenen kimyasallardan hap yapan bir makine.</entitydescription.chemmaster>
+	
+	<lua.chemerror.header>ChemMaster 2000 - HATA!:</lua.chemerror.header>
+	<lua.chemerror.invaliditem>{id} geçerli bir bileşen değildir.</lua.chemerror.invaliditem>
+	<lua.chemerror.invalidcategory.base>{id} geçerli bir hap tabanı değil.</lua.chemerror.invalidcategory.base>
+	<lua.chemerror.invalidcategory.binder>{id} geçerli bir hap bağlayıcı değildir.</lua.chemerror.invalidcategory.binder>
+	<lua.chemerror.invalidcategory.filler>{id} geçerli bir hap dolgu maddesi değildir.</lua.chemerror.invalidcategory.filler>
+	<lua.chemerror.invalidcategory.active>{id} haplar için geçerli bir etken madde değildir.</lua.chemerror.invalidcategory.active>
+	<lua.chemerror.invalidcategory.dye>{id} geçerli bir hap boyası değildir.</lua.chemerror.invalidcategory.dye>
+	<lua.chemerror.outputfull>Çıkış yuvası dolu.</lua.chemerror.outputfull>
+	<lua.chemerror.missingbase>Eksik hap tabanı.</lua.chemerror.missingbase>
+	<lua.chemerror.missingbinder>Hap bağlayıcı eksik.</lua.chemerror.missingbinder>
+	<lua.chemerror.missingactive>Eksik etken maddeler.</lua.chemerror.missingactive>
+	<lua.chemerror.capacity>Bu yapılandırma {cap} kadar etken maddeyi destekler.</lua.chemerror.capacity>
+	<lua.chemerror.yield>Bu yapılandırma herhangi bir hap vermeyecektir.</lua.chemerror.yield>
+	<label.cm_makeone>Bir tane yap</label.cm_makeone>
+	<label.cm_makeall>Hepsini yap</label.cm_makeall>
+	<label.cm_description>Hap Açıklaması</label.cm_description>
+
+	<ItemMsgDetachCrowbar>Ayır(levye)</ItemMsgDetachCrowbar>
+	
+	<!-- Pill analyzer -->
+	<entityname.chemalyzer>Hap Analizörü</entityname.chemalyzer>
+	<entitydescription.chemalyzer>İçine yerleştirilen hapların bileşimini görüntüler.</entitydescription.chemalyzer>
+	<label.ca_analyze>Analiz</label.ca_analyze>
+	<lua.chemalyzer.header>Malzemeler:</lua.chemalyzer.header>
+	<label.ca_rename>Açıklama yaz</label.ca_rename>
+	
+	<!-- pill combos -->
+	<pillcombo.antihusk>Antihusk</pillcombo.antihusk>
+	
+	<!-- other items -->
+	<entityname.custompill>Özel Hap</entityname.custompill>
+	<entityname.custompill_horsepillAt Hapı</entityname.custompill_horsepill>
+	<entityname.custompill_tablets>Tablet</entityname.custompill_tablets>
+	<entitydescription.custompill>Bu hapın ne gibi etkileri olabileceğini kim bilebilir?</entitydescription.custompill>
+	<entitydescription.custompill_horsepill>Rastgele ağzına sokman için oldukça büyük.</entitydescription.custompill_horsepill>
+	<entitydescription.custompill_tablets>O kadar da kötü olamaz, değil mi?</entitydescription.custompill_tablets>
+	
+	<!-- containers -->
+	<entityname.antidotetoolbox>Antidote container</entityname.antidotetoolbox>
+	<entityname.machinetoolbox>Machine container</entityname.machinetoolbox>
+	<entityname.bonetoolbox>Bone container</entityname.bonetoolbox>
+	<entityname.biohazardtoolbox>Biohazard container</entityname.biohazardtoolbox>
+	<entityname.bufftoolbox>Buff container</entityname.bufftoolbox>
+	
+	<entityname.surgerycrate>Surgery crate</entityname.surgerycrate>
+	<entityname.antidotecrate>Antidote crate</entityname.antidotecrate>
+	<entityname.machinecrate>Machine crate</entityname.machinecrate>
+	<entityname.bonecrate>Bone crate</entityname.bonecrate>
+	<entityname.biohazardcrate>Biohazard crate</entityname.biohazardcrate>
+	<entityname.buffcrate>Buff crate</entityname.buffcrate>
+
+</infotexts>

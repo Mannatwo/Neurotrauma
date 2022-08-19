@@ -1627,7 +1627,6 @@
     </Price>
 
     <Deconstruct time="10">
-      <Item identifier="fpgacircuit"/>
       <Item identifier="plastic"/>
       <Item identifier="silicon"/>
     </Deconstruct>
@@ -1635,6 +1634,7 @@
       <RequiredSkill identifier="medical" level="50"/>
       <RequiredItem identifier="plastic"/>
       <RequiredItem identifier="silicon"/>
+      <RequiredItem identifier="fpgacircuit"/>
     </Fabricate>
 
     <InventoryIcon texture="%ModDir%/Images/InventoryItemIconAtlas.png" sourcerect="0,128,64,64"

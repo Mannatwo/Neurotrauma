@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="Spanish" nowhitespace="false" translatedname="Español">
+
+<!-- ITEMS -->
+
+<entityname.mannitolplus>Manitol plus</entityname.mannitolplus>
+<entitydescription.mannitolplus>Una versión mejorada de manitol. Se utiliza para tratar rápidamente el neurotrauma.</entitydescription.mannitolplus>
+
+<entityname.artificialbrain>Cerebro artificial</entityname.artificialbrain>
+<entitydescription.artificialbrain>Un cerebro artificial que permite al cuerpo seguir vivo cuando el cerebro original fue extirpado.</entitydescription.artificialbrain>
+
+<entityname.surgeonclothes>Bata de cirujano</entityname.surgeonclothes>
+<entitydescription.surgeonclothes>Una filipina quirúrgica estéril para la prevención de infecciones durante la cirugía.</entitydescription.surgeonclothes>
+
+<entityname.surgicalmask>Mascarilla quirúrgica</entityname.surgicalmask>
+<entitydescription.surgicalmask>Una máscara que mantiene los patógenos en el aire alejados de su paciente durante la cirugía.</entitydescription.surgicalmask>
+
+<entityname.brainjar>Tarro para cerebro</entityname.brainjar>
+<entitydescription.brainjar>Un contenedor para albergar trasplantes de cerebro indefinidamente</entitydescription.brainjar>
+
+<entityname.surgicaldrapes>Paños quirúrgicos</entityname.surgicaldrapes>
+<entitydescription.surgicaldrapes>Sábanas estériles para prevenir infecciones durante la cirugía.</entitydescription.surgicaldrapes>
+
+<entityname.skillbooksurgery>"Negligencias médica"</entityname.skillbooksurgery>
+<entitydescription.skillbooksurgery>Un libro que contiene numerosos procedimientos medicos y quirurgicos llevados acabo por medicos y ciruganos del IMSS,CESFAM y EPS</entitydescription.skillbooksurgery>
+
+<entityname.triagetag>Etiqueta de triaje (automática)</entityname.triagetag>
+<entitydescription.triagetag>Una etiqueta que se utiliza para determinar de manera eficiente el tipo y la urgencia de la atención requerida para un paciente en el caso de un evento con víctimas en masa.</entitydescription.triagetag>
+
+<entityname.manualtriagetag>Etiqueta de triaje (manual)</entityname.manualtriagetag>
+<entitydescription.manualtriagetag>Una etiqueta de triaje manual. Aplicar en las piernas para el verde, los brazos para el amarillo, el torso para el rojo y la cabeza para el negro.</entitydescription.manualtriagetag>
+
+<entityname.experimentaltreatment>Tratamiento experimental</entityname.experimentaltreatment>
+<entitydescription.experimentaltreatment>Una droga altamente experimental que puede causar poco o mucho bien o mal.</entitydescription.experimentaltreatment>
+
+
+<!-- AFFLICTIONS -->
+
+<afflictionname.preventativepermit>Permiso preventivo</afflictionname.preventativepermit>
+<afflictiondescription.preventativepermit>Las lesiones graves son menos probables.</afflictiondescription.preventativepermit>
+
+<afflictionname.artificialbrain>Cerebro artificial</afflictionname.artificialbrain>
+<afflictiondescription.artificialbrain>El paciente esta en un estado de inconciencia permanente, pero el cuerpo se mantiene con vida.</afflictiondescription.artificialbrain>
+
+<afflictionname.triagetag_green>Etiquetado: Menor</afflictionname.triagetag_green>
+<afflictiondescription.triagetag_green>Al paciente se le ha asignado la etiqueta de triaje "menor". No requieren tratamiento.</afflictiondescription.triagetag_green>
+
+<afflictionname.triagetag_yellow>Etiquetado: Retrasado</afflictionname.triagetag_yellow>
+<afflictiondescription.triagetag_yellow>Al paciente se le ha asignado la etiqueta de triaje "retrasada". Sus lesiones no son potencialmente mortales.</afflictiondescription.triagetag_yellow>
+
+<afflictionname.triagetag_red>Etiquetado: Inmediato</afflictionname.triagetag_red>
+<afflictiondescription.triagetag_red>Al paciente se le ha dado la etiqueta de triaje "inmediato". Requieren tratamiento inmediato.</afflictiondescription.triagetag_red>
+
+<afflictionname.triagetag_black>Etiquetado: Fallecido</afflictionname.triagetag_black>
+<afflictiondescription.triagetag_black>El paciente ha recibido la etiqueta de triaje "fallecido". La atención médica se gasta mejor en otro lugar. Ya chuparon faros</afflictiondescription.triagetag_black>
+
+
+<!-- JOBS -->
+
+<jobname.surgeon>Cirujano</jobname.surgeon>
+<jobdescription.surgeon>Mientras que el médico es más adecuado para los primeros auxilios y la respuesta rápida, el cirujano se especializa en la optimización de los procedimientos quirúrgicos. Menor riesgo de infección, ejecución más rápida, si tiene relación con la cirugía, lo tiene el cirujano.</jobdescription.surgeon>
+
+<skillname.surgery>Quirúrgico</skillname.surgery>
+
+<!-- TALENTS -->
+
+<talenttree.researcher>Investigador</talenttree.researcher>
+<talenttree.hospitalizer>Hospitalizado</talenttree.hospitalizer>
+<talenttree.fieldsurgeon>Cirujano de campo</talenttree.fieldsurgeon>
+
+<talentname.ntsp_autoimmune>Supresión Autoinmune</talentname.ntsp_autoimmune>
+<talentdescription.ntsp_autoimmune>Los órganos que trasplantas nunca son rechazados.</talentdescription.ntsp_autoimmune>
+
+<talentname.ntsp_firemanscarry>Extracción rápida</talentname.ntsp_firemanscarry>
+
+<talentname.ntsp_properfol>Profesional en Propofol</talentname.ntsp_properfol>
+<talentdescription.ntsp_properfol>[itemname] que administre instantáneamente surtirá efecto.</talentdescription.ntsp_properfol>
+
+<talentname.ntsp_soothingsurgeon>Cirujano calmante</talentname.ntsp_soothingsurgeon>
+<talentdescription.ntsp_soothingsurgeon>Las personas a las que operas sufren un shock menos traumático</talentdescription.ntsp_soothingsurgeon>
+
+<talentname.ntsp_imadoctornota>Soy un Doctor, no un licenciado</talentname.ntsp_imadoctornota>
+
+<talentname.ntsp_preventativepermit>Permiso preventivo</talentname.ntsp_preventativepermit>
+<talentdescription.ntsp_preventativepermit>La última persona a la que ordenaste gana [physical resistance]% de resistencia al daño y es menos probable que sufra lesiones graves.</talentdescription.ntsp_preventativepermit>
+
+<talentname.ntsp_medicallicence>Licencia medica</talentname.ntsp_medicallicence>
+<talentdescription.ntsp_medicallicence>Los órganos que tu extirpes se venderan al presio completo</talentdescription.ntsp_medicallicence>
+
+<talentname.ntsp_bedsidemanner>Buenos modales junto a la cama</talentname.ntsp_bedsidemanner>
+<talentdescription.ntsp_bedsidemanner>Los pacientes a su lado sanan pasivamente a un ritmo acelerado. El efecto se duplica si están acostados en la cama.</talentdescription.ntsp_bedsidemanner>
+
+<talentname.ntsp_rinseandrepeat>Enjuague y repita</talentname.ntsp_rinseandrepeat>
+<talentdescription.ntsp_rinseandrepeat>Los drenajes, balones endovasculares y agujas ya no se consumen al usarlos.</talentdescription.ntsp_rinseandrepeat>
+
+<talentname.ntsp_underpressure>Bajo presión</talentname.ntsp_underpressure>
+<talentdescription.ntsp_underpressure>Los pacientes inconscientes a su lado ganan [amount]% de pérdida de sangre, daño de órganos y resistencia al neurotrauma.</talentdescription.ntsp_underpressure>
+
+<talentname.ntsp_rapiddeoployment>Despliegue rápido</talentname.ntsp_rapiddeoployment>
+<talentdescription.ntsp_rapiddeoployment>Obtenga una velocidad de movimiento adicional igual al [skillpercentage]% de su habilidad de cirugía.</talentdescription.ntsp_rapiddeoployment>
+
+<talentname.ntsp_humanmachine>La máquina humana</talentname.ntsp_humanmachine>
+
+<talentname.ntsp_firstaidtraining>Avances en primeros auxilios</talentname.ntsp_firstaidtraining>
+<talentname.ntsp_mannitol>Maniaco del manitol</talentname.ntsp_mannitol>
+<talentname.ntsp_experimental>Abastecimiento negligente</talentname.ntsp_experimental>
+<talentname.ntsp_frankenstein>Dc.Frankenstein</talentname.ntsp_frankenstein>
+
+</infotexts>

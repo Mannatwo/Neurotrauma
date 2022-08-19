@@ -8,6 +8,8 @@
   <Text file="%ModDir%/Localization/French/French.xml" />
   <Text file="%ModDir%/Localization/Korean/Korean.xml" />
 	<Text file="%ModDir%/Localization/Portuguese/Portuguese.xml" />
+	<Text file="%ModDir%/Localization/Turkish/Turkish.xml" />
+	<Text file="%ModDir%/Localization/Spanish/Spanish.xml" />
 	<Jobs file="%ModDir%/Xml/Jobs.xml" />
   <Talents file="%ModDir%/Xml/TalentsSurgeon.xml" />
   <TalentTrees file="%ModDir%/Xml/TalentTrees.xml" />

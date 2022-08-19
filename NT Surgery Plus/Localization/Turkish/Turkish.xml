@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="Turkish" nowhitespace="false" translatedname="Türkçe">
+
+<!-- ITEMS -->
+
+<entityname.mannitolplus>Mannitol plus</entityname.mannitolplus>
+<entitydescription.mannitolplus>Mannitolün geliştirilmiş bir versiyonu. Nörotravmayı hızlı bir şekilde tedavi etmek için kullanılır.</entitydescription.mannitolplus>
+
+<entityname.artificialbrain>Yapay Beyin</entityname.artificialbrain>
+<entitydescription.artificialbrain>Orijinal beyin çıkarıldığında vücudu canlı tutan yapay bir beyin nakli.</entitydescription.artificialbrain>
+
+<entityname.surgeonclothes>cerrah kıyafeti</entityname.surgeonclothes>
+<entitydescription.surgeonclothes>Ameliyat sırasında enfeksiyonun önlenmesi için steril bir cerrahi scrubs.</entitydescription.surgeonclothes>
+
+<entityname.surgicalmask>Cerrahi Maske</entityname.surgicalmask>
+<entitydescription.surgicalmask>Ameliyat sırasında havadaki patojenleri hastanızdan uzak tutan bir maske.</entitydescription.surgicalmask>
+
+<entityname.brainjar>Beyin Kavanozu</entityname.brainjar>
+<entitydescription.brainjar>Beyin naklini süresiz olarak tutacak bir kap</entitydescription.brainjar>
+
+<entityname.surgicaldrapes>cerrahi örtüler</entityname.surgicaldrapes>
+<entitydescription.surgicaldrapes>Ameliyat sırasında enfeksiyonu önlemek için steril çarşaflar.</entitydescription.surgicaldrapes>
+
+<entityname.skillbooksurgery>'Tıbbi Suistimal'</entityname.skillbooksurgery>
+<entitydescription.skillbooksurgery>A handbook containing numerous surgical procedures and steps to reproduce them.</entitydescription.skillbooksurgery>
+
+<entityname.triagetag>Triyaj Etiketi (otomatik)</entityname.triagetag>
+<entitydescription.triagetag>Bir toplu yaralanma olayı durumunda bir hasta için gereken bakımın türünü ve aciliyetini etkili bir şekilde belirlemek için kullanılan bir etiket.</entitydescription.triagetag>
+
+<entityname.manualtriagetag>Triyaj Etiketi (manual)</entityname.manualtriagetag>
+<entitydescription.manualtriagetag>Manuel bir triyaj etiketi. Yeşil için bacaklara, sarı için kollara, kırmızı için gövdeye ve siyah için başa uygulayın.</entitydescription.manualtriagetag>
+
+<entityname.experimentaltreatment>deneysel tedavi</entityname.experimentaltreatment>
+<entitydescription.experimentaltreatment>Az ya da çok iyi ya da kötü sonuçlara neden olabilen oldukça deneysel bir ilaç.</entitydescription.experimentaltreatment>
+
+
+<!-- AFFLICTIONS -->
+
+<afflictionname.preventativepermit>önleyici izin</afflictionname.preventativepermit>
+<afflictiondescription.preventativepermit>Ciddi yaralanma daha az olasıdır.</afflictiondescription.preventativepermit>
+
+<afflictionname.artificialbrain>yapay beyin</afflictionname.artificialbrain>
+<afflictiondescription.artificialbrain>The patient is permanently unconscious, but the body remains alive.</afflictiondescription.artificialbrain>
+
+<afflictionname.triagetag_green>Etiketlendi: Küçük</afflictionname.triagetag_green>
+<afflictiondescription.triagetag_green>Hastaya "minör" triyaj etiketi verilmiştir. Tedavi gerektirmezler.</afflictiondescription.triagetag_green>
+
+<afflictionname.triagetag_yellow>Etiketlendi: Gecikmeli</afflictionname.triagetag_yellow>
+<afflictiondescription.triagetag_yellow>Hastaya "gecikmeli" triyaj etiketi verilmiştir. Yaraları hayati tehlike arz etmiyor.</afflictiondescription.triagetag_yellow>
+
+<afflictionname.triagetag_red>Etiketlendi: acil</afflictionname.triagetag_red>
+<afflictiondescription.triagetag_red>Hastaya "acil" triyaj etiketi verilmiştir. Acil tedavi gerektirirler.</afflictiondescription.triagetag_red>
+
+<afflictionname.triagetag_black>Etiketlendi: Eks</afflictionname.triagetag_black>
+<afflictiondescription.triagetag_black>Hastaya "eks" triyaj etiketi verildi. Tıbbi müdahale başka bir yerde daha iyi harcanır. Gittikleri kadar iyiler.</afflictiondescription.triagetag_black>
+
+
+<!-- JOBS -->
+
+<jobname.surgeon>Cerrah</jobname.surgeon>
+<jobdescription.surgeon>Tıp doktoru ilk yardım ve hızlı müdahale için daha uygun olsa da, cerrah cerrahi prosedürlerin optimizasyonunda uzmanlaşmıştır. Daha düşük enfeksiyon riski, daha hızlı uygulama, eğer ameliyatla ilgiliyse, cerrah buna sahiptir.</jobdescription.surgeon>
+
+<skillname.surgery>Cerrahi</skillname.surgery>
+
+<!-- TALENTS -->
+
+<talenttree.researcher>Araştırmacı</talenttree.researcher>
+<talenttree.hospitalizer>Hastane Doktoru</talenttree.hospitalizer>
+<talenttree.fieldsurgeon>Saha Cerrahı</talenttree.fieldsurgeon>
+
+<talentname.ntsp_autoimmune>otoimmünosupresyon</talentname.ntsp_autoimmune>
+<talentdescription.ntsp_autoimmune>Nakledilen organlar asla reddedilmez.</talentdescription.ntsp_autoimmune>
+
+<talentname.ntsp_firemanscarry>Hızlı çıkarma</talentname.ntsp_firemanscarry>
+
+<talentname.ntsp_properfol>Propofol profesyoneli</talentname.ntsp_properfol>
+<talentdescription.ntsp_properfol>uyguladığınız [itemname] anında yürürlüğe girer.</talentdescription.ntsp_properfol>
+
+<talentname.ntsp_soothingsurgeon>yatıştırıcı cerrah</talentname.ntsp_soothingsurgeon>
+<talentdescription.ntsp_soothingsurgeon>Ameliyat ettiğiniz kişiler daha az travmatik şok yaşar</talentdescription.ntsp_soothingsurgeon>
+
+<talentname.ntsp_imadoctornota>Ben sadece bir doktorum</talentname.ntsp_imadoctornota>
+
+<talentname.ntsp_preventativepermit>önleyici izin</talentname.ntsp_preventativepermit>
+<talentdescription.ntsp_preventativepermit>Son emir verdiğin kişi [physicalresistance]% hasar önlemesi kazanır ve daha az yara alır.</talentdescription.ntsp_preventativepermit>
+
+<talentname.ntsp_medicallicence>Tıbbi Diploma</talentname.ntsp_medicallicence>
+<talentdescription.ntsp_medicallicence>Çıkardığınız organları tam fiyattan satarsınız.</talentdescription.ntsp_medicallicence>
+
+<talentname.ntsp_bedsidemanner>Güzel başucu tarzı</talentname.ntsp_bedsidemanner>
+<talentdescription.ntsp_bedsidemanner>Yanınızdaki hastalar pasif olarak hızlandırılmış bir oranda iyileşir. Yatakta yatıyorlarsa etki iki katına çıkar.</talentdescription.ntsp_bedsidemanner>
+
+<talentname.ntsp_rinseandrepeat>Durulayın ve tekrarlayın</talentname.ntsp_rinseandrepeat>
+<talentdescription.ntsp_rinseandrepeat>Drenajlar, endovasküler balonlar ve iğneler artık onları kullandığınızda tüketilmiyor.</talentdescription.ntsp_rinseandrepeat>
+
+<talentname.ntsp_underpressure>Baskı altında</talentname.ntsp_underpressure>
+<talentdescription.ntsp_underpressure>Yakınındaki bilinçsiz hastaların kan kaybı, nörotravma ve organ hasarı [amount]% azalır.</talentdescription.ntsp_underpressure>
+
+<talentname.ntsp_rapiddeoployment>hızlı konumlanma</talentname.ntsp_rapiddeoployment>
+<talentdescription.ntsp_rapiddeoployment>Cerrahi yeteneğinin [skillpercentage]% kadarı yürüme hızı kazanırsın.</talentdescription.ntsp_rapiddeoployment>
+
+<talentname.ntsp_humanmachine>İnsan makinesi</talentname.ntsp_humanmachine>
+
+<talentname.ntsp_firstaidtraining>İlk yardım gelişmeleri</talentname.ntsp_firstaidtraining>
+<talentname.ntsp_mannitol>Mannitol manyağı</talentname.ntsp_mannitol>
+<talentname.ntsp_experimental>Etik olmayan kaynak kullanımı</talentname.ntsp_experimental>
+<talentname.ntsp_frankenstein>Dr. Frankenstein</talentname.ntsp_frankenstein>
+
+</infotexts>
