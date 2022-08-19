@@ -110,7 +110,7 @@
 <entityname.tourniquet>Turnike</entityname.tourniquet>
 <entitydescription.tourniquet>Bir uzva basınç uygulayan ve böylece kan akışını azaltan bir cihaz. Genellikle ekstremitelerde majör kanamalarda kullanılır. Baş bölgesinde kullanılmamalıdır.</entitydescription.tourniquet>
 
-<entityname.drenaj>Drainage</entityname.drainage>
+<entityname.drainage>Drainage</entityname.drainage>
 <entitydescription.drainage>Pnömotoraks için düzeltici cerrahi sırasında plevral boşluktan havayı boşaltır.</entitydescription.drainage>
 
 <entityname.needle>Dekompresyon İğnesi</entityname.needle>
