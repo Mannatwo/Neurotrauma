@@ -348,7 +348,7 @@ Can give blood to: AB+</entitydescription.abpluscard>
 <afflictionname.respiratoryarrest>Solunum durması</afflictionname.respiratoryarrest>
 <afflictiondescription.respiratoryarrest>Hasta nefes almıyor.</afflictiondescription.respiratoryarrest>
 
-<afflictionname.hyperventilation>Hiperventilasyon/afflictionname.hyperventilation>
+<afflictionname.hyperventilation>Hiperventilasyon</afflictionname.hyperventilation>
 <afflictiondescription.hyperventilation>Hasta ürkütücü bir hızla nefes alıyor.</afflictiondescription.hyperventilation>
 
 <afflictionname.hypoventilation>Hipoventilasyon</afflictionname.hypoventilation>

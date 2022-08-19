@@ -36,7 +36,7 @@
 	
 	<!-- other items -->
 	<entityname.custompill>Özel Hap</entityname.custompill>
-	<entityname.custompill_horsepillAt Hapı</entityname.custompill_horsepill>
+	<entityname.custompill_horsepill>At Hapı</entityname.custompill_horsepill>
 	<entityname.custompill_tablets>Tablet</entityname.custompill_tablets>
 	<entitydescription.custompill>Bu hapın ne gibi etkileri olabileceğini kim bilebilir?</entitydescription.custompill>
 	<entitydescription.custompill_horsepill>Rastgele ağzına sokman için oldukça büyük.</entitydescription.custompill_horsepill>
