@@ -81,7 +81,7 @@ end
 NT.HematologyDetectable = 
 {"sepsis","immunity","acidosis","alkalosis","bloodloss","bloodpressure",
 "afimmunosuppressant","afthiamine","afadrenaline","afstreptokinase","afantibiotics",
-"afsaline","afringerssolution"}
+"afsaline","afringerssolution","afpressuredrug"}
 NT.ItemMethods.bloodanalyzer = function(item, usingCharacter, targetCharacter, limb) 
     
     -- only work if no cooldown

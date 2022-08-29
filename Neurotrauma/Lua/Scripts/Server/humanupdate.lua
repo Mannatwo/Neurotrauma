@@ -293,6 +293,7 @@ NT.Afflictions = {
         local desiredbloodpressure =
             (c.stats.bloodamount
             - c.afflictions.tamponade.strength/2                    -- -50 if full tamponade
+            - HF.Clamp(c.afflictions.afpressuredrug.strength*5,0,45)-- -45 if blood pressure medication
             + HF.Clamp(c.afflictions.afadrenaline.strength*10,0,30) -- +30 if adrenaline
             ) * 
             (1+0.5*((c.afflictions.liverdamage.strength/100)^2)) *  -- elevated if full liver damage
@@ -478,6 +479,30 @@ NT.Afflictions = {
     analgesia={max=200},anesthesia={},drunk={max=200},
     afadrenaline={},afantibiotics={},afthiamine={},
     afstreptokinase={},afmannitol={},
+    afpressuredrug={update=function(c,i)
+        c.afflictions[i].strength = c.afflictions[i].strength - 0.25 * NT.Deltatime
+    end},
+    concussion={update=function(c,i)
+        c.afflictions[i].strength = c.afflictions[i].strength - 0.01 * NT.Deltatime
+        if c.afflictions[i].strength <= 0 then return end
+
+        -- cause headaches, blurred vision, nausea, confusion
+        if HF.Chance(HF.Clamp(c.afflictions[i].strength/10*0.08,0.02,0.08)) then
+
+            local case = math.random()
+
+            if case < 0.25 then
+                NTC.SetSymptomTrue(c.character,"sym_nausea",5 + math.random()*10)
+            elseif case < 0.5 then
+                NTC.SetSymptomTrue(c.character,"sym_blurredvision",5 + math.random()*9)
+            elseif case < 0.75 then
+                NTC.SetSymptomTrue(c.character,"sym_headache",6 + math.random()*8)
+            else
+                NTC.SetSymptomTrue(c.character,"sym_confusion",6 + math.random()*8)
+            end
+
+        end
+    end},
 
     -- /// Symptoms ///
     --==============================================================================
@@ -507,7 +532,10 @@ NT.Afflictions = {
             local fibrillationSpeed = -0.1
                 + HF.Clamp(c.afflictions.t_arterialcut.strength,0,2)            -- aortic rupture (very fast)
                 + HF.Clamp(c.afflictions.acidosis.strength/200,0,0.5)           -- acidosis (slow)
-                + HF.Clamp(0.9-(c.afflictions.bloodpressure.strength/90),0,1)*2 -- low blood pressure (varies)
+                + HF.Clamp(0.9-(                                                -- low blood pressure (varies)
+                    (c.afflictions.bloodpressure.strength
+                    + HF.Clamp(c.afflictions.afpressuredrug.strength*5,0,20)    -- less fibrillation from low blood pressure if blood pressure reducing medicines active
+                )/90),0,1)*2 
                 + HF.Clamp(c.afflictions.hypoxemia.strength/100,0,1)*1.5        -- hypoxemia (varies)
                 - HF.Clamp(c.afflictions.afadrenaline.strength,0,0.9)           -- faster defib if adrenaline
             

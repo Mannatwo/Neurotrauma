@@ -98,6 +98,9 @@
 <entityname.thiamine>Thiamine</entityname.thiamine>
 <entitydescription.thiamine>Otherwise known as vitamin B1, these pills will aid in organ healing.</entitydescription.thiamine>
 
+<entityname.pressuremeds>Pressure meds</entityname.pressuremeds>
+<entitydescription.pressuremeds>???</entitydescription.pressuremeds>
+
 <entityname.ointment>Antibiotic ointment</entityname.ointment>
 <entitydescription.ointment>A highly antiseptic gel that promotes the recovery from burns as well as from minor infections.</entitydescription.ointment>
 
@@ -212,6 +215,9 @@ Can give blood to: AB+</entitydescription.abpluscard>
 
 <entityname.organcrate>Refrigerated crate</entityname.organcrate> 
 <entitydescription.organcrate>A place to store your precious transplant-ready organs</entitydescription.organcrate>
+
+<entityname.medstartercrate>Medical starter crate</entityname.medstartercrate> 
+<entitydescription.medstartercrate>A crate that contains all the essentials, conveniently packaged into a single crafting recipe</entitydescription.medstartercrate>
 
 <entityname.organtoolbox>Refrigerated container</entityname.organtoolbox> 
 <entitydescription.organtoolbox>A place to store your precious transplant-ready organs</entitydescription.organtoolbox>
@@ -537,6 +543,9 @@ Can give blood to: AB+</entitydescription.abpluscard>
 
 <afflictionname.afthiamine>Thiamine</afflictionname.afthiamine>
 <afflictiondescription.afthiamine></afflictiondescription.afthiamine>
+
+<afflictionname.afpressuredrug>Blood pressure reducers</afflictionname.afpressuredrug>
+<afflictiondescription.afpressuredrug></afflictiondescription.afpressuredrug>
 
 <afflictionname.afsaline>Saline</afflictionname.afsaline>
 <afflictiondescription.afsaline></afflictiondescription.afsaline>

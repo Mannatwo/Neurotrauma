@@ -443,7 +443,7 @@ function HF.SpawnItemPlusFunction(identifier,func,params,inventory,targetslot)
                 inventory.TryPutItem(newitem, targetslot,true,true,nil)
             end
             params["item"]=newitem
-            func(params)
+            if func ~= nil then func(params) end
         end)
     else
         local newitem = Item(prefab, inventory.Container.Item.WorldPosition)
@@ -451,7 +451,7 @@ function HF.SpawnItemPlusFunction(identifier,func,params,inventory,targetslot)
             inventory.TryPutItem(newitem, targetslot,true,true,nil)
         end
         params["item"]=newitem
-        func(params)
+        if func ~= nil then func(params) end
     end
 end
 

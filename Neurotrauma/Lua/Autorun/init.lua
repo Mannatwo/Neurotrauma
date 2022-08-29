@@ -2,8 +2,8 @@
 
 NT = {} -- Neurotrauma
 NT.Name="Neurotrauma"
-NT.Version = "A1.7.15h1"
-NT.VersionNum = 01071501
+NT.Version = "A1.8"
+NT.VersionNum = 01080000
 NT.Path = table.pack(...)[1]
 
 -- config loading
@@ -70,6 +70,7 @@ if (Game.IsMultiplayer and SERVER) or not Game.IsMultiplayer then
     dofile(NT.Path.."/Lua/Scripts/Server/cpr.lua")
     dofile(NT.Path.."/Lua/Scripts/Server/surgerytable.lua")
     dofile(NT.Path.."/Lua/Scripts/Server/fuckbots.lua")
+    dofile(NT.Path.."/Lua/Scripts/Server/lootcrates.lua")
     
     dofile(NT.Path.."/Lua/Scripts/testing.lua")
 end

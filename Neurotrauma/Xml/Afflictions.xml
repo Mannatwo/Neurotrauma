@@ -1637,6 +1637,23 @@
     <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
+  <!-- Pressuredrugs / decreases blood pressure
+  hematology Drug -->
+  <Affliction
+    name=""
+    identifier="afpressuredrug"
+    description=""
+    healableinmedicalclinic="false"
+    targets="human"
+    type="resistance"
+    isbuff="false"
+    limbspecific="false"
+    showiconthreshold="200"
+    showinhealthscannerthreshold="200"
+    maxstrength="100">
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
+  </Affliction>
+
   <!-- Thiamine / heals organs
   hematology Drug -->
   <Affliction
@@ -4636,23 +4653,15 @@ thats what the vomiting symptom is for -->
       indicatorlimb="Head"
       activationthreshold="0"
       maxstrength="10"
-      healcostmultiplier="2.5">
+      showinhealthscannerthreshold="0.1"
+      showiconthreshold="10000"
+      healcostmultiplier="10">
       <Effect minstrength="0" maxstrength="10"
-        minvitalitydecrease="0"
-        maxvitalitydecrease="0"
         minscreendistort="0.02"
         maxscreendistort="0.1"
         minscreenblur="0.1"
         maxscreenblur="2.0"
-        screeneffectfluctuationfrequency="0.05"
-        strengthchange="-0.01"/>
-      <PeriodicEffect mininterval="30" maxinterval="60">
-        <StatusEffect target="Character" disabledeltatime="true">
-          <conditional ishuman="true"/>
-          <Affliction identifier="sym_vomiting" strength="2"/>
-          <Affliction identifier="seizure" strength="2" probability="0.5"/>
-        </StatusEffect>
-      </PeriodicEffect>
+        screeneffectfluctuationfrequency="0.05"/>
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,640,128,128" color="195,177,60,255" origin="0,0"/>
     </Affliction>
   </Override>
