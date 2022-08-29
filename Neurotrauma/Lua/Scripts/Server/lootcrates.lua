@@ -2,12 +2,9 @@
 Hook.Add("NT.medstartercrate.spawn", "NT.medstartercrate.spawn", function(effect, deltaTime, item, targets, worldPosition)
     if item == nil then return end
 
-    print("on spawn!")
-
     -- check if the item already got populated before
 
     local populated = item.HasTag("used")
-    print(populated)
     if populated then return end
 
     -- add used tag

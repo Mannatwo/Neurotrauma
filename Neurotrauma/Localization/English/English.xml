@@ -98,8 +98,8 @@
 <entityname.thiamine>Thiamine</entityname.thiamine>
 <entitydescription.thiamine>Otherwise known as vitamin B1, these pills will aid in organ healing.</entitydescription.thiamine>
 
-<entityname.pressuremeds>Pressure meds</entityname.pressuremeds>
-<entitydescription.pressuremeds>???</entitydescription.pressuremeds>
+<entityname.pressuremeds>Sodium nitroprusside</entityname.pressuremeds>
+<entitydescription.pressuremeds>A medication used to lower blood pressure.</entitydescription.pressuremeds>
 
 <entityname.ointment>Antibiotic ointment</entityname.ointment>
 <entitydescription.ointment>A highly antiseptic gel that promotes the recovery from burns as well as from minor infections.</entitydescription.ointment>

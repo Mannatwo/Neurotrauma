@@ -1112,8 +1112,6 @@
         <RequiredItem identifier="sulphuricacid"/>
     </Fabricate>
     <Deconstruct time="5">
-        <Item identifier="ethanol" copycondition="true" mincondition="0.1"/>
-        <Item identifier="phosphorus" copycondition="true" mincondition="0.1"/>
     </Deconstruct>
     <InventoryIcon texture="%ModDir%/Images/InventoryItemIconAtlas.png" sourcerect="196,196,64,64"
                     origin="0.5,0.5"/>
@@ -1154,13 +1152,10 @@
     </Price>
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="20" amount="3">
         <RequiredSkill identifier="medical" level="40"/>
-        <RequiredItem identifier="carbon"/>
-        <RequiredItem identifier="carbon"/>
+        <RequiredItem identifier="carbon" amount="2"/>
         <RequiredItem identifier="sulphuricacid"/>
     </Fabricate>
     <Deconstruct time="5">
-        <Item identifier="carbon" copycondition="true" mincondition="0.1"/>
-        <Item identifier="carbon" copycondition="true" mincondition="0.1"/>
     </Deconstruct>
     <InventoryIcon texture="%ModDir%/Images/InventoryItemIconAtlas.png" sourcerect="320,192,64,64" origin="0.5,0.5"/>
     <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="768,384,128,128" depth="0.6" origin="0.5,0.5"/>
@@ -1198,13 +1193,13 @@
     </Price>
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="20" amount="3">
         <RequiredSkill identifier="medical" level="30"/>
-        <RequiredItem identifier="carbon"/>
+        <RequiredItem identifier="sodium"/>
+        <RequiredItem identifier="nitroglycerin"/>
     </Fabricate>
     <Deconstruct time="5">
-        <Item identifier="carbon" outcondition="0.5" mincondition="0.1"/>
     </Deconstruct>
-    <InventoryIcon texture="%ModDir%/Images/InventoryItemIconAtlas.png" sourcerect="320,192,64,64" origin="0.5,0.5"/>
-    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="768,384,128,128" depth="0.6" origin="0.5,0.5"/>
+    <InventoryIcon texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="812,512,50,126" origin="0.5,0.5"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="812,512,50,126" depth="0.6" origin="0.5,0.5"/>
     <Body width="35" height="70" density="20"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
         <StatusEffect type="OnFailure" target="This" Condition="-100.0" disabledeltatime="true"/>
@@ -1840,7 +1835,7 @@
       <Containable items="medtoolbox,medical,surgerytoolbox" excludeditems="cargoscooter" />
     </ItemContainer>
     <ItemComponent>
-      <StatusEffect type="OnSpawn" target="this">
+      <StatusEffect type="OnSpawn" target="this" disabledeltatime="true">
         <LuaHook name="NT.medstartercrate.spawn" />
       </StatusEffect>
     </ItemComponent>
@@ -4257,5 +4252,53 @@
       </MeleeWeapon>
     </Item>
   
+  <!-- Nitroglycerin | change: now acts as blood pressure reducing medicine.-->
+  <Item name="" identifier="nitroglycerin" category="Material,Weapon" maxstacksize="8" description="" spritecolor="1.0,1.0,1.0,1.0" containercolor="1.0,1.0,1.0,1.0" cargocontaineridentifier="explosivecrate" Tags="smallitem,chem,medical" impacttolerance="6" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="secarmcab" secondary="armcab"/>
+    <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" amount="1" spawnprobability="0.01"/>
+    <Price baseprice="150">
+      <Price storeidentifier="merchantoutpost" sold="false" multiplier="1.4" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="2" sold="false"/>
+      <Price storeidentifier="merchantresearch" sold="false" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="4" />
+      <Price storeidentifier="merchantmine" sold="false" />
+      <Price storeidentifier="merchantarmory" multiplier="0.9" minavailable="4" />
+      <Price storeidentifier="merchantmedical" multiplier="0.9" minavailable="4" />
+    </Price>
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,768,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="110,414,31,62" depth="0.6" origin="0.5,0.5" />
+    <Body width="35" height="60" density="20" />
+    <Throwable characterusable="true" canbecombined="true" removeoncombined="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnImpact" target="This" Condition="0.0" setvalue="true" />
+      <StatusEffect type="OnFire" target="This" Condition="-50.0" />
+      <StatusEffect type="OnBroken" target="This" Condition="-100.0">
+        <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" selectionmode="All" range="8000" />
+        <sound file="Content/Items/Weapons/ExplosionDebris3.ogg" selectionmode="All" range="8000" />
+        <Explosion range="600.0" ballastfloradamage="60" structuredamage="200" itemdamage="1000" force="20.0" severlimbsprobability="0.4" decal="explosion" decalsize="0.5">
+          <Affliction identifier="burn" strength="50" />
+          <Affliction identifier="explosiondamage" strength="50" />
+          <Affliction identifier="stun" strength="5" />
+        </Explosion>
+        <Remove />
+      </StatusEffect>
+
+      <StatusEffect tags="medical" type="OnUse" target="Character" disabledeltatime="true">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+        <Affliction identifier="afpressuredrug" amount="100" />
+      </StatusEffect>
+      <StatusEffect tags="medical" type="OnUse" target="This" disabledeltatime="true">
+        <Remove/>
+      </StatusEffect>
+      <StatusEffect tags="medical" type="OnFailure" target="Character" disabledeltatime="true">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+        <Affliction identifier="afpressuredrug" amount="50" />
+      </StatusEffect>
+      <StatusEffect tags="medical" type="OnFailure" target="This" disabledeltatime="true">
+        <Remove/>
+      </StatusEffect>
+
+    </Throwable>
+  </Item>
+
   </Override>
 </Items>

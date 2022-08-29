@@ -719,7 +719,7 @@ NT.LimbAfflictions = {
     bandaged={update=function(c,limbaff,i)
         -- turning a bandage into a dirty bandage
         local wounddamage = limbaff.burn.strength+limbaff.lacerations.strength+limbaff.gunshotwound.strength+limbaff.bitewounds.strength+limbaff.explosiondamage.strength
-        local bandageDirtifySpeed = 0.1 + wounddamage/100 + limbaff.bleeding.strength/20
+        local bandageDirtifySpeed = 0.1 + HF.Clamp(wounddamage/100,0,0.4) + limbaff.bleeding.strength/20
         if limbaff[i].strength > 0 then 
             limbaff[i].strength=limbaff[i].strength-bandageDirtifySpeed*NT.Deltatime 
             if limbaff[i].strength <= 0 then 

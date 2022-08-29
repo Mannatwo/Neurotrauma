@@ -323,6 +323,14 @@ function HF.AddAffliction(character,identifier,strength,aggressor)
     aggressor,prevstrength)
 end
 
+function HF.AddAfflictionResisted(character,identifier,strength,aggressor)
+    local prevstrength = HF.GetAfflictionStrength(character,identifier,0)
+    strength = strength * (1-HF.GetResistance(character,identifier))
+    HF.SetAffliction(character,identifier,
+    strength+prevstrength,
+    aggressor,prevstrength)
+end
+
 function HF.GetResistance(character,identifier)
     local prefab = AfflictionPrefab.Prefabs[identifier]
     if character == nil or character.CharacterHealth == nil or prefab==nil then return 0 end

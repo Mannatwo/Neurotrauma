@@ -110,7 +110,8 @@
   <Other file="%ModDir%/Images/Human/Human_female_mask.png" />
   <Other file="%ModDir%/Images/Human/Human_male_mask.png" />
   <Other file="%ModDir%/Lua/Scripts/Server/ondamaged.lua" />
-  <Other file="%ModDir%/Lua/Scripts/Server/surgerytable.lua" />
+	<Other file="%ModDir%/Lua/Scripts/Server/surgerytable.lua" />
+	<Other file="%ModDir%/Lua/Scripts/Server/lootcrates.lua" />
   <Other file="%ModDir%/Sound/pills2.ogg" />
   <Other file="%ModDir%/Sound/pills1.ogg" />
   <Other file="%ModDir%/Sound/pills3.ogg" />
