@@ -63,6 +63,8 @@
   <entitydescription.immunosuppressant>장기 거부반응 예방용 면역억제제.</entitydescription.immunosuppressant>
   <entityname.thiamine>티아민</entityname.thiamine>
   <entitydescription.thiamine>비타민 B1으로 알려진 이 알약은 장기 치유에 도움이 됩니다.</entitydescription.thiamine>
+  <entityname.pressuremeds>나이트로프루사이드 나트륨</entityname.pressuremeds>
+  <entitydescription.pressuremeds>혈압을 낮추는 데 사용되는 약물.</entitydescription.pressuremeds>
   <entityname.ointment>항생제 연고</entityname.ointment>
   <entitydescription.ointment>화상 및 경미한 감염으로부터 회복을 촉진하는 살균력이 뛰어난 젤.</entitydescription.ointment>
   <entityname.endovascballoon>혈관 내 풍선</entityname.endovascballoon>
@@ -156,6 +158,8 @@
 <entitydescription.surgerytoolbox>수술 중 사용하는 많은 작은 물건을 보관할 수 있습니다.</entitydescription.surgerytoolbox>
 <entityname.organcrate>저온 상자</entityname.organcrate>
 <entitydescription.organcrate>소중한 이식용 장기를 보관하는 곳</entitydescription.organcrate>
+<entityname.medstartercrate>의료용 스타터 상자</entityname.medstartercrate>
+<entitydescription.medstartercrate>모든 필수품을 담은 상자로, 하나의 제작 레시피로 편리하게 포장되어 있습니다.</entitydescription.medstartercrate>
 <entityname.organtoolbox>저온 보관함</entityname.organtoolbox>
 <entitydescription.organtoolbox>소중한 이식용 장기를 보관하는 곳</entitydescription.organtoolbox>
 <entityname.bodybag>바디 백</entityname.bodybag>
@@ -399,6 +403,8 @@
 <afflictiondescription.afstreptokinase></afflictiondescription.afstreptokinase>
 <afflictionname.afthiamine>티아민</afflictionname.afthiamine>
 <afflictiondescription.afthiamine></afflictiondescription.afthiamine>
+<afflictionname.afpressuredrug>혈압 강하제</afflictionname.afpressuredrug>
+<afflictiondescription.afpressuredrug></afflictiondescription.afpressuredrug>
 <afflictionname.afsaline>식염수</afflictionname.afsaline>
 <afflictiondescription.afsaline></afflictiondescription.afsaline>
 <afflictionname.afringerssolution>링거액</afflictionname.afringerssolution>
