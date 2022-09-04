@@ -723,7 +723,7 @@
       </StatusEffect>
     </Effect>
     <PeriodicEffect mininterval="1" maxinterval="4">
-      <StatusEffect target="limb" targetlimb="LeftArm" disabledeltatime="true">
+      <StatusEffect target="limb" disabledeltatime="true">
         <Affliction identifier="gangrene" strength="1" probability="0.5" />
       </StatusEffect>
     </PeriodicEffect>
