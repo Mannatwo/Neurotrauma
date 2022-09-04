@@ -722,6 +722,11 @@
         <ReduceAffliction identifier="bleeding" strength="0.5"/>
       </StatusEffect>
     </Effect>
+    <PeriodicEffect mininterval="1" maxinterval="4">
+      <StatusEffect target="limb" targetlimb="LeftArm" disabledeltatime="true">
+        <Affliction identifier="gangrene" strength="1" probability="0.5" />
+      </StatusEffect>
+    </PeriodicEffect>
 		<icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="1,4" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
