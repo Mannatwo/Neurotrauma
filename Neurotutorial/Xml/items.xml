@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!-- components -->
+  <Item name="" identifier="nttut_subjectcomponent" category="Electrical" Tags="smallitem,logic" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+    <Deconstruct/>
+    <MemoryComponent canbeselected="false" AllowInGameEditing="false" Value="-1" />
+    <MemoryComponent canbeselected="false" AllowInGameEditing="false" Value="-1" />
+    <Sprite texture="%ModDir%/Images/signalcomp.png" depth="0.8" sourcerect="0,0,32,32" origin="0.5,0.5" />
+    <Body width="31" height="25" density="30" />
+    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="85,-10" handle1="0,0" attachable="true" aimable="true">
+      <RequiredItem items="wrench" type="Equipped" />
+      <StatusEffect type="always" target="this">
+        <LuaHook name="nttut_subjectcomponent" />
+      </StatusEffect>
+    </Holdable>
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <input name="in_scenario" displayname="connection.subject_scenario_in" />
+      <output name="out_scenario" displayname="connection.subject_scenario_out" />
+      <output name="out_state" displayname="connection.subject_state_out" />
+    </ConnectionPanel>
+  </Item>
+</Items>

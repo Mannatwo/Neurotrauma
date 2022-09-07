@@ -32,9 +32,10 @@ function NT.Update()
     -- we spread the characters out over the duration of an update so that the load isnt done all at once
     for key, value in pairs(updateHumans) do
         -- make sure theyre still alive and human
-        if (value ~= nil and value.IsHuman and not value.IsDead) then
+        if (value ~= nil and not value.Removed and value.IsHuman and not value.IsDead) then
             Timer.Wait(function ()
-                NT.UpdateHuman(value)
+                if (value ~= nil and not value.Removed and value.IsHuman and not value.IsDead) then
+                NT.UpdateHuman(value) end
             end, ((key + 1) / amountHumans) * NT.Deltatime * 1000)
         end
     end

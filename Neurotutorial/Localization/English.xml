@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="English" nowhitespace="false" translatedname="English">
+  <!-- ITEMS -->
+  <!-- signal components -->
+
+  <entityname.nttut_subjectcomponent>Scenario component</entityname.nttut_subjectcomponent>
+  <entitydescription.nttut_subjectcomponent>Requires Lua. Controls scenarios.</entitydescription.nttut_subjectcomponent>
+
+  <!-- connections -->
+  <connection.subject_scenario_in>scenario_in</connection.subject_scenario_in>
+  <connection.subject_scenario_out>scenario_out</connection.subject_scenario_out>
+  <connection.subject_state_out>state_out</connection.subject_state_out>
+
+</infotexts>
