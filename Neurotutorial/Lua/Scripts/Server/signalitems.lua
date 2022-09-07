@@ -3,26 +3,31 @@ NTTut.signalReceivedMethods = {}
 NTTut.signalProcessingMethods = {}
 NTTut.signalCache = {}
 
-local function SpawnSubject(position,name)
+local function SpawnSubject(position,name,job,team,dontgivejobitems,dontgiveobjective)
     local info = CharacterInfo("human", name or "Robert")
-    info.Job = Job(JobPrefab.Get("assistant"))
+    info.Job = Job(JobPrefab.Get(job or "assistant"))
     local character = Character.Create(info, position, tostring(math.random(0, 1000000)), 0, false, true)
-    character.TeamID = CharacterTeamType.Team1
+    character.TeamID = team or CharacterTeamType.Team1
 
     if CLIENT and Game.GameSession ~= nil then
-        character.TeamID = CharacterTeamType.Team1
         Game.GameSession.CrewManager.AddCharacter(character)         
     end
 
-    character.GiveJobItems()
-    character.Info.StartItemsGiven = true
+    if not dontgivejobitems then
+        character.GiveJobItems()
+        character.Info.StartItemsGiven = true
+    end
 
-    local orderPrefab = OrderPrefab.Prefabs["wait"]
+    if not dontgiveobjective then
+        local orderPrefab = OrderPrefab.Prefabs["wait"]
 
-    local hull = Hull.FindHull(position)
-    local order = Order(orderPrefab, OrderTarget(position, hull)).WithManualPriority(CharacterInfo.HighestManualOrderPriority)
+        local hull = Hull.FindHull(position)
+        local order = Order(orderPrefab, OrderTarget(position, hull)).WithManualPriority(CharacterInfo.HighestManualOrderPriority)
 
-    character.SetOrder(order, true, false, true)
+        character.SetOrder(order, true, false, true)
+    end
+
+    character.Stun = 0.1
 
     return character
 end
@@ -67,6 +72,29 @@ NTTut.scenarios = {
             item.SendSignal(tostring(state), "out_state")
         end
     },
+    dummy={
+        startfunc=function(item,data)
+            Timer.Wait(function()
+                local character = SpawnSubject(item.WorldPosition)
+                data.character=character
+            end,1)
+        end,
+        endfunc=function(item,data)
+            NTTut.HF.RemoveCharacter(data.character)
+        end,
+        update=function(item,data)
+            if data.character == nil then return end
+
+            local state = 1 -- 1: in progress, 0: failed, 2: success
+            if data.character == nil then
+                state = -1
+            elseif data.character.IsDead then
+                state=0
+            end
+
+            item.SendSignal(tostring(state), "out_state")
+        end
+    },
     -- bone corridor
     dislocations={
         startfunc=function(item,data)
@@ -75,6 +103,7 @@ NTTut.scenarios = {
                 NT.DislocateLimb(character,LimbType.LeftArm,100)
                 NT.DislocateLimb(character,LimbType.RightArm,100)
                 NT.DislocateLimb(character,LimbType.LeftLeg,100)
+                HF.GiveItem(character,"opium")
                 data.character=character
             end,1)
         end,
@@ -111,6 +140,8 @@ NTTut.scenarios = {
                 NT.BreakLimb(character,LimbType.LeftArm,100)
                 NT.BreakLimb(character,LimbType.RightArm,100)
                 NT.BreakLimb(character,LimbType.LeftLeg,100)
+                for i = 1,4,1 do HF.GiveItem(character,"antibleeding1") end
+                for i = 1,4,1 do HF.GiveItem(character,"gypsum") end
                 data.character=character
             end,1)
         end,
@@ -143,6 +174,7 @@ NTTut.scenarios = {
                 local character = SpawnSubject(item.WorldPosition,"Pinhead")
                 HF.SetAffliction(character,"h_fracture",100)
                 HF.SetAffliction(character,"cerebralhypoxia",20)
+                HF.GiveItem(character,"osteosynthesisimplants")
                 data.character=character
             end,1)
         end,
@@ -172,6 +204,8 @@ NTTut.scenarios = {
             Timer.Wait(function()
                 local character = SpawnSubject(item.WorldPosition,"Pinhead")
                 HF.SetAffliction(character,"n_fracture",100)
+                HF.GiveItem(character,"osteosynthesisimplants")
+                HF.GiveItem(character,"spinalimplant")
                 data.character=character
             end,1)
         end,
@@ -202,6 +236,8 @@ NTTut.scenarios = {
             Timer.Wait(function()
                 local character = SpawnSubject(item.WorldPosition,"Ribert")
                 HF.SetAffliction(character,"t_fracture",100)
+                HF.GiveItem(character,"osteosynthesisimplants")
+                HF.GiveItem(character,"drainage")
                 data.character=character
             end,1)
         end,
@@ -232,6 +268,8 @@ NTTut.scenarios = {
             Timer.Wait(function()
                 local character = SpawnSubject(item.WorldPosition,"Ribert")
                 HF.SetAffliction(character,"bonedamage",100)
+                HF.GiveItem(character,"osteosynthesisimplants")
+                HF.GiveItem(character,"osteosynthesisimplants")
                 data.character=character
             end,1)
         end,
@@ -264,6 +302,11 @@ NTTut.scenarios = {
                 for t in limbTypes do
                     HF.SetAfflictionLimb(character,"burn",t,50)
                 end
+                for i = 1,8,1 do HF.GiveItem(character,"antibleeding2") end
+                for i = 1,8,1 do HF.GiveItem(character,"ointment") end
+                HF.GiveItemPlusFunction("antisepticspray",function(params2)
+                    HF.SpawnItemPlusFunction("antiseptic",nil,nil,params2.item.OwnInventory,0)
+                end,nil,character)
                 data.character=character
             end,1)
         end,
@@ -299,6 +342,8 @@ NTTut.scenarios = {
             Timer.Wait(function()
                 local character = SpawnSubject(item.WorldPosition,"Based Barney")
                 HF.SetAffliction(character,"alkalosis",30)
+                for i = 1,2,1 do HF.GiveItem(character,"antibloodloss1") end
+                HF.GiveItem(character,"bloodanalyzer")
                 data.character=character
             end,1)
         end,
@@ -327,6 +372,8 @@ NTTut.scenarios = {
             Timer.Wait(function()
                 local character = SpawnSubject(item.WorldPosition,"Cringe Carl")
                 HF.SetAffliction(character,"acidosis",30)
+                for i = 1,4,1 do HF.GiveItem(character,"raptorbaneextract") end
+                HF.GiveItem(character,"bloodanalyzer")
                 data.character=character
             end,1)
         end,
@@ -360,6 +407,8 @@ NTTut.scenarios = {
                 local character = SpawnSubject(item.WorldPosition,"Bleeder Robert")
                 HF.SetAffliction(character,"bloodloss",50)
                 HF.SetAffliction(character,"bloodpressure",50)
+                for i = 1,2,1 do HF.GiveItem(character,"antibloodloss2") end
+                HF.GiveItem(character,"bloodanalyzer")
                 data.character=character
             end,1)
         end,
@@ -395,6 +444,9 @@ NTTut.scenarios = {
                 HF.SetAffliction(character,"bloodpressure",150)
                 HF.SetAffliction(character,"afadrenaline",100)
                 HF.SetAffliction(character,"afringerssolution",100)
+                for i = 1,2,1 do HF.GiveItem(character,"pressuremeds") end
+                for i = 1,2,1 do HF.GiveItem(character,"nitroglycerin") end
+                HF.GiveItem(character,"bloodanalyzer")
                 data.character=character
             end,1)
         end,
@@ -434,6 +486,8 @@ NTTut.scenarios = {
                 HF.SetAffliction(character,"lungdamage",20)
                 HF.SetAffliction(character,"kidneydamage",20)
                 HF.SetAffliction(character,"liverdamage",20)
+                for i = 1,2,1 do HF.GiveItem(character,"antibiotics") end
+                HF.GiveItem(character,"bloodanalyzer")
                 data.character=character
             end,1)
         end,
@@ -463,13 +517,11 @@ NTTut.scenarios = {
             Timer.Wait(function()
                 local character = SpawnSubject(item.WorldPosition,"Robert")
                 HF.SetAffliction(character,"bloodloss",25)
-                Timer.Wait(function()
-                    HF.GiveItem(character,"alienblood")
-                    HF.GiveItem(character,"streptokinase")
-                    HF.GiveItem(character,"antibloodloss2")
-                    HF.GiveItem(character,"bloodpackaplus")
-                    HF.GiveItem(character,"bloodanalyzer")
-                end,1)
+                HF.GiveItem(character,"alienblood")
+                HF.GiveItem(character,"streptokinase")
+                HF.GiveItem(character,"antibloodloss2")
+                HF.GiveItem(character,"bloodpackaplus")
+                HF.GiveItem(character,"bloodanalyzer")
                 data.character=character
             end,1)
         end,
@@ -500,6 +552,8 @@ NTTut.scenarios = {
             Timer.Wait(function()
                 local character = SpawnSubject(item.WorldPosition,"Lungolf")
                 HF.SetAffliction(character,"pneumothorax",100)
+                for i = 1,1,1 do HF.GiveItem(character,"needle") end
+                for i = 1,1,1 do HF.GiveItem(character,"drainage") end
                 data.character=character
             end,1)
         end,
@@ -516,6 +570,324 @@ NTTut.scenarios = {
                 state=0
             elseif
                 not HF.HasAffliction(data.character,"pneumothorax")
+            then
+                state=2
+            end
+
+            item.SendSignal(tostring(state), "out_state")
+        end
+    },
+    tamponade={
+        startfunc=function(item,data)
+            Timer.Wait(function()
+                local character = SpawnSubject(item.WorldPosition,"Heartie")
+                HF.SetAffliction(character,"tamponade",100)
+                data.character=character
+            end,1)
+        end,
+        endfunc=function(item,data)
+            NTTut.HF.RemoveCharacter(data.character)
+        end,
+        update=function(item,data)
+            if data.character == nil or data.character.Removed then return end
+
+            local state = 1 -- 1: in progress, 0: failed, 2: success
+            if data.character == nil then
+                state = -1
+            elseif data.character.IsDead then
+                state=0
+            elseif
+                not HF.HasAffliction(data.character,"tamponade")
+                and not HF.HasAffliction(data.character,"cardiacarrest")
+                and not HF.HasAffliction(data.character,"fibrillation")
+                and not HF.HasAffliction(data.character,"tachycardia",50)
+            then
+                state=2
+            end
+
+            item.SendSignal(tostring(state), "out_state")
+        end
+    },
+    internalbleeding={
+        startfunc=function(item,data)
+            Timer.Wait(function()
+                local character = SpawnSubject(item.WorldPosition,"Robert")
+                HF.SetAffliction(character,"internalbleeding",50)
+                HF.GiveItem(character,"antibloodloss2")
+                HF.GiveItem(character,"antibloodloss2")
+                HF.GiveItem(character,"antibloodloss2")
+                data.character=character
+            end,1)
+        end,
+        endfunc=function(item,data)
+            NTTut.HF.RemoveCharacter(data.character)
+        end,
+        update=function(item,data)
+            if data.character == nil or data.character.Removed then return end
+
+            local state = 1 -- 1: in progress, 0: failed, 2: success
+            if data.character == nil then
+                state = -1
+            elseif data.character.IsDead then
+                state=0
+            elseif
+                not HF.HasAffliction(data.character,"internalbleeding")
+                and not HF.HasAffliction(data.character,"bloodloss")
+                and not HF.HasAffliction(data.character,"cardiacarrest")
+                and not HF.HasAffliction(data.character,"fibrillation")
+                and not HF.HasAffliction(data.character,"tachycardia",50)
+            then
+                state=2
+            end
+
+            item.SendSignal(tostring(state), "out_state")
+        end
+    },
+    aorticrupture={
+        startfunc=function(item,data)
+            Timer.Wait(function()
+                local character = SpawnSubject(item.WorldPosition,"Sir Diesalot")
+                HF.SetAffliction(character,"t_arterialcut",50)
+                HF.SetAffliction(character,"bloodloss",70)
+                HF.SetAffliction(character,"stun",4)
+                HF.SetAffliction(character,"sym_unconsciousness",100)
+                HF.SetAffliction(character,"fibrillation",20)
+                for i = 1,8,1 do HF.GiveItem(character,"antibloodloss2") end
+                HF.GiveItem(character,"endovascballoon")
+                HF.GiveItem(character,"medstent")
+                data.character=character
+            end,1)
+        end,
+        endfunc=function(item,data)
+            NTTut.HF.RemoveCharacter(data.character)
+        end,
+        update=function(item,data)
+            if data.character == nil or data.character.Removed then return end
+
+            local state = 1 -- 1: in progress, 0: failed, 2: success
+            if data.character == nil then
+                state = -1
+            elseif data.character.IsDead then
+                state=0
+            elseif
+                not HF.HasAffliction(data.character,"t_arterialcut")
+                and not HF.HasAffliction(data.character,"bloodloss",20)
+                and not HF.HasAffliction(data.character,"cardiacarrest")
+                and not HF.HasAffliction(data.character,"fibrillation")
+                and not HF.HasAffliction(data.character,"tachycardia",50)
+            then
+                state=2
+            end
+
+            item.SendSignal(tostring(state), "out_state")
+        end
+    },
+    -- sim center
+    mudraptors={
+        startfunc=function(item,data)
+            Timer.Wait(function()
+                local character = SpawnSubject(item.WorldPosition,"Bait")
+                data.character=character
+
+                data.raptors = {}
+                for i=1,8,1 do
+                    local raptor = Character.Create("mudraptor", item.WorldPosition, tostring(math.random(0, 1000000)))
+                    table.insert(data.raptors,raptor)
+                end
+
+            end,1)
+            Timer.Wait(function()
+                for raptor in data.raptors do
+                    NTTut.HF.RemoveCharacter(raptor)
+                end
+                data.raptors = {}
+            end,10000)
+        end,
+        endfunc=function(item,data)
+            NTTut.HF.RemoveCharacter(data.character)
+
+            for raptor in data.raptors do
+                NTTut.HF.RemoveCharacter(raptor)
+            end
+            data.raptors = {}
+        end,
+        update=function(item,data)
+            if data.character == nil or data.character.Removed then return end
+
+            -- remove raptors early if the patient is at half health
+            if data.character.Vitality/data.character.MaxVitality < 0.5 then
+                for raptor in data.raptors do
+                    NTTut.HF.RemoveCharacter(raptor)
+                end
+                data.raptors = {}
+            end
+
+            local state = 1 -- 1: in progress, 0: failed, 2: success
+            if data.character == nil then
+                state = -1
+            elseif data.character.IsDead then
+                state=0
+            elseif
+                not HF.HasAffliction(data.character,"bloodloss")
+                and data.character.Vitality/data.character.MaxVitality > 0.9
+                and not HF.HasAffliction(data.character,"fibrillation")
+                and not HF.HasAffliction(data.character,"cardiacarrest")
+            then
+                state=2
+            end
+
+            item.SendSignal(tostring(state), "out_state")
+        end
+    },
+    radiation={
+        startfunc=function(item,data)
+            Timer.Wait(function()
+                local character = SpawnSubject(item.WorldPosition,"Glowen")
+                HF.SetAffliction(character,"radiationsickness",150)
+                HF.SetAffliction(character,"organdamage",40)
+                HF.SetAffliction(character,"heartdamage",40)
+                HF.SetAffliction(character,"lungdamage",40)
+                HF.SetAffliction(character,"kidneydamage",40)
+                HF.SetAffliction(character,"liverdamage",40)
+                for i = 1,4,1 do HF.GiveItem(character,"antirad") end
+                for i = 1,2,1 do HF.GiveItem(character,"thiamine") end
+                data.character=character
+            end,1)
+        end,
+        endfunc=function(item,data)
+            NTTut.HF.RemoveCharacter(data.character)
+        end,
+        update=function(item,data)
+            if data.character == nil or data.character.Removed then return end
+
+            local state = 1 -- 1: in progress, 0: failed, 2: success
+            if data.character == nil then
+                state = -1
+            elseif data.character.IsDead then
+                state=0
+            elseif
+                not HF.HasAffliction(data.character,"radiationsickness")
+                and not HF.HasAffliction(data.character,"sym_unconsciousness")
+                and not HF.HasAffliction(data.character,"heartdamage",40)
+                and not HF.HasAffliction(data.character,"lungdamage",40)
+                and not HF.HasAffliction(data.character,"kidneydamage",40)
+                and not HF.HasAffliction(data.character,"liverdamage",40)
+            then
+                state=2
+            end
+
+            item.SendSignal(tostring(state), "out_state")
+        end
+    },
+    bandits={
+        startfunc=function(item,data)
+            Timer.Wait(function()
+                local character = SpawnSubject(item.WorldPosition,"Bait")
+                data.character=character
+
+                data.bandits = {}
+                for i=1,2,1 do
+                    local bandit = SpawnSubject(item.WorldPosition,"Bandit","securityofficer",CharacterTeamType.Team2,true,true)
+                    
+                    HF.SpawnItemPlusFunction("securityuniform1",nil,nil,bandit.Inventory,3,item.WorldPosition)
+                    HF.SpawnItemPlusFunction("bodyarmor",nil,nil,bandit.Inventory,4,item.WorldPosition)
+                    HF.SpawnItemPlusFunction("ballistichelmet1",nil,nil,bandit.Inventory,2,item.WorldPosition)
+                    HF.SpawnItemPlusFunction("shotgun",function(params)
+                        for j=1,6,1 do HF.SpawnItemPlusFunction("shotgunshell",nil,nil,params.item.OwnInventory,0) end
+                    end,nil,bandit.Inventory,5,item.WorldPosition)
+
+                    local ai = bandit.AIController
+                    ai.AddCombatObjective(AIObjectiveCombat.CombatMode.Offensive, character)
+                    
+                    table.insert(data.bandits,bandit)
+                end
+
+            end,1)
+            Timer.Wait(function()
+                for bandit in data.bandits do
+                    NTTut.HF.RemoveCharacter(bandit)
+                end
+                data.bandits = {}
+            end,10000)
+        end,
+        endfunc=function(item,data)
+            NTTut.HF.RemoveCharacter(data.character)
+
+            for bandit in data.bandits do
+                NTTut.HF.RemoveCharacter(bandit)
+            end
+            data.bandits = {}
+        end,
+        update=function(item,data)
+            if data.character == nil or data.character.Removed then return end
+
+            -- remove bandits early if the patient is knocked out
+            if data.character.Vitality/data.character.MaxVitality <= 0 then
+                for bandit in data.bandits do
+                    NTTut.HF.RemoveCharacter(bandit)
+                end
+                data.bandits = {}
+            end
+
+            local state = 1 -- 1: in progress, 0: failed, 2: success
+            if data.character == nil then
+                state = -1
+            elseif data.character.IsDead then
+                state=0
+            elseif
+                not HF.HasAffliction(data.character,"bloodloss")
+                and data.character.Vitality/data.character.MaxVitality > 0.9
+                and not HF.HasAffliction(data.character,"fibrillation")
+                and not HF.HasAffliction(data.character,"cardiacarrest")
+                and not HF.HasAffliction(data.character,"pneumothorax")
+                and not HF.HasAffliction(data.character,"tamponade")
+                and not HF.HasAffliction(data.character,"internalbleeding")
+                and not HF.HasAffliction(data.character,"bleeding")
+                and not HF.HasAffliction(data.character,"foreignbody",15)
+            then
+                state=2
+            end
+
+            item.SendSignal(tostring(state), "out_state")
+        end
+    },
+    asphyxiation={
+        startfunc=function(item,data)
+            Timer.Wait(function()
+                local character = SpawnSubject(item.WorldPosition,"Edgegar")
+                HF.SetAffliction(character,"oxygenlow",200)
+                HF.SetAffliction(character,"stun",10)
+                HF.SetAffliction(character,"sym_unconsciousness",10)
+                HF.SetAffliction(character,"hypoxemia",100)
+                for i = 1,2,1 do HF.GiveItem(character,"liquidoxygenite") end
+                for i = 1,2,1 do HF.GiveItem(character,"adrenaline") end
+                for i = 1,1,1 do HF.GiveItem(character,"mannitol") end
+
+                HF.SpawnItemPlusFunction("divingsuit",nil,nil,character.Inventory,4,item.WorldPosition)
+
+                data.character=character
+            end,1)
+        end,
+        endfunc=function(item,data)
+            NTTut.HF.RemoveCharacter(data.character)
+        end,
+        update=function(item,data)
+            if data.character == nil or data.character.Removed then return end
+
+            local state = 1 -- 1: in progress, 0: failed, 2: success
+            if data.character == nil then
+                state = -1
+            elseif data.character.IsDead then
+                state=0
+            elseif
+                not HF.HasAffliction(data.character,"hypoxemia")
+                and not HF.HasAffliction(data.character,"sym_unconsciousness")
+                and not HF.HasAffliction(data.character,"oxygenlow")
+                and not HF.HasAffliction(data.character,"respiratoryarrest")
+                and not HF.HasAffliction(data.character,"cardiacarrest")
+                and not HF.HasAffliction(data.character,"tachycardia",20)
+                and not HF.HasAffliction(data.character,"fibrillation")
+                and not HF.HasAffliction(data.character,"cerebralhypoxia",50)
             then
                 state=2
             end
