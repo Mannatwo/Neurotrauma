@@ -706,4 +706,13 @@ Can give blood to: AB+</entitydescription.abpluscard>
 <!-- misc -->
 <roomname.surgical>Cerrahi</roomname.surgical>
 
+<!-- A1.8 -->
+<afflictionname.afpressuredrug>Tansiyon Düşürücü</afflictionname.afpressuredrug>
+
+<entityname.pressuremeds>Sodyum Nitroprussid</entityname.pressuremeds>
+<entitydescription.pressuremeds>Tansiyonu düşürmek için kullanılan bir ilaç.</entitydescription.pressuremeds>
+
+<entityname.medstartercrate>Tıbbi Başlangıç Sandığı</entityname.medstartercrate> 
+<entitydescription.medstartercrate>Tüm temel unsurları içeren, tek bir üretim tarifine uygun şekilde paketlenmiş bir sandık.</entitydescription.medstartercrate> 
+
 </infotexts>

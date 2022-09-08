@@ -708,4 +708,11 @@
 <afflictionname.afthiamine>Тиамин</afflictionname.afthiamine>
 <afflictiondescription.afthiamine></afflictiondescription.afthiamine>
 
+<!-- A1.8 -->
+<entityname.pressuremeds>Нитропруссид натрия</entityname.pressuremeds>
+<entitydescription.pressuremeds>Препарат, применяющийся для снижения артериального давления.</entitydescription.pressuremeds>
+
+<entityname.medstartercrate>Стартовый медицинский набор</entityname.medstartercrate> 
+<entitydescription.medstartercrate>Ящик, в котором есть всё необходимое, и легко собираемый единственным крафтом/entitydescription.medstartercrate>
+
 </infotexts>

@@ -705,4 +705,13 @@ Peut donner du sang à: AB+</entitydescription.abpluscard>
 <!-- misc -->
 <roomname.surgical>Chirurgie</roomname.surgical>
 
+<!-- A1.8 -->
+<afflictionname.afpressuredrug>réducteur de pression sanguine</afflictionname.afpressuredrug>
+
+<entityname.pressuremeds>Nitroprussiate de sodium</entityname.pressuremeds>
+<entitydescription.pressuremeds>Médicament vasodilateur utilisé pour diminuer la tension artérielle.</entitydescription.pressuremeds>
+
+<entityname.medstartercrate>Coffret de débutant en médecine</entityname.medstartercrate> 
+<entitydescription.medstartercrate>Un coffret contenant tous les essentiels, pragmatiquement emballés dans une seule recette.</entitydescription.medstartercrate>
+
 </infotexts>

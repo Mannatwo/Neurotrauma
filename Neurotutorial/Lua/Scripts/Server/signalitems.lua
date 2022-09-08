@@ -300,7 +300,7 @@ NTTut.scenarios = {
             Timer.Wait(function()
                 local character = SpawnSubject(item.WorldPosition,"Montgomery Burns")
                 for t in limbTypes do
-                    HF.SetAfflictionLimb(character,"burn",t,50)
+                    HF.SetAfflictionLimb(character,"burn",t,70)
                 end
                 for i = 1,8,1 do HF.GiveItem(character,"antibleeding2") end
                 for i = 1,8,1 do HF.GiveItem(character,"ointment") end
@@ -682,6 +682,62 @@ NTTut.scenarios = {
             item.SendSignal(tostring(state), "out_state")
         end
     },
+    organfailure={
+        startfunc=function(item,data)
+            Timer.Wait(function()
+                local character = SpawnSubject(item.WorldPosition,"Baltimorian")
+                HF.SetAffliction(character,"sym_unconsciousness",100)
+                HF.SetAffliction(character,"bloodpressure",5)
+                HF.SetAffliction(character,"hypoxemia",100)
+                HF.SetAffliction(character,"organdamage",100)
+                HF.SetAffliction(character,"heartdamage",100)
+                HF.SetAffliction(character,"lungdamage",100)
+                HF.SetAffliction(character,"kidneydamage",100)
+                HF.SetAffliction(character,"liverdamage",100)
+                HF.SetAffliction(character,"stun",8)
+                for i=1,3,1 do HF.GiveItem(character,"immunosuppressant") end
+                HF.SpawnItemPlusFunction("organtoolbox",function(params)
+                    HF.SpawnItemPlusFunction("kidneytransplant",nil,nil,params.item.OwnInventory,0)
+                    HF.SpawnItemPlusFunction("kidneytransplant",nil,nil,params.item.OwnInventory,1)
+                    HF.SpawnItemPlusFunction("livertransplant",nil,nil,params.item.OwnInventory,2)
+                    HF.SpawnItemPlusFunction("lungtransplant",nil,nil,params.item.OwnInventory,3)
+                    HF.SpawnItemPlusFunction("hearttransplant",nil,nil,params.item.OwnInventory,4)
+                end,nil,character.Inventory,5,item.WorldPosition)
+
+                HF.GiveItem(character,"organscalpel_kidneys")
+                HF.GiveItem(character,"organscalpel_liver")
+                HF.GiveItem(character,"organscalpel_lungs")
+                HF.GiveItem(character,"organscalpel_heart")
+
+                HF.SpawnItemPlusFunction("stasisbag",nil,nil,character.Inventory,4,item.WorldPosition)
+
+                data.character=character
+            end,1)
+        end,
+        endfunc=function(item,data)
+            NTTut.HF.RemoveCharacter(data.character)
+        end,
+        update=function(item,data)
+            if data.character == nil or data.character.Removed then return end
+
+            local state = 1 -- 1: in progress, 0: failed, 2: success
+            if data.character == nil then
+                state = -1
+            elseif data.character.IsDead then
+                state=0
+            elseif
+                not HF.HasAffliction(data.character,"sym_unconsciousness")
+                and not HF.HasAffliction(data.character,"heartdamage",30)
+                and not HF.HasAffliction(data.character,"lungdamage",30)
+                and not HF.HasAffliction(data.character,"kidneydamage",30)
+                and not HF.HasAffliction(data.character,"liverdamage",30)
+            then
+                state=2
+            end
+
+            item.SendSignal(tostring(state), "out_state")
+        end
+    },
     -- sim center
     mudraptors={
         startfunc=function(item,data)
@@ -690,36 +746,52 @@ NTTut.scenarios = {
                 data.character=character
 
                 data.raptors = {}
-                for i=1,8,1 do
-                    local raptor = Character.Create("mudraptor", item.WorldPosition, tostring(math.random(0, 1000000)))
-                    table.insert(data.raptors,raptor)
-                end
+                Timer.Wait(function()
+                    for i=1,4,1 do
+                        local spawnPos = Vector2(item.WorldPosition.X + (((i%2)-0.5)*2*0),item.WorldPosition.Y)
+                        local raptor = Character.Create("mudraptor", spawnPos, tostring(math.random(0, 1000000)))
+                        table.insert(data.raptors,raptor)
+                        character.AIController.AddCombatObjective(AIObjectiveCombat.CombatMode.Offensive, raptor)
+                    end
+                end,1000)
 
             end,1)
             Timer.Wait(function()
-                for raptor in data.raptors do
-                    NTTut.HF.RemoveCharacter(raptor)
+                if #data.raptors > 0 then
+                    -- despawning raptors
+                    for raptor in data.raptors do
+                        NTTut.HF.RemoveCharacter(raptor)
+                    end
+                    data.raptors = {}
+                    item.SendSignal("1", "out_special")
                 end
-                data.raptors = {}
-            end,10000)
+            end,20000)
         end,
         endfunc=function(item,data)
             NTTut.HF.RemoveCharacter(data.character)
 
-            for raptor in data.raptors do
-                NTTut.HF.RemoveCharacter(raptor)
+            if #data.raptors > 0 then
+                -- despawning raptors
+                for raptor in data.raptors do
+                    NTTut.HF.RemoveCharacter(raptor)
+                end
+                data.raptors = {}
+                item.SendSignal("1", "out_special")
             end
-            data.raptors = {}
         end,
         update=function(item,data)
             if data.character == nil or data.character.Removed then return end
 
             -- remove raptors early if the patient is at half health
-            if data.character.Vitality/data.character.MaxVitality < 0.5 then
-                for raptor in data.raptors do
-                    NTTut.HF.RemoveCharacter(raptor)
+            if data.character.Vitality/data.character.MaxVitality < 0.25 then
+                if #data.raptors > 0 then
+                    -- despawning raptors
+                    for raptor in data.raptors do
+                        NTTut.HF.RemoveCharacter(raptor)
+                    end
+                    data.raptors = {}
+                    item.SendSignal("1", "out_special")
                 end
-                data.raptors = {}
             end
 
             local state = 1 -- 1: in progress, 0: failed, 2: success
@@ -783,50 +855,76 @@ NTTut.scenarios = {
         startfunc=function(item,data)
             Timer.Wait(function()
                 local character = SpawnSubject(item.WorldPosition,"Bait")
+
+                HF.SpawnItemPlusFunction("bodyarmor",nil,nil,character.Inventory,4,item.WorldPosition)
+                HF.SpawnItemPlusFunction("ballistichelmet1",nil,nil,character.Inventory,2,item.WorldPosition)
+
                 data.character=character
 
                 data.bandits = {}
-                for i=1,2,1 do
-                    local bandit = SpawnSubject(item.WorldPosition,"Bandit","securityofficer",CharacterTeamType.Team2,true,true)
-                    
-                    HF.SpawnItemPlusFunction("securityuniform1",nil,nil,bandit.Inventory,3,item.WorldPosition)
-                    HF.SpawnItemPlusFunction("bodyarmor",nil,nil,bandit.Inventory,4,item.WorldPosition)
-                    HF.SpawnItemPlusFunction("ballistichelmet1",nil,nil,bandit.Inventory,2,item.WorldPosition)
-                    HF.SpawnItemPlusFunction("shotgun",function(params)
-                        for j=1,6,1 do HF.SpawnItemPlusFunction("shotgunshell",nil,nil,params.item.OwnInventory,0) end
-                    end,nil,bandit.Inventory,5,item.WorldPosition)
+                Timer.Wait(function()
+                    for i=1,2,1 do
 
-                    local ai = bandit.AIController
-                    ai.AddCombatObjective(AIObjectiveCombat.CombatMode.Offensive, character)
-                    
-                    table.insert(data.bandits,bandit)
-                end
+                        local spawnPos = Vector2(item.WorldPosition.X + (((i%2)-0.5)*2*400),item.WorldPosition.Y)
+
+                        local bandit = SpawnSubject(spawnPos,"Bandit","securityofficer",CharacterTeamType.Team2,true,true)
+                        
+                        HF.SpawnItemPlusFunction("securityuniform1",nil,nil,bandit.Inventory,3,spawnPos)
+                        HF.SpawnItemPlusFunction("bodyarmor",nil,nil,bandit.Inventory,4,spawnPos)
+                        HF.SpawnItemPlusFunction("ballistichelmet1",nil,nil,bandit.Inventory,2,spawnPos)
+                        HF.SpawnItemPlusFunction("smg",function(params)
+                            for j=1,1,1 do HF.SpawnItemPlusFunction("smgmagazine",nil,nil,params.item.OwnInventory,0) end
+                        --HF.SpawnItemPlusFunction("shotgun",function(params)
+                        --    for j=1,6,1 do HF.SpawnItemPlusFunction("shotgunshell",nil,nil,params.item.OwnInventory,0) end
+                        end,nil,bandit.Inventory,5,spawnPos)
+                        for j=1,2,1 do HF.GiveItem(bandit,"smgmagazine") end
+                        for j=1,6,1 do HF.GiveItem(bandit,"shotgunshell") end
+    
+                        local ai = bandit.AIController
+                        ai.AddCombatObjective(AIObjectiveCombat.CombatMode.Offensive, character)
+                        -- character.AIController.AddCombatObjective(AIObjectiveCombat.CombatMode.Offensive, bandit)
+                        
+                        table.insert(data.bandits,bandit)
+                    end
+                end,1000)
 
             end,1)
             Timer.Wait(function()
-                for bandit in data.bandits do
-                    NTTut.HF.RemoveCharacter(bandit)
+                if #data.bandits > 0 then
+                    -- despawning raptors
+                    for bandit in data.bandits do
+                        NTTut.HF.RemoveCharacter(bandit)
+                    end
+                    data.bandits = {}
+                    item.SendSignal("1", "out_special")
                 end
-                data.bandits = {}
             end,10000)
         end,
         endfunc=function(item,data)
             NTTut.HF.RemoveCharacter(data.character)
 
-            for bandit in data.bandits do
-                NTTut.HF.RemoveCharacter(bandit)
+            if #data.bandits > 0 then
+                -- despawning raptors
+                for bandit in data.bandits do
+                    NTTut.HF.RemoveCharacter(bandit)
+                end
+                data.bandits = {}
+                item.SendSignal("1", "out_special")
             end
-            data.bandits = {}
         end,
         update=function(item,data)
             if data.character == nil or data.character.Removed then return end
 
             -- remove bandits early if the patient is knocked out
             if data.character.Vitality/data.character.MaxVitality <= 0 then
-                for bandit in data.bandits do
-                    NTTut.HF.RemoveCharacter(bandit)
+                if #data.bandits > 0 then
+                    -- despawning raptors
+                    for bandit in data.bandits do
+                        NTTut.HF.RemoveCharacter(bandit)
+                    end
+                    data.bandits = {}
+                    item.SendSignal("1", "out_special")
                 end
-                data.bandits = {}
             end
 
             local state = 1 -- 1: in progress, 0: failed, 2: success

@@ -705,4 +705,13 @@ Biorcy: AB+</entitydescription.abpluscard>
 <!-- misc -->
 <roomname.surgical>Chirurgiczny</roomname.surgical>
 
+<!-- A1.8 -->
+<afflictionname.afpressuredrug>Obniżacze ciśnienia krwi</afflictionname.afpressuredrug>
+
+<entityname.pressuremeds>Nitroprusydek sodu</entityname.pressuremeds>
+<entitydescription.pressuremeds>Lek stosowany w doraźnym obniżaniu ciśnienia tętniczego.</entitydescription.pressuremeds>
+
+<entityname.medstartercrate>Medyczna skrzynia startowa</entityname.medstartercrate> 
+<entitydescription.medstartercrate>Skrzynia, która zawiera wszystkie niezbędne rzeczy, wygodnie zamknięte w jednym przepisie craftingowym.</entitydescription.medstartercrate>
+
 </infotexts>

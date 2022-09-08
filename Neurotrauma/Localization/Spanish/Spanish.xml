@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<infotexts language="Spanish" nowhitespace="false" translatedname="Español Latinoamericano">
+<infotexts language="Latinamerican Spanish" nowhitespace="false" translatedname="Español Latinoamericano">
 
 <!-- ITEMS -->
 
@@ -705,5 +705,14 @@ Puede dar sangre a: AB+</entitydescription.abpluscard>
 
 <!-- misc -->
 <roomname.surgical>Quirúrgico</roomname.surgical>
+
+<!-- A1.8 -->
+<afflictionname.afpressuredrug>Reductores de presión sanguínea</afflictionname.afpressuredrug>
+
+<entityname.pressuremeds>Nitroprusiato de sodio</entityname.pressuremeds>
+<entitydescription.pressuremeds>Medicamento que se usa para bajar la presión sanguínea</entitydescription.pressuremeds>
+
+<entityname.medstartercrate>Caja de inicio médica</entityname.medstartercrate> 
+<entitydescription.medstartercrate>Una caja que contiene todos los elementos esenciales, convenientemente empaquetados en una sola receta de elaboración.</entitydescription.medstartercrate>
 
 </infotexts>

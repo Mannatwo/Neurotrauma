@@ -20,6 +20,6 @@ config.disableBotAlgorithms = true
 
 config.NTSPenableSurgicalInfection = true
 config.NTSPenableSurgerySkill = true
-config.organRejection = true
+config.organRejection = false
 
 return config
