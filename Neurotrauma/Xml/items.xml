@@ -1360,7 +1360,7 @@
         <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="256,256,128,128" depth="0.6"
                 origin="0.5,0.5"/>
         <Body width="30" height="55" density="20"/>
-        <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="5,3" holdangle="10" reload="1.0">
+        <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="5,3" holdangle="10" reload="1.0" CanBeCombined="true">
             <!-- Remove the item when fully used -->
             <StatusEffect type="OnBroken" target="This">
                 <Remove/>
