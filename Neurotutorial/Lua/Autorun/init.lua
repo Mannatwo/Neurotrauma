@@ -1,8 +1,8 @@
 
 NTTut = {} -- Neurotrauma Tutorial
 NTTut.Name="NeuroTutorial"
-NTTut.Version = "1"
-NTTut.VersionNum = 01000000
+NTTut.Version = "1.04"
+NTTut.VersionNum = 01040000
 NTTut.MinNTVersion = "A1.8"
 NTTut.MinNTVersionNum = 01080000
 NTTut.Path = table.pack(...)[1]

@@ -1060,7 +1060,8 @@ Hook.Add("nttut_subjectcomponent", "nttut_subjectcomponent", function (effect, d
     local memComponents = NTTut.HF.EnumerableToTable(item.GetComponents(Components.MemoryComponent))
 
     item.SendSignal(memComponents[1].Value, "out_scenario")
-    item.SendSignal(memComponents[2].Value, "out_state")
+    if not NTTut.scenarioCache[item] then
+        item.SendSignal("-1", "out_state") end
 end)
 NTTut.signalReceivedMethods.nttut_subjectcomponent = function(signal, connection)
     if signal.value == nil then return end
