@@ -18,8 +18,7 @@
       <StatusEffect type="OnSecondaryUse" target="This" Condition="-10" />
       <StatusEffect type="OnSecondaryUse" target="This,Character" disabledeltatime="true">
         <Conditional Condition="lte 0" />
-        <GiveSkill skillidentifier="surgery" amount="8" />
-        <GiveSkill skillidentifier="medical" amount="2" />
+        <LuaHook name="surgerybookgiveskill" />
         <RemoveItem />
       </StatusEffect>
     </MeleeWeapon>
