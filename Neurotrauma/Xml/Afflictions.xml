@@ -871,7 +871,7 @@
     maxstrength="100"
     type="resistance"
     showiconthreshold="1"
-    showinhealthscannerthreshold="200"
+    showinhealthscannerthreshold="2000"
     isbuff="true"> 
     <Effect minstrength="0" maxstrength="100" strengthchange="-0.3">
 		<StatusEffect target="Limb">

@@ -465,7 +465,7 @@ NT.ItemMethods.ointment = function(item, usingCharacter, targetCharacter, limb)
     
     local success = HF.BoolToNum(HF.GetSkillRequirementMet(usingCharacter,"medical",10),1)
 
-    HF.AddAfflictionLimb(targetCharacter,"ointmented",limbtype,120*(success+1),usingCharacter)
+    HF.AddAfflictionLimb(targetCharacter,"ointmented",limbtype,60*(success+1),usingCharacter)
     if not limbHasThirdDegreeBurns(targetCharacter,limbtype) then
     HF.AddAfflictionLimb(targetCharacter,"burn",limbtype,-7.2-success*4.8,usingCharacter) end
     HF.AddAfflictionLimb(targetCharacter,"infectedwound",limbtype,-24-success*48,usingCharacter)
