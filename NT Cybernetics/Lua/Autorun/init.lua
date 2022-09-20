@@ -11,6 +11,7 @@ Timer.Wait(function() if NTC ~= nil and NTC.RegisterExpansion ~= nil then NTC.Re
 -- server-side code (also run in singleplayer)
 if (Game.IsMultiplayer and SERVER) or not Game.IsMultiplayer then
 
+    dofile(NTCyb.Path.."/Lua/Scripts/empexplosionpatch.lua")
     dofile(NTCyb.Path.."/Lua/Scripts/humanupdate.lua")
     dofile(NTCyb.Path.."/Lua/Scripts/items.lua")
     dofile(NTCyb.Path.."/Lua/Scripts/ondamaged.lua")
