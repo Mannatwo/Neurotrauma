@@ -643,7 +643,7 @@ NT.Afflictions = {
         or c.afflictions.heartdamage.strength > 80),2)end
     },
     sym_weakness={
-        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and (NTC.GetSymptom(c.character,i)
+        update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and c.afflictions.sym_unconsciousness.strength<=0 and (NTC.GetSymptom(c.character,i)
         or c.afflictions.tamponade.strength > 30 or c.stats.bloodamount < 40 or c.afflictions.acidosis.strength > 35),2)end
     },
     sym_wheezing={
