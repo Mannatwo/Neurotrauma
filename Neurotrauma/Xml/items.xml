@@ -4281,6 +4281,7 @@
         <Remove />
       </StatusEffect>
 
+      <RequiredSkill identifier="medical" level="35" />
       <StatusEffect tags="medical" type="OnUse" target="Character" disabledeltatime="true">
         <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
         <Affliction identifier="afpressuredrug" amount="100" />
