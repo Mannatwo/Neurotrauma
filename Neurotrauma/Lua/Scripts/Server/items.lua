@@ -403,6 +403,13 @@ NT.ItemMethods.emptybloodpack = function(item, usingCharacter, targetCharacter, 
             sepsis=HF.GetAfflictionStrength(targetCharacter,"sepsis"),
         }
 
+        -- move towards isotonic
+        HF.SetAffliction(targetCharacter,"acidosis",
+            HF.GetAfflictionStrength(targetCharacter,"acidosis",0) * 0.9)
+        HF.SetAffliction(targetCharacter,"alkalosis",
+            HF.GetAfflictionStrength(targetCharacter,"alkalosis",0) * 0.9)
+        
+
         HF.AddAffliction(targetCharacter,"bloodloss",bloodlossinduced,usingCharacter)
 
         local bloodpackIdentifier = "bloodpack" .. bloodtype
@@ -1203,6 +1210,9 @@ local function InfuseBloodpack(item, packtype, usingCharacter, targetCharacter, 
     (targethasantibodyA or not packhasantibodyA) and
     (targethasantibodyB or not packhasantibodyB)
 
+    local bloodloss = HF.GetAfflictionStrength(targetCharacter,"bloodloss",0)
+    local usefulFraction = HF.Clamp(bloodloss/30,0,1)
+
     if compatible then 
         HF.AddAffliction(targetCharacter,"bloodloss",-30,usingCharacter)
         HF.AddAffliction(targetCharacter,"bloodpressure",30,usingCharacter)
@@ -1213,6 +1223,12 @@ local function InfuseBloodpack(item, packtype, usingCharacter, targetCharacter, 
         HF.AddAffliction(targetCharacter,"hemotransfusionshock",math.max(immunity-6,0),usingCharacter)
     end
 
+    -- move towards isotonic
+    HF.SetAffliction(targetCharacter,"acidosis",
+        HF.GetAfflictionStrength(targetCharacter,"acidosis",0) * HF.Lerp(1,0.9,usefulFraction))
+    HF.SetAffliction(targetCharacter,"alkalosis",
+        HF.GetAfflictionStrength(targetCharacter,"alkalosis",0) * HF.Lerp(1,0.9,usefulFraction))
+
     -- check if acidosis, alkalosis or sepsis
     local tags = HF.SplitString(item.Tags,",")
     for tag in tags do
@@ -1220,10 +1236,10 @@ local function InfuseBloodpack(item, packtype, usingCharacter, targetCharacter, 
 
         if HF.StartsWith(tag,"acid") then
             local split = HF.SplitString(tag,":")
-            if split[2] ~= nil then HF.AddAffliction(targetCharacter,"acidosis",tonumber(split[2])/5,usingCharacter) end
+            if split[2] ~= nil then HF.AddAffliction(targetCharacter,"acidosis",tonumber(split[2])/5*usefulFraction,usingCharacter) end
         elseif HF.StartsWith(tag,"alkal") then
             local split = HF.SplitString(tag,":")
-            if split[2] ~= nil then HF.AddAffliction(targetCharacter,"alkalosis",tonumber(split[2])/5,usingCharacter) end
+            if split[2] ~= nil then HF.AddAffliction(targetCharacter,"alkalosis",tonumber(split[2])/5*usefulFraction,usingCharacter) end
         end
     end
 
