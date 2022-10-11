@@ -50,7 +50,7 @@
         selfcauseofdeathdescription="Your brain got removed."
         iconcolors="127,127,127,255;127,127,127,255"
         maxstrength="2">
-        <icon texture="%ModDir:Neurotrauma%/Images/AfflictionIcons.png" sheetindex="4,5" sheetelementsize="128,128" origin="0,0"/>
+        <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="4,5" sheetelementsize="128,128" origin="0,0"/>
     </Affliction>
 
 <!-- Triage tags -->
