@@ -138,15 +138,15 @@ NT.Afflictions = {
     end},
     respiratoryarrest={update=function(c,i)
         -- passive regen
-        c.afflictions[i].strength = c.afflictions[i].strength-0.05*NT.Deltatime
+        c.afflictions[i].strength = c.afflictions[i].strength-(0.05+HF.BoolToNum(c.afflictions.sym_unconsciousness.strength<0.1,0.45))*NT.Deltatime
         -- triggers
         if( not NTC.GetSymptomFalse(c.character,"triggersym_respiratoryarrest")
         and
         (NTC.GetSymptom(c.character,"triggersym_respiratoryarrest")
         or c.stats.stasis or c.afflictions.lungremoved.strength > 0 or c.afflictions.brainremoved.strength > 0
-        or (c.afflictions.lungdamage.strength > 99 and HF.Chance(0.3))
-        or (c.afflictions.traumaticshock.strength > 30 and HF.Chance(0.1))
-        or ((c.afflictions.cerebralhypoxia.strength > 100 or c.afflictions.hypoxemia.strength > 70) and HF.Chance(0.1)))
+        or (c.afflictions.lungdamage.strength > 99 and HF.Chance(0.8))
+        or (c.afflictions.traumaticshock.strength > 30 and HF.Chance(0.2))
+        or ((c.afflictions.cerebralhypoxia.strength > 100 or c.afflictions.hypoxemia.strength > 70) and HF.Chance(0.05)))
         ) then
             c.afflictions[i].strength = c.afflictions[i].strength+10
         end
@@ -204,7 +204,8 @@ NT.Afflictions = {
             HF.Clamp(c.afflictions.stroke.strength,0,20)*0.1 +  -- from stroke
             c.afflictions.sepsis.strength/100*0.4 +             -- from sepsis
             c.afflictions.liverdamage.strength/800 +            -- from liverdamage
-            c.afflictions.kidneydamage.strength/1000            -- from kidneydamage
+            c.afflictions.kidneydamage.strength/1000 +          -- from kidneydamage
+            c.afflictions.traumaticshock.strength/100           -- from traumatic shock
         )
         * NT.Deltatime
 
@@ -297,12 +298,12 @@ NT.Afflictions = {
             - HF.Clamp(c.afflictions.afpressuredrug.strength*5,0,45)-- -45 if blood pressure medication
             + HF.Clamp(c.afflictions.afadrenaline.strength*10,0,30) -- +30 if adrenaline
             ) * 
-            (1+0.5*((c.afflictions.liverdamage.strength/100)^2)) *  -- elevated if full liver damage
-            (1+0.5*((c.afflictions.kidneydamage.strength/100)^2)) * -- elevated if full kidney damage
-            (1 + c.afflictions.alcoholwithdrawal.strength/200 ) *   -- elevated if alcohol withdrawal
-            ((100-c.afflictions.traumaticshock.strength)/100) *     -- none if full traumatic shock
-            ((100-c.afflictions.fibrillation.strength)/100) *       -- lowered if fibrillated
-            (1-math.min(1,c.afflictions.cardiacarrest.strength)) *  -- none if cardiac arrest
+            (1+0.5*((c.afflictions.liverdamage.strength/100)^2)) *              -- elevated if full liver damage
+            (1+0.5*((c.afflictions.kidneydamage.strength/100)^2)) *             -- elevated if full kidney damage
+            (1 + c.afflictions.alcoholwithdrawal.strength/200 ) *               -- elevated if alcohol withdrawal
+            HF.Clamp((100-c.afflictions.traumaticshock.strength*2)/100,0,1) *   -- none if half or more traumatic shock
+            ((100-c.afflictions.fibrillation.strength)/100) *                   -- lowered if fibrillated
+            (1-math.min(1,c.afflictions.cardiacarrest.strength)) *              -- none if cardiac arrest
             NTC.GetMultiplier(c.character,"bloodpressure")
         local bloodpressurelerp = 0.2
         -- adjust three times slower to heightened blood pressure
@@ -345,6 +346,7 @@ NT.Afflictions = {
     end
     },
     stasis={},
+    table={},
     internalbleeding={update=function(c,i)
         if c.stats.stasis then return end
         c.afflictions[i].strength = c.afflictions[i].strength - NT.Deltatime * 0.02 * c.stats.clottingrate
@@ -473,7 +475,15 @@ NT.Afflictions = {
         c.afflictions[i].strength = HF.BoolToNum((c.stats.lockleftarm and c.stats.lockrightarm) or handcuffed,100)
     end
     },
-    traumaticshock={},
+    traumaticshock={update=function(c,i)
+        local shouldReduce = (c.stats.sedated and c.afflictions.table.strength > 0) or c.afflictions.anesthesia.strength > 15
+        c.afflictions[i].strength = c.afflictions[i].strength - (0.5 + HF.BoolToNum(shouldReduce,1.5)) * NT.Deltatime
+
+        if(c.afflictions[i].strength > 5 and c.afflictions.sym_unconsciousness.strength < 0.1) then
+            HF.AddAffliction(c.character,"shockpain",10*NT.Deltatime)
+            HF.AddAffliction(c.character,"psychosis",c.afflictions[i].strength/100*NT.Deltatime)
+        end
+    end},
     alcoholwithdrawal={},opiatewithdrawal={},chemwithdrawal={},
     opiateoverdose={},
     -- Drugs
@@ -538,6 +548,7 @@ NT.Afflictions = {
                     + HF.Clamp(c.afflictions.afpressuredrug.strength*5,0,20)    -- less fibrillation from low blood pressure if blood pressure reducing medicines active
                 )/90),0,1)*2 
                 + HF.Clamp(c.afflictions.hypoxemia.strength/100,0,1)*1.5        -- hypoxemia (varies)
+                + HF.Clamp((c.afflictions.traumaticshock.strength-5)/40,0,3)    -- traumatic shock (fast)
                 - HF.Clamp(c.afflictions.afadrenaline.strength,0,0.9)           -- faster defib if adrenaline
             
             if fibrillationSpeed>0 and c.afflictions.afadrenaline.strength > 0 then

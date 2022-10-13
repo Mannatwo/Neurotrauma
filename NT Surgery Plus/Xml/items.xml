@@ -43,9 +43,9 @@
         <Item identifier="adrenaline" copycondition="true" mincondition="0.1"/>
     </Deconstruct>
     <SuitableTreatment identifier="cerebralhypoxia" suitability="30"/>
-    <InventoryIcon texture="%ModDir%/Images/InventoryItemIconAtlas.png" sourcerect="128,128,64,64"
+    <InventoryIcon texture="%ModDir:2776270649%/Images/InventoryItemIconAtlas.png" sourcerect="128,128,64,64"
                     origin="0.5,0.5"/>
-    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="640,128,128,128" depth="0.6"
+    <Sprite texture="%ModDir:2776270649%/Images/InGameItemIconAtlas.png" sourcerect="640,128,128,128" depth="0.6"
             origin="0.5,0.5"/>
     <Body width="35" height="70" density="20"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
@@ -116,7 +116,7 @@
   <Item name="" identifier="artificialbrain" description="" scale="0.3" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="1.5" Tags="smallitem,organ,petfood1,petfood2,petfood3,braintransplant">
     <Price baseprice="0" soldbydefault="false">
     </Price>
-    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="272,480,78,60" depth="0.6" origin="0.5,0.5"/>
+    <Sprite texture="%ModDir:2776270649%/Images/InGameItemIconAtlas.png" sourcerect="272,480,78,60" depth="0.6" origin="0.5,0.5"/>
     <Body width="39" height="25" density="13"/>
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="60" requiresrecipe="true">
         <RequiredSkill identifier="medical" level="80"/>
@@ -325,9 +325,9 @@
     </Deconstruct>
     <Price baseprice="400" soldbydefault="false">
     </Price>
-    <InventoryIcon texture="%ModDir%/Images/InventoryItemIconAtlas.png" sourcerect="64,0,64,64"
+    <InventoryIcon texture="%ModDir:2776270649%/Images/InventoryItemIconAtlas.png" sourcerect="64,0,64,64"
                     origin="0.5,0.5"/>
-    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="128,0,128,128" depth="0.55"
+    <Sprite texture="%ModDir:2776270649%/Images/InGameItemIconAtlas.png" sourcerect="128,0,128,128" depth="0.55"
             origin="0.5,0.5"/>
     <Body width="90" height="80" density="20"/>
     <SuitableTreatment identifier="tachycardia" suitability="60"/>

@@ -194,10 +194,10 @@
         <Conditional IsDead="false"/>
         <RequiredItem items="fulguriumbatterycell" type="Contained"/>
       </StatusEffect>
-      <StatusEffect type="OnWearing" target="Character,This" comparison="Or">
+      <StatusEffect type="OnWearing" target="Character,This" comparison="Or" disabledeltatime="true">
         <Conditional IsDead="false"/>
         <RequiredItem items="mobilebattery" type="Contained"/>
-        <Affliction identifier="cpr_buff" amount="10" />
+        <Affliction identifier="cpr_buff_auto" amount="10" />
       </StatusEffect>
       <StatusEffect type="OnWearing" target="Character,This" comparison="And">
         <Conditional IsDead="false" Condition="gte 99"/>
@@ -1377,11 +1377,13 @@
     <Price baseprice="400" soldbydefault="false">
       <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="2"/>
     </Price>
+    <!--
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="90">
       <RequiredSkill identifier="medical" level="40"/>
       <RequiredItem identifier="carbon"/>
       <RequiredItem identifier="paralyzant"/>
     </Fabricate>
+    -->
     <Deconstruct time="20">
       <Item identifier="paralyxis" copycondition="true" mincondition="0.1"/>
     </Deconstruct>

@@ -231,16 +231,16 @@
 <entitydescription.lleg>Отсечённая левая нога. Может быть пришита обратно посредством операции.</entitydescription.lleg>
 
 <entityname.rarmp>Бионический протез правой руки</entityname.rarmp>
-<entitydescription.rarmp>Бионическая правая рука. Применяется взамен ампутированной</entitydescription.rarmp>
+<entitydescription.rarmp>Бионическая правая рука. Устанавливается взамен ампутированной</entitydescription.rarmp>
 
 <entityname.larmp>Бионический протез левой руки</entityname.larmp>
-<entitydescription.larmp>Бионическая левая рука. Применяется взамен ампутированной.</entitydescription.larmp>
+<entitydescription.larmp>Бионическая левая рука. Устанавливается взамен ампутированной.</entitydescription.larmp>
 
 <entityname.rlegp>Бионический протез правой ноги</entityname.rlegp>
-<entitydescription.rlegp>Бионическая правая нога. Применяется взамен ампутированной.</entitydescription.rlegp>
+<entitydescription.rlegp>Бионическая правая нога. Устанавливается взамен ампутированной.</entitydescription.rlegp>
 
 <entityname.llegp>Бионический протез левой ноги</entityname.llegp>
-<entitydescription.llegp>Бионическая лева нога. Применяется взамен ампутированной.</entitydescription.llegp>
+<entitydescription.llegp>Бионическая левая нога. Устанавливается взамен ампутированной.</entitydescription.llegp>
 
 <entityname.livertransplant>Печень</entityname.livertransplant>
 <entityname.livertransplant_q1>Печень</entityname.livertransplant_q1>
@@ -328,6 +328,8 @@
 <afflictionname.brainremoved>Мозг удалён</afflictionname.brainremoved>
 <afflictiondescription.brainremoved>Мозг хирургически удалён</afflictiondescription.brainremoved>
 
+<afflictionname.traumaticshock>Травматический шок</afflictionname.traumaticshock>
+<afflictiondescription.traumaticshock>Операции проводятся не так! Совсем  не так!</afflictiondescription.traumaticshock>
 
 <!-- /// Кровь /// -->
 
@@ -635,9 +637,6 @@
 
 <afflictionname.luabotomy>Без Lua</afflictionname.luabotomy>
 <afflictiondescription.luabotomy>Lua не работает. Это значит, что Нейротравма и прочие модификации, использующие Lua не будут функционировать. Для инструкции по установке прочитайте страницу в Мастерской для Lua for Barotrauma.</afflictiondescription.luabotomy>
-
-<afflictionname.traumaticshock>Травматический шок</afflictionname.traumaticshock>
-<afflictiondescription.traumaticshock>Пациент испытывает сильнейшую боль и стресс.</afflictiondescription.traumaticshock>
 
 <afflictionname.analgesia>Анальгезия</afflictionname.analgesia>
 <afflictiondescription.analgesia>Нечувствительность к боли</afflictiondescription.analgesia>

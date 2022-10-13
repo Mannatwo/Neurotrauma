@@ -678,7 +678,7 @@
     healableinmedicalclinic="false"
     isbuff="true"
     targets="human"
-    limbspecific="true"
+    limbspecific="false"
     indicatorlimb="Torso"
     activationthreshold="0"
     showiconthreshold="10"
@@ -688,11 +688,10 @@
     <Effect minstrength="0" maxstrength="2"
       strengthchange="-0.5">
       <StatusEffect tags="medical" target="Character">
-        <ReduceAffliction identifier="cardiacarrest"  amount="0.5" />
-        <ReduceAffliction identifier="fibrillation"  amount="0.5" />
-        <ReduceAffliction identifier="respiratoryarrest"  amount="0.25" />
-        <Affliction identifier="bloodpressure" amount="1"/>
-        <ReduceAffliction identifier="oxygenlow" amount="8" />
+        <ReduceAffliction identifier="cardiacarrest"  amount="2" />
+        <ReduceAffliction identifier="fibrillation"  amount="1" />
+        <Affliction identifier="bloodpressure" amount="4"/>
+        <ReduceAffliction identifier="oxygenlow" amount="12" />
       </StatusEffect>
       <StatusEffect tags="medical" target="Character" disabledeltatime="true" comparison="and">
         <Conditional cardiacarrest="lte 0.5"/>
@@ -700,6 +699,65 @@
         <ReduceAffliction identifier="cardiacarrest"  amount="100" />
         <Affliction identifier="fibrillation" amount="20"/>
       </StatusEffect>
+    </Effect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="256,896,128,128" color="195,104,60,255" origin="0,0"/>
+  </Affliction>
+
+  <!-- Auto CPR
+  Invisible Status -->
+  <Affliction
+    name="CPR"
+    identifier="cpr_buff_auto"  
+    healableinmedicalclinic="false"
+    isbuff="true"
+    targets="human"
+    limbspecific="false"
+    indicatorlimb="Torso"
+    activationthreshold="0"
+    showiconthreshold="10"
+    showinhealthscannerthreshold="10"
+    maxstrength="2">
+
+    <Effect minstrength="0" maxstrength="2"
+      strengthchange="-0.5">
+      <StatusEffect tags="medical" target="Character">
+        <ReduceAffliction identifier="cardiacarrest"  amount="1.5" />
+        <ReduceAffliction identifier="fibrillation"  amount="1" />
+        <Affliction identifier="bloodpressure" amount="5"/>
+        <ReduceAffliction identifier="oxygenlow" amount="3" />
+      </StatusEffect>
+      <StatusEffect tags="medical" target="Character" disabledeltatime="true" comparison="and">
+        <Conditional cardiacarrest="lte 0.5"/>
+        <Conditional cardiacarrest="gte 0.1"/>
+        <ReduceAffliction identifier="cardiacarrest"  amount="100" />
+        <Affliction identifier="fibrillation" amount="20"/>
+      </StatusEffect>
+    </Effect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="256,896,128,128" color="195,104,60,255" origin="0,0"/>
+  </Affliction>
+
+  <!-- CPR fracture immunity
+  Invisible Status
+  immunity against blunt force trauma
+  -->
+  <Affliction
+    identifier="cpr_fracturebuff"  
+    healableinmedicalclinic="false"
+    isbuff="true"
+    targets="human"
+    limbspecific="false"
+    indicatorlimb="Torso"
+    activationthreshold="0"
+    showiconthreshold="10"
+    showinhealthscannerthreshold="10"
+    type="resistance"
+    maxstrength="2">
+
+    <Effect minstrength="0" maxstrength="2"
+      strengthchange="-0.5"
+      resistancefor="blunttrauma"
+      minresistance="1"
+      maxresistance="1">
     </Effect>
     <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="256,896,128,128" color="195,104,60,255" origin="0,0"/>
   </Affliction>
@@ -3519,25 +3577,20 @@ thats what the vomiting symptom is for -->
     type="gaze"
     isbuff="false"
     limbspecific="false"
-    indicatorlimb="Torso"
+    indicatorlimb="Head"
     activationthreshold="0"
-    showinhealthscannerthreshold="500"
-    showiconthreshold="500"
-    maxstrength="100">
+    showinhealthscannerthreshold="5"
+    showiconthreshold="5"
+    maxstrength="100"
+    iconcolors="200,0,0,255;200,0,0,255">
 
-    <Effect minstrength="0" maxstrength="5" strengthchange="-0.5">
+    <Effect minstrength="0" maxstrength="5">
       <StatusEffect target="Character">
         <Conditional ishuman="false"/>
         <ReduceAffliction identifier="traumaticshock" amount="999"/>
       </StatusEffect>
     </Effect>
-    <Effect minstrength="5" maxstrength="100" strengthchange="-0.5">
-      <StatusEffect target="Character">
-        <Conditional ishuman="true" sym_unconsciousness="lte 0.1"/>
-        <Affliction identifier="shockpain" amount="10"/>
-      </StatusEffect>
-    </Effect>
-    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,2" sheetelementsize="128,128" origin="0,0"/>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="6,7" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
   <!-- Analgesia / Insensitivity to pain

@@ -335,6 +335,9 @@ Can give blood to: AB+</entitydescription.abpluscard>
 <afflictionname.brainremoved>Beyinsiz</afflictionname.brainremoved>
 <afflictiondescription.brainremoved>Beyin cerrahi olarak çıkarıldı.</afflictiondescription.brainremoved>
 
+<afflictionname.traumaticshock>Travmatic şok</afflictionname.traumaticshock>
+<afflictiondescription.traumaticshock>Ameliyat böyle yapılmamalı, Bir şeyler kesinlikle yanlış!</afflictiondescription.traumaticshock>
+
 <!-- /// Blood /// -->
 
 <afflictionname.bloodpressure>Tansiyon</afflictionname.bloodpressure>
@@ -648,10 +651,6 @@ Can give blood to: AB+</entitydescription.abpluscard>
 <afflictionname.luabotomy>Lualess</afflictionname.luabotomy>
 <afflictiondescription.luabotomy>Lua isn't running. That means neurotrauma and any other mods that use it won't work. Please read the workshop pages of mods you plan to use.</afflictiondescription.luabotomy>
 
-
-<afflictionname.traumaticshock>Travmatik Şok</afflictionname.traumaticshock>
-<afflictiondescription.traumaticshock>The patient experiences severe pain and stress.</afflictiondescription.traumaticshock>
-  
 <afflictionname.analgesia>Analjezi</afflictionname.analgesia>
 <afflictiondescription.analgesia>Insensitivity to pain.</afflictiondescription.analgesia>
 

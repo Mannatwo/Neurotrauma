@@ -248,6 +248,8 @@
 <afflictiondescription.coma></afflictiondescription.coma>
 <afflictionname.brainremoved>뇌가 제거됨</afflictionname.brainremoved>
 <afflictiondescription.brainremoved>뇌는 수술로 제거되었습니다.</afflictiondescription.brainremoved>
+<afflictionname.traumaticshock>외상성 쇼크</afflictionname.traumaticshock>
+<afflictiondescription.traumaticshock>이렇게 파고들면 안 돼! 이건 아주 잘못된 거야!</afflictiondescription.traumaticshock>
 
 <!-- /// Blood /// -->
 <afflictionname.bloodpressure>혈압</afflictionname.bloodpressure>
@@ -479,8 +481,6 @@
 <afflictiondescription.sym_nausea>환자는 메스꺼움을 느끼며 피부가 축축합니다.</afflictiondescription.sym_nausea>
 <afflictionname.luabotomy>Lua 없음</afflictionname.luabotomy>
 <afflictiondescription.luabotomy>Lua가 실행되지 않습니다. 즉, Neurotrauma 및 이를 사용하는 다른 모드가 작동하지 않습니다. 사용하려는 모드의 워크샵 페이지를 읽으십시오.</afflictiondescription.luabotomy>
-<afflictionname.traumaticshock>외상성 쇼크</afflictionname.traumaticshock>
-<afflictiondescription.traumaticshock>환자는 심한 통증과 스트레스를 겪고 있습니다.</afflictiondescription.traumaticshock>
 <afflictionname.analgesia>무통</afflictionname.analgesia>
 <afflictiondescription.analgesia>통증을 느끼지 않습니다.</afflictiondescription.analgesia>
 <afflictionname.anesthesia>마취</afflictionname.anesthesia>
