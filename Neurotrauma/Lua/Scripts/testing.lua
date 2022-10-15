@@ -64,5 +64,13 @@ Hook.Add('chatMessage', 'NT.testing', function(msg, client)
         end,50)
 
         return true
+    
+    elseif (msg == "the bone man") then
+
+        if(client.Character == nil) then return true end
+
+        HF.GiveItem(client.Character,"theboneman")
+
+        return true -- hide message
     end
 end)
