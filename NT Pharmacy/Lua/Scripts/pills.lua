@@ -131,8 +131,8 @@ NTP.PillData.items = {
     deusizine={types={"active"},skillrequirement=72,
         effects={
             {type="addeffect",identifier="burn",amount=2},
-            {type="addeffect",identifier="organdamage",amount=-10},
-            {type="addeffect",identifier="internaldamage",amount=-10},
+            {type="addeffect",identifier="organdamage",amount=-20},
+            {type="addeffect",identifier="internaldamage",amount=-20},
             {type="addeffect",identifier="bloodloss",amount=-20},
             {type="addeffect",identifier="hypoxemia",amount=-50},
         },
