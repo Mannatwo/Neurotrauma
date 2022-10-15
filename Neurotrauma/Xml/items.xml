@@ -531,6 +531,30 @@
         <Sound file="%ModDir%/Sound/squelch1.ogg"/>
       </StatusEffect>
 
+  <Item name="the bone man" identifier="theboneman" description="bones!" category="hidden" cargocontaineridentifier="metalcrate" tags="smallitem,clothing" scale="0.5" impactsoundtag="impact_soft" nonplayerteaminteractable="True" hideinmenus="true">
+    <Deconstruct time="10" />
+    <InventoryIcon name="Icon" texture="%ModDir%/Images/OldSkeletonHead.png" sourcerect="10,8,83,95" origin="0.5,0.5" />
+    <Sprite name="Skeleton" texture="Content/Items/Jobgear/MiscJobGear.png" sourcerect="462,796,201,86" depth="0.6" origin="0.5,0.5" />
+    <Body width="180" height="50" density="30" friction="0.8" restitution="0.01" />
+    <Wearable slots="InnerClothes" msg="ItemMsgPickUpSelect">
+      <sprite name="Head" texture="%ModDir%/Images/OldSkeletonHead.png" hidewearablesoftype="hair" limb="Head" scale="0.5" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" hidelimb="true" hideotherwearables="false" sourcerect="3,3,97,99" origin="0.5,0.5" />
+      <sprite name="Torso" texture="%ModDir%/Images/OldSkeleton.png" limb="Torso" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Right Hand" texture="%ModDir%/Images/OldSkeleton.png" limb="RightHand" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Left Hand" texture="%ModDir%/Images/OldSkeleton.png" limb="LeftHand" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Right Lower Arm" texture="%ModDir%/Images/OldSkeleton.png" limb="RightArm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Left Lower Arm" texture="%ModDir%/Images/OldSkeleton.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Right Upper Arm" texture="%ModDir%/Images/OldSkeleton.png" limb="RightForearm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Left Upper Arm" texture="%ModDir%/Images/OldSkeleton.png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Waist" texture="%ModDir%/Images/OldSkeleton.png" limb="Waist" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Right Thigh" texture="%ModDir%/Images/OldSkeleton.png" limb="RightThigh" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Left Thigh" texture="%ModDir%/Images/OldSkeleton.png" limb="LeftThigh" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Right Leg" texture="%ModDir%/Images/OldSkeleton.png" limb="RightLeg" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Left Leg" texture="%ModDir%/Images/OldSkeleton.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Left Shoe" texture="%ModDir%/Images/OldSkeleton.png" limb="LeftFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Right Shoe" texture="%ModDir%/Images/OldSkeleton.png" limb="RightFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+    </Wearable>
+  </Item>	    
+	    
     </MeleeWeapon>
   </Item>
   <Item name="" identifier="endovascballoon" category="Equipment" maxstacksize="1" cargocontaineridentifier="mediccrate"
