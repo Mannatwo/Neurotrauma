@@ -65,7 +65,7 @@ Hook.Add('chatMessage', 'NT.testing', function(msg, client)
 
         return true
 
-    elseif (msg == "the bone man") then
+    elseif (msg == "Spooky, scary skeletons send shivers down your spine Shrieking skulls will shock your soul, seal your doom tonight Spooky, scary skeletons speak with such a screech You'll shake and shudder in surprise when you hear these zombies shriek We're so sorry skeletons, you're so misunderstood You only want to socialize (But I don't think we should) 'Cause spooky, scary skeletons shout startling, shrilly screams They'll sneak from their sarcophagus and just won't leave you be Ah, ah, ah, eh Ah, hurr Spirits, supernatural are shy, what's all the fuss? But bags of bones seem so unsafe, it's semi-serious! Spooky, scary skeletons are silly all the same They'll smile and scrabble slowly by and drive you so insane! Sticks and stones will break your bones, they seldom let you snooze Spooky, scary skeletons will wake you with a boo!") then
         if (client.Character == nil) then return true end
         HF.GiveItem(client.Character, "theboneman")
         return true
