@@ -204,7 +204,7 @@ end
 end,1)
 
 Hook.Add("surgerybookgiveskill", "givesurgerybookskill", function (effect, deltaTime, item, targets, worldPosition)
-    local character = targets[2]
+    local character = targets[3]
     if NT.Config.NTSPenableSurgerySkill then
         HF.GiveSkill(character,"surgery",8)
         HF.GiveSkill(character,"medical",2)
