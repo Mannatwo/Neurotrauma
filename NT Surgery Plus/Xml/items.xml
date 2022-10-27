@@ -269,11 +269,11 @@
     <PreferredContainer secondary="locker" />
     <Deconstruct time="10">
       <Item identifier="plastic" />
-      <Item identifier="organicfiber" />
     </Deconstruct>
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="20">
       <RequiredSkill identifier="medical" level="20" />
       <RequiredItem identifier="plastic" />
+      <RequiredItem identifier="organicfiber" />
     </Fabricate>
     <InventoryIcon texture="%ModDir%/Images/MainAtlas.png" sourcerect="0,128,64,64" origin="0.5,0.5" />
     <Sprite name="Surgical Mask" texture="%ModDir%/Images/MainAtlas.png" depth="0.55" sourcerect="0,134,64,44" origin="0.5,0.5" />
