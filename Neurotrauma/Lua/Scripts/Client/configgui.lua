@@ -44,7 +44,7 @@ local function DetermineDifficulty()
     local difficulty = 0
     local res = ""
 
-    -- default difficulty: 15.5
+    -- default difficulty: 16.5
     difficulty=difficulty
         +HF.Clamp(config.dislocationChance,0,5)
         +HF.Clamp(config.fractureChance*2,0,5)
@@ -58,9 +58,11 @@ local function DetermineDifficulty()
         +HF.Clamp(config.neurotraumaGain*3,0,10)
         +HF.Clamp(config.organDamageGain*2,0,8)
         +HF.Clamp(config.fibrillationSpeed*1.5,0,8)
+        +HF.BoolToNum(config.organRejection,0.5)
+        +HF.BoolToNum(config.fracturesRemoveCasts,0.5)
 
     -- normalize to 10
-    difficulty = difficulty / 15.5 * 10
+    difficulty = difficulty / 16.5 * 10
 
     if difficulty > 23 then res="Impossible"
     elseif difficulty > 16 then res="Very hard"
@@ -69,7 +71,7 @@ local function DetermineDifficulty()
     elseif difficulty > 6 then res="Easy"
     elseif difficulty > 4 then res="Very easy"
     elseif difficulty > 2 then res="Barely different"
-    else res="Vanilla"
+    else res="Vanilla but sutures"
     end
 
     res = res.." ("..HF.Round(difficulty,1)..")"
@@ -263,6 +265,13 @@ NT.ShowGUI = function ()
     organRejection.Selected = NT.Config.organRejection
     organRejection.OnSelected = function ()
         NT.Config.organRejection = organRejection.State == 3
+        OnChanged()
+    end
+
+    local fracturesRemoveCasts = GUI.TickBox(GUI.RectTransform(Vector2(1, 0.2), config.Content.RectTransform), "Refracturing removes casts")
+    fracturesRemoveCasts.Selected = NT.Config.fracturesRemoveCasts
+    fracturesRemoveCasts.OnSelected = function ()
+        NT.Config.fracturesRemoveCasts = fracturesRemoveCasts.State == 3
         OnChanged()
     end
 

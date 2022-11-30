@@ -10,7 +10,7 @@ Hook.Add("item.applyTreatment", "NT.itemused", function(item, usingCharacter, ta
     
     local identifier = item.Prefab.Identifier.Value
 
-    local methodtorun = NT.ItemMethods[identifier] -- get the function associated with the identifer
+    local methodtorun = NT.ItemMethods[identifier] -- get the function associated with the identifier
     if(methodtorun~=nil) then 
          -- run said function
         methodtorun(item, usingCharacter, targetCharacter, limb)
@@ -1359,4 +1359,3 @@ NT.ItemStartsWithMethods.bloodpack = function(item, usingCharacter, targetCharac
     local packtype = string.sub(identifier, string.len("bloodpack")+1)
     InfuseBloodpack(item,packtype,usingCharacter,targetCharacter,limb)
 end
-

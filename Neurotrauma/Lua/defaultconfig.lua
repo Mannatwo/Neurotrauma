@@ -21,5 +21,6 @@ config.disableBotAlgorithms = true
 config.NTSPenableSurgicalInfection = true
 config.NTSPenableSurgerySkill = true
 config.organRejection = false
+config.fracturesRemoveCasts = true
 
 return config
