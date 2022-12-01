@@ -25,6 +25,10 @@ function NT.BreakLimb(character,limbtype,strength)
     limbtoaffliction[LimbType.Torso] = "t_fracture"
     if limbtoaffliction[limbtype] == nil then return end
     HF.AddAffliction(character,limbtoaffliction[limbtype],strength)
+
+    if strength > 0 and NT.Config.fracturesRemoveCasts then
+        HF.SetAfflictionLimb(character,"gypsumcast",limbtype,0)
+    end
 end
 function NT.SurgicallyAmputateLimb(character,limbtype,strength,traumampstrength)
     strength = strength or 100
@@ -136,6 +140,47 @@ function NT.LimbIsSurgicallyAmputated(character,limbtype)
     return HF.HasAffliction(character,limbtoaffliction[limbtype],0.1)
 end
 
+function NT.Fibrillate(character,amount)
+
+    -- tachycardia (increased heartrate) ->
+    -- fibrillation (irregular heartbeat) ->
+    -- cardiacarrest
+
+    -- fetch values
+    local tachycardia = HF.GetAfflictionStrength(character,"tachycardia",0)
+    local fibrillation = HF.GetAfflictionStrength(character,"fibrillation",0)
+    local cardiacarrest = HF.GetAfflictionStrength(character,"cardiacarrest",0)
+
+    -- already in cardiac arrest? don't do anything
+    if cardiacarrest > 0 then return end
+
+    -- determine total amount of fibrillation, then determine afflictions from that
+    local previousAmount = tachycardia/5
+    if fibrillation > 0 then previousAmount = 20 + fibrillation end
+    local newAmount = previousAmount + amount
+
+    -- 0-20: 0-100% tachycardia
+    -- 20-120: 0-100% fibrillation
+    -- >120: cardiac arrest
+
+    if newAmount < 20 then
+        -- 0-20: 0-100% tachycardia
+        tachycardia = newAmount*5
+        fibrillation = 0
+    elseif newAmount < 120 then
+        -- 20-120: 0-100% fibrillation
+        tachycardia = 0
+        fibrillation = newAmount-20
+    else
+        -- >120: cardiac arrest
+        tachycardia = 0
+        fibrillation = 0
+        HF.SetAffliction(character,"cardiacarrest",10)
+    end
+
+    HF.SetAffliction(character,"tachycardia",tachycardia)
+    HF.SetAffliction(character,"fibrillation",fibrillation)
+end
 
 HF = {} -- Helperfunctions
 

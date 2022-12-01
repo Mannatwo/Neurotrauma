@@ -89,11 +89,12 @@ NT.OnDamagedMethods.gunshotwound = function(character,strength,limbtype)
 
     -- extremities
     if strength >= 1 and HF.LimbIsExtremity(limbtype) then
-        if not NT.LimbIsBroken(character,limbtype) and HF.Chance(strength/60*NTC.GetMultiplier(character,"anyfracturechance")*NT.Config.fractureChance) then
+        if NT.LimbIsBroken(character,limbtype) and not NT.LimbIsAmputated(character,limbtype) and HF.Chance(strength/60*NTC.GetMultiplier(character,"traumamputatechance")) then
+            NT.TraumamputateLimb(character,limbtype) end
+        if HF.Chance(strength/60*NTC.GetMultiplier(character,"anyfracturechance")*NT.Config.fractureChance) then
             NT.BreakLimb(character,limbtype)
             causeFullForeignBody = true
-        elseif NT.LimbIsBroken(character,limbtype) and not NT.LimbIsAmputated(character,limbtype) and HF.Chance(strength/60*NTC.GetMultiplier(character,"traumamputatechance")) then
-            NT.TraumamputateLimb(character,limbtype) end
+        end
     end
 
     -- foreign bodies
@@ -138,10 +139,10 @@ NT.OnDamagedMethods.explosiondamage = function(character,strength,limbtype)
 
     -- extremities
     if strength >= 1 and HF.LimbIsExtremity(limbtype) then
-        if not NT.LimbIsBroken(character,limbtype) and HF.Chance(strength/60*NTC.GetMultiplier(character,"anyfracturechance")*NT.Config.fractureChance) then
-            NT.BreakLimb(character,limbtype)
-        elseif NT.LimbIsBroken(character,limbtype) and not NT.LimbIsAmputated(character,limbtype) and HF.Chance(strength/60*NTC.GetMultiplier(character,"traumamputatechance")) then
+        if NT.LimbIsBroken(character,limbtype) and not NT.LimbIsAmputated(character,limbtype) and HF.Chance(strength/60*NTC.GetMultiplier(character,"traumamputatechance")) then
             NT.TraumamputateLimb(character,limbtype) end
+        if HF.Chance(strength/60*NTC.GetMultiplier(character,"anyfracturechance")*NT.Config.fractureChance) then
+            NT.BreakLimb(character,limbtype) end
         if HF.Chance(0.35*NT.Config.dislocationChance) and not NT.LimbIsAmputated(character,limbtype) then
             NT.DislocateLimb(character,limbtype) end
     end
@@ -171,10 +172,10 @@ NT.OnDamagedMethods.bitewounds = function(character,strength,limbtype)
 
     -- extremities
     if strength >= 1 and HF.LimbIsExtremity(limbtype) then
-        if not NT.LimbIsBroken(character,limbtype) and HF.Chance((strength-5)/60*NTC.GetMultiplier(character,"anyfracturechance")*NT.Config.fractureChance) then
-            NT.BreakLimb(character,limbtype)
-        elseif NT.LimbIsBroken(character,limbtype) and not NT.LimbIsAmputated(character,limbtype) and HF.Chance((strength-5)/60*NTC.GetMultiplier(character,"traumamputatechance")) then
+        if NT.LimbIsBroken(character,limbtype) and not NT.LimbIsAmputated(character,limbtype) and HF.Chance((strength-5)/60*NTC.GetMultiplier(character,"traumamputatechance")) then
             NT.TraumamputateLimb(character,limbtype) end
+        if HF.Chance((strength-5)/60*NTC.GetMultiplier(character,"anyfracturechance")*NT.Config.fractureChance) then
+            NT.BreakLimb(character,limbtype) end
     end
 end
 
@@ -202,10 +203,10 @@ NT.OnDamagedMethods.lacerations = function(character,strength,limbtype)
 
     -- extremities
     if strength >= 1 and HF.LimbIsExtremity(limbtype) then
-        if not NT.LimbIsBroken(character,limbtype) and HF.Chance((strength-5)/60*NTC.GetMultiplier(character,"anyfracturechance")*NT.Config.fractureChance) then
-            NT.BreakLimb(character,limbtype)
-        elseif NT.LimbIsBroken(character,limbtype) and not NT.LimbIsAmputated(character,limbtype) and HF.Chance(strength/60*NTC.GetMultiplier(character,"traumamputatechance")) then
+        if NT.LimbIsBroken(character,limbtype) and not NT.LimbIsAmputated(character,limbtype) and HF.Chance(strength/60*NTC.GetMultiplier(character,"traumamputatechance")) then
             NT.TraumamputateLimb(character,limbtype) end
+        if HF.Chance((strength-5)/60*NTC.GetMultiplier(character,"anyfracturechance")*NT.Config.fractureChance) then
+            NT.BreakLimb(character,limbtype) end
     end
 end
 
@@ -244,10 +245,10 @@ NT.OnDamagedMethods.blunttrauma = function(character,strength,limbtype)
 
     -- extremities
     if not fractureImmune and strength >= 1 and HF.LimbIsExtremity(limbtype) then
-        if not NT.LimbIsBroken(character,limbtype) and HF.Chance((strength-2)/60*NTC.GetMultiplier(character,"anyfracturechance")*NT.Config.fractureChance) then
-            NT.BreakLimb(character,limbtype)
-        elseif strength > 15 and NT.LimbIsBroken(character,limbtype) and not NT.LimbIsAmputated(character,limbtype) and HF.Chance(strength/100*NTC.GetMultiplier(character,"traumamputatechance")) then
+        if strength > 15 and NT.LimbIsBroken(character,limbtype) and not NT.LimbIsAmputated(character,limbtype) and HF.Chance(strength/100*NTC.GetMultiplier(character,"traumamputatechance")) then
             NT.TraumamputateLimb(character,limbtype) end
+        if HF.Chance((strength-2)/60*NTC.GetMultiplier(character,"anyfracturechance")*NT.Config.fractureChance) then
+            NT.BreakLimb(character,limbtype) end
         if HF.Chance(HF.Clamp(strength/80,0.1,0.5)*NT.Config.dislocationChance) and not NT.LimbIsAmputated(character,limbtype) then
             NT.DislocateLimb(character,limbtype) end
     end
@@ -284,10 +285,10 @@ NT.OnDamagedMethods.internaldamage = function(character,strength,limbtype)
 
     -- extremities
     if strength >= 1 and HF.LimbIsExtremity(limbtype) then
-        if not NT.LimbIsBroken(character,limbtype) and HF.Chance((strength-5)/60*NTC.GetMultiplier(character,"anyfracturechance")*NT.Config.fractureChance) then
-            NT.BreakLimb(character,limbtype)
-        elseif strength > 10 and NT.LimbIsBroken(character,limbtype) and not NT.LimbIsAmputated(character,limbtype) and HF.Chance((strength-10)/60*NTC.GetMultiplier(character,"traumamputatechance")) then
+        if strength > 10 and NT.LimbIsBroken(character,limbtype) and not NT.LimbIsAmputated(character,limbtype) and HF.Chance((strength-10)/60*NTC.GetMultiplier(character,"traumamputatechance")) then
             NT.TraumamputateLimb(character,limbtype) end
+        if HF.Chance((strength-5)/60*NTC.GetMultiplier(character,"anyfracturechance")*NT.Config.fractureChance) then
+            NT.BreakLimb(character,limbtype) end
         if HF.Chance(0.25*NT.Config.dislocationChance) and not NT.LimbIsAmputated(character,limbtype) then
             NT.DislocateLimb(character,limbtype) end
     end
