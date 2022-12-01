@@ -3677,7 +3677,9 @@
           <RequiredItem items="pipetobacco" type="Contained" />
         </StatusEffect>
         <StatusEffect tags="medical" type="OnUse" target="Character">
-          <Affliction identifier="psychosisresistance" amount="10" />
+          <Affliction identifier="psychosisresistance" amount="15" />
+          <ReduceAffliction identifier="psychosis" amount="5" />
+          <ReduceAffliction identifier="hallucinating" amount="10" />
           <Affliction identifier="lungdamage" amount="0.4" />
           <RequiredItem items="pipetobacco" type="Contained" />
         </StatusEffect>
@@ -3701,11 +3703,11 @@
           <ParticleEmitter particle="swirlysmoke" particlespersecond="2" scalemin="1" scalemax="2" anglemin="0" anglemax="360" velocitymin="0" velocitymax="10" />
         </StatusEffect>
         <StatusEffect tags="medical" type="OnUse" target="Character">
-          <Affliction identifier="psychosisresistance" amount="10" />
+          <Affliction identifier="psychosisresistance" amount="20" />
           <Affliction identifier="lungdamage" amount="0.6" />
-          <ReduceAffliction identifier="psychosis" amount="1.5" />
+          <ReduceAffliction identifier="psychosis" amount="6" />
           <ReduceAffliction identifier="reaperstax" amount="1" />
-          <ReduceAffliction identifier="hallucinating" amount="5" />
+          <ReduceAffliction identifier="hallucinating" amount="10" />
           <ReduceAffliction identifier="watchersgaze" amount="5" />
         </StatusEffect>
         <StatusEffect type="OnBroken" target="This">
