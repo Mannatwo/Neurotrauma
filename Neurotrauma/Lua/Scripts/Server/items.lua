@@ -183,7 +183,7 @@ NT.ItemMethods.traumashears = function(item, usingCharacter, targetCharacter, li
         end
     end
 end
-NT.ItemMethods.divingknife = function(item, usingCharacter, targetCharacter, limb) 
+NT.ItemStartsWithMethods.divingknife = function(item, usingCharacter, targetCharacter, limb) 
     local limbtype = limb.type
 
     -- don't work on stasis
