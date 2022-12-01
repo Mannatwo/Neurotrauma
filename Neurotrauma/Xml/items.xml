@@ -2924,7 +2924,7 @@
       <Upgrade gameversion="0.10.0.0" scale="0.5"/>
       <PreferredContainer primary="medfabcab" secondary="medcontainer"/>
       <PreferredContainer secondary="storageorgan" minamount="1" maxamount="2" spawnprobability="1"/>
-      <Price baseprice="120" sold="false">
+      <Price baseprice="100" sold="false">
         <Price storeidentifier="merchantoutpost" multiplier="0.85" />
         <Price storeidentifier="merchantcity" multiplier="0.85" />
         <Price storeidentifier="merchantresearch" sold="true" multiplier="1.2" minavailable="2"/>
@@ -3689,7 +3689,7 @@
   <!-- cigar -->
     <Item name="" identifier="cigar" category="Misc" Tags="smallitem" scale="0.5" cargocontaineridentifier="metalcrate" impactsoundtag="impact_soft" isshootable="true" requireaimtouse="true">
       <PreferredContainer primary="crewcab"/>
-      <Price baseprice="150" soldbydefault="false" />
+      <Price baseprice="130" sold="false" />
       <Fabricate suitablefabricators="fabricator" requiredtime="5" requiresrecipe="true">
         <RequiredItem identifier="pipetobacco" />
       </Fabricate>
