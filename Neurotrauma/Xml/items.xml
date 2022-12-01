@@ -1412,12 +1412,13 @@
   <!-- /// Blood stuff /// -->
   
   <Override>
-    <Item name="" identifier="antibloodloss2" nameidentifier="bloodpackominus" category="Material" maxstacksize="8"
+    <Item name="" identifier="antibloodloss2" nameidentifier="bloodpackominus" category="Medical" maxstacksize="8"
           cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,petfood1" useinhealthinterface="true"
           description="" scale="0.5" impactsoundtag="impact_soft">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
       <PreferredContainer primary="medcab" minamount="2" maxamount="3" notcampaign="true"/>
-      <PreferredContainer secondary="outpostmedcompartment,outpostmedcab" minamount="1" maxamount="2" spawnprobability="0.2"/>
+      <PreferredContainer secondary="outpostmedcab" minamount="1" maxamount="2" spawnprobability="0.2"/>
+      <PreferredContainer secondary="outpostmedcompartment" amount="1" spawnprobability="0.05"/>
       <PreferredContainer secondary="wreckmedcab,abandonedmedcab" minamount="1" maxamount="2" spawnprobability="0.2" />
       <PreferredContainer secondary="medcontainer"/>
       <Price baseprice="240">
