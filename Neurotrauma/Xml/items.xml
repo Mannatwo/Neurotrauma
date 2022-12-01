@@ -2953,7 +2953,7 @@
         </StatusEffect>
       </MeleeWeapon>
     </Item>
-    <Item name="" identifier="antibloodloss1" category="Material" maxstacksize="8"
+    <Item name="" identifier="antibloodloss1" category="Medical" maxstacksize="8"
           cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,petfood1,petfood2,petfood3"
           useinhealthinterface="true" description="" scale="0.5" impactsoundtag="impact_soft">
       <Upgrade gameversion="0.10.0.0" scale="0.5"/>
@@ -2999,7 +2999,7 @@
       <AiTarget sightrange="1000" static="true"/>
     </Item>
   <!-- Bandages -->
-    <Item name="" identifier="antibleeding1" aliases="Bandage" category="Equipment" Tags="smallitem,medical"
+    <Item name="" identifier="antibleeding1" aliases="Bandage" category="Medical" Tags="smallitem,medical"
           maxstacksize="8" useinhealthinterface="true" cargocontaineridentifier="mediccrate" description=""
           scale="0.5" impactsoundtag="impact_soft">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
@@ -3034,7 +3034,7 @@
         </StatusEffect>
       </MeleeWeapon>
     </Item>
-    <Item name="" identifier="antibleeding2" category="Equipment" Tags="smallitem,medical" maxstacksize="8"
+    <Item name="" identifier="antibleeding2" category="Medical" Tags="smallitem,medical" maxstacksize="8"
           cargocontaineridentifier="mediccrate" description="" useinhealthinterface="true" scale="0.5"
           impactsoundtag="impact_soft">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
@@ -3183,7 +3183,7 @@
       </Controller>
     </Item>
   <!-- Opium, Morphine, Fentanyl, Naloxone -->
-    <Item name="" identifier="opium" category="Material" maxstacksize="8" Tags="smallitem,chem,medical" description=""
+    <Item name="" identifier="opium" category="Medical" maxstacksize="8" Tags="smallitem,chem,medical" description=""
           cargocontaineridentifier="mediccrate" scale="0.5" useinhealthinterface="true">
       <Upgrade gameversion="0.10.0.0" scale="0.5"/>
       <PreferredContainer secondary="abandonedmedcab,wreckmedcab" minamount="1" maxamount="2" spawnprobability="0.5" />
@@ -3234,7 +3234,7 @@
         </StatusEffect>
       </MeleeWeapon>
     </Item>
-    <Item name="" identifier="antidama1" aliases="Corrigodone" category="Material" maxstacksize="8"
+    <Item name="" identifier="antidama1" aliases="Corrigodone" category="Medical" maxstacksize="8"
           cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" description=""
           useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
@@ -3318,7 +3318,7 @@
         </StatusEffect>
       </Projectile>
     </Item>
-    <Item name="" identifier="antidama2" category="Material" maxstacksize="8" cargocontaineridentifier="mediccrate"
+    <Item name="" identifier="antidama2" category="Medical" maxstacksize="8" cargocontaineridentifier="mediccrate"
           Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5"
           impactsoundtag="impact_metal_light">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
@@ -3398,7 +3398,7 @@
         </StatusEffect>
       </Projectile>
     </Item>
-    <Item name="" identifier="antinarc" category="Material" maxstacksize="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" useinhealthinterface="true" description="" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <Item name="" identifier="antinarc" category="Medical" maxstacksize="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" useinhealthinterface="true" description="" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
       <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.2" />
       <PreferredContainer secondary="outpostmedcab" amount="1" spawnprobability="0.5" />
@@ -3456,7 +3456,7 @@
       </Projectile>
     </Item>
   <!-- Antibiotics, Adrenaline -->
-    <Item name="" identifier="antibiotics" category="Material" maxstacksize="8"
+    <Item name="" identifier="antibiotics" category="Medical" maxstacksize="8"
           Tags="smallitem,chem,medical,syringe" description="" cargocontaineridentifier="mediccrate" scale="0.5"
           useinhealthinterface="true">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
@@ -3508,7 +3508,7 @@
         </StatusEffect>
       </Projectile>
     </Item>
-    <Item name="" identifier="adrenaline" category="Material" maxstacksize="8" cargocontaineridentifier="mediccrate"
+    <Item name="" identifier="adrenaline" category="Medical,Material" maxstacksize="8" cargocontaineridentifier="mediccrate"
           Tags="smallitem,chem,medical,syringe" useinhealthinterface="true" scale="0.5"
           impactsoundtag="impact_metal_light">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
@@ -3713,7 +3713,7 @@
       </Holdable>
     </Item>
   <!-- liquid oxygenite -->
-    <Item name="" identifier="liquidoxygenite" category="Material" maxstacksize="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" impacttolerance="8" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <Item name="" identifier="liquidoxygenite" category="Medical" maxstacksize="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" impacttolerance="8" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
       <Price baseprice="80">
         <Price storeidentifier="merchantmedical" multiplier="0.9" minavailable="4" />
@@ -3762,7 +3762,7 @@
       <Projectile characterusable="false" launchimpulse="20.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
     </Item>
   <!-- deusizine -->
-    <Item name="" identifier="deusizine" aliases="Auxiliriozine" category="Material" maxstacksize="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <Item name="" identifier="deusizine" aliases="Auxiliriozine" category="Medical" maxstacksize="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
       <PreferredContainer secondary="wreckmedcab,abandonedmedcab" minamount="1" maxamount="2" spawnprobability="0.2" />
       <PreferredContainer secondary="outposttrashcan" amount="1" spawnprobability="0.02" />
@@ -3817,7 +3817,7 @@
       <Projectile characterusable="false" launchimpulse="20.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
     </Item>
   <!-- antibiotic glue -->
-    <Item name="" identifier="antibleeding3" category="Equipment" Tags="smallitem,medical" maxstacksize="8" cargocontaineridentifier="mediccrate" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <Item name="" identifier="antibleeding3" category="Medical" Tags="smallitem,medical" maxstacksize="8" cargocontaineridentifier="mediccrate" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
       <PreferredContainer primary="medcab" secondary="medcontainer"/>
       <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.3" />
@@ -3870,7 +3870,7 @@
       </MeleeWeapon>
     </Item>
   <!-- meth -->
-    <Item name="" identifier="meth" category="Material" maxstacksize="8" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <Item name="" identifier="meth" category="Medical" maxstacksize="8" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
       <PreferredContainer primary="medcab"/>
       <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.2" />
@@ -3949,7 +3949,7 @@
       </Projectile>
     </Item>
   <!-- hyperzine -->
-    <Item name="" identifier="hyperzine" category="Material" maxstacksize="8" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <Item name="" identifier="hyperzine" category="Medical" maxstacksize="8" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
       <PreferredContainer primary="medcab"/>
       <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.1" />
@@ -4032,7 +4032,7 @@
       </Projectile>
     </Item>
   <!-- diving knife -->
-    <Item name="" identifier="divingknife" category="Equipment" Tags="smallitem,weapon,gunsmith" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True" useinhealthinterface="True">
+    <Item name="" identifier="divingknife" category="Weapon" Tags="smallitem,weapon,gunsmith" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True" useinhealthinterface="True">
       <PreferredContainer secondary="wreckarmcab,abandonedarmcab" amount="1" spawnprobability="0.25"/>
       <PreferredContainer secondary="abandonedstoragecab" amount="1" spawnprobability="0.05"/>
       <PreferredContainer secondary="beaconsupplycab" amount="1" spawnprobability="0.05"/>
@@ -4083,7 +4083,7 @@
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
     </Item>
   <!-- Haloperidol -->
-    <Item name="" identifier="antipsychosis" category="Material" maxstacksize="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" useinhealthinterface="true" description="" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <Item name="" identifier="antipsychosis" category="Medical" maxstacksize="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" useinhealthinterface="true" description="" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
       <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.2" />
       <PreferredContainer secondary="outpostmedcab" amount="1" spawnprobability="0.2" />
@@ -4136,7 +4136,7 @@
       <Projectile characterusable="false" launchimpulse="20.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
     </Item>
   <!-- Anaparalyzant -->
-    <Item name="" identifier="antiparalysis" category="Material" maxstacksize="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <Item name="" identifier="antiparalysis" category="Medical" maxstacksize="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
       <PreferredContainer secondary="wrecksupplycab" amount="1" spawnprobability="0.3" />
       <PreferredContainer secondary="wreckmedcab,abandonedmedcab" minamount="1" maxamount="2" spawnprobability="0.8" />
@@ -4256,7 +4256,7 @@
     </Item>
   
   <!-- Nitroglycerin | change: now acts as blood pressure reducing medicine.-->
-  <Item name="" identifier="nitroglycerin" category="Material,Weapon" maxstacksize="8" description="" spritecolor="1.0,1.0,1.0,1.0" containercolor="1.0,1.0,1.0,1.0" cargocontaineridentifier="explosivecrate" Tags="smallitem,chem,medical" impacttolerance="6" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="nitroglycerin" category="Medical,Material,Weapon" maxstacksize="8" description="" spritecolor="1.0,1.0,1.0,1.0" containercolor="1.0,1.0,1.0,1.0" cargocontaineridentifier="explosivecrate" Tags="smallitem,chem,medical" impacttolerance="6" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="secarmcab" secondary="armcab"/>
     <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" amount="1" spawnprobability="0.01"/>
     <Price baseprice="150">
