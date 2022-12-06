@@ -29,6 +29,7 @@
 <entityname.wheelchair>Wózek inwalidzki</entityname.wheelchair>
 <entitydescription.wheelchair>Sprawia, że ruch jest zależny od ramion, a nie nóg.</entitydescription.wheelchair>
 
+<entityname.blahaj>Żarłacz błękitny</entityname.blahaj>
 
 <Override>
 <entityname.healthscanner>Skaner zdrowia</entityname.healthscanner>

@@ -572,6 +572,12 @@ NT.ItemMethods.aed = function(item, usingCharacter, targetCharacter, limb)
         end
     end
 end
+NT.ItemMethods.blahaj = function(item, usingCharacter, targetCharacter, limb)
+    if item.Condition <= 0 then return end
+    item.Condition = 0
+    HF.GiveItem(targetCharacter,"ntsfx_squeak")
+    HF.AddAffliction(targetCharacter,"psychosis",-2,usingCharacter)
+end
 
 -- surgery
 

@@ -29,6 +29,7 @@
 <entityname.wheelchair>Silla de Ruedas</entityname.wheelchair>
 <entitydescription.wheelchair>Te hace dependiente de tus brazos en vez de tus piernas para moverte.</entitydescription.wheelchair>
 
+<entityname.blahaj>Tiburón azul</entityname.blahaj>
 
 <Override>
 <entityname.healthscanner>Escáner de Salud</entityname.healthscanner>

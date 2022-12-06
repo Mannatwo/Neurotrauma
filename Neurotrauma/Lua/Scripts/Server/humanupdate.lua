@@ -219,16 +219,6 @@ NT.Afflictions = {
         c.afflictions[i].strength = c.afflictions[i].strength + gain
 
         c.afflictions[i].strength = HF.Clamp(c.afflictions[i].strength,0,200)
-
-        -- not in effect yet because lua doesnt like tuples which means i cant provide an accurate cause of death
-
-        -- make ABSOLUTELY SURE that characters that should be dead ARE dead
-        -- for some asinine reason all of the NPCs at stations for which you can't open the health interface are immortal
-        -- and will just continue to bleed out and stay at 200% neurotrauma without giving a singular fuck
-        -- potentially fixed by making neurotrauma vitality loss scale with max vitality
-        -- if c.afflictions[i].strength >= 199 and not c.character.IsDead then
-        --     c.character.Kill(0,nil,true)
-        -- end
     end
     },
     heartdamage={update=function(c,i) if c.stats.stasis then return end c.afflictions[i].strength = organDamageCalc(c,c.afflictions[i].strength + NTC.GetMultiplier(c.character,"heartdamagegain")*(c.stats.neworgandamage + HF.Clamp(c.afflictions.heartattack.strength,0,0.5) * NT.Deltatime)) end},

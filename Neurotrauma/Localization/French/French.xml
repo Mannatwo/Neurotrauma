@@ -29,6 +29,7 @@
 <entityname.wheelchair>Fauteuil roulant</entityname.wheelchair>
 <entitydescription.wheelchair>Vous fait dépendre de vos bras au lieu de vos jambes pour vous déplacer.</entitydescription.wheelchair>
 
+<entityname.blahaj>Requin bleu</entityname.blahaj>
 
 <Override>
 <entityname.healthscanner>Scanneur de santé</entityname.healthscanner>

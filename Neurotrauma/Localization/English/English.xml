@@ -29,6 +29,7 @@
 <entityname.wheelchair>Wheelchair</entityname.wheelchair>
 <entitydescription.wheelchair>Makes you depend on your arms instead of your legs for movement.</entitydescription.wheelchair>
 
+<entityname.blahaj>Blue Shark</entityname.blahaj>
 
 <Override>
 <entityname.healthscanner>Health scanner</entityname.healthscanner>

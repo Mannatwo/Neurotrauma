@@ -18,6 +18,7 @@
   <entitydescription.traumashears>붕대와 깁스를 제거하는 데 사용되는 도구입니다.</entitydescription.traumashears>
   <entityname.wheelchair>휠체어</entityname.wheelchair>
   <entitydescription.wheelchair>움직임을 위해 다리 대신 팔에 의존하게 만듭니다.</entitydescription.wheelchair>
+  <entityname.blahaj>청상어</entityname.blahaj>
   <Override>
     <entityname.healthscanner>건강 진단기</entityname.healthscanner>
     <entitydescription.healthscanner>증상의 근본 원인을 진단하는 데 사용됩니다.</entitydescription.healthscanner>

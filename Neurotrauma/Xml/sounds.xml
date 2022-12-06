@@ -4,4 +4,9 @@
 	<ecg2 file="%ModDir%/Sound/BHUI/ecg2.ogg"/>
 	<flatline1 file="%ModDir%/Sound/BHUI/flatline1.ogg"/>
 	<flatline2 file="%ModDir%/Sound/BHUI/flatline2.ogg"/>
+	<impact_squeak file="%ModDir%/Sound/squeak1.ogg" range="500"/>
+	<impact_squeak file="%ModDir%/Sound/squeak2.ogg" range="500"/>
+	<impact_squeak file="%ModDir%/Sound/squeak3.ogg" range="500"/>
+	<impact_squeak file="%ModDir%/Sound/squeak4.ogg" range="500"/>
+	<impact_squeak file="%ModDir%/Sound/squeak5.ogg" range="500"/>
 </sounds>

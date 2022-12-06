@@ -28,6 +28,7 @@
 <entityname.wheelchair>Инвалидная коляска</entityname.wheelchair>
 <entitydescription.wheelchair>Позволяет полагаться на свои руки, а не на ноги во время движения.</entitydescription.wheelchair>
 
+<entityname.blahaj>Синяя акула</entityname.blahaj>
 
 <Override>
 <entityname.healthscanner>Сканер здоровья</entityname.healthscanner>

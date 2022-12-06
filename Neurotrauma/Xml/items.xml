@@ -2584,6 +2584,33 @@
     </MeleeWeapon>
   </Item>
 
+  <Item name="" identifier="blahaj" category="Equipment" cargocontaineridentifier="metalcrate" impactsoundtag="impact_squeak" RequireAimToUse="True"
+        Tags="smallitem,medical,mountableweapon" description="" useinhealthinterface="True" scale="0.25">
+    <Fabricate suitablefabricators="fabricator" requiredtime="5">
+        <RequiredSkill identifier="mechanical" level="10"/>
+        <RequiredItem identifier="plastic"/>
+    </Fabricate>
+    <Deconstruct time="5">
+        <Item identifier="plastic" mincondition="0.1" outcondition="0.5"/>
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="768,835,256,189" depth="0.55"
+            origin="0.5,0.5"/>
+    <Body width="100" height="80" density="9"/>
+    <MeleeWeapon slots="Any,RightHand,LeftHand" controlpose="true" aimpos="45,10" handle1="-20,0" handle2="-10,5" holdangle="60" reload="1" range="100" combatpriority="5" msg="ItemMsgPickUpSelect">
+      <Attack stun="0.3" targetimpulse="2"/>
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true">
+        <Sound file="%ModDir%/Sound/squeak1.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/squeak2.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/squeak3.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/squeak4.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/squeak5.ogg" type="OnUse" range="500"/>
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" Condition="100" disabledeltatime="true" delay="2" stackable="false">
+        <Conditional condition="lt 50"/>
+      </StatusEffect>
+    </MeleeWeapon>
+  </Item>
+
   <!-- /// sound FX items (this is unelegant, pls fix, lua man!) /// -->
 
   <Item name="." identifier="ntsfx_selfscan" category="hidden" description=".">
@@ -2690,6 +2717,22 @@
         <Sound file="%ModDir%/Sound/ointment.ogg" range="500"/>
       </StatusEffect>
       <StatusEffect type="always" target="This" disabledeltatime="true" delay="0.1" stackable="false">
+        <Remove/>
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+  <Item name="." identifier="ntsfx_squeak" category="hidden" description=".">
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
+    <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
+    <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
+      <StatusEffect type="always" target="This" disabledeltatime="true" duration="0.5" stackable="false">
+        <Sound file="%ModDir%/Sound/squeak1.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/squeak2.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/squeak3.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/squeak4.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir%/Sound/squeak5.ogg" type="OnUse" range="500"/>
+      </StatusEffect>
+      <StatusEffect type="always" target="This" disabledeltatime="true" delay="0.5" stackable="false">
         <Remove/>
       </StatusEffect>
     </ItemComponent>

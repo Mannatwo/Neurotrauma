@@ -20,6 +20,7 @@
 <entitydescription.traumashears>Uma ferramenta usada para remover bandagens e gessos.</entitydescription.traumashears>
 <entityname.wheelchair>Cadeira de Rodas</entityname.wheelchair>
 <entitydescription.wheelchair>Faz você depender de seus braços ao invés de suas pernas para a movimentação.</entitydescription.wheelchair>
+<entityname.blahaj>Tubarão Azul</entityname.blahaj>
 <Override>
 <entityname.healthscanner>Visor de Saúde</entityname.healthscanner>
 <entitydescription.healthscanner>Usado para diagnosticar as causas subjacentes dos sintomas.</entitydescription.healthscanner>

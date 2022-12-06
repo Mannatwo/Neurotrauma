@@ -29,6 +29,7 @@
 <entityname.wheelchair>Tekerlekli Sandalye</entityname.wheelchair>
 <entitydescription.wheelchair>Hareket için bacaklarınız yerine kollarınıza bağımlı olmanızı sağlar.</entitydescription.wheelchair>
 
+<entityname.blahaj>Mavi köpek balığı</entityname.blahaj>
 
 <Override>
 <entityname.healthscanner>Sağlık Tarayıcısı</entityname.healthscanner>
