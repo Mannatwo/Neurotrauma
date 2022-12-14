@@ -735,9 +735,9 @@ function NTP.SetPillFromConfig(item,config)
         item.set_InventoryIconColor(col)
         if SERVER then
             local property = item.SerializableProperties[Identifier("InventoryIconColor")]
-            Networking.CreateEntityEvent(item, Item.ChangePropertyEventData.__new(property))
+            Networking.CreateEntityEvent(item, Item.ChangePropertyEventData.__new(property,item))
             property = item.SerializableProperties[Identifier("SpriteColor")]
-            Networking.CreateEntityEvent(item, Item.ChangePropertyEventData.__new(property))
+            Networking.CreateEntityEvent(item, Item.ChangePropertyEventData.__new(property,item))
         end
     end
 
