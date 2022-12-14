@@ -1721,7 +1721,7 @@
     healableinmedicalclinic="false"
     targets="human"
     type="resistance"
-    isbuff="false"
+    isbuff="true"
     limbspecific="false"
     showiconthreshold="200"
     showinhealthscannerthreshold="200"
