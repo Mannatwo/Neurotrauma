@@ -772,6 +772,14 @@ NT.LimbAfflictions = {
         end
     end
     },
+    acidburn={max=200,update=function(c,limbaff,i)
+        -- convert acid burns to regular burns
+        if limbaff[i].strength > 0 then
+            limbaff.burn.strength = limbaff.burn.strength+limbaff[i].strength
+            limbaff[i].strength = 0
+        end
+    end
+    },
     lacerations={max=200,update=function(c,limbaff,i)
         limbaff[i].strength = limbaff[i].strength - (c.afflictions.immunity.prev/3000 + HF.Clamp(limbaff.bandaged.strength,0,1)*0.1)*c.stats.healingrate*NT.Deltatime
     end

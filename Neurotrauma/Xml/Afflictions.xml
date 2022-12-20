@@ -4057,6 +4057,19 @@ thats what the vomiting symptom is for -->
       karmachangeonapplied="-1"
       damageoverlayalpha="1">
       
+      <Description 
+        textidentifier="afflictiondescription.bleeding.low"
+        minstrength="0"
+        maxstrength="20"/>
+      <Description
+        textidentifier="afflictiondescription.bleeding"
+        minstrength="20"
+        maxstrength="60"/>
+      <Description
+        textidentifier="afflictiondescription.bleeding.high"
+        minstrength="60"
+        maxstrength="100"/>
+
       <Effect minstrength="0" maxstrength="100"
         minvitalitydecrease="0"
         maxvitalitydecrease="10"
@@ -4118,6 +4131,14 @@ thats what the vomiting symptom is for -->
       limbspecific="true"
       maxstrength="200"
       damageoverlayalpha="1">
+      <Description 
+        textidentifier="afflictiondescription.blunttrauma.low"
+        minstrength="0"
+        maxstrength="40"/>
+      <Description
+        textidentifier="afflictiondescription.blunttrauma"
+        minstrength="40"
+        maxstrength="200"/>
       <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true"
           minvitalitydecrease="0"
           maxvitalitydecrease="2">
@@ -4136,6 +4157,14 @@ thats what the vomiting symptom is for -->
       limbspecific="true"
       maxstrength="200"
       damageoverlayalpha="1">
+      <Description 
+        textidentifier="afflictiondescription.lacerations.low"
+        minstrength="0"
+        maxstrength="40"/>
+      <Description
+        textidentifier="afflictiondescription.lacerations"
+        minstrength="40"
+        maxstrength="200"/>
       <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true"
         minvitalitydecrease="0"
         maxvitalitydecrease="2"/>
@@ -4154,6 +4183,14 @@ thats what the vomiting symptom is for -->
       limbspecific="true"
       maxstrength="200"
       damageoverlayalpha="1">
+      <Description
+        textidentifier="afflictiondescription.bitewounds.low"
+        minstrength="0"
+        maxstrength="40"/>
+      <Description
+        textidentifier="afflictiondescription.bitewounds"
+        minstrength="40"
+        maxstrength="200"/>
       <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true"
         minvitalitydecrease="0"
         maxvitalitydecrease="2"/>
@@ -4173,6 +4210,14 @@ thats what the vomiting symptom is for -->
       maxstrength="200"
       karmachangeonapplied="-1"
       damageoverlayalpha="1">
+      <Description
+        textidentifier="afflictiondescription.gunshotwound.low"
+        minstrength="0"
+        maxstrength="40"/>
+      <Description
+        textidentifier="afflictiondescription.gunshotwound"
+        minstrength="40"
+        maxstrength="200"/>
       <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true"
         minvitalitydecrease="0"
         maxvitalitydecrease="2"
@@ -4213,6 +4258,14 @@ thats what the vomiting symptom is for -->
       limbspecific="true"
       maxstrength="200"
       damageoverlayalpha="1">
+      <Description
+        textidentifier="afflictiondescription.explosiondamage.low"
+        minstrength="0"
+        maxstrength="40"/>
+      <Description
+        textidentifier="afflictiondescription.explosiondamage"
+        minstrength="40"
+        maxstrength="200"/>
       <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true"
         minvitalitydecrease="0"
         maxvitalitydecrease="2"/>
@@ -4242,6 +4295,22 @@ thats what the vomiting symptom is for -->
 
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="768,640,128,128" color="195,104,60,255" origin="0,0"/>
     </Burn>
+  </Override>
+  <Override>
+    <AcidBurn
+      identifier="acidburn"
+      type="burn"
+      limbspecific="true"
+      maxstrength="200"
+      burnoverlayalpha="0"
+      healcostmultiplier="4"
+      showiconthreshold="10000"
+      showinhealthscannerthreshold="10000">
+      <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true"
+        minvitalitydecrease="0"
+        maxvitalitydecrease="2"/>
+      <icon texture="Content/UI/CommandUIBackground.png" sourcerect="640,768,128,128" color="84,171,90,255" origin="0,0"/>
+    </AcidBurn>
   </Override>
   <Override>
     <!-- Gradually applies the "opiate withdrawal" affliction to the character -->
@@ -4517,6 +4586,32 @@ thats what the vomiting symptom is for -->
     showiconthreshold="50"
     showinhealthscannerthreshold="5"
     maxstrength="160">
+
+    <Description
+      textidentifier="afflictiondescription.drunk.self"
+      target="Self"
+      minstrength="0"
+      maxstrength="80"/>
+    <Description
+      textidentifier="afflictiondescription.drunk.lethal.self"
+      target="Self"
+      minstrength="80"
+      maxstrength="100"/>
+    <Description
+      textidentifier="afflictiondescription.drunk.low"
+      target="OtherCharacter"
+      minstrength="0"
+      maxstrength="40"/>
+    <Description
+      textidentifier="afflictiondescription.drunk"
+      target="OtherCharacter"
+      minstrength="40"
+      maxstrength="80"/>
+    <Description
+      textidentifier="afflictiondescription.drunk.lethal"
+      target="OtherCharacter"
+      minstrength="80"
+      maxstrength="100"/>
 
     <Effect minstrength="0" maxstrength="20" strengthchange="-0.1"/>
 
