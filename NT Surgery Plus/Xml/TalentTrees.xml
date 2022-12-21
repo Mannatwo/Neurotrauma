@@ -3,7 +3,21 @@
 <TalentTrees>
 
   <TalentTree jobidentifier="surgeon">
-    <SubTree identifier="researcher">
+    <SubTree identifier="surgeon_primary" nameidentifier="talenttree.primary" type="primary">
+      <TalentOptions requiredtalents="1" maxchosentalents="4">
+        <TalentOption identifier="healthinsurance"/>
+        <TalentOption identifier="nobodyimportantdies"/>
+        <TalentOption identifier="exampleofhealth"/>
+        <TalentOption identifier="ntsp_firemanscarry"/>
+      </TalentOptions>
+      <TalentOptions requiredtalents="1" maxchosentalents="4">
+        <TalentOption identifier="medicalcompanion"/>
+        <TalentOption identifier="ntsp_medicallicence"/>
+        <TalentOption identifier="blooddonor"/>
+        <TalentOption identifier="ntsp_properfol"/>
+      </TalentOptions>
+    </SubTree>
+    <SubTree identifier="researcher" type="specialization" requires="surgeon_primary" blocks="hospitalizer,fieldsurgeon">
       <TalentOptions>
         <TalentOption identifier="ntsp_autoimmune"/>
         <TalentOption identifier="ntsp_humanmachine"/>
@@ -19,7 +33,7 @@
         <TalentOption identifier="ntsp_frankenstein"/>
       </TalentOptions>
     </SubTree>
-    <SubTree identifier="hospitalizer">
+    <SubTree identifier="hospitalizer" type="specialization" requires="surgeon_primary" blocks="researcher,fieldsurgeon">
       <TalentOptions>
         <TalentOption identifier="ntsp_bedsidemanner"/>
       </TalentOptions>
@@ -30,20 +44,18 @@
         <TalentOption identifier="ntsp_rinseandrepeat"/>
       </TalentOptions>
       <TalentOptions>
-        <TalentOption identifier="ntsp_medicallicence"/>
+        <TalentOption identifier="miracleworker"/>
       </TalentOptions>
     </SubTree>
-    <SubTree identifier="fieldsurgeon">
+    <SubTree identifier="fieldsurgeon" type="specialization" requires="surgeon_primary" blocks="hospitalizer,researcher">
       <TalentOptions>
         <TalentOption identifier="ntsp_rapiddeoployment"/>
       </TalentOptions>
       <TalentOptions>
-        <TalentOption identifier="ntsp_properfol"/>
-        <TalentOption identifier="ntsp_firemanscarry"/>
+        <TalentOption identifier="ntsp_imadoctornota"/>
       </TalentOptions>
       <TalentOptions>
         <TalentOption identifier="ntsp_preventativepermit"/>
-        <TalentOption identifier="ntsp_imadoctornota"/>
       </TalentOptions>
       <TalentOptions>
         <TalentOption identifier="ntsp_soothingsurgeon"/>
