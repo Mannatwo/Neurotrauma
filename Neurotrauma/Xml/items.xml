@@ -283,7 +283,7 @@
   
   <!-- /// Surgery /// -->
 
-  <Item name="" identifier="operatingtable" scale="0.4" Tags="medical" maxstacksize="1" category="medical"
+  <Item name="" identifier="operatingtable" scale="0.4" Tags="" maxstacksize="1" category="medical"
         description="" isshootable="true">
     <Upgrade gameversion="0.12.0.0" noninteractable="false"/>
     <Body width="416" height="192" density="40"/>

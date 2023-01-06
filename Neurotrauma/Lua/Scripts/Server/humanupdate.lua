@@ -279,7 +279,7 @@ NT.Afflictions = {
     end
     },
     bloodloss={max=200},
-    bloodpressure={min=5,max=200,default=90,update=function(c,i)
+    bloodpressure={min=5,max=200,default=100,update=function(c,i)
         if c.stats.stasis then return end
         -- calculate new blood pressure
         local desiredbloodpressure =
