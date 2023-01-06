@@ -296,7 +296,6 @@
       <PreferredContainer primary="engcab"/>
       <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
       <Deconstruct time="5">
-        <Item identifier="plastic" />
         <Item identifier="copper" />
       </Deconstruct>
       <Fabricate suitablefabricators="fabricator" requiredtime="5">
@@ -305,10 +304,16 @@
         <RequiredItem identifier="copper" amount="2" />
         <RequiredItem identifier="tin" />
       </Fabricate>
+      <Fabricate suitablefabricators="fabricator" requiredtime="5" requiresrecipe="true" amount="2">
+        <RequiredSkill identifier="electrical" level="15" />
+        <RequiredItem identifier="plastic" />
+        <RequiredItem identifier="copper" amount="2" />
+        <RequiredItem identifier="tin" />
+      </Fabricate>
       <SuitableTreatment identifier="ntc_damagedelectronics" suitability="50"/>
       <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="512,64,64,64" origin="0.5,0.5" />
       <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="225,33,36,36" origin="0.5,0.5" />
-      <Body width="36" height="36" density="30" />
+      <Body width="36" height="36" density="15" />
       <Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgPickUpSelect" />
     </Item>
   </Override>
