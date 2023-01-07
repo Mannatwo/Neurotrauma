@@ -146,6 +146,7 @@ end
 
 -- startswith region begins
 
+-- stringcontains region begins
 NTCyb.ItemStringcontainsMethods.screwdriver = function(item, usingCharacter, targetCharacter, limb) 
     local limbtype = limb.type
 
