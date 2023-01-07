@@ -175,7 +175,7 @@
 
   <!-- screwdrivers -->
   <Override>
-    <Item name="" identifier="screwdriver" category="Equipment" Tags="smallitem,simpletool,tool,electricalrepairtool" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True" useinhealthinterface="True">
+    <Item name="" identifier="screwdriver" category="Equipment" Tags="smallitem,simpletool,tool,electricalrepairtool,screwdriveritem" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True" useinhealthinterface="True">
       <Preferredcontainer secondary="respawncontainer" amount="1" spawnprobability="1" notcampaign="true"/>
       <PreferredContainer primary="reactorcab,engcab"/>
       <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" amount="1" spawnprobability="0.2"/>  
@@ -200,13 +200,13 @@
       </Fabricate>
       <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="512,0,64,64" origin="0.5,0.5" />
       <Sprite texture="Content/Items/Tools/tools.png" sourcerect="227,189,64,14" depth="0.55" origin="0.5,0.5" />
-      <Body width="60" height="12" density="50" />
+      <Body width="60" height="12" density="30" />
       <SuitableTreatment identifier="ntc_loosescrews" suitability="50"/>
       <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-10,0" holdangle="60" reload="1.0" range="50" combatpriority="7" msg="ItemMsgPickUpSelect">
-        <Attack structuredamage="4" itemdamage="2" targetimpulse="2">
+        <Attack structuredamage="0" itemdamage="2" targetimpulse="2">
           <Affliction identifier="lacerations" strength="5" />
           <Affliction identifier="bleeding" strength="2" />
-          <Affliction identifier="stun" strength="0.2" />
+          <Affliction identifier="stun" strength="0.05" />
           <Sound file="Content/Sounds/Damage/LimbSlash1.ogg" selectionmode="random" range="500" />
           <Sound file="Content/Sounds/Damage/LimbSlash2.ogg" range="500" />
           <Sound file="Content/Sounds/Damage/LimbSlash3.ogg" range="500" />
@@ -220,66 +220,6 @@
         <QualityStat stattype="RepairSpeed" value="0.1"/>
       </Quality>
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
-    </Item>
-  </Override>
-  <Override>
-    <Item name="" identifier="screwdriverhardened" variantof="screwdriver" inventoryiconcolor="110,120,110,255" spritecolor="110,120,110" addedrepairspeedmultiplier="0.25" useinhealthinterface="True">
-      <PreferredContainer secondary="respawncontainer" spawnprobability="0" notcampaign="true"/>
-      <PreferredContainer primary="reactorcab,engcab" spawnprobability="0"/>
-      <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab"  spawnprobability="0"/>
-      <PreferredContainer primary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" spawnprobability="0"/>
-      <PreferredContainer primary="wreckreactorcab,abandonedreactorcab" spawnprobability="0" />
-      <PreferredContainer secondary="outpostcrewcabinet" spawnprobability="0" />
-      <PreferredContainer secondary="outposttrashcan" spawnprobability="0" />
-      <Price baseprice="200" sold="false" />
-      <Deconstruct>
-        <Item identifier="iron" />
-        <Item identifier="depletedfuel" />
-      </Deconstruct>
-      <Fabricate requiresrecipe="true">
-        <RequiredItem identifier="screwdriver" />
-        <RequiredItem identifier="depletedfuel" amount="2" />
-      </Fabricate>
-      <SuitableTreatment identifier="ntc_loosescrews" suitability="50"/>
-      <MeleeWeapon reload="*1.3">
-        <Attack targetimpulse="8" penetration="0.25">
-          <Affliction identifier="lacerations" strength="10" />
-          <Affliction identifier="radiationsickness" strength="1" />
-          <Affliction identifier="stun" strength="0.3" />
-        </Attack>
-      </MeleeWeapon>
-    </Item>
-  </Override>
-  <Override>
-    <Item name="" identifier="screwdriverdementonite" descriptionidentifier="dementonitetool" variantof="screwdriver" inventoryiconcolor="136,142,166,255" spritecolor="136,142,166" addedrepairspeedmultiplier="0.4" useinhealthinterface="True">
-      <PreferredContainer secondary="respawncontainer" spawnprobability="0" notcampaign="true"/>
-      <PreferredContainer primary="reactorcab,engcab" spawnprobability="0"/>
-      <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab"  spawnprobability="0"/>
-      <PreferredContainer primary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" spawnprobability="0"/>
-      <PreferredContainer primary="wreckreactorcab,abandonedreactorcab" spawnprobability="0" />
-      <PreferredContainer secondary="outpostcrewcabinet" spawnprobability="0" />
-      <PreferredContainer secondary="outposttrashcan" spawnprobability="0" />
-      <Price baseprice="450" sold="false" />
-      <Deconstruct>
-        <Item identifier="iron" />
-        <Item identifier="dementonite" />
-      </Deconstruct>
-      <Fabricate requiresrecipe="true">
-        <RequiredItem identifier="screwdriver" />
-        <RequiredItem identifier="dementonite" amount="2" />
-      </Fabricate>
-      <SuitableTreatment identifier="ntc_loosescrews" suitability="50"/>
-      <MeleeWeapon reload="*0.7">
-        <Attack targetimpulse="8">
-          <Affliction identifier="lacerations" strength="7.5" />
-          <Affliction identifier="psychosis" strength="5" />
-          <Affliction identifier="stun" strength="0.2" />
-        </Attack>
-        <StatusEffect type="OnFailure" target="Character">
-          <Sound file="Content/Items/Alien/AlienTurret1.ogg" range="500" />
-          <Affliction identifier="psychosis" strength="10" />
-        </StatusEffect>
-      </MeleeWeapon>
     </Item>
   </Override>
   <!-- fpga circuit -->
@@ -319,7 +259,7 @@
   </Override>
   <!-- welding tool -->
   <Override>
-    <Item name="" identifier="weldingtool" category="Equipment" Tags="smallitem,weldingequipment,tool" cargocontaineridentifier="metalcrate" description="" Scale="0.5" impactsoundtag="impact_metal_light" useinhealthinterface="True">
+    <Item name="" identifier="weldingtool" category="Equipment" Tags="smallitem,weldingequipment,tool,mountableweapon" cargocontaineridentifier="metalcrate" description="" Scale="0.5" impactsoundtag="impact_metal_light" useinhealthinterface="True">
       <PreferredContainer primary="engcab" amount="1" spawnprobability="1" notcampaign="true"/>
       <PreferredContainer secondary="supplycab" amount="1" spawnprobability="0.2" notcampaign="true"/>
       <PreferredContainer primary="outpostsupplycab" amount="1" spawnprobability="0.5"/>
@@ -348,7 +288,7 @@
         <RequiredItem identifier="plastic" amount="2" />
       </Fabricate>
       <!-- physics body -->
-      <Body width="150" height="60" density="40" />
+      <Body width="150" height="60" density="25" />
       <!-- the character will hold the item 50 pixels in front of him, with his hands at the handle1 and handle2 positions -->
       <SuitableTreatment identifier="ntc_bentmetal" suitability="50"/>
       <Holdable slots="Any,RightHand+LeftHand" controlpose="true" aimpos="60,0" handle1="-62,-16" handle2="-10,-6" msg="ItemMsgPickUpSelect" />
@@ -370,27 +310,28 @@
         <StatusEffect type="OnUse" targettype="UseTarget" targets="door,ductblock" Stuck="5.0" Condition="3.0" />
         <!-- do burn damage to characters -->
         <StatusEffect type="OnUse" targettype="Limb">
-          <Affliction identifier="burn" amount="1.0" />
+          <Affliction identifier="burn" amount="2.5" />
         </StatusEffect>
         <StatusEffect type="OnUse" targettype="UseTarget" Condition="-3.0" />
         <StatusEffect type="OnUse" targettype="Contained" targets="oxygentank" delay="1.0" stackable="false" Condition="-100.0" disabledeltatime="true">
           <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="5000" />
           <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="5000" />
-          <Explosion range="250.0" structuredamage="50" force="3.0" ignorefireeffectsfortags="oxygensource,weldingtoolfuel">
-            <Affliction identifier="burn" strength="50" />
-            <Affliction identifier="stun" strength="4" />
+          <Explosion range="150.0" force="3" applyfireeffects="false" >
+            <Affliction identifier="burn" strength="25" />
+            <Affliction identifier="stun" strength="5" />
           </Explosion>
         </StatusEffect>
         <StatusEffect type="OnUse" targettype="Contained" targets="oxygenitetank" delay="1.0" stackable="false" Condition="-100.0" disabledeltatime="true">
           <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="5000" />
           <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="5000" />
-          <Explosion range="250.0" structuredamage="110" force="6.0" ignorefireeffectsfortags="oxygensource,weldingtoolfuel">
-            <Affliction identifier="burn" strength="75" />
-            <Affliction identifier="stun" strength="4" />
+          <Explosion range="150.0" force="6" applyfireeffects="false" >
+            <Affliction identifier="burn" strength="50" />
+            <Affliction identifier="stun" strength="10" />
           </Explosion>
         </StatusEffect>
         <!-- the tool can fix structures, i.e. walls and windows -->
         <Fixable identifier="structure" />
+        <NonFixable identifier="thalamus,ice" />
         <!-- mechanic skill 20 required to use the item -->
         <RequiredSkill identifier="mechanical" level="20" />
         <!-- if the skill requirement isn't met the welding fuel will be used 3 times as fast -->
@@ -493,9 +434,9 @@
       </Fabricate>
       <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="576,0,64,64" origin="0.5,0.5" />
       <Sprite texture="Content/Items/Tools/tools.png" sourcerect="227,225,130,30" depth="0.55" origin="0.5,0.5" />
-      <Body width="120" height="20" density="50" />
+      <Body width="120" height="20" density="30" />
       <MeleeWeapon slots="RightHand+LeftHand,Any" controlpose="true" aimpos="45,10" handle1="-10,0" handle2="0,5" holdangle="60" reload="1" range="100" combatpriority="20" msg="ItemMsgPickUpSelect">
-        <Attack structuredamage="10" itemdamage="5" targetimpulse="10">
+        <Attack structuredamage="12" itemdamage="12" targetimpulse="10">
           <Affliction identifier="blunttrauma" strength="10" />
           <Affliction identifier="stun" strength="0.5" />
           <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
