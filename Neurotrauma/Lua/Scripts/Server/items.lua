@@ -25,12 +25,19 @@ Hook.Add("item.applyTreatment", "NT.itemused", function(item, usingCharacter, ta
         end
     end
 
+    --Stringcontains fuctions
+    for key,value in pairs(NT.ItemStringcontainsMethods) do 
+        if HF.StringContains(identifier,key) then
+            value(item, usingCharacter, targetCharacter, limb)
+            return
+        end
+    end
 end)
 
 -- storing all of the item-specific functions in a table
 NT.ItemMethods = {} -- with the identifier as the key
 NT.ItemStartsWithMethods = {} -- with the start of the identifier as the key
-
+NT.ItemStringcontainsMethods = {}
 
 -- misc
 
@@ -183,7 +190,7 @@ NT.ItemMethods.traumashears = function(item, usingCharacter, targetCharacter, li
         end
     end
 end
-NT.ItemStartsWithMethods.divingknife = function(item, usingCharacter, targetCharacter, limb) 
+NT.ItemStringcontainsMethods.divingknife = function(item, usingCharacter, targetCharacter, limb) 
     local limbtype = limb.type
 
     -- don't work on stasis
@@ -1340,7 +1347,7 @@ end
 
 -- misc
 
-NT.ItemStartsWithMethods.wrench = function(item, usingCharacter, targetCharacter, limb) 
+NT.ItemStringcontainsMethods.wrench = function(item, usingCharacter, targetCharacter, limb) 
     local limbtype = HF.NormalizeLimbType(limb.type)
     if(NT.LimbIsDislocated(targetCharacter,limbtype)) then
 

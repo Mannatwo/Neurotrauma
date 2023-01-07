@@ -16,12 +16,20 @@ Hook.Add("item.applyTreatment", "NTCyb.itemused", function(item, usingCharacter,
             return
         end
     end
+    --Stringcontains fuctions
+    for key,value in pairs(NTCyb.ItemStringcontainsMethods) do 
+        if HF.StartsWith(identifier,key) then
+            value(item, usingCharacter, targetCharacter, limb)
+            return
+        end
+    end
 
 end)
 
 -- storing all of the item-specific functions in a table
 NTCyb.ItemMethods = {} -- with the identifier as the key
 NTCyb.ItemStartsWithMethods = {} -- with the start of the identifier as the key
+NTCyb.ItemStringcontainsMethods= {}
 
 NTCyb.ItemMethods.fpgacircuit = function(item, usingCharacter, targetCharacter, limb) 
     local limbtype = HF.NormalizeLimbType(limb.type)
@@ -112,7 +120,7 @@ NTCyb.ItemMethods.cyberleg = function(item, usingCharacter, targetCharacter, lim
     end
 end
 
-NTCyb.ItemMethods.crowbar = function(item, usingCharacter, targetCharacter, limb) 
+NTCyb.ItemStringcontainsMethods.crowbar = function(item, usingCharacter, targetCharacter, limb) 
     local limbtype = HF.NormalizeLimbType(limb.type)
 
     if not NTCyb.HF.LimbIsCyber(targetCharacter,limbtype) then return end
@@ -138,7 +146,7 @@ end
 
 -- startswith region begins
 
-NTCyb.ItemStartsWithMethods.screwdriver = function(item, usingCharacter, targetCharacter, limb) 
+NTCyb.ItemStringcontainsMethods.screwdriver = function(item, usingCharacter, targetCharacter, limb) 
     local limbtype = limb.type
 
     if not NTCyb.HF.LimbIsCyber(targetCharacter,limbtype) then return end

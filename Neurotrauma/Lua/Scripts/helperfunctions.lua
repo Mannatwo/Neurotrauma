@@ -583,6 +583,10 @@ function HF.StartsWith(String,Start)
     return string.sub(String,1,string.len(Start))==Start
 end
 
+function HF.StringContains(String,search)
+    return string.find(String,search)~=nil
+end
+
 function HF.SplitString (inputstr, sep)
     if sep == nil then
             sep = "%s"
