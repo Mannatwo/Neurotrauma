@@ -1358,6 +1358,8 @@ NT.ItemStartsWithMethods.wrench = function(item, usingCharacter, targetCharacter
             HF.AddAffliction(targetCharacter,"severepain",5,usingCharacter) end
     end
 end
+NT.ItemMethods.heavywrench = NT.ItemStartsWithMethods.wrench
+
 NT.ItemStartsWithMethods.bloodpack = function(item, usingCharacter, targetCharacter, limb) 
     if item.Condition <= 0 then return end
 
