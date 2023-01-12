@@ -3810,7 +3810,7 @@ thats what the vomiting symptom is for -->
       activationthreshold="0"
       showiconthreshold="10000"
       showinhealthscannerthreshold="5"
-      maxstrength="200">
+      maxstrength="100">
 
       <PeriodicEffect mininterval="4" maxinterval="4">
         <StatusEffect target="Character" disabledeltatime="true" stackable="false" delay="1" checkconditionalalways="false">
