@@ -144,6 +144,7 @@ NT.Afflictions = {
         and
         (NTC.GetSymptom(c.character,"triggersym_respiratoryarrest")
         or c.stats.stasis or c.afflictions.lungremoved.strength > 0 or c.afflictions.brainremoved.strength > 0
+        or c.afflictions.opiateoverdose.strength > 60
         or (c.afflictions.lungdamage.strength > 99 and HF.Chance(0.8))
         or (c.afflictions.traumaticshock.strength > 30 and HF.Chance(0.2))
         or ((c.afflictions.cerebralhypoxia.strength > 100 or c.afflictions.hypoxemia.strength > 70) and HF.Chance(0.05)))
@@ -379,7 +380,9 @@ NT.Afflictions = {
         if( not NTC.GetSymptomFalse(c.character,"triggersym_seizure") and not c.stats.stasis and (NTC.GetSymptom(c.character,"triggersym_seizure")
             or (c.afflictions.stroke.strength > 1 and HF.Chance(0.05)) or (c.afflictions.acidosis.strength > 60 and HF.Chance(0.05))
             or (c.afflictions.alkalosis.strength > 60 and HF.Chance(0.05)) or HF.Chance(HF.Minimum(c.afflictions.radiationsickness.strength,50,0)/200*0.1)
-            or (c.afflictions.alcoholwithdrawal.strength > 50 and HF.Chance(c.afflictions.alcoholwithdrawal.strength/1000)))
+            or (c.afflictions.alcoholwithdrawal.strength > 50 and HF.Chance(c.afflictions.alcoholwithdrawal.strength/1000))
+            or (c.afflictions.opiateoverdose.strength > 60 and HF.Chance(c.afflictions.opiateoverdose.strength/500))
+        )
         ) then
             c.afflictions[i].strength = c.afflictions[i].strength+10
         end
@@ -517,7 +520,8 @@ NT.Afflictions = {
                     (not HF.HasAffliction(c.character,"implacable",0.05) and
                         (c.character.Vitality <= 0 or c.afflictions.hypoxemia.strength > 80))
                 or c.afflictions.cerebralhypoxia.strength > 100 or c.afflictions.coma.strength > 15
-                or c.afflictions.t_arterialcut.strength>0 or c.afflictions.seizure.strength > 0.1 )
+                or c.afflictions.t_arterialcut.strength>0 or c.afflictions.seizure.strength > 0.1 
+                or c.afflictions.opiateoverdose.strength > 60)
             c.afflictions[i].strength = HF.BoolToNum(isUnconscious,2)
             if isUnconscious then c.afflictions.stun.strength = math.max(7,c.afflictions.stun.strength) end
         end
@@ -592,7 +596,8 @@ NT.Afflictions = {
     hypoventilation={
         update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(
         not NTC.GetSymptomFalse(c.character,i) and c.afflictions.respiratoryarrest.strength < 1 and (NTC.GetSymptom(c.character,i)
-        or c.afflictions.analgesia.strength > 20 or c.afflictions.anesthesia.strength > 40),2)
+        or c.afflictions.analgesia.strength > 20 or c.afflictions.anesthesia.strength > 40
+        or c.afflictions.opiateoverdose.strength > 30),2)
         if(c.afflictions.hyperventilation.strength>0 and c.afflictions.hypoventilation.strength>0) then 
             c.afflictions.hyperventilation.strength = 0
             c.afflictions.hypoventilation.strength = 0

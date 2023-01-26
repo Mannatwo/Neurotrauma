@@ -4384,19 +4384,6 @@ thats what the vomiting symptom is for -->
         maxchromaticaberration="10.0"
         minradialdistort="0.0"
         maxradialdistort="10.0"/>
-      <PeriodicEffect mininterval="1" maxinterval="3">
-        <StatusEffect target="character" disabledeltatime="true" comparison="and">
-          <conditional ishuman="true"/>
-          <Conditional opiateoverdose="gte 50" />
-          <Affliction identifier="sym_unconsciousness" amount="10" probability="0.25"/>
-          <Affliction identifier="respiratoryarrest" amount="10" probability="0.25"/>
-          <Affliction identifier="seizure" amount="5" probability="0.25"/>
-        </StatusEffect>
-        <StatusEffect target="Character" disabledeltatime="true" stackable="false" delay="1" checkconditionalalways="false" comparison="and">
-          <Conditional opiateoverdose="gte 50" respiratoryarrest="lt 0.5"/>
-          <Affliction identifier="hypoventilation" amount="1" probability="0.05" duration="10"/>
-        </StatusEffect>
-      </PeriodicEffect>
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="640,768,128,128" color="103,103,103,255" origin="0,0"/>
     </Affliction>
   </Override>
