@@ -1139,7 +1139,7 @@ NT.ItemMethods.needle = function(item, usingCharacter, targetCharacter, limb)
     -- don't work on stasis
     if(HF.HasAffliction(targetCharacter,"stasis",0.1)) then return end
 
-    if(limbtype == LimbType.Torso) then
+    if(limbtype == LimbType.Torso and not HF.HasAfflictionLimb(targetCharacter,"retractedskin",limbtype)) then
         if HF.GetSkillRequirementMet(usingCharacter,"medical",20) then 
             HF.SetAffliction(targetCharacter,"needlec",100,usingCharacter)
             HF.AddAffliction(targetCharacter,"pneumothorax",1,usingCharacter)
