@@ -693,6 +693,10 @@
         <Affliction identifier="bloodpressure" amount="4"/>
         <ReduceAffliction identifier="oxygenlow" amount="12" />
       </StatusEffect>
+      <StatusEffect tags="medical" target="Character">
+        <Conditional stayinalive="gt 0"/>
+        <ReduceAffliction identifier="oxygenlow" amount="2.4" />
+      </StatusEffect>
       <StatusEffect tags="medical" target="Character" disabledeltatime="true" comparison="and">
         <Conditional cardiacarrest="lte 0.5"/>
         <Conditional cardiacarrest="gte 0.1"/>
