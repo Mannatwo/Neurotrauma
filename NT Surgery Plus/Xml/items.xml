@@ -51,12 +51,12 @@
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
         <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true"/>
         <RequiredSkill identifier="medical" level="60"></RequiredSkill>
-        <StatusEffect tags="medical" type="OnSuccess" target="Character" duration="10">
+        <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" duration="10">
             <Sound file="Content/Items/Medical/Syringe.ogg" range="500"/>
           <Affliction identifier="afmannitol" amount="5"/>
           <ReduceAffliction identifier="cerebralhypoxia" amount="3"/>
         </StatusEffect>
-        <StatusEffect tags="medical" type="OnFailure" target="Character" duration="10">
+        <StatusEffect tags="medical" type="OnFailure" target="UseTarget" duration="10">
             <Sound file="Content/Items/Medical/Syringe.ogg" range="500"/>
             <Affliction identifier="afmannitol" amount="3"/>
           <ReduceAffliction identifier="cerebralhypoxia" amount="1.5"/>
@@ -99,7 +99,7 @@
     <Body width="35" height="70" density="20"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="5,0"
                    handle1="-5,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
-        <StatusEffect tags="medical" type="OnUse" target="Character"/>
+        <StatusEffect tags="medical" type="OnUse" target="UseTarget"/>
         <StatusEffect type="OnBroken" target="This">
             <Remove/>
         </StatusEffect>
