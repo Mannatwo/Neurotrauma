@@ -22,8 +22,7 @@ function NTCyb.UncyberifyLimb(character,limbtype)
 end
 
 function NTCyb.CyberifyLimb(character,limbtype)
-    HF.SetAfflictionLimb(character,"ntc_cyberlimb",limbtype,100)
-
+    
     if limbtype == LimbType.RightArm then 
         HF.SetAffliction(character,"ra_cyber",100)
         HF.SetAfflictionLimb(character,"ntc_cyberarm",limbtype,100)
@@ -63,4 +62,8 @@ function NTCyb.CyberifyLimb(character,limbtype)
     HF.SetAfflictionLimb(character,"blunttrauma",limbtype,0)
 
     HF.SetAfflictionLimb(character,"bonecut",limbtype,0)
+
+    -- do the thing
+
+    HF.SetAfflictionLimb(character,"ntc_cyberlimb",limbtype,100)
 end
