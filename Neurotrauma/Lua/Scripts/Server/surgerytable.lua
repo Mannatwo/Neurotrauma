@@ -26,6 +26,16 @@ local function GetHeartrate(character)
     return rate
 end
 
+local function GetPH(character)
+
+    if (character == nil or character.CharacterHealth==nil) then return 0 end
+
+    local acidosis = HF.GetAfflictionStrength(character,"acidosis",0)
+    local alkalosis = HF.GetAfflictionStrength(character,"alkalosis",0)
+
+    return alkalosis-acidosis
+end
+
 Hook.Add("surgerytable.update", "surgerytable.update", function (effect, deltaTime, item, targets, worldPosition)
 
     -- fetch controller component
@@ -77,6 +87,9 @@ Hook.Add("surgerytable.update", "surgerytable.update", function (effect, deltaTi
     then
         item.SendSignal(HF.CauseOfDeathToString(target.causeOfDeath),"causeofdeath_out")
     end
+
+    local bloodph = HF.Round(GetPH(target))
+    item.SendSignal(tostring(bloodph),"bloodph_out")
 
 end)
 

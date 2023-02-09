@@ -520,6 +520,7 @@
 <connection.organdamageout>Organdamage</connection.organdamageout>
 <connection.insurgeryout>In_surgery</connection.insurgeryout>
 <connection.causeofdeathout>Cause_of_death</connection.causeofdeathout>
+<connection.bloodphout>Blood_pH</connection.bloodphout>
 
 <!-- misc -->
 <roomname.surgical>Surgical</roomname.surgical>

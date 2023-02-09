@@ -351,6 +351,7 @@
       <output name="organdamage_out" displayname="connection.organdamageout" />
       <output name="insurgery_out" displayname="connection.insurgeryout" />
       <output name="causeofdeath_out" displayname="connection.causeofdeathout" />
+      <output name="bloodph_out" displayname="connection.bloodphout" />
     </ConnectionPanel>
   </Item>
 
@@ -3079,6 +3080,7 @@
         <output name="organdamage_out" displayname="connection.organdamageout" />
         <output name="insurgery_out" displayname="connection.insurgeryout" />
         <output name="causeofdeath_out" displayname="connection.causeofdeathout" />
+        <output name="bloodph_out" displayname="connection.bloodphout" />
       </ConnectionPanel>
     </Item>
     <Item name="" identifier="opdeco_bunkbeds" width="356" height="264" texturescale="1.0,1.0" scale="0.5"

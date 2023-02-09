@@ -487,6 +487,7 @@ Pode dar sangue para: AB+</entitydescription.abpluscard>
 <connection.organdamageout>Danos_aos_Órgãos</connection.organdamageout>
 <connection.insurgeryout>Em_cirurgia</connection.insurgeryout>
 <connection.causeofdeathout>Causa_da_morte</connection.causeofdeathout>
+<connection.bloodphout>Blood_pH</connection.bloodphout>
 <!-- misc -->
 <roomname.surgical>Sala de Cirurgia</roomname.surgical>
 

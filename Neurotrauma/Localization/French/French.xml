@@ -702,6 +702,7 @@ Peut donner du sang à: AB+</entitydescription.abpluscard>
 <connection.organdamageout>Lésions_aux_organes</connection.organdamageout>
 <connection.insurgeryout>En_chirurgie</connection.insurgeryout>
 <connection.causeofdeathout>Cause_de_décès</connection.causeofdeathout>
+<connection.bloodphout>Blood_pH</connection.bloodphout>
 
 <!-- misc -->
 <roomname.surgical>Chirurgie</roomname.surgical>

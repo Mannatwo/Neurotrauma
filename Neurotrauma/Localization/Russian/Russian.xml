@@ -689,6 +689,7 @@
 <connection.organdamageout>Урон_органам</connection.organdamageout>
 <connection.insurgeryout>Оперируется</connection.insurgeryout>
 <connection.causeofdeathout>Причина_смерти</connection.causeofdeathout>
+<connection.bloodphout>pH_Крови</connection.bloodphout>
 
 <!-- misc -->
 <roomname.surgical>Операционная</roomname.surgical>

@@ -702,6 +702,7 @@ Biorcy: AB+</entitydescription.abpluscard>
 <connection.organdamageout>Uszkodzenie_narządów</connection.organdamageout>
 <connection.insurgeryout>Podczas_operacji</connection.insurgeryout>
 <connection.causeofdeathout>Przyczyna_śmierci</connection.causeofdeathout>
+<connection.bloodphout>Blood_pH</connection.bloodphout>
 
 <!-- misc -->
 <roomname.surgical>Chirurgiczny</roomname.surgical>
