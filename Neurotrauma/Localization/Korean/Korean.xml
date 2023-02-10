@@ -508,19 +508,19 @@
 <afflictiondescription.bonecut>뼈가 절단되었습니다.</afflictiondescription.bonecut>
 
 <!-- /// SIGNALS /// -->
-<connection.aliveout>Alive</connection.aliveout>
-<connection.consciousout>Conscious</connection.consciousout>
-<connection.nameout>Patient_name</connection.nameout>
-<connection.vitalityout>Vitality</connection.vitalityout>
-<connection.heartrateout>Heartrate</connection.heartrateout>
-<connection.breathingrateout>Breathingrate</connection.breathingrateout>
-<connection.bloodpressureout>Bloodpressure</connection.bloodpressureout>
-<connection.bloodoxygenout>Bloodoxygen</connection.bloodoxygenout>
-<connection.neurotraumaout>Neurotrauma</connection.neurotraumaout>
-<connection.organdamageout>Organdamage</connection.organdamageout>
-<connection.insurgeryout>In_surgery</connection.insurgeryout>
-<connection.causeofdeathout>Cause_of_death</connection.causeofdeathout>
-<connection.bloodphout>Blood_pH</connection.bloodphout>
+<connection.aliveout>살아있음_여부</connection.aliveout>
+<connection.consciousout>의식있음_여부</connection.consciousout>
+<connection.nameout>환자이름</connection.nameout>
+<connection.vitalityout>활력</connection.vitalityout>
+<connection.heartrateout>심박수</connection.heartrateout>
+<connection.breathingrateout>호흡율</connection.breathingrateout>
+<connection.bloodpressureout>혈압</connection.bloodpressureout>
+<connection.bloodoxygenout>혈중산소농도</connection.bloodoxygenout>
+<connection.neurotraumaout>신경외상</connection.neurotraumaout>
+<connection.organdamageout>장기손상</connection.organdamageout>
+<connection.insurgeryout>수술중_여부</connection.insurgeryout>
+<connection.causeofdeathout>사망원인</connection.causeofdeathout>
+<connection.bloodphout>혈액pH</connection.bloodphout>
 
 <!-- misc -->
 <roomname.surgical>Surgical</roomname.surgical>
