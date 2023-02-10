@@ -63,7 +63,7 @@ local function kidneyDamageCalc(c,damagevalue)
     return damagevalue - 0.02 * c.stats.healingrate * c.stats.specificOrganDamageHealMultiplier * NT.Deltatime
 end
 local function isExtremity(type) 
-    return not type==LimbType.Torso and not type==LimbType.Head
+    return type~=LimbType.Torso and type~=LimbType.Head
 end
 local limbtypes = {
     LimbType.Torso,
