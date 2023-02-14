@@ -1770,8 +1770,7 @@
     <Effect minstrength="0" maxstrength="100" strengthchange="-0.5">
       <StatusEffect target="Character" comparison="and">
         <Conditional ishuman="true" bloodpressure="gte 70" hypoxemia="lte 30"/>
-        <Affliction identifier="huskinfectionresistance" amount="5"/>
-        <ReduceAffliction identifier="huskinfection" amount="0.6"/>
+        <ReduceAffliction identifier="huskinfection" amount="0.5"/>
         <Affliction identifier="organdamage" amount="0.2"/>
         <Affliction identifier="kidneydamage" amount="0.175"/>
         <Affliction identifier="liverdamage" amount="0.175"/>
