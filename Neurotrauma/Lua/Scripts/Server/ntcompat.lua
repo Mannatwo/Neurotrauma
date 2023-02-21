@@ -124,6 +124,13 @@ function NTC.AddOnDamagedHook(func)
     NTC.OnDamagedHooks[#NTC.OnDamagedHooks+1] = func
 end
 
+NTC.ModifyingOnDamagedHooks = {}
+-- use this function to add a function to be executed before ondamaged
+-- with a characterhealth, afflictions and limb parameter, and afflictions return type
+function NTC.AddModifyingOnDamagedHook(func)
+    NTC.ModifyingOnDamagedHooks[#NTC.ModifyingOnDamagedHooks+1] = func
+end
+
 NTC.CharacterSpeedMultipliers = {}
 -- use this function to multiply a characters speed for one human update.
 -- should always be called from within a prehumanupdate hook

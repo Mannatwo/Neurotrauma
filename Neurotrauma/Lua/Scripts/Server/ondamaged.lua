@@ -14,10 +14,18 @@ Hook.Add("character.applyDamage", "NT.ondamaged", function (characterHealth, att
         hitLimb == nil or
         hitLimb.IsSevered
     then return end
+
+    local afflictions = attackResult.Afflictions
+
+    -- ntc
+    -- modifying ondamaged hooks
+    for key, val in pairs(NTC.ModifyingOnDamagedHooks) do
+        afflictions = val(characterHealth, afflictions, hitLimb)
+    end
     
     local identifier = ""
     local methodtorun = nil
-    for index, value in ipairs(attackResult.Afflictions) do
+    for value in afflictions do
         -- execute fitting method, if available
         identifier = value.Prefab.Identifier.Value
         methodtorun = NT.OnDamagedMethods[identifier]
@@ -99,10 +107,10 @@ NT.OnDamagedMethods.gunshotwound = function(character,strength,limbtype)
 
     -- foreign bodies
     if causeFullForeignBody then
-        HF.AddAfflictionLimb(character,"foreignbody",limbtype,HF.Clamp(strength,0,30))
+        HF.AddAfflictionLimb(character,"foreignbody",limbtype,HF.Clamp(strength,0,30)*NTC.GetMultiplier(character,"foreignbodymultiplier"))
     else
         if HF.Chance(0.75) then
-            HF.AddAfflictionLimb(character,"foreignbody",limbtype,HF.Clamp(strength/4,0,20))
+            HF.AddAfflictionLimb(character,"foreignbody",limbtype,HF.Clamp(strength/4,0,20)*NTC.GetMultiplier(character,"foreignbodymultiplier"))
         end
     end
 end
@@ -112,7 +120,7 @@ NT.OnDamagedMethods.explosiondamage = function(character,strength,limbtype)
     limbtype = HF.NormalizeLimbType(limbtype)
 
     if HF.Chance(0.75) then
-        HF.AddAfflictionLimb(character,"foreignbody",limbtype,strength/2)
+        HF.AddAfflictionLimb(character,"foreignbody",limbtype,strength/2*NTC.GetMultiplier(character,"foreignbodymultiplier"))
     end
 
     -- torso specific
@@ -143,7 +151,7 @@ NT.OnDamagedMethods.explosiondamage = function(character,strength,limbtype)
             NT.TraumamputateLimb(character,limbtype) end
         if HF.Chance(strength/60*NTC.GetMultiplier(character,"anyfracturechance")*NT.Config.fractureChance) then
             NT.BreakLimb(character,limbtype) end
-        if HF.Chance(0.35*NT.Config.dislocationChance) and not NT.LimbIsAmputated(character,limbtype) then
+        if HF.Chance(0.35*NTC.GetMultiplier(character,"dislocationchance")*NT.Config.dislocationChance) and not NT.LimbIsAmputated(character,limbtype) then
             NT.DislocateLimb(character,limbtype) end
     end
 end
@@ -249,7 +257,7 @@ NT.OnDamagedMethods.blunttrauma = function(character,strength,limbtype)
             NT.TraumamputateLimb(character,limbtype) end
         if HF.Chance((strength-2)/60*NTC.GetMultiplier(character,"anyfracturechance")*NT.Config.fractureChance) then
             NT.BreakLimb(character,limbtype) end
-        if HF.Chance(HF.Clamp(strength/80,0.1,0.5)*NT.Config.dislocationChance) and not NT.LimbIsAmputated(character,limbtype) then
+        if HF.Chance(HF.Clamp(strength/80,0.1,0.5)*NTC.GetMultiplier(character,"dislocationchance")*NT.Config.dislocationChance) and not NT.LimbIsAmputated(character,limbtype) then
             NT.DislocateLimb(character,limbtype) end
     end
 end
@@ -289,7 +297,7 @@ NT.OnDamagedMethods.internaldamage = function(character,strength,limbtype)
             NT.TraumamputateLimb(character,limbtype) end
         if HF.Chance((strength-5)/60*NTC.GetMultiplier(character,"anyfracturechance")*NT.Config.fractureChance) then
             NT.BreakLimb(character,limbtype) end
-        if HF.Chance(0.25*NT.Config.dislocationChance) and not NT.LimbIsAmputated(character,limbtype) then
+        if HF.Chance(0.25*NTC.GetMultiplier(character,"dislocationchance")*NT.Config.dislocationChance) and not NT.LimbIsAmputated(character,limbtype) then
             NT.DislocateLimb(character,limbtype) end
     end
 end
