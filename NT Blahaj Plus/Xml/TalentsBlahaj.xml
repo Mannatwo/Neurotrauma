@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+<Talents>
+
+  <!-- Common -->
+
+  <Talent identifier="ntbp_divinglessions">
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="5,2" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.additionalstattypeself">
+      <Replace tag="[amount]" value="25" color="gui.green"/>
+      <Replace tag="[stattype]" value="stattypenames.swimmingspeed" color="gui.orange"/>
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGiveStat stattype="SwimmingSpeed" value="0.25"/>
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+
+  <Talent identifier="ntbp_cuddles">
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="7,3" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.additionalresistanceself">
+      <Replace tag="[amount]" value="25" color="gui.green"/>
+      <Replace tag="[affliction]" value="afflictionname.psychosis" color="gui.orange"/>
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGiveResistance resistanceid="psychosis" multiplier="0.75"/>
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+
+  <Talent identifier="ntbp_fluffy">
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="7,3" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.additionalresistanceself">
+      <Replace tag="[amount]" value="25" color="gui.green"/>
+      <Replace tag="[affliction]" value="afflictionname.blunttrauma" color="gui.orange"/>
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGiveResistance resistanceid="blunttrauma" multiplier="0.75"/>
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+
+  <Talent identifier="ntbp_mighty">
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="6,2" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.additionalstattypeself">
+      <Replace tag="[amount]" value="15" color="gui.green"/>
+      <Replace tag="[stattype]" value="stattypenames.maximumhealthmultiplier" color="gui.orange"/>
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGiveStat stattype="MaximumHealthMultiplier" value="0.15"/>
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+
+  <Talent identifier="ntbp_fangs">
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="6,3" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.additionalstattypeself">
+      <Replace tag="[amount]" value="30" color="gui.green"/>
+      <Replace tag="[stattype]" value="stattypenames.meleeattackmultiplier" color="gui.orange"/>
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGiveStat stattype="MeleeAttackMultiplier" value="0.3"/>
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+
+  <Talent identifier="ntbp_supplyanddemand">
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="5,2" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.ntbp_supplyanddemand">
+      <Replace tag="[probability]" value="50" color="gui.green"/>
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="OnRoundEnd">
+      <Abilities>
+        <CharacterAbilityResetPermanentStat statidentifier="hajharvester_*" value="1" setvalue="true"/>
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnLootCharacter">
+      <Conditions>
+        <AbilityConditionCharacter targettype="Monster">
+          <Conditional maxhealth="gt 25"/>
+          <Conditional ismachine="false" />
+        </AbilityConditionCharacter>
+        <AbilityConditionCharacterNotLooted identifier="hajharvester"/>
+        <AbilityConditionServerRandom randomchance="0.5" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="UseTarget" spawnitemrandomly="true" >
+              <SpawnItem identifiers="blahaj" spawnposition="ThisInventory" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnLootCharacter">
+      <Conditions>
+        <AbilityConditionCharacter targettype="Monster" />
+        <AbilityConditionCharacterNotLooted identifier="hajharvester"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityMarkAsLooted identifier="hajharvester"/>
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+
+  <Talent identifier="ntbp_handholding">
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="4,2" sheetelementsize="128,128"/>    <Description tag="talentdescription.firemanscarry"/>
+    <AbilityGroupEffect abilityeffecttype="None" >
+      <Abilities>
+        <CharacterAbilityGiveFlag flagtype="MoveNormallyWhileDragging" />
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+
+  <Talent identifier="ntbp_restock">
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="5,2" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.ntbp_restock" />
+    <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+      <Abilities>
+        <CharacterAbilityPutItem itemidentifier="blahaj" amount="1"/>
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+
+  <!-- Shark -->
+
+  <Talent identifier="ntbp_identitycrisis">
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="2,0" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.ntbp_identitycrisis"/>
+  </Talent>
+
+  <Talent identifier="ntbp_ramventilation">
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="6,3" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.ntbp_ramventilation"/>
+  </Talent>
+
+  <Talent identifier="ntbp_hajdivingops">
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="4,0" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.sharkmask" color="gui.orange"/>
+    </Description>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.sharkscooter" color="gui.orange"/>
+    </Description>
+    <AddedRecipe itemidentifier="sharkmask"/>
+    <AddedRecipe itemidentifier="sharkscooter"/>
+  </Talent>
+
+  <Talent identifier="ntbp_advancedcuddles">
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="7,3" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.ntbp_advancedcuddles"/>
+  </Talent>
+
+  <!-- Obsession -->
+
+  <Talent identifier="ntbp_blahajpower">
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="5,0" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.ntbp_blahajpower"/>
+  </Talent>
+
+  <Talent identifier="ntbp_heprotecc">
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="7,0" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.ntbp_heprotecc"/>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.blahajarmor" color="gui.orange"/>
+    </Description>
+    <AddedRecipe itemidentifier="blahajarmor"/>
+  </Talent>
+
+  <Talent identifier="ntbp_heattacc">
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="7,1" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.ntbp_heattacc"/>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.blahajrifle" color="gui.orange"/>
+    </Description>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.blahajriflemagazine" color="gui.orange"/>
+    </Description>
+    <AddedRecipe itemidentifier="blahajrifle"/>
+    <AddedRecipe itemidentifier="blahajriflemagazine"/>
+  </Talent>
+
+  <Talent identifier="ntbp_gotbacc">
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="6,0" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.ntbp_gotbacc"/>
+  </Talent>
+
+  <Talent identifier="ntbp_altar">
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="6,1" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.blahajaltar" color="gui.orange"/>
+    </Description>
+    <AddedRecipe itemidentifier="blahajaltar"/>
+  </Talent>
+  
+  
+  <!-- Poster Person -->
+
+  <Talent identifier="ntbp_posterascension">
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="5,1" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.ntbp_posterascension"/>
+  </Talent>
+
+  <Talent identifier="ntbp_neonpaint">
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="7,2" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.ntbp_neonpaint"/>
+  </Talent>
+
+  <Talent identifier="ntbp_gimmickbridge">
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="3,0" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.ntbp_gimmickbridge"/>
+  </Talent>
+
+  <Talent identifier="ntbp_freehandouts">
+    <Icon texture="%ModDir%/Images/MainAtlas.png" sheetindex="4,1" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.ntbp_freehandouts"/>
+  </Talent>
+  
+</Talents>
+</Override>

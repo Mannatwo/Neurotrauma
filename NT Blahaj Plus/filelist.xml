@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="NT Blahaj Plus" modversion="A1.1" corepackage="False" steamworkshopid="2936664151" gameversion="0.21.6.0">
+  <Afflictions file="%ModDir%/Xml/Afflictions.xml" />
+  <Item file="%ModDir%/Xml/items.xml" />
+  <Text file="%ModDir%/Localization/English/English.xml" />
+  <Jobs file="%ModDir%/Xml/Jobs.xml" />
+  <Talents file="%ModDir%/Xml/TalentsBlahaj.xml" />
+  <TalentTrees file="%ModDir%/Xml/TalentTrees.xml" />
+  <Other file="%ModDir%/Images/MainAtlas.png" />
+  <Other file="%ModDir%/Images/AfflictionIcons.png" />
+  <Other file="%ModDir%/Images/BlahajArmor.png" />
+  <Other file="%ModDir%/Images/fabricators.png" />
+  <Other file="%ModDir%/Images/TalentGear.png" />
+  <Other file="%ModDir%/Images/sources.txt" />
+  <Other file="%ModDir%/Images/posters/main.png" />
+  <Other file="%ModDir%/Lua/Autorun/init.lua" />
+  <Other file="%ModDir%/Lua/Scripts/humanupdate.lua" />
+  <Other file="%ModDir%/Lua/Scripts/items.lua" />
+  <Other file="%ModDir%/Lua/Scripts/altar.lua" />
+  <Other file="%ModDir%/Lua/Scripts/ondamaged.lua" />
+  <Other file="%ModDir%/Lua/Scripts/update.lua" />
+  <Other file="%ModDir%/Sound/sharkrifle1.ogg" />
+  <Other file="%ModDir%/Sound/sharkrifle2.ogg" />
+  <Other file="%ModDir%/Sound/sharkrifle3.ogg" />
+  <Other file="%ModDir%/Sound/sharkrifle4.ogg" />
+  <Other file="%ModDir%/Sound/sharkrifle5.ogg" />
+</contentpackage>

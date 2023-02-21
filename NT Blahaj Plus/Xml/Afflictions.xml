@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Afflictions>
+
+<!-- blahaj power -->
+    <Affliction
+        name=""
+        identifier="blahajpower"
+        description=""
+        targets="human"
+        healableinmedicalclinic="false"
+        limbspecific="false"
+        indicatorlimb="Torso"
+        showiconthreshold="0.01"
+        showinhealthscannerthreshold="1000"
+        isbuff="true"
+        iconcolors="106,153,168,255;71,135,255,255"
+        maxstrength="100">
+        <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,0" sheetelementsize="128,128" origin="0,0"/>
+    </Affliction>
+
+<!-- blahaj speed -->
+    <Affliction
+        name=""
+        identifier="blahajspeed"
+        description=""
+        targets="human"
+        healableinmedicalclinic="false"
+        limbspecific="false"
+        indicatorlimb="Torso"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="1000"
+        isbuff="true"
+        iconcolors="106,153,168,255;71,135,255,255"
+        maxstrength="100">
+        <Effect minstrength="0" maxstrength="100"
+            minspeedmultiplier="1"
+            maxspeedmultiplier="2">
+        </Effect>
+        <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="4,0" sheetelementsize="128,128" origin="0,0"/>
+    </Affliction>
+
+<!-- blahaj regen -->
+    <Affliction
+        name=""
+        identifier="blahajregen"
+        description=""
+        targets="human"
+        healableinmedicalclinic="false"
+        limbspecific="false"
+        indicatorlimb="Torso"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="1000"
+        isbuff="true"
+        iconcolors="106,153,168,255;71,135,255,255"
+        maxstrength="100">
+        <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="2,0" sheetelementsize="128,128" origin="0,0"/>
+    </Affliction>
+
+<!-- he attacc buff -->
+    <Affliction
+        name=""
+        identifier="blahajattac"
+        description=""
+        healableinmedicalclinic="false"
+        targets="human"
+        isbuff="true"
+        iconcolors="106,153,168,255;71,135,255,255"
+        limbspecific="false"
+        showinhealthscannerthreshold="1000"
+        showiconthreshold="0"
+        maxstrength="100">
+        <Effect minstrength="0" maxstrength="100">
+        <StatusEffect target="Character">
+            <StatValue stattype="MeleeAttackMultiplier" minvalue="0" maxvalue="1" />
+        </StatusEffect>
+        </Effect>
+        <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,0" sheetelementsize="128,128" origin="0,0"/>
+    </Affliction>
+
+<!-- identity crisis buff -->
+    <Affliction
+        name=""
+        identifier="blahajcrisis"
+        description=""
+        healableinmedicalclinic="false"
+        targets="human"
+        isbuff="true"
+        iconcolors="106,153,168,255;71,135,255,255"
+        limbspecific="false"
+        showinhealthscannerthreshold="1000"
+        showiconthreshold="0"
+        maxstrength="100">
+        <Effect minstrength="0" maxstrength="100"
+            minskillmultiplier="1"
+            maxskillmultiplier="1.5">
+        </Effect>
+        <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="1,0" sheetelementsize="128,128" origin="0,0"/>
+    </Affliction>
+
+<!-- he protecc buff -->
+    <Affliction
+        name=""
+        identifier="blahajprotecc"
+        description=""
+        healableinmedicalclinic="false"
+        targets="human"
+        type="resistance"
+        isbuff="true"
+        iconcolors="106,153,168,255;71,135,255,255"
+        limbspecific="false"
+        showiconthreshold="0"
+        showinhealthscannerthreshold="1000"
+        maxstrength="100">
+        <Effect minstrength="0" maxstrength="100"
+            resistancefor="damage,bleeding"
+            minresistance="0"
+            maxresistance="0.9">
+        </Effect>
+        <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,4" sheetelementsize="128,128" origin="0,0"/>
+    </Affliction>
+
+<!-- he got our bacc buff -->
+    <Affliction
+        name=""
+        identifier="blahajgotbacc"
+        description=""
+        healableinmedicalclinic="false"
+        targets="human"
+        type="resistance"
+        isbuff="true"
+        limbspecific="false"
+        showiconthreshold="1"
+        showinhealthscannerthreshold="1000"
+        iconcolors="140,200,255,255;255,255,255,255"
+        maxstrength="100">
+        <Effect minstrength="1" maxstrength="100"
+            resistancefor="bleeding,blunttrauma,lacerations,gunshotwound,bitewounds,explosiondamage,internaldamage,bleeding"
+            minresistance="0.99"
+            maxresistance="0.99">
+        </Effect>
+        <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,4" sheetelementsize="128,128" origin="0,0"/>
+    </Affliction>
+
+</Afflictions>

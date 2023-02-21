@@ -1,0 +1,608 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+
+  <!-- Sharkricator -->
+  <Item name="" identifier="sharkricator" tags="sharkricator,donttakeitems" category="Machine" linkable="true" allowedlinks="deconstructor,locker" description="" scale="0.3" damagedbyexplosions="true" explosiondamagemultiplier="0.2">
+      <Fabricate suitablefabricators="fabricator" requiredtime="60">
+        <RequiredSkill identifier="electrical" level="50" />
+        <RequiredSkill identifier="mechanical" level="55" />
+        <Item identifier="fpgacircuit" />
+        <Item identifier="titaniumaluminiumalloy" />
+        <Item identifier="blahaj" />
+        <Item identifier="weldingtool" />
+      </Fabricate>
+      <Deconstruct time="30">
+        <Item identifier="blahaj" />
+        <Item identifier="titaniumaluminiumalloy" />
+      </Deconstruct>
+      <Body width="336" height="395" density="40" />
+      <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="[E] Detach (Crowbar)" PickingTime="10.0" aimpos="65,-10" handle1="0,0" attachable="true" attachedbydefault="true" aimable="false">
+        <RequiredItem identifier="crowbar" type="Equipped" />
+        <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.25" setvalue="true" />
+      </Holdable>
+      <Upgrade gameversion="0.10.4.0">
+        <Repairable Msg="ItemMsgRepairWrench" />
+      </Upgrade>
+      <UpgradePreviewSprite scale="2.5" texture="Content/UI/WeaponUI.png" sourcerect="256,960,64,64" origin="0.5,0.45" />
+      <Sprite texture="%ModDir%/images/fabricators.png" sourcerect="0,624,336,400" depth="0.8" />
+      <BrokenSprite texture="%ModDir%/images/fabricators.png" sourcerect="336,624,336,400" depth="0.8" maxcondition="80" fadein="true" />
+      <BrokenSprite texture="%ModDir%/images/fabricators.png" sourcerect="672,624,336,400" depth="0.8" maxcondition="0" />
+      <DecorativeSprite texture="Content/Items/Fabricators/FabricatorsAndDeconstructors.png" depth="0.84" offset="-103,99" sourcerect="908,301,116,87" />
+      <DecorativeSprite texture="Content/Items/Fabricators/FabricatorsAndDeconstructors.png" depth="0.81" offset="-103,99" sourcerect="825,395,114,83" />
+      <DecorativeSprite texture="Content/Items/Fabricators/FabricatorsAndDeconstructors.png" depth="0.83" offset="-72,129" sourcerect="944,395,74,74" origin="0.5,0.5" rotationspeed="-715">
+        <AnimationConditional Voltage="gt 0.5" targetitemcomponent="Fabricator" />
+        <AnimationConditional IsActive="True" targetitemcomponent="Fabricator" />
+        <IsActiveConditional Condition="gt 0.0" />
+      </DecorativeSprite>
+      <DecorativeSprite texture="Content/Items/Fabricators/FabricatorsAndDeconstructors.png" depth="0.83" offset="-117,71" sourcerect="805,537,54,54" origin="0.5,0.5" rotationspeed="400">
+        <AnimationConditional Voltage="gt 0.5" targetitemcomponent="Fabricator" />
+        <AnimationConditional IsActive="True" targetitemcomponent="Fabricator" />
+        <IsActiveConditional Condition="gt 0.0" />
+      </DecorativeSprite>
+      <LightComponent range="10.0" lightcolor="255,255,255,0" powerconsumption="5" IsOn="true" castshadows="false" allowingameediting="false">
+        <sprite texture="Content/Items/Command/navigatorLights.png" depth="0.025" sourcerect="351,624,336,400" alpha="1.0" />
+      </LightComponent>
+      <LightComponent range="10.0" lightcolor="255,255,255,0" powerconsumption="5" IsOn="true" castshadows="false" blinkfrequency="1" allowingameediting="false">
+        <sprite texture="Content/Items/Command/navigatorLights.png" depth="0.025" sourcerect="688,624,336,400" alpha="1.0" />
+      </LightComponent>
+      <Fabricator canbeselected="true" powerconsumption="250.0" msg="ItemMsgInteractSelect">
+        <GuiFrame relativesize="0.4,0.45" style="ItemUI" anchor="Center" />
+        <sound file="Content/Items/Fabricators/Fabricator.ogg" type="OnActive" range="1000.0" loop="true" />
+        <poweronsound file="Content/Items/PowerOnLight1.ogg" range="600" loop="false" />
+        <StatusEffect type="InWater" target="This" condition="-0.5" />
+      </Fabricator>
+      <ConnectionPanel selectkey="Action" canbeselected="true" hudpriority="10" msg="ItemMsgRewireScrewdriver">
+        <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+        <RequiredSkill identifier="electrical" level="55" />
+        <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+          <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
+          <Explosion range="100.0" stun="0" force="5.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+          <Affliction identifier="stun" strength="4" />
+          <Affliction identifier="burn" strength="5" />
+        </StatusEffect>
+        <RequiredItem items="screwdriver" type="Equipped" />
+        <input name="power_in" displayname="connection.powerin" />
+        <output name="condition_out" displayname="connection.conditionout" />
+      </ConnectionPanel>
+      <Repairable selectkey="Select" header="mechanicalrepairsheader" deteriorationspeed="0.50" mindeteriorationdelay="60" maxdeteriorationdelay="120" RepairThreshold="80" fixDurationHighSkill="5" fixDurationLowSkill="25" msg="ItemMsgRepairWrench" hudpriority="10">
+        <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="0.1,0.27" style="ItemUI" />
+        <RequiredSkill identifier="mechanical" level="55" />
+        <RequiredItem items="wrench" type="Equipped" />
+        <ParticleEmitter particle="damagebubbles" particleburstamount="2" particleburstinterval="2.0" particlespersecond="2" scalemin="0.5" scalemax="1.5" anglemin="0" anglemax="359" velocitymin="-10" velocitymax="10" mincondition="0.0" maxcondition="50.0" />
+        <ParticleEmitter particle="smoke" particleburstamount="3" particleburstinterval="0.5" particlespersecond="2" scalemin="1" scalemax="2.5" anglemin="0" anglemax="359" velocitymin="-50" velocitymax="50" mincondition="15.0" maxcondition="50.0" />
+        <ParticleEmitter particle="heavysmoke" particleburstinterval="0.25" particlespersecond="2" scalemin="2.5" scalemax="5.0" mincondition="0.0" maxcondition="15.0" />
+        <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+          <Sound file="Content/Items/MechanicalRepairFail.ogg" range="1000" />
+          <Affliction identifier="lacerations" strength="5" />
+          <Affliction identifier="psychosis" strength="5" />
+          <Affliction identifier="stun" strength="4" />
+        </StatusEffect>
+      </Repairable>
+      <ItemContainer capacity="5" canbeselected="true" hideitems="true" slotsperrow="5" uilabel="" allowuioverlap="true" />
+      <ItemContainer capacity="1" canbeselected="true" hideitems="true" slotsperrow="1" uilabel="" allowuioverlap="true" />
+  </Item>
+
+  <!-- Blahaj Altar -->
+  <Item
+    name=""
+    identifier="blahajaltar"
+    tags="blahajaltar"
+    category="Machine"
+    linkable="true"
+    allowedlinks="deconstructor,medcabinet,locker"
+    scale="0.3"
+    description=""
+    damagedbyexplosions="true"
+    explosiondamagemultiplier="0.2"
+    isshootable="true">
+
+    <Deconstruct time="30">
+        <Item identifier="fpgacircuit"/>
+        <Item identifier="plastic"/>
+        <Item identifier="steel"/>
+        <Item identifier="aluminium"/>
+        <Item identifier="titaniumaluminiumalloy"/>
+    </Deconstruct>
+    <Fabricate suitablefabricators="sharkricator" requiredtime="50" requiresrecipe="true">
+        <RequiredSkill identifier="electrical" level="50" />
+        <RequiredSkill identifier="mechanical" level="50" />
+        <RequiredSkill identifier="medical" level="50" />
+        <RequiredSkill identifier="weapons" level="50" />
+        <RequiredItem identifier="blahajplus"/>
+        <RequiredItem identifier="titaniumaluminiumalloy"/>
+        <RequiredItem identifier="psychosisartifact"/>
+    </Fabricate>
+
+    <Sprite texture="%ModDir%/images/fabricators.png" depth="0.8"
+            sourcerect="0,0,336,288" origin="0.5,0.5"/>
+    <InventoryIcon texture="%ModDir%/images/fabricators.png" sourcerect="0,0,336,288"
+                    origin="0.5,0.5"/>
+    <BrokenSprite texture="%ModDir%/images/fabricators.png" sourcerect="336,0,336,288"
+                  origin="0.5,0.5" depth="0.8" maxcondition="80" fadein="true"/>
+    <BrokenSprite texture="%ModDir%/images/fabricators.png" sourcerect="672,0,336,288"
+                  origin="0.5,0.5" depth="0.8" maxcondition="0"/>
+    <Body radius="45" width="34" density="15"/>
+
+    <LightComponent range="10.0" lightcolor="255,255,255,0" powerconsumption="5" IsOn="true" castshadows="false"
+                    allowingameediting="false">
+        <sprite texture="Content/Items/Command/navigatorLights.png" depth="0.025" sourcerect="688,339,336,288"
+                alpha="1.0"/>
+    </LightComponent>
+
+    <ConnectionPanel selectkey="Action" canbeselected="true" hudpriority="10" msg="ItemMsgRewireScrewdriver">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center"
+                style="ConnectionPanel"/>
+      <RequiredSkill identifier="electrical" level="55"/>
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+          <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000"/>
+          <Explosion range="100.0" stun="0" force="5.0" flames="false" shockwave="false" sparks="true"
+                      underwaterbubble="false"/>
+          <Affliction identifier="stun" strength="5"/>
+          <Affliction identifier="burn" strength="5"/>
+          <Affliction identifier="psychosis" strength="15"/>
+      </StatusEffect>
+      <RequiredItem items="screwdriver" type="Equipped"/>
+      <input name="power_in" displayname="connection.powerin"/>
+    </ConnectionPanel>
+
+    <Repairable selectkey="Action" header="mechanicalrepairsheader" deteriorationspeed="0.50"
+                mindeteriorationdelay="60" maxdeteriorationdelay="120" RepairThreshold="80" fixDurationHighSkill="5"
+                fixDurationLowSkill="25" msg="ItemMsgRepairScrewdriver" hudpriority="10">
+        <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,216" anchor="Center"
+                  relativeoffset="0.0,0.27" style="ItemUI"/>
+        <RequiredSkill identifier="mechanical" level="55"/>
+        <RequiredItem items="screwdriver" type="equipped"/>
+        <ParticleEmitter particle="damagebubbles" particleburstamount="2" particleburstinterval="2.0"
+                          particlespersecond="2" scalemin="0.5" scalemax="1.5" anglemin="0" anglemax="359"
+                          velocitymin="-10" velocitymax="10" mincondition="0.0" maxcondition="50.0"/>
+        <ParticleEmitter particle="smoke" particleburstamount="3" particleburstinterval="0.5" particlespersecond="2"
+                          scalemin="1" scalemax="2.5" anglemin="0" anglemax="359" velocitymin="-50" velocitymax="50"
+                          mincondition="15.0" maxcondition="50.0"/>
+        <ParticleEmitter particle="heavysmoke" particleburstinterval="0.25" particlespersecond="2" scalemin="2.5"
+                          scalemax="5.0" mincondition="0.0" maxcondition="15.0"/>
+        <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+            <Sound file="Content/Items/MechanicalRepairFail.ogg" range="1000"/>
+            <Affliction identifier="lacerations" strength="5"/>
+            <Affliction identifier="stun" strength="5"/>
+            <Affliction identifier="psychosis" strength="15"/>
+        </StatusEffect>
+    </Repairable>
+
+    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="8.0"
+              aimpos="40,-5" handle1="0,0" attachable="true" aimable="true">
+      <RequiredItem items="wrench" type="Equipped" />          
+    </Holdable>
+
+
+    <ItemContainer capacity="25" maxstacksize="1" slotsperrow="5" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
+      <GuiFrame relativesize="0.25,0.45" anchor="Center" style="ItemUI" />
+      <Containable items="smallitem,mediumitem" />
+    </ItemContainer>
+    <CustomInterface canbeselected="true" allowuioverlap="true">
+      <GuiFrame relativesize="0.2,0.2" anchor="CenterRight" pivot="CenterLeft" relativeoffset="0.36,0.001" style="ItemUI" linkuitocomponent="ItemContainer"/>
+      <Button text="label.ba_start">
+        <StatusEffect type="OnUse"><LuaHook name="NTBP.altar.start" /></StatusEffect>
+      </Button>
+    </CustomInterface>
+  </Item>
+
+  <!-- Blahaj plus -->
+  <Item name="" identifier="blahajplus" category="Equipment" cargocontaineridentifier="metalcrate" impactsoundtag="impact_squeak" RequireAimToUse="True"
+        Tags="smallitem,medical,mountableweapon,blahajarmorcontainable" description="" useinhealthinterface="True" scale="0.4">
+    <Fabricate suitablefabricators="sharkricator" requiredtime="5">
+        <RequiredSkill identifier="mechanical" level="10"/>
+        <RequiredItem identifier="blahaj"/>
+        <RequiredItem identifier="blahaj"/>
+        <RequiredItem identifier="blahaj"/>
+        <RequiredItem identifier="suture"/>
+    </Fabricate>
+    <Deconstruct time="5">
+        <Item identifier="plastic" mincondition="0.1" outcondition="1"/>
+    </Deconstruct>
+    <Sprite texture="%ModDir:Neurotrauma%/Images/InGameItemIconAtlas.png" sourcerect="768,835,256,189" depth="0.55"
+            origin="0.5,0.5"/>
+    <Body width="100" height="80" density="9"/>
+    <MeleeWeapon slots="Any,RightHand+LeftHand" controlpose="true" aimpos="45,10" handle1="-20,0" handle2="-10,5" holdangle="60" reload="1" range="100" combatpriority="5" msg="ItemMsgPickUpSelect">
+      <Attack stun="0.6" targetimpulse="50"/>
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true">
+        <Sound file="%ModDir:Neurotrauma%/Sound/squeak1.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir:Neurotrauma%/Sound/squeak2.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir:Neurotrauma%/Sound/squeak3.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir:Neurotrauma%/Sound/squeak4.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir:Neurotrauma%/Sound/squeak5.ogg" type="OnUse" range="500"/>
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" Condition="100" disabledeltatime="true" delay="2" stackable="false">
+        <Conditional condition="lt 50"/>
+      </StatusEffect>
+    </MeleeWeapon>
+  </Item>
+
+  <!-- Blahaj plusplus -->
+  <Item name="" identifier="blahajplusplus" category="Equipment" cargocontaineridentifier="metalcrate" impactsoundtag="impact_squeak" RequireAimToUse="True"
+        Tags="smallitem,medical,mountableweapon,blahajarmorcontainable" description="" useinhealthinterface="True" scale="0.7">
+    <Deconstruct time="5">
+        <Item identifier="plastic" mincondition="0.1" outcondition="1"/>
+    </Deconstruct>
+    <Sprite texture="%ModDir:Neurotrauma%/Images/InGameItemIconAtlas.png" sourcerect="768,835,256,189" depth="0.55"
+            origin="0.5,0.5"/>
+    <Body width="100" height="80" density="9"/>
+    <MeleeWeapon slots="Any,RightHand+LeftHand" controlpose="true" aimpos="45,10" handle1="-20,0" handle2="-10,5" holdangle="60" reload="4" range="200" combatpriority="5" msg="ItemMsgPickUpSelect">
+      <Attack stun="3" targetimpulse="500">
+        <Affliction identifier="blunttrauma" strength="20" />
+        <Affliction identifier="psychosis" strength="20" />
+      </Attack>
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true">
+        <Sound file="%ModDir:Neurotrauma%/Sound/squeak1.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir:Neurotrauma%/Sound/squeak2.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir:Neurotrauma%/Sound/squeak3.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir:Neurotrauma%/Sound/squeak4.ogg" type="OnUse" range="500"/>
+        <Sound file="%ModDir:Neurotrauma%/Sound/squeak5.ogg" type="OnUse" range="500"/>
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" Condition="100" disabledeltatime="true" delay="2" stackable="false">
+        <Conditional condition="lt 50"/>
+      </StatusEffect>
+    </MeleeWeapon>
+  </Item>
+
+  <!-- Blahaj armor -->
+  <Item name="" identifier="blahajarmor" category="Equipment" tags="smallitem,clothing" scale="0.35" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_soft">
+    <Upgrade gameversion="0.9.3.0" scale="0.35" />
+    <PreferredContainer secondary="wreckarmcab,abandonedarmcab,outpostarmcab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="armcab"/>
+    <Deconstruct time="40">
+      <Item identifier="ballisticfiber" amount="2" />
+      <Item identifier="blahaj" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="sharkricator" requiredtime="30" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="40" />
+      <RequiredItem identifier="ballisticfiber" amount="2" />
+      <RequiredItem identifier="blahajplus" amount="1" />
+    </Fabricate>
+    <InventoryIcon texture="%ModDir%/Images/BlahajArmor.png" sourcerect="15,33,183,219" origin="0.5,0.5" />
+    <Sprite name="Security Vest Item" texture="%ModDir%/Images/BlahajArmor.png" sourcerect="15,33,183,219" depth="0.6" origin="0.3,0.35" />
+    <Body width="85" height="90" density="25" />
+    <Wearable slots="Any,OuterClothes" msg="ItemMsgPickUpSelect">
+      <damagemodifier afflictionidentifiers="onfire" armorsector="0.0,360.0" damagemultiplier="1.5" />
+      <damagemodifier afflictionidentifiers="blunttrauma,lacerations,bitewounds" armorsector="0.0,360.0" damagemultiplier="0.3" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier afflictionidentifiers="gunshotwound" armorsector="0.0,360.0" damagemultiplier="0.8" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier afflictionidentifiers="psychosis" armorsector="0.0,360.0" damagemultiplier="0.1" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier afflictiontypes="bleeding" armorsector="0.0,360.0" damagemultiplier="0.2" damagesound="LimbArmor" deflectprojectiles="true" />
+      <sprite name="Security Vest Wearable" texture="%ModDir%/Images/BlahajArmor.png" sourcerect="15,33,183,219" limb="Torso" hidelimb="false" inheritscale="true" scale="0.65" inheritorigin="false" origin="0.3,0.5" inheritsourcerect="false" />
+    </Wearable>
+    <ItemContainer capacity="4">
+      <Containable items="blahajarmorcontainable" />
+    </ItemContainer>
+  </Item>
+
+  <!-- Shark rifle -->
+  <Item name="" identifier="blahajrifle" category="Weapon" cargocontaineridentifier="metalcrate" allowasextracargo="true" tags="mediumitem,weapon,gun,gunsmith,mountableweapon" Scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder"/>
+    <Price baseprice="720" sold="false">
+      <Price storeidentifier="merchantoutpost" multiplier="1.5" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" />
+      <Price storeidentifier="merchantresearch" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.9" />
+      <Price storeidentifier="merchantmine" multiplier="1.25" />
+    </Price>
+    <Fabricate suitablefabricators="sharkricator" requiredtime="75" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="65" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="1" />
+      <RequiredItem identifier="blahajplus" amount="1" />
+      <RequiredItem identifier="rubber" />
+    </Fabricate>
+    <Deconstruct time="35">
+      <Item identifier="blahajplus" amount="1" />
+      <Item identifier="rubber" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/Images/TalentGear.png" sourcerect="94,17,229,118" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/TalentGear.png" sourcerect="94,17,229,118" depth="0.55" origin="0.5,0.5" />
+    <Body width="220" height="50" density="25" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="45,-20" aimpos="62,5" handle1="-30,-33" handle2="21,-5" holdangle="-30">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.9" setvalue="true" />
+    </Holdable>
+    <RangedWeapon reload="0.15" holdtrigger="true" barrelpos="100,0" spread="4" unskilledspread="16" combatPriority="80" drawhudwhenequipped="true" crosshairscale="0.2">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="4.0,4.0" colormultiplier="255,200,200,200" />
+      <Sound file="%ModDir%/Sound/sharkrifle1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="%ModDir%/Sound/sharkrifle2.ogg" type="OnUse" range="3000" />
+      <Sound file="%ModDir%/Sound/sharkrifle3.ogg" type="OnUse" range="3000" />
+      <Sound file="%ModDir%/Sound/sharkrifle4.ogg" type="OnUse" range="3000" />
+      <Sound file="%ModDir%/Sound/sharkrifle5.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse">
+        <Explosion range="150.0" force="1" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <RequiredItems items="blahajrifleammo" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="50" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorslot="0" containedstateindicatorstyle="bullet" containedspritedepth="0.56">
+      <Containable items="blahajrifleammo" itempos="4,-30" />
+      <SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="24,4" setactive="true"/>
+      </SubContainer>
+    </ItemContainer> 
+    <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
+    </Quality>
+  </Item>
+  <Item name="" identifier="blahajriflemagazine" maxstacksize="2" scale="0.5" category="Weapon" allowasextracargo="true" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,blahajrifleammo,riflemanbonus" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="blahajrifle" minamount="1" maxamount="1" spawnprobability="1"/>
+    <PreferredContainer primary="armcab" secondary="secarmcab"/>
+    <Price baseprice="350" sold="false" minleveldifficulty="60" displaynonempty="true">
+      <Price storeidentifier="merchantoutpost" multiplier="1.4" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" />
+      <Price storeidentifier="merchantresearch" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" sold="true" multiplier="0.9" minavailable="0" maxavailable="4" />
+      <Price storeidentifier="merchantmine" multiplier="1.25" />
+    </Price>
+    <Fabricate suitablefabricators="sharkricator" requiredtime="35" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="40" />
+      <RequiredItem identifier="magnesium" />
+      <RequiredItem identifier="blahaj" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" requiredtime="35" displayname="recycleitem" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="40" />
+      <RequiredItem identifier="magnesium" />
+      <RequiredItem identifier="blahaj" />
+      <RequiredItem identifier="blahajriflemagazine" mincondition="0.0" maxcondition="0.1" usecondition="false"/>
+    </Fabricate>
+    <Deconstruct time="15">
+      <Item identifier="lead" mincondition="0.95" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/Images/TalentGear.png" sourcerect="0,0,50,59" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/TalentGear.png" sourcerect="0,0,50,59" depth="0.55" origin="0.5,0.5" />
+    <Body width="28" height="40" density="25" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="assaultrifleround" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="blahajrifleround" />
+      <StatusEffect type="OnUse" target="This" condition="-3" disabledeltatime="true">
+        <SpawnItem identifiers="blahajrifleround" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="blahajrifleround" identifier="blahajrifleround" category="Weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,960,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="195,282,17,6" depth="0.55" origin="0.5,0.5" />
+    <Body width="40" height="14" density="30" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" removeonhit="true">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,200,200,175" scalemultiplier="1,0.8" />
+      <Attack structuredamage="10" targetforce="20" itemdamage="20" severlimbsprobability="0.2" penetration="0.2">
+        <Affliction identifier="gunshotwound" strength="12" />
+        <Affliction identifier="psychosis" strength="5" />
+        <Affliction identifier="bleeding" strength="8" />
+        <Affliction identifier="stun" strength="0.15" />
+        <Affliction identifier="stun" strength="0.3" probability="0.2" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2,2" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <Conditional entitytype="eq Structure" />
+        <Conditional hastag="eq door" />
+        <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  
+  <!-- shark mask -->
+  <Item name="" identifier="sharkmask" scale="0.5" category="Diving,Equipment" Tags="smallitem,diving,lightdiving,ramventilating" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_light">
+    <Price baseprice="100" sold="false">
+      <Price storeidentifier="merchantoutpost" multiplier="0.9" />
+      <Price storeidentifier="merchantcity" multiplier="0.85" />
+      <Price storeidentifier="merchantresearch" minavailable="5" />
+      <Price storeidentifier="merchantmilitary" minavailable="6" />
+      <Price storeidentifier="merchantmine" multiplier="1.25" />
+    </Price>
+    <PreferredContainer primary="divingcab" amount="2" allowtransfershere="false"/>
+    <Deconstruct time="10">
+      <Item identifier="plastic" />
+      <Item identifier="rubber" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="sharkricator" requiredtime="20" requiresrecipe="true">
+      <RequiredSkill identifier="mechanical" level="25" />
+      <RequiredItem identifier="divingmask" />
+      <RequiredItem identifier="blahaj" />
+    </Fabricate>
+    <Sprite name="Diving Mask" texture="%ModDir%/Images/TalentGear.png" depth="0.55" sourcerect="61,312,107,76" origin="0.5,0.5" />
+    <Body width="40" height="35" density="15" />
+    <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect" displaycontainedstatus="true">
+      <sprite name="Diving Mask Wearable" texture="%ModDir%/Images/TalentGear.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.7" hidelimb="false" hideotherwearables="false" sourcerect="61,312,107,76" origin="0.4,0.3" hidewearablesoftype="moustache,beard" />
+      <StatusEffect type="OnWearing" target="Character" HideFace="true" SpeedMultiplier="0.9" setvalue="true" disabledeltatime="true" />
+      <StatusEffect type="OnWearing" target="Contained,Character" OxygenAvailable="1000.0" Condition="-0.5" comparison="Or">
+        <Conditional IsDead="false" />
+        <RequiredItem items="oxygentank" type="Contained" />
+      </StatusEffect>
+      <StatusEffect type="OnWearing" target="Contained,Character" OxygenAvailable="-100.0" Oxygen="-5.0" Condition="-5.0">
+        <Conditional IsDead="false" />
+        <RequiredItem items="weldingfueltank" type="Contained" />
+      </StatusEffect>
+      <StatusEffect type="OnWearing" target="Contained,Character" targetlimbs="Torso" OxygenAvailable="-100.0" Oxygen="-7.0" Condition="-5.0">
+        <RequiredItem items="incendiumfueltank" type="Contained" />
+        <Affliction identifier="burn" amount="3.0" />
+      </StatusEffect>
+      <StatusEffect type="OnWearing" target="Contained,Character" OxygenAvailable="1500.0" Condition="-0.1" comparison="Or">
+        <Conditional IsDead="false" />
+        <RequiredItem items="oxygenitetank" type="Contained" />
+      </StatusEffect>
+      <StatusEffect type="OnWearing" target="Contained,Character" SpeedMultiplier="1.2" setvalue="true" comparison="Or">
+        <Conditional IsDead="false" />
+        <RequiredItem items="oxygenitetank" type="Contained" />
+      </StatusEffect>
+      <StatValue stattype="SwimmingSpeed" value="0.2" />
+    </Wearable>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="tank">
+      <Containable items="oxygensource,weldingtoolfuel" />
+    </ItemContainer>
+  </Item>
+
+  <!-- shark scooter -->
+  <Item name="" identifier="sharkscooter" category="Diving,Equipment" Tags="smallitem,provocative,scooter" cargocontaineridentifier="metalcrate" description="" Scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" requireaimtouse="True">
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <Price baseprice="180">
+      <Price storeidentifier="merchantoutpost" multiplier="0.9" minavailable="4" />
+      <Price storeidentifier="merchantcity" multiplier="0.85" minavailable="6" />
+      <Price storeidentifier="merchantresearch" minavailable="3" />
+      <Price storeidentifier="merchantmilitary" minavailable="5" />
+      <Price storeidentifier="merchantmine" multiplier="1.25" minavailable="4" />
+    </Price>
+    <Preferredcontainer secondary="respawncontainer" amount="1" spawnprobability="1" notcampaign="true"/>
+    <PreferredContainer primary="divingcab" amount="2" spawnprobability="1" notcampaign="true"/>
+    <PreferredContainer secondary="wrecksupplycab,beaconsupplycab" spawnprobability="0.05"/>
+    <Deconstruct time="20">
+      <Item identifier="aluminium" />
+      <Item identifier="copper" />
+      <Item identifier="tin" />
+      <Item identifier="plastic" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="sharkricator" requiredtime="30" requiresrecipe="true">
+      <RequiredSkill identifier="mechanical" level="30" />
+      <RequiredItem identifier="underwaterscooter" amount="1" />
+      <RequiredItem identifier="blahaj" />
+    </Fabricate>
+    <Sprite texture="%ModDir%/Images/TalentGear.png" depth="0.55" sourcerect="97,173,190,127" />
+    <Body width="120" height="60" density="10.2" />
+    <Holdable slots="Any,RightHand+LeftHand" aimpos="90,0" handle1="-35,32" handle2="-27,34" msg="ItemMsgPickUpSelect" holdangle="-10"/>
+    <Propulsion force="250" usablein="water" particles="bubbles">
+      <RequiredItems items="mobilebattery" type="Contained" msg="ItemMsgBatteryCellRequired" />
+      <StatusEffect type="OnUse" target="Contained" Condition="-0.25">
+        <RequiredItem items="mobilebattery" type="Contained" />
+      </StatusEffect>
+      <sound file="Content/Items/Diving/ScooterLoop.ogg" type="OnUse" range="500.0" loop="true" />
+      <LightComponent LightColor="1.0,1.0,1.0,0.8" range="1000">
+        <LightTexture texture="Content/Lights/lightcone.png" origin="-0.01, 0.5" size="1.0,1.0" />
+      </LightComponent>
+    </Propulsion>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
+      <Containable items="mobilebattery" />
+    </ItemContainer>
+    <AiTarget soundrange="3000" maxsightrange="3000" />
+  </Item> 
+
+  <!-- Posters -->
+
+  <!-- Blahaj Poster 1 -->
+  <Item name="" identifier="bpposter_blahaj1" tags="smallitem,blahajarmorcontainable" maxstacksize="4" category="Misc" cargocontaineridentifier="metalcrate" pickdistance="150" scale="0.3" description="" HideConditionBar="true" isshootable="true">
+    <Body width="95" height="106" density="40" />
+    <Price baseprice="30">
+      <Price locationtype="outpost" multiplier="1" minavailable="1" />
+      <Price locationtype="city" multiplier="1" minavailable="1" />
+      <Price locationtype="research" multiplier="2" sold="false" />
+      <Price locationtype="military" multiplier="2" sold="false" />
+      <Price locationtype="mine" multiplier="2" sold="false" />
+    </Price>
+    <Deconstruct time="1"></Deconstruct>
+    <Fabricate suitablefabricators="sharkricator" requiredtime="10">
+      <RequiredItem identifier="plastic" />
+    </Fabricate>
+    <Sprite texture="%ModDir%/images/posters/main.png" depth="0.85" sourcerect="0,0,256,336" origin="0.5,0.5" />
+    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="85,-10" handle1="0,0" attachable="true" aimable="true" >
+      <StatusEffect type="OnSpawn"><LuaHook name="NTBP.AddPoster" /></StatusEffect>
+    </Holdable>
+    <PreferredContainer primary="storagecab" spawnprobability="0" />
+  </Item>
+
+  <!-- Blahaj Poster 2 -->
+  <Item name="" identifier="bpposter_blahaj2" tags="smallitem,blahajarmorcontainable" maxstacksize="4" category="Misc" cargocontaineridentifier="metalcrate" pickdistance="150" scale="0.3" description="" HideConditionBar="true" isshootable="true">
+    <Body width="95" height="106" density="40" />
+    <Price baseprice="30">
+      <Price locationtype="outpost" multiplier="1" minavailable="1" />
+      <Price locationtype="city" multiplier="1" minavailable="1" />
+      <Price locationtype="research" multiplier="2" sold="false" />
+      <Price locationtype="military" multiplier="2" sold="false" />
+      <Price locationtype="mine" multiplier="2" sold="false" />
+    </Price>
+    <Deconstruct time="1"></Deconstruct>
+    <Fabricate suitablefabricators="sharkricator" requiredtime="10">
+      <RequiredItem identifier="plastic" />
+    </Fabricate>
+    <Sprite texture="%ModDir%/images/posters/main.png" depth="0.85" sourcerect="256,0,256,319" origin="0.5,0.5" />
+    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="85,-10" handle1="0,0" attachable="true" aimable="true" >
+      <StatusEffect type="OnSpawn"><LuaHook name="NTBP.AddPoster" /></StatusEffect>
+    </Holdable>
+    <PreferredContainer primary="storagecab" spawnprobability="0" />
+  </Item>
+
+  <!-- Blahaj Poster 3 -->
+  <Item name="" identifier="bpposter_blahaj3" tags="smallitem,blahajarmorcontainable" maxstacksize="4" category="Misc" cargocontaineridentifier="metalcrate" pickdistance="150" scale="0.3" description="" HideConditionBar="true" isshootable="true">
+    <Body width="95" height="95" density="40" />
+    <Price baseprice="30">
+      <Price locationtype="outpost" multiplier="1" minavailable="1" />
+      <Price locationtype="city" multiplier="1" minavailable="1" />
+      <Price locationtype="research" multiplier="2" sold="false" />
+      <Price locationtype="military" multiplier="2" sold="false" />
+      <Price locationtype="mine" multiplier="2" sold="false" />
+    </Price>
+    <Deconstruct time="1"></Deconstruct>
+    <Fabricate suitablefabricators="sharkricator" requiredtime="10">
+      <RequiredItem identifier="plastic" />
+    </Fabricate>
+    <Sprite texture="%ModDir%/images/posters/main.png" depth="0.85" sourcerect="512,0,256,256" origin="0.5,0.5" />
+    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="85,-10" handle1="0,0" attachable="true" aimable="true" >
+      <StatusEffect type="OnSpawn"><LuaHook name="NTBP.AddPoster" /></StatusEffect>
+    </Holdable>
+    <PreferredContainer primary="storagecab" spawnprobability="0" />
+  </Item>
+
+  <!-- Super Blahaj Poster -->
+  <Item name="" identifier="bpposter_superblahaj" tags="smallitem,blahajarmorcontainable" maxstacksize="4" category="Misc" cargocontaineridentifier="metalcrate" pickdistance="150" scale="0.3" description="" HideConditionBar="true" isshootable="true">
+    <Body width="95" height="95" density="40" />
+    <Price baseprice="30">
+      <Price locationtype="outpost" multiplier="1" minavailable="1" />
+      <Price locationtype="city" multiplier="1" minavailable="1" />
+      <Price locationtype="research" multiplier="2" sold="false" />
+      <Price locationtype="military" multiplier="2" sold="false" />
+      <Price locationtype="mine" multiplier="2" sold="false" />
+    </Price>
+    <Deconstruct time="1"></Deconstruct>
+    <Sprite texture="%ModDir%/images/posters/main.png" depth="0.85" sourcerect="0,688,256,336" origin="0.5,0.5" />
+    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="85,-10" handle1="0,0" attachable="true" aimable="true" >
+      <StatusEffect type="OnSpawn"><LuaHook name="NTBP.AddPoster" /></StatusEffect>
+    </Holdable>
+    <PreferredContainer primary="storagecab" spawnprobability="0" />
+  </Item>
+
+  <!-- Trans Flag Poster -->
+  <Item name="" identifier="bpposter_trans" tags="smallitem,blahajarmorcontainable" maxstacksize="4" category="Misc" cargocontaineridentifier="metalcrate" pickdistance="150" scale="0.3" description="" HideConditionBar="true" isshootable="true">
+    <Body width="95" height="95" density="40" />
+    <Price baseprice="30">
+      <Price locationtype="outpost" multiplier="1" minavailable="1" />
+      <Price locationtype="city" multiplier="1" minavailable="1" />
+      <Price locationtype="research" multiplier="2" sold="false" />
+      <Price locationtype="military" multiplier="2" sold="false" />
+      <Price locationtype="mine" multiplier="2" sold="false" />
+    </Price>
+    <Deconstruct time="1"></Deconstruct>
+    <Fabricate suitablefabricators="sharkricator" requiredtime="10">
+      <RequiredItem identifier="plastic" />
+    </Fabricate>
+    <Sprite texture="%ModDir%/images/posters/main.png" depth="0.85" sourcerect="0,336,256,155" origin="0.5,0.5" />
+    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="85,-10" handle1="0,0" attachable="true" aimable="true" >
+      <StatusEffect type="OnSpawn"><LuaHook name="NTBP.AddPoster" /></StatusEffect>
+    </Holdable>
+    <PreferredContainer primary="storagecab" spawnprobability="0" />
+  </Item>
+
+  <!-- VFX -->
+
+  <Item name="." identifier="ntbpvfx_summon_heavy" category="hidden" description="." hideinmenus="true">
+    <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
+    <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
+      <!-- expiration timer -->
+      <StatusEffect type="always" target="This" disabledeltatime="true" delay="3" stackable="false">
+        <Remove/>
+      </StatusEffect>
+      <!-- particle component -->
+      <StatusEffect type="Always" target="This">
+        <sound file="Content/Items/Alien/AlienArtifactLoop1.ogg" range="500.0" loop="true" />
+        <ParticleEmitter particle="psychosisfx" scalemultiplier="3,5" anglemax="360" emitinterval="1.1" particleamount="1" particlespersecond="1" />
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+
+</Items>

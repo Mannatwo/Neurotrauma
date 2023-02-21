@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="English" nowhitespace="false" translatedname="English">
+
+<!-- ITEMS -->
+
+<entityname.sharkricator>Sharkricator</entityname.sharkricator>
+<entitydescription.sharkricator>Fabricates shark-related items</entitydescription.sharkricator>
+
+<entityname.blahajaltar>Blahaj altar</entityname.blahajaltar>
+<entitydescription.blahajaltar>Artifices manifestations of the hajes true power</entitydescription.blahajaltar>
+
+<entityname.blahajplus>Blahaj +</entityname.blahajplus>
+<entitydescription.blahajplus>Thrice the size and extra accepting of all identities. Make sure to wear head protection during Blahaj fights.</entitydescription.blahajplus>
+
+<entityname.blahajplusplus>Blahaj ++</entityname.blahajplusplus>
+<entitydescription.blahajplusplus>Some describe the sensation of getting hit by this as cuddling with a hydraulic press.</entitydescription.blahajplusplus>
+
+<entityname.blahajarmor>Blahaj armor</entityname.blahajarmor>
+<entitydescription.blahajarmor>Provides additional damage resistance and effects based on its contents</entitydescription.blahajarmor>
+
+<entityname.bpposter_blahaj1>Blahaj poster 1</entityname.bpposter_blahaj1>
+<entitydescription.bpposter_blahaj1>Magnificent Blahaj
+Poster perk: Damage resistance
+Armor perk: Damage resistance</entitydescription.bpposter_blahaj1>
+
+<entityname.bpposter_blahaj2>Blahaj poster 2</entityname.bpposter_blahaj2>
+<entitydescription.bpposter_blahaj2>Eepy Blahaj
+Poster perk: Speed buff
+Armor perk: Speed buff</entitydescription.bpposter_blahaj2>
+
+<entityname.bpposter_blahaj3>Blahaj poster 3</entityname.bpposter_blahaj3>
+<entitydescription.bpposter_blahaj3>Friend of Blahaj
+Poster perk: Regeneration
+Armor perk: Regeneration</entitydescription.bpposter_blahaj3>
+
+<entityname.bpposter_superblahaj>Super Blahaj poster</entityname.bpposter_superblahaj>
+<entitydescription.bpposter_superblahaj>Handsome Blahaj
+Poster perk: All of them
+Armor perk: All of them</entitydescription.bpposter_superblahaj>
+
+<entityname.bpposter_trans>Trans flag poster</entityname.bpposter_trans>
+<entitydescription.bpposter_trans>Poster perk: Skill boost
+Armor perk: Skill boost</entitydescription.bpposter_trans>
+
+<entityname.blahajrifle>Shark rifle</entityname.blahajrifle>
+<entitydescription.blahajrifle>Sometimes attack is the best defense.</entitydescription.blahajrifle>
+
+<entityname.blahajriflemagazine>Shark rifle magazine</entityname.blahajriflemagazine>
+<entitydescription.blahajriflemagazine>It's shaped like a fin! How silly!</entitydescription.blahajriflemagazine>
+
+<entityname.sharkmask>Shark diving mask</entityname.sharkmask>
+<entitydescription.sharkmask>Provides ram ventilation to the wearer.</entitydescription.sharkmask>
+
+<entityname.sharkscooter>Shark scooter</entityname.sharkscooter>
+<entitydescription.sharkscooter>This aquadynamic underwater scooter provides increased speed when compared to standard issue.</entitydescription.sharkscooter>
+
+
+<!-- AFFLICTIONS -->
+
+<afflictionname.blahajpower>Blahaj power</afflictionname.blahajpower>
+<afflictiondescription.blahajpower>Blahaj watches over you.</afflictiondescription.blahajpower>
+
+<afflictionname.blahajattac>Blahaj attacc</afflictionname.blahajattac>
+<afflictiondescription.blahajattac>Blahaj empowers you.</afflictiondescription.blahajattac>
+
+<afflictionname.blahajcrisis>Identity crisis</afflictionname.blahajcrisis>
+<afflictiondescription.blahajcrisis>Blahaj is accelerating character development.</afflictiondescription.blahajcrisis>
+
+<afflictionname.blahajprotecc>Blahaj protecc</afflictionname.blahajprotecc>
+<afflictiondescription.blahajprotecc>Blahaj guards you.</afflictiondescription.blahajprotecc>
+
+<afflictionname.blahajgotbacc>Blahaj got your bacc</afflictionname.blahajgotbacc>
+<afflictiondescription.blahajgotbacc>Fate bends bullets around you.</afflictiondescription.blahajgotbacc>
+
+<afflictionname.blahajspeed>Blahaj speed</afflictionname.blahajspeed>
+<afflictiondescription.blahajspeed>Blahaj is helping you get where you want to be.</afflictiondescription.blahajspeed>
+
+<afflictionname.blahajregen>Blahaj regeneration</afflictionname.blahajregen>
+<afflictiondescription.blahajregen>Blahaj is helping you heal.</afflictiondescription.blahajregen>
+
+
+<!-- JOBS -->
+
+<jobname.swedic>Swedic</jobname.swedic>
+<jobdescription.swedic>You're not quite sure how someone this obsessed could be deemed a good fit for manning a nuclear submarine, but here they are, and the captain is letting them stay. For now.</jobdescription.swedic>
+
+<skillname.swedical>Swedical</skillname.swedical>
+
+<!-- TALENTS -->
+
+<talenttree.shark>Shark</talenttree.shark>
+<talenttree.obsession>Obsession</talenttree.obsession>
+<talenttree.posterperson>Poster person</talenttree.posterperson>
+
+
+
+<talentname.ntbp_divinglessions>Diving lessions</talentname.ntbp_divinglessions>
+<talentname.ntbp_cuddles>Cuddles</talentname.ntbp_cuddles>
+<talentname.ntbp_fluffy>Fluffy</talentname.ntbp_fluffy>
+<talentname.ntbp_mighty>Mighty</talentname.ntbp_mighty>
+<talentname.ntbp_fangs>Shark teeth</talentname.ntbp_fangs>
+<talentname.ntbp_supplyanddemand>Supply and demand</talentname.ntbp_supplyanddemand>
+<talentdescription.ntbp_supplyanddemand>Gain a [probability]% chance to find blue sharks on monsters.</talentdescription.ntbp_supplyanddemand>
+<talentname.ntbp_handholding>Hand-holding</talentname.ntbp_handholding>
+<talentname.ntbp_restock>Restock</talentname.ntbp_restock>
+<talentdescription.ntbp_restock>Gain a blue shark every time you end a round after having finished a mission.</talentdescription.ntbp_restock>
+
+
+
+<talentname.ntbp_identitycrisis>Identity crisis</talentname.ntbp_identitycrisis>
+<talentdescription.ntbp_identitycrisis>Blahaj power increases your skills.</talentdescription.ntbp_identitycrisis>
+
+<talentname.ntbp_ramventilation>Ram ventilation</talentname.ntbp_ramventilation>
+<talentdescription.ntbp_ramventilation>Moving while submerged cures oxygen low.</talentdescription.ntbp_ramventilation>
+
+<talentname.ntbp_hajdivingops>H.A.J. diving ops</talentname.ntbp_hajdivingops>
+
+<talentname.ntbp_advancedcuddles>Advanced cuddles</talentname.ntbp_advancedcuddles>
+<talentdescription.ntbp_advancedcuddles>Chance of serious injuries is reduced by up to 70% based on Blahaj Power.</talentdescription.ntbp_advancedcuddles>
+
+
+
+<talentname.ntbp_blahajpower>Awakening</talentname.ntbp_blahajpower>
+<talentdescription.ntbp_blahajpower>Unlock Blahaj Power, that increases movement speed and scales with how many Blahajes you have in your inventory.</talentdescription.ntbp_blahajpower>
+
+<talentname.ntbp_heprotecc>He protecc</talentname.ntbp_heprotecc>
+<talentdescription.ntbp_heprotecc>Blahaj power provides damage resistance.</talentdescription.ntbp_heprotecc>
+
+<talentname.ntbp_heattacc>He attacc</talentname.ntbp_heattacc>
+<talentdescription.ntbp_heattacc>Blahaj power provides increased melee damage.</talentdescription.ntbp_heattacc>
+
+<talentname.ntbp_gotbacc>He's got our bacc</talentname.ntbp_gotbacc>
+<talentdescription.ntbp_gotbacc>Blahaj power lets you shrug off a couple bullets every now and then.</talentdescription.ntbp_gotbacc>
+
+<talentname.ntbp_altar>True follower of haj</talentname.ntbp_altar>
+
+
+
+<talentname.ntbp_posterascension>Poster ascension</talentname.ntbp_posterascension>
+<talentdescription.ntbp_posterascension>Unlock Poster Perks, causing posters to have effects on nearby crew.</talentdescription.ntbp_posterascension>
+
+<talentname.ntbp_neonpaint>Neon paint</talentname.ntbp_neonpaint>
+<talentdescription.ntbp_neonpaint>Doubles the range of poster perks.</talentdescription.ntbp_neonpaint>
+
+<talentname.ntbp_gimmickbridge>Gimmick bridge</talentname.ntbp_gimmickbridge>
+<talentdescription.ntbp_gimmickbridge>The strength of poster perks is affected by blahaj power.</talentdescription.ntbp_gimmickbridge>
+
+<talentname.ntbp_freehandouts>Free handouts</talentname.ntbp_freehandouts>
+<talentdescription.ntbp_freehandouts>Posters in your inventory increase blahaj power.</talentdescription.ntbp_freehandouts>
+
+<!-- MISC -->
+
+<label.ba_start>Craft</label.ba_start>
+
+</infotexts>
