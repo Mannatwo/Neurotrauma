@@ -703,7 +703,7 @@ Puede dar sangre a: AB+</entitydescription.abpluscard>
 <connection.organdamageout>Daño_de_órganos</connection.organdamageout>
 <connection.insurgeryout>En_cirugia</connection.insurgeryout>
 <connection.causeofdeathout>Causa_de_la_muerte</connection.causeofdeathout>
-<connection.bloodphout>Blood_pH</connection.bloodphout>
+<connection.bloodphout>Sangre_pH</connection.bloodphout>
 
 <!-- misc -->
 <roomname.surgical>Quirúrgico</roomname.surgical>
