@@ -857,8 +857,8 @@ NT.LimbAfflictions = {
         -- see foreignbody for sepsis chance
         if(isExtremity(type)) then 
             if(limbaff[i].strength < 15 and limbaff[i].strength > 0) then limbaff[i].strength = limbaff[i].strength - 0.01*c.stats.healingrate*NT.Deltatime end
-            if(c.afflictions.sepsis.strength > 5) then limbaff[i].strength = limbaff[i].strength + HF.BoolToNum(HF.Chance(0.1+c.afflictions.sepsis.strength/300),1) * NT.Deltatime end
-            if(limbaff.arteriesclamp.strength > 0) then limbaff[i].strength = limbaff[i].strength + HF.BoolToNum(HF.Chance(0.1),1) * 0.5 * NT.Deltatime end
+            if(c.afflictions.sepsis.strength > 5) then limbaff[i].strength = limbaff[i].strength + HF.BoolToNum(HF.Chance(0.04),0.5 + c.afflictions.sepsis.strength/150) * NT.Config.gangrenespeed * NT.Deltatime end
+            if(limbaff.arteriesclamp.strength > 0) then limbaff[i].strength = limbaff[i].strength + HF.BoolToNum(HF.Chance(0.1),1) * 0.5 * NT.Config.gangrenespeed * NT.Deltatime end
         end
     end
     },

@@ -15,6 +15,7 @@ config.traumaticAmputationChance = 1
 config.neurotraumaGain = 1
 config.organDamageGain = 1
 config.fibrillationSpeed = 1
+config.gangrenespeed = 1
 
 config.disableBotAlgorithms = true
 

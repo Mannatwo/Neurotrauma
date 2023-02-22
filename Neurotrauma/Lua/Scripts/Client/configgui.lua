@@ -58,6 +58,7 @@ local function DetermineDifficulty()
         +HF.Clamp(config.neurotraumaGain*3,0,10)
         +HF.Clamp(config.organDamageGain*2,0,8)
         +HF.Clamp(config.fibrillationSpeed*1.5,0,8)
+        +HF.Clamp(config.gangrenespeed*0.5,0,5)
         +HF.BoolToNum(config.organRejection,0.5)
         +HF.BoolToNum(config.fracturesRemoveCasts,0.5)
 
@@ -163,6 +164,17 @@ NT.ShowGUI = function ()
     infectionRate.FloatValue = NT.Config.infectionRate
     infectionRate.OnValueChanged = function ()
         NT.Config.infectionRate = infectionRate.FloatValue
+        OnChanged()
+    end
+
+    GUI.TextBlock(GUI.RectTransform(Vector2(1, 0.05), config.Content.RectTransform), "Gangrene rate multiplier", nil, nil, GUI.Alignment.Center, true)
+    local gangrenespeed = GUI.NumberInput(GUI.RectTransform(Vector2(1, 0.1), config.Content.RectTransform), NumberType.Float)
+    gangrenespeed.valueStep = 0.1
+    gangrenespeed.MinValueFloat = 0
+    gangrenespeed.MaxValueFloat = 100
+    gangrenespeed.FloatValue = NT.Config.gangrenespeed
+    gangrenespeed.OnValueChanged = function ()
+        NT.Config.gangrenespeed = gangrenespeed.FloatValue
         OnChanged()
     end
 
