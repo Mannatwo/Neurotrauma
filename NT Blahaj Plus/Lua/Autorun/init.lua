@@ -1,8 +1,8 @@
 
 NTBP = {} -- Neurotrauma Blahaj Plus
 NTBP.Name="Blahaj Plus"
-NTBP.Version = "A1.0"
-NTBP.VersionNum = 01000000
+NTBP.Version = "A1.0h1"
+NTBP.VersionNum = 01000001
 NTBP.MinNTVersion = "A1.8.4"
 NTBP.MinNTVersionNum = 01080400
 NTBP.Path = table.pack(...)[1]

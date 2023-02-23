@@ -444,13 +444,6 @@
   <!-- shark scooter -->
   <Item name="" identifier="sharkscooter" category="Diving,Equipment" Tags="smallitem,provocative,scooter" cargocontaineridentifier="metalcrate" description="" Scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" requireaimtouse="True">
     <Upgrade gameversion="0.10.0.0" scale="0.5" />
-    <Price baseprice="180">
-      <Price storeidentifier="merchantoutpost" multiplier="0.9" minavailable="4" />
-      <Price storeidentifier="merchantcity" multiplier="0.85" minavailable="6" />
-      <Price storeidentifier="merchantresearch" minavailable="3" />
-      <Price storeidentifier="merchantmilitary" minavailable="5" />
-      <Price storeidentifier="merchantmine" multiplier="1.25" minavailable="4" />
-    </Price>
     <Preferredcontainer secondary="respawncontainer" amount="1" spawnprobability="1" notcampaign="true"/>
     <PreferredContainer primary="divingcab" amount="2" spawnprobability="1" notcampaign="true"/>
     <PreferredContainer secondary="wrecksupplycab,beaconsupplycab" spawnprobability="0.05"/>
