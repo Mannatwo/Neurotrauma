@@ -545,13 +545,6 @@
   <!-- Super Blahaj Poster -->
   <Item name="" identifier="bpposter_superblahaj" tags="smallitem,blahajarmorcontainable" maxstacksize="4" category="Misc" cargocontaineridentifier="metalcrate" pickdistance="150" scale="0.3" description="" HideConditionBar="true" isshootable="true">
     <Body width="95" height="95" density="40" />
-    <Price baseprice="30">
-      <Price locationtype="outpost" multiplier="1" minavailable="1" />
-      <Price locationtype="city" multiplier="1" minavailable="1" />
-      <Price locationtype="research" multiplier="2" sold="false" />
-      <Price locationtype="military" multiplier="2" sold="false" />
-      <Price locationtype="mine" multiplier="2" sold="false" />
-    </Price>
     <Deconstruct time="1"></Deconstruct>
     <Sprite texture="%ModDir%/images/posters/main.png" depth="0.85" sourcerect="0,688,256,336" origin="0.5,0.5" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="85,-10" handle1="0,0" attachable="true" aimable="true" >
