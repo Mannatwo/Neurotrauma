@@ -17,6 +17,7 @@ config.organDamageGain = 1
 config.fibrillationSpeed = 1
 config.gangrenespeed = 1
 
+config.vanillaSkillCheck = false
 config.disableBotAlgorithms = true
 
 config.NTSPenableSurgicalInfection = true

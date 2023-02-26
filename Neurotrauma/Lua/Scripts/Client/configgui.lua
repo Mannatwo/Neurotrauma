@@ -288,6 +288,13 @@ NT.ShowGUI = function ()
         OnChanged()
     end
 
+    local vanillaSkillCheck = GUI.TickBox(GUI.RectTransform(Vector2(1, 0.2), config.Content.RectTransform), "Change the skill check algorithm to the vanilla one")
+    vanillaSkillCheck.Selected = NT.Config.vanillaSkillCheck
+    vanillaSkillCheck.OnSelected = function ()
+        NT.Config.vanillaSkillCheck = vanillaSkillCheck.State == 3
+        OnChanged()
+    end
+
     -- Surgery Plus specific options
     if NTSP~=nil then
 
