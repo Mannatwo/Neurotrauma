@@ -2,7 +2,7 @@
 <Items>
 
   <!-- Sharkricator -->
-  <Item name="" identifier="sharkricator" tags="sharkricator,donttakeitems" category="Machine" linkable="true" allowedlinks="deconstructor,locker" description="" scale="0.3" damagedbyexplosions="true" explosiondamagemultiplier="0.2">
+  <Item name="" identifier="sharkricator" tags="sharkricator,donttakeitems,lualinkable" category="Machine" linkable="true" allowedlinks="deconstructor,locker" description="" scale="0.3" damagedbyexplosions="true" explosiondamagemultiplier="0.2">
       <Fabricate suitablefabricators="fabricator" requiredtime="60">
         <RequiredSkill identifier="electrical" level="50" />
         <RequiredSkill identifier="mechanical" level="55" />
