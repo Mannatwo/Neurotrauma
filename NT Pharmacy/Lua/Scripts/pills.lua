@@ -81,13 +81,13 @@ NTP.PillData.items = {
     antidama2={types={"active"},skillrequirement=45,
         effects={
             {type="addeffect",identifier="analgesia",amount=37.5},
-            {type="addeffect",identifier="opiateaddiction",amount=15},
-            {type="addeffect",identifier="opiateoverdose",amount=22.5},
+            {type="addeffect",identifier="opiateaddiction",amount=7.5},
+            {type="addeffect",identifier="opiateoverdose",amount=11.25},
             {type="addeffect",identifier="opiatewithdrawal",amount=-50}},
         faileffects={
             {type="addeffect",identifier="analgesia",amount=25},
-            {type="addeffect",identifier="opiateaddiction",amount=40},
-            {type="addeffect",identifier="opiateoverdose",amount=30},
+            {type="addeffect",identifier="opiateaddiction",amount=20},
+            {type="addeffect",identifier="opiateoverdose",amount=15},
             {type="addeffect",identifier="opiatewithdrawal",amount=-50}}
     },
     antinarc={types={"active"},skillrequirement=40,
