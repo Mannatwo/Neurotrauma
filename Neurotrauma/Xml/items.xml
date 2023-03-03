@@ -1877,7 +1877,7 @@
     </Wearable>
     <aitarget maxsightrange="50" />
   </Item>
-  <Item name="" identifier="stasisbag" category="Equipment" tags="provocative,mediumitem" scale="0.9" fireproof="true" description="" cargocontaineridentifier="metalcrate" impactsoundtag="impact_soft" equipconfirmationtext="stasisbagequipconfirmation">
+  <Item name="" identifier="stasisbag" category="Equipment" tags="provocative,mediumitem,diving" scale="0.9" fireproof="true" description="" cargocontaineridentifier="metalcrate" impactsoundtag="impact_soft" equipconfirmationtext="stasisbagequipconfirmation">
     <Price baseprice="1500" soldbydefault="false">
       <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="1"/>
     </Price>
