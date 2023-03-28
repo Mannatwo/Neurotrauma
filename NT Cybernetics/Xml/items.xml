@@ -237,7 +237,7 @@
         <Item identifier="depletedfuel" />
       </Deconstruct>
       <Fabricate requiresrecipe="true">
-        <RequiredItem identifier="screwdriver" />
+        <RequiredItem identifier="screwdriver" amount="1" />
         <RequiredItem identifier="depletedfuel" amount="2" />
       </Fabricate>
       <SuitableTreatment identifier="ntc_loosescrews" suitability="50"/>
@@ -265,7 +265,7 @@
         <Item identifier="dementonite" />
       </Deconstruct>
       <Fabricate requiresrecipe="true">
-        <RequiredItem identifier="screwdriver" />
+        <RequiredItem identifier="screwdriver" amount="1" />
         <RequiredItem identifier="dementonite" amount="2" />
       </Fabricate>
       <SuitableTreatment identifier="ntc_loosescrews" suitability="50"/>
