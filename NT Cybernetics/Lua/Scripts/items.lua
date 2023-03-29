@@ -153,3 +153,33 @@ NTCyb.ItemStartsWithMethods.screwdriver = function(item, usingCharacter, targetC
     HF.GiveItem(targetCharacter,"ntcsfx_screwdriver")
 end
 
+
+-- overrides
+
+Timer.Wait(function()
+
+    NT.ItemMethods.surgerysaw = function(item, usingCharacter, targetCharacter, limb) 
+        local limbtype = HF.NormalizeLimbType(limb.type)
+    
+        -- don't work on stasis
+        if(HF.HasAffliction(targetCharacter,"stasis",0.1)) then return end
+
+        -- don't work on cyber
+        if(NTCyb.HF.LimbIsCyber(targetCharacter,limbtype)) then return end
+    
+        if(HF.CanPerformSurgeryOn(targetCharacter) and HF.HasAfflictionLimb(targetCharacter,"retractedskin",limbtype,99)
+            and not HF.HasAfflictionLimb(targetCharacter,"bonecut",limbtype,1)
+        ) then
+            if(HF.GetSurgerySkillRequirementMet(usingCharacter,50)) then
+                if limbtype~=LimbType.Torso then
+                    HF.AddAfflictionLimb(targetCharacter,"bonecut",limbtype,1+HF.GetSurgerySkill(usingCharacter)/2,usingCharacter)
+                end
+            else
+                HF.AddAfflictionLimb(targetCharacter,"bleeding",limbtype,15,usingCharacter)
+                HF.AddAfflictionLimb(targetCharacter,"internaldamage",limbtype,6,usingCharacter)
+                HF.AddAfflictionLimb(targetCharacter,"lacerations",limbtype,4,usingCharacter)
+            end
+        end
+    end
+
+end,1000)

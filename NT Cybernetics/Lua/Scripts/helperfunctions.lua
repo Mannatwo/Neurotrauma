@@ -7,6 +7,9 @@ function NTCyb.HF.LimbIsCyber(character,limbtype)
 end
 
 function NTCyb.UncyberifyLimb(character,limbtype)
+
+    limbtype = HF.NormalizeLimbType(limbtype)
+
     HF.SetAfflictionLimb(character,"ntc_cyberlimb",limbtype,0)
     HF.SetAfflictionLimb(character,"ntc_cyberarm",limbtype,0)
     HF.SetAfflictionLimb(character,"ntc_cyberleg",limbtype,0)

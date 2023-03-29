@@ -38,8 +38,8 @@ NTC.AddOnDamagedHook(function (characterHealth, attackResult, hitLimb)
 end)
 
 NT.DislocateLimb = function(character,limbtype,strength)
-    if NTCyb.HF.LimbIsCyber(character,limbtype) then return end
     strength = strength or 1
+    if strength > 0 and NTCyb.HF.LimbIsCyber(character,limbtype) then return end
     local limbtoaffliction = {}
     limbtoaffliction[LimbType.RightLeg] = "dislocation1"
     limbtoaffliction[LimbType.LeftLeg] = "dislocation2"
@@ -50,8 +50,8 @@ NT.DislocateLimb = function(character,limbtype,strength)
 end
 
 NT.BreakLimb = function(character,limbtype,strength)
-    if NTCyb.HF.LimbIsCyber(character,limbtype) then return end
     strength = strength or 5
+    if strength > 0 and NTCyb.HF.LimbIsCyber(character,limbtype) then return end
     local limbtoaffliction = {}
     limbtoaffliction[LimbType.RightLeg] = "rl_fracture"
     limbtoaffliction[LimbType.LeftLeg] = "ll_fracture"
@@ -59,6 +59,20 @@ NT.BreakLimb = function(character,limbtype,strength)
     limbtoaffliction[LimbType.LeftArm] = "la_fracture"
     limbtoaffliction[LimbType.Head] = "h_fracture"
     limbtoaffliction[LimbType.Torso] = "t_fracture"
+    if limbtoaffliction[limbtype] == nil then return end
+    HF.AddAffliction(character,limbtoaffliction[limbtype],strength)
+end
+
+NT.ArteryCutLimb = function(character,limbtype,strength)
+    strength=strength or 5
+    if strength > 0 and NTCyb.HF.LimbIsCyber(character,limbtype) then return end
+    local limbtoaffliction = {}
+    limbtoaffliction[LimbType.RightLeg] = "rl_arterialcut"
+    limbtoaffliction[LimbType.LeftLeg] = "ll_arterialcut"
+    limbtoaffliction[LimbType.RightArm] = "ra_arterialcut"
+    limbtoaffliction[LimbType.LeftArm] = "la_arterialcut"
+    limbtoaffliction[LimbType.Head] = "h_arterialcut"
+    limbtoaffliction[LimbType.Torso] = "t_arterialcut"
     if limbtoaffliction[limbtype] == nil then return end
     HF.AddAffliction(character,limbtoaffliction[limbtype],strength)
 end

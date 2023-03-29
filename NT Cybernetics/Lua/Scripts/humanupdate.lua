@@ -80,7 +80,7 @@ function NTCyb.UpdateHuman(character)
             NTC.MultiplySpeed(character,1-(bentmetal/100)*0.5)
         end
     end
-    
+
     updateLimb(character,LimbType.Torso)
     updateLimb(character,LimbType.Head)
     updateLimb(character,LimbType.LeftLeg)
@@ -176,23 +176,36 @@ function NTCyb.ConvertDamageTypes(character,limbtype)
         HF.ApplyAfflictionChangeLimb(character,limbtype,"ntc_damagedelectronics",damagedelectronics,prevdamagedelectronics,0,100)
         HF.ApplyAfflictionChangeLimb(character,limbtype,"ntc_bentmetal",bentmetal,prevbentmetal,0,100)
         HF.ApplyAfflictionChangeLimb(character,limbtype,"ntc_materialloss",materialloss,prevmaterialloss,0,100)
+        
 
-        HF.SetAfflictionLimb(character,"dislocation1",limbtype,0)
-        HF.SetAfflictionLimb(character,"dislocation2",limbtype,0)
-        HF.SetAfflictionLimb(character,"dislocation3",limbtype,0)
-        HF.SetAfflictionLimb(character,"dislocation4",limbtype,0)
+        NT.DislocateLimb(character,limbtype,-1000)
+        NT.BreakLimb(character,limbtype,-1000)
+        NT.ArteryCutLimb(character,limbtype,-1000)
 
-        HF.SetAfflictionLimb(character,"ll_arterialcut",limbtype,0)
-        HF.SetAfflictionLimb(character,"rl_arterialcut",limbtype,0)
-        HF.SetAfflictionLimb(character,"la_arterialcut",limbtype,0)
-        HF.SetAfflictionLimb(character,"ra_arterialcut",limbtype,0)
-        HF.SetAfflictionLimb(character,"h_arterialcut",limbtype,0)
-        HF.SetAfflictionLimb(character,"t_arterialcut",limbtype,0)
+        HF.SetAfflictionLimb(character,"arteriesclamp",limbtype,0)
+        HF.SetAfflictionLimb(character,"surgeryincision",limbtype,0)
+        HF.SetAfflictionLimb(character,"clampedbleeders",limbtype,0)
+        HF.SetAfflictionLimb(character,"drilledbones",limbtype,0)
+        HF.SetAfflictionLimb(character,"retractedskin",limbtype,0)
+        HF.SetAfflictionLimb(character,"suturedi",limbtype,0)
+        HF.SetAfflictionLimb(character,"suturedw",limbtype,0)
 
-        HF.SetAfflictionLimb(character,"tll_amputation",limbtype,0)
-        HF.SetAfflictionLimb(character,"trl_amputation",limbtype,0)
-        HF.SetAfflictionLimb(character,"tla_amputation",limbtype,0)
-        HF.SetAfflictionLimb(character,"tra_amputation",limbtype,0)
+        if limbtype == LimbType.LeftLeg then
+            HF.SetAffliction(character,"tll_amputation",0)
+            HF.SetAffliction(character,"sll_amputation",0)
+        end
+        if limbtype == LimbType.RightLeg then
+            HF.SetAffliction(character,"trl_amputation",0)
+            HF.SetAffliction(character,"srl_amputation",0)
+        end
+        if limbtype == LimbType.LeftArm then
+            HF.SetAffliction(character,"tla_amputation",0)
+            HF.SetAffliction(character,"sla_amputation",0)
+        end
+        if limbtype == LimbType.RightArm then
+            HF.SetAffliction(character,"tra_amputation",0)
+            HF.SetAffliction(character,"sra_amputation",0)
+        end
 
     end
 end
