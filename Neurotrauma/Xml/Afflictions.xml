@@ -3855,7 +3855,8 @@ thats what the vomiting symptom is for -->
       showiconthreshold="700"
       showinhealthscannerthreshold="5"
       karmachangeonapplied="-100"
-      maxstrength="100">
+      maxstrength="100"
+      MedicalSkillGain="3.0">
       <!-- Reduce oxygen intake for the victim, cause suffocation -->
       <!-- Becomes lethal in ~80 seconds -->
       <Effect minstrength="0" maxstrength="20"
@@ -3917,7 +3918,8 @@ thats what the vomiting symptom is for -->
       showinhealthscannerthreshold="5"
       treatmentthreshold="40"
       karmachangeonapplied="-50"
-      maxstrength="100">
+      maxstrength="100"
+      MedicalSkillGain="4.0">
 
       <Effect minstrength="0" maxstrength="20"
         minvitalitydecrease="0"
@@ -3997,7 +3999,8 @@ thats what the vomiting symptom is for -->
       showiconthreshold="700"
       showinhealthscannerthreshold="5"
       karmachangeonapplied="-50"
-      maxstrength="100">
+      maxstrength="100"
+      MedicalSkillGain="1.5">
       <!-- At first undetectable and shows no symptoms, then starts affecting character's vision. Quickly becomes lethal if left untreated. -->
       <Effect minstrength="0" maxstrength="30"
         minvitalitydecrease="0"
@@ -4116,7 +4119,8 @@ thats what the vomiting symptom is for -->
       maxstrength="200"
       showiconthreshold="10000"
       showinhealthscannerthreshold="5"
-      damageoverlayalpha="1">
+      damageoverlayalpha="1"
+      WeaponsSkillGain="1.0">
       <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true"
         minvitalitydecrease="0"
         maxvitalitydecrease="2"/>
@@ -4133,7 +4137,8 @@ thats what the vomiting symptom is for -->
       selfcauseofdeathdescription=""
       limbspecific="true"
       maxstrength="200"
-      damageoverlayalpha="1">
+      damageoverlayalpha="1"
+      WeaponsSkillGain="1.0">
       <Description 
         textidentifier="afflictiondescription.blunttrauma.low"
         minstrength="0"
@@ -4159,7 +4164,8 @@ thats what the vomiting symptom is for -->
       selfcauseofdeathdescription=""
       limbspecific="true"
       maxstrength="200"
-      damageoverlayalpha="1">
+      damageoverlayalpha="1"
+      WeaponsSkillGain="1.0">
       <Description 
         textidentifier="afflictiondescription.lacerations.low"
         minstrength="0"
@@ -4185,7 +4191,8 @@ thats what the vomiting symptom is for -->
       selfcauseofdeathdescription="You have been mauled to death."
       limbspecific="true"
       maxstrength="200"
-      damageoverlayalpha="1">
+      damageoverlayalpha="1"
+      WeaponsSkillGain="1.0">
       <Description
         textidentifier="afflictiondescription.bitewounds.low"
         minstrength="0"
@@ -4212,7 +4219,8 @@ thats what the vomiting symptom is for -->
       limbspecific="true"
       maxstrength="200"
       karmachangeonapplied="-1"
-      damageoverlayalpha="1">
+      damageoverlayalpha="1"
+      WeaponsSkillGain="1.0">
       <Description
         textidentifier="afflictiondescription.gunshotwound.low"
         minstrength="0"
@@ -4243,7 +4251,8 @@ thats what the vomiting symptom is for -->
       showiconthreshold="10000"
       showinhealthscannerthreshold="10"
       healcostmultiplier="10"
-      damageoverlayalpha="1">
+      damageoverlayalpha="1"
+      MedicalSkillGain="0.1">
       <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true" strengthchange="-0.01"
         minvitalitydecrease="0"
         maxvitalitydecrease="2"/>
@@ -4260,7 +4269,8 @@ thats what the vomiting symptom is for -->
       selfcauseofdeathdescription=""
       limbspecific="true"
       maxstrength="200"
-      damageoverlayalpha="1">
+      damageoverlayalpha="1"
+      WeaponsSkillGain="1.0">
       <Description
         textidentifier="afflictiondescription.explosiondamage.low"
         minstrength="0"
@@ -4288,7 +4298,8 @@ thats what the vomiting symptom is for -->
       showinhealthscannerthreshold="10000"
       healcostmultiplier="4"
       maxstrength="200"
-      burnoverlayalpha="1">
+      burnoverlayalpha="1"
+      WeaponsSkillGain="1.0">
       <Effect minstrength="0" maxstrength="150" multiplybymaxvitality="true"
         minvitalitydecrease="0"
         maxvitalitydecrease="0.75"/>
@@ -4308,7 +4319,9 @@ thats what the vomiting symptom is for -->
       burnoverlayalpha="0"
       healcostmultiplier="4"
       showiconthreshold="10000"
-      showinhealthscannerthreshold="10000">
+      showinhealthscannerthreshold="10000"
+      WeaponsSkillGain="0.5"
+      MedicalSkillGain="0.5">
       <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true"
         minvitalitydecrease="0"
         maxvitalitydecrease="2"/>
@@ -4713,7 +4726,8 @@ thats what the vomiting symptom is for -->
       treatmentthreshold="25"
       maxstrength="200"
       grainburst="3"
-      healcostmultiplier="4.0">
+      healcostmultiplier="4.0"
+      MedicalSkillGain="1.0">
       
       <!-- Cause burns, seizures, internal bleeding and organ damage depending on strength -->
 
