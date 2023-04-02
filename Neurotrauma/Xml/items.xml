@@ -1246,6 +1246,84 @@
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="false" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
   </Item>
+  <!-- Sodium bicarbonate / heals acidosis / causes alkalosis -->
+  <Item name="Sodium bicarbonate" identifier="acidosismeds" category="Material" cargocontaineridentifier="mediccrate"
+      Tags="smallitem,chem,medical,syringe" description="Sodium bicarbonate (IUPAC name: sodium hydrogen carbonate), commonly known as baking soda or bicarbonate of soda. Increases the alkalinity in the blood" useinhealthinterface="true" scale="0.275"
+      impactsoundtag="impact_metal_light" maxstacksize="8">
+    <PreferredContainer primary="medcab" spawnprobability="0.2"/>
+    <PreferredContainer primary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="2" spawnprobability="0.25"/>
+    <PreferredContainer primary="outposttrashcan" minamount="0" maxamount="2" spawnprobability="0.01"/>
+    <Price baseprice="100" soldbydefault="false">
+        <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="1"/>
+    </Price>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="30" amount="2">
+        <RequiredSkill identifier="medical" level="40"/>
+        <RequiredItem identifier="carbon"/>
+        <RequiredItem identifier="sodium"/>
+    </Fabricate>
+    <Deconstruct time="20">
+        <Item identifier="sodium" copycondition="true" mincondition="0.1"/>
+    </Deconstruct>
+    <SuitableTreatment identifier="acidosis" suitability="15"/>
+    <InventoryIcon texture="%ModDir%/Images/InventoryItemIconAtlas.png" sourcerect="444,257,64,64" origin="0.5,0.5"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="896,517,128,128" depth="0.6" origin="0.5,0.5"/>
+    <Body width="35" height="70" density="20"/>
+    <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
+        <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true"/>
+        <RequiredSkill identifier="medical" level="40"/>
+        <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" duration="10">
+          <Sound file="Content/Items/Medical/Syringe.ogg" range="500"/>
+          <Affliction identifier="afacidosisdrug" amount="5"/>
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnFailure" target="UseTarget" duration="10">
+          <Sound file="Content/Items/Medical/Syringe.ogg" range="500"/>
+          <Affliction identifier="afacidosisdrug" amount="3"/>
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+            <Remove/>
+        </StatusEffect>
+    </MeleeWeapon>
+    <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="false" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+  </Item>
+  <!-- Acetazolamide / heals alkalosis / causes acidosis -->
+  <Item name="Acetazolamide" identifier="alkalosismeds" category="Material" cargocontaineridentifier="mediccrate"
+      Tags="smallitem,chem,medical,syringe" description="Acetazolamide is a diuretic. It selectively inhibits the enzyme carboangidase. As a normal diuretic, acetazolamide is relatively rarely used as there are more effective drugs available, but it is well suited to reducing elevated levels of carbon dioxide and bicarbonate in the blood (to restore normal pH levels)." useinhealthinterface="true" scale="0.275"
+      impactsoundtag="impact_metal_light" maxstacksize="8">
+    <PreferredContainer primary="medcab" spawnprobability="0.2"/>
+    <PreferredContainer primary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="2" spawnprobability="0.25"/>
+    <PreferredContainer primary="outposttrashcan" minamount="0" maxamount="2" spawnprobability="0.01"/>
+    <Price baseprice="100" soldbydefault="false">
+        <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="1"/>
+    </Price>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="30" amount="2">
+        <RequiredSkill identifier="medical" level="50"/>
+        <RequiredItem identifier="sulphuricacid"/>
+        <RequiredItem identifier="ethanol"/>
+    </Fabricate>
+    <Deconstruct time="20">
+        <Item identifier="ethanol" copycondition="true" mincondition="0.1"/>
+    </Deconstruct>
+    <SuitableTreatment identifier="alkalosis" suitability="15"/>
+    <InventoryIcon texture="%ModDir%/Images/InventoryItemIconAtlas.png" sourcerect="385,252,64,64" origin="0.5,0.5"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="896,643,128,128" depth="0.6" origin="0.5,0.5"/>
+    <Body width="35" height="70" density="20"/>
+    <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
+        <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true"/>
+        <RequiredSkill identifier="medical" level="30"/>
+        <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" duration="10">
+          <Sound file="Content/Items/Medical/Syringe.ogg" range="500"/>
+          <Affliction identifier="afalkalosisdrug" amount="5"/>
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnFailure" target="UseTarget" duration="10">
+          <Sound file="Content/Items/Medical/Syringe.ogg" range="500"/>
+          <Affliction identifier="afalkalosisdrug" amount="3"/>
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+            <Remove/>
+        </StatusEffect>
+    </MeleeWeapon>
+    <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="false" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+  </Item>
   
   
   <!-- Ointment / heals infected wound -->
