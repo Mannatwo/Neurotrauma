@@ -285,9 +285,11 @@ NT.Afflictions = {
         -- calculate new blood pressure
         local desiredbloodpressure =
             (c.stats.bloodamount
-            - c.afflictions.tamponade.strength/2                    -- -50 if full tamponade
-            - HF.Clamp(c.afflictions.afpressuredrug.strength*5,0,45)-- -45 if blood pressure medication
-            + HF.Clamp(c.afflictions.afadrenaline.strength*10,0,30) -- +30 if adrenaline
+            - c.afflictions.tamponade.strength/2                            -- -50 if full tamponade
+            - HF.Clamp(c.afflictions.afpressuredrug.strength*5,0,45)        -- -45 if blood pressure medication
+            + HF.Clamp(c.afflictions.afadrenaline.strength*10,0,30)         -- +30 if adrenaline
+            + HF.Clamp(c.afflictions.afsaline.strength*5,0,30)              -- +30 if saline
+            + HF.Clamp(c.afflictions.afringerssolution.strength*5,0,30)     -- +30 if ringers
             ) * 
             (1+0.5*((c.afflictions.liverdamage.strength/100)^2)) *              -- elevated if full liver damage
             (1+0.5*((c.afflictions.kidneydamage.strength/100)^2)) *             -- elevated if full kidney damage
@@ -296,10 +298,13 @@ NT.Afflictions = {
             ((100-c.afflictions.fibrillation.strength)/100) *                   -- lowered if fibrillated
             (1-math.min(1,c.afflictions.cardiacarrest.strength)) *              -- none if cardiac arrest
             NTC.GetMultiplier(c.character,"bloodpressure")
+            
         local bloodpressurelerp = 0.2
         -- adjust three times slower to heightened blood pressure
         if(desiredbloodpressure>c.afflictions.bloodpressure.strength) then bloodpressurelerp = bloodpressurelerp/3 end
-        c.afflictions.bloodpressure.strength = HF.Clamp(HF.Round(HF.Lerp(c.afflictions.bloodpressure.strength,desiredbloodpressure,bloodpressurelerp)),5,200)
+        c.afflictions.bloodpressure.strength = HF.Clamp(HF.Round(
+            HF.Lerp(c.afflictions.bloodpressure.strength,desiredbloodpressure,bloodpressurelerp))
+            ,5,200)
     end
     },
     hypoxemia={update=function(c,i)
@@ -485,6 +490,7 @@ NT.Afflictions = {
     -- Drugs
     analgesia={max=200},anesthesia={},drunk={max=200},
     afadrenaline={},afantibiotics={},afthiamine={},
+    afsaline={},afringerssolution={},
     afstreptokinase={},afmannitol={},
     afpressuredrug={update=function(c,i)
         c.afflictions[i].strength = c.afflictions[i].strength - 0.25 * NT.Deltatime

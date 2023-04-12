@@ -1620,7 +1620,6 @@
       <StatusEffect target="Character">
         <Conditional ishuman="true" />
         <Affliction identifier="acidosis" amount="0.1"/>
-        <Affliction identifier="bloodpressure" amount="3"/>
       </StatusEffect>
     </Effect>
     <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
@@ -1641,12 +1640,7 @@
     showiconthreshold="200"
     showinhealthscannerthreshold="1"
     maxstrength="100">
-    <Effect minstrength="0" maxstrength="100" strengthchange="-0.25">
-      <StatusEffect target="Character">
-        <Conditional ishuman="true" />
-        <Affliction identifier="bloodpressure" amount="3"/>
-      </StatusEffect>
-    </Effect>
+    <Effect minstrength="0" maxstrength="100" strengthchange="-0.25"/>
     <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
