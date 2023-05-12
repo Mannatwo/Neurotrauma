@@ -465,7 +465,9 @@ function HF.GiveItem(character,identifier)
         Game.SpawnItem(identifier,character.WorldPosition,true,character)
     else
         -- use client spawn method
-        character.Inventory.TryPutItem(Item(ItemPrefab.GetItemPrefab(identifier), character.WorldPosition), nil, {InvSlotType.Any})
+        Timer.Wait(function()
+            character.Inventory.TryPutItem(Item(ItemPrefab.GetItemPrefab(identifier), character.WorldPosition), nil, {InvSlotType.Any})
+        end,1)
     end
 end
 
@@ -479,9 +481,11 @@ function HF.GiveItemAtCondition(character,identifier,condition)
         end)
     else
         -- use client spawn method
-        local item = Item(ItemPrefab.GetItemPrefab(identifier), character.WorldPosition)
-        item.Condition = condition
-        character.Inventory.TryPutItem(item, nil, {InvSlotType.Any})
+        Timer.Wait(function()
+            local item = Item(ItemPrefab.GetItemPrefab(identifier), character.WorldPosition)
+            item.Condition = condition
+            character.Inventory.TryPutItem(item, nil, {InvSlotType.Any})
+        end,1)
     end
 end
 
@@ -499,12 +503,14 @@ function HF.SpawnItemPlusFunction(identifier,func,params,inventory,targetslot,po
             if func ~= nil then func(params) end
         end)
     else
-        local newitem = Item(prefab, position or inventory.Container.Item.WorldPosition)
-        if inventory~=nil then
-            inventory.TryPutItem(newitem, targetslot,true,true,nil)
-        end
-        params["item"]=newitem
-        if func ~= nil then func(params) end
+        Timer.Wait(function()
+            local newitem = Item(prefab, position or inventory.Container.Item.WorldPosition)
+            if inventory~=nil then
+                inventory.TryPutItem(newitem, targetslot,true,true,nil)
+            end
+            params["item"]=newitem
+            if func ~= nil then func(params) end
+        end,1)
     end
 end
 
@@ -522,12 +528,14 @@ function HF.GiveItemPlusFunction(identifier,func,params,character)
             func(params)
         end)
     else
-        local newitem = Item(prefab, character.WorldPosition)
-        if character.Inventory~=nil then
-            character.Inventory.TryPutItem(newitem, nil, {InvSlotType.Any})
-        end
-        params["item"]=newitem
-        func(params)
+        Timer.Wait(function()
+            local newitem = Item(prefab, character.WorldPosition)
+            if character.Inventory~=nil then
+                character.Inventory.TryPutItem(newitem, nil, {InvSlotType.Any})
+            end
+            params["item"]=newitem
+            func(params)
+        end,1)
     end
 end
 
@@ -537,7 +545,9 @@ function HF.SpawnItemAt(identifier,position)
         Game.SpawnItem(identifier,position,false,nil)
     else
         -- use client spawn method
-        Item(ItemPrefab.GetItemPrefab(identifier), position)
+        Timer.Wait(function()
+            Item(ItemPrefab.GetItemPrefab(identifier), position)
+        end,1)
     end
 end
 
@@ -555,15 +565,17 @@ function HF.ForceArmLock(character,identifier)
 
         HF.GiveItem(character,identifier)
     else
-        local item = Item(ItemPrefab.GetItemPrefab(identifier), character.WorldPosition)
+        Timer.Wait(function()
+            local item = Item(ItemPrefab.GetItemPrefab(identifier), character.WorldPosition)
 
-        -- drop previously held item
-        local previtem = character.Inventory.GetItemAt(handindex)
-        if(previtem ~= nil) then 
-            previtem.Drop(character,true)
-        end
-
-        character.Inventory.ForceToSlot(item,handindex)
+            -- drop previously held item
+            local previtem = character.Inventory.GetItemAt(handindex)
+            if(previtem ~= nil) then 
+                previtem.Drop(character,true)
+            end
+        
+            character.Inventory.ForceToSlot(item,handindex)
+        end,1)
     end
 end
 
