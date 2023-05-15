@@ -229,11 +229,11 @@ NT.OnDamagedMethods.blunttrauma = function(character,strength,limbtype)
         if HF.Chance(strength/50*NTC.GetMultiplier(character,"anyfracturechance")*NT.Config.fractureChance) then
             NT.BreakLimb(character,limbtype) end
 
-        HF.AddAfflictionLimb(character,"lungdamage",limbtype,strength*HF.RandomRange(0,1))
-        HF.AddAfflictionLimb(character,"heartdamage",limbtype,strength*HF.RandomRange(0,1))
-        HF.AddAfflictionLimb(character,"liverdamage",limbtype,strength*HF.RandomRange(0,1))
-        HF.AddAfflictionLimb(character,"kidneydamage",limbtype,strength*HF.RandomRange(0,1))
-        HF.AddAfflictionLimb(character,"organdamage",limbtype,strength*HF.RandomRange(0,1))
+        HF.AddAffliction(character,"lungdamage",strength*HF.RandomRange(0,1))
+        HF.AddAffliction(character,"heartdamage",strength*HF.RandomRange(0,1))
+        HF.AddAffliction(character,"liverdamage",strength*HF.RandomRange(0,1))
+        HF.AddAffliction(character,"kidneydamage",strength*HF.RandomRange(0,1))
+        HF.AddAffliction(character,"organdamage",strength*HF.RandomRange(0,1))
 
         if HasLungs(character) and strength >= 5 and HF.Chance(strength/50*NTC.GetMultiplier(character,"pneumothoraxchance")*NT.Config.pneumothoraxChance) then
             HF.AddAffliction(character,"pneumothorax",5) end
@@ -271,11 +271,11 @@ NT.OnDamagedMethods.internaldamage = function(character,strength,limbtype)
         if HF.Chance((strength-5)/50*NTC.GetMultiplier(character,"anyfracturechance")*NT.Config.fractureChance) then
         NT.BreakLimb(character,limbtype) end
 
-        HF.AddAfflictionLimb(character,"lungdamage",limbtype,strength*HF.RandomRange(0,1))
-        HF.AddAfflictionLimb(character,"heartdamage",limbtype,strength*HF.RandomRange(0,1))
-        HF.AddAfflictionLimb(character,"liverdamage",limbtype,strength*HF.RandomRange(0,1))
-        HF.AddAfflictionLimb(character,"kidneydamage",limbtype,strength*HF.RandomRange(0,1))
-        HF.AddAfflictionLimb(character,"organdamage",limbtype,strength*HF.RandomRange(0,1))
+        HF.AddAffliction(character,"lungdamage",strength*HF.RandomRange(0,1))
+        HF.AddAffliction(character,"heartdamage",strength*HF.RandomRange(0,1))
+        HF.AddAffliction(character,"liverdamage",strength*HF.RandomRange(0,1))
+        HF.AddAffliction(character,"kidneydamage",strength*HF.RandomRange(0,1))
+        HF.AddAffliction(character,"organdamage",strength*HF.RandomRange(0,1))
     
         if HasLungs(character) and strength >= 5 and HF.Chance((strength-5)/50*NTC.GetMultiplier(character,"pneumothoraxchance")*NT.Config.pneumothoraxChance) then
             HF.AddAffliction(character,"pneumothorax",5) end
