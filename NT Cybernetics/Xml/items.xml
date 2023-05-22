@@ -33,6 +33,7 @@
         <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
       </Attack>
     </MeleeWeapon>
+    <SkillRequirementHint identifier="mechanical" level="70" />
   </Item>
 
   <Item name="" identifier="cyberleg" category="Equipment" cargocontaineridentifier="mediccrate"
@@ -67,6 +68,7 @@
         <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
       </Attack>
     </MeleeWeapon>
+    <SkillRequirementHint identifier="mechanical" level="70" />
   </Item>
   
   <!-- SFX items -->
@@ -220,6 +222,7 @@
         <QualityStat stattype="RepairSpeed" value="0.1"/>
       </Quality>
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
+      <SkillRequirementHint identifier="mechanical" level="40" />
     </Item>
   </Override>
   <Override>
@@ -248,6 +251,7 @@
           <Affliction identifier="stun" strength="0.3" />
         </Attack>
       </MeleeWeapon>
+      <SkillRequirementHint identifier="mechanical" level="40" />
     </Item>
   </Override>
   <Override>
@@ -280,6 +284,7 @@
           <Affliction identifier="psychosis" strength="10" />
         </StatusEffect>
       </MeleeWeapon>
+      <SkillRequirementHint identifier="mechanical" level="40" />
     </Item>
   </Override>
   <!-- fpga circuit -->
@@ -315,6 +320,7 @@
       <Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="225,33,36,36" origin="0.5,0.5" />
       <Body width="36" height="36" density="15" />
       <Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgPickUpSelect" />
+      <SkillRequirementHint identifier="electrical" level="40" />
     </Item>
   </Override>
   <!-- welding tool -->
@@ -416,7 +422,8 @@
       </Upgrade>
       <Upgrade gameversion="0.15.4.0">
         <ItemContainer itempos="8,-35"/>
-      </Upgrade>      
+      </Upgrade>
+      <SkillRequirementHint identifier="mechanical" level="50" />
     </Item>
   </Override>
   <!-- steel -->
@@ -467,6 +474,7 @@
       </StatusEffect>
     </Projectile>
     <AiTarget sightrange="1000" static="true" />
+    <SkillRequirementHint identifier="mechanical" level="60" />
   </Item>
   </Override>
   <!-- crowbar -->
@@ -506,6 +514,7 @@
         <QualityStat stattype="StrikingPowerMultiplier" value="0.1"/>
       </Quality>
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
+      <SkillRequirementHint identifier="weapons" level="50" />
     </Item>
   </Override>
  
