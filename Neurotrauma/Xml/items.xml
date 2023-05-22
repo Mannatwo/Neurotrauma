@@ -245,6 +245,7 @@
       <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="10,-10" holdangle="210" reload="1.0">
           <StatusEffect type="OnUse" target="Limb" comparison="and"/>
       </MeleeWeapon>
+      <SkillRequirementHint identifier="medical" level="10"/>
   </Item>
 
   <Item name="" identifier="wheelchair" category="Equipment" tags="provocative,mediumitem" scale="0.5" fireproof="false" description="" cargocontaineridentifier="mediccrate" impactsoundtag="impact_metal_heavy">
@@ -387,6 +388,7 @@
             <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500"/>
           </StatusEffect>
       </MeleeWeapon>
+      <SkillRequirementHint identifier="medical" level="30"/>
   </Item>
   <Item name="" identifier="advhemostat" category="Equipment" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,surgery,surgerytool" description="" useinhealthinterface="True" scale="0.250">
@@ -437,6 +439,7 @@
     <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,-5" holdangle="-90" reload="1.0">
 
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="30"/>
   </Item>
   <Item name="" identifier="surgicaldrill" category="Equipment" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,surgery" description="" useinhealthinterface="True" scale="0.250">
@@ -470,6 +473,7 @@
           <Remove/>
       </StatusEffect>
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="45"/>
   </Item>
   <Item name="" identifier="surgerysaw" category="Equipment" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,surgery" description="" useinhealthinterface="True" scale="0.4">
@@ -501,6 +505,7 @@
         <sound file="%ModDir%/Sound/bonebreak1.ogg" range="500"/>
       </StatusEffect>
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="50"/>
   </Item>
   <Item name="" identifier="tweezers" category="Equipment" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,surgery,surgerytool" description="" useinhealthinterface="True" scale="0.150">
@@ -529,6 +534,7 @@
       </StatusEffect>
 
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="30"/>
   </Item>
   <Item name="" identifier="endovascballoon" category="Equipment" maxstacksize="1" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,surgery,surgerytool"
@@ -662,6 +668,7 @@
         <Sound file="Content/Sounds/Damage/LimbSlash5.ogg" range="500"/>
         <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500"/>
       </StatusEffect>
+      <SkillRequirementHint identifier="medical" level="40"/>
     </MeleeWeapon>
   
   </Item>
@@ -699,6 +706,7 @@
         <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500"/>
       </StatusEffect>
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="30"/>
   
   </Item>
   <Item name="" identifier="organscalpel_lungs" category="Equipment" cargocontaineridentifier="mediccrate"
