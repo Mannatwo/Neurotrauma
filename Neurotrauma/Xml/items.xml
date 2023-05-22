@@ -3996,9 +3996,9 @@
       <Body width="35" height="65" density="15" />
       <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
         <RequiredSkill identifier="medical" level="50" />
+        <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
+	      <StatusEffect type="OnFailure" target="This" Condition="-100.0" setvalue="true"/>
         <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" duration="60.0">
-	    <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
-	    <StatusEffect type="OnFailure" target="This" Condition="-100.0" setvalue="true"/>
           <ReduceAffliction identifier="internaldamage" amount="0.2" />
           <ReduceAffliction identifier="stun" amount="0.9" />
           <Affliction identifier="chemaddiction" amount="0.3" />
