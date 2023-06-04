@@ -245,6 +245,7 @@
       <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="10,-10" holdangle="210" reload="1.0">
           <StatusEffect type="OnUse" target="Limb" comparison="and"/>
       </MeleeWeapon>
+      <SkillRequirementHint identifier="medical" level="10"/>
   </Item>
 
   <Item name="" identifier="wheelchair" category="Equipment" tags="provocative,mediumitem" scale="0.5" fireproof="false" description="" cargocontaineridentifier="mediccrate" impactsoundtag="impact_metal_heavy">
@@ -387,6 +388,7 @@
             <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500"/>
           </StatusEffect>
       </MeleeWeapon>
+      <SkillRequirementHint identifier="medical" level="30"/>
   </Item>
   <Item name="" identifier="advhemostat" category="Equipment" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,surgery,surgerytool" description="" useinhealthinterface="True" scale="0.250">
@@ -437,6 +439,7 @@
     <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,-5" holdangle="-90" reload="1.0">
 
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="30"/>
   </Item>
   <Item name="" identifier="surgicaldrill" category="Equipment" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,surgery" description="" useinhealthinterface="True" scale="0.250">
@@ -470,6 +473,7 @@
           <Remove/>
       </StatusEffect>
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="45"/>
   </Item>
   <Item name="" identifier="surgerysaw" category="Equipment" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,surgery" description="" useinhealthinterface="True" scale="0.4">
@@ -501,6 +505,7 @@
         <sound file="%ModDir%/Sound/bonebreak1.ogg" range="500"/>
       </StatusEffect>
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="50"/>
   </Item>
   <Item name="" identifier="tweezers" category="Equipment" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,surgery,surgerytool" description="" useinhealthinterface="True" scale="0.150">
@@ -529,6 +534,7 @@
       </StatusEffect>
 
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="30"/>
   </Item>
   <Item name="" identifier="endovascballoon" category="Equipment" maxstacksize="1" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,surgery,surgerytool"
@@ -663,6 +669,7 @@
         <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500"/>
       </StatusEffect>
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="40"/>
   
   </Item>
   <Item name="" identifier="organscalpel_kidneys" category="Equipment" cargocontaineridentifier="mediccrate"
@@ -699,6 +706,7 @@
         <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500"/>
       </StatusEffect>
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="30"/>
   
   </Item>
   <Item name="" identifier="organscalpel_lungs" category="Equipment" cargocontaineridentifier="mediccrate"
@@ -735,6 +743,7 @@
         <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500"/>
       </StatusEffect>
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="50"/>
   
   </Item>
   <Item name="" identifier="organscalpel_heart" category="Equipment" cargocontaineridentifier="mediccrate"
@@ -771,6 +780,7 @@
         <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500"/>
       </StatusEffect>
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="60"/>
   
   </Item>
   <Item name="" identifier="organscalpel_brain" category="Equipment" cargocontaineridentifier="mediccrate"
@@ -809,6 +819,7 @@
         <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500"/>
       </StatusEffect>
     </MeleeWeapon>
+     <SkillRequirementHint identifier="medical" level="100"/>
   
   </Item>
 
@@ -843,6 +854,7 @@
         <Remove/>
       </StatusEffect>  
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="45"/>
   </Item>
   <Item name="" identifier="spinalimplant" description="" scale="0.3" useinhealthinterface="True"
     Tags="smallitem,medical,surgery">
@@ -872,6 +884,7 @@
         <Remove/>
       </StatusEffect>
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="45"/>
   </Item>
 
   <Item name="" identifier="suture" category="Equipment" maxstacksize="16" cargocontaineridentifier="mediccrate"
@@ -908,6 +921,7 @@
         <Remove/>
       </StatusEffect>
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="30"/>
   </Item>
 
   
@@ -945,6 +959,7 @@
         <Remove/>
       </StatusEffect>
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="30"/>
   </Item>
   
   <!-- Needle / prevents pneuomothorax from worsening -->
@@ -980,6 +995,7 @@
         <Remove/>
       </StatusEffect>
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="20"/>
   </Item>
 
 
@@ -1031,6 +1047,7 @@
       </StatusEffect>
     </Holdable>
     <AiTarget sightrange="1000" static="true"/>
+    <SkillRequirementHint identifier="medical" level="20"/>
   </Item>
 
   <!-- Mannitol / heals cerebral hypoxia / only if blood pressure and oxygen presence has been restored -->
@@ -1092,6 +1109,7 @@
         </StatusEffect>
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+    <SkillRequirementHint identifier="medical" level="60"/>
   </Item>
   <!-- Azathioprine / immunosuppressant -->
   <Item name="" identifier="immunosuppressant" category="Material" cargocontaineridentifier="mediccrate"
@@ -1136,6 +1154,7 @@
           <Remove/>
         </StatusEffect>
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="10"/>
   </Item>
   <!-- Thiamine / organ fixer -->
   <Item name="" identifier="thiamine" category="Material" cargocontaineridentifier="mediccrate"
@@ -1176,6 +1195,7 @@
           <Remove/>
         </StatusEffect>
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="10"/>
   </Item>
   <!-- ??? / blood pressure reducer -->
   <Item name="" identifier="pressuremeds" category="Material" cargocontaineridentifier="mediccrate"
@@ -1216,6 +1236,7 @@
           <Remove/>
         </StatusEffect>
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="10"/>
   </Item>
   <!-- Streptokinase / heals heart attack -->
   <Item name="" identifier="streptokinase" category="Material" cargocontaineridentifier="mediccrate"
@@ -1280,6 +1301,7 @@
                 <Remove/>
             </StatusEffect>
         </MeleeWeapon>
+        <SkillRequirementHint identifier="medical" level="10"/>
     </Item>
 
   <!-- Antiseptic / same as above -->
@@ -1530,6 +1552,7 @@
                 <Remove/>
             </StatusEffect>
         </Holdable>
+        <SkillRequirementHint identifier="medical" level="30"/>
     </Item>
 
 
@@ -1643,6 +1666,7 @@
       <Containable
               items="bloodcollector, ominuscard, opluscard, aminuscard ,apluscard ,bminuscard ,bpluscard ,abminuscard , abpluscard"/>
     </ItemContainer>
+    <SkillRequirementHint identifier="medical" level="30"/>
   </Item>
   <Item name="" identifier="bloodcollector" category="Material,Equipment" description=""
           cargocontaineridentifier="mediccrate" Tags="smallitem,Material,vial,medical" useinhealthinterface="true" scale="0.170"
@@ -2199,7 +2223,8 @@
         <Remove/>
       </StatusEffect>
     </Throwable>
-  
+    <SkillRequirementHint identifier="medical" level="40"/>
+
   </Item>
   <Item name="" identifier="livertransplant_q1" variantof="livertransplant" category="hidden">
     <Price baseprice="200" soldbydefault="false">
@@ -2280,6 +2305,7 @@
         <Remove/>
       </StatusEffect>
     </Throwable>
+    <SkillRequirementHint identifier="medical" level="40"/>
 
   </Item>
   <Item name="" identifier="lungtransplant_q1" variantof="lungtransplant" category="hidden">
@@ -2361,6 +2387,7 @@
         <Remove/>
       </StatusEffect>
     </Throwable>
+    <SkillRequirementHint identifier="medical" level="40"/>
 
   </Item>
   <Item name="" identifier="kidneytransplant_q1" variantof="kidneytransplant" category="hidden">
@@ -2442,6 +2469,7 @@
         <Remove/>
       </StatusEffect>
     </Throwable>
+    <SkillRequirementHint identifier="medical" level="40"/>
 
   </Item>
   <Item name="" identifier="hearttransplant_q1" variantof="hearttransplant" category="hidden">
@@ -2527,6 +2555,7 @@
         <Remove/>
       </StatusEffect>
     </Throwable>
+    <SkillRequirementHint identifier="medical" level="100"/>
   
   </Item>
 
@@ -2564,6 +2593,7 @@
         <Remove/>
       </StatusEffect>
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="40"/>
   </Item>
 
   <Item name="" identifier="blahaj" category="Equipment" cargocontaineridentifier="metalcrate" impactsoundtag="impact_squeak" RequireAimToUse="True"
@@ -2785,6 +2815,7 @@
         <QualityStat stattype="RepairSpeed" value="0.1"/>
       </Quality>
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
+      <SkillRequirementHint identifier="medical" level="60"/>
     </Item>
 
   <!-- Scanner, ID card -->
@@ -2911,6 +2942,7 @@
           <Remove/>
         </StatusEffect>
       </MeleeWeapon>
+      <SkillRequirementHint identifier="medical" level="40"/>
     </Item>
     <Item name="" identifier="antibloodloss1" category="Medical" maxstacksize="8"
           cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,petfood1,petfood2,petfood3"
@@ -2955,6 +2987,7 @@
         </StatusEffect>
       </Holdable>
       <AiTarget sightrange="1000" static="true"/>
+      <SkillRequirementHint identifier="medical" level="10"/>
     </Item>
   <!-- Bandages -->
     <Item name="" identifier="antibleeding1" aliases="Bandage" category="Medical" Tags="smallitem,medical"
@@ -2991,6 +3024,7 @@
           <Remove/>
         </StatusEffect>
       </MeleeWeapon>
+      <SkillRequirementHint identifier="medical" level="10"/>
     </Item>
     <Item name="" identifier="antibleeding2" category="Medical" Tags="smallitem,medical" maxstacksize="8"
           cargocontaineridentifier="mediccrate" description="" useinhealthinterface="true" scale="0.5"
@@ -3023,6 +3057,7 @@
           <Remove/>
         </StatusEffect>
       </MeleeWeapon>
+      <SkillRequirementHint identifier="medical" level="22"/>
     </Item>
   <!-- Beds -->
     <Item name="" identifier="opdeco_hospitalbed" width="416" height="192" texturescale="1.0,1.0" scale="0.5"
@@ -3191,6 +3226,7 @@
           <Remove/>
         </StatusEffect>
       </MeleeWeapon>
+      <SkillRequirementHint identifier="medical" level="15"/>
     </Item>
     <Item name="" identifier="antidama1" aliases="Corrigodone" category="Medical" maxstacksize="8"
           cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" description=""
@@ -3269,6 +3305,7 @@
         </StatusEffect>
       </MeleeWeapon>
       <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+      <SkillRequirementHint identifier="medical" level="30"/>
     </Item>
     <Item name="" identifier="antidama2" category="Medical" maxstacksize="8" cargocontaineridentifier="mediccrate"
           Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5"
@@ -3344,6 +3381,7 @@
         </StatusEffect>
       </MeleeWeapon>
       <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+      <SkillRequirementHint identifier="medical" level="72"/>
     </Item>
     <Item name="" identifier="antinarc" category="Medical" maxstacksize="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" useinhealthinterface="true" description="" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
@@ -3399,6 +3437,7 @@
         </StatusEffect>
       </MeleeWeapon>
       <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+      <SkillRequirementHint identifier="medical" level="39"/>
     </Item>
   <!-- Antibiotics, Adrenaline -->
     <Item name="" identifier="antibiotics" category="Medical" maxstacksize="8"
@@ -3459,6 +3498,7 @@
         </StatusEffect>
       </MeleeWeapon>
       <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+      <SkillRequirementHint identifier="medical" level="25"/>
     </Item>
     <Item name="" identifier="adrenaline" category="Medical,Material" maxstacksize="8" cargocontaineridentifier="mediccrate"
           Tags="smallitem,chem,medical,syringe" useinhealthinterface="true" scale="0.5"
@@ -3577,6 +3617,7 @@
         <Containable items="weldingtoolfuel,oxygensource" />
       </ItemContainer>
       <aitarget sightrange="5000" soundrange="500" fadeouttime="5" />
+      <SkillRequirementHint identifier="weapons" level="50" />
     </Item>
   <!-- Fire extinguisher -->
     <Item name="" identifier="extinguisher" category="Equipment" Tags="mediumitem,fireextinguisher,provocative" cargocontaineridentifier="metalcrate" description="" Scale="0.5" impactsoundtag="impact_metal_light" donttransferbetweensubs="true">
@@ -3734,6 +3775,7 @@
         </StatusEffect>
       </MeleeWeapon>
       <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+      <SkillRequirementHint identifier="medical" level="72" />
     </Item>
   <!-- deusizine -->
     <Item name="" identifier="deusizine" aliases="Auxiliriozine" category="Medical" maxstacksize="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
@@ -3799,6 +3841,7 @@
         </StatusEffect>
       </MeleeWeapon>
       <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+      <SkillRequirementHint identifier="medical" level="72" />
     </Item>
   <!-- antibiotic glue -->
     <Item name="" identifier="antibleeding3" category="Medical" Tags="smallitem,medical" maxstacksize="8" cargocontaineridentifier="mediccrate" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
@@ -3851,6 +3894,7 @@
           <Remove />
         </StatusEffect>
       </MeleeWeapon>
+      <SkillRequirementHint identifier="medical" level="55" />
     </Item>
   <!-- meth -->
     <Item name="" identifier="meth" category="Medical" maxstacksize="8" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
@@ -3923,6 +3967,7 @@
         </StatusEffect>
       </MeleeWeapon>
       <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+      <SkillRequirementHint identifier="medical" level="35" />
     </Item>
   <!-- hyperzine -->
     <Item name="" identifier="hyperzine" category="Medical" maxstacksize="8" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
@@ -3951,9 +3996,9 @@
       <Body width="35" height="65" density="15" />
       <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
         <RequiredSkill identifier="medical" level="50" />
+        <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
+	      <StatusEffect type="OnFailure" target="This" Condition="-100.0" setvalue="true"/>
         <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" duration="60.0">
-	    <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
-	    <StatusEffect type="OnFailure" target="This" Condition="-100.0" setvalue="true"/>
           <ReduceAffliction identifier="internaldamage" amount="0.2" />
           <ReduceAffliction identifier="stun" amount="0.9" />
           <Affliction identifier="chemaddiction" amount="0.3" />
@@ -3996,6 +4041,7 @@
         </StatusEffect>
       </MeleeWeapon>
       <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+      <SkillRequirementHint identifier="medical" level="50" />
     </Item>
   <!-- diving knife -->
     <Item name="" identifier="divingknife" category="Weapon" Tags="smallitem,weapon,gunsmith,mountableweapon" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True" useinhealthinterface="True">
@@ -4047,6 +4093,7 @@
         <QualityStat stattype="StrikingPowerMultiplier" value="0.1"/>
       </Quality>
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
+      <SkillRequirementHint identifier="medical" level="30" />
     </Item>
   <!-- Haloperidol -->
     <Item name="" identifier="antipsychosis" category="Medical" maxstacksize="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" useinhealthinterface="true" description="" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
@@ -4109,6 +4156,7 @@
         </StatusEffect>
       </MeleeWeapon>
       <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+      <SkillRequirementHint identifier="medical" level="37" />
     </Item>
   <!-- Anaparalyzant -->
     <Item name="" identifier="antiparalysis" category="Medical" maxstacksize="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
@@ -4169,6 +4217,7 @@
         </StatusEffect>
       </MeleeWeapon>
       <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+      <SkillRequirementHint identifier="medical" level="64" />
     </Item>
   <!-- Handcuffs -->
     <Item name="" identifier="handcuffs" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,handlocker" scale="0.5" impactsoundtag="impact_metal_light" equipconfirmationtext="handcuffequipconfirmation">
@@ -4286,6 +4335,7 @@
       </StatusEffect>
 
     </Throwable>
+    <SkillRequirementHint identifier="medical" level="35" />
   </Item>
 
   </Override>
