@@ -111,8 +111,6 @@
 
   <!-- artifical brain transplant, talent item -->
   <Item name="" identifier="artificialbrain" description="" scale="0.3" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="1.5" Tags="smallitem,organ,petfood1,petfood2,petfood3,braintransplant">
-    <Price baseprice="0" soldbydefault="false">
-    </Price>
     <Sprite texture="%ModDir:2776270649%/Images/InGameItemIconAtlas.png" sourcerect="272,480,78,60" depth="0.6" origin="0.5,0.5"/>
     <Body width="39" height="25" density="13"/>
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="60" requiresrecipe="true">
@@ -287,14 +285,12 @@
     <Deconstruct time="20">
       <Item identifier="silicon" />
       <Item identifier="steel" />
-      <Item identifier="mannitol" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="30" requiresrecipe="true">
       <Item identifier="silicon" />
       <Item identifier="steel" />
+      <Item identifier="mannitol" />
     </Fabricate>
-    <Price baseprice="200" soldbydefault="false" >
-    </Price>
     <InventoryIcon texture="%ModDir%/Images/MainAtlas.png" sourcerect="0,256,87,128" origin="0.5,0.5" />
     <Sprite texture="%ModDir%/Images/MainAtlas.png" depth="0.51" sourcerect="0,256,87,128" origin="0.5,0.5" />
     <Body width="45" height="80" density="15" />
