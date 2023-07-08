@@ -493,8 +493,9 @@ end
 NT.ItemMethods.antibleeding2 = function(item, usingCharacter, targetCharacter, limb) 
     local limbtype = limb.type
     local success = HF.BoolToNum(HF.GetSkillRequirementMet(usingCharacter,"medical",22),1)
+    local hasmedexp = HF.BoolToNum(HF.HasTalent(usingCharacter,"medicalexpertise"))
     HF.AddAfflictionLimb(targetCharacter,"dirtybandage",limbtype,-100,usingCharacter)
-    HF.AddAfflictionLimb(targetCharacter,"bandaged",limbtype,50+success*50,usingCharacter)
+    HF.AddAfflictionLimb(targetCharacter,"bandaged",limbtype,36+success*12+hasmedexp*12,usingCharacter)
     HF.AddAfflictionLimb(targetCharacter,"bleeding",limbtype,-24-success*24,usingCharacter)
     HF.AddAfflictionLimb(targetCharacter,"bleedingnonstop",limbtype,-24-success*24,usingCharacter)
     if HF.HasAfflictionLimb(targetCharacter,"retractedskin",limbtype) then
