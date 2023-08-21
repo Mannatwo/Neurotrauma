@@ -161,6 +161,10 @@ NT.Afflictions = {
     tamponade={update=function(c,i)
         if c.afflictions[i].strength > 0 then
         c.afflictions[i].strength = c.afflictions[i].strength + NT.Deltatime * 0.5 end
+
+        if c.afflictions.heartremoved.strength > 0 then
+            c.afflictions[i].strength = 0
+        end
     end
     },
     heartattack={update=function(c,i)
@@ -171,6 +175,10 @@ NT.Afflictions = {
         or (c.afflictions.bloodpressure.strength > 150 and HF.Chance(NT.Config.heartattackChance*((c.afflictions.bloodpressure.strength-150)/50*0.02))))
         ) then
             c.afflictions[i].strength = c.afflictions[i].strength+50
+        end
+
+        if c.afflictions.heartremoved.strength > 0 then
+            c.afflictions[i].strength = 0
         end
     end
     },
@@ -281,6 +289,10 @@ NT.Afflictions = {
     },
     bloodloss={max=200},
     bloodpressure={min=5,max=200,default=100,update=function(c,i)
+
+        -- fix people not having a blood pressure
+        if not HF.HasAffliction(c.character,i) then HF.SetAffliction(c.character,i,100) end
+
         if c.stats.stasis then return end
         -- calculate new blood pressure
         local desiredbloodpressure =
@@ -303,7 +315,7 @@ NT.Afflictions = {
         -- adjust three times slower to heightened blood pressure
         if(desiredbloodpressure>c.afflictions.bloodpressure.strength) then bloodpressurelerp = bloodpressurelerp/3 end
         c.afflictions.bloodpressure.strength = HF.Clamp(HF.Round(
-            HF.Lerp(c.afflictions.bloodpressure.strength,desiredbloodpressure,bloodpressurelerp))
+            HF.Lerp(c.afflictions.bloodpressure.strength,desiredbloodpressure,bloodpressurelerp),2)
             ,5,200)
     end
     },
@@ -319,7 +331,7 @@ NT.Afflictions = {
             regularHypoxemiaChange = regularHypoxemiaChange * hypoxemiagain
         else
             -- enough oxygen, decrease hypoxemia
-            regularHypoxemiaChange = regularHypoxemiaChange * 2
+            regularHypoxemiaChange = HF.Lerp(regularHypoxemiaChange * 2,0,HF.Clamp(((100-c.stats.bloodamount)-50)*2,0,1))
         end
         c.afflictions.hypoxemia.strength = HF.Clamp(c.afflictions.hypoxemia.strength + (
             - math.min(0,(c.afflictions.bloodpressure.strength-70) / 7) * hypoxemiagain    -- loss because of low blood pressure (+10 at 0 bp)
@@ -734,16 +746,26 @@ NT.Afflictions = {
 NT.LimbAfflictions = {
     bandaged={update=function(c,limbaff,i)
         -- turning a bandage into a dirty bandage
-        local wounddamage = limbaff.burn.strength+limbaff.lacerations.strength+limbaff.gunshotwound.strength+limbaff.bitewounds.strength+limbaff.explosiondamage.strength
+        local wounddamage =
+            limbaff.burn.strength
+            +limbaff.lacerations.strength
+            +limbaff.gunshotwound.strength
+            +limbaff.bitewounds.strength
+            +limbaff.explosiondamage.strength
+
         local bandageDirtifySpeed = 0.1 + HF.Clamp(wounddamage/100,0,0.4) + limbaff.bleeding.strength/20
+
         if limbaff[i].strength > 0 then 
             limbaff[i].strength=limbaff[i].strength-bandageDirtifySpeed*NT.Deltatime 
             if limbaff[i].strength <= 0 then 
+                -- transition to dirty bandage
                 limbaff.dirtybandage.strength = math.max(limbaff.dirtybandage.strength,1)
                 limbaff[i].strength = 0
             end
         end
-        if limbaff.dirtybandage.strength > 0 then limbaff.dirtybandage.strength=limbaff.dirtybandage.strength+bandageDirtifySpeed*NT.Deltatime end
+        if limbaff.dirtybandage.strength > 0 then
+            limbaff.dirtybandage.strength=limbaff.dirtybandage.strength+bandageDirtifySpeed*NT.Deltatime
+        end
     
         -- bandage slowdown
         if limbaff[i].strength > 0 or limbaff.dirtybandage.strength > 0 then
