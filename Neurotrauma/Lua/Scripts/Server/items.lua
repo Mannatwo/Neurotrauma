@@ -1198,6 +1198,12 @@ NT.ItemMethods.lleg = function(item, usingCharacter, targetCharacter, limb)
     reattachLimb(item,usingCharacter,targetCharacter,limb,LimbType.LeftLeg)
 end
 
+-- bionic prosthetics
+NT.ItemMethods.rarmp = NT.ItemMethods.rarm
+NT.ItemMethods.larmp = NT.ItemMethods.larm
+NT.ItemMethods.rlegp = NT.ItemMethods.rleg
+NT.ItemMethods.llegp = NT.ItemMethods.lleg
+
 local function InfuseBloodpack(item, packtype, usingCharacter, targetCharacter, limb)
     -- determine compatibility
     local packhasantibodyA = string.find(packtype, "a")

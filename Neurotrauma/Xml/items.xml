@@ -2117,11 +2117,6 @@
         <Body width="60" height="90" density="20"/>
         <Throwable characterusable="true" canbecombined="true" removeoncombined="true" slots="Any,RightHand,LeftHand"
                    throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
-            <StatusEffect Condition="-100.0" type="OnUse" target="UseTarget" disabledeltatime="true" comparison="And">
-                <Conditional sll_amputation="gt 50"/>
-                <ReduceAffliction identifier="sll_amputation" amount="100"/>
-                <!--<Affliction identifier="llp" amount="100"/>-->
-            </StatusEffect>
             <StatusEffect type="OnBroken" target="This">
                 <Remove/>
             </StatusEffect>
@@ -2137,11 +2132,6 @@
         <Body width="60" height="90" density="20"/>
         <Throwable characterusable="true" canbecombined="true" removeoncombined="true" slots="Any,RightHand,LeftHand"
                    throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
-            <StatusEffect Condition="-100.0" type="OnUse" target="UseTarget" disabledeltatime="true" comparison="And">
-                <Conditional srl_amputation="gt 50"/>
-                <ReduceAffliction identifier="srl_amputation" amount="100"/>
-                <!--<Affliction identifier="rlp" amount="100"/>-->
-            </StatusEffect>
             <StatusEffect type="OnBroken" target="This">
                 <Remove/>
             </StatusEffect>
@@ -2157,11 +2147,6 @@
         <Body width="60" height="90" density="20"/>
         <Throwable characterusable="true" canbecombined="true" removeoncombined="true" slots="Any,RightHand,LeftHand"
                    throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
-            <StatusEffect Condition="-100.0" type="OnUse" target="UseTarget" disabledeltatime="true" comparison="And">
-                <Conditional sla_amputation="gt 50"/>
-                <ReduceAffliction identifier="sla_amputation" amount="100"/>
-                <!--<Affliction identifier="lap" amount="100"/>-->
-            </StatusEffect>
             <StatusEffect type="OnBroken" target="This">
                 <Remove/>
             </StatusEffect>
@@ -2177,11 +2162,6 @@
         <Body width="60" height="90" density="20"/>
         <Throwable characterusable="true" canbecombined="true" removeoncombined="true" slots="Any,RightHand,LeftHand"
                    throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
-            <StatusEffect Condition="-100.0" type="OnUse" target="UseTarget" disabledeltatime="true" comparison="And">
-                <Conditional sra_amputation="gt 50"/>
-                <ReduceAffliction identifier="sra_amputation" amount="100"/>
-                <!--<Affliction identifier="rap" amount="100"/>-->
-            </StatusEffect>
             <StatusEffect type="OnBroken" target="This">
                 <Remove/>
             </StatusEffect>
