@@ -331,7 +331,7 @@ NT.Afflictions = {
             regularHypoxemiaChange = regularHypoxemiaChange * hypoxemiagain
         else
             -- enough oxygen, decrease hypoxemia
-            regularHypoxemiaChange = HF.Lerp(regularHypoxemiaChange * 2,0,HF.Clamp(((100-c.stats.bloodamount)-50)*2,0,1))
+            regularHypoxemiaChange = HF.Lerp(regularHypoxemiaChange * 2,0,HF.Clamp(((100-c.stats.bloodamount)-50)/50,0,1))
         end
         c.afflictions.hypoxemia.strength = HF.Clamp(c.afflictions.hypoxemia.strength + (
             - math.min(0,(c.afflictions.bloodpressure.strength-70) / 7) * hypoxemiagain    -- loss because of low blood pressure (+10 at 0 bp)
