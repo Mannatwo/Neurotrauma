@@ -3063,7 +3063,12 @@
           <reduceaffliction identifier="nausea" strength="0.05"/>
           <reduceaffliction identifier="opiatewithdrawal" strength="0.05"/>
           <reduceaffliction identifier="opiateaddiction" strength="0.05"/>
+          <reduceaffliction identifier="chemwithdrawal" strength="0.05"/>
+          <reduceaffliction identifier="chemaddiction" strength="0.05"/>
+          <reduceaffliction identifier="alcoholwithdrawal" strength="0.05"/>
+          <reduceaffliction identifier="alcoholaddiction" strength="0.05"/>
           <reduceaffliction identifier="drunk" strength="0.05"/>
+          <reduceaffliction identifier="concussion" strength="0.02"/>
         </StatusEffect>
       </Controller>
       <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
@@ -3102,7 +3107,12 @@
           <reduceaffliction identifier="nausea" strength="0.05"/>
           <reduceaffliction identifier="opiatewithdrawal" strength="0.05"/>
           <reduceaffliction identifier="opiateaddiction" strength="0.05"/>
+          <reduceaffliction identifier="chemwithdrawal" strength="0.05"/>
+          <reduceaffliction identifier="chemaddiction" strength="0.05"/>
+          <reduceaffliction identifier="alcoholwithdrawal" strength="0.05"/>
+          <reduceaffliction identifier="alcoholaddiction" strength="0.05"/>
           <reduceaffliction identifier="drunk" strength="0.05"/>
+          <reduceaffliction identifier="concussion" strength="0.02"/>
           <Affliction identifier="table" amount="2"/>
         </StatusEffect>
       </Controller>
@@ -3127,7 +3137,12 @@
           <reduceaffliction identifier="nausea" strength="0.05"/>
           <reduceaffliction identifier="opiatewithdrawal" strength="0.05"/>
           <reduceaffliction identifier="opiateaddiction" strength="0.05"/>
+          <reduceaffliction identifier="chemwithdrawal" strength="0.05"/>
+          <reduceaffliction identifier="chemaddiction" strength="0.05"/>
+          <reduceaffliction identifier="alcoholwithdrawal" strength="0.05"/>
+          <reduceaffliction identifier="alcoholaddiction" strength="0.05"/>
           <reduceaffliction identifier="drunk" strength="0.05"/>
+          <reduceaffliction identifier="concussion" strength="0.02"/>
           <Affliction identifier="table" amount="2"/>
         </StatusEffect>
       </Controller>
@@ -3148,7 +3163,12 @@
           <reduceaffliction identifier="nausea" strength="0.05"/>
           <reduceaffliction identifier="opiatewithdrawal" strength="0.05"/>
           <reduceaffliction identifier="opiateaddiction" strength="0.05"/>
+          <reduceaffliction identifier="chemwithdrawal" strength="0.05"/>
+          <reduceaffliction identifier="chemaddiction" strength="0.05"/>
+          <reduceaffliction identifier="alcoholwithdrawal" strength="0.05"/>
+          <reduceaffliction identifier="alcoholaddiction" strength="0.05"/>
           <reduceaffliction identifier="drunk" strength="0.05"/>
+          <reduceaffliction identifier="concussion" strength="0.02"/>
           <Affliction identifier="table" amount="2"/>
         </StatusEffect>
       </Controller>

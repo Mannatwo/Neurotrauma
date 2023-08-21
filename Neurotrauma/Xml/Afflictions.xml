@@ -4625,7 +4625,7 @@ thats what the vomiting symptom is for -->
         </StatusEffect>
         <StatusEffect target="Character">
           <conditional ishuman="true"/>
-          <Affliction identifier="alcoholaddiction" amount="0.1" />
+          <Affliction identifier="alcoholaddiction" amount="0.05" />
           <ReduceAffliction identifier="alcoholwithdrawal" amount="1" />
         </StatusEffect>
       </Effect>
@@ -4645,7 +4645,7 @@ thats what the vomiting symptom is for -->
         <StatusEffect target="Character">
           <conditional ishuman="true"/>
           <Affliction identifier="liverdamage" amount="0.1" />
-          <Affliction identifier="alcoholaddiction" amount="0.2" />
+          <Affliction identifier="alcoholaddiction" amount="0.1" />
           <ReduceAffliction identifier="alcoholwithdrawal" amount="2" />
         </StatusEffect>
         <StatusEffect target="Character" disabledeltatime="true" comparison="and">
@@ -4669,7 +4669,7 @@ thats what the vomiting symptom is for -->
         <StatusEffect target="Character">
           <conditional ishuman="true"/>
           <Affliction identifier="liverdamage" amount="0.2" />
-          <Affliction identifier="alcoholaddiction" amount="0.2" />
+          <Affliction identifier="alcoholaddiction" amount="0.1" />
           <ReduceAffliction identifier="alcoholwithdrawal" amount="2" />
         </StatusEffect>
         <StatusEffect target="Character" disabledeltatime="true" comparison="and">
@@ -4692,7 +4692,7 @@ thats what the vomiting symptom is for -->
         <StatusEffect target="Character">
           <conditional ishuman="true"/>
           <Affliction identifier="liverdamage" amount="0.2" />
-          <Affliction identifier="alcoholaddiction" amount="0.2" />
+          <Affliction identifier="alcoholaddiction" amount="0.1" />
           <ReduceAffliction identifier="alcoholwithdrawal" amount="2" />
         </StatusEffect>
         <StatusEffect target="Character" disabledeltatime="true" comparison="and">
