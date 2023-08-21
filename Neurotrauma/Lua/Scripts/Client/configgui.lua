@@ -1,6 +1,7 @@
 -- I'm sorry for the eyes of anyone looking at the GUI code.
 
 local MultiLineTextBox = dofile(NT.Path .. "/Lua/Scripts/Client/MultiLineTextBox.lua")
+local GUIComponent = LuaUserData.CreateStatic("Barotrauma.GUIComponent")
 
 Game.AddCommand("neuro", "opens neurotrauma config", function ()
     NT.ToggleGUI()
@@ -269,21 +270,21 @@ NT.ShowGUI = function ()
     local disableBotAlgorithms = GUI.TickBox(GUI.RectTransform(Vector2(1, 0.2), config.Content.RectTransform), "Disable bot treatment algorithms (they're laggy)")
     disableBotAlgorithms.Selected = NT.Config.disableBotAlgorithms
     disableBotAlgorithms.OnSelected = function ()
-        NT.Config.disableBotAlgorithms = disableBotAlgorithms.State == GUI.Component.Selected
+        NT.Config.disableBotAlgorithms = disableBotAlgorithms.State == GUIComponent.ComponentState.Selected
         OnChanged()
     end
 
     local organRejection = GUI.TickBox(GUI.RectTransform(Vector2(1, 0.2), config.Content.RectTransform), "Organ rejection")
     organRejection.Selected = NT.Config.organRejection
     organRejection.OnSelected = function ()
-        NT.Config.organRejection = organRejection.State == GUI.Component.Selected
+        NT.Config.organRejection = organRejection.State == GUIComponent.ComponentState.Selected
         OnChanged()
     end
 
     local fracturesRemoveCasts = GUI.TickBox(GUI.RectTransform(Vector2(1, 0.2), config.Content.RectTransform), "Refracturing removes casts")
     fracturesRemoveCasts.Selected = NT.Config.fracturesRemoveCasts
     fracturesRemoveCasts.OnSelected = function ()
-        NT.Config.fracturesRemoveCasts = fracturesRemoveCasts.State == GUI.Component.Selected
+        NT.Config.fracturesRemoveCasts = fracturesRemoveCasts.State == GUIComponent.ComponentState.Selected
         OnChanged()
     end
 
@@ -295,14 +296,14 @@ NT.ShowGUI = function ()
         local NTSPenableSurgicalInfection = GUI.TickBox(GUI.RectTransform(Vector2(1, 0.2), config.Content.RectTransform), "Surgical infection")
         NTSPenableSurgicalInfection.Selected = NT.Config.NTSPenableSurgicalInfection
         NTSPenableSurgicalInfection.OnSelected = function ()
-            NT.Config.NTSPenableSurgicalInfection = NTSPenableSurgicalInfection.State == GUI.Component.Selected
+            NT.Config.NTSPenableSurgicalInfection = NTSPenableSurgicalInfection.State == GUIComponent.ComponentState.Selected
             OnChanged()
         end
 
         local NTSPenableSurgerySkill = GUI.TickBox(GUI.RectTransform(Vector2(1, 0.2), config.Content.RectTransform), "Surgery skill")
         NTSPenableSurgerySkill.Selected = NT.Config.NTSPenableSurgerySkill
         NTSPenableSurgerySkill.OnSelected = function ()
-            NT.Config.NTSPenableSurgerySkill = NTSPenableSurgerySkill.State == GUI.Component.Selected
+            NT.Config.NTSPenableSurgerySkill = NTSPenableSurgerySkill.State == GUIComponent.ComponentState.Selected
             OnChanged()
         end
 
