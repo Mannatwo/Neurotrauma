@@ -304,8 +304,8 @@ NT.ItemMethods.suture = function(item, usingCharacter, targetCharacter, limb)
                 limbtoitem[LimbType.LeftArm] = "larm"
                 if limbtoitem[limbtype] ~= nil then
                     HF.GiveItem(usingCharacter,limbtoitem[limbtype])
+                    if NTSP ~= nil and NT.Config.NTSPenableSurgerySkill then HF.GiveSkill(usingCharacter,"surgery",0.5) end
                 end
-                if NTSP ~= nil and NT.Config.NTSPenableSurgerySkill then HF.GiveSkill(usingCharacter,"surgery",0.5) end
             end
         end
 
@@ -821,6 +821,7 @@ NT.ItemMethods.organscalpel_heart = function(item, usingCharacter, targetCharact
                 HF.SetAffliction(targetCharacter,"heartdamage",100,usingCharacter)
                 
                 HF.SetAffliction(targetCharacter,"tamponade",0,usingCharacter)
+                HF.SetAffliction(targetCharacter,"heartattack",0,usingCharacter)
                 
                 HF.AddAffliction(targetCharacter,"organdamage",(100-damage)/5,usingCharacter)
                 local transplantidentifier = "hearttransplant_q1"
