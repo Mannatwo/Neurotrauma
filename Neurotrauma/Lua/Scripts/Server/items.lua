@@ -573,9 +573,7 @@ NT.ItemMethods.aed = function(item, usingCharacter, targetCharacter, limb)
     end
 end
 NT.ItemMethods.blahaj = function(item, usingCharacter, targetCharacter, limb)
-    if item.Condition <= 0 then return end
-    item.Condition = 0
-    HF.GiveItem(targetCharacter,"ntsfx_squeak")
+    -- HF.GiveItem(targetCharacter,"ntsfx_squeak") -- this seems to be unnecessary due to the sound effect already being triggered by the xml side of things
     HF.AddAffliction(targetCharacter,"psychosis",-2,usingCharacter)
 end
 

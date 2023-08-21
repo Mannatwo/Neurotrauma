@@ -2617,9 +2617,6 @@
         <Sound file="%ModDir%/Sound/squeak4.ogg" type="OnUse" range="500"/>
         <Sound file="%ModDir%/Sound/squeak5.ogg" type="OnUse" range="500"/>
       </StatusEffect>
-      <StatusEffect type="Always" target="This" Condition="100" disabledeltatime="true" delay="2" stackable="false">
-        <Conditional condition="lt 50"/>
-      </StatusEffect>
     </MeleeWeapon>
   </Item>
 
@@ -2629,8 +2626,8 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
-      <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
-        <Sound file="%ModDir%/Sound/selfscan.ogg" range="200" volume="0.5" />
+      <StatusEffect type="OnSpawn" target="This" disabledeltatime="true" stackable="false">
+        <Sound file="%ModDir%/Sound/selfscan.ogg" range="400" volume="0.5" />
       </StatusEffect>
       <StatusEffect type="always" target="This" disabledeltatime="true" delay="1" stackable="false">
         <Remove/>
@@ -2641,11 +2638,11 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
-      <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
-        <Sound file="%ModDir%/Sound/scissors1.ogg" selectionmode="random" range="200" volume="0.5" />
-        <Sound file="%ModDir%/Sound/scissors2.ogg" range="200" volume="0.5" />
+      <StatusEffect type="OnSpawn" target="This" disabledeltatime="true" stackable="false">
+        <Sound file="%ModDir%/Sound/scissors1.ogg" selectionmode="random" range="500" volume="0.75" />
+        <Sound file="%ModDir%/Sound/scissors2.ogg" range="500" volume="0.75" />
       </StatusEffect>
-      <StatusEffect type="always" target="This" disabledeltatime="true" delay="1" stackable="false">
+      <StatusEffect type="always" target="This" disabledeltatime="true" delay="2" stackable="false">
         <Remove/>
       </StatusEffect>
     </ItemComponent>
@@ -2654,7 +2651,7 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
-      <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
+      <StatusEffect type="OnSpawn" target="This" disabledeltatime="true" stackable="false">
         <Sound file="Content/Items/Medical/Bandage2.ogg" type="OnUse" range="500"/>
         <Sound file="Content/Items/Medical/Bandage1.ogg" type="OnUse" range="500"/>
       </StatusEffect>
@@ -2667,12 +2664,12 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
-      <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
+      <StatusEffect type="OnSpawn" target="This" disabledeltatime="true" stackable="false">
         <Sound file="%ModDir%/Sound/pills1.ogg" type="OnUse" range="500"/>
         <Sound file="%ModDir%/Sound/pills2.ogg" type="OnUse" range="500"/>
         <Sound file="%ModDir%/Sound/pills3.ogg" type="OnUse" range="500"/>
       </StatusEffect>
-      <StatusEffect type="always" target="This" disabledeltatime="true" delay="1" stackable="false">
+      <StatusEffect type="always" target="This" disabledeltatime="true" delay="2" stackable="false">
         <Remove/>
       </StatusEffect>
     </ItemComponent>
@@ -2681,10 +2678,10 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
-      <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
+      <StatusEffect type="OnSpawn" target="This" disabledeltatime="true" stackable="false">
         <Sound file="Content/Items/Medical/Syringe.ogg" type="OnUse" range="500"/>
       </StatusEffect>
-      <StatusEffect type="always" target="This" disabledeltatime="true" delay="0.3" stackable="false">
+      <StatusEffect type="always" target="This" disabledeltatime="true" delay="1" stackable="false">
         <Remove/>
       </StatusEffect>
     </ItemComponent>
@@ -2692,10 +2689,10 @@
   <Item name="." identifier="ntsfx_manualdefib" category="hidden" description=".">
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent>
-      <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
-        <Sound file="%ModDir%/Sound/manualdefib.ogg" range="1000"/>
+      <StatusEffect type="OnSpawn" target="This" disabledeltatime="true" stackable="false">
+        <Sound file="%ModDir%/Sound/manualdefib.ogg" range="800"/>
       </StatusEffect>
-      <StatusEffect type="always" target="This" disabledeltatime="true" delay="0.3" stackable="false">
+      <StatusEffect type="always" target="This" disabledeltatime="true" delay="5" stackable="false">
         <Remove/>
       </StatusEffect>
     </ItemComponent>
@@ -2703,10 +2700,10 @@
   <Item name="." identifier="ntsfx_defib1" category="hidden" description=".">
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent>
-      <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
-        <Sound file="%ModDir%/Sound/Defib1.ogg" range="1000"/>
+      <StatusEffect type="OnSpawn" target="This" disabledeltatime="true" stackable="false">
+        <Sound file="%ModDir%/Sound/Defib1.ogg" range="800"/>
       </StatusEffect>
-      <StatusEffect type="always" target="This" disabledeltatime="true" delay="0.3" stackable="false">
+      <StatusEffect type="always" target="This" disabledeltatime="true" delay="5" stackable="false">
         <Remove/>
       </StatusEffect>
     </ItemComponent>
@@ -2714,10 +2711,10 @@
   <Item name="." identifier="ntsfx_defib2" category="hidden" description=".">
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent>
-      <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
-        <Sound file="%ModDir%/Sound/Defib2.ogg" range="1000"/>
+      <StatusEffect type="OnSpawn" target="This" disabledeltatime="true" stackable="false">
+        <Sound file="%ModDir%/Sound/Defib2.ogg" range="800"/>
       </StatusEffect>
-      <StatusEffect type="always" target="This" disabledeltatime="true" delay="0.3" stackable="false">
+      <StatusEffect type="always" target="This" disabledeltatime="true" delay="4" stackable="false">
         <Remove/>
       </StatusEffect>
     </ItemComponent>
@@ -2725,10 +2722,10 @@
   <Item name="." identifier="ntsfx_ointment" category="hidden" description=".">
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent>
-      <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
+      <StatusEffect type="OnSpawn" target="This" disabledeltatime="true" stackable="false">
         <Sound file="%ModDir%/Sound/ointment.ogg" range="500"/>
       </StatusEffect>
-      <StatusEffect type="always" target="This" disabledeltatime="true" delay="0.1" stackable="false">
+      <StatusEffect type="always" target="This" disabledeltatime="true" delay="1" stackable="false">
         <Remove/>
       </StatusEffect>
     </ItemComponent>
@@ -2737,14 +2734,14 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
-      <StatusEffect type="always" target="This" disabledeltatime="true" duration="0.5" stackable="false">
+      <StatusEffect type="OnSpawn" target="This" disabledeltatime="true" stackable="false">
         <Sound file="%ModDir%/Sound/squeak1.ogg" type="OnUse" range="500"/>
         <Sound file="%ModDir%/Sound/squeak2.ogg" type="OnUse" range="500"/>
         <Sound file="%ModDir%/Sound/squeak3.ogg" type="OnUse" range="500"/>
         <Sound file="%ModDir%/Sound/squeak4.ogg" type="OnUse" range="500"/>
         <Sound file="%ModDir%/Sound/squeak5.ogg" type="OnUse" range="500"/>
       </StatusEffect>
-      <StatusEffect type="always" target="This" disabledeltatime="true" delay="0.5" stackable="false">
+      <StatusEffect type="always" target="This" disabledeltatime="true" delay="2" stackable="false">
         <Remove/>
       </StatusEffect>
     </ItemComponent>
