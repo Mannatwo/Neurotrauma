@@ -269,21 +269,21 @@ NT.ShowGUI = function ()
     local disableBotAlgorithms = GUI.TickBox(GUI.RectTransform(Vector2(1, 0.2), config.Content.RectTransform), "Disable bot treatment algorithms (they're laggy)")
     disableBotAlgorithms.Selected = NT.Config.disableBotAlgorithms
     disableBotAlgorithms.OnSelected = function ()
-        NT.Config.disableBotAlgorithms = disableBotAlgorithms.State == 3
+        NT.Config.disableBotAlgorithms = disableBotAlgorithms.State == GUI.Component.Selected
         OnChanged()
     end
 
     local organRejection = GUI.TickBox(GUI.RectTransform(Vector2(1, 0.2), config.Content.RectTransform), "Organ rejection")
     organRejection.Selected = NT.Config.organRejection
     organRejection.OnSelected = function ()
-        NT.Config.organRejection = organRejection.State == 3
+        NT.Config.organRejection = organRejection.State == GUI.Component.Selected
         OnChanged()
     end
 
     local fracturesRemoveCasts = GUI.TickBox(GUI.RectTransform(Vector2(1, 0.2), config.Content.RectTransform), "Refracturing removes casts")
     fracturesRemoveCasts.Selected = NT.Config.fracturesRemoveCasts
     fracturesRemoveCasts.OnSelected = function ()
-        NT.Config.fracturesRemoveCasts = fracturesRemoveCasts.State == 3
+        NT.Config.fracturesRemoveCasts = fracturesRemoveCasts.State == GUI.Component.Selected
         OnChanged()
     end
 
@@ -295,14 +295,14 @@ NT.ShowGUI = function ()
         local NTSPenableSurgicalInfection = GUI.TickBox(GUI.RectTransform(Vector2(1, 0.2), config.Content.RectTransform), "Surgical infection")
         NTSPenableSurgicalInfection.Selected = NT.Config.NTSPenableSurgicalInfection
         NTSPenableSurgicalInfection.OnSelected = function ()
-            NT.Config.NTSPenableSurgicalInfection = NTSPenableSurgicalInfection.State == 3
+            NT.Config.NTSPenableSurgicalInfection = NTSPenableSurgicalInfection.State == GUI.Component.Selected
             OnChanged()
         end
 
         local NTSPenableSurgerySkill = GUI.TickBox(GUI.RectTransform(Vector2(1, 0.2), config.Content.RectTransform), "Surgery skill")
         NTSPenableSurgerySkill.Selected = NT.Config.NTSPenableSurgerySkill
         NTSPenableSurgerySkill.OnSelected = function ()
-            NT.Config.NTSPenableSurgerySkill = NTSPenableSurgerySkill.State == 3
+            NT.Config.NTSPenableSurgerySkill = NTSPenableSurgerySkill.State == GUI.Component.Selected
             OnChanged()
         end
 
@@ -320,16 +320,6 @@ NT.ShowGUI = function ()
 
     clientHighPriorityItems.OnTextChangedDelegate = function (textBox)
         NT.Config.clientItemHighPriority = CommaStringToTable(textBox.Text)
-    end
-    
--- Tickboxes
-
-    local hideInGameWires = GUI.TickBox(GUI.RectTransform(Vector2(1, 0.2), config.Content.RectTransform), "Hide In Game Wires")
-
-    hideInGameWires.Selected = NT.Config.hideInGameWires
-
-    hideInGameWires.OnSelected = function ()
-        NT.Config.hideInGameWires = hideInGameWires.State == 3
     end
 
     ]]
