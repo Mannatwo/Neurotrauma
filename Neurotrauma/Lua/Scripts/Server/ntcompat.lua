@@ -30,6 +30,8 @@ function NTC.SetSymptomTrue(character,symptomidentifer,duration)
     NTC.AddEmptyCharacterData(character)
     local data = NTC.GetCharacterData(character)
     data[symptomidentifer]=duration
+
+    NTC.CharacterData[character.ID]=data
 end
 
 -- use this function to suppress symptoms temporarily. this takes precedence over NTC.SetSymptomTrue.
@@ -40,6 +42,8 @@ function NTC.SetSymptomFalse(character,symptomidentifer,duration)
     NTC.AddEmptyCharacterData(character)
     local data = NTC.GetCharacterData(character)
     data["!"..symptomidentifer]=duration
+
+    NTC.CharacterData[character.ID]=data
 end
 
 -- usage example: anywhere in your lua code, cause 4 seconds (2 humanupdates) of pale skin with this:
@@ -194,6 +198,7 @@ function NTC.SetMultiplier(character,multiplieridentifier,multiplier)
     NTC.AddEmptyCharacterData(character)
     local data = NTC.GetCharacterData(character)
     data["mult_"..multiplieridentifier]=NTC.GetMultiplier(character,multiplieridentifier)*multiplier
+    NTC.CharacterData[character.ID]=data
 end
 function NTC.GetMultiplier(character,multiplieridentifier)
     local data = NTC.GetCharacterData(character)
@@ -250,6 +255,8 @@ function NTC.TickCharacter(character)
             end
         end
     end
+
+    NTC.CharacterData[character.ID] = chardata
 end
 function NTC.GetSpeedMultiplier(character)
     if NTC.CharacterSpeedMultipliers[character] ~= nil then return NTC.CharacterSpeedMultipliers[character] end
