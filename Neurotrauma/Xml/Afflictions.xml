@@ -1763,7 +1763,7 @@
     maxstrength="100">
     <Effect minstrength="0" maxstrength="100" strengthchange="-0.5">
       <StatusEffect target="Character" comparison="and">
-        <Conditional ishuman="true" bloodpressure="gte 70" hypoxemia="lte 30"/>
+        <Conditional ishuman="true"/>
         <ReduceAffliction identifier="huskinfection" amount="0.5"/>
         <Affliction identifier="organdamage" amount="0.2"/>
         <Affliction identifier="kidneydamage" amount="0.175"/>
@@ -2336,7 +2336,7 @@
     selfcauseofdeathdescription=""
     limbspecific="False"
     indicatorlimb="Torso"
-    showinhealthscannerthreshold="10"
+    showinhealthscannerthreshold="1"
     showiconthreshold="300"
     maxstrength="100">
 
