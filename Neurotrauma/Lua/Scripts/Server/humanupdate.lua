@@ -154,8 +154,11 @@ NT.Afflictions = {
     end},
     pneumothorax={update=function(c,i)
         if c.afflictions[i].strength > 0 then
-        c.afflictions[i].strength = c.afflictions[i].strength
-        + NT.Deltatime * (0.5 - HF.BoolToNum(c.afflictions[i].strength > 15)*HF.Clamp(c.afflictions.needlec.strength,0,1)) end
+            c.afflictions[i].strength = HF.Clamp(
+                c.afflictions[i].strength + NT.Deltatime * 
+                (0.5 -- gain 0.5/s
+                - HF.BoolToNum(c.afflictions[i].strength > 15)*HF.Clamp(c.afflictions.needlec.strength,0,1)) -- ...except if needled and >15%, then lose 0.5/s
+            ,0,100) end
     end
     },
     tamponade={update=function(c,i)
