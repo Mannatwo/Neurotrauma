@@ -53,16 +53,16 @@
     </Price>
 
     <Deconstruct time="30">
-        <Item identifier="fpgacircuit"/>
         <Item identifier="plastic"/>
         <Item identifier="steel"/>
-        <Item identifier="aluminium"/>
         <Item identifier="titaniumaluminiumalloy"/>
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="50">
         <RequiredSkill identifier="medical" level="50"/>
+        <RequiredItem identifier="fpgacircuit"/>
         <RequiredItem identifier="plastic"/>
         <RequiredItem identifier="steel"/>
+        <RequiredItem identifier="aluminium"/>
         <RequiredItem identifier="titaniumaluminiumalloy"/>
     </Fabricate>
 
@@ -157,12 +157,12 @@
       <Price storeidentifier="merchantmedical" minavailable="1" sold="true"/>
     </Price>
     <Deconstruct time="15">
-      <Item identifier="fpgacircuit" />
       <Item identifier="plastic" />
       <Item identifier="fulgurium" />
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="20">
       <RequiredSkill identifier="electrical" level="50" />
+      <RequiredItem identifier="fpgacircuit" />
       <RequiredItem identifier="plastic" />
       <RequiredItem identifier="fulgurium" />
     </Fabricate>
