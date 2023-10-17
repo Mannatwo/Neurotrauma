@@ -302,6 +302,7 @@ NT.Afflictions = {
             (c.stats.bloodamount
             - c.afflictions.tamponade.strength/2                            -- -50 if full tamponade
             - HF.Clamp(c.afflictions.afpressuredrug.strength*5,0,45)        -- -45 if blood pressure medication
+            - HF.Clamp(c.afflictions.anesthesia.strength,0,15)              -- -15 if propofol (fuck propofol)
             + HF.Clamp(c.afflictions.afadrenaline.strength*10,0,30)         -- +30 if adrenaline
             + HF.Clamp(c.afflictions.afsaline.strength*5,0,30)              -- +30 if saline
             + HF.Clamp(c.afflictions.afringerssolution.strength*5,0,30)     -- +30 if ringers
@@ -503,7 +504,25 @@ NT.Afflictions = {
     alcoholwithdrawal={},opiatewithdrawal={},chemwithdrawal={},
     opiateoverdose={},
     -- Drugs
-    analgesia={max=200},anesthesia={},drunk={max=200},
+    analgesia={max=200},
+
+    -- propofol (i hate it)
+    anesthesia={update=function(c,i)
+        if c.afflictions[i].strength <= 0 then return end
+        -- cause bloody vomiting or hallucinations sometimes (real sideeffects of propofol!)
+        if HF.Chance(0.04) then
+
+            local case = math.random()
+
+            if case <0.5 then
+                NTC.SetSymptomTrue(c.character,"sym_hematemesis",5 + math.random()*10)
+            else
+                HF.AddAffliction(c.character,"psychosis",10)
+            end
+
+        end
+    end},
+    drunk={max=200},
     afadrenaline={},afantibiotics={},afthiamine={},
     afsaline={},afringerssolution={},
     afstreptokinase={},afmannitol={},
