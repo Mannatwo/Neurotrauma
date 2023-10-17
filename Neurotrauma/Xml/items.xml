@@ -442,7 +442,7 @@
     <SkillRequirementHint identifier="medical" level="30"/>
   </Item>
   <Item name="" identifier="surgicaldrill" category="Equipment" cargocontaineridentifier="mediccrate"
-          Tags="smallitem,medical,surgery" description="" useinhealthinterface="True" scale="0.250">
+          Tags="smallitem,medical,surgery,surgerytool" description="" useinhealthinterface="True" scale="0.250">
     <PreferredContainer primary="toxcontainer" spawnprobability="1"/>
     <PreferredContainer primary="locker"/>
     <Fabricate suitablefabricators="fabricator">
@@ -476,7 +476,7 @@
     <SkillRequirementHint identifier="medical" level="45"/>
   </Item>
   <Item name="" identifier="surgerysaw" category="Equipment" cargocontaineridentifier="mediccrate"
-          Tags="smallitem,medical,surgery" description="" useinhealthinterface="True" scale="0.4">
+          Tags="smallitem,medical,surgery,surgerytool" description="" useinhealthinterface="True" scale="0.4">
     <PreferredContainer primary="toxcontainer" spawnprobability="0.5"/>
     <PreferredContainer primary="locker"/>
     <Fabricate suitablefabricators="fabricator">
@@ -825,7 +825,7 @@
 
 
   <Item name="" identifier="osteosynthesisimplants" category="Equipment" cargocontaineridentifier="mediccrate"
-          Tags="smallitem,medical,surgery" description="" useinhealthinterface="True" scale="0.4">
+          Tags="smallitem,medical,surgery,surgerytool" description="" useinhealthinterface="True" scale="0.4">
     <Price baseprice="200" soldbydefault="false">
       <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="1"/>
     </Price>
@@ -857,7 +857,7 @@
     <SkillRequirementHint identifier="medical" level="45"/>
   </Item>
   <Item name="" identifier="spinalimplant" description="" scale="0.3" useinhealthinterface="True"
-    Tags="smallitem,medical,surgery">
+    Tags="smallitem,medical,surgery,surgerytool">
     <PreferredContainer primary="toxcontainer" spawnprobability="0.5"/>
     <Price baseprice="200" soldbydefault="false">
       <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="1"/>
@@ -1113,7 +1113,7 @@
   </Item>
   <!-- Azathioprine / immunosuppressant -->
   <Item name="" identifier="immunosuppressant" category="Material" cargocontaineridentifier="mediccrate"
-      Tags="smallitem,chem,medical" description="" useinhealthinterface="true" scale="0.3"
+      Tags="smallitem,chem,medical,surgerytool" description="" useinhealthinterface="true" scale="0.3"
       impactsoundtag="impact_metal_light" maxstacksize="8">
     <PreferredContainer primary="medcab" spawnprobability="0.2"/>
     <PreferredContainer primary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="2" spawnprobability="0.1"/>
