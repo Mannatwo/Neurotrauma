@@ -707,7 +707,7 @@ NT.ItemMethods.tweezers = function(item, usingCharacter, targetCharacter, limb)
         HF.AddAfflictionLimb(targetCharacter,"bleeding",limbtype,1,usingCharacter)
         HF.AddAfflictionLimb(targetCharacter,"lacerations",limbtype,0.5,usingCharacter)
         if not sedated then
-            HF.AddAfflictionLimb(targetCharacter,"pain_extremity",limbtype,10,usingCharacter)
+            HF.AddAfflictionLimb(targetCharacter,"pain_extremity",limbtype,5,usingCharacter)
             HF.AddAffliction(targetCharacter,"stun",0.1,usingCharacter)
         end
 
@@ -716,7 +716,7 @@ NT.ItemMethods.tweezers = function(item, usingCharacter, targetCharacter, limb)
             HF.AddAfflictionLimb(targetCharacter,"bleeding",limbtype,3,usingCharacter)
             HF.AddAfflictionLimb(targetCharacter,"lacerations",limbtype,2,usingCharacter)
             if not sedated then
-                HF.AddAfflictionLimb(targetCharacter,"pain_extremity",limbtype,10,usingCharacter)
+                HF.AddAfflictionLimb(targetCharacter,"pain_extremity",limbtype,5,usingCharacter)
             end
         end
     end
