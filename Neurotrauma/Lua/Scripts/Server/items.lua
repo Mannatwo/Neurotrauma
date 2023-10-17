@@ -699,6 +699,26 @@ NT.ItemMethods.tweezers = function(item, usingCharacter, targetCharacter, limb)
         else
             HF.AddAfflictionLimb(targetCharacter,"internaldamage",limbtype,6,usingCharacter)
         end
+    else
+
+        local sedated = HF.CanPerformSurgeryOn(targetCharacter)
+
+        -- pinchy pinchy!
+        HF.AddAfflictionLimb(targetCharacter,"bleeding",limbtype,1,usingCharacter)
+        HF.AddAfflictionLimb(targetCharacter,"lacerations",limbtype,0.5,usingCharacter)
+        if not sedated then
+            HF.AddAfflictionLimb(targetCharacter,"pain_extremity",limbtype,10,usingCharacter)
+            HF.AddAffliction(targetCharacter,"stun",0.1,usingCharacter)
+        end
+
+        -- don't rip off peoples faces
+        if limbtype == LimbType.Head then
+            HF.AddAfflictionLimb(targetCharacter,"bleeding",limbtype,3,usingCharacter)
+            HF.AddAfflictionLimb(targetCharacter,"lacerations",limbtype,2,usingCharacter)
+            if not sedated then
+                HF.AddAfflictionLimb(targetCharacter,"pain_extremity",limbtype,10,usingCharacter)
+            end
+        end
     end
 end
 
