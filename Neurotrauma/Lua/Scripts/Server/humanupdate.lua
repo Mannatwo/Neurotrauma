@@ -853,8 +853,21 @@ NT.LimbAfflictions = {
     -- other
     infectedwound={update=function(c,limbaff,i)
         if c.stats.stasis then return end
-        local infectindex = ( -c.afflictions.immunity.prev/200 - HF.Clamp(limbaff.bandaged.strength,0,1)*1.5 - limbaff.ointmented.strength*3 + limbaff.burn.strength/20 + limbaff.lacerations.strength/40 + limbaff.bitewounds.strength/30 + limbaff.gunshotwound.strength/40 + limbaff.explosiondamage.strength/40 )*NT.Deltatime
-        local wounddamage = limbaff.burn.strength+limbaff.lacerations.strength+limbaff.gunshotwound.strength+limbaff.bitewounds.strength+limbaff.explosiondamage.strength
+        local infectindex = ( -c.afflictions.immunity.prev/200 - HF.Clamp(limbaff.bandaged.strength,0,1)*1.5 - limbaff.ointmented.strength*3
+            + limbaff.burn.strength/20
+            + limbaff.lacerations.strength/40
+            + limbaff.bitewounds.strength/30
+            + limbaff.gunshotwound.strength/40
+            + limbaff.explosiondamage.strength/40
+        )*NT.Deltatime
+        
+        local wounddamage = 
+            limbaff.burn.strength
+            +limbaff.lacerations.strength
+            +limbaff.gunshotwound.strength
+            +limbaff.bitewounds.strength
+            +limbaff.explosiondamage.strength
+
         -- open wounds and a dirty bandage? :grimacing:
         if(limbaff.dirtybandage.strength > 10 and wounddamage > 5) then
             infectindex = infectindex+(wounddamage/40+limbaff.dirtybandage.strength/20)*NT.Deltatime
