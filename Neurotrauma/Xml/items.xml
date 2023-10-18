@@ -795,7 +795,7 @@
       <RequiredItem identifier="zinc" mincondition="0.25" usecondition="true"/>
     </Fabricate>
     <Deconstruct>
-      <Item identifier="steel"/>
+      <Item identifier="steel" mincondition="0.1" outcondition="0.25"/>
       <Item identifier="zinc" mincondition="0.1" outcondition="0.25"/>
     </Deconstruct>
     <Price baseprice="200" soldbydefault="true">
@@ -1365,7 +1365,7 @@
             <RequiredItem identifier="ethanol"/>
         </Fabricate>
         <Deconstruct time="5">
-            <Item identifier="chlorine"/>
+            <Item identifier="chlorine" copycondition="true" mincondition="0.1"/>
         </Deconstruct>
         <InventoryIcon texture="%ModDir%/Images/InventoryItemIconAtlas.png" sourcerect="192,64,64,64"
                        origin="0.5,0.5"/>
