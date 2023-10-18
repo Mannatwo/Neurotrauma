@@ -2107,7 +2107,7 @@
         </Throwable>
     </Item>
 
-  <Item name="" identifier="llegp" description="" scale="0.4" useinhealthinterface="True" 
+  <Item name="" identifier="llegp" description="" scale="0.4" useinhealthinterface="True" cargocontaineridentifier="mediccrate"
         Tags="smallitem,medical,surgery">
         <Price baseprice="500" soldbydefault="false">
             <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="1"/>
@@ -2122,7 +2122,7 @@
             </StatusEffect>
         </Throwable>
     </Item>
-  <Item name="" identifier="rlegp" description="" scale="0.4" useinhealthinterface="True"
+  <Item name="" identifier="rlegp" description="" scale="0.4" useinhealthinterface="True" cargocontaineridentifier="mediccrate"
         Tags="smallitem,medical,surgery">
         <Price baseprice="500" soldbydefault="false">
           <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="1"/>
@@ -2137,7 +2137,7 @@
             </StatusEffect>
         </Throwable>
     </Item>
-  <Item name="" identifier="larmp" description="" scale="0.4" useinhealthinterface="True"
+  <Item name="" identifier="larmp" description="" scale="0.4" useinhealthinterface="True" cargocontaineridentifier="mediccrate"
         Tags="smallitem,medical,surgery">
         <Price baseprice="500" soldbydefault="false">
           <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="1"/>
@@ -2152,7 +2152,7 @@
             </StatusEffect>
         </Throwable>
     </Item>
-  <Item name="" identifier="rarmp" description="" scale="0.4" useinhealthinterface="True"
+  <Item name="" identifier="rarmp" description="" scale="0.4" useinhealthinterface="True" cargocontaineridentifier="mediccrate"
         Tags="smallitem,medical,surgery">
         <Price baseprice="500" soldbydefault="false">
           <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="1"/>
