@@ -1725,7 +1725,7 @@
       <Containable items="smallitem,organ" excludeditems="toolbox,cargoscooter" />
     </ItemContainer>
   </Item>
-  <Item name="" identifier="organtoolbox" category="Equipment" tags="smallitem,mobilecontainer,tool,refrigerated,toolbox" cargocontaineridentifier="" showcontentsintooltip="true" Scale="0.5" fireproof="true" impactsoundtag="impact_metal_heavy" RequireAimToUse="True"
+  <Item name="" identifier="organtoolbox" category="Equipment" tags="mediumitem,mobilecontainer,tool,refrigerated,toolbox" cargocontaineridentifier="" showcontentsintooltip="true" Scale="0.5" fireproof="true" impactsoundtag="impact_metal_heavy" RequireAimToUse="True"
         description="">
     <PreferredContainer primary="medcab" minamount="1" maxamount="1" spawnprobability="1"/>
     <PreferredContainer secondary="wreckstoragecab" spawnprobability="0.05"/>
@@ -1755,7 +1755,7 @@
     <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="173,403,84,67" origin="0.5,0.5" depth="0.6" />
     <Body width="90" height="60" density="20" />
     <MeleeWeapon slots="RightHand,LeftHand" controlpose="true" aimpos="45,10" handle1="0,18" holdangle="90" reload="1" range="50" combatpriority="6" msg="ItemMsgPickUpSelect">
-      <Attack structuredamage="20" itemdamage="5" targetimpulse="2">
+      <Attack structuredamage="0" itemdamage="1" targetimpulse="2">
         <Affliction identifier="blunttrauma" strength="2" />
         <Affliction identifier="stun" strength="0.6" />
         <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
@@ -1784,7 +1784,7 @@
     <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="1,403,84,67" origin="0.5,0.5" depth="0.6" />
     <Body width="90" height="60" density="20" />
     <MeleeWeapon slots="RightHand,LeftHand,Any" controlpose="true" aimpos="45,10" handle1="0,18" holdangle="90" reload="1" range="50" combatpriority="6" msg="ItemMsgPickUpSelect">
-      <Attack structuredamage="20" itemdamage="5" targetimpulse="2">
+      <Attack structuredamage="0" itemdamage="1" targetimpulse="2">
         <Affliction identifier="blunttrauma" strength="2" />
         <Affliction identifier="stun" strength="0.6" />
         <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
@@ -1812,7 +1812,7 @@
     <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="259,403,84,67" origin="0.5,0.5" depth="0.6" />
     <Body width="45" height="30" density="20" />
     <MeleeWeapon slots="RightHand,LeftHand,Any" controlpose="true" aimpos="45,10" handle1="0,14" holdangle="90" reload="1" range="50" combatpriority="6" msg="ItemMsgPickUpSelect">
-      <Attack structuredamage="20" itemdamage="5" targetimpulse="2">
+      <Attack structuredamage="0" itemdamage="1" targetimpulse="2">
         <Affliction identifier="blunttrauma" strength="1" />
         <Affliction identifier="stun" strength="0.6" />
         <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
