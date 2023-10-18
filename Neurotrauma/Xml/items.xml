@@ -856,7 +856,7 @@
     </MeleeWeapon>
     <SkillRequirementHint identifier="medical" level="45"/>
   </Item>
-  <Item name="" identifier="spinalimplant" description="" scale="0.3" useinhealthinterface="True"
+  <Item name="" identifier="spinalimplant" description="" scale="0.3" useinhealthinterface="True" cargocontaineridentifier="mediccrate"
     Tags="smallitem,medical,surgery,surgerytool">
     <PreferredContainer primary="toxcontainer" spawnprobability="0.5"/>
     <Price baseprice="200" soldbydefault="false">
