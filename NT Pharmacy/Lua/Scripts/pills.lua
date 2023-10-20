@@ -346,10 +346,10 @@ NTP.PillData.items = {
     },
     pressurestabilizer={types={"active"},skillrequirement=35,
         effects={
-            {type="addeffect",identifier="pressurestabilized",amount=100}
+            {type="addeffect",identifier="pressurestabilized",amount=500}
         },
         faileffects={
-            {type="addeffect",identifier="pressurestabilized",amount=50}
+            {type="addeffect",identifier="pressurestabilized",amount=250}
         }
     },
     mannitolplus={types={"active"},skillrequirement=60,
