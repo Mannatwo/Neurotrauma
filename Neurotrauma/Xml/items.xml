@@ -248,7 +248,7 @@
       <SkillRequirementHint identifier="medical" level="10"/>
   </Item>
 
-  <Item name="" identifier="wheelchair" category="Equipment" tags="provocative,mediumitem" scale="0.5" fireproof="false" description="" cargocontaineridentifier="mediccrate" impactsoundtag="impact_metal_heavy">
+  <Item name="" identifier="wheelchair" category="Equipment" tags="provocative,mediumitem" scale="0.5" fireproof="false" description="" cargocontaineridentifier="metalcrate" impactsoundtag="impact_metal_heavy">
     <Price baseprice="100" soldbydefault="false">
       <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9"/>
     </Price>
@@ -856,7 +856,7 @@
     </MeleeWeapon>
     <SkillRequirementHint identifier="medical" level="45"/>
   </Item>
-  <Item name="" identifier="spinalimplant" description="" scale="0.3" useinhealthinterface="True"
+  <Item name="" identifier="spinalimplant" description="" scale="0.3" useinhealthinterface="True" cargocontaineridentifier="mediccrate"
     Tags="smallitem,medical,surgery,surgerytool">
     <PreferredContainer primary="toxcontainer" spawnprobability="0.5"/>
     <Price baseprice="200" soldbydefault="false">
@@ -2107,7 +2107,7 @@
         </Throwable>
     </Item>
 
-  <Item name="" identifier="llegp" description="" scale="0.4" useinhealthinterface="True" 
+  <Item name="" identifier="llegp" description="" scale="0.4" useinhealthinterface="True" cargocontaineridentifier="mediccrate"
         Tags="smallitem,medical,surgery">
         <Price baseprice="500" soldbydefault="false">
             <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="1"/>
@@ -2122,7 +2122,7 @@
             </StatusEffect>
         </Throwable>
     </Item>
-  <Item name="" identifier="rlegp" description="" scale="0.4" useinhealthinterface="True"
+  <Item name="" identifier="rlegp" description="" scale="0.4" useinhealthinterface="True" cargocontaineridentifier="mediccrate"
         Tags="smallitem,medical,surgery">
         <Price baseprice="500" soldbydefault="false">
           <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="1"/>
@@ -2137,7 +2137,7 @@
             </StatusEffect>
         </Throwable>
     </Item>
-  <Item name="" identifier="larmp" description="" scale="0.4" useinhealthinterface="True"
+  <Item name="" identifier="larmp" description="" scale="0.4" useinhealthinterface="True" cargocontaineridentifier="mediccrate"
         Tags="smallitem,medical,surgery">
         <Price baseprice="500" soldbydefault="false">
           <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="1"/>
@@ -2152,7 +2152,7 @@
             </StatusEffect>
         </Throwable>
     </Item>
-  <Item name="" identifier="rarmp" description="" scale="0.4" useinhealthinterface="True"
+  <Item name="" identifier="rarmp" description="" scale="0.4" useinhealthinterface="True" cargocontaineridentifier="mediccrate"
         Tags="smallitem,medical,surgery">
         <Price baseprice="500" soldbydefault="false">
           <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="1"/>
