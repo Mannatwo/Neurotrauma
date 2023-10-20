@@ -1644,6 +1644,64 @@
     <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
+  <!-- Sodium bicarbonate / heals acidosis.
+  scanned Drug -->
+  <Affliction
+    name="Sodium bicarbonate"
+    identifier="afacidosisdrug"
+    description=""
+    healableinmedicalclinic="false"
+    targets="human"
+    type="resistance"
+    isbuff="true"
+    limbspecific="false"
+    showiconthreshold="200"
+    showinhealthscannerthreshold="1"
+    maxstrength="100">
+    <Effect minstrength="0" maxstrength="40" strengthchange="-0.25">
+      <StatusEffect target="Character" comparison="And">
+        <Conditional ishuman="true" alkalosis="lt 15"/>
+        <Affliction identifier="alkalosis" amount="0.3"/>
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="40" maxstrength="100" strengthchange="-0.25">
+      <StatusEffect target="Character">
+        <Conditional ishuman="true"/>
+        <Affliction identifier="alkalosis" amount="0.5"/>
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
+  </Affliction>
+
+  <!-- Acetazolamide / heals alkalosis.
+  scanned Drug -->
+  <Affliction
+    name="Acetazolamide"
+    identifier="afalkalosisdrug"
+    description=""
+    healableinmedicalclinic="false"
+    targets="human"
+    type="resistance"
+    isbuff="true"
+    limbspecific="false"
+    showiconthreshold="200"
+    showinhealthscannerthreshold="1"
+    maxstrength="100">
+    <Effect minstrength="0" maxstrength="40" strengthchange="-0.25">
+      <StatusEffect target="Character" comparison="And">
+        <Conditional ishuman="true" acidosis="lt 15"/>
+        <Affliction identifier="acidosis" amount="0.3"/>
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="40" maxstrength="100" strengthchange="-0.25">
+      <StatusEffect target="Character">
+        <Conditional ishuman="true"/>
+        <Affliction identifier="acidosis" amount="0.5"/>
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,3" sheetelementsize="128,128" origin="0,0"/>
+  </Affliction>
+
   <!-- Mannitol / heals cerebral hypoxia *if* hypotension and hypoxemia are low enough.
   scanned Drug -->
   <Affliction
