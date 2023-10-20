@@ -187,7 +187,7 @@
   </Item>
   
   <!-- /// new containers /// -->
-  <Item name="" identifier="antidotetoolbox" category="Equipment" tags="smallitem,mobilecontainer,tool,toolbox" cargocontaineridentifier="" showcontentsintooltip="true" Scale="0.5" fireproof="true" impactsoundtag="impact_metal_heavy" RequireAimToUse="True" description="">
+  <Item name="" identifier="antidotetoolbox" category="Equipment" tags="mediumitem,mobilecontainer,tool,toolbox" cargocontaineridentifier="" showcontentsintooltip="true" Scale="0.5" fireproof="true" impactsoundtag="impact_metal_heavy" RequireAimToUse="True" description="">
     <PreferredContainer secondary="wreckstoragecab" spawnprobability="0.05"/>
     <PreferredContainer secondary="locker"/>
     <Deconstruct time="10">
@@ -203,7 +203,7 @@
     <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="87,87,84,67" origin="0.5,0.5" depth="0.6" />
     <Body width="90" height="60" density="20" />
     <MeleeWeapon slots="RightHand,LeftHand" controlpose="true" aimpos="45,10" handle1="0,18" holdangle="90" reload="1" range="50" combatpriority="6" msg="ItemMsgPickUpSelect">
-      <Attack structuredamage="20" itemdamage="5" targetimpulse="2">
+      <Attack structuredamage="0" itemdamage="1" targetimpulse="2">
         <Affliction identifier="blunttrauma" strength="2" />
         <Affliction identifier="stun" strength="0.6" />
         <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
@@ -214,7 +214,7 @@
     </ItemContainer>
     <aitarget sightrange="1000" soundrange="1000" fadeouttime="2" />
   </Item>
-  <Item name="" identifier="machinetoolbox" category="Equipment" tags="smallitem,mobilecontainer,tool,toolbox" cargocontaineridentifier="" showcontentsintooltip="true" Scale="0.5" fireproof="true" impactsoundtag="impact_metal_heavy" RequireAimToUse="True" description="">
+  <Item name="" identifier="machinetoolbox" category="Equipment" tags="mediumitem,mobilecontainer,tool,toolbox" cargocontaineridentifier="" showcontentsintooltip="true" Scale="0.5" fireproof="true" impactsoundtag="impact_metal_heavy" RequireAimToUse="True" description="">
     <PreferredContainer secondary="wreckstoragecab" spawnprobability="0.05"/>
     <PreferredContainer secondary="locker"/>
     <Deconstruct time="10">
@@ -230,7 +230,7 @@
     <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="173,87,84,67" origin="0.5,0.5" depth="0.6" />
     <Body width="90" height="60" density="20" />
     <MeleeWeapon slots="RightHand,LeftHand" controlpose="true" aimpos="45,10" handle1="0,18" holdangle="90" reload="1" range="50" combatpriority="6" msg="ItemMsgPickUpSelect">
-      <Attack structuredamage="20" itemdamage="5" targetimpulse="2">
+      <Attack structuredamage="0" itemdamage="1" targetimpulse="2">
         <Affliction identifier="blunttrauma" strength="2" />
         <Affliction identifier="stun" strength="0.6" />
         <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
@@ -241,7 +241,7 @@
     </ItemContainer>
     <aitarget sightrange="1000" soundrange="1000" fadeouttime="2" />
   </Item>
-  <Item name="" identifier="bonetoolbox" category="Equipment" tags="smallitem,mobilecontainer,tool,toolbox" cargocontaineridentifier="" showcontentsintooltip="true" Scale="0.5" fireproof="true" impactsoundtag="impact_metal_heavy" RequireAimToUse="True" description="">
+  <Item name="" identifier="bonetoolbox" category="Equipment" tags="mediumitem,mobilecontainer,tool,toolbox" cargocontaineridentifier="" showcontentsintooltip="true" Scale="0.5" fireproof="true" impactsoundtag="impact_metal_heavy" RequireAimToUse="True" description="">
     <PreferredContainer secondary="wreckstoragecab" spawnprobability="0.05"/>
     <PreferredContainer secondary="locker"/>
     <Deconstruct time="10">
@@ -257,7 +257,7 @@
     <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="259,87,84,67" origin="0.5,0.5" depth="0.6" />
     <Body width="90" height="60" density="20" />
     <MeleeWeapon slots="RightHand,LeftHand" controlpose="true" aimpos="45,10" handle1="0,18" holdangle="90" reload="1" range="50" combatpriority="6" msg="ItemMsgPickUpSelect">
-      <Attack structuredamage="20" itemdamage="5" targetimpulse="2">
+      <Attack structuredamage="0" itemdamage="1" targetimpulse="2">
         <Affliction identifier="blunttrauma" strength="2" />
         <Affliction identifier="stun" strength="0.6" />
         <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
@@ -268,7 +268,7 @@
     </ItemContainer>
     <aitarget sightrange="1000" soundrange="1000" fadeouttime="2" />
   </Item>
-  <Item name="" identifier="biohazardtoolbox" category="Equipment" tags="smallitem,mobilecontainer,tool,toolbox" cargocontaineridentifier="" showcontentsintooltip="true" Scale="0.5" fireproof="true" impactsoundtag="impact_metal_heavy" RequireAimToUse="True" description="">
+  <Item name="" identifier="biohazardtoolbox" category="Equipment" tags="mediumitem,mobilecontainer,tool,toolbox" cargocontaineridentifier="" showcontentsintooltip="true" Scale="0.5" fireproof="true" impactsoundtag="impact_metal_heavy" RequireAimToUse="True" description="">
     <PreferredContainer secondary="wreckstoragecab" spawnprobability="0.05"/>
     <PreferredContainer secondary="locker"/>
     <Deconstruct time="10">
@@ -284,7 +284,7 @@
     <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="345,87,84,67" origin="0.5,0.5" depth="0.6" />
     <Body width="90" height="60" density="20" />
     <MeleeWeapon slots="RightHand,LeftHand" controlpose="true" aimpos="45,10" handle1="0,18" holdangle="90" reload="1" range="50" combatpriority="6" msg="ItemMsgPickUpSelect">
-      <Attack structuredamage="20" itemdamage="5" targetimpulse="2">
+      <Attack structuredamage="0" itemdamage="1" targetimpulse="2">
         <Affliction identifier="blunttrauma" strength="2" />
         <Affliction identifier="stun" strength="0.6" />
         <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
@@ -295,7 +295,7 @@
     </ItemContainer>
     <aitarget sightrange="1000" soundrange="1000" fadeouttime="2" />
   </Item>
-  <Item name="" identifier="bufftoolbox" category="Equipment" tags="smallitem,mobilecontainer,tool,toolbox" cargocontaineridentifier="" showcontentsintooltip="true" Scale="0.5" fireproof="true" impactsoundtag="impact_metal_heavy" RequireAimToUse="True" description="">
+  <Item name="" identifier="bufftoolbox" category="Equipment" tags="mediumitem,mobilecontainer,tool,toolbox" cargocontaineridentifier="" showcontentsintooltip="true" Scale="0.5" fireproof="true" impactsoundtag="impact_metal_heavy" RequireAimToUse="True" description="">
     <PreferredContainer secondary="wreckstoragecab" spawnprobability="0.05"/>
     <PreferredContainer secondary="locker"/>
     <Deconstruct time="10">
@@ -311,7 +311,7 @@
     <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="431,87,84,67" origin="0.5,0.5" depth="0.6" />
     <Body width="90" height="60" density="20" />
     <MeleeWeapon slots="RightHand,LeftHand" controlpose="true" aimpos="45,10" handle1="0,18" holdangle="90" reload="1" range="50" combatpriority="6" msg="ItemMsgPickUpSelect">
-      <Attack structuredamage="20" itemdamage="5" targetimpulse="2">
+      <Attack structuredamage="0" itemdamage="1" targetimpulse="2">
         <Affliction identifier="blunttrauma" strength="2" />
         <Affliction identifier="stun" strength="0.6" />
         <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
@@ -338,7 +338,7 @@
     <Body width="150" height="80" density="50" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
     <ItemContainer capacity="20" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
-      <Containable items="smallitem,mediumitem" excludeditems="toolbox,cargoscooter" />
+      <Containable items="smallitem,mediumitem" excludeditems="toolbelt,toolbox,bandolier,cargoscooter" />
     </ItemContainer>
   </Item>
   <Item name="" identifier="antidotecrate" tags="crate,allowcleanup" scale="0.5" linkable="true" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy">
@@ -356,7 +356,7 @@
     <Body width="150" height="80" density="50" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
     <ItemContainer capacity="20" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
-      <Containable items="smallitem,mediumitem" excludeditems="toolbox,cargoscooter" />
+      <Containable items="smallitem,mediumitem" excludeditems="toolbelt,toolbox,bandolier,cargoscooter" />
     </ItemContainer>
   </Item>
   <Item name="" identifier="machinecrate" tags="crate,allowcleanup" scale="0.5" linkable="true" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy">
@@ -374,7 +374,7 @@
     <Body width="150" height="80" density="50" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
     <ItemContainer capacity="20" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
-      <Containable items="smallitem,mediumitem" excludeditems="toolbox,cargoscooter" />
+      <Containable items="smallitem,mediumitem" excludeditems="toolbelt,toolbox,bandolier,cargoscooter" />
     </ItemContainer>
   </Item>
   <Item name="" identifier="bonecrate" tags="crate,allowcleanup" scale="0.5" linkable="true" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy">
@@ -392,7 +392,7 @@
     <Body width="150" height="80" density="50" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
     <ItemContainer capacity="20" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
-      <Containable items="smallitem,mediumitem" excludeditems="toolbox,cargoscooter" />
+      <Containable items="smallitem,mediumitem" excludeditems="toolbelt,toolbox,bandolier,cargoscooter" />
     </ItemContainer>
   </Item>
   <Item name="" identifier="biohazardcrate" tags="crate,allowcleanup" scale="0.5" linkable="true" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy">
@@ -410,7 +410,7 @@
     <Body width="150" height="80" density="50" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
     <ItemContainer capacity="20" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
-      <Containable items="smallitem,mediumitem" excludeditems="toolbox,cargoscooter" />
+      <Containable items="smallitem,mediumitem" excludeditems="toolbelt,toolbox,bandolier,cargoscooter" />
     </ItemContainer>
   </Item>
   <Item name="" identifier="buffcrate" tags="crate,allowcleanup" scale="0.5" linkable="true" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy">
@@ -428,7 +428,7 @@
     <Body width="150" height="80" density="50" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
     <ItemContainer capacity="20" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true">
-      <Containable items="smallitem,mediumitem" excludeditems="toolbox,cargoscooter" />
+      <Containable items="smallitem,mediumitem" excludeditems="toolbelt,toolbox,bandolier,cargoscooter" />
     </ItemContainer>
   </Item>
 
