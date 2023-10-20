@@ -510,12 +510,23 @@ NT.Afflictions = {
     anesthesia={update=function(c,i)
         if c.afflictions[i].strength <= 0 then return end
         -- cause bloody vomiting or hallucinations sometimes (real sideeffects of propofol!)
-        if HF.Chance(0.04) then
+        if HF.Chance(0.06) then
 
             local case = math.random()
+            local casecount = 7
 
-            if case <0.5 then
+            if case < 1/casecount then
                 NTC.SetSymptomTrue(c.character,"sym_hematemesis",5 + math.random()*10)
+            elseif case < 2/casecount then
+                NTC.SetSymptomTrue(c.character,"sym_blurredvision",5 + math.random()*10)
+            elseif case < 3/casecount then
+                NTC.SetSymptomTrue(c.character,"sym_confusion",5 + math.random()*10)
+            elseif case < 4/casecount then
+                NTC.SetSymptomTrue(c.character,"sym_fever",5 + math.random()*10)
+            elseif case < 5/casecount then
+                NTC.SetSymptomTrue(c.character,"triggersym_seizure",1 + math.random()*2)
+            elseif case < 6/casecount then
+                NT.Fibrillate(c.character,5 + math.random()*30)
             else
                 HF.AddAffliction(c.character,"psychosis",10)
             end

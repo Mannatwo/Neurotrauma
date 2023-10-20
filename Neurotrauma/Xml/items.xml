@@ -1384,10 +1384,10 @@
   <Item name="" identifier="propofol" category="Material" maxstacksize="8" cargocontaineridentifier="mediccrate"
           Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5"
           impactsoundtag="impact_metal_light">
-    <PreferredContainer primary="toxcab,abandonedtoxcab" secondary="toxcontainer" mincount="1" maxcount="1"
-                        spawnprobability="0.05"/>
-    <Price baseprice="800" soldbydefault="false">
-      <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="2"/>
+    <PreferredContainer primary="toxcab,abandonedtoxcab" secondary="toxcontainer" mincount="0" maxcount="1"
+                        spawnprobability="0.025"/>
+    <Price baseprice="200" soldbydefault="false">
+      <Price storeidentifier="merchantmedical" sold="true" multiplier="4" minavailable="1"/>
     </Price>
     <!--
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="90">
