@@ -483,10 +483,11 @@ end
 NT.ItemMethods.antibleeding1 = function(item, usingCharacter, targetCharacter, limb) 
     local limbtype = limb.type
     local success = HF.BoolToNum(HF.GetSkillRequirementMet(usingCharacter,"medical",10),1)
+    local hasmedexp = HF.BoolToNum(HF.HasTalent(usingCharacter,"medicalexpertise"))
     HF.AddAfflictionLimb(targetCharacter,"dirtybandage",limbtype,-100,usingCharacter)
-    HF.AddAfflictionLimb(targetCharacter,"bandaged",limbtype,36+success*12,usingCharacter)
-    HF.AddAfflictionLimb(targetCharacter,"bleeding",limbtype,-18-success*6,usingCharacter)
-    HF.AddAfflictionLimb(targetCharacter,"bleedingnonstop",limbtype,-18-success*6,usingCharacter)
+    HF.AddAfflictionLimb(targetCharacter,"bandaged",limbtype,36+success*12+hasmedexp*12,usingCharacter)
+    HF.AddAfflictionLimb(targetCharacter,"bleeding",limbtype,-18-success*6-hasmedexp*6,usingCharacter)
+    HF.AddAfflictionLimb(targetCharacter,"bleedingnonstop",limbtype,-18-success*6-hasmedexp*6,usingCharacter)
     HF.RemoveItem(item)
     HF.GiveItem(targetCharacter,"ntsfx_bandage")
 end
