@@ -30,10 +30,15 @@ Hook.Add("character.applyDamage", "NT.ondamaged", function (characterHealth, att
         identifier = value.Prefab.Identifier.Value
         methodtorun = NT.OnDamagedMethods[identifier]
         if methodtorun ~= nil then 
-            methodtorun(characterHealth.Character,value.Strength,hitLimb.type)
+
+            -- make resistance from afflictions apply
+            local resistance = HF.GetResistance(characterHealth.Character,identifier)
+            local strength = value.Strength * (1-resistance)
+
+            methodtorun(characterHealth.Character,strength,hitLimb.type)
         end
 
-        print(identifier.." "..tostring(value.Strengt))
+        
     end
 
     -- ntc
