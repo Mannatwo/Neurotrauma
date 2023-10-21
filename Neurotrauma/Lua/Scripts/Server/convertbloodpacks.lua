@@ -1,3 +1,8 @@
+
+-- THIS FILE IS NO LONGER IN USE
+-- the defunct item in question has been removed from the mod
+-- i'm keeping it here for...safekeeping i guess
+
 LuaUserData.RegisterTypeBarotrauma("PurchasedItem")
 LuaUserData.RegisterType("System.Xml.Linq.XElement")
 

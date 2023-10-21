@@ -62,7 +62,6 @@ if (Game.IsMultiplayer and SERVER) or not Game.IsMultiplayer then
 
     dofile(NT.Path.."/Lua/Scripts/Server/ntcompat.lua")
     dofile(NT.Path.."/Lua/Scripts/Server/blood.lua")
-    dofile(NT.Path.."/Lua/Scripts/Server/convertbloodpacks.lua")
     dofile(NT.Path.."/Lua/Scripts/Server/humanupdate.lua")
     dofile(NT.Path.."/Lua/Scripts/Server/ondamaged.lua")
     dofile(NT.Path.."/Lua/Scripts/Server/items.lua")

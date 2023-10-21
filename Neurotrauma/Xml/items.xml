@@ -1484,21 +1484,6 @@
     </Item>
   </Override>
 
-  <Item name="" identifier="bloodpackominus" nameidentifier="bloodpackominus" variantof="antibloodloss2">
-    <PreferredContainer primary="medcab" minamount="0" maxamount="0" notcampaign="true"/>
-    <PreferredContainer secondary="outpostmedcompartment,outpostmedcab" minamount="0" maxamount="0" spawnprobability="0"/>
-    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="0" spawnprobability="0" />
-    <PreferredContainer secondary="medcontainer"/>
-    <Price baseprice="300">
-      <Price storeidentifier="merchantmedical" sold="false" multiplier="0.9" minavailable="5"/>
-    </Price>
-    <!--<Fabricate suitablefabricators="medicalfabricator" requiredtime="25">
-      <RequiredSkill identifier="medical" level="30"/>
-      <RequiredItem identifier="alienblood"/>
-      <RequiredItem identifier="antibloodloss1"/>
-      <RequiredItem identifier="stabilozine"/>
-    </Fabricate>-->
-  </Item>
   <Item name="" identifier="bloodpackoplus" nameidentifier="bloodpackoplus" variantof="antibloodloss2">
     <PreferredContainer primary="medcab" minamount="0" maxamount="0" notcampaign="true"/>
     <PreferredContainer secondary="outpostmedcompartment,outpostmedcab" minamount="0" maxamount="0" spawnprobability="0"/>
