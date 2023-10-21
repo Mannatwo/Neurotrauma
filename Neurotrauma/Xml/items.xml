@@ -1418,13 +1418,13 @@
     </Item>
 
   <!-- Propofol / anesthetic -->
-  <Item name="" identifier="propofol" category="Material" maxstacksize="8" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="propofol" category="Material" maxstacksize="4" maxstacksizecharacterinventory="2" cargocontaineridentifier="mediccrate"
           Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5"
           impactsoundtag="impact_metal_light">
     <PreferredContainer primary="toxcab,abandonedtoxcab" secondary="toxcontainer" mincount="0" maxcount="1"
-                        spawnprobability="0.025"/>
+                        spawnprobability="0.0125"/>
     <Price baseprice="200" soldbydefault="false">
-      <Price storeidentifier="merchantmedical" sold="true" multiplier="4" minavailable="1"/>
+      <Price storeidentifier="merchantmedical" sold="true" multiplier="8" minavailable="1"/>
     </Price>
     <!--
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="90">
