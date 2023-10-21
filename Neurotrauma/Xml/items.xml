@@ -596,7 +596,7 @@
       </StatusEffect>
     </MeleeWeapon>
   </Item>
-  <Item name="" identifier="drainage" category="Equipment" maxstacksize="1"
+  <Item name="" identifier="drainage" category="Equipment" maxstacksize="4"
           cargocontaineridentifier="mediccrate" Tags="smallitem,medical,surgery,syringe,surgerytool"
           description=""
           useinhealthinterface="True" scale="0.250">
@@ -924,7 +924,7 @@
     <SkillRequirementHint identifier="medical" level="45"/>
   </Item>
 
-  <Item name="" identifier="suture" category="Equipment" maxstacksize="16" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="suture" category="Equipment" maxstacksize="32" maxstacksizecharacterinventory="16" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,surgery,surgerytool" description="" useinhealthinterface="True" scale="0.250">
     <PreferredContainer primary="medcab" minamount="10" maxamount="16" spawnprobability="1"/>
     <PreferredContainer primary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="3" spawnprobability="0.5"/>
@@ -966,7 +966,7 @@
   <!-- /// First aid /// -->
 
   <!-- Tourniquet / clamps bleeding arteries / causes gangrene if left on for too long -->
-  <Item name="" identifier="tourniquet" category="Equipment" maxstacksize="4" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="tourniquet" category="Equipment" maxstacksize="16" maxstacksizecharacterinventory="4" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical" description="" useinhealthinterface="True" scale="0.250">
     <PreferredContainer primary="toxcontainer" spawnprobability="0.2"/>
     <PreferredContainer primary="medcab" minamount="1" maxamount="2" spawnprobability="1"/>
@@ -1003,7 +1003,7 @@
   <Item name="" identifier="needle" category="Material" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,syringe,surgerytool"
           description=""
-          useinhealthinterface="true" scale="0.2" impactsoundtag="impact_metal_light">
+          useinhealthinterface="true" scale="0.2" impactsoundtag="impact_metal_light" maxstacksize="4">
     <PreferredContainer primary="medcab" minamount="1" maxamount="1" spawnprobability="1"/>
     <PreferredContainer primary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="1" spawnprobability="0.5"/>
     <PreferredContainer primary="outpostmedcompartment" minamount="0" maxamount="1" spawnprobability="0.25"/>
@@ -1040,7 +1040,7 @@
   <!-- /// Chemicals /// -->
 
   <!-- Ringer's solution / a better version of saline -->
-  <Item name="" identifier="ringerssolution" category="Material" maxstacksize="8"
+  <Item name="" identifier="ringerssolution" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8"
           cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,petfood1,petfood2,petfood3"
           useinhealthinterface="true" description="" scale="0.35" impactsoundtag="impact_soft">
     <Upgrade gameversion="0.10.0.0" scale="0.5"/>
@@ -1090,7 +1090,7 @@
   <!-- Mannitol / heals cerebral hypoxia / only if blood pressure and oxygen presence has been restored -->
   <Item name="" identifier="mannitol" category="Material" cargocontaineridentifier="mediccrate"
       Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.275"
-      impactsoundtag="impact_metal_light" maxstacksize="8">
+      impactsoundtag="impact_metal_light" maxstacksize="32" maxstacksizecharacterinventory="8">
     <PreferredContainer primary="medcab" spawnprobability="0.2"/>
     <PreferredContainer primary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="2" spawnprobability="0.25"/>
     <PreferredContainer primary="outposttrashcan" minamount="0" maxamount="2" spawnprobability="0.01"/>
@@ -1151,7 +1151,7 @@
   <!-- Azathioprine / immunosuppressant -->
   <Item name="" identifier="immunosuppressant" category="Material" cargocontaineridentifier="mediccrate"
       Tags="smallitem,chem,medical,surgerytool" description="" useinhealthinterface="true" scale="0.3"
-      impactsoundtag="impact_metal_light" maxstacksize="8">
+      impactsoundtag="impact_metal_light" maxstacksize="32" maxstacksizecharacterinventory="8">
     <PreferredContainer primary="medcab" spawnprobability="0.2"/>
     <PreferredContainer primary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="2" spawnprobability="0.1"/>
     <PreferredContainer primary="outposttrashcan" minamount="0" maxamount="2" spawnprobability="0.01"/>
@@ -1196,7 +1196,7 @@
   <!-- Thiamine / organ fixer -->
   <Item name="" identifier="thiamine" category="Material" cargocontaineridentifier="mediccrate"
       Tags="smallitem,chem,medical" description="" useinhealthinterface="true" scale="0.2"
-      impactsoundtag="impact_metal_light" maxstacksize="8">
+      impactsoundtag="impact_metal_light" maxstacksize="32" maxstacksizecharacterinventory="8">
     <PreferredContainer primary="medcab" spawnprobability="0.2"/>
     <PreferredContainer primary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="2" spawnprobability="0.1"/>
     <PreferredContainer primary="outposttrashcan" minamount="0" maxamount="2" spawnprobability="0.01"/>
@@ -1237,7 +1237,7 @@
   <!-- ??? / blood pressure reducer -->
   <Item name="" identifier="pressuremeds" category="Material" cargocontaineridentifier="mediccrate"
       Tags="smallitem,chem,medical" description="" useinhealthinterface="true" scale="0.2"
-      impactsoundtag="impact_metal_light" maxstacksize="8">
+      impactsoundtag="impact_metal_light" maxstacksize="32" maxstacksizecharacterinventory="8">
     <PreferredContainer primary="medcab" spawnprobability="0.2"/>
     <PreferredContainer primary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="2" spawnprobability="0.1"/>
     <PreferredContainer primary="outposttrashcan" minamount="0" maxamount="2" spawnprobability="0.01"/>
@@ -1278,7 +1278,7 @@
   <!-- Streptokinase / heals heart attack -->
   <Item name="" identifier="streptokinase" category="Material" cargocontaineridentifier="mediccrate"
       Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.275"
-      impactsoundtag="impact_metal_light" maxstacksize="8">
+      impactsoundtag="impact_metal_light" maxstacksize="32" maxstacksizecharacterinventory="8">
     <PreferredContainer primary="medcab" spawnprobability="0.2"/>
     <PreferredContainer primary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="2" spawnprobability="0.25"/>
     <PreferredContainer primary="outposttrashcan" minamount="0" maxamount="2" spawnprobability="0.01"/>
@@ -1307,7 +1307,7 @@
   
   
   <!-- Ointment / heals infected wound -->
-  <Item name="" identifier="ointment" category="Equipment" Tags="smallitem,medical" maxstacksize="8"
+  <Item name="" identifier="ointment" category="Equipment" Tags="smallitem,medical" maxstacksize="32" maxstacksizecharacterinventory="8"
           useinhealthinterface="true" cargocontaineridentifier="mediccrate" scale="0.265" impactsoundtag="impact_soft">
         <PreferredContainer primary="medcab" minamount="4" maxamount="6" spawnprobability="1"/>
         <PreferredContainer primary="supplycab" minamount="1" maxamount="3" spawnprobability="0.2"/>
@@ -1387,7 +1387,7 @@
             <Containable items="antiseptic"/>
         </ItemContainer>
     </Item>
-  <Item name="" identifier="antiseptic" category="Material" maxstacksize="8" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="antiseptic" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate"
           description="" Tags="smallitem,chem,medical" scale="0.3">
         <Upgrade gameversion="0.10.0.0" scale="0.3"/>
         <PreferredContainer primary="medcab" minamount="0" maxamount="1" spawnprobability="1"/>
@@ -1453,7 +1453,7 @@
   <!-- /// Blood stuff /// -->
   
   <Override>
-    <Item name="" identifier="antibloodloss2" nameidentifier="bloodpackominus" category="Medical" maxstacksize="8"
+    <Item name="" identifier="antibloodloss2" nameidentifier="bloodpackominus" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8"
           cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,petfood1" useinhealthinterface="true"
           description="" scale="0.5" impactsoundtag="impact_soft">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
@@ -1564,7 +1564,7 @@
   </Item>
 
 	
-  <Item name="" identifier="emptybloodpack" category="Material" maxstacksize="8" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="emptybloodpack" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate"
           Tags="smallitem,chem,medical" useinhealthinterface="true" description="" scale="0.5"
           impactsoundtag="impact_soft">
 		    <PreferredContainer primary="medcab" minamount="1" maxamount="2" spawnprobability="1"/>
@@ -1707,7 +1707,7 @@
   </Item>
   <Item name="" identifier="bloodcollector" category="Material,Equipment" description=""
           cargocontaineridentifier="mediccrate" Tags="smallitem,Material,vial,medical" useinhealthinterface="true" scale="0.170"
-          impactsoundtag="impact_metal_light" maxstacksize="8">
+          impactsoundtag="impact_metal_light" maxstacksize="32" maxstacksizecharacterinventory="8">
     <PreferredContainer primary="medcab" minamount="1" maxamount="8" spawnprobability="1"/>
     <Price baseprice="5">
       <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="8"/>
@@ -1827,7 +1827,7 @@
         <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
       </Attack>
     </MeleeWeapon>
-    <ItemContainer capacity="9" keepopenwhenequipped="true" movableframe="true">
+    <ItemContainer capacity="9" keepopenwhenequipped="true" movableframe="true" maxstacksize="8">
       <Containable items="medical,chem,organ" excludeditems="toolbelt,toolbox" />
     </ItemContainer>
     <aitarget sightrange="1000" soundrange="1000" fadeouttime="2" />
@@ -2248,46 +2248,6 @@
       <Price storeidentifier="merchantmedical" sold="false"/>
     </Price>
   </Item>
-  <Item name="" identifier="livertransplant_q2" variantof="livertransplant" category="hidden">
-    <Price baseprice="160" soldbydefault="false">
-      <Price storeidentifier="merchantmedical" sold="false"/>
-    </Price>
-    <ItemComponent>
-      <StatusEffect type="Always" target="This" Condition="80" setvalue="true">
-        <Conditional Condition="gt 90" />
-      </StatusEffect>
-    </ItemComponent>
-  </Item>
-  <Item name="" identifier="livertransplant_q3" variantof="livertransplant" category="hidden">
-    <Price baseprice="120" soldbydefault="false">
-      <Price storeidentifier="merchantmedical" sold="false"/>
-    </Price>
-    <ItemComponent>
-      <StatusEffect type="Always" target="This" Condition="60" setvalue="true">
-        <Conditional Condition="gt 90" />
-      </StatusEffect>
-    </ItemComponent>
-  </Item>
-  <Item name="" identifier="livertransplant_q4" variantof="livertransplant" category="hidden">
-    <Price baseprice="80" soldbydefault="false">
-      <Price storeidentifier="merchantmedical" sold="false"/>
-    </Price>
-    <ItemComponent>
-      <StatusEffect type="Always" target="This" Condition="40" setvalue="true">
-        <Conditional Condition="gt 90" />
-      </StatusEffect>
-    </ItemComponent>
-  </Item>
-  <Item name="" identifier="livertransplant_q5" variantof="livertransplant" category="hidden">
-    <Price baseprice="40" soldbydefault="false">
-      <Price storeidentifier="merchantmedical" sold="false"/>
-    </Price>
-    <ItemComponent>
-      <StatusEffect type="Always" target="This" Condition="20" setvalue="true">
-        <Conditional Condition="gt 90" />
-      </StatusEffect>
-    </ItemComponent>
-  </Item>
   
   <Item name="" identifier="lungtransplant" description="" scale="0.4" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3">
     <Price baseprice="2000" soldbydefault="false">
@@ -2329,46 +2289,6 @@
     <Price baseprice="400" soldbydefault="false">
       <Price storeidentifier="merchantmedical" sold="false"/>
     </Price>
-  </Item>
-  <Item name="" identifier="lungtransplant_q2" variantof="lungtransplant" category="hidden">
-    <Price baseprice="320" soldbydefault="false">
-      <Price storeidentifier="merchantmedical" sold="false"/>
-    </Price>
-    <ItemComponent>
-      <StatusEffect type="Always" target="This" Condition="80" setvalue="true">
-        <Conditional Condition="gt 90" />
-      </StatusEffect>
-    </ItemComponent>
-  </Item>
-  <Item name="" identifier="lungtransplant_q3" variantof="lungtransplant" category="hidden">
-    <Price baseprice="240" soldbydefault="false">
-      <Price storeidentifier="merchantmedical" sold="false"/>
-    </Price>
-    <ItemComponent>
-      <StatusEffect type="Always" target="This" Condition="60" setvalue="true">
-        <Conditional Condition="gt 90" />
-      </StatusEffect>
-    </ItemComponent>
-  </Item>
-  <Item name="" identifier="lungtransplant_q4" variantof="lungtransplant" category="hidden">
-    <Price baseprice="160" soldbydefault="false">
-      <Price storeidentifier="merchantmedical" sold="false"/>
-    </Price>
-    <ItemComponent>
-      <StatusEffect type="Always" target="This" Condition="40" setvalue="true">
-        <Conditional Condition="gt 90" />
-      </StatusEffect>
-    </ItemComponent>
-  </Item>
-  <Item name="" identifier="lungtransplant_q5" variantof="lungtransplant" category="hidden">
-    <Price baseprice="80" soldbydefault="false">
-      <Price storeidentifier="merchantmedical" sold="false"/>
-    </Price>
-    <ItemComponent>
-      <StatusEffect type="Always" target="This" Condition="20" setvalue="true">
-        <Conditional Condition="gt 90" />
-      </StatusEffect>
-    </ItemComponent>
   </Item>
 
   <Item name="" identifier="kidneytransplant" description="" scale="0.4" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3">
@@ -2412,46 +2332,6 @@
       <Price storeidentifier="merchantmedical" sold="false"/>
     </Price>
   </Item>
-  <Item name="" identifier="kidneytransplant_q2" variantof="kidneytransplant" category="hidden">
-    <Price baseprice="80" soldbydefault="false">
-      <Price storeidentifier="merchantmedical" sold="false"/>
-    </Price>
-    <ItemComponent>
-      <StatusEffect type="Always" target="This" Condition="80" setvalue="true">
-        <Conditional Condition="gt 90" />
-      </StatusEffect>
-    </ItemComponent>
-  </Item>
-  <Item name="" identifier="kidneytransplant_q3" variantof="kidneytransplant" category="hidden">
-    <Price baseprice="60" soldbydefault="false">
-      <Price storeidentifier="merchantmedical" sold="false"/>
-    </Price>
-    <ItemComponent>
-      <StatusEffect type="Always" target="This" Condition="60" setvalue="true">
-        <Conditional Condition="gt 90" />
-      </StatusEffect>
-    </ItemComponent>
-  </Item>
-  <Item name="" identifier="kidneytransplant_q4" variantof="kidneytransplant" category="hidden">
-    <Price baseprice="40" soldbydefault="false">
-      <Price storeidentifier="merchantmedical" sold="false"/>
-    </Price>
-    <ItemComponent>
-      <StatusEffect type="Always" target="This" Condition="40" setvalue="true">
-        <Conditional Condition="gt 90" />
-      </StatusEffect>
-    </ItemComponent>
-  </Item>
-  <Item name="" identifier="kidneytransplant_q5" variantof="kidneytransplant" category="hidden">
-    <Price baseprice="20" soldbydefault="false">
-      <Price storeidentifier="merchantmedical" sold="false"/>
-    </Price>
-    <ItemComponent>
-      <StatusEffect type="Always" target="This" Condition="20" setvalue="true">
-        <Conditional Condition="gt 90" />
-      </StatusEffect>
-    </ItemComponent>
-  </Item>
 
   <Item name="" identifier="hearttransplant" description="" scale="0.4" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3">
     <Price baseprice="4000" soldbydefault="false">
@@ -2493,46 +2373,6 @@
     <Price baseprice="600" soldbydefault="false">
       <Price storeidentifier="merchantmedical" sold="false"/>
     </Price>
-  </Item>
-  <Item name="" identifier="hearttransplant_q2" variantof="hearttransplant" category="hidden">
-    <Price baseprice="500" soldbydefault="false">
-      <Price storeidentifier="merchantmedical" sold="false"/>
-    </Price>
-    <ItemComponent>
-      <StatusEffect type="Always" target="This" Condition="80" setvalue="true">
-        <Conditional Condition="gt 90" />
-      </StatusEffect>
-    </ItemComponent>
-  </Item>
-  <Item name="" identifier="hearttransplant_q3" variantof="hearttransplant" category="hidden">
-    <Price baseprice="400" soldbydefault="false">
-      <Price storeidentifier="merchantmedical" sold="false"/>
-    </Price>
-    <ItemComponent>
-      <StatusEffect type="Always" target="This" Condition="60" setvalue="true">
-        <Conditional Condition="gt 90" />
-      </StatusEffect>
-    </ItemComponent>
-  </Item>
-  <Item name="" identifier="hearttransplant_q4" variantof="hearttransplant" category="hidden">
-    <Price baseprice="300" soldbydefault="false">
-      <Price storeidentifier="merchantmedical" sold="false"/>
-    </Price>
-    <ItemComponent>
-      <StatusEffect type="Always" target="This" Condition="40" setvalue="true">
-        <Conditional Condition="gt 90" />
-      </StatusEffect>
-    </ItemComponent>
-  </Item>
-  <Item name="" identifier="hearttransplant_q5" variantof="hearttransplant" category="hidden">
-    <Price baseprice="200" soldbydefault="false">
-      <Price storeidentifier="merchantmedical" sold="false"/>
-    </Price>
-    <ItemComponent>
-      <StatusEffect type="Always" target="This" Condition="20" setvalue="true">
-        <Conditional Condition="gt 90" />
-      </StatusEffect>
-    </ItemComponent>
   </Item>
 
   <Item name="" identifier="braintransplant" description="" scale="0.3" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="1.5" Tags="smallitem,organ,petfood1,petfood2,petfood3,braintransplant">
@@ -2941,7 +2781,7 @@
       </ItemContainer>
     </Item>
   <!-- Fluids -->
-    <Item name="" identifier="alienblood" category="Material" maxstacksize="8"
+    <Item name="" identifier="alienblood" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8"
           cargocontaineridentifier="chemicalcrate" description="" Tags="smallitem,chem,medical"
           useinhealthinterface="true" scale="0.5">
       <Upgrade gameversion="0.10.0.0" scale="0.5"/>
@@ -2977,7 +2817,7 @@
       </MeleeWeapon>
       <SkillRequirementHint identifier="medical" level="40"/>
     </Item>
-    <Item name="" identifier="antibloodloss1" category="Medical" maxstacksize="8"
+    <Item name="" identifier="antibloodloss1" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8"
           cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,petfood1,petfood2,petfood3"
           useinhealthinterface="true" description="" scale="0.5" impactsoundtag="impact_soft">
       <Upgrade gameversion="0.10.0.0" scale="0.5"/>
@@ -3024,7 +2864,7 @@
     </Item>
   <!-- Bandages -->
     <Item name="" identifier="antibleeding1" aliases="Bandage" category="Medical" Tags="smallitem,medical"
-          maxstacksize="8" useinhealthinterface="true" cargocontaineridentifier="mediccrate" description=""
+          maxstacksize="32" maxstacksizecharacterinventory="8" useinhealthinterface="true" cargocontaineridentifier="mediccrate" description=""
           scale="0.5" impactsoundtag="impact_soft">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
       <PreferredContainer secondary="supplycab" minamount="1" maxamount="2" spawnprobability="0.5" notcampaign="true"/>
@@ -3059,7 +2899,7 @@
       </MeleeWeapon>
       <SkillRequirementHint identifier="medical" level="10"/>
     </Item>
-    <Item name="" identifier="antibleeding2" category="Medical" Tags="smallitem,medical" maxstacksize="8"
+    <Item name="" identifier="antibleeding2" category="Medical" Tags="smallitem,medical" maxstacksize="32" maxstacksizecharacterinventory="8"
           cargocontaineridentifier="mediccrate" description="" useinhealthinterface="true" scale="0.5"
           impactsoundtag="impact_soft">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
@@ -3230,7 +3070,7 @@
       </Controller>
     </Item>
   <!-- Opium, Morphine, Fentanyl, Naloxone -->
-    <Item name="" identifier="opium" category="Medical" maxstacksize="8" Tags="smallitem,chem,medical" description=""
+    <Item name="" identifier="opium" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" Tags="smallitem,chem,medical" description=""
           cargocontaineridentifier="mediccrate" scale="0.5" useinhealthinterface="true">
       <Upgrade gameversion="0.10.0.0" scale="0.5"/>
       <PreferredContainer secondary="abandonedmedcab,wreckmedcab" minamount="1" maxamount="2" spawnprobability="0.5" />
@@ -3281,7 +3121,7 @@
       </MeleeWeapon>
       <SkillRequirementHint identifier="medical" level="15"/>
     </Item>
-    <Item name="" identifier="antidama1" aliases="Corrigodone" category="Medical" maxstacksize="8"
+    <Item name="" identifier="antidama1" aliases="Corrigodone" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8"
           cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" description=""
           useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
@@ -3360,7 +3200,7 @@
       <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
       <SkillRequirementHint identifier="medical" level="30"/>
     </Item>
-    <Item name="" identifier="antidama2" category="Medical" maxstacksize="8" cargocontaineridentifier="mediccrate"
+    <Item name="" identifier="antidama2" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate"
           Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5"
           impactsoundtag="impact_metal_light">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
@@ -3436,7 +3276,7 @@
       <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
       <SkillRequirementHint identifier="medical" level="72"/>
     </Item>
-    <Item name="" identifier="antinarc" category="Medical" maxstacksize="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" useinhealthinterface="true" description="" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <Item name="" identifier="antinarc" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" useinhealthinterface="true" description="" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
       <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.2" />
       <PreferredContainer secondary="outpostmedcab" amount="1" spawnprobability="0.5" />
@@ -3493,7 +3333,7 @@
       <SkillRequirementHint identifier="medical" level="39"/>
     </Item>
   <!-- Antibiotics, Adrenaline -->
-    <Item name="" identifier="antibiotics" category="Medical" maxstacksize="8"
+    <Item name="" identifier="antibiotics" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8"
           Tags="smallitem,chem,medical,syringe" description="" cargocontaineridentifier="mediccrate" scale="0.5"
           useinhealthinterface="true">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
@@ -3553,7 +3393,7 @@
       <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
       <SkillRequirementHint identifier="medical" level="25"/>
     </Item>
-    <Item name="" identifier="adrenaline" category="Medical,Material" maxstacksize="8" cargocontaineridentifier="mediccrate"
+    <Item name="" identifier="adrenaline" category="Medical,Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate"
           Tags="smallitem,chem,medical,syringe" useinhealthinterface="true" scale="0.5"
           impactsoundtag="impact_metal_light">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
@@ -3772,7 +3612,7 @@
       </Holdable>
     </Item>
   <!-- liquid oxygenite -->
-    <Item name="" identifier="liquidoxygenite" category="Medical" maxstacksize="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" impacttolerance="8" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <Item name="" identifier="liquidoxygenite" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" impacttolerance="8" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
       <Price baseprice="80">
         <Price storeidentifier="merchantmedical" multiplier="0.9" minavailable="4" />
@@ -3831,7 +3671,7 @@
       <SkillRequirementHint identifier="medical" level="72" />
     </Item>
   <!-- deusizine -->
-    <Item name="" identifier="deusizine" aliases="Auxiliriozine" category="Medical" maxstacksize="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <Item name="" identifier="deusizine" aliases="Auxiliriozine" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
       <PreferredContainer secondary="wreckmedcab,abandonedmedcab" minamount="1" maxamount="2" spawnprobability="0.2" />
       <PreferredContainer secondary="outposttrashcan" amount="1" spawnprobability="0.02" />
@@ -3897,7 +3737,7 @@
       <SkillRequirementHint identifier="medical" level="72" />
     </Item>
   <!-- antibiotic glue -->
-    <Item name="" identifier="antibleeding3" category="Medical" Tags="smallitem,medical" maxstacksize="8" cargocontaineridentifier="mediccrate" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <Item name="" identifier="antibleeding3" category="Medical" Tags="smallitem,medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
       <PreferredContainer primary="medcab" secondary="medcontainer"/>
       <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.3" />
@@ -3950,7 +3790,7 @@
       <SkillRequirementHint identifier="medical" level="55" />
     </Item>
   <!-- meth -->
-    <Item name="" identifier="meth" category="Medical" maxstacksize="8" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <Item name="" identifier="meth" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
       <PreferredContainer primary="medcab"/>
       <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.2" />
@@ -4023,7 +3863,7 @@
       <SkillRequirementHint identifier="medical" level="35" />
     </Item>
   <!-- hyperzine -->
-    <Item name="" identifier="hyperzine" category="Medical" maxstacksize="8" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <Item name="" identifier="hyperzine" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
       <PreferredContainer primary="medcab"/>
       <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.1" />
@@ -4149,7 +3989,7 @@
       <SkillRequirementHint identifier="medical" level="30" />
     </Item>
   <!-- Haloperidol -->
-    <Item name="" identifier="antipsychosis" category="Medical" maxstacksize="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" useinhealthinterface="true" description="" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <Item name="" identifier="antipsychosis" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" useinhealthinterface="true" description="" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
       <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.2" />
       <PreferredContainer secondary="outpostmedcab" amount="1" spawnprobability="0.2" />
@@ -4212,7 +4052,7 @@
       <SkillRequirementHint identifier="medical" level="37" />
     </Item>
   <!-- Anaparalyzant -->
-    <Item name="" identifier="antiparalysis" category="Medical" maxstacksize="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <Item name="" identifier="antiparalysis" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
       <PreferredContainer secondary="wrecksupplycab" amount="1" spawnprobability="0.3" />
       <PreferredContainer secondary="wreckmedcab,abandonedmedcab" minamount="1" maxamount="2" spawnprobability="0.8" />
@@ -4303,7 +4143,7 @@
     </Item>
 
   <!-- Tonic liquid | change: vanilla heals 12 damage over 120 seconds for whatever reason. this one doesn't.-->
-    <Item name="" identifier="tonicliquid" category="Medical,Material" maxstacksize="8" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <Item name="" identifier="tonicliquid" category="Medical,Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
       <PreferredContainer primary="medfabcab" secondary="medcontainer"/>
       <PreferredContainer secondary="wreckmedcab,abandonedmedcab" minamount="1" maxamount="2" spawnprobability="0.1" />
@@ -4342,7 +4182,7 @@
     </Item>
   
   <!-- Nitroglycerin | change: now acts as blood pressure reducing medicine.-->
-  <Item name="" identifier="nitroglycerin" category="Medical,Material,Weapon" maxstacksize="8" description="" spritecolor="1.0,1.0,1.0,1.0" containercolor="1.0,1.0,1.0,1.0" cargocontaineridentifier="explosivecrate" Tags="smallitem,chem,medical" impacttolerance="6" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="nitroglycerin" category="Medical,Material,Weapon" maxstacksize="32" maxstacksizecharacterinventory="8" description="" spritecolor="1.0,1.0,1.0,1.0" containercolor="1.0,1.0,1.0,1.0" cargocontaineridentifier="explosivecrate" Tags="smallitem,chem,medical" impacttolerance="6" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="secarmcab" secondary="armcab"/>
     <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" amount="1" spawnprobability="0.01"/>
     <Price baseprice="150">
