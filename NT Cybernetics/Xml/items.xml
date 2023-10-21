@@ -289,7 +289,7 @@
   </Override>
   <!-- fpga circuit -->
   <Override>
-    <Item name="" identifier="fpgacircuit" category="Electrical" Tags="smallitem,signal" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" useinhealthinterface="True">
+    <Item name="" identifier="fpgacircuit" category="Electrical" Tags="smallitem,signal" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" useinhealthinterface="True">
       <Price baseprice="80">
         <Price storeidentifier="merchantoutpost" />
         <Price storeidentifier="merchantcity" sold="false"/>
@@ -428,7 +428,7 @@
   </Override>
   <!-- steel -->
   <Override>
-    <Item name="" identifier="steel" category="Material" maxstacksize="8" Tags="smallitem,petfood3" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.4" impactsoundtag="impact_metal_light" useinhealthinterface="True">
+    <Item name="" identifier="steel" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" Tags="smallitem,petfood3" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.4" impactsoundtag="impact_metal_light" useinhealthinterface="True">
     <PreferredContainer primary="storagecab" />
     <PreferredContainer secondary="wreckstorage,abandonedstoragecab" minamount="1" maxamount="2" spawnprobability="0.05" />
     <Price baseprice="28">
