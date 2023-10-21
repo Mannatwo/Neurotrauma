@@ -596,6 +596,8 @@ NT.ItemMethods.advscalpel = function(item, usingCharacter, targetCharacter, limb
             HF.AddAfflictionLimb(targetCharacter,"bleeding",limbtype,15,usingCharacter)
             HF.AddAfflictionLimb(targetCharacter,"lacerations",limbtype,10,usingCharacter)
         end
+
+        HF.GiveItem(targetCharacter,"ntsfx_slash")
     end
 end
 NT.ItemMethods.advhemostat = function(item, usingCharacter, targetCharacter, limb) 
@@ -771,6 +773,8 @@ NT.ItemMethods.organscalpel_liver = function(item, usingCharacter, targetCharact
                 HF.AddAfflictionLimb(targetCharacter,"organdamage",limbtype,5,usingCharacter)
                 HF.AddAffliction(targetCharacter,"liverdamage",20,usingCharacter)
             end
+
+            HF.GiveItem(targetCharacter,"ntsfx_slash")
         end
     end
 end
@@ -824,6 +828,9 @@ NT.ItemMethods.organscalpel_lungs = function(item, usingCharacter, targetCharact
                 HF.AddAfflictionLimb(targetCharacter,"organdamage",limbtype,5,usingCharacter)
                 HF.AddAffliction(targetCharacter,"lungdamage",20,usingCharacter)
             end
+
+            HF.GiveItem(targetCharacter,"ntsfx_slash")
+
         end
     end
 end
@@ -877,6 +884,9 @@ NT.ItemMethods.organscalpel_heart = function(item, usingCharacter, targetCharact
                 HF.AddAfflictionLimb(targetCharacter,"organdamage",limbtype,5,usingCharacter)
                 HF.AddAffliction(targetCharacter,"heartdamage",20,usingCharacter)
             end
+
+            HF.GiveItem(targetCharacter,"ntsfx_slash")
+
         end
     end
 end
@@ -953,6 +963,9 @@ NT.ItemMethods.organscalpel_kidneys = function(item, usingCharacter, targetChara
                 HF.AddAfflictionLimb(targetCharacter,"organdamage",limbtype,5,usingCharacter)
                 HF.AddAffliction(targetCharacter,"kidneydamage",20,usingCharacter)
             end
+
+            HF.GiveItem(targetCharacter,"ntsfx_slash")
+
         end
     end
 end
@@ -1005,6 +1018,9 @@ NT.ItemMethods.organscalpel_brain = function(item, usingCharacter, targetCharact
                 HF.AddAfflictionLimb(targetCharacter,"bleeding",limbtype,15,usingCharacter)
                 HF.AddAffliction(targetCharacter,"cerebralhypoxia",50,usingCharacter)
             end
+
+            HF.GiveItem(targetCharacter,"ntsfx_slash")
+
         end
     end
 end

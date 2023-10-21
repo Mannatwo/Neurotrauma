@@ -71,6 +71,7 @@ if (Game.IsMultiplayer and SERVER) or not Game.IsMultiplayer then
     dofile(NT.Path.."/Lua/Scripts/Server/surgerytable.lua")
     dofile(NT.Path.."/Lua/Scripts/Server/fuckbots.lua")
     dofile(NT.Path.."/Lua/Scripts/Server/lootcrates.lua")
+    dofile(NT.Path.."/Lua/Scripts/Server/multiscalpel.lua") -- its important for this to run after items.lua
     
     dofile(NT.Path.."/Lua/Scripts/testing.lua")
 end

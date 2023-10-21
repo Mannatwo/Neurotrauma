@@ -910,3 +910,9 @@ function HF.Explode(entity,range,force,damage,structureDamage,itemDamage,empStre
 
     HF.SpawnItemAt("ntvfx_explosion",entity.WorldPosition)
 end
+
+function HF.GetText(identifier)
+    local text = TextManager.Get(identifier)
+    if text ~= nil then return text.Value end
+    return identifier
+end

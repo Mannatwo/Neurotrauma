@@ -84,6 +84,26 @@
 <entityname.organscalpel_brain>Organ procurement scalpel: Brain</entityname.organscalpel_brain>
 <entitydescription.organscalpel_brain>A specialized scalpel for the removal of the brain.</entitydescription.organscalpel_brain>
 
+<entityname.multiscalpel>Multipurpose scalpel</entityname.multiscalpel>
+<entitydescription.multiscalpel>A scalpel you can choose what to do with, be it make an incision, extract organs, remove bandages, or do malpractice.</entitydescription.multiscalpel>
+<multiscalpel.incision>Mode: Surgery incision</multiscalpel.incision>
+<multiscalpel.kidneys>Mode: Extract kidneys</multiscalpel.kidneys>
+<multiscalpel.liver>Mode: Extract liver</multiscalpel.liver>
+<multiscalpel.lungs>Mode: Extract lungs</multiscalpel.lungs>
+<multiscalpel.heart>Mode: Extract heart</multiscalpel.heart>
+<multiscalpel.brain>Mode: Extract brain</multiscalpel.brain>
+<multiscalpel.bandage>Mode: Remove bandages and casts / malpractice</multiscalpel.bandage>
+<multiscalpel.speedflex>Mode: Adaptive organ extraction. Use on head for brain, left arm for kidneys, torso for liver, right arm for heart, left leg for lungs.</multiscalpel.speedflex>
+
+<multiscalpel.btn.incision>Incision</multiscalpel.btn.incision>
+<multiscalpel.btn.kidneys>Kidneys</multiscalpel.btn.kidneys>
+<multiscalpel.btn.liver>Liver</multiscalpel.btn.liver>
+<multiscalpel.btn.lungs>Lungs</multiscalpel.btn.lungs>
+<multiscalpel.btn.heart>Heart</multiscalpel.btn.heart>
+<multiscalpel.btn.brain>Brain</multiscalpel.btn.brain>
+<multiscalpel.btn.bandage>Bandages, casts, malpractice</multiscalpel.btn.bandage>
+<multiscalpel.btn.speedflex>Adaptive organ extraction</multiscalpel.btn.speedflex>
+
 
 
 <!-- /// Treatments /// -->
