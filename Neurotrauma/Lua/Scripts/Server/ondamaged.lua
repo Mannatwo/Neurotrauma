@@ -32,6 +32,8 @@ Hook.Add("character.applyDamage", "NT.ondamaged", function (characterHealth, att
         if methodtorun ~= nil then 
             methodtorun(characterHealth.Character,value.Strength,hitLimb.type)
         end
+
+        print(identifier.." "..tostring(value.Strengt))
     end
 
     -- ntc

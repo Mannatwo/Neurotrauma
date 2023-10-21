@@ -9,7 +9,6 @@ end
 
 local function GetMultiscalpelMode(item)
     local functiontag = ""
-    print(item.Tags)
     local tags = HF.SplitString(item.Tags,",")
     for tag in tags do
         if HF.StartsWith(tag,"multiscalpel_") then
@@ -18,7 +17,6 @@ local function GetMultiscalpelMode(item)
         end
     end
 
-    print(item.Tags)
     return functiontag
 end
 
@@ -76,14 +74,12 @@ function NT.RefreshAllMultiscalpels()
 
     -- fetch scalpel items
     local scalpelItems = {}
-    print(#Item.ItemList)
     for item in Item.ItemList do
         if item.Prefab.Identifier.Value == "multiscalpel" then
             table.insert(scalpelItems,item)
         end
     end
     -- refresh items
-    print(#scalpelItems)
     for scalpel in scalpelItems do
         NT.RefreshScalpelDescription(scalpel)
     end
