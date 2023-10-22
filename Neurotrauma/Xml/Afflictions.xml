@@ -2125,8 +2125,8 @@
     iconcolors="127,127,127,255;127,127,127,255">
 
     <Effect minstrength="0" maxstrength="100">
-      <StatusEffect target="Character" targetlimb="RightArm">
-        <ReduceAffliction identifier="gangrene" amount="100"/>
+      <StatusEffect target="Character" targetlimb="RightArm" interval="1" disabledeltatime="true">
+        <Affliction identifier="gangrene" amount="-100"/>
       </StatusEffect>
     </Effect>
 
@@ -2149,8 +2149,8 @@
     iconcolors="127,127,127,255;127,127,127,255">
 
     <Effect minstrength="0" maxstrength="100">
-      <StatusEffect target="Character" targetlimb="LeftArm">
-        <ReduceAffliction identifier="gangrene" amount="100"/>
+      <StatusEffect target="Character" targetlimb="LeftArm" interval="1" disabledeltatime="true">
+        <Affliction identifier="gangrene" amount="-100"/>
       </StatusEffect>
     </Effect>
 
@@ -2173,8 +2173,8 @@
     iconcolors="127,127,127,255;127,127,127,255">
 
     <Effect minstrength="0" maxstrength="100">
-      <StatusEffect target="Character" targetlimb="RightLeg">
-        <ReduceAffliction identifier="gangrene" amount="100"/>
+      <StatusEffect target="Character" targetlimb="RightLeg" interval="1" disabledeltatime="true">
+        <Affliction identifier="gangrene" amount="-100"/>
       </StatusEffect>
     </Effect>
 
@@ -2197,8 +2197,8 @@
     iconcolors="127,127,127,255;127,127,127,255">
 
     <Effect minstrength="0" maxstrength="100"> 
-      <StatusEffect target="Character" targetlimb="LeftLeg">
-        <ReduceAffliction identifier="gangrene" amount="100"/>
+      <StatusEffect target="Character" targetlimb="LeftLeg" interval="1" disabledeltatime="true">
+        <Affliction identifier="gangrene" amount="-100"/>
       </StatusEffect>
     </Effect>
 
