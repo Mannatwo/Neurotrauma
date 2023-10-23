@@ -3548,16 +3548,22 @@
       </Price>
       <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="511,957,64,64" origin="0.5,0.5" />
       <Sprite texture="Content/Items/Misc/Misc.png" sourcerect="105,73,50,30" depth="0.55" origin="0.5,0.5" />
-      <Body width="58" height="20" />
-      <Holdable slots="Any,RightHand" aimable="false" aimpos="28,10" handle1="10,-5" swingamount="0,0" swingspeed="0.5" swingwhenusing="true" msg="ItemMsgPickUpSelect">
-        <StatusEffect type="OnUse" target="This">
+      <Body width="58" height="20" density="15" />
+      <Holdable slots="Any,RightHand,LeftHand" aimable="false" aimpos="28,10" handle1="10,-5" swingamount="0,0" swingspeed="0.5" swingwhenusing="true" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnSecondaryUse" target="This">
+          <Conditional InWater="false" />
           <ParticleEmitter particle="swirlysmoke" particlespersecond="1" scalemin="1" scalemax="2" anglemin="0" anglemax="360" velocitymin="0" velocitymax="10"/>
           <RequiredItem items="pipetobacco" type="Contained" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Contained" Condition="-4.0" disabledeltatime="false">
+        <StatusEffect type="OnSecondaryUse" target="This">
+          <Conditional InWater="true" />
+          <ParticleEmitter particle="bubbles" particlespersecond="3" scalemin="0.3" scalemax="0.5" anglemin="0" anglemax="360" velocitymin="0" velocitymax="10"/>
           <RequiredItem items="pipetobacco" type="Contained" />
         </StatusEffect>
-        <StatusEffect tags="medical" type="OnUse" target="Character">
+        <StatusEffect type="OnSecondaryUse" target="Contained" Condition="-4.0" disabledeltatime="false">
+          <RequiredItem items="pipetobacco" type="Contained" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnSecondaryUse" target="Character">
           <Affliction identifier="psychosisresistance" amount="15" />
           <ReduceAffliction identifier="psychosis" amount="5" />
           <ReduceAffliction identifier="hallucinating" amount="10" />
@@ -3566,11 +3572,12 @@
         </StatusEffect>
       </Holdable>
       <ItemContainer hideitems="true" drawinventory="true" capacity="1" maxstacksize="1" slotsperrow="6" itempos="74,-281" iteminterval="0,0" itemrotation="0" canbeselected="false" containedspritedepth="0.79">
+        <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="0,384,64,64" origin="0.5,0.5" />
         <Containable items="pipetobacco" />
       </ItemContainer>
     </Item>
   <!-- cigar -->
-    <Item name="" identifier="cigar" category="Misc" Tags="smallitem" scale="0.5" cargocontaineridentifier="metalcrate" impactsoundtag="impact_soft" isshootable="true" requireaimtouse="true">
+    <Item name="" identifier="cigar" category="Misc" Tags="smallitem" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" impactsoundtag="impact_soft" isshootable="true" requireaimtouse="true">
       <PreferredContainer primary="crewcab"/>
       <Price baseprice="130" sold="false" />
       <Fabricate suitablefabricators="fabricator" requiredtime="5" requiresrecipe="true">
@@ -3578,12 +3585,19 @@
       </Fabricate>
       <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="174,234,42,50" origin="0.5,0.5" />
       <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,60,50,12" depth="0.55" origin="0.5,0.5" />
-      <Body width="45" height="10" />
-      <Holdable slots="Any,RightHand" aimable="false" aimpos="30,14" handle1="0,-10" swingamount="0,0" swingspeed="0.5" swingwhenusing="true" msg="ItemMsgPickUpSelect">
-        <StatusEffect type="OnUse" target="This" Condition="-4.0">
-          <ParticleEmitter particle="swirlysmoke" particlespersecond="2" scalemin="1" scalemax="2" anglemin="0" anglemax="360" velocitymin="0" velocitymax="10" />
+      <Body width="45" height="10" density="9.9"/>
+      <Holdable slots="Any,RightHand,LeftHand" aimable="false" aimpos="30,14" handle1="0,-10" swingamount="0,0" swingspeed="0.5" swingwhenusing="true" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnSecondaryUse" target="This" Condition="-4.0" />
+        <StatusEffect type="OnSecondaryUse" target="This">
+          <Conditional InWater="false" />
+          <ParticleEmitter particle="swirlysmoke" particlespersecond="1" scalemin="1" scalemax="2" anglemin="0" anglemax="360" velocitymin="0" velocitymax="10"/>
         </StatusEffect>
-        <StatusEffect tags="medical" type="OnUse" target="Character">
+        <StatusEffect type="OnSecondaryUse" target="This">
+          <Conditional InWater="true" />
+          <ParticleEmitter particle="bubbles" particlespersecond="3" scalemin="0.3" scalemax="0.5" anglemin="0" anglemax="360" velocitymin="0" velocitymax="10"/>
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnSecondaryUse" target="Character">
+          <Conditional InWater="false" />
           <Affliction identifier="psychosisresistance" amount="20" />
           <Affliction identifier="lungdamage" amount="0.6" />
           <ReduceAffliction identifier="psychosis" amount="6" />
