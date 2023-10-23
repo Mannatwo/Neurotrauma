@@ -1812,7 +1812,7 @@
         <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
       </Attack>
     </MeleeWeapon>
-    <ItemContainer capacity="9" keepopenwhenequipped="true" movableframe="true" maxstacksize="8">
+    <ItemContainer capacity="9" keepopenwhenequipped="true" movableframe="true">
       <Containable items="medical,chem,organ" excludeditems="toolbelt,toolbox" />
     </ItemContainer>
     <aitarget sightrange="1000" soundrange="1000" fadeouttime="2" />
