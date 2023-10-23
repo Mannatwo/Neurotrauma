@@ -321,7 +321,7 @@
       <sprite texture="Content/Map/Outposts/Art/MedBayAssets.png" depth="0.025" sourcerect="96,304,416,192"
               origin="0.5,0.5" alpha="1.0"/>
     </LightComponent>
-    <Controller UserPos="0,-300" direction="Right" hidehud="false" canbeselected="true">
+    <Controller allowingameediting="false" UserPos="0,-300" direction="Right" hidehud="false" canbeselected="true">
       <limbposition limb="Head" position="-6,-10" allowusinglimb="true"/>
       <limbposition limb="Torso" position="104,0" allowusinglimb="true"/>
       <limbposition limb="Waist" position="244,-80" allowusinglimb="true"/>
@@ -337,6 +337,8 @@
       </StatusEffect>
       -->
     </Controller>
+    <!-- Controller output was made editable in v1.1.4.0, disallow it on surgery tables -->
+    <Upgrade gameversion="1.1.4.0" allowingameediting="false" />
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.15,0.6" minsize="300,450" maxsize="380,500" anchor="Center" style="ConnectionPanel" />      <RequiredItem items="screwdriver" type="Equipped" />
       <output name="state_out" displayname="connection.stateout" fallbackdisplayname="connection.signalout" />
@@ -2932,7 +2934,9 @@
           <LuaHook name="surgerytable.update" />
         </StatusEffect>
       </ItemComponent>
-      <Controller UserPos="0,-300" direction="Right" hidehud="false" canbeselected="true">
+      <Controller allowingameediting="false" UserPos="0,-300" direction="Right" hidehud="false" issecondaryitem="true" canbeselected="true" noninteractablewhenflippedy="true" drawuserbehind="true">
+        <!-- don't allow laying in bed when wearing an exosuit -->
+        <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
         <limbposition limb="Head" position="-6,-10" allowusinglimb="true"/>
         <limbposition limb="Torso" position="104,0" allowusinglimb="true"/>
         <limbposition limb="Waist" position="244,-80" allowusinglimb="true"/>
@@ -2952,6 +2956,13 @@
           <reduceaffliction identifier="concussion" strength="0.02"/>
         </StatusEffect>
       </Controller>
+      <Upgrade gameversion="0.20.8.0">
+        <Controller>
+          <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
+        </Controller>
+      </Upgrade>
+      <!-- Controller output was made editable in v1.1.4.0, disallow it on hospital beds -->
+      <Upgrade gameversion="1.1.4.0" allowingameediting="false" />
       <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
         <GuiFrame relativesize="0.15,0.6" minsize="300,450" maxsize="380,500" anchor="Center" style="ConnectionPanel" />
         <RequiredItem items="screwdriver" type="Equipped" />
@@ -2976,7 +2987,9 @@
       <Upgrade gameversion="0.12.0.0" noninteractable="false"/>
       <sprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="1600,1760,384,264" depth="0.85"
               premultiplyalpha="false" origin="0.5,0.5"/>
-      <Controller UserPos="0,-300" direction="Right" hidehud="false" canbeselected="true" drawuserbehind="true">
+      <Controller UserPos="0,-300" direction="Right" hidehud="false" canbeselected="true" drawuserbehind="true" noninteractablewhenflippedy="true">
+        <!-- don't allow laying in bed when wearing an exosuit -->
+        <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
         <limbposition limb="Head" position="-26,-170"/>
         <limbposition limb="Torso" position="84,-140"/>
         <limbposition limb="Waist" position="224,-160"/>
@@ -2997,6 +3010,11 @@
           <Affliction identifier="table" amount="2"/>
         </StatusEffect>
       </Controller>
+      <Upgrade gameversion="0.20.8.0">
+        <Controller>
+          <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
+        </Controller>
+      </Upgrade>
     </Item>
     <Item name="" identifier="opdeco_bunks1" nameidentifier="opdeco_bunks1" allowattachitems="false" width="463"
           height="398" texturescale="1.0,1.0" scale="0.5" category="Decorative">
@@ -3006,7 +3024,9 @@
                         origin="0.5,0.5" offset="40,-95"/>
       <DecorativeSprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="1390,1126,320,160" depth="0.86"
                         origin="0.5,0.5" offset="40,105"/>
-      <Controller UserPos="0,-300" direction="Right" hidehud="false" canbeselected="true" drawuserbehind="true">
+      <Controller UserPos="0,-300" direction="Right" hidehud="false" canbeselected="true" drawuserbehind="true" noninteractablewhenflippedy="true">
+        <!-- don't allow laying in bed when wearing an exosuit -->
+        <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
         <limbposition limb="Head" position="14,-300"/>
         <limbposition limb="Torso" position="124,-270"/>
         <limbposition limb="Waist" position="264,-290"/>
@@ -3027,12 +3047,19 @@
           <Affliction identifier="table" amount="2"/>
         </StatusEffect>
       </Controller>
+      <Upgrade gameversion="0.20.8.0">
+        <Controller>
+          <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
+        </Controller>
+      </Upgrade>
     </Item>
     <Item name="" identifier="opdeco_prisonbed" allowattachitems="true" width="384" height="96"
           texturescale="1.0,1.0" scale="0.5" category="Decorative">
       <sprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="864,1888,384,96" depth="0.98"
               premultiplyalpha="false" origin="0.5,0.5"/>
-      <Controller UserPos="0,-300" direction="Right" hidehud="false" canbeselected="true">
+      <Controller UserPos="0,-300" direction="Right" hidehud="false" issecondaryitem="true" canbeselected="true" noninteractablewhenflippedy="true" drawuserbehind="true">
+        <!-- don't allow laying in bed when wearing an exosuit -->
+        <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
         <limbposition limb="Head" position="-6,-10"/>
         <limbposition limb="Torso" position="104,20"/>
         <limbposition limb="Waist" position="244,-60"/>
@@ -3040,6 +3067,59 @@
         <limbposition limb="LeftFoot" position="380,0"/>
         <limbposition limb="RightHand" position="234,10" allowusinglimb="false"/>
         <limbposition limb="LeftHand" position="234,10" allowusinglimb="false"/>
+        <StatusEffect type="OnActive" target="Character">
+          <reduceaffliction identifier="nausea" strength="0.05"/>
+          <reduceaffliction identifier="opiatewithdrawal" strength="0.05"/>
+          <reduceaffliction identifier="opiateaddiction" strength="0.05"/>
+          <reduceaffliction identifier="chemwithdrawal" strength="0.05"/>
+          <reduceaffliction identifier="chemaddiction" strength="0.05"/>
+          <reduceaffliction identifier="alcoholwithdrawal" strength="0.05"/>
+          <reduceaffliction identifier="alcoholaddiction" strength="0.05"/>
+          <reduceaffliction identifier="drunk" strength="0.05"/>
+          <reduceaffliction identifier="concussion" strength="0.02"/>
+          <Affliction identifier="table" amount="2"/>
+        </StatusEffect>
+      </Controller>
+      <Upgrade gameversion="0.20.8.0">
+        <Controller>
+          <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
+        </Controller>
+      </Upgrade>
+    </Item>
+    <Item name="" identifier="bunk" width="173" height="129" category="Decorative">
+      <sprite texture="Content/Map/MiscStructures.png" sourcerect="1416,1163,173,129" depth="0.85" origin="0.5,0.5" />
+      <Controller UserPos="0,-150" direction="Right" hidehud="false" issecondaryitem="true" canbeselected="true" drawuserbehind="true" noninteractablewhenflippedy="true">
+        <limbposition limb="Head" position="-13,-85" />
+        <limbposition limb="Torso" position="42,-70" />
+        <limbposition limb="Waist" position="112,-80" />
+        <limbposition limb="RightFoot" position="222,-80" />
+        <limbposition limb="LeftFoot" position="222,-80" />
+        <limbposition limb="RightHand" position="112,-80" allowusinglimb="false" />
+        <limbposition limb="LeftHand" position="112,-80" allowusinglimb="false" />
+        <StatusEffect type="OnActive" target="Character">
+          <reduceaffliction identifier="nausea" strength="0.05"/>
+          <reduceaffliction identifier="opiatewithdrawal" strength="0.05"/>
+          <reduceaffliction identifier="opiateaddiction" strength="0.05"/>
+          <reduceaffliction identifier="chemwithdrawal" strength="0.05"/>
+          <reduceaffliction identifier="chemaddiction" strength="0.05"/>
+          <reduceaffliction identifier="alcoholwithdrawal" strength="0.05"/>
+          <reduceaffliction identifier="alcoholaddiction" strength="0.05"/>
+          <reduceaffliction identifier="drunk" strength="0.05"/>
+          <reduceaffliction identifier="concussion" strength="0.02"/>
+          <Affliction identifier="table" amount="2"/>
+        </StatusEffect>
+      </Controller>
+    </Item>
+    <Item name="" identifier="bunkwrecked" nameidentifier="bunk" width="173" height="129" category="Wrecked">
+      <sprite texture="Content/Items/Shipwrecks/BackgroundStructuresWrecked.png" sourcerect="497,692,173,129" depth="0.88" origin="0.5,0.5" />
+      <Controller UserPos="0,-150" direction="Right" hidehud="false" canbeselected="true" drawuserbehind="true">
+        <limbposition limb="Head" position="-13,-85" />
+        <limbposition limb="Torso" position="42,-70" />
+        <limbposition limb="Waist" position="112,-80" />
+        <limbposition limb="RightFoot" position="222,-80" />
+        <limbposition limb="LeftFoot" position="222,-80" />
+        <limbposition limb="RightHand" position="112,-80" allowusinglimb="false" />
+        <limbposition limb="LeftHand" position="112,-80" allowusinglimb="false" />
         <StatusEffect type="OnActive" target="Character">
           <reduceaffliction identifier="nausea" strength="0.05"/>
           <reduceaffliction identifier="opiatewithdrawal" strength="0.05"/>
