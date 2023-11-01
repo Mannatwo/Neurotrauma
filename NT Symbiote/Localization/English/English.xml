@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <infotexts language="English" nowhitespace="false" translatedname="English">
 
-	<!-- other items -->
-	<entityname.custompill>Custom pill</entityname.custompill>
-	<entitydescription.custompill>Who knows what effects this pill could have?</entitydescription.custompill>
-
 	<!-- Afflictions -->
 	<afflictionname.af_calyxanide>Calyxanide</afflictionname.af_calyxanide>
 	<afflictiondescription.af_calyxanide>You should not be able to see this.</afflictiondescription.af_calyxanide>
