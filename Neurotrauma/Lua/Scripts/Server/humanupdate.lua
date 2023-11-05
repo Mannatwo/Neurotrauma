@@ -1010,7 +1010,8 @@ NT.CharStats = {
         local res = HF.Clamp(c.character.Oxygen,0,100)
         -- heart isnt pumping blood? no new oxygen is getting into the bloodstream, no matter how oxygen rich the air in the lungs
         res = res * (1-c.afflictions.fibrillation.strength/100)
-        if c.afflictions.cardiacarrest.strength > 1 then res = 0 end
+        -- and uuuh, maybe also dont let people without lungs use the oxygen where their lungs should be
+        if c.afflictions.cardiacarrest.strength > 1 or c.afflictions.lungremoved.strength > 0.1 then res = 0 end
         return res end
     },
     speedmultiplier={getter=function(c)
