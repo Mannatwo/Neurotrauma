@@ -427,11 +427,17 @@ end
 
 function HF.GetSkillRequirementMet(character,skilltype,requiredamount)
     local skilllevel = HF.GetSkillLevel(character,skilltype)
+    if NT.Config.vanillaSkillCheck then
+        return HF.Chance(HF.Clamp((100-(requiredamount-skilllevel))/100,0,1))
+    end
     return HF.Chance(HF.Clamp(skilllevel/requiredamount,0,1))
 end
 
 function HF.GetSurgerySkillRequirementMet(character,requiredamount)
     local skilllevel = HF.GetSurgerySkill(character)
+    if NT.Config.vanillaSkillCheck then
+        return HF.Chance(HF.Clamp((100-(requiredamount-skilllevel))/100,0,1))
+    end
     return HF.Chance(HF.Clamp(skilllevel/requiredamount,0,1))
 end
 
