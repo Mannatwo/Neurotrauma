@@ -2124,12 +2124,6 @@
     maxstrength="100"
     iconcolors="127,127,127,255;127,127,127,255">
 
-    <Effect minstrength="0" maxstrength="100">
-      <StatusEffect target="Character" targetlimb="RightArm">
-        <ReduceAffliction identifier="gangrene" amount="100"/>
-      </StatusEffect>
-    </Effect>
-
     <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,6" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
@@ -2147,12 +2141,6 @@
     showiconthreshold="20"
     maxstrength="100"
     iconcolors="127,127,127,255;127,127,127,255">
-
-    <Effect minstrength="0" maxstrength="100">
-      <StatusEffect target="Character" targetlimb="LeftArm">
-        <ReduceAffliction identifier="gangrene" amount="100"/>
-      </StatusEffect>
-    </Effect>
 
     <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="1,6" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
@@ -2172,12 +2160,6 @@
     maxstrength="100"
     iconcolors="127,127,127,255;127,127,127,255">
 
-    <Effect minstrength="0" maxstrength="100">
-      <StatusEffect target="Character" targetlimb="RightLeg">
-        <ReduceAffliction identifier="gangrene" amount="100"/>
-      </StatusEffect>
-    </Effect>
-
     <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="2,6" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
   <Affliction
@@ -2195,13 +2177,6 @@
     showiconthreshold="20"
     maxstrength="100"
     iconcolors="127,127,127,255;127,127,127,255">
-
-    <Effect minstrength="0" maxstrength="100"> 
-      <StatusEffect target="Character" targetlimb="LeftLeg">
-        <ReduceAffliction identifier="gangrene" amount="100"/>
-      </StatusEffect>
-    </Effect>
-
 
     <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,6" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>

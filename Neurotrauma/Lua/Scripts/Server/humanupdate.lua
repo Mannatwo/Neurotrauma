@@ -930,6 +930,13 @@ NT.LimbAfflictions = {
     gangrene={update=function(c,limbaff,i,type)
         -- see foreignbody for sepsis chance
         if(isExtremity(type)) then 
+
+            -- surgical amputation prevents all gangrene on that stump
+            if(NT.LimbIsSurgicallyAmputated(c.character,type)) then
+                limbaff[i].strength=0
+                return
+            end
+
             if(limbaff[i].strength < 15 and limbaff[i].strength > 0) then limbaff[i].strength = limbaff[i].strength - 0.01*c.stats.healingrate*NT.Deltatime end
             if(c.afflictions.sepsis.strength > 5) then limbaff[i].strength = limbaff[i].strength + HF.BoolToNum(HF.Chance(0.04),0.5 + c.afflictions.sepsis.strength/150) * NT.Config.gangrenespeed * NT.Deltatime end
             if(limbaff.arteriesclamp.strength > 0) then limbaff[i].strength = limbaff[i].strength + HF.BoolToNum(HF.Chance(0.1),1) * 0.5 * NT.Config.gangrenespeed * NT.Deltatime end
