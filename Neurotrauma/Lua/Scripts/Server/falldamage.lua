@@ -15,7 +15,6 @@ Hook.Add("changeFallDamage", "NT.falldamage", function(impactDamage, character, 
     if not character.IsHuman then return end
 
     local velocityMagnitude = HF.Magnitude(velocity)^1.5
-    print("fall damage: "..tostring(velocityMagnitude))
 
     -- apply fall damage to all limbs based on fall direction
     local mainlimbPos = character.AnimController.MainLimb.WorldPosition
