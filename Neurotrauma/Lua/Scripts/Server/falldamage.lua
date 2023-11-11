@@ -26,6 +26,7 @@ Hook.Add("changeFallDamage", "NT.falldamage", function(impactDamage, character, 
         for type in limbtypes do
             if limb.type == type then
 
+                -- fetch the direction of each limb relative to the torso
                 local limbPosition = limb.WorldPosition
                 local posDif = limbPosition-mainlimbPos
                 posDif.X = posDif.X/100
@@ -38,6 +39,8 @@ Hook.Add("changeFallDamage", "NT.falldamage", function(impactDamage, character, 
                 local normalizedVelocity = Vector2(velocity.X,velocity.Y)
                 normalizedVelocity.Normalize()
 
+                -- compare those directions to the direction we're moving
+                -- this will later be used to hurt the limbs facing impact more than the others
                 local limbDot = Vector2.Dot(posDif,normalizedVelocity)
                 limbDotResults[type] = limbDot
                 if minDotRes > limbDot then minDotRes = limbDot end
@@ -45,15 +48,24 @@ Hook.Add("changeFallDamage", "NT.falldamage", function(impactDamage, character, 
             end
         end
     end
+
+    -- shift all weights out of the negatives
+    -- increase the weight of all limbs if speed is high
+    -- the effect of this is that, at higher speeds, all limbs take damage instead of mainly the ones facing the impact site
     for type,dotResult in pairs(limbDotResults) do
         limbDotResults[type] = dotResult-minDotRes + math.max(0,(velocityMagnitude-30)/10)
     end
+
+    -- count weight so we're able to distribute the damage fractionally
     local weightsum = 0
     for dotResult in limbDotResults do
         weightsum = weightsum + dotResult
     end
+
     for type,dotResult in pairs(limbDotResults) do
+        -- square relative weight to further favor limbs facing impact in damage calculation
         local relativeWeight = (dotResult/weightsum)^2
+
         local damageInflictedToThisLimb = relativeWeight * math.max(0,velocityMagnitude-5)^1.5 * NT.Config.falldamage * 3
         NT.CauseFallDamage(character,type,damageInflictedToThisLimb)
     end
@@ -97,6 +109,7 @@ NT.CauseFallDamage = function(character,limbtype,strength)
         if HF.Chance((strength-15)/100*NTC.GetMultiplier(character,"anyfracturechance")*NT.Config.fractureChance*injuryChanceMultiplier) then
             NT.BreakLimb(character,limbtype)
             if HF.Chance((strength-2)/60) then
+                -- this is here to simulate open fractures
                 NT.ArteryCutLimb(character,limbtype)
             end
         end
