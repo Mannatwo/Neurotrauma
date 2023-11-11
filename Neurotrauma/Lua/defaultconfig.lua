@@ -16,12 +16,17 @@ config.neurotraumaGain = 1
 config.organDamageGain = 1
 config.fibrillationSpeed = 1
 config.gangrenespeed = 1
+config.falldamage = 1
+config.falldamageSeriousInjuryChance = 1
 
 config.vanillaSkillCheck = false
 config.disableBotAlgorithms = true
 
 config.NTSPenableSurgicalInfection = true
 config.NTSPenableSurgerySkill = true
+
+config.NTCybWaterDamage = 1
+
 config.organRejection = false
 config.fracturesRemoveCasts = true
 

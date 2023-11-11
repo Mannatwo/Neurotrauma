@@ -50,7 +50,7 @@ local function limbLockedInitial(c,limbtype,key)
         or (HF.GetAfflictionStrengthLimb(c.character,limbtype,"bandaged",0) <= 0 and HF.GetAfflictionStrengthLimb(c.character,limbtype,"dirtybandage",0) <= 0 and NT.LimbIsDislocated(c.character,limbtype))
         or (HF.GetAfflictionStrengthLimb(c.character,limbtype,"gypsumcast",0) <= 0 and NT.LimbIsBroken(c.character,limbtype)))
 end
-local function organDamageCalc(c,damagevalue)
+NT.organDamageCalc = function(c,damagevalue)
     if (damagevalue >= 99) then return 100 end
     return damagevalue - 0.01 * c.stats.healingrate * c.stats.specificOrganDamageHealMultiplier * NT.Deltatime
 end
@@ -233,11 +233,11 @@ NT.Afflictions = {
         c.afflictions[i].strength = HF.Clamp(c.afflictions[i].strength,0,200)
     end
     },
-    heartdamage={update=function(c,i) if c.stats.stasis then return end c.afflictions[i].strength = organDamageCalc(c,c.afflictions[i].strength + NTC.GetMultiplier(c.character,"heartdamagegain")*(c.stats.neworgandamage + HF.Clamp(c.afflictions.heartattack.strength,0,0.5) * NT.Deltatime)) end},
-    lungdamage={update=function(c,i) if c.stats.stasis then return end c.afflictions[i].strength = organDamageCalc(c,c.afflictions.lungdamage.strength + NTC.GetMultiplier(c.character,"lungdamagegain")*(c.stats.neworgandamage + math.max(c.afflictions.radiationsickness.strength-25,0)/800*NT.Deltatime)) end},
+    heartdamage={update=function(c,i) if c.stats.stasis then return end c.afflictions[i].strength = NT.organDamageCalc(c,c.afflictions[i].strength + NTC.GetMultiplier(c.character,"heartdamagegain")*(c.stats.neworgandamage + HF.Clamp(c.afflictions.heartattack.strength,0,0.5) * NT.Deltatime)) end},
+    lungdamage={update=function(c,i) if c.stats.stasis then return end c.afflictions[i].strength = NT.organDamageCalc(c,c.afflictions.lungdamage.strength + NTC.GetMultiplier(c.character,"lungdamagegain")*(c.stats.neworgandamage + math.max(c.afflictions.radiationsickness.strength-25,0)/800*NT.Deltatime)) end},
     liverdamage={update=function(c,i)
         if c.stats.stasis then return end
-        c.afflictions[i].strength = organDamageCalc(c,c.afflictions.liverdamage.strength + NTC.GetMultiplier(c.character,"liverdamagegain")*c.stats.neworgandamage) 
+        c.afflictions[i].strength = NT.organDamageCalc(c,c.afflictions.liverdamage.strength + NTC.GetMultiplier(c.character,"liverdamagegain")*c.stats.neworgandamage) 
         if c.afflictions[i].strength >= 99 and not NTC.GetSymptom(c.character,"sym_hematemesis") and HF.Chance(0.05) then
             -- if liver failed: 5% chance for 6-20 seconds of blood vomiting and internal bleeding
             NTC.SetSymptomTrue(c.character,"sym_hematemesis",math.random(3,10))
@@ -257,7 +257,7 @@ NT.Afflictions = {
     },
     bonedamage={update=function(c,i)
         if c.stats.stasis then return end
-        c.afflictions[i].strength = organDamageCalc(c,c.afflictions.bonedamage.strength + NTC.GetMultiplier(c.character,"bonedamagegain")*(c.afflictions.sepsis.strength/500 + c.afflictions.hypoxemia.strength/1000 + math.max(c.afflictions.radiationsickness.strength-25,0)/600)*NT.Deltatime)
+        c.afflictions[i].strength = NT.organDamageCalc(c,c.afflictions.bonedamage.strength + NTC.GetMultiplier(c.character,"bonedamagegain")*(c.afflictions.sepsis.strength/500 + c.afflictions.hypoxemia.strength/1000 + math.max(c.afflictions.radiationsickness.strength-25,0)/600)*NT.Deltatime)
         if(c.afflictions[i].strength < 90) then c.afflictions[i].strength = c.afflictions[i].strength - (c.stats.bonegrowthCount*0.3) * NT.Deltatime
         elseif(c.stats.bonegrowthCount >= 6) then c.afflictions[i].strength = c.afflictions[i].strength - 2 * NT.Deltatime end
         if(c.afflictions.kidneydamage.strength > 70) then c.afflictions[i].strength = c.afflictions[i].strength + (c.afflictions.kidneydamage.strength-70)/30*0.15*NT.Deltatime end

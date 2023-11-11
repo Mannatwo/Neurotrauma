@@ -264,7 +264,7 @@ NT.OnDamagedMethods.blunttrauma = function(character,strength,limbtype)
             NT.TraumamputateLimb(character,limbtype) end
         if HF.Chance((strength-2)/60*NTC.GetMultiplier(character,"anyfracturechance")*NT.Config.fractureChance) then
             NT.BreakLimb(character,limbtype) end
-        if HF.Chance(HF.Clamp(strength/80,0.1,0.5)*NTC.GetMultiplier(character,"dislocationchance")*NT.Config.dislocationChance) and not NT.LimbIsAmputated(character,limbtype) then
+        if HF.Chance(HF.Clamp((strength-2)/80,0,0.5)*NTC.GetMultiplier(character,"dislocationchance")*NT.Config.dislocationChance) and not NT.LimbIsAmputated(character,limbtype) then
             NT.DislocateLimb(character,limbtype) end
     end
 end

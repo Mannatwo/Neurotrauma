@@ -45,7 +45,7 @@ local function DetermineDifficulty()
     local difficulty = 0
     local res = ""
 
-    -- default difficulty: 16.5
+    -- default difficulty: 17.5
     difficulty=difficulty
         +HF.Clamp(config.dislocationChance,0,5)
         +HF.Clamp(config.fractureChance*2,0,5)
@@ -60,11 +60,13 @@ local function DetermineDifficulty()
         +HF.Clamp(config.organDamageGain*2,0,8)
         +HF.Clamp(config.fibrillationSpeed*1.5,0,8)
         +HF.Clamp(config.gangrenespeed*0.5,0,5)
+        +HF.Clamp(config.falldamage*0.5,0,5)
+        +HF.Clamp(config.falldamageSeriousInjuryChance*0.5,0,5)
         +HF.BoolToNum(config.organRejection,0.5)
         +HF.BoolToNum(config.fracturesRemoveCasts,0.5)
 
     -- normalize to 10
-    difficulty = difficulty / 16.5 * 10
+    difficulty = difficulty / 17.5 * 10
 
     if difficulty > 23 then res="Impossible"
     elseif difficulty > 16 then res="Very hard"
@@ -267,6 +269,28 @@ NT.ShowGUI = function ()
         OnChanged()
     end
 
+    GUI.TextBlock(GUI.RectTransform(Vector2(1, 0.05), config.Content.RectTransform), "fall damage multiplier", nil, nil, GUI.Alignment.Center, true)
+    local falldamage = GUI.NumberInput(GUI.RectTransform(Vector2(1, 0.1), config.Content.RectTransform), NumberType.Float)
+    falldamage.valueStep = 0.1
+    falldamage.MinValueFloat = 0
+    falldamage.MaxValueFloat = 100
+    falldamage.FloatValue = NT.Config.falldamage
+    falldamage.OnValueChanged = function ()
+        NT.Config.falldamage = falldamage.FloatValue
+        OnChanged()
+    end
+
+    GUI.TextBlock(GUI.RectTransform(Vector2(1, 0.05), config.Content.RectTransform), "fall damage multiplier", nil, nil, GUI.Alignment.Center, true)
+    local falldamageSeriousInjuryChance = GUI.NumberInput(GUI.RectTransform(Vector2(1, 0.1), config.Content.RectTransform), NumberType.Float)
+    falldamageSeriousInjuryChance.valueStep = 0.1
+    falldamageSeriousInjuryChance.MinValueFloat = 0
+    falldamageSeriousInjuryChance.MaxValueFloat = 100
+    falldamageSeriousInjuryChance.FloatValue = NT.Config.falldamageSeriousInjuryChance
+    falldamageSeriousInjuryChance.OnValueChanged = function ()
+        NT.Config.falldamageSeriousInjuryChance = falldamageSeriousInjuryChance.FloatValue
+        OnChanged()
+    end
+
     local disableBotAlgorithms = GUI.TickBox(GUI.RectTransform(Vector2(1, 0.2), config.Content.RectTransform), "Disable bot treatment algorithms (they're laggy)")
     disableBotAlgorithms.Selected = NT.Config.disableBotAlgorithms
     disableBotAlgorithms.OnSelected = function ()
@@ -313,6 +337,25 @@ NT.ShowGUI = function ()
             NT.Config.NTSPenableSurgerySkill = NTSPenableSurgerySkill.State == GUIComponent.ComponentState.Selected
             OnChanged()
         end
+
+    end
+
+    -- Cybernetics specific options
+    if NTCyb~=nil then
+
+        GUI.TextBlock(GUI.RectTransform(Vector2(1, 0.1), config.Content.RectTransform), "Neurotrauma cybernetics", nil, nil, GUI.Alignment.Center, true)
+
+        GUI.TextBlock(GUI.RectTransform(Vector2(1, 0.05), config.Content.RectTransform), "cybernetic limbs water damage", nil, nil, GUI.Alignment.Center, true)
+        local NTCybWaterDamage = GUI.NumberInput(GUI.RectTransform(Vector2(1, 0.1), config.Content.RectTransform), NumberType.Float)
+        NTCybWaterDamage.valueStep = 0.1
+        NTCybWaterDamage.MinValueFloat = 0
+        NTCybWaterDamage.MaxValueFloat = 100
+        NTCybWaterDamage.FloatValue = NT.Config.NTCybWaterDamage
+        NTCybWaterDamage.OnValueChanged = function ()
+        NT.Config.NTCybWaterDamage = NTCybWaterDamage.FloatValue
+        OnChanged()
+        
+    end
 
     end
     

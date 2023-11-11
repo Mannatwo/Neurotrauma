@@ -24,7 +24,7 @@ function NTCyb.UpdateHuman(character)
         local materialloss = HF.GetAfflictionStrengthLimb(character,limbtype,"ntc_materialloss",0)
     
         -- water damage if unprotected
-        if character.PressureProtection <= 1000 then
+        if NT.Config.NTCybWaterDamage > 0 and character.PressureProtection <= 1000 then
             -- in water?
             local inwater = false
             if limb~=nil and limb.InWater then inwater=true end
@@ -35,7 +35,7 @@ function NTCyb.UpdateHuman(character)
                         local spawnpos = limb.WorldPosition
                         HF.SpawnItemAt("ntcvfx_malfunction",spawnpos) end
                 end,math.random(1,500))
-                HF.AddAfflictionLimb(character,"ntc_damagedelectronics",limbtype,2*(1+loosescrews/100)*(1+materialloss/100)*NT.Deltatime)
+                HF.AddAfflictionLimb(character,"ntc_damagedelectronics",limbtype,2*(1+loosescrews/100)*(1+materialloss/100)*NT.Config.NTCybWaterDamage*NT.Deltatime)
             end
         end
 
@@ -209,3 +209,34 @@ function NTCyb.ConvertDamageTypes(character,limbtype)
 
     end
 end
+
+local limbtypes = {
+    LimbType.Torso,
+    LimbType.Head,
+    LimbType.LeftArm,
+    LimbType.RightArm,
+    LimbType.LeftLeg,
+    LimbType.RightLeg,
+}
+
+Timer.Wait(function() 
+
+    -- override bone damage to factor in cyberlimbs
+    NT.Afflictions.bonedamage={update=function(c,i)
+        if c.stats.stasis then return end
+        c.afflictions[i].strength = NT.organDamageCalc(c,c.afflictions.bonedamage.strength + NTC.GetMultiplier(c.character,"bonedamagegain")*(c.afflictions.sepsis.strength/500 + c.afflictions.hypoxemia.strength/1000 + math.max(c.afflictions.radiationsickness.strength-25,0)/600)*NT.Deltatime)
+        if(c.afflictions[i].strength < 90) then c.afflictions[i].strength = c.afflictions[i].strength - (c.stats.bonegrowthCount*0.3) * NT.Deltatime
+        elseif(c.stats.bonegrowthCount + c.stats.cyberlimbCount >= 6) then c.afflictions[i].strength = c.afflictions[i].strength - 2 * NT.Deltatime end
+        if(c.afflictions.kidneydamage.strength > 70) then c.afflictions[i].strength = c.afflictions[i].strength + (c.afflictions.kidneydamage.strength-70)/30*0.15*NT.Deltatime end
+    end}
+
+    NT.CharStats.cyberlimbCount={getter=function(c)
+        local res = 0
+        for type in limbtypes do
+            if NTCyb.HF.LimbIsCyber(c.character,type) then res=res+1 end
+        end
+        return res
+    end
+    }
+
+end,100)

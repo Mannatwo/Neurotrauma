@@ -922,3 +922,7 @@ function HF.GetText(identifier)
     if text ~= nil then return text.Value end
     return identifier
 end
+
+function HF.Magnitude(vector)
+    return ((vector.X^2)+(vector.Y^2))^0.5
+end
