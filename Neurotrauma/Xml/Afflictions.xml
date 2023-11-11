@@ -3155,14 +3155,13 @@ thats what the vomiting symptom is for -->
 
 
   <!-- /// PAIN /// -->
-  
-  <!-- Acute severe pain / invisible (yet very apparent) Symptom -->
+
+  <!-- screams -->
   <Affliction
-	  name="Acute severe pain"
-    identifier="severepain"
+	  name="Screaming"
+    identifier="screaming"
     targets="human"
     healableinmedicalclinic="false"
-    type="gaze"
     isbuff="false"
     limbspecific="False"
     maxstrength="2"
@@ -3181,11 +3180,28 @@ thats what the vomiting symptom is for -->
         <Sound file="%ModDir%/Sound/Voice/woman_agony2.ogg" />
         <Sound file="%ModDir%/Sound/Voice/woman_agony3.ogg" />
       </StatusEffect>
-      <StatusEffect target="Character" comparison="or" disabledeltatime="true" stackable="false" duration="1" checkconditionalalways="false">
-        <Conditional analgesia="gt 0" anesthesia="gt 0" sym_unconsciousness="gt 0"/>
-        <ReduceAffliction identifier="severepain" amount="100" />
+    </Effect>
+
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sourcerect="256,0,128,128" color="68,157,198,255" origin="0,0"/>
+  </Affliction>
+  
+  <!-- Acute severe pain / invisible (yet very apparent) Symptom -->
+  <Affliction
+	  name="Acute severe pain"
+    identifier="severepain"
+    targets="human"
+    healableinmedicalclinic="false"
+    isbuff="false"
+    limbspecific="False"
+    maxstrength="2"
+    showinhealthscannerthreshold="700"
+    showiconthreshold="700">
+    <Effect minstrength="0" maxstrength="2" strengthchange="-1000">
+      <StatusEffect target="Character" comparison="and" disabledeltatime="true" stackable="false" duration="3" checkconditionalalways="false">
+        <Conditional analgesia="lte 0" anesthesia="lte 0" sym_unconsciousness="lte 0"/>
+        <LuaHook name="NT.causeScreams" />
       </StatusEffect>
-      <StatusEffect target="Character" comparison="and" disabledeltatime="true" stackable="false" delay="1" checkconditionalalways="false">
+      <StatusEffect target="Character" comparison="and" disabledeltatime="true" stackable="false" duration="1" checkconditionalalways="false">
         <Conditional ishuman="true" analgesia="lte 0" anesthesia="lte 0" stun="lte 1"/>
         <Affliction identifier="stun" amount="3" />
       </StatusEffect>
@@ -3200,28 +3216,15 @@ thats what the vomiting symptom is for -->
     identifier="severepainlite"
     targets="human"
     healableinmedicalclinic="false"
-    type="gaze"
     isbuff="false"
     limbspecific="False"
     maxstrength="2"
     showinhealthscannerthreshold="700"
     showiconthreshold="700">
-    <Effect minstrength="0" maxstrength="2" strengthchange="-6">
+    <Effect minstrength="0" maxstrength="2" strengthchange="-1000">
       <StatusEffect target="Character" comparison="and" disabledeltatime="true" stackable="false" duration="3" checkconditionalalways="false">
-        <Conditional ishuman="true" ismale="true" analgesia="lte 0" anesthesia="lte 0" sym_unconsciousness="lte 0" />
-        <Sound file="%ModDir%/Sound/Voice/male_onfire1.ogg" selectionmode="Random" />
-        <Sound file="%ModDir%/Sound/Voice/male_onfire2.ogg" />
-        <Sound file="%ModDir%/Sound/Voice/male_onfire3.ogg" />
-      </StatusEffect>
-      <StatusEffect target="Character" comparison="and" disabledeltatime="true" stackable="false" duration="3" checkconditionalalways="false">
-        <Conditional ishuman="true" isfemale="true" analgesia="lte 0" anesthesia="lte 0" sym_unconsciousness="lte 0" />
-        <Sound file="%ModDir%/Sound/Voice/woman_agony1.ogg" selectionmode="Random" />
-        <Sound file="%ModDir%/Sound/Voice/woman_agony2.ogg" />
-        <Sound file="%ModDir%/Sound/Voice/woman_agony3.ogg" />
-      </StatusEffect>
-      <StatusEffect target="Character" comparison="or" disabledeltatime="true" stackable="false" duration="1" checkconditionalalways="false">
-        <Conditional analgesia="gt 0" anesthesia="gt 0" sym_unconsciousness="gt 0"/>
-        <ReduceAffliction identifier="severepainlite" amount="100" />
+        <Conditional analgesia="lte 0" anesthesia="lte 0" sym_unconsciousness="lte 0"/>
+        <LuaHook name="NT.causeScreams" />
       </StatusEffect>
     </Effect>
 

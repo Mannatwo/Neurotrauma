@@ -280,7 +280,7 @@ NT.ShowGUI = function ()
         OnChanged()
     end
 
-    GUI.TextBlock(GUI.RectTransform(Vector2(1, 0.05), config.Content.RectTransform), "fall damage multiplier", nil, nil, GUI.Alignment.Center, true)
+    GUI.TextBlock(GUI.RectTransform(Vector2(1, 0.05), config.Content.RectTransform), "fall damage serious injury chance", nil, nil, GUI.Alignment.Center, true)
     local falldamageSeriousInjuryChance = GUI.NumberInput(GUI.RectTransform(Vector2(1, 0.1), config.Content.RectTransform), NumberType.Float)
     falldamageSeriousInjuryChance.valueStep = 0.1
     falldamageSeriousInjuryChance.MinValueFloat = 0
@@ -315,7 +315,14 @@ NT.ShowGUI = function ()
     local vanillaSkillCheck = GUI.TickBox(GUI.RectTransform(Vector2(1, 0.2), config.Content.RectTransform), "Change the skill check algorithm to the vanilla one")
     vanillaSkillCheck.Selected = NT.Config.vanillaSkillCheck
     vanillaSkillCheck.OnSelected = function ()
-        NT.Config.vanillaSkillCheck = vanillaSkillCheck.State == 3
+        NT.Config.vanillaSkillCheck = vanillaSkillCheck.State == GUIComponent.ComponentState.Selected
+        OnChanged()
+    end
+
+    local screams = GUI.TickBox(GUI.RectTransform(Vector2(1, 0.2), config.Content.RectTransform), "Screams")
+    screams.Selected = NT.Config.screams
+    screams.OnSelected = function ()
+        NT.Config.screams = screams.State == GUIComponent.ComponentState.Selected
         OnChanged()
     end
 

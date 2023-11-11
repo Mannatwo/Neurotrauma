@@ -21,6 +21,7 @@ config.falldamageSeriousInjuryChance = 1
 
 config.vanillaSkillCheck = false
 config.disableBotAlgorithms = true
+config.screams = true
 
 config.NTSPenableSurgicalInfection = true
 config.NTSPenableSurgerySkill = true
