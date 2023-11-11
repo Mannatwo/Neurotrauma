@@ -112,6 +112,8 @@
   <Other file="%ModDir%/Lua/Scripts/Server/ondamaged.lua" />
 	<Other file="%ModDir%/Lua/Scripts/Server/surgerytable.lua" />
 	<Other file="%ModDir%/Lua/Scripts/Server/lootcrates.lua" />
+	<Other file="%ModDir%/Lua/Scripts/Server/falldamage.lua" />
+	<Other file="%ModDir%/Lua/Scripts/Server/screams.lua" />
   <Other file="%ModDir%/Sound/pills2.ogg" />
   <Other file="%ModDir%/Sound/pills1.ogg" />
   <Other file="%ModDir%/Sound/pills3.ogg" />
