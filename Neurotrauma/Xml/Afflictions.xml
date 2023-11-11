@@ -3788,11 +3788,7 @@ thats what the vomiting symptom is for -->
       maxstrength="200">
 
       <PeriodicEffect mininterval="4" maxinterval="4">
-        <StatusEffect target="Character" disabledeltatime="true" stackable="false" delay="1" checkconditionalalways="false">
-          <Conditional ishuman="false"/>
-          <ReduceAffliction identifier="bloodloss" amount="999"/>
-        </StatusEffect>
-        <StatusEffect target="Character" disabledeltatime="true" stackable="false" delay="1" checkconditionalalways="false">
+        <StatusEffect target="Character" disabledeltatime="true" stackable="false" checkconditionalalways="false">
           <ReduceAffliction identifier="bloodloss" amount="0.4"/>
         </StatusEffect>
       </PeriodicEffect>

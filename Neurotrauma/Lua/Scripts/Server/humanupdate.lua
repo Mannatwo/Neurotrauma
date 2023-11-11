@@ -20,12 +20,19 @@ function NT.Update()
 
     local updateHumans = {}
     local amountHumans = 0
+    local updateMonsters = {}
+    local amountMonsters = 0
 
     -- fetchcharacters to update
     for key, character in pairs(Character.CharacterList) do
-        if (character.IsHuman and not character.IsDead) then
-            table.insert(updateHumans, character)
-            amountHumans = amountHumans + 1
+        if not character.IsDead then
+            if character.IsHuman then
+                table.insert(updateHumans, character)
+                amountHumans = amountHumans + 1
+            else
+                table.insert(updateMonsters, character)
+                amountMonsters = amountMonsters + 1
+            end
         end
     end
 
@@ -37,6 +44,17 @@ function NT.Update()
                 if (value ~= nil and not value.Removed and value.IsHuman and not value.IsDead) then
                 NT.UpdateHuman(value) end
             end, ((key + 1) / amountHumans) * NT.Deltatime * 1000)
+        end
+    end
+
+    -- we spread the monsters out over the duration of an update so that the load isnt done all at once
+    for key, value in pairs(updateMonsters) do
+        -- make sure theyre still alive
+        if (value ~= nil and not value.Removed and not value.IsDead) then
+            Timer.Wait(function ()
+                if (value ~= nil and not value.Removed and not value.IsDead) then
+                NT.UpdateMonster(value) end
+            end, ((key + 1) / amountMonsters) * NT.Deltatime * 1000)
         end
     end
 end
@@ -1192,6 +1210,17 @@ function NT.UpdateHuman(character)
     end
 
     NTC.CharacterSpeedMultipliers[character] = nil
+end
+
+function NT.UpdateMonster(character)
+
+    -- trade bloodloss on this creature for organ damage so that creatures can still bleed out
+    local bloodloss = HF.GetAfflictionStrength(character,"bloodloss",0)
+    if bloodloss > 0 then
+        HF.AddAffliction(character,"organdamage",bloodloss)
+        HF.SetAffliction(character,"bloodloss",0)
+    end
+
 end
 
 -- gets run every tick, shouldnt be used unless necessary
