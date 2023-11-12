@@ -63,10 +63,9 @@ Hook.Add("changeFallDamage", "NT.falldamage", function(impactDamage, character, 
     end
 
     for type,dotResult in pairs(limbDotResults) do
-        -- square relative weight to further favor limbs facing impact in damage calculation
-        local relativeWeight = (dotResult/weightsum)^2
+        local relativeWeight = dotResult/weightsum
 
-        local damageInflictedToThisLimb = relativeWeight * math.max(0,velocityMagnitude-5)^1.5 * NT.Config.falldamage * 3
+        local damageInflictedToThisLimb = relativeWeight * math.max(0,velocityMagnitude-6)^1.5 * NT.Config.falldamage
         NT.CauseFallDamage(character,type,damageInflictedToThisLimb)
     end
 
