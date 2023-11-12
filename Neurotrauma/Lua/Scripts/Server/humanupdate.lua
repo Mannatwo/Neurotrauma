@@ -1217,7 +1217,7 @@ function NT.UpdateMonster(character)
     -- trade bloodloss on this creature for organ damage so that creatures can still bleed out
     local bloodloss = HF.GetAfflictionStrength(character,"bloodloss",0)
     if bloodloss > 0 then
-        HF.AddAffliction(character,"organdamage",bloodloss)
+        HF.AddAffliction(character,"organdamage",bloodloss*2)
         HF.SetAffliction(character,"bloodloss",0)
     end
 
