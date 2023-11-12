@@ -3201,7 +3201,7 @@ thats what the vomiting symptom is for -->
         <Conditional analgesia="lte 0" anesthesia="lte 0" sym_unconsciousness="lte 0"/>
         <LuaHook name="NT.causeScreams" />
       </StatusEffect>
-      <StatusEffect target="Character" comparison="and" disabledeltatime="true" stackable="false" duration="1" checkconditionalalways="false">
+      <StatusEffect target="Character" comparison="and" disabledeltatime="true" stackable="false" checkconditionalalways="true">
         <Conditional ishuman="true" analgesia="lte 0" anesthesia="lte 0" stun="lte 1"/>
         <Affliction identifier="stun" amount="3" />
       </StatusEffect>
