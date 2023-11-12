@@ -65,7 +65,7 @@ Hook.Add("changeFallDamage", "NT.falldamage", function(impactDamage, character, 
     for type,dotResult in pairs(limbDotResults) do
         local relativeWeight = dotResult/weightsum
 
-        local damageInflictedToThisLimb = relativeWeight * math.max(0,velocityMagnitude-6)^1.5 * NT.Config.falldamage
+        local damageInflictedToThisLimb = relativeWeight * math.max(0,velocityMagnitude-10)^1.5 * NT.Config.falldamage * 0.5
         NT.CauseFallDamage(character,type,damageInflictedToThisLimb)
     end
 
