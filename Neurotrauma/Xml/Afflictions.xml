@@ -4008,7 +4008,7 @@ thats what the vomiting symptom is for -->
       maxspeedmultiplier="0.7">
       <StatusEffect target="Character">
         <Affliction identifier="hypoxemia" amount="13" />
-        <Affliction identifier="acidosis" amount="5" /> 
+        <Affliction identifier="acidosis" amount="10" /> 
       </StatusEffect>
     </Effect>
     <Effect minstrength="50" maxstrength="75"
@@ -4024,9 +4024,11 @@ thats what the vomiting symptom is for -->
       minspeedmultiplier="0.7"
       maxspeedmultiplier="0.7"
       tag="poisoned">
+      <StatusEffect target="Character" interval="2">
+        <Affliction identifier="acidosis" amount="1" /> 
+      </StatusEffect>      
       <StatusEffect target="Character">
         <Affliction identifier="hypoxemia" amount="17" />
-        <Affliction identifier="acidosis" amount="10" /> 
       </StatusEffect>
       <StatusEffect target="Character" setvalue="true">
         <Conditional healthpercentage="lt 75"/>
@@ -4050,9 +4052,11 @@ thats what the vomiting symptom is for -->
       minspeedmultiplier="0.7"
       maxspeedmultiplier="0.7"
       tag="poisoned">
+      <StatusEffect target="Character" interval="3">
+        <Affliction identifier="acidosis" amount="1" /> 
+      </StatusEffect>      
       <StatusEffect target="Character">
         <Affliction identifier="hypoxemia" amount="30" />
-        <Affliction identifier="acidosis" amount="1" /> 
       </StatusEffect>
       <StatusEffect target="Character" setvalue="true">
         <Conditional healthpercentage="lt 90"/>
@@ -4076,9 +4080,12 @@ thats what the vomiting symptom is for -->
       minspeedmultiplier="0.7"
       maxspeedmultiplier="0.7"
       tag="poisoned">
+
+      <StatusEffect target="Character" interval="4">
+        <Affliction identifier="acidosis" amount="1" /> 
+      </StatusEffect>
       <StatusEffect target="Character">
         <Affliction identifier="hypoxemia" amount="70" />
-        <Affliction identifier="acidosis" amount="1" /> 
       </StatusEffect>
       <StatusEffect target="Character" setvalue="true">
         <Conditional healthpercentage="lt 90"/>
