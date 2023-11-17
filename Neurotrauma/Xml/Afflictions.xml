@@ -3812,210 +3812,395 @@ thats what the vomiting symptom is for -->
   </Override>
   <Override>
     <Affliction
-      name=""
+      name="Morbusine poisoning"
       identifier="morbusinepoisoning"
-      description=""
+      description="Gradually progressing, movement hindering and relatively quick poisoning."
       type="poison"
       causeofdeathdescription="Died of morbusine poisoning."
       selfcauseofdeathdescription="You have died of morbusine poisoning."
       limbspecific="false"
       indicatorlimb="Torso"
       showiconthreshold="700"
-      showinhealthscannerthreshold="5"
+      showinhealthscannerthreshold="30"
+      treatmentthreshold="40"
       karmachangeonapplied="-100"
       maxstrength="100"
+      affectmachines="false"
+      healcostmultiplier="0"
+      basehealcost="300"
       MedicalSkillGain="3.0">
+
       <!-- Reduce oxygen intake for the victim, cause suffocation -->
-      <!-- Becomes lethal in ~80 seconds -->
-      <Effect minstrength="0" maxstrength="20"
-        minvitalitydecrease="0"
-        maxvitalitydecrease="0"
-        strengthchange="1"
-        minscreendistort="0.0"
-        maxscreendistort="1.0"
-        minscreenblur="0.0"
-        maxscreenblur="0.0"
+      <!-- Wears off slowly if the strength is less than 10 -->
+      <Effect minstrength="0" maxstrength="10"
+        strengthchange="-0.25"
         minchromaticaberration="0.0"
-        maxchromaticaberration="0.4">
-        <StatusEffect target="Character" SpeedMultiplier="0.8" setvalue="true"/>
+        maxchromaticaberration="0.2"
+        minspeedmultiplier="1.0"
+        maxspeedmultiplier="0.9">
       </Effect>
-      <Effect minstrength="20" maxstrength="80"
-        minvitalitydecrease="0"
-        maxvitalitydecrease="0"
+      <!-- lethal after str 10 -->
+      <Effect minstrength="10" maxstrength="40"
         strengthchange="1"
-        minscreendistort="0.0"
-        maxscreendistort="1.0"
-        minscreenblur="0.0"
-        maxscreenblur="0.8"
-        minchromaticaberration="0.4"
-        maxchromaticaberration="1.6">
-        <StatusEffect target="Character" SpeedMultiplier="0.8" setvalue="true"/>
-        <StatusEffect target="Character">
-          <Affliction identifier="coma" amount="0.4" />
-        </StatusEffect>
-      </Effect>
-      <Effect minstrength="80" maxstrength="100"
-        minvitalitydecrease="0"
-        maxvitalitydecrease="0"
-        strengthchange="1"
-        minscreendistort="0.0"
-        maxscreendistort="1.0"
-        minscreenblur="0.8"
-        maxscreenblur="1.0"
-        minchromaticaberration="1.6"
-        maxchromaticaberration="2.0">
-        <StatusEffect target="Character" SpeedMultiplier="0.8" setvalue="true"/>
-        <StatusEffect target="Character">
-          <Affliction identifier="coma" amount="1" />
-        </StatusEffect>
-      </Effect>
-      <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="640,640,128,128" color="106,106,106,255" origin="0,0"/>
-    </Affliction>
-  </Override>
-  <Override>
-    <Affliction
-      name="Cyanide poisoning"
-      identifier="cyanidepoisoning"
-      description="The patient is confused and has trouble breathing. Their skin is red and they have occasional muscle spasms."
-      type="poison"
-      causeofdeathdescription="Died of cyanide poisoning."
-      selfcauseofdeathdescription="You have died of cyanide poisoning."
-      limbspecific="false"
-      indicatorlimb="Torso"
-      showiconthreshold="700"
-      showinhealthscannerthreshold="5"
-      treatmentthreshold="40"
-      karmachangeonapplied="-50"
-      maxstrength="100"
-      MedicalSkillGain="4.0">
-
-      <Effect minstrength="0" maxstrength="20"
-        minvitalitydecrease="0"
-        maxvitalitydecrease="0"
-        strengthchange="1"
-        minscreendistort="0.0"
-        maxscreendistort="0.20"
-        minscreenblur="0.0"
-        maxscreenblur="0.20">
-        <StatusEffect target="Character" setvalue="true" SpeedMultiplier="0.8"/>
-        <StatusEffect target="Character">
-          <Affliction identifier="oxygenlow" amount="2"/>
-          <Affliction identifier="hypoxemia" amount="2"/>
-        </StatusEffect>
-      </Effect>
-
-      <Effect minstrength="20" maxstrength="40"
-        minvitalitydecrease="0"
-        maxvitalitydecrease="0"
-        strengthchange="1"
-        minscreendistort="0.2"
+        minscreendistort="0.1"
         maxscreendistort="0.4"
-        minscreenblur="0.2"
-        maxscreenblur="0.4">
-        <StatusEffect target="Character" setvalue="true" SpeedMultiplier="0.6"/>
+        minchromaticaberration="0.2"
+        maxchromaticaberration="1.0"
+        minspeedmultiplier="0.9"
+        maxspeedmultiplier="0.7"
+        tag="poisoned">
         <StatusEffect target="Character">
-          <Affliction identifier="oxygenlow" amount="5"/>
-          <Affliction identifier="hypoxemia" amount="5"/>
+          <Affliction identifier="oxygenlow" amount="12" />
         </StatusEffect>
       </Effect>
-
-      <Effect minstrength="40" maxstrength="70" multiplybymaxvitality="true"
-        minvitalitydecrease="0"
-        maxvitalitydecrease="0.3"
-        strengthchange="0.75"
+      <Effect minstrength="40" maxstrength="60"
+        strengthchange="1"
         minscreendistort="0.4"
-        maxscreendistort="0.6"
-        minscreenblur="0.4"
-        maxscreenblur="0.6">
-        <StatusEffect target="Character" setvalue="true" SpeedMultiplier="0.3"/>
+        maxscreendistort="0.7"
+        minchromaticaberration="1.0"
+        maxchromaticaberration="1.5"
+        minspeedmultiplier="0.7"
+        maxspeedmultiplier="0.6"
+        tag="poisoned">
         <StatusEffect target="Character">
-          <Affliction identifier="oxygenlow" amount="10"/>
-          <Affliction identifier="hypoxemia" amount="10"/>
+          <Affliction identifier="respiratoryarrest" amount="3" probability="0.4"/>
+        </StatusEffect>
+        <StatusEffect target="Character">
+          <Conditional ishuman="false"/>
+          <Affliction identifier="organdamage" amount="4" />
         </StatusEffect>
       </Effect>
-
-      <Effect minstrength="70" maxstrength="100" multiplybymaxvitality="true"
-        minvitalitydecrease="0.3"
-        maxvitalitydecrease="0.5"
-        strengthchange="0.5"
-        minscreendistort="0.8"
+      <Effect minstrength="60" maxstrength="75"
+        strengthchange="1"
+        minscreendistort="0.7"
         maxscreendistort="1.0"
-        minscreenblur="0.8"
-        maxscreenblur="1.0">
-        <StatusEffect target="Character" setvalue="true" SpeedMultiplier="0.1"/>
+        minchromaticaberration="1.5"
+        maxchromaticaberration="2.0"
+        minspeedmultiplier="0.6"
+        maxspeedmultiplier="0.5"
+        tag="poisoned">
         <StatusEffect target="Character">
-          <Affliction identifier="oxygenlow" amount="15"/>
-          <Affliction identifier="hypoxemia" amount="15"/>
-          <Affliction identifier="cerebralhypoxia" amount="0.2"/>
-          <Conditional ishuman="true"/>
-          <Affliction identifier="stun" amount="5"/>
+          <Affliction identifier="respiratoryarrest" amount="1" probability="0.3"/>
+          <Affliction identifier="cardiacarrest" amount="1"/>
+        </StatusEffect>
+        <StatusEffect target="Character">
+          <Conditional ishuman="false"/>
+          <Affliction identifier="organdamage" amount="6" />
         </StatusEffect>
       </Effect>
+      <Effect minstrength="75" maxstrength="99"
+        strengthchange="1"
+        minscreendistort="1.0"
+        maxscreendistort="1.0"
+        minchromaticaberration="2.0"
+        maxchromaticaberration="2.0"
+        minspeedmultiplier="0.5"
+        maxspeedmultiplier="0.2"
+        tag="poisoned">
+        <StatusEffect target="Character">
+         <Affliction identifier="respiratoryarrest" amount="1" probability="0.3"/>
+         <Affliction identifier="cardiacarrest" amount="1"/>
+
+        </StatusEffect>
+        <StatusEffect target="Character">
+          <Conditional ishuman="false"/>
+          <Affliction identifier="organdamage" amount="10" />
+        </StatusEffect>
+        <StatusEffect target="Character" setvalue="true">
+          <Conditional healthpercentage="lt 75"/>
+          <Affliction identifier="stun" amount="1" />
+        </StatusEffect>     
+      </Effect>
+      <Effect minstrength="99" maxstrength="100"
+        strengthchange="1"
+        minscreendistort="1.0"
+        maxscreendistort="1.0"
+        minchromaticaberration="2.0"
+        maxchromaticaberration="2.0"
+        minspeedmultiplier="0.5"
+        maxspeedmultiplier="0.2"
+        tag="poisoned">
+        <StatusEffect target="Character">
+         <Affliction identifier="respiratoryarrest" amount="0.35"/>
+         <Affliction identifier="cardiacarrest" amount="1"/>
+        </StatusEffect>
+        <StatusEffect target="Character">
+          <Conditional ishuman="false"/>
+          <Affliction identifier="organdamage" amount="45" />
+        </StatusEffect>
+        <StatusEffect target="Character" interval="1" disabledeltatime="true" multiplyafflictionsbymaxvitality="true" ConditionalComparison="And">
+          <Conditional IsHuman="false"/>
+          <Conditional healthpercentage="gt 50"/>
+          <Affliction identifier="morbusinepoisoning" amount="-9999" probability="0.1" />
+        </StatusEffect>
+        <StatusEffect target="Character" setvalue="true">
+          <Conditional healthpercentage="lt 90"/>
+          <Affliction identifier="stun" amount="1" />
+        </StatusEffect>
+      </Effect>
+      <PeriodicEffect mininterval="30" maxinterval="60" minstrength="30" maxstrength="100">
+        <StatusEffect target="Character" multiplybymaxvitality="true">
+          <Affliction identifier="stun" amount="5" />
+        </StatusEffect>
+      </PeriodicEffect>
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="640,640,128,128" color="106,106,106,255" origin="0,0"/>
     </Affliction>
   </Override>
   <Override>
     <Affliction
-      name=""
-      identifier="sufforinpoisoning"
-      description=""
-      type="poison"
-      causeofdeathdescription="Died of sufforin poisoning."
-      selfcauseofdeathdescription="You have died of sufforin poisoning."
-      limbspecific="false"
-      indicatorlimb="Torso"
-      showiconthreshold="700"
-      showinhealthscannerthreshold="5"
-      karmachangeonapplied="-50"
-      maxstrength="100"
-      MedicalSkillGain="1.5">
-      <!-- At first undetectable and shows no symptoms, then starts affecting character's vision. Quickly becomes lethal if left untreated. -->
-      <Effect minstrength="0" maxstrength="30"
-        minvitalitydecrease="0"
-        maxvitalitydecrease="0"
-        strengthchange="2"
-        minscreendistort="0.0"
-        maxscreendistort="0.0"
-        minscreenblur="0.0"
-        maxscreenblur="0.0"
-        minchromaticaberration="0.0"
-        maxchromaticaberration="0.0">
-      </Effect>
-      <Effect minstrength="30" maxstrength="90"
-        minvitalitydecrease="0"
-        maxvitalitydecrease="0"
-        strengthchange="1"
-        minscreendistort="0.0"
-        maxscreendistort="0.0"
-        minscreenblur="0.0"
-        maxscreenblur="1.0"
-        minchromaticaberration="0.0"
-        maxchromaticaberration="0.0">
-        <StatusEffect target="Character" comparison="And">
-          <Conditional ishuman="true"/>
-          <Affliction identifier="invertcontrols" amount="5"/>
-          <Affliction identifier="drunk" amount="0.5"/>
-          <Affliction identifier="bloodloss" amount="0.3"/>
-        </StatusEffect>
-      </Effect>
-      <Effect minstrength="90" maxstrength="100" multiplybymaxvitality="true"
-        minvitalitydecrease="0"
-        maxvitalitydecrease="0"
-        strengthchange="0.5"
-        minscreendistort="0.0"
-        maxscreendistort="0.0"
-        minscreenblur="1.1"
-        maxscreenblur="1.2"
-        minchromaticaberration="0.0"
-        maxchromaticaberration="0.0">
-        <StatusEffect target="Character" comparison="And">
-          <Conditional ishuman="true"/>
-          <Affliction identifier="invertcontrols" amount="5"/>
-          <Affliction identifier="drunk" amount="1"/>
-          <Affliction identifier="bloodloss" amount="0.6"/>
-        </StatusEffect>
-      </Effect>
-      <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="640,640,128,128" color="106,106,106,255" origin="0,0"/>
+    name="Cyanide poisoning"
+    identifier="cyanidepoisoning"
+    description="Rapid death"
+    type="poison"
+    causeofdeathdescription="Died of cyanide poisoning."
+    selfcauseofdeathdescription="You have died of cyanide poisoning."
+    limbspecific="false"
+    indicatorlimb="Torso"
+    showiconthreshold="700"
+    showinhealthscannerthreshold="30"
+    treatmentthreshold="30"
+    karmachangeonapplied="-100"
+    maxstrength="100"
+    affectmachines="false"
+    healcostmultiplier="0"
+    basehealcost="500"
+    MedicalSkillGain="4.0">
+
+    <Effect minstrength="0" maxstrength="10"
+      strengthchange="-0.25"
+      minscreendistort="0.0"
+      maxscreendistort="0.4"
+      minscreenblur="0.0"
+      maxscreenblur="0.4"
+      minfacetint="0,100,180,0"
+      maxfacetint="0,100,180,20">
+      <StatusEffect target="Character">
+        <Affliction identifier="hypoxemia" amount="11" />       
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="10" maxstrength="30"
+      strengthchange="2"
+      minscreendistort="0.4"
+      maxscreendistort="0.0"
+      minscreenblur="0.4"
+      maxscreenblur="0.0"
+      minfacetint="0,100,180,20"
+      maxfacetint="0,100,180,40"
+      minbodytint="0,100,180,0"
+      maxbodytint="0,100,180,20"
+      minspeedmultiplier="1.0"
+      maxspeedmultiplier="0.9">
+      <StatusEffect target="Character">
+        <Affliction identifier="hypoxemia" amount="12" /> 
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="30" maxstrength="50"
+      strengthchange="3"
+      minscreendistort="0.0"
+      maxscreendistort="0.8"
+      minscreenblur="0.0"
+      maxscreenblur="0.8"
+      minfacetint="0,100,180,40"
+      maxfacetint="0,100,180,60"
+      minbodytint="0,100,180,0"
+      maxbodytint="0,100,180,40"
+      minspeedmultiplier="0.9"
+      maxspeedmultiplier="0.7">
+      <StatusEffect target="Character">
+        <Affliction identifier="hypoxemia" amount="13" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="50" maxstrength="75"
+      strengthchange="4"
+      minscreendistort="0.8"
+      maxscreendistort="1.0"
+      minscreenblur="0.8"
+      maxscreenblur="1.0"
+      minfacetint="0,100,180,60"
+      maxfacetint="0,100,180,100"
+      minbodytint="0,100,180,40"
+      maxbodytint="0,100,180,80"
+      minspeedmultiplier="0.7"
+      maxspeedmultiplier="0.7"
+      tag="poisoned">   
+      <StatusEffect target="Character">
+        <Affliction identifier="hypoxemia" amount="17" />
+      </StatusEffect>
+      <StatusEffect target="Character" setvalue="true">
+        <Conditional healthpercentage="lt 75"/>
+        <Affliction identifier="stun" amount="1" />
+      </StatusEffect>
+      <StatusEffect target="Character">
+        <Conditional IsHuman="false"/>
+        <Affliction identifier="organdamage" amount="20" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="75" maxstrength="99"
+      strengthchange="5"
+      minscreendistort="1.0"
+      maxscreendistort="1.0"
+      minscreenblur="1.0"
+      maxscreenblur="1.0"
+      minfacetint="0,100,180,100"
+      maxfacetint="0,100,180,100"
+      minbodytint="0,100,180,80"
+      maxbodytint="0,100,180,80"
+      minspeedmultiplier="0.7"
+      maxspeedmultiplier="0.7"
+      tag="poisoned">     
+      <StatusEffect target="Character">
+        <Affliction identifier="hypoxemia" amount="30" />
+      </StatusEffect>
+      <StatusEffect target="Character" setvalue="true">
+        <Conditional healthpercentage="lt 90"/>
+        <Affliction identifier="stun" amount="1" />
+      </StatusEffect>
+      <StatusEffect target="Character">
+        <Conditional IsHuman="false"/>
+        <Affliction identifier="organdamage" amount="60" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="99" maxstrength="100"
+      strengthchange="5"
+      minscreendistort="1.0"
+      maxscreendistort="1.0"
+      minscreenblur="1.0"
+      maxscreenblur="1.0"
+      minfacetint="0,100,180,100"
+      maxfacetint="0,100,180,100"
+      minbodytint="0,100,180,80"
+      maxbodytint="0,100,180,80"
+      minspeedmultiplier="0.7"
+      maxspeedmultiplier="0.7"
+      tag="poisoned">
+
+      <StatusEffect target="Character">
+        <Affliction identifier="hypoxemia" amount="70" />
+      </StatusEffect>
+      <StatusEffect target="Character" setvalue="true">
+        <Conditional healthpercentage="lt 90"/>
+        <Affliction identifier="stun" amount="1" />
+      </StatusEffect>
+      <StatusEffect target="Character">
+        <Conditional IsHuman="false"/>
+        <Affliction identifier="organdamage" amount="60" />
+      </StatusEffect>
+      <StatusEffect target="Character" interval="1" disabledeltatime="true" multiplyafflictionsbymaxvitality="true" ConditionalComparison="And">
+        <Conditional IsHuman="false"/>
+        <Conditional healthpercentage="gt 50"/>
+        <Affliction identifier="cyanidepoisoning" amount="-9999" probability="0.075" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="640,640,128,128" color="106,106,106,255" origin="0,0"/>
+    </Affliction>
+  </Override>
+  <Override>
+    <Affliction
+    name="Sufforin Poisoning"
+    identifier="sufforinpoisoning"
+    description="Sneaky, slowly progressing poisoning that eventually leads to death."
+    type="poison"
+    causeofdeathdescription="Died of sufforin poisoning."
+    selfcauseofdeathdescription="You have died of sufforin poisoning."
+    limbspecific="false"
+    indicatorlimb="Torso"
+    showiconthreshold="700"
+    showinhealthscannerthreshold="70"
+    treatmentthreshold="75"
+    karmachangeonapplied="-50"
+    maxstrength="100"
+    affectmachines="false"
+    healcostmultiplier="0"
+    basehealcost="100"
+    MedicalSkillGain="1.5">
+
+    <Effect minstrength="0" maxstrength="10"
+      strengthchange="-0.25"
+      minscreenblur="0.0"
+      maxscreenblur="0.1">
+    </Effect>
+    <Effect minstrength="10" maxstrength="50"
+      strengthchange="0.5"
+      minscreenblur="0.1"
+      maxscreenblur="0.2">
+    </Effect>
+    <Effect minstrength="50" maxstrength="75"
+      strengthchange="1"
+      minscreenblur="0.1"
+      maxscreenblur="1.0"
+      minfacetint="255,255,0,0"
+      maxfacetint="255,255,0,80"
+      minbodytint="255,255,0,0"
+      maxbodytint="255,255,0,60"
+      minspeedmultiplier="1.0"
+      maxspeedmultiplier="0.8"
+      tag="poisoned">
+    </Effect>
+    <Effect minstrength="75" maxstrength="99"
+      strengthchange="1"
+      minscreenblur="1.0"
+      maxscreenblur="2.0"
+      minscreendistort="0.0"
+      maxscreendistort="1.0"
+      minfacetint="255,255,0,80"
+      maxfacetint="255,255,0,80"
+      minbodytint="255,255,0,60"
+      maxbodytint="255,255,0,60"
+      minspeedmultiplier="0.8"
+      maxspeedmultiplier="0.8"
+      tag="poisoned">
+      <StatusEffect target="Character">
+        <Affliction identifier="liverdamage" amount="0.7" />
+        <Affliction identifier="kidneydamage" amount="0.7" />
+        <Affliction identifier="heartdamage" amount="0.3" />
+      </StatusEffect>    
+      <StatusEffect target="Character">
+        <Conditional IsHuman="false"/>
+        <Affliction identifier="organdamage" amount="15" />
+      </StatusEffect>
+      <StatusEffect target="Character" setvalue="true">
+        <Conditional healthpercentage="lt 90"/>
+        <Affliction identifier="stun" amount="1" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="99" maxstrength="100"
+      strengthchange="1"
+      minscreenblur="2.0"
+      maxscreenblur="2.0"
+      minscreendistort="1.0"
+      maxscreendistort="1.0"
+      minfacetint="255,255,0,80"
+      maxfacetint="255,255,0,80"
+      minbodytint="255,255,0,60"
+      maxbodytint="255,255,0,60"
+      minspeedmultiplier="0.8"
+      maxspeedmultiplier="0.8"
+      tag="poisoned">
+      <StatusEffect target="Character">
+        <Affliction identifier="liverdamage" amount="1.5" />
+        <Affliction identifier="kidneydamage" amount="1.5" />
+        <Affliction identifier="heartdamage" amount="0.8" />
+      </StatusEffect>       
+      <StatusEffect target="Character" setvalue="true">
+        <Conditional healthpercentage="lt 90"/>
+        <Affliction identifier="stun" amount="1" />
+      </StatusEffect>
+      <StatusEffect target="Character">
+        <Conditional IsHuman="false"/>
+        <Affliction identifier="organdamage" amount="20" />
+      </StatusEffect>
+      <StatusEffect target="Character" interval="1" disabledeltatime="true" multiplyafflictionsbymaxvitality="true" ConditionalComparison="And">
+        <Conditional IsHuman="false"/>
+        <Conditional healthpercentage="gt 50"/>
+        <Affliction identifier="sufforinpoisoning" amount="-9999" probability="0.1" />
+      </StatusEffect>
+    </Effect>
+    <PeriodicEffect mininterval="1" maxinterval="3" minstrength="60" maxstrength="100">
+      <StatusEffect target="Character" multiplybymaxvitality="true">
+        <Affliction identifier="nausea" amount="50" probability="0.25" />
+      </StatusEffect>
+    </PeriodicEffect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="640,640,128,128" color="106,106,106,255" origin="0,0"/>
     </Affliction>
   </Override>
   <Override>
