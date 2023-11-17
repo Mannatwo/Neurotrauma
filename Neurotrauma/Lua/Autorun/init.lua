@@ -2,8 +2,8 @@
 
 NT = {} -- Neurotrauma
 NT.Name="Neurotrauma"
-NT.Version = "A1.8.6h2"
-NT.VersionNum = 01080602
+NT.Version = "A1.8.6h3"
+NT.VersionNum = 01080603
 NT.Path = table.pack(...)[1]
 
 -- config loading
