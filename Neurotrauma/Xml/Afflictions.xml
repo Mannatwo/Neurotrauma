@@ -4008,7 +4008,6 @@ thats what the vomiting symptom is for -->
       maxspeedmultiplier="0.7">
       <StatusEffect target="Character">
         <Affliction identifier="hypoxemia" amount="13" />
-        <Affliction identifier="acidosis" amount="10" /> 
       </StatusEffect>
     </Effect>
     <Effect minstrength="50" maxstrength="75"
@@ -4023,10 +4022,7 @@ thats what the vomiting symptom is for -->
       maxbodytint="0,100,180,80"
       minspeedmultiplier="0.7"
       maxspeedmultiplier="0.7"
-      tag="poisoned">
-      <StatusEffect target="Character" interval="2">
-        <Affliction identifier="acidosis" amount="1" /> 
-      </StatusEffect>      
+      tag="poisoned">   
       <StatusEffect target="Character">
         <Affliction identifier="hypoxemia" amount="17" />
       </StatusEffect>
@@ -4051,10 +4047,7 @@ thats what the vomiting symptom is for -->
       maxbodytint="0,100,180,80"
       minspeedmultiplier="0.7"
       maxspeedmultiplier="0.7"
-      tag="poisoned">
-      <StatusEffect target="Character" interval="3">
-        <Affliction identifier="acidosis" amount="1" /> 
-      </StatusEffect>      
+      tag="poisoned">     
       <StatusEffect target="Character">
         <Affliction identifier="hypoxemia" amount="30" />
       </StatusEffect>
@@ -4081,9 +4074,6 @@ thats what the vomiting symptom is for -->
       maxspeedmultiplier="0.7"
       tag="poisoned">
 
-      <StatusEffect target="Character" interval="4">
-        <Affliction identifier="acidosis" amount="1" /> 
-      </StatusEffect>
       <StatusEffect target="Character">
         <Affliction identifier="hypoxemia" amount="70" />
       </StatusEffect>

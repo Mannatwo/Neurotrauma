@@ -14,7 +14,11 @@ Hook.Add("changeFallDamage", "NT.falldamage", function(impactDamage, character, 
     -- dont bother with creatures
     if not character.IsHuman then return end
 
-    local velocityMagnitude = HF.Magnitude(velocity)^1.5
+    -- dont apply fall damage in water
+    if character.InWater then return 0 end
+
+    local velocityMagnitude = HF.Magnitude(velocity)
+    velocityMagnitude = velocityMagnitude^1.5
 
     -- apply fall damage to all limbs based on fall direction
     local mainlimbPos = character.AnimController.MainLimb.WorldPosition
