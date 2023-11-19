@@ -421,6 +421,7 @@ NT.Afflictions = {
             or (c.afflictions.alkalosis.strength > 60 and HF.Chance(0.05)) or HF.Chance(HF.Minimum(c.afflictions.radiationsickness.strength,50,0)/200*0.1)
             or (c.afflictions.alcoholwithdrawal.strength > 50 and HF.Chance(c.afflictions.alcoholwithdrawal.strength/1000))
             or (c.afflictions.opiateoverdose.strength > 60 and HF.Chance(c.afflictions.opiateoverdose.strength/500))
+            or (HF.GetAfflictionStrength(c.character,"cyanidepoisoning",0) > 60 and HF.GetAfflictionStrength(c.character,"cyanidepoisoning",0) < 90)
         )
         ) then
             c.afflictions[i].strength = c.afflictions[i].strength+10
@@ -706,14 +707,14 @@ NT.Afflictions = {
         update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and c.afflictions.sym_unconsciousness.strength<=0 and (NTC.GetSymptom(c.character,i)
         or c.afflictions.acidosis.strength > 15 or c.afflictions.bloodpressure.strength < 30
         or c.afflictions.hypoxemia.strength > 50 or c.afflictions.sepsis.strength > 40
-        or c.afflictions.alcoholwithdrawal.strength > 80),2)end
+        or c.afflictions.alcoholwithdrawal.strength > 80 or HF.GetAfflictionStrength(c.character,"cyanidepoisoning",0) > 30),2)end
     },
     sym_headache={
         update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and c.afflictions.sym_unconsciousness.strength<=0 and not c.stats.sedated and (NTC.GetSymptom(c.character,i)
         or c.stats.bloodamount < 50 or c.afflictions.acidosis.strength > 20
         or c.afflictions.stroke.strength > 1 or c.afflictions.hypoxemia.strength > 40
         or c.afflictions.bloodpressure.strength < 60 or c.afflictions.alcoholwithdrawal.strength > 50
-        or c.afflictions.h_fracture.strength>0),2)end
+        or c.afflictions.h_fracture.strength>0 or HF.GetAfflictionStrength(c.character,"cyanidepoisoning",0) > 40),2)end
     },
     sym_legswelling={
         update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and HF.GetAfflictionStrength(c.character,"rl_cyber",0) < 0.1 and (NTC.GetSymptom(c.character,i)
@@ -722,7 +723,8 @@ NT.Afflictions = {
     },
     sym_weakness={
         update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and (NTC.GetSymptom(c.character,i)
-        or c.afflictions.tamponade.strength > 30 or c.stats.bloodamount < 40 or c.afflictions.acidosis.strength > 35),2)end
+        or c.afflictions.tamponade.strength > 30 or c.stats.bloodamount < 40 or c.afflictions.acidosis.strength > 35
+        or HF.GetAfflictionStrength(c.character,"cyanidepoisoning",0) > 20),2)end
     },
     sym_wheezing={
         update=function(c,i) c.afflictions[i].strength = HF.BoolToNum(not NTC.GetSymptomFalse(c.character,i) and c.afflictions.respiratoryarrest.strength<=0 and (NTC.GetSymptom(c.character,i)
