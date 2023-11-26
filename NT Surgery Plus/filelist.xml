@@ -20,4 +20,5 @@
   <None file="%ModDir%/Lua/Autorun/init.lua" />
   <None file="%ModDir%/Lua/Scripts/humanupdate.lua" />
   <None file="%ModDir%/Lua/Scripts/items.lua" />
+  <None file="%ModDir%/Lua/Scripts/configdata.lua" />
 </contentpackage>

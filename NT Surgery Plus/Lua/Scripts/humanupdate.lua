@@ -35,7 +35,7 @@ function NTSP.PreUpdateHuman(character)
     end
 
     -- sterility during surgery
-    if NT.Config.NTSPenableSurgicalInfection and HF.HasAffliction(character,"surgeryincision") then
+    if NTConfig.Get("NTSP_enableSurgicalInfection",false) and HF.HasAffliction(character,"surgeryincision") then
 
         local sterility = 50
 

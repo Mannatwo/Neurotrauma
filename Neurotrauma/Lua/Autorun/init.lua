@@ -2,33 +2,14 @@
 
 NT = {} -- Neurotrauma
 NT.Name="Neurotrauma"
-NT.Version = "A1.8.6h3"
-NT.VersionNum = 01080603
+NT.Version = "A1.8.7"
+NT.VersionNum = 01080700
 NT.Path = table.pack(...)[1]
 
--- config loading
-
-if not File.Exists(NT.Path .. "/config.json") then
-
-    -- create default config if there is no config file
-    NT.Config = dofile(NT.Path .. "/Lua/defaultconfig.lua")
-    File.Write(NT.Path .. "/config.json", json.serialize(NT.Config))
-
-else
-
-    -- load existing config
-    NT.Config = json.parse(File.Read(NT.Path .. "/config.json"))
-    
-    -- add missing entries
-    local defaultConfig = dofile(NT.Path .. "/Lua/defaultconfig.lua")
-    for key, value in pairs(defaultConfig) do
-        if NT.Config[key] == nil then
-            NT.Config[key] = value
-        end
-    end
-end
-
 dofile(NT.Path.."/Lua/Scripts/helperfunctions.lua")
+
+-- all things config
+dofile(NT.Path.."/Lua/Scripts/configdata.lua")
 
 -- server-side code (also run in singleplayer)
 if (Game.IsMultiplayer and SERVER) or not Game.IsMultiplayer then

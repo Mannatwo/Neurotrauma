@@ -193,7 +193,7 @@ NT.Afflictions = {
 
         -- triggers
         if( not NTC.GetSymptomFalse(c.character,"triggersym_heartattack") and not c.stats.stasis and c.afflictions.afstreptokinase.strength <= 0 and c.afflictions.heartremoved.strength <= 0 and (NTC.GetSymptom(c.character,"triggersym_heartattack")
-        or (c.afflictions.bloodpressure.strength > 150 and HF.Chance(NT.Config.heartattackChance*((c.afflictions.bloodpressure.strength-150)/50*0.02))))
+        or (c.afflictions.bloodpressure.strength > 150 and HF.Chance(NTConfig.Get("NT_heartattackChance",1)*((c.afflictions.bloodpressure.strength-150)/50*0.02))))
         ) then
             c.afflictions[i].strength = c.afflictions[i].strength+50
         end
@@ -242,7 +242,7 @@ NT.Afflictions = {
         if gain > 0 then
             gain = gain
             * NTC.GetMultiplier(c.character,"neurotraumagain")      -- NTC multiplier
-            * NT.Config.neurotraumaGain                             -- Config multiplier
+            * NTConfig.Get("NT_neurotraumaGain",1)                     -- Config multiplier
             * (1-HF.Clamp(c.afflictions.afmannitol.strength,0,0.5)) -- half if mannitol
         end
 
@@ -443,7 +443,7 @@ NT.Afflictions = {
 
         -- triggers
         if( not NTC.GetSymptomFalse(c.character,"triggersym_stroke") and not c.stats.stasis and (NTC.GetSymptom(c.character,"triggersym_stroke")
-        or (c.afflictions.bloodpressure.strength > 150 and HF.Chance(NT.Config.strokeChance*((c.afflictions.bloodpressure.strength-150)/50*0.02+HF.Clamp(c.afflictions.afstreptokinase.strength,0,1)*0.05))))
+        or (c.afflictions.bloodpressure.strength > 150 and HF.Chance(NTConfig.Get("NT_strokeChance",1)*((c.afflictions.bloodpressure.strength-150)/50*0.02+HF.Clamp(c.afflictions.afstreptokinase.strength,0,1)*0.05))))
         ) then
             c.afflictions[i].strength = c.afflictions[i].strength+5
         end
@@ -631,7 +631,7 @@ NT.Afflictions = {
             -- fibrillation multiplier
             if fibrillationSpeed > 0 then fibrillationSpeed = fibrillationSpeed
                 * NTC.GetMultiplier(c.character,"fibrillation")
-                * NT.Config.fibrillationSpeed
+                * NTConfig.Get("NT_fibrillationSpeed",1)
             end
 
             if c.afflictions.fibrillation.strength <= 0 then -- havent reached fibrillation yet
@@ -922,7 +922,7 @@ NT.LimbAfflictions = {
         end
 
         if infectindex > 0 then
-            infectindex = infectindex * NT.Config.infectionRate
+            infectindex = infectindex * NTConfig.Get("NT_infectionRate",1)
         end
 
         limbaff[i].strength = limbaff[i].strength + infectindex/5
@@ -956,8 +956,8 @@ NT.LimbAfflictions = {
             end
 
             if(limbaff[i].strength < 15 and limbaff[i].strength > 0) then limbaff[i].strength = limbaff[i].strength - 0.01*c.stats.healingrate*NT.Deltatime end
-            if(c.afflictions.sepsis.strength > 5) then limbaff[i].strength = limbaff[i].strength + HF.BoolToNum(HF.Chance(0.04),0.5 + c.afflictions.sepsis.strength/150) * NT.Config.gangrenespeed * NT.Deltatime end
-            if(limbaff.arteriesclamp.strength > 0) then limbaff[i].strength = limbaff[i].strength + HF.BoolToNum(HF.Chance(0.1),1) * 0.5 * NT.Config.gangrenespeed * NT.Deltatime end
+            if(c.afflictions.sepsis.strength > 5) then limbaff[i].strength = limbaff[i].strength + HF.BoolToNum(HF.Chance(0.04),0.5 + c.afflictions.sepsis.strength/150) * NTConfig.Get("NT_gangrenespeed",1) * NT.Deltatime end
+            if(limbaff.arteriesclamp.strength > 0) then limbaff[i].strength = limbaff[i].strength + HF.BoolToNum(HF.Chance(0.1),1) * 0.5 * NTConfig.Get("NT_gangrenespeed",1) * NT.Deltatime end
         end
     end
     },
@@ -1013,7 +1013,7 @@ NT.CharStats = {
         + c.afflictions.hypoxemia.strength/400
         + math.max(c.afflictions.radiationsickness.strength-25,0)/400)
         * NTC.GetMultiplier(c.character,"anyorgandamage")
-        * NT.Config.organDamageGain*NT.Deltatime
+        * NTConfig.Get("NT_organDamageGain",1)*NT.Deltatime
     end},
     clottingrate={getter=function(c) return
         HF.Clamp(1-c.afflictions.liverdamage.strength/100,0,1)

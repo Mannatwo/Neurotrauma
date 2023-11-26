@@ -1,10 +1,10 @@
 
 NTSP = {} -- Neurotrauma Surgery Plus
 NTSP.Name="Surgery Plus"
-NTSP.Version = "A1.2.6h2"
-NTSP.VersionNum = 01020602
-NTSP.MinNTVersion = "A1.7.13"
-NTSP.MinNTVersionNum = 01071300
+NTSP.Version = "A1.2.6h3"
+NTSP.VersionNum = 01020603
+NTSP.MinNTVersion = "A1.8.7"
+NTSP.MinNTVersionNum = 01080700
 NTSP.Path = table.pack(...)[1]
 Timer.Wait(function() if NTC ~= nil and NTC.RegisterExpansion ~= nil then NTC.RegisterExpansion(NTSP) end end,1)
 
@@ -18,6 +18,7 @@ if (Game.IsMultiplayer and SERVER) or not Game.IsMultiplayer then
 
         dofile(NTSP.Path.."/Lua/Scripts/humanupdate.lua")
         dofile(NTSP.Path.."/Lua/Scripts/items.lua")
+        dofile(NTSP.Path.."/Lua/Scripts/configdata.lua")
 
         NTC.AddPreHumanUpdateHook(NTSP.PreUpdateHuman)
         NTC.AddHumanUpdateHook(NTSP.PostUpdateHuman)

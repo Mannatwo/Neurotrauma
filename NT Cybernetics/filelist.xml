@@ -14,6 +14,7 @@
   <None file="%ModDir%/Lua/Scripts/humanupdate.lua" />
   <None file="%ModDir%/Lua/Scripts/items.lua" />
   <None file="%ModDir%/Lua/Scripts/ondamaged.lua" />
+  <None file="%ModDir%/Lua/Scripts/configdata.lua" />
   <None file="%ModDir%/Images/AfflictionIcons.png" />
   <None file="%ModDir%/Lua/Scripts/testing.lua" />
   <None file="%ModDir%/Sound/cyberbite1.ogg" />

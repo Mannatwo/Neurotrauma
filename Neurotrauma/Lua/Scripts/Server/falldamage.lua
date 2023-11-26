@@ -69,7 +69,7 @@ Hook.Add("changeFallDamage", "NT.falldamage", function(impactDamage, character, 
     for type,dotResult in pairs(limbDotResults) do
         local relativeWeight = dotResult/weightsum
 
-        local damageInflictedToThisLimb = relativeWeight * math.max(0,velocityMagnitude-10)^1.5 * NT.Config.falldamage * 0.5
+        local damageInflictedToThisLimb = relativeWeight * math.max(0,velocityMagnitude-10)^1.5 * NTConfig.Get("NT_falldamage",1) * 0.5
         NT.CauseFallDamage(character,type,damageInflictedToThisLimb)
     end
 
@@ -82,14 +82,14 @@ NT.CauseFallDamage = function(character,limbtype,strength)
 
     local fractureImmune = false
 
-    local injuryChanceMultiplier = NT.Config.falldamageSeriousInjuryChance
+    local injuryChanceMultiplier = NTConfig.Get("NT_falldamageSeriousInjuryChance",1)
     
 
     -- torso
     if not fractureImmune and strength >= 1 and limbtype==LimbType.Torso then
-        if HF.Chance((strength-15)/100*NTC.GetMultiplier(character,"anyfracturechance")*NT.Config.fractureChance*injuryChanceMultiplier) then
+        if HF.Chance((strength-15)/100*NTC.GetMultiplier(character,"anyfracturechance")*NTConfig.Get("NT_fractureChance",1)*injuryChanceMultiplier) then
             NT.BreakLimb(character,limbtype)
-            if HasLungs(character) and strength >= 5 and HF.Chance(strength/70*NTC.GetMultiplier(character,"pneumothoraxchance")*NT.Config.pneumothoraxChance) then
+            if HasLungs(character) and strength >= 5 and HF.Chance(strength/70*NTC.GetMultiplier(character,"pneumothoraxchance")*NTConfig.Get("NT_pneumothoraxChance",1)) then
                 HF.AddAffliction(character,"pneumothorax",5)
             end
         end
@@ -99,9 +99,9 @@ NT.CauseFallDamage = function(character,limbtype,strength)
     if not fractureImmune and strength >= 1 and limbtype==LimbType.Head then
         if strength >= 15 and HF.Chance(math.min(strength/100,0.7)) then
             HF.AddAfflictionResisted(character,"concussion",10) end
-        if strength >= 15 and HF.Chance(math.min((strength-15)/100,0.7)*NTC.GetMultiplier(character,"anyfracturechance")*NT.Config.fractureChance*injuryChanceMultiplier) then
+        if strength >= 15 and HF.Chance(math.min((strength-15)/100,0.7)*NTC.GetMultiplier(character,"anyfracturechance")*NTConfig.Get("NT_fractureChance",1)*injuryChanceMultiplier) then
             NT.BreakLimb(character,limbtype) end
-        if strength >= 15 and HF.Chance(math.min((strength-15)/100,0.7)*NTC.GetMultiplier(character,"anyfracturechance")*NT.Config.fractureChance*injuryChanceMultiplier) then
+        if strength >= 15 and HF.Chance(math.min((strength-15)/100,0.7)*NTC.GetMultiplier(character,"anyfracturechance")*NTConfig.Get("NT_fractureChance",1)*injuryChanceMultiplier) then
             HF.AddAffliction(character,"n_fracture",5) end
         if strength >= 5 and HF.Chance(0.7) then
             HF.AddAffliction(character,"cerebralhypoxia",strength*HF.RandomRange(0.1,0.4)) end
@@ -109,14 +109,14 @@ NT.CauseFallDamage = function(character,limbtype,strength)
 
     -- extremities
     if not fractureImmune and strength >= 1 and HF.LimbIsExtremity(limbtype) then
-        if HF.Chance((strength-15)/100*NTC.GetMultiplier(character,"anyfracturechance")*NT.Config.fractureChance*injuryChanceMultiplier) then
+        if HF.Chance((strength-15)/100*NTC.GetMultiplier(character,"anyfracturechance")*NTConfig.Get("NT_fractureChance",1)*injuryChanceMultiplier) then
             NT.BreakLimb(character,limbtype)
             if HF.Chance((strength-2)/60) then
                 -- this is here to simulate open fractures
                 NT.ArteryCutLimb(character,limbtype)
             end
         end
-        if HF.Chance(HF.Clamp((strength-5)/120,0,0.5)*NTC.GetMultiplier(character,"dislocationchance")*NT.Config.dislocationChance*injuryChanceMultiplier) and not NT.LimbIsAmputated(character,limbtype) then
+        if HF.Chance(HF.Clamp((strength-5)/120,0,0.5)*NTC.GetMultiplier(character,"dislocationchance")*NTConfig.Get("NT_dislocationChance",1)*injuryChanceMultiplier) and not NT.LimbIsAmputated(character,limbtype) then
             NT.DislocateLimb(character,limbtype) end
     end
 

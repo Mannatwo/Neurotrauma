@@ -304,7 +304,7 @@ NT.ItemMethods.suture = function(item, usingCharacter, targetCharacter, limb)
                 limbtoitem[LimbType.LeftArm] = "larm"
                 if limbtoitem[limbtype] ~= nil then
                     HF.GiveItem(usingCharacter,limbtoitem[limbtype])
-                    if NTSP ~= nil and NT.Config.NTSPenableSurgerySkill then HF.GiveSkill(usingCharacter,"surgery",0.5) end
+                    if NTSP ~= nil and NTConfig.Get("NTSP_enableSurgerySkill",true) then HF.GiveSkill(usingCharacter,"surgery",0.5) end
                 end
             end
         end
@@ -314,7 +314,7 @@ NT.ItemMethods.suture = function(item, usingCharacter, targetCharacter, limb)
             if HF.HasAfflictionLimb(targetCharacter,affidentifier,limbtype) then
                 HF.SetAfflictionLimb(targetCharacter,affidentifier,limbtype,0,usingCharacter)
 
-                if NTSP ~= nil and NT.Config.NTSPenableSurgerySkill then 
+                if NTSP ~= nil and NTConfig.Get("NTSP_enableSurgerySkill",true) then 
                     HF.GiveSkill(usingCharacter,"surgery",skillgain)
                 else 
                     HF.GiveSkill(usingCharacter,"medical",skillgain/4)
@@ -325,7 +325,7 @@ NT.ItemMethods.suture = function(item, usingCharacter, targetCharacter, limb)
             if HF.HasAffliction(targetCharacter,affidentifier) then
                 HF.SetAffliction(targetCharacter,affidentifier,0,usingCharacter)
 
-                if NTSP ~= nil and NT.Config.NTSPenableSurgerySkill then 
+                if NTSP ~= nil and NTConfig.Get("NTSP_enableSurgerySkill",true) then 
                     HF.GiveSkill(usingCharacter,"surgery",skillgain)
                 else 
                     HF.GiveSkill(usingCharacter,"medical",skillgain/4)
@@ -681,7 +681,7 @@ NT.ItemMethods.tweezers = function(item, usingCharacter, targetCharacter, limb)
                 local healedamount = math.min(affAmount,healamount)
                 HF.AddAfflictionLimb(targetCharacter,identifier,limbtype,-healamount,usingCharacter)
                 
-                if NTSP ~= nil and usecase=="surgery" and NT.Config.NTSPenableSurgerySkill then 
+                if NTSP ~= nil and usecase=="surgery" and NTConfig.Get("NTSP_enableSurgerySkill",true) then 
                     HF.GiveSkillScaled(usingCharacter,"surgery",healedamount*skillgain)
                 else 
                     HF.GiveSkillScaled(usingCharacter,"medical",healedamount*skillgain/2)
@@ -1035,7 +1035,7 @@ NT.ItemMethods.osteosynthesisimplants = function(item, usingCharacter, targetCha
                 if HF.HasAfflictionLimb(targetCharacter,affidentifier,limbtype) then
                     HF.SetAfflictionLimb(targetCharacter,affidentifier,limbtype,0,usingCharacter)
 
-                    if NTSP ~= nil and NT.Config.NTSPenableSurgerySkill then 
+                    if NTSP ~= nil and NTConfig.Get("NTSP_enableSurgerySkill",true) then 
                         HF.GiveSkillScaled(usingCharacter,"surgery",skillgain)
                     else 
                         HF.GiveSkillScaled(usingCharacter,"medical",skillgain/4)
@@ -1046,7 +1046,7 @@ NT.ItemMethods.osteosynthesisimplants = function(item, usingCharacter, targetCha
                 if HF.HasAffliction(targetCharacter,affidentifier) then
                     HF.SetAffliction(targetCharacter,affidentifier,0,usingCharacter)
 
-                    if NTSP ~= nil and NT.Config.NTSPenableSurgerySkill then 
+                    if NTSP ~= nil and NTConfig.Get("NTSP_enableSurgerySkill",true) then 
                         HF.GiveSkillScaled(usingCharacter,"surgery",skillgain)
                     else 
                         HF.GiveSkillScaled(usingCharacter,"medical",skillgain/4)
@@ -1098,7 +1098,7 @@ NT.ItemMethods.spinalimplant = function(item, usingCharacter, targetCharacter, l
             HF.SetAffliction(targetCharacter,"t_paralysis",0,usingCharacter)
             HF.RemoveItem(item)
 
-            if NTSP ~= nil and NT.Config.NTSPenableSurgerySkill then 
+            if NTSP ~= nil and NTConfig.Get("NTSP_enableSurgerySkill",true) then 
                 HF.GiveSkillScaled(usingCharacter,"surgery",400)
             else 
                 HF.GiveSkillScaled(usingCharacter,"medical",100)
@@ -1120,7 +1120,7 @@ NT.ItemMethods.endovascballoon = function(item, usingCharacter, targetCharacter,
         HF.AddAffliction(targetCharacter,"balloonedaorta",100,usingCharacter)
         HF.SetAffliction(targetCharacter,"internalbleeding",0,usingCharacter)
 
-        if NTSP ~= nil and NT.Config.NTSPenableSurgerySkill then 
+        if NTSP ~= nil and NTConfig.Get("NTSP_enableSurgerySkill",true) then 
             HF.GiveSkillScaled(usingCharacter,"surgery",400)
         else 
             HF.GiveSkillScaled(usingCharacter,"medical",200)
@@ -1141,7 +1141,7 @@ NT.ItemMethods.medstent = function(item, usingCharacter, targetCharacter, limb)
         HF.SetAffliction(targetCharacter,"balloonedaorta",0,usingCharacter)
         HF.SetAffliction(targetCharacter,"t_arterialcut",0,usingCharacter)
     
-        if NTSP ~= nil and NT.Config.NTSPenableSurgerySkill then 
+        if NTSP ~= nil and NTConfig.Get("NTSP_enableSurgerySkill",true) then 
             HF.GiveSkillScaled(usingCharacter,"surgery",800)
         else 
             HF.GiveSkillScaled(usingCharacter,"medical",400)
@@ -1162,7 +1162,7 @@ NT.ItemMethods.drainage = function(item, usingCharacter, targetCharacter, limb)
             HF.RemoveItem(item)
         end
 
-        if NTSP ~= nil and NT.Config.NTSPenableSurgerySkill then 
+        if NTSP ~= nil and NTConfig.Get("NTSP_enableSurgerySkill",true) then 
             HF.GiveSkillScaled(usingCharacter,"surgery",400)
         else 
             HF.GiveSkillScaled(usingCharacter,"medical",200)
@@ -1318,7 +1318,7 @@ NT.ItemStartsWithMethods.livertransplant = function(item, usingCharacter, target
         HF.RemoveItem(item)
 
         local rejectionchance = HF.Clamp((HF.GetAfflictionStrength(targetCharacter,"immunity",0)-10)/150*NTC.GetMultiplier(usingCharacter,"organrejectionchance"),0,1)
-        if HF.Chance(rejectionchance) and NT.Config.organRejection then
+        if HF.Chance(rejectionchance) and NTConfig.Get("NT_organRejection",false) then
             HF.SetAffliction(targetCharacter,"liverdamage",100)
         end
     end
@@ -1335,7 +1335,7 @@ NT.ItemStartsWithMethods.hearttransplant = function(item, usingCharacter, target
         HF.RemoveItem(item)
 
         local rejectionchance = HF.Clamp((HF.GetAfflictionStrength(targetCharacter,"immunity",0)-10)/150*NTC.GetMultiplier(usingCharacter,"organrejectionchance"),0,1)
-        if HF.Chance(rejectionchance) and NT.Config.organRejection then
+        if HF.Chance(rejectionchance) and NTConfig.Get("NT_organRejection",false) then
             HF.SetAffliction(targetCharacter,"heartdamage",100)
         end
     end
@@ -1352,7 +1352,7 @@ NT.ItemStartsWithMethods.lungtransplant = function(item, usingCharacter, targetC
         HF.RemoveItem(item)
 
         local rejectionchance = HF.Clamp((HF.GetAfflictionStrength(targetCharacter,"immunity",0)-10)/150*NTC.GetMultiplier(usingCharacter,"organrejectionchance"),0,1)
-        if HF.Chance(rejectionchance) and NT.Config.organRejection then
+        if HF.Chance(rejectionchance) and NTConfig.Get("NT_organRejection",false) then
             HF.SetAffliction(targetCharacter,"lungdamage",100)
         end
     end
@@ -1369,7 +1369,7 @@ NT.ItemStartsWithMethods.kidneytransplant = function(item, usingCharacter, targe
         end, 5000)
 
         local rejectionchance = HF.Clamp((HF.GetAfflictionStrength(targetCharacter,"immunity",0)-10)/150*NTC.GetMultiplier(usingCharacter,"organrejectionchance"),0,1)
-        if HF.Chance(rejectionchance) and NT.Config.organRejection then 
+        if HF.Chance(rejectionchance) and NTConfig.Get("NT_organRejection",false) then 
             HF.RemoveItem(item)
             return
         end

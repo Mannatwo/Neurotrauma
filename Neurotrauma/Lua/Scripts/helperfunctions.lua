@@ -26,7 +26,7 @@ function NT.BreakLimb(character,limbtype,strength)
     if limbtoaffliction[limbtype] == nil then return end
     HF.AddAffliction(character,limbtoaffliction[limbtype],strength)
 
-    if strength > 0 and NT.Config.fracturesRemoveCasts then
+    if strength > 0 and NTConfig.Get("NT_fracturesRemoveCasts",true) then
         HF.SetAfflictionLimb(character,"gypsumcast",limbtype,0)
     end
 end
@@ -427,7 +427,7 @@ end
 
 function HF.GetSkillRequirementMet(character,skilltype,requiredamount)
     local skilllevel = HF.GetSkillLevel(character,skilltype)
-    if NT.Config.vanillaSkillCheck then
+    if NTConfig.Get("NT_vanillaSkillCheck",false) then
         return HF.Chance(HF.Clamp((100-(requiredamount-skilllevel))/100,0,1))
     end
     return HF.Chance(HF.Clamp(skilllevel/requiredamount,0,1))
@@ -435,14 +435,14 @@ end
 
 function HF.GetSurgerySkillRequirementMet(character,requiredamount)
     local skilllevel = HF.GetSurgerySkill(character)
-    if NT.Config.vanillaSkillCheck then
+    if NTConfig.Get("NT_vanillaSkillCheck",false) then
         return HF.Chance(HF.Clamp((100-(requiredamount-skilllevel))/100,0,1))
     end
     return HF.Chance(HF.Clamp(skilllevel/requiredamount,0,1))
 end
 
 function HF.GetSurgerySkill(character)
-    if NTSP ~= nil and NT.Config.NTSPenableSurgerySkill then 
+    if NTSP ~= nil and NTConfig.Get("NTSP_enableSurgerySkill",false) then 
         return math.max(
             5,
             HF.GetSkillLevel(character,"surgery"),
