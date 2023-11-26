@@ -139,6 +139,7 @@ function NTCyb.ConvertDamageTypes(character,limbtype)
             1*damageChance(internaldamage,0.75)+
             0.5*damageChance(bitewounds,0.5)+
             0.75*damageChance(foreignbody,0.75))+
+            1*damageChance(nervedamage,0.75)+
             1*damageChance(muscledamage,0.75)
 
         damagedelectronics = damagedelectronics + 0.5*(1+prevmaterialloss/50)*(
@@ -149,7 +150,8 @@ function NTCyb.ConvertDamageTypes(character,limbtype)
             1*damageChance(blunttrauma,0.5)+
             1*damageChance(internaldamage,0.75)+
             0.75*damageChance(foreignbody,0.75))+
-            1*damageChance(nervedamage,0.75)
+            1*damageChance(nervedamage,0.75)+
+            1*damageChance(muscledamage,0.75)
 
         bentmetal = bentmetal + 1*(
             0.25*damageChance(burn,0.85)+
