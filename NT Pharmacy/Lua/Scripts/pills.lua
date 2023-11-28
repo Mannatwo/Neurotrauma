@@ -29,6 +29,16 @@ NTP.PillData.items = {
             {type="capacity",value=2},
             {type="potencymult",value=0.9}}
     },
+    energydrink={types={"base"},skillrequirement=30,
+        effects={
+            {type="capacity",value=1},
+            {type="addeffect",identifier="haste",amount=6},
+            {type="potencymult",value=1.2}},
+        faileffects={
+            {type="capacity",value=1},
+            {type="addeffect",identifier="haste",amount=4},
+            {type="potencymult",value=0.8}}
+    },
     bloodpackominus={variantof="antibloodloss2"},
     bloodpackoplus={variantof="antibloodloss2"},
     bloodpackaminus={variantof="antibloodloss2"},
@@ -51,6 +61,20 @@ NTP.PillData.items = {
         faileffects={
             {type="yieldmult",value=2},
             {type="addeffect",identifier="afmannitol",amount=5}}
+    },
+    elastin={types={"binder"},skillrequirement=40,
+        effects={
+            {type="potencymult",value=1.25}},
+        faileffects={
+            {type="potencymult",value=0.9}}
+    },
+    plastic={types={"binder"},skillrequirement=50,
+        effects={
+            {type="yieldmult",value=0.5},
+            {type="potencymult",value=1.6}},
+        faileffects={
+            {type="yieldmult",value=0.5},
+            {type="potencymult",value=1}}
     },
 
     -- /// active ingredients ///
@@ -81,13 +105,13 @@ NTP.PillData.items = {
     antidama2={types={"active"},skillrequirement=45,
         effects={
             {type="addeffect",identifier="analgesia",amount=37.5},
-            {type="addeffect",identifier="opiateaddiction",amount=7.5},
-            {type="addeffect",identifier="opiateoverdose",amount=11.25},
+            {type="addeffect",identifier="opiateaddiction",amount=15},
+            {type="addeffect",identifier="opiateoverdose",amount=22.5},
             {type="addeffect",identifier="opiatewithdrawal",amount=-50}},
         faileffects={
             {type="addeffect",identifier="analgesia",amount=25},
-            {type="addeffect",identifier="opiateaddiction",amount=20},
-            {type="addeffect",identifier="opiateoverdose",amount=15},
+            {type="addeffect",identifier="opiateaddiction",amount=40},
+            {type="addeffect",identifier="opiateoverdose",amount=30},
             {type="addeffect",identifier="opiatewithdrawal",amount=-50}}
     },
     antinarc={types={"active"},skillrequirement=40,
@@ -346,10 +370,10 @@ NTP.PillData.items = {
     },
     pressurestabilizer={types={"active"},skillrequirement=35,
         effects={
-            {type="addeffect",identifier="pressurestabilized",amount=500}
+            {type="addeffect",identifier="pressurestabilized",amount=100}
         },
         faileffects={
-            {type="addeffect",identifier="pressurestabilized",amount=250}
+            {type="addeffect",identifier="pressurestabilized",amount=50}
         }
     },
     mannitolplus={types={"active"},skillrequirement=60,
@@ -421,6 +445,22 @@ NTP.PillData.items = {
             {type="sprite",value="horsepill"},
             {type="potencymult",value=1.3},
             {type="yieldmult",value=0.5}}
+    },
+    calcium={types={"filler"},skillrequirement=25,
+    effects={
+        {type="potencymult",value=0.35},
+        {type="yieldmult",value=3}},
+    faileffects={
+        {type="potencymult",value=0.20},
+        {type="yieldmult",value=3}}
+    },
+    chlorine={types={"filler"},skillrequirement=50,
+    effects={
+        {type="potencymult",value=1.3},
+        {type="addeffect",identifier="burn",amount=2}},
+    faileffects={
+        {type="potencymult",value=0.7},
+        {type="addeffect",identifier="burn",amount=8}}
     },
 
     -- /// dyes ///
@@ -728,7 +768,6 @@ function NTP.SetPillFromConfig(item,config)
     if config.description~=nil then
         item.Description = config.description
     end
-
     if config.color ~=nil then
         local col = Color(config.color[1],config.color[2],config.color[3])
         item.SpriteColor = col
