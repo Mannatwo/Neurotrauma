@@ -308,7 +308,68 @@ Hook.Add("NTP.Chemalyzer.rename", "NTP.Chemalyzer.rename", function (effect, del
         end
         local config = NTP.PillConfigFromPill(containedItem)
         config.description = HF.ReplaceString(newdescription,",","")
+        NTP.SetPillFromConfig(containedItem,config)
+        NTP.RefreshPillDescription(containedItem)
+        containedItem.Condition = 100
+    end,250)
+end)
 
+Hook.Add("NTP.Chemalyzer.automatic", "NTP.Chemalyzer.automatic", function (effect, deltaTime, item, targets, worldPosition)
+    
+    local inv = item.OwnInventory
+    if inv == nil then return end
+    local containedItem = inv.GetItemAt(0)
+    if containedItem==nil then return end
+
+    if containedItem.Condition == 1 then return end
+
+    containedItem.Condition = 1
+
+    local user = nil
+    local userclient = nil
+
+    if SERVER then
+        -- copied checks
+        local minDist = 9000
+        local itemPos = item.WorldPosition
+        for key,client in pairs(Client.ClientList) do
+            local char = client.Character
+            if char ~= nil and char.IsHuman then
+                local dist = HF.Distance(char.WorldPosition,itemPos)
+                if dist < minDist then
+                    minDist = dist
+                    user=char
+                    userclient=client
+                end
+            end
+            
+        end
+    else 
+        user=Character.Controlled
+    end
+
+    if user == nil then return end
+
+    -- construct automatic custom label
+    local config = NTP.PillConfigFromPill(containedItem)
+    local resstring = ""
+    for key, value in pairs(config.ingredients) do
+        if next(config.ingredients, key) ~= nil then
+            if value > 1 then
+                resstring = resstring..value.." * "..TextManager.Get("entityname."..key,false).Value.." | "
+            else
+                resstring = resstring..TextManager.Get("entityname."..key,false).Value.." | "
+            end
+        else 
+            if value > 1 then
+                resstring = resstring..value.." * "..TextManager.Get("entityname."..key,false).Value
+            else
+                resstring = resstring..TextManager.Get("entityname."..key,false).Value
+            end
+        end
+    end
+    Timer.Wait(function()
+        config.description = resstring
         NTP.SetPillFromConfig(containedItem,config)
         NTP.RefreshPillDescription(containedItem)
         containedItem.Condition = 100
