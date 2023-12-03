@@ -182,6 +182,9 @@
       <Button text="label.ca_rename">
         <StatusEffect type="OnUse"><LuaHook name="NTP.Chemalyzer.rename" /></StatusEffect>
       </Button>
+      <Button text="missiontype.scanalienruins">
+        <StatusEffect type="OnUse"><LuaHook name="NTP.Chemalyzer.automatic" /></StatusEffect>
+      </Button>
       <TextBox text="label.cm_description" propertyname="OriginalOutpost" maxtextlength="64"/>
     </CustomInterface>
   </Item>
