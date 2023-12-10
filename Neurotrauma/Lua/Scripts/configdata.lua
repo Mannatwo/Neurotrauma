@@ -18,7 +18,7 @@ function NTConfig.SaveConfig()
 
     local tableToSave = {}
     for key,entry in pairs(NTConfig.Entries) do
-        tableToSave[key] = NTConfig.Entries[key].value
+        tableToSave[key] = entry.value
     end 
     File.Write(configFilePath, json.serialize(tableToSave))
 end
@@ -82,6 +82,10 @@ NTConfig.AddConfigOptions(NT)
 -- remember to put default values in your NTConfig.Get calls!
 Timer.Wait(function()
     NTConfig.LoadConfig()
+
+    Timer.Wait(function()
+        NTConfig.SaveConfig()
+    end,1000)
+
 end,50)
 
-NTConfig.SaveConfig()
