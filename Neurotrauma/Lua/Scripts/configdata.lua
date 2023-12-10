@@ -70,6 +70,7 @@ NT.ConfigData = {
     NT_vanillaSkillCheck =              {name="vanilla skill check formula",default=false,type="bool"},
     NT_disableBotAlgorithms =           {name="disable bot treatment algorithms",default=true,type="bool"},
     NT_screams =                        {name="screams",default=true,type="bool"},
+    NT_ignoreModConflicts =             {name="ignore mod conflicts",default=false,type="bool"},
 
     NT_organRejection =                 {name="organ rejection",default=false,type="bool",          difficultyCharacteristics={multiplier=0.5}},
     NT_fracturesRemoveCasts =           {name="fractures remove casts",default=true,type="bool",    difficultyCharacteristics={multiplier=0.5}},

@@ -21,6 +21,24 @@
     <icon texture="%ModDir%/Images/AfflictionIcons2.png" sheetindex="5,0" sheetelementsize="128,128" origin="0,0"/>
   </Affliction>
 
+  <Affliction
+    name=""
+    identifier="modconflict"
+    description=""
+    limbspecific="false"
+    indicatorlimb="Head"
+    showiconthreshold="0.1"
+    showinhealthscannerthreshold="0.1"
+    maxstrength="1"
+    targets="human"
+    isbuff="false"
+    healableinmedicalclinic="false"
+    iconcolors="255,255,255,255;255,255,255,255">
+
+    <!--<afflictionoverlay texture="%ModDir%/Images/luabotomy.png"/>-->
+    <icon texture="%ModDir%/Images/AfflictionIcons2.png" sheetindex="7,0" sheetelementsize="128,128" origin="0,0"/>
+  </Affliction>
+
   <!-- /// Heart Stuff /// -->
   
   <!-- Ventricular Tachycardia / Rapid Heartbeat

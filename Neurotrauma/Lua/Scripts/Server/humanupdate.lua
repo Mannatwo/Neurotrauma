@@ -787,6 +787,11 @@ NT.Afflictions = {
             c.afflictions[i].strength = 0
         end
     },
+    modconflict={
+        update=function(c,i)
+            c.afflictions[i].strength = HF.BoolToNum(NT.modconflict,1)
+        end
+    },
     sym_scorched={
         update=function(c,i)
             c.afflictions[i].strength = HF.BoolToNum(c.stats.burndamage>500,10)

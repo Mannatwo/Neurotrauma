@@ -52,6 +52,7 @@
   <Other file="%ModDir%/Lua/Scripts/testing.lua" />
   <Other file="%ModDir%/Lua/Scripts/Server/cpr.lua" />
   <Other file="%ModDir%/Lua/Scripts/Server/ntcompat.lua" />
+  <Other file="%ModDir%/Lua/Scripts/Server/modconflict.lua" />
 
   <Other file="%ModDir%/Sound/Pageturn.ogg" />
   <Other file="%ModDir%/Sound/drill.ogg" />
