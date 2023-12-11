@@ -1784,7 +1784,11 @@
       <Attack structuredamage="0" itemdamage="1" targetimpulse="2">
         <Affliction identifier="blunttrauma" strength="2" />
         <Affliction identifier="stun" strength="0.6" />
-        <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
+        <StatusEffect type="OnUse" target="UseTarget">
+          <Conditional entitytype="eq Character"/>
+          <Sound file="Content/Items/Weapons/Smack1.ogg" selectionmode="random" range="500"/>
+          <Sound file="Content/Items/Weapons/Smack2.ogg" range="500" />
+        </StatusEffect>
       </Attack>
     </MeleeWeapon>
     <ItemContainer capacity="6" keepopenwhenequipped="true" movableframe="true">
@@ -1813,7 +1817,11 @@
       <Attack structuredamage="0" itemdamage="1" targetimpulse="2">
         <Affliction identifier="blunttrauma" strength="2" />
         <Affliction identifier="stun" strength="0.6" />
-        <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
+        <StatusEffect type="OnUse" target="UseTarget">
+          <Conditional entitytype="eq Character"/>
+          <Sound file="Content/Items/Weapons/Smack1.ogg" selectionmode="random" range="500"/>
+          <Sound file="Content/Items/Weapons/Smack2.ogg" range="500" />
+        </StatusEffect>
       </Attack>
     </MeleeWeapon>
     <ItemContainer capacity="9" keepopenwhenequipped="true" movableframe="true">
@@ -1841,7 +1849,11 @@
       <Attack structuredamage="0" itemdamage="1" targetimpulse="2">
         <Affliction identifier="blunttrauma" strength="1" />
         <Affliction identifier="stun" strength="0.6" />
-        <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
+        <StatusEffect type="OnUse" target="UseTarget">
+          <Conditional entitytype="eq Character"/>
+          <Sound file="Content/Items/Weapons/Smack1.ogg" selectionmode="random" range="500"/>
+          <Sound file="Content/Items/Weapons/Smack2.ogg" range="500" />
+        </StatusEffect>
       </Attack>
     </MeleeWeapon>
     <ItemContainer capacity="12" keepopenwhenequipped="true" movableframe="true">
