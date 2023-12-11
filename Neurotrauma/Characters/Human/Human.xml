@@ -50,7 +50,7 @@ DisableDistance="25000" SoundInterval="10">
   <sound file="Content/Characters/Human/male_damage9.ogg" gender="Male" state="Damage" range="500" volume="1" />
   <sound file="Content/Characters/Human/male_damage10.ogg" gender="Male" state="Damage" range="500" volume="1" />
   <sound file="Content/Characters/Human/male_damage11.ogg" gender="Male" state="Damage" range="500" volume="1" />
-  <health usehealthwindow="True" vitality="100" crushdepth="-30000" doesbleed="True" bleedingreduction="0" burnreduction="0" constanthealthregeneration="0" healthregenerationwheneating="0" applyafflictioncolors="true">
+  <health usehealthwindow="True" vitality="100" crushdepth="6000" doesbleed="True" bleedingreduction="0" burnreduction="0" constanthealthregeneration="0" healthregenerationwheneating="0" applyafflictioncolors="true">
     <MedUISilhouette texture="Content/UI/Health/MedUI_Silhouette.png" columns="8" rows="2" sourcerect="0,0,1008,748" />
     <MedUIExtra texture="Content/UI/Health/MedUIExtra.png" columns="4" rows="4" sourcerect="0,0,1024,1024" />
     <Limb name="Head">
