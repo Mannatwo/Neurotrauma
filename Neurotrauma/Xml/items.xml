@@ -2945,7 +2945,7 @@
           <LuaHook name="surgerytable.update" />
         </StatusEffect>
       </ItemComponent>
-      <Controller allowingameediting="false" UserPos="0,-300" direction="Right" hidehud="false" issecondaryitem="true" canbeselected="true" noninteractablewhenflippedy="true" drawuserbehind="true">
+      <Controller allowingameediting="false" UserPos="0,-300" direction="Right" hidehud="false" canbeselected="true" noninteractablewhenflippedy="true" drawuserbehind="true">
         <!-- don't allow laying in bed when wearing an exosuit -->
         <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
         <limbposition limb="Head" position="-6,-10" allowusinglimb="true"/>
