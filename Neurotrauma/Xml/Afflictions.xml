@@ -4222,63 +4222,6 @@ thats what the vomiting symptom is for -->
     </Affliction>
   </Override>
   <Override>
-    <Bleeding
-      name=""
-      identifier="bleeding"
-      description=""
-      type="bleeding"
-      causeofdeathdescription="Bled to death"
-      selfcauseofdeathdescription="You have bled to death."
-      limbspecific="true"
-      maxstrength="100"
-      karmachangeonapplied="-1"
-      damageoverlayalpha="1">
-      
-      <Description 
-        textidentifier="afflictiondescription.bleeding.low"
-        minstrength="0"
-        maxstrength="20"/>
-      <Description
-        textidentifier="afflictiondescription.bleeding"
-        minstrength="20"
-        maxstrength="60"/>
-      <Description
-        textidentifier="afflictiondescription.bleeding.high"
-        minstrength="60"
-        maxstrength="100"/>
-
-      <Effect minstrength="0" maxstrength="100"
-        minvitalitydecrease="0"
-        maxvitalitydecrease="10"
-        strengthchange="-0.1"/>
-
-      <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="896,640,128,128" color="139,60,42,255" origin="0,0"/>
-    </Bleeding>
-  </Override>
-  <Override>
-    <Bleeding
-      name=""
-      identifier="bleedingnonstop"
-      translationoverride="bleeding"
-      description=""
-      type="bleeding"
-      causeofdeathdescription="Bled to death"
-      selfcauseofdeathdescription="You have bled to death."
-      limbspecific="true"
-      maxstrength="100"
-      karmachangeonapplied="-1"
-      damageoverlayalpha="1">
-      
-      <Effect minstrength="0" maxstrength="100"
-        minvitalitydecrease="0"
-        maxvitalitydecrease="10"
-        strengthchange="0">
-      </Effect>
-
-      <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="896,640,128,128" color="139,60,42,255" origin="0,0"/>
-    </Bleeding>
-  </Override>
-  <Override>
     <InternalDamage
       name=""
       identifier="internaldamage"
@@ -4328,89 +4271,6 @@ thats what the vomiting symptom is for -->
   <Override>
     <InternalDamage
       name=""
-      identifier="lacerations"
-      description=""
-      type="damage"
-      causeofdeathdescription=""
-      selfcauseofdeathdescription=""
-      limbspecific="true"
-      maxstrength="200"
-      damageoverlayalpha="1"
-      WeaponsSkillGain="1.0">
-      <Description 
-        textidentifier="afflictiondescription.lacerations.low"
-        minstrength="0"
-        maxstrength="40"/>
-      <Description
-        textidentifier="afflictiondescription.lacerations"
-        minstrength="40"
-        maxstrength="200"/>
-      <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true"
-        minvitalitydecrease="0"
-        maxvitalitydecrease="2"/>
-      
-      <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="896,896,128,128" color="195,136,60,255" origin="0,0"/>
-    </InternalDamage>
-  </Override>
-  <Override>
-    <InternalDamage
-      name=""
-      identifier="bitewounds"
-      description=""
-      type="damage"
-      causeofdeathdescription="Mauled to death"
-      selfcauseofdeathdescription="You have been mauled to death."
-      limbspecific="true"
-      maxstrength="200"
-      damageoverlayalpha="1"
-      WeaponsSkillGain="1.0">
-      <Description
-        textidentifier="afflictiondescription.bitewounds.low"
-        minstrength="0"
-        maxstrength="40"/>
-      <Description
-        textidentifier="afflictiondescription.bitewounds"
-        minstrength="40"
-        maxstrength="200"/>
-      <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true"
-        minvitalitydecrease="0"
-        maxvitalitydecrease="2"/>
-
-      <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="0,512,128,128" color="195,136,60,255" origin="0,0"/>
-    </InternalDamage>
-  </Override>
-  <Override>
-    <InternalDamage
-      name=""
-      identifier="gunshotwound"
-      description=""
-      type="damage"
-      causeofdeathdescription="Shot to death"
-      selfcauseofdeathdescription="You have died of gunshot wounds."
-      limbspecific="true"
-      maxstrength="200"
-      karmachangeonapplied="-1"
-      damageoverlayalpha="1"
-      WeaponsSkillGain="1.0">
-      <Description
-        textidentifier="afflictiondescription.gunshotwound.low"
-        minstrength="0"
-        maxstrength="40"/>
-      <Description
-        textidentifier="afflictiondescription.gunshotwound"
-        minstrength="40"
-        maxstrength="200"/>
-      <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true"
-        minvitalitydecrease="0"
-        maxvitalitydecrease="2"
-        dialogflag="GunshotWound"/>
-
-      <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="256,768,128,128" color="195,60,60,255" origin="0,0"/>
-    </InternalDamage>
-  </Override>
-  <Override>
-    <InternalDamage
-      name=""
       identifier="organdamage"
       description=""
       type="organdamage"
@@ -4428,32 +4288,6 @@ thats what the vomiting symptom is for -->
         minvitalitydecrease="0"
         maxvitalitydecrease="2"/>
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,384,128,128" color="195,136,60,255" origin="0,0"/>
-    </InternalDamage>
-  </Override>
-  <Override>
-    <InternalDamage
-      name=""
-      identifier="explosiondamage"
-      description=""
-      type="damage"
-      causeofdeathdescription=""
-      selfcauseofdeathdescription=""
-      limbspecific="true"
-      maxstrength="200"
-      damageoverlayalpha="1"
-      WeaponsSkillGain="1.0">
-      <Description
-        textidentifier="afflictiondescription.explosiondamage.low"
-        minstrength="0"
-        maxstrength="40"/>
-      <Description
-        textidentifier="afflictiondescription.explosiondamage"
-        minstrength="40"
-        maxstrength="200"/>
-      <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true"
-        minvitalitydecrease="0"
-        maxvitalitydecrease="2"/>
-      <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="896,0,128,128" color="195,136,60,255" origin="0,0"/>
     </InternalDamage>
   </Override>
   <Override>
