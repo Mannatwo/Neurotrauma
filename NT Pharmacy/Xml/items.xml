@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
-  <Item name="" identifier="custompill" category="Material" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="custompill" category="Medical" cargocontaineridentifier="mediccrate"
       Tags="smallitem,chem,medical,pill" description="" useinhealthinterface="true" scale="0.3"
       impactsoundtag="impact_metal_light" maxstacksize="16">
     <PreferredContainer primary="medcab" spawnprobability="0"/>
