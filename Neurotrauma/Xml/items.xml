@@ -2774,7 +2774,7 @@
       </ItemContainer>
     </Item>
   <!-- Fluids -->
-    <Item name="" identifier="alienblood" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8"
+    <Item name="" identifier="alienblood" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8"
           cargocontaineridentifier="chemicalcrate" description="" Tags="smallitem,chem,medical"
           useinhealthinterface="true" scale="0.5" RequireAimToUse="True">
       <Upgrade gameversion="0.10.0.0" scale="0.5"/>
@@ -2800,11 +2800,13 @@
           <Affliction identifier="organdamage" amount="0.25"/>
           <Affliction identifier="hemotransfusionshock" amount="6.6"/>
           <ReduceAffliction identifier="bloodloss" amount="0.5"/>
+          <Affliction identifier="psychosis" amount="3" />
         </StatusEffect>
         <StatusEffect tags="medical" type="OnFailure" target="UseTarget, This" duration="15.0">
           <Affliction identifier="organdamage" amount="0.5"/>
           <Affliction identifier="hemotransfusionshock" amount="6.6"/>
           <ReduceAffliction identifier="bloodloss" amount="0.5"/>
+          <Affliction identifier="psychosis" amount="3" />
         </StatusEffect>
         <!-- Remove the item when fully used -->
         <StatusEffect type="OnBroken" target="This">
