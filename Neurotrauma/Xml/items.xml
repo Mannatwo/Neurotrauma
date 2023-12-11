@@ -1992,7 +1992,7 @@
   <!-- /// Limbs and organs /// -->
 
   <Item name="" identifier="armlock1" description="" scale="0.5"
-          nonplayerteaminteractable="True" category="hidden">
+          nonplayerteaminteractable="True" hideinmenus="true">
         <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
         <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
         <Holdable slots="RightHand" handle1="0,0" msg="ItemMsgPickUpSelect">
@@ -2004,7 +2004,7 @@
         </Holdable>
     </Item>
   <Item name="" identifier="armlock2" description="" scale="0.5" nonplayerteaminteractable="True"
-          category="hidden">
+          hideinmenus="true">
         <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
         <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
         <Holdable slots="LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
@@ -2244,7 +2244,7 @@
     <SkillRequirementHint identifier="medical" level="40"/>
 
   </Item>
-  <Item name="" identifier="livertransplant_q1" variantof="livertransplant" category="hidden">
+  <Item name="" identifier="livertransplant_q1" variantof="livertransplant" hideinmenus="true">
     <Price baseprice="200" soldbydefault="false">
       <Price storeidentifier="merchantmedical" sold="false"/>
     </Price>
@@ -2286,7 +2286,7 @@
     <SkillRequirementHint identifier="medical" level="40"/>
 
   </Item>
-  <Item name="" identifier="lungtransplant_q1" variantof="lungtransplant" category="hidden">
+  <Item name="" identifier="lungtransplant_q1" variantof="lungtransplant" hideinmenus="true">
     <Price baseprice="400" soldbydefault="false">
       <Price storeidentifier="merchantmedical" sold="false"/>
     </Price>
@@ -2328,7 +2328,7 @@
     <SkillRequirementHint identifier="medical" level="40"/>
 
   </Item>
-  <Item name="" identifier="kidneytransplant_q1" variantof="kidneytransplant" category="hidden">
+  <Item name="" identifier="kidneytransplant_q1" variantof="kidneytransplant" hideinmenus="true">
     <Price baseprice="100" soldbydefault="false">
       <Price storeidentifier="merchantmedical" sold="false"/>
     </Price>
@@ -2370,7 +2370,7 @@
     <SkillRequirementHint identifier="medical" level="40"/>
 
   </Item>
-  <Item name="" identifier="hearttransplant_q1" variantof="hearttransplant" category="hidden">
+  <Item name="" identifier="hearttransplant_q1" variantof="hearttransplant" hideinmenus="true">
     <Price baseprice="600" soldbydefault="false">
       <Price storeidentifier="merchantmedical" sold="false"/>
     </Price>
@@ -2480,7 +2480,7 @@
 
   <!-- /// sound FX items (this is unelegant, pls fix, lua man!) /// -->
 
-  <Item name="." identifier="ntsfx_selfscan" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_selfscan" description="." hideinmenus="true">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
@@ -2492,7 +2492,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntsfx_scissors" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_scissors" description="." hideinmenus="true">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
@@ -2505,7 +2505,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntsfx_bandage" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_bandage" description="." hideinmenus="true">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
@@ -2518,7 +2518,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntsfx_pills" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_pills" description="." hideinmenus="true">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
@@ -2532,7 +2532,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntsfx_syringe" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_syringe" description="." hideinmenus="true">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
@@ -2544,7 +2544,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntsfx_manualdefib" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_manualdefib" description="." hideinmenus="true">
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent>
       <StatusEffect type="OnSpawn" target="This" disabledeltatime="true" stackable="false">
@@ -2555,7 +2555,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntsfx_defib1" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_defib1" description="." hideinmenus="true">
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent>
       <StatusEffect type="OnSpawn" target="This" disabledeltatime="true" stackable="false">
@@ -2566,7 +2566,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntsfx_defib2" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_defib2" description="." hideinmenus="true">
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent>
       <StatusEffect type="OnSpawn" target="This" disabledeltatime="true" stackable="false">
@@ -2577,7 +2577,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntsfx_ointment" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_ointment" description="." hideinmenus="true">
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent>
       <StatusEffect type="OnSpawn" target="This" disabledeltatime="true" stackable="false">
@@ -2588,7 +2588,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntsfx_squeak" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_squeak" description="." hideinmenus="true">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
@@ -2604,7 +2604,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntsfx_slash" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_slash" description="." hideinmenus="true">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
@@ -2628,7 +2628,7 @@
 
   <!-- /// VFX items (same as above, but visual!) ///-->
 
-  <Item name="." identifier="ntvfx_explosion" category="hidden" description=".">
+  <Item name="." identifier="ntvfx_explosion" description="." hideinmenus="true">
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
       <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
