@@ -709,11 +709,6 @@
         <ReduceAffliction identifier="cardiacarrest"  amount="2" />
         <ReduceAffliction identifier="fibrillation"  amount="1" />
         <Affliction identifier="bloodpressure" amount="4"/>
-        <ReduceAffliction identifier="oxygenlow" amount="12" />
-      </StatusEffect>
-      <StatusEffect tags="medical" target="Character">
-        <Conditional stayinalive="gt 0"/>
-        <ReduceAffliction identifier="oxygenlow" amount="2.4" />
       </StatusEffect>
       <StatusEffect tags="medical" target="Character" disabledeltatime="true" comparison="and">
         <Conditional cardiacarrest="lte 0.5"/>
@@ -3816,14 +3811,14 @@ thats what the vomiting symptom is for -->
   </Override>
   <Override>
     <CPRSettings
-      revivechanceperskill="0.01"
+      revivechanceperskill="0.007"
       revivechanceexponent="2"
       revivechancemin="0.05"
-      revivechancemax="0.9"
+      revivechancemax="0.5"
       stabilizationperskill="0.02"
       stabilizationmin="0.5"
       stabilizationmax="2"
-      damageskillthreshold="20"
+      damageskillthreshold="50"
       damageskillmultiplier="0.05"
       insufficientskillaffliction="blunttrauma">
     </CPRSettings>

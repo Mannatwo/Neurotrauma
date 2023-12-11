@@ -2,7 +2,9 @@ Hook.Add("human.CPRSuccess", "NT.CPRSuccess", function(animcontroller)
     if animcontroller==nil or animcontroller.Character==nil or animcontroller.Character.SelectedCharacter==nil then return end
     local character = animcontroller.Character.SelectedCharacter
     
-    HF.AddAffliction(character,"cpr_buff",2)
+    if not HF.HasAffliction(character,"cpr_buff_auto") then 
+        HF.AddAffliction(character,"cpr_buff",2)
+    end
     HF.AddAffliction(character,"cpr_fracturebuff",2) -- prevent fractures during CPR (fuck baro physics)
 end)
 
