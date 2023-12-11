@@ -115,7 +115,7 @@
     showinhealthscannerthreshold="1"
     type="gaze"
     isbuff="false"
-    damageoverlayalpha="1">
+    damageoverlayalpha="0">
 
     <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,384,128,128" color="195,136,60,255" origin="0,0"/>
   </Affliction>
@@ -136,7 +136,7 @@
     maxstrength="100"
     showiconthreshold="500"
     showinhealthscannerthreshold="20"
-    damageoverlayalpha="1">
+    damageoverlayalpha="0">
     
     <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,384,128,128" color="195,136,60,255" origin="0,0"/>
   </Affliction>
@@ -504,7 +504,7 @@
     maxstrength="100"
     showiconthreshold="500"
     showinhealthscannerthreshold="20"
-    damageoverlayalpha="1">
+    damageoverlayalpha="0">
     
     <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,384,128,128" color="195,136,60,255" origin="0,0"/>
   </Affliction>
@@ -552,7 +552,7 @@
     maxstrength="100"
     showiconthreshold="500"
     showinhealthscannerthreshold="10"
-    damageoverlayalpha="1">
+    damageoverlayalpha="0">
 
     <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,384,128,128" color="195,136,60,255" origin="0,0"/>
   </Affliction>
@@ -598,7 +598,7 @@
     maxstrength="100"
     showiconthreshold="500"
     showinhealthscannerthreshold="20"
-    damageoverlayalpha="1">
+    damageoverlayalpha="0">
 
     <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,384,128,128" color="195,136,60,255" origin="0,0"/>
   </Affliction>
@@ -663,7 +663,7 @@
     maxstrength="100"
     showiconthreshold="500"
     showinhealthscannerthreshold="20"
-    damageoverlayalpha="1">
+    damageoverlayalpha="0">
 
     <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,384,128,128" color="195,136,60,255" origin="0,0"/>
   </Affliction>
@@ -2761,7 +2761,7 @@
     maxstrength="2"
     treatmentthreshold="1000"
     karmachangeonapplied="-0.1"
-    damageoverlayalpha="1"
+    damageoverlayalpha="0"
     healcostmultiplier="2.25"
     showiconthreshold="1"
     showinhealthscannerthreshold="100"
@@ -2814,7 +2814,7 @@
     maxstrength="2"
     treatmentthreshold="1000"
     karmachangeonapplied="-0.1"
-    damageoverlayalpha="1"
+    damageoverlayalpha="0"
     healcostmultiplier="2.25"
     showiconthreshold="1"
     showinhealthscannerthreshold="100">
@@ -3057,7 +3057,7 @@ thats what the vomiting symptom is for -->
       maxstrength="2"
       treatmentthreshold="1000"
       karmachangeonapplied="-0.1"
-      damageoverlayalpha="1"
+      damageoverlayalpha="0"
       healcostmultiplier="2.25"
       showiconthreshold="1"
       showinhealthscannerthreshold="100"
@@ -3132,6 +3132,7 @@ thats what the vomiting symptom is for -->
     name=""
     identifier="burn_deg1"
     description=""
+    healableinmedicalclinic="false"
     type=""
     limbspecific="true"
     maxstrength="100"
@@ -3145,6 +3146,7 @@ thats what the vomiting symptom is for -->
     name=""
     identifier="burn_deg2"
     description=""
+    healableinmedicalclinic="false"
     type=""
     limbspecific="true"
     maxstrength="100"
@@ -3158,6 +3160,7 @@ thats what the vomiting symptom is for -->
     name=""
     identifier="burn_deg3"
     description=""
+    healableinmedicalclinic="false"
     type=""
     limbspecific="true"
     maxstrength="100"
@@ -3372,7 +3375,7 @@ thats what the vomiting symptom is for -->
     targets="human"
     limbspecific="false"
     maxstrength="10"
-    showinhealthscannerthreshold="0.5"
+    showinhealthscannerthreshold="1000"
     showiconthreshold="0.5"
     iconcolors="255,90,0,255;255,90,0,255">
     <Effect minstrength="0" maxstrength="1"/>
@@ -3708,6 +3711,7 @@ thats what the vomiting symptom is for -->
     showiconthreshold="700"
     showinhealthscannerthreshold="700"
     maxstrength="100"
+    affectmachines="false"
     karmachangeonapplied="-0.1"
     healableinmedicalclinic="false">
     <Effect minstrength="0" maxstrength="20" strengthchange="-0.02"/>
@@ -3748,6 +3752,7 @@ thats what the vomiting symptom is for -->
       showiconthreshold="700"
       showinhealthscannerthreshold="700"
       maxstrength="100"
+      affectmachines="false"
       healableinmedicalclinic="false">
 
       <Effect minstrength="0" maxstrength="40"
