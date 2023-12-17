@@ -115,7 +115,7 @@
     showinhealthscannerthreshold="1"
     type="gaze"
     isbuff="false"
-    damageoverlayalpha="1">
+    damageoverlayalpha="0">
 
     <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,384,128,128" color="195,136,60,255" origin="0,0"/>
   </Affliction>
@@ -136,7 +136,7 @@
     maxstrength="100"
     showiconthreshold="500"
     showinhealthscannerthreshold="20"
-    damageoverlayalpha="1">
+    damageoverlayalpha="0">
     
     <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,384,128,128" color="195,136,60,255" origin="0,0"/>
   </Affliction>
@@ -504,7 +504,7 @@
     maxstrength="100"
     showiconthreshold="500"
     showinhealthscannerthreshold="20"
-    damageoverlayalpha="1">
+    damageoverlayalpha="0">
     
     <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,384,128,128" color="195,136,60,255" origin="0,0"/>
   </Affliction>
@@ -552,7 +552,7 @@
     maxstrength="100"
     showiconthreshold="500"
     showinhealthscannerthreshold="10"
-    damageoverlayalpha="1">
+    damageoverlayalpha="0">
 
     <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,384,128,128" color="195,136,60,255" origin="0,0"/>
   </Affliction>
@@ -598,7 +598,7 @@
     maxstrength="100"
     showiconthreshold="500"
     showinhealthscannerthreshold="20"
-    damageoverlayalpha="1">
+    damageoverlayalpha="0">
 
     <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,384,128,128" color="195,136,60,255" origin="0,0"/>
   </Affliction>
@@ -663,7 +663,7 @@
     maxstrength="100"
     showiconthreshold="500"
     showinhealthscannerthreshold="20"
-    damageoverlayalpha="1">
+    damageoverlayalpha="0">
 
     <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,384,128,128" color="195,136,60,255" origin="0,0"/>
   </Affliction>
@@ -709,11 +709,6 @@
         <ReduceAffliction identifier="cardiacarrest"  amount="2" />
         <ReduceAffliction identifier="fibrillation"  amount="1" />
         <Affliction identifier="bloodpressure" amount="4"/>
-        <ReduceAffliction identifier="oxygenlow" amount="12" />
-      </StatusEffect>
-      <StatusEffect tags="medical" target="Character">
-        <Conditional stayinalive="gt 0"/>
-        <ReduceAffliction identifier="oxygenlow" amount="2.4" />
       </StatusEffect>
       <StatusEffect tags="medical" target="Character" disabledeltatime="true" comparison="and">
         <Conditional cardiacarrest="lte 0.5"/>
@@ -2766,7 +2761,7 @@
     maxstrength="2"
     treatmentthreshold="1000"
     karmachangeonapplied="-0.1"
-    damageoverlayalpha="1"
+    damageoverlayalpha="0"
     healcostmultiplier="2.25"
     showiconthreshold="1"
     showinhealthscannerthreshold="100"
@@ -2819,7 +2814,7 @@
     maxstrength="2"
     treatmentthreshold="1000"
     karmachangeonapplied="-0.1"
-    damageoverlayalpha="1"
+    damageoverlayalpha="0"
     healcostmultiplier="2.25"
     showiconthreshold="1"
     showinhealthscannerthreshold="100">
@@ -3062,7 +3057,7 @@ thats what the vomiting symptom is for -->
       maxstrength="2"
       treatmentthreshold="1000"
       karmachangeonapplied="-0.1"
-      damageoverlayalpha="1"
+      damageoverlayalpha="0"
       healcostmultiplier="2.25"
       showiconthreshold="1"
       showinhealthscannerthreshold="100"
@@ -3137,6 +3132,7 @@ thats what the vomiting symptom is for -->
     name=""
     identifier="burn_deg1"
     description=""
+    healableinmedicalclinic="false"
     type=""
     limbspecific="true"
     maxstrength="100"
@@ -3150,6 +3146,7 @@ thats what the vomiting symptom is for -->
     name=""
     identifier="burn_deg2"
     description=""
+    healableinmedicalclinic="false"
     type=""
     limbspecific="true"
     maxstrength="100"
@@ -3163,6 +3160,7 @@ thats what the vomiting symptom is for -->
     name=""
     identifier="burn_deg3"
     description=""
+    healableinmedicalclinic="false"
     type=""
     limbspecific="true"
     maxstrength="100"
@@ -3377,7 +3375,7 @@ thats what the vomiting symptom is for -->
     targets="human"
     limbspecific="false"
     maxstrength="10"
-    showinhealthscannerthreshold="0.5"
+    showinhealthscannerthreshold="1000"
     showiconthreshold="0.5"
     iconcolors="255,90,0,255;255,90,0,255">
     <Effect minstrength="0" maxstrength="1"/>
@@ -3713,6 +3711,7 @@ thats what the vomiting symptom is for -->
     showiconthreshold="700"
     showinhealthscannerthreshold="700"
     maxstrength="100"
+    affectmachines="false"
     karmachangeonapplied="-0.1"
     healableinmedicalclinic="false">
     <Effect minstrength="0" maxstrength="20" strengthchange="-0.02"/>
@@ -3753,6 +3752,7 @@ thats what the vomiting symptom is for -->
       showiconthreshold="700"
       showinhealthscannerthreshold="700"
       maxstrength="100"
+      affectmachines="false"
       healableinmedicalclinic="false">
 
       <Effect minstrength="0" maxstrength="40"
@@ -3791,9 +3791,7 @@ thats what the vomiting symptom is for -->
   </Override>
   <Override>
     <Bloodloss
-      name=""
       identifier="bloodloss"
-      description=""
       type="bloodloss"
       causeofdeathdescription="Bled to death"
       selfcauseofdeathdescription="You have bled to death."
@@ -3803,7 +3801,8 @@ thats what the vomiting symptom is for -->
       activationthreshold="0"
       showiconthreshold="10000"
       showinhealthscannerthreshold="5"
-      maxstrength="200">
+      maxstrength="200"
+      affectmachines="false">
 
       <PeriodicEffect mininterval="4" maxinterval="4">
         <StatusEffect target="Character" disabledeltatime="true" stackable="false" checkconditionalalways="false">
@@ -3816,14 +3815,14 @@ thats what the vomiting symptom is for -->
   </Override>
   <Override>
     <CPRSettings
-      revivechanceperskill="0.01"
+      revivechanceperskill="0.007"
       revivechanceexponent="2"
       revivechancemin="0.05"
-      revivechancemax="0.9"
+      revivechancemax="0.5"
       stabilizationperskill="0.02"
       stabilizationmin="0.5"
       stabilizationmax="2"
-      damageskillthreshold="20"
+      damageskillthreshold="50"
       damageskillmultiplier="0.05"
       insufficientskillaffliction="blunttrauma">
     </CPRSettings>
@@ -4222,63 +4221,6 @@ thats what the vomiting symptom is for -->
     </Affliction>
   </Override>
   <Override>
-    <Bleeding
-      name=""
-      identifier="bleeding"
-      description=""
-      type="bleeding"
-      causeofdeathdescription="Bled to death"
-      selfcauseofdeathdescription="You have bled to death."
-      limbspecific="true"
-      maxstrength="100"
-      karmachangeonapplied="-1"
-      damageoverlayalpha="1">
-      
-      <Description 
-        textidentifier="afflictiondescription.bleeding.low"
-        minstrength="0"
-        maxstrength="20"/>
-      <Description
-        textidentifier="afflictiondescription.bleeding"
-        minstrength="20"
-        maxstrength="60"/>
-      <Description
-        textidentifier="afflictiondescription.bleeding.high"
-        minstrength="60"
-        maxstrength="100"/>
-
-      <Effect minstrength="0" maxstrength="100"
-        minvitalitydecrease="0"
-        maxvitalitydecrease="10"
-        strengthchange="-0.1"/>
-
-      <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="896,640,128,128" color="139,60,42,255" origin="0,0"/>
-    </Bleeding>
-  </Override>
-  <Override>
-    <Bleeding
-      name=""
-      identifier="bleedingnonstop"
-      translationoverride="bleeding"
-      description=""
-      type="bleeding"
-      causeofdeathdescription="Bled to death"
-      selfcauseofdeathdescription="You have bled to death."
-      limbspecific="true"
-      maxstrength="100"
-      karmachangeonapplied="-1"
-      damageoverlayalpha="1">
-      
-      <Effect minstrength="0" maxstrength="100"
-        minvitalitydecrease="0"
-        maxvitalitydecrease="10"
-        strengthchange="0">
-      </Effect>
-
-      <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="896,640,128,128" color="139,60,42,255" origin="0,0"/>
-    </Bleeding>
-  </Override>
-  <Override>
     <InternalDamage
       name=""
       identifier="internaldamage"
@@ -4290,8 +4232,7 @@ thats what the vomiting symptom is for -->
       maxstrength="200"
       showiconthreshold="10000"
       showinhealthscannerthreshold="5"
-      damageoverlayalpha="1"
-      WeaponsSkillGain="1.0">
+      damageoverlayalpha="0.1">
       <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true"
         minvitalitydecrease="0"
         maxvitalitydecrease="2"/>
@@ -4308,7 +4249,7 @@ thats what the vomiting symptom is for -->
       selfcauseofdeathdescription=""
       limbspecific="true"
       maxstrength="200"
-      damageoverlayalpha="1"
+      damageoverlayalpha="0.5"
       WeaponsSkillGain="1.0">
       <Description 
         textidentifier="afflictiondescription.blunttrauma.low"
@@ -4320,92 +4261,8 @@ thats what the vomiting symptom is for -->
         maxstrength="200"/>
       <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true"
           minvitalitydecrease="0"
-          maxvitalitydecrease="2">
-      </Effect>
+          maxvitalitydecrease="2"/>
       <icon texture="%ModDir%/Images/AfflictionIcons2.png" sheetindex="4,0" sheetelementsize="128,128" origin="0,0"/>
-    </InternalDamage>
-  </Override>
-  <Override>
-    <InternalDamage
-      name=""
-      identifier="lacerations"
-      description=""
-      type="damage"
-      causeofdeathdescription=""
-      selfcauseofdeathdescription=""
-      limbspecific="true"
-      maxstrength="200"
-      damageoverlayalpha="1"
-      WeaponsSkillGain="1.0">
-      <Description 
-        textidentifier="afflictiondescription.lacerations.low"
-        minstrength="0"
-        maxstrength="40"/>
-      <Description
-        textidentifier="afflictiondescription.lacerations"
-        minstrength="40"
-        maxstrength="200"/>
-      <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true"
-        minvitalitydecrease="0"
-        maxvitalitydecrease="2"/>
-      
-      <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="896,896,128,128" color="195,136,60,255" origin="0,0"/>
-    </InternalDamage>
-  </Override>
-  <Override>
-    <InternalDamage
-      name=""
-      identifier="bitewounds"
-      description=""
-      type="damage"
-      causeofdeathdescription="Mauled to death"
-      selfcauseofdeathdescription="You have been mauled to death."
-      limbspecific="true"
-      maxstrength="200"
-      damageoverlayalpha="1"
-      WeaponsSkillGain="1.0">
-      <Description
-        textidentifier="afflictiondescription.bitewounds.low"
-        minstrength="0"
-        maxstrength="40"/>
-      <Description
-        textidentifier="afflictiondescription.bitewounds"
-        minstrength="40"
-        maxstrength="200"/>
-      <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true"
-        minvitalitydecrease="0"
-        maxvitalitydecrease="2"/>
-
-      <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="0,512,128,128" color="195,136,60,255" origin="0,0"/>
-    </InternalDamage>
-  </Override>
-  <Override>
-    <InternalDamage
-      name=""
-      identifier="gunshotwound"
-      description=""
-      type="damage"
-      causeofdeathdescription="Shot to death"
-      selfcauseofdeathdescription="You have died of gunshot wounds."
-      limbspecific="true"
-      maxstrength="200"
-      karmachangeonapplied="-1"
-      damageoverlayalpha="1"
-      WeaponsSkillGain="1.0">
-      <Description
-        textidentifier="afflictiondescription.gunshotwound.low"
-        minstrength="0"
-        maxstrength="40"/>
-      <Description
-        textidentifier="afflictiondescription.gunshotwound"
-        minstrength="40"
-        maxstrength="200"/>
-      <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true"
-        minvitalitydecrease="0"
-        maxvitalitydecrease="2"
-        dialogflag="GunshotWound"/>
-
-      <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="256,768,128,128" color="195,60,60,255" origin="0,0"/>
     </InternalDamage>
   </Override>
   <Override>
@@ -4422,38 +4279,14 @@ thats what the vomiting symptom is for -->
       showiconthreshold="10000"
       showinhealthscannerthreshold="10"
       healcostmultiplier="10"
-      damageoverlayalpha="1"
+      affectmachines="false"
+      damageoverlayalpha="0"
+      damageparticles="false"
       MedicalSkillGain="0.1">
       <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true" strengthchange="-0.01"
         minvitalitydecrease="0"
         maxvitalitydecrease="2"/>
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,384,128,128" color="195,136,60,255" origin="0,0"/>
-    </InternalDamage>
-  </Override>
-  <Override>
-    <InternalDamage
-      name=""
-      identifier="explosiondamage"
-      description=""
-      type="damage"
-      causeofdeathdescription=""
-      selfcauseofdeathdescription=""
-      limbspecific="true"
-      maxstrength="200"
-      damageoverlayalpha="1"
-      WeaponsSkillGain="1.0">
-      <Description
-        textidentifier="afflictiondescription.explosiondamage.low"
-        minstrength="0"
-        maxstrength="40"/>
-      <Description
-        textidentifier="afflictiondescription.explosiondamage"
-        minstrength="40"
-        maxstrength="200"/>
-      <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true"
-        minvitalitydecrease="0"
-        maxvitalitydecrease="2"/>
-      <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="896,0,128,128" color="195,136,60,255" origin="0,0"/>
     </InternalDamage>
   </Override>
   <Override>
@@ -4511,6 +4344,7 @@ thats what the vomiting symptom is for -->
       showiconthreshold="700"
       showinhealthscannerthreshold="700"
       maxstrength="100"
+      affectmachines="false"
       karmachangeonapplied="-0.1"
       achievementonremoved="healopiateaddiction"
       healcostmultiplier="2.85">
@@ -4552,10 +4386,11 @@ thats what the vomiting symptom is for -->
       selfcauseofdeathdescription="You have died of opiate overdose."
       limbspecific="false"
       indicatorlimb="Head"
-      karmachangeonapplied="-1"
       showiconthreshold="700"
       showinhealthscannerthreshold="10"
-      maxstrength="100">
+      karmachangeonapplied="-1"
+      maxstrength="100"
+      affectmachines="false">
       <!-- No effects except slight distortion at this level -->
       <Effect minstrength="0" maxstrength="50"
         strengthchange="-0.4"
@@ -4587,6 +4422,7 @@ thats what the vomiting symptom is for -->
       showiconthreshold="700"
       showinhealthscannerthreshold="1000"
       maxstrength="100"
+      affectmachines="false"
       healcostmultiplier="1.75">
 
       <!-- No symptoms -->
@@ -4641,6 +4477,7 @@ thats what the vomiting symptom is for -->
     showiconthreshold="700"
     showinhealthscannerthreshold="700"
     maxstrength="100"
+    affectmachines="false"
     karmachangeonapplied="-0.1">
       <Effect minstrength="0" maxstrength="20" strengthchange="-0.025"/>
       <Effect minstrength="20" maxstrength="40" strengthchange="-0.025">
@@ -4682,7 +4519,8 @@ thats what the vomiting symptom is for -->
       indicatorlimb="Head"
       showiconthreshold="700"
       showinhealthscannerthreshold="10"
-      maxstrength="100">
+      maxstrength="100"
+      affectmachines="false">
       <!-- No symptoms -->
       <Effect minstrength="0" maxstrength="20"
         strengthchange="-0.05"/>
@@ -4748,7 +4586,6 @@ thats what the vomiting symptom is for -->
   </Override>
   <Override>
     <Affliction
-    name=""
     identifier="drunk"
     description=""
     type="poison"
@@ -4759,7 +4596,8 @@ thats what the vomiting symptom is for -->
     activationthreshold="20"
     showiconthreshold="50"
     showinhealthscannerthreshold="5"
-    maxstrength="160">
+    maxstrength="160"
+    affectmachines="false">
 
     <Description
       textidentifier="afflictiondescription.drunk.self"
@@ -4896,6 +4734,7 @@ thats what the vomiting symptom is for -->
       karmachangeonapplied="-1"
       treatmentthreshold="25"
       maxstrength="200"
+      affectmachines="false"
       grainburst="3"
       healcostmultiplier="4.0"
       MedicalSkillGain="1.0">
@@ -5014,7 +4853,8 @@ thats what the vomiting symptom is for -->
     limbspecific="false"
     maxstrength="100"
     treatmentthreshold="1000"
-    iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+    iconcolors="33,75,78;126,211,224;126,211,224;227,247,249"
+    MedicalSkillGain="0.005">
     <Effect minstrength="0" maxstrength="10"
       strengthchange="-1"
       resistancefor="stun"
