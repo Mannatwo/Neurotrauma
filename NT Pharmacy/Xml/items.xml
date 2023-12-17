@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
-  <Item name="" identifier="custompill" category="Material" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="custompill" category="Medical" cargocontaineridentifier="mediccrate"
       Tags="smallitem,chem,medical,pill" description="" useinhealthinterface="true" scale="0.3"
       impactsoundtag="impact_metal_light" maxstacksize="16">
     <PreferredContainer primary="medcab" spawnprobability="0"/>
@@ -209,7 +209,11 @@
       <Attack structuredamage="0" itemdamage="1" targetimpulse="2">
         <Affliction identifier="blunttrauma" strength="2" />
         <Affliction identifier="stun" strength="0.6" />
-        <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
+        <StatusEffect type="OnUse" target="UseTarget">
+          <Conditional entitytype="eq Character"/>
+          <Sound file="Content/Items/Weapons/Smack1.ogg" selectionmode="random" range="500"/>
+          <Sound file="Content/Items/Weapons/Smack2.ogg" range="500" />
+        </StatusEffect>
       </Attack>
     </MeleeWeapon>
     <ItemContainer capacity="12" keepopenwhenequipped="true" movableframe="true">
@@ -236,7 +240,11 @@
       <Attack structuredamage="0" itemdamage="1" targetimpulse="2">
         <Affliction identifier="blunttrauma" strength="2" />
         <Affliction identifier="stun" strength="0.6" />
-        <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
+        <StatusEffect type="OnUse" target="UseTarget">
+          <Conditional entitytype="eq Character"/>
+          <Sound file="Content/Items/Weapons/Smack1.ogg" selectionmode="random" range="500"/>
+          <Sound file="Content/Items/Weapons/Smack2.ogg" range="500" />
+        </StatusEffect>
       </Attack>
     </MeleeWeapon>
     <ItemContainer capacity="12" keepopenwhenequipped="true" movableframe="true">
@@ -263,7 +271,11 @@
       <Attack structuredamage="0" itemdamage="1" targetimpulse="2">
         <Affliction identifier="blunttrauma" strength="2" />
         <Affliction identifier="stun" strength="0.6" />
-        <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
+        <StatusEffect type="OnUse" target="UseTarget">
+          <Conditional entitytype="eq Character"/>
+          <Sound file="Content/Items/Weapons/Smack1.ogg" selectionmode="random" range="500"/>
+          <Sound file="Content/Items/Weapons/Smack2.ogg" range="500" />
+        </StatusEffect>
       </Attack>
     </MeleeWeapon>
     <ItemContainer capacity="12" keepopenwhenequipped="true" movableframe="true">
@@ -290,7 +302,11 @@
       <Attack structuredamage="0" itemdamage="1" targetimpulse="2">
         <Affliction identifier="blunttrauma" strength="2" />
         <Affliction identifier="stun" strength="0.6" />
-        <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
+        <StatusEffect type="OnUse" target="UseTarget">
+          <Conditional entitytype="eq Character"/>
+          <Sound file="Content/Items/Weapons/Smack1.ogg" selectionmode="random" range="500"/>
+          <Sound file="Content/Items/Weapons/Smack2.ogg" range="500" />
+        </StatusEffect>
       </Attack>
     </MeleeWeapon>
     <ItemContainer capacity="12" keepopenwhenequipped="true" movableframe="true">
@@ -317,7 +333,11 @@
       <Attack structuredamage="0" itemdamage="1" targetimpulse="2">
         <Affliction identifier="blunttrauma" strength="2" />
         <Affliction identifier="stun" strength="0.6" />
-        <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
+        <StatusEffect type="OnUse" target="UseTarget">
+          <Conditional entitytype="eq Character"/>
+          <Sound file="Content/Items/Weapons/Smack1.ogg" selectionmode="random" range="500"/>
+          <Sound file="Content/Items/Weapons/Smack2.ogg" range="500" />
+        </StatusEffect>
       </Attack>
     </MeleeWeapon>
     <ItemContainer capacity="12" keepopenwhenequipped="true" movableframe="true">

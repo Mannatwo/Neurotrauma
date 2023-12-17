@@ -531,7 +531,7 @@
     </MeleeWeapon>
     <SkillRequirementHint identifier="medical" level="30"/>
   </Item>
-  <Item name="" identifier="endovascballoon" category="Equipment" maxstacksize="1" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="endovascballoon" category="Medical" maxstacksize="1" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,surgery,surgerytool"
           description=""
           useinhealthinterface="True" scale="0.250">
@@ -564,7 +564,7 @@
       </StatusEffect>
     </MeleeWeapon>
   </Item>
-  <Item name="" identifier="medstent" category="Equipment" maxstacksize="1" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="medstent" category="Medical" maxstacksize="1" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,surgery,syringe,surgerytool"
           description=""
           useinhealthinterface="True" scale="0.250">
@@ -598,7 +598,7 @@
       </StatusEffect>
     </MeleeWeapon>
   </Item>
-  <Item name="" identifier="drainage" category="Equipment" maxstacksize="4"
+  <Item name="" identifier="drainage" category="Medical" maxstacksize="4"
           cargocontaineridentifier="mediccrate" Tags="smallitem,medical,surgery,syringe,surgerytool"
           description=""
           useinhealthinterface="True" scale="0.250">
@@ -863,7 +863,7 @@
   </Item>
 
 
-  <Item name="" identifier="osteosynthesisimplants" category="Equipment" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="osteosynthesisimplants" category="Medical" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,surgery,surgerytool" description="" useinhealthinterface="True" scale="0.4">
     <Price baseprice="200" soldbydefault="false">
       <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="1"/>
@@ -895,7 +895,7 @@
     </MeleeWeapon>
     <SkillRequirementHint identifier="medical" level="45"/>
   </Item>
-  <Item name="" identifier="spinalimplant" description="" scale="0.3" useinhealthinterface="True" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="spinalimplant" description="" category="Medical" scale="0.3" useinhealthinterface="True" cargocontaineridentifier="mediccrate"
     Tags="smallitem,medical,surgery,surgerytool">
     <PreferredContainer primary="toxcontainer" spawnprobability="0.5"/>
     <Price baseprice="200" soldbydefault="false">
@@ -926,7 +926,7 @@
     <SkillRequirementHint identifier="medical" level="45"/>
   </Item>
 
-  <Item name="" identifier="suture" category="Equipment" maxstacksize="32" maxstacksizecharacterinventory="16" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="suture" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="16" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,surgery,surgerytool" description="" useinhealthinterface="True" scale="0.250">
     <PreferredContainer primary="medcab" minamount="10" maxamount="16" spawnprobability="1"/>
     <PreferredContainer primary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="3" spawnprobability="0.5"/>
@@ -968,7 +968,7 @@
   <!-- /// First aid /// -->
 
   <!-- Tourniquet / clamps bleeding arteries / causes gangrene if left on for too long -->
-  <Item name="" identifier="tourniquet" category="Equipment" maxstacksize="16" maxstacksizecharacterinventory="4" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="tourniquet" category="Medical" maxstacksize="16" maxstacksizecharacterinventory="4" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical" description="" useinhealthinterface="True" scale="0.250">
     <PreferredContainer primary="toxcontainer" spawnprobability="0.2"/>
     <PreferredContainer primary="medcab" minamount="1" maxamount="2" spawnprobability="1"/>
@@ -1002,7 +1002,7 @@
   </Item>
   
   <!-- Needle / prevents pneuomothorax from worsening -->
-  <Item name="" identifier="needle" category="Material" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="needle" category="Medical" cargocontaineridentifier="mediccrate"
           Tags="smallitem,medical,syringe,surgerytool"
           description=""
           useinhealthinterface="true" scale="0.2" impactsoundtag="impact_metal_light" maxstacksize="4">
@@ -1042,7 +1042,7 @@
   <!-- /// Chemicals /// -->
 
   <!-- Ringer's solution / a better version of saline -->
-  <Item name="" identifier="ringerssolution" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8"
+  <Item name="" identifier="ringerssolution" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8"
           cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,petfood1,petfood2,petfood3"
           useinhealthinterface="true" description="" scale="0.35" impactsoundtag="impact_soft">
     <Upgrade gameversion="0.10.0.0" scale="0.5"/>
@@ -1090,7 +1090,7 @@
   </Item>
 
   <!-- Mannitol / heals cerebral hypoxia / only if blood pressure and oxygen presence has been restored -->
-  <Item name="" identifier="mannitol" category="Material" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="mannitol" category="Medical" cargocontaineridentifier="mediccrate"
       Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.275"
       impactsoundtag="impact_metal_light" maxstacksize="32" maxstacksizecharacterinventory="8">
     <PreferredContainer primary="medcab" spawnprobability="0.2"/>
@@ -1151,7 +1151,7 @@
     <SkillRequirementHint identifier="medical" level="60"/>
   </Item>
   <!-- Azathioprine / immunosuppressant -->
-  <Item name="" identifier="immunosuppressant" category="Material" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="immunosuppressant" category="Medical" cargocontaineridentifier="mediccrate"
       Tags="smallitem,chem,medical,surgerytool" description="" useinhealthinterface="true" scale="0.3"
       impactsoundtag="impact_metal_light" maxstacksize="32" maxstacksizecharacterinventory="8">
     <PreferredContainer primary="medcab" spawnprobability="0.2"/>
@@ -1196,7 +1196,7 @@
     <SkillRequirementHint identifier="medical" level="10"/>
   </Item>
   <!-- Thiamine / organ fixer -->
-  <Item name="" identifier="thiamine" category="Material" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="thiamine" category="Medical" cargocontaineridentifier="mediccrate"
       Tags="smallitem,chem,medical" description="" useinhealthinterface="true" scale="0.2"
       impactsoundtag="impact_metal_light" maxstacksize="32" maxstacksizecharacterinventory="8">
     <PreferredContainer primary="medcab" spawnprobability="0.2"/>
@@ -1237,7 +1237,7 @@
     <SkillRequirementHint identifier="medical" level="10"/>
   </Item>
   <!-- ??? / blood pressure reducer -->
-  <Item name="" identifier="pressuremeds" category="Material" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="pressuremeds" category="Medical" cargocontaineridentifier="mediccrate"
       Tags="smallitem,chem,medical" description="" useinhealthinterface="true" scale="0.2"
       impactsoundtag="impact_metal_light" maxstacksize="32" maxstacksizecharacterinventory="8">
     <PreferredContainer primary="medcab" spawnprobability="0.2"/>
@@ -1278,7 +1278,7 @@
     <SkillRequirementHint identifier="medical" level="10"/>
   </Item>
   <!-- Streptokinase / heals heart attack -->
-  <Item name="" identifier="streptokinase" category="Material" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="streptokinase" category="Medical" cargocontaineridentifier="mediccrate"
       Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.275"
       impactsoundtag="impact_metal_light" maxstacksize="32" maxstacksizecharacterinventory="8">
     <PreferredContainer primary="medcab" spawnprobability="0.2"/>
@@ -1309,7 +1309,7 @@
   
   
   <!-- Ointment / heals infected wound -->
-  <Item name="" identifier="ointment" category="Equipment" Tags="smallitem,medical" maxstacksize="32" maxstacksizecharacterinventory="8"
+  <Item name="" identifier="ointment" category="Medical" Tags="smallitem,medical" maxstacksize="32" maxstacksizecharacterinventory="8"
           useinhealthinterface="true" cargocontaineridentifier="mediccrate" scale="0.265" impactsoundtag="impact_soft">
         <PreferredContainer primary="medcab" minamount="4" maxamount="6" spawnprobability="1"/>
         <PreferredContainer primary="supplycab" minamount="1" maxamount="3" spawnprobability="0.2"/>
@@ -1389,7 +1389,7 @@
             <Containable items="antiseptic"/>
         </ItemContainer>
     </Item>
-  <Item name="" identifier="antiseptic" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="antiseptic" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate"
           description="" Tags="smallitem,chem,medical" scale="0.3">
         <Upgrade gameversion="0.10.0.0" scale="0.3"/>
         <PreferredContainer primary="medcab" minamount="0" maxamount="1" spawnprobability="1"/>
@@ -1420,7 +1420,7 @@
     </Item>
 
   <!-- Propofol / anesthetic -->
-  <Item name="" identifier="propofol" category="Material" maxstacksize="4" maxstacksizecharacterinventory="2" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="propofol" category="Medical" maxstacksize="4" maxstacksizecharacterinventory="2" cargocontaineridentifier="mediccrate"
           Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5"
           impactsoundtag="impact_metal_light">
     <PreferredContainer primary="toxcab,abandonedtoxcab" secondary="toxcontainer" mincount="0" maxcount="1"
@@ -1553,7 +1553,7 @@
   </Item>
 
 	
-  <Item name="" identifier="emptybloodpack" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="emptybloodpack" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate"
           Tags="smallitem,chem,medical" useinhealthinterface="true" description="" scale="0.5"
           impactsoundtag="impact_soft">
 		    <PreferredContainer primary="medcab" minamount="1" maxamount="2" spawnprobability="1"/>
@@ -1694,7 +1694,7 @@
     </ItemContainer>
     <SkillRequirementHint identifier="medical" level="30"/>
   </Item>
-  <Item name="" identifier="bloodcollector" category="Material,Equipment" description=""
+  <Item name="" identifier="bloodcollector" category="Equipment" description=""
           cargocontaineridentifier="mediccrate" Tags="smallitem,Material,vial,medical" useinhealthinterface="true" scale="0.170"
           impactsoundtag="impact_metal_light" maxstacksize="32" maxstacksizecharacterinventory="8">
     <PreferredContainer primary="medcab" minamount="1" maxamount="8" spawnprobability="1"/>
@@ -1784,7 +1784,11 @@
       <Attack structuredamage="0" itemdamage="1" targetimpulse="2">
         <Affliction identifier="blunttrauma" strength="2" />
         <Affliction identifier="stun" strength="0.6" />
-        <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
+        <StatusEffect type="OnUse" target="UseTarget">
+          <Conditional entitytype="eq Character"/>
+          <Sound file="Content/Items/Weapons/Smack1.ogg" selectionmode="random" range="500"/>
+          <Sound file="Content/Items/Weapons/Smack2.ogg" range="500" />
+        </StatusEffect>
       </Attack>
     </MeleeWeapon>
     <ItemContainer capacity="6" keepopenwhenequipped="true" movableframe="true">
@@ -1813,7 +1817,11 @@
       <Attack structuredamage="0" itemdamage="1" targetimpulse="2">
         <Affliction identifier="blunttrauma" strength="2" />
         <Affliction identifier="stun" strength="0.6" />
-        <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
+        <StatusEffect type="OnUse" target="UseTarget">
+          <Conditional entitytype="eq Character"/>
+          <Sound file="Content/Items/Weapons/Smack1.ogg" selectionmode="random" range="500"/>
+          <Sound file="Content/Items/Weapons/Smack2.ogg" range="500" />
+        </StatusEffect>
       </Attack>
     </MeleeWeapon>
     <ItemContainer capacity="9" keepopenwhenequipped="true" movableframe="true">
@@ -1841,7 +1849,11 @@
       <Attack structuredamage="0" itemdamage="1" targetimpulse="2">
         <Affliction identifier="blunttrauma" strength="1" />
         <Affliction identifier="stun" strength="0.6" />
-        <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
+        <StatusEffect type="OnUse" target="UseTarget">
+          <Conditional entitytype="eq Character"/>
+          <Sound file="Content/Items/Weapons/Smack1.ogg" selectionmode="random" range="500"/>
+          <Sound file="Content/Items/Weapons/Smack2.ogg" range="500" />
+        </StatusEffect>
       </Attack>
     </MeleeWeapon>
     <ItemContainer capacity="12" keepopenwhenequipped="true" movableframe="true">
@@ -1980,7 +1992,7 @@
   <!-- /// Limbs and organs /// -->
 
   <Item name="" identifier="armlock1" description="" scale="0.5"
-          nonplayerteaminteractable="True" category="hidden">
+          nonplayerteaminteractable="True" hideinmenus="true">
         <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
         <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
         <Holdable slots="RightHand" handle1="0,0" msg="ItemMsgPickUpSelect">
@@ -1992,7 +2004,7 @@
         </Holdable>
     </Item>
   <Item name="" identifier="armlock2" description="" scale="0.5" nonplayerteaminteractable="True"
-          category="hidden">
+          hideinmenus="true">
         <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
         <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
         <Holdable slots="LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
@@ -2004,7 +2016,7 @@
         </Holdable>
     </Item>
 
-  <Item name="" identifier="rarm" description="" scale="0.4" useinhealthinterface="True" Tags="smallitem,organ,petfood1,petfood2,petfood3">
+  <Item name="" identifier="rarm" description="" category="Medical" scale="0.4" useinhealthinterface="True" Tags="smallitem,organ,petfood1,petfood2,petfood3">
         <InventoryIcon texture="%ModDir%/Images/limbs.png" sourcerect="0,0,46,90" origin="0.5,0.5"/>
         <Sprite texture="%ModDir%/Images/limbs.png" sourcerect="0,0,46,90" depth="0.6" origin="0.5,0.5"/>
         <Body width="46" height="90" density="20"/>
@@ -2036,7 +2048,7 @@
           </StatusEffect>
         </Throwable>
     </Item>
-  <Item name="" identifier="larm" description="" scale="0.4" useinhealthinterface="True" Tags="smallitem,organ,petfood1,petfood2,petfood3">
+  <Item name="" identifier="larm" description="" category="Medical" scale="0.4" useinhealthinterface="True" Tags="smallitem,organ,petfood1,petfood2,petfood3">
         <InventoryIcon texture="%ModDir%/Images/limbs.png" sourcerect="0,0,46,90" origin="0.5,0.5"/>
         <Sprite texture="%ModDir%/Images/limbs.png" sourcerect="0,0,46,90" depth="0.6" origin="0.5,0.5"/>
         <Body width="46" height="90" density="20"/>
@@ -2068,7 +2080,7 @@
           </StatusEffect>
         </Throwable>
     </Item>
-  <Item name="" identifier="rleg" description="" scale="0.4" useinhealthinterface="True" Tags="smallitem,organ,petfood1,petfood2,petfood3">
+  <Item name="" identifier="rleg" description="" category="Medical" scale="0.4" useinhealthinterface="True" Tags="smallitem,organ,petfood1,petfood2,petfood3">
         <InventoryIcon texture="%ModDir%/Images/limbs.png" sourcerect="57,0,60,90" origin="0.5,0.5"/>
         <Body width="60" height="90" density="20"/>
         <Sprite texture="%ModDir%/Images/limbs.png" sourcerect="57,0,60,90" depth="0.6" origin="0.5,0.5"/>
@@ -2100,7 +2112,7 @@
           </StatusEffect>
         </Throwable>
     </Item>
-  <Item name="" identifier="lleg" description="" scale="0.4" useinhealthinterface="True" Tags="smallitem,organ,petfood1,petfood2,petfood3">
+  <Item name="" identifier="lleg" description="" category="Medical" scale="0.4" useinhealthinterface="True" Tags="smallitem,organ,petfood1,petfood2,petfood3">
         <InventoryIcon texture="%ModDir%/Images/limbs.png" sourcerect="57,0,60,90" origin="0.5,0.5"/>
         <Sprite texture="%ModDir%/Images/limbs.png" sourcerect="57,0,60,90" depth="0.6" origin="0.5,0.5"/>
         <Body width="60" height="90" density="20"/>
@@ -2133,7 +2145,7 @@
         </Throwable>
     </Item>
 
-  <Item name="" identifier="llegp" description="" scale="0.4" useinhealthinterface="True" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="llegp" description="" category="Medical" scale="0.4" useinhealthinterface="True" cargocontaineridentifier="mediccrate"
         Tags="smallitem,medical,surgery">
         <Price baseprice="500" soldbydefault="false">
             <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="1"/>
@@ -2148,7 +2160,7 @@
             </StatusEffect>
         </Throwable>
     </Item>
-  <Item name="" identifier="rlegp" description="" scale="0.4" useinhealthinterface="True" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="rlegp" description="" category="Medical" scale="0.4" useinhealthinterface="True" cargocontaineridentifier="mediccrate"
         Tags="smallitem,medical,surgery">
         <Price baseprice="500" soldbydefault="false">
           <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="1"/>
@@ -2163,7 +2175,7 @@
             </StatusEffect>
         </Throwable>
     </Item>
-  <Item name="" identifier="larmp" description="" scale="0.4" useinhealthinterface="True" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="larmp" description="" category="Medical" scale="0.4" useinhealthinterface="True" cargocontaineridentifier="mediccrate"
         Tags="smallitem,medical,surgery">
         <Price baseprice="500" soldbydefault="false">
           <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="1"/>
@@ -2178,7 +2190,7 @@
             </StatusEffect>
         </Throwable>
     </Item>
-  <Item name="" identifier="rarmp" description="" scale="0.4" useinhealthinterface="True" cargocontaineridentifier="mediccrate"
+  <Item name="" identifier="rarmp" description="" category="Medical" scale="0.4" useinhealthinterface="True" cargocontaineridentifier="mediccrate"
         Tags="smallitem,medical,surgery">
         <Price baseprice="500" soldbydefault="false">
           <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="1"/>
@@ -2196,7 +2208,7 @@
 
   <!-- Organ transplants
   Thank you for not letting me spawn in items with specific conditions, Barotrauma -->
-  <Item name="" identifier="livertransplant" description="" scale="0.4" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3">
+  <Item name="" identifier="livertransplant" description="" category="Medical" scale="0.4" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3">
     <Price baseprice="1000" soldbydefault="false">
       <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="1"/>
     </Price>
@@ -2232,13 +2244,13 @@
     <SkillRequirementHint identifier="medical" level="40"/>
 
   </Item>
-  <Item name="" identifier="livertransplant_q1" variantof="livertransplant" category="hidden">
+  <Item name="" identifier="livertransplant_q1" variantof="livertransplant" hideinmenus="true">
     <Price baseprice="200" soldbydefault="false">
       <Price storeidentifier="merchantmedical" sold="false"/>
     </Price>
   </Item>
   
-  <Item name="" identifier="lungtransplant" description="" scale="0.4" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3">
+  <Item name="" identifier="lungtransplant" description="" category="Medical" scale="0.4" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3">
     <Price baseprice="2000" soldbydefault="false">
       <Price locationtype="research" multiplier="1" sold="true" minavailable="2"/>
     </Price>
@@ -2274,13 +2286,13 @@
     <SkillRequirementHint identifier="medical" level="40"/>
 
   </Item>
-  <Item name="" identifier="lungtransplant_q1" variantof="lungtransplant" category="hidden">
+  <Item name="" identifier="lungtransplant_q1" variantof="lungtransplant" hideinmenus="true">
     <Price baseprice="400" soldbydefault="false">
       <Price storeidentifier="merchantmedical" sold="false"/>
     </Price>
   </Item>
 
-  <Item name="" identifier="kidneytransplant" description="" scale="0.4" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3">
+  <Item name="" identifier="kidneytransplant" description="" category="Medical" scale="0.4" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3">
     <Price baseprice="400" soldbydefault="false">
       <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="2"/>
     </Price>
@@ -2316,13 +2328,13 @@
     <SkillRequirementHint identifier="medical" level="40"/>
 
   </Item>
-  <Item name="" identifier="kidneytransplant_q1" variantof="kidneytransplant" category="hidden">
+  <Item name="" identifier="kidneytransplant_q1" variantof="kidneytransplant" hideinmenus="true">
     <Price baseprice="100" soldbydefault="false">
       <Price storeidentifier="merchantmedical" sold="false"/>
     </Price>
   </Item>
 
-  <Item name="" identifier="hearttransplant" description="" scale="0.4" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3">
+  <Item name="" identifier="hearttransplant" description="" category="Medical" scale="0.4" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3">
     <Price baseprice="4000" soldbydefault="false">
       <Price locationtype="research" multiplier="1" sold="true" minavailable="2"/>
     </Price>
@@ -2358,13 +2370,13 @@
     <SkillRequirementHint identifier="medical" level="40"/>
 
   </Item>
-  <Item name="" identifier="hearttransplant_q1" variantof="hearttransplant" category="hidden">
+  <Item name="" identifier="hearttransplant_q1" variantof="hearttransplant" hideinmenus="true">
     <Price baseprice="600" soldbydefault="false">
       <Price storeidentifier="merchantmedical" sold="false"/>
     </Price>
   </Item>
 
-  <Item name="" identifier="braintransplant" description="" scale="0.3" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="1.5" Tags="smallitem,organ,petfood1,petfood2,petfood3,braintransplant">
+  <Item name="" identifier="braintransplant" description="" category="Medical" scale="0.3" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="1.5" Tags="smallitem,organ,petfood1,petfood2,petfood3,braintransplant">
     <Price baseprice="0" soldbydefault="false">
       <Price storeidentifier="merchantmedical" sold="false"/>
     </Price>
@@ -2406,7 +2418,7 @@
   </Item>
 
   <!-- other -->
-  <Item name="" identifier="gypsum" category="Equipment" Tags="smallitem,medical"
+  <Item name="" identifier="gypsum" category="Medical" Tags="smallitem,medical"
         maxstacksize="16" maxstacksizecharacterinventory="4" useinhealthinterface="true" cargocontaineridentifier="mediccrate" description=""
         scale="0.3" impactsoundtag="impact_soft">
     <PreferredContainer primary="medcab" minamount="1" maxamount="1" spawnprobability="0.5"/>
@@ -2468,7 +2480,7 @@
 
   <!-- /// sound FX items (this is unelegant, pls fix, lua man!) /// -->
 
-  <Item name="." identifier="ntsfx_selfscan" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_selfscan" description="." hideinmenus="true">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
@@ -2480,7 +2492,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntsfx_scissors" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_scissors" description="." hideinmenus="true">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
@@ -2493,7 +2505,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntsfx_bandage" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_bandage" description="." hideinmenus="true">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
@@ -2506,7 +2518,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntsfx_pills" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_pills" description="." hideinmenus="true">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
@@ -2520,7 +2532,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntsfx_syringe" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_syringe" description="." hideinmenus="true">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
@@ -2532,7 +2544,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntsfx_manualdefib" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_manualdefib" description="." hideinmenus="true">
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent>
       <StatusEffect type="OnSpawn" target="This" disabledeltatime="true" stackable="false">
@@ -2543,7 +2555,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntsfx_defib1" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_defib1" description="." hideinmenus="true">
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent>
       <StatusEffect type="OnSpawn" target="This" disabledeltatime="true" stackable="false">
@@ -2554,7 +2566,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntsfx_defib2" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_defib2" description="." hideinmenus="true">
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent>
       <StatusEffect type="OnSpawn" target="This" disabledeltatime="true" stackable="false">
@@ -2565,7 +2577,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntsfx_ointment" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_ointment" description="." hideinmenus="true">
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent>
       <StatusEffect type="OnSpawn" target="This" disabledeltatime="true" stackable="false">
@@ -2576,7 +2588,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntsfx_squeak" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_squeak" description="." hideinmenus="true">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
@@ -2592,7 +2604,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntsfx_slash" category="hidden" description=".">
+  <Item name="." identifier="ntsfx_slash" description="." hideinmenus="true">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
@@ -2616,7 +2628,7 @@
 
   <!-- /// VFX items (same as above, but visual!) ///-->
 
-  <Item name="." identifier="ntvfx_explosion" category="hidden" description=".">
+  <Item name="." identifier="ntvfx_explosion" description="." hideinmenus="true">
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
       <StatusEffect type="always" target="This" disabledeltatime="true" duration="1" stackable="false">
@@ -2774,7 +2786,7 @@
       </ItemContainer>
     </Item>
   <!-- Fluids -->
-    <Item name="" identifier="alienblood" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8"
+    <Item name="" identifier="alienblood" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8"
           cargocontaineridentifier="chemicalcrate" description="" Tags="smallitem,chem,medical"
           useinhealthinterface="true" scale="0.5" RequireAimToUse="True">
       <Upgrade gameversion="0.10.0.0" scale="0.5"/>
@@ -2800,11 +2812,13 @@
           <Affliction identifier="organdamage" amount="0.25"/>
           <Affliction identifier="hemotransfusionshock" amount="6.6"/>
           <ReduceAffliction identifier="bloodloss" amount="0.5"/>
+          <Affliction identifier="psychosis" amount="3" />
         </StatusEffect>
         <StatusEffect tags="medical" type="OnFailure" target="UseTarget, This" duration="15.0">
           <Affliction identifier="organdamage" amount="0.5"/>
           <Affliction identifier="hemotransfusionshock" amount="6.6"/>
           <ReduceAffliction identifier="bloodloss" amount="0.5"/>
+          <Affliction identifier="psychosis" amount="3" />
         </StatusEffect>
         <!-- Remove the item when fully used -->
         <StatusEffect type="OnBroken" target="This">
@@ -2945,7 +2959,7 @@
           <LuaHook name="surgerytable.update" />
         </StatusEffect>
       </ItemComponent>
-      <Controller allowingameediting="false" UserPos="0,-300" direction="Right" hidehud="false" issecondaryitem="true" canbeselected="true" noninteractablewhenflippedy="true" drawuserbehind="true">
+      <Controller allowingameediting="false" UserPos="0,-300" direction="Right" hidehud="false" canbeselected="true" noninteractablewhenflippedy="true" drawuserbehind="true">
         <!-- don't allow laying in bed when wearing an exosuit -->
         <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
         <limbposition limb="Head" position="-6,-10" allowusinglimb="true"/>

@@ -73,7 +73,7 @@
   
   <!-- SFX items -->
 
-  <Item name="." identifier="ntcsfx_screwdriver" category="hidden" description=".">
+  <Item name="." identifier="ntcsfx_screwdriver" description="." hideinmenus="true">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
@@ -86,7 +86,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntcsfx_cyberblunt" category="hidden" description=".">
+  <Item name="." identifier="ntcsfx_cyberblunt" description="." hideinmenus="true">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
@@ -108,7 +108,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntcsfx_cyberbite" category="hidden" description=".">
+  <Item name="." identifier="ntcsfx_cyberbite" description="." hideinmenus="true">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
@@ -122,7 +122,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntcsfx_cyberdeath" category="hidden" description=".">
+  <Item name="." identifier="ntcsfx_cyberdeath" description="." hideinmenus="true">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
@@ -136,7 +136,7 @@
       </StatusEffect>
     </ItemComponent>
   </Item>
-  <Item name="." identifier="ntcsfx_welding" category="hidden" description=".">
+  <Item name="." identifier="ntcsfx_welding" description="." hideinmenus="true">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
@@ -154,7 +154,7 @@
   </Item>
 
   <!-- VFX items -->
-  <Item name="." identifier="ntcvfx_malfunction" category="hidden" description=".">
+  <Item name="." identifier="ntcvfx_malfunction" description="." hideinmenus="true">
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5"/>
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5"/>
     <ItemComponent capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
