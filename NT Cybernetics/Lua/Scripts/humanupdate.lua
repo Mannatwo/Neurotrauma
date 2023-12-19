@@ -24,7 +24,7 @@ function NTCyb.UpdateHuman(character)
         local materialloss = HF.GetAfflictionStrengthLimb(character,limbtype,"ntc_materialloss",0)
     
         -- water damage if unprotected
-        if NT.Config.NTCybWaterDamage > 0 and character.PressureProtection <= 1000 then
+        if NTConfig.Get("NTCyb_waterDamage",0) > 0 and character.PressureProtection <= 1000 then
             -- in water?
             local inwater = false
             if limb~=nil and limb.InWater then inwater=true end
