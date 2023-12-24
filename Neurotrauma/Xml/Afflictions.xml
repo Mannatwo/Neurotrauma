@@ -2748,12 +2748,12 @@
       </StatusEffect>
       <StatusEffect target="Character">
         <Affliction identifier="stun" strength="0.1"/>
+        <LuaHook name="NT.vomit" />
       </StatusEffect>
       <StatusEffect target="Character" targetlimbs="Head" duration="1">
         <ParticleEmitter particle="vomitsplash" copyentityangle="true" anglemin="-10" anglemax="10" particlespersecond="50" velocitymin="50" velocitymax="200" scalemin="0.1" scalemax="0.2" />
         <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="vomitsplatter" decalsize="1.25" shockwave="false" underwaterbubble="false" />
         <Conditional HideFace="eq False" />
-        <LuaHook name="NT.vomit" />
       </StatusEffect>
     </PeriodicEffect>
 
@@ -2797,12 +2797,12 @@
       </StatusEffect>
       <StatusEffect target="Character">
         <Affliction identifier="stun" strength="0.1"/>
+        <LuaHook name="NT.vomitblood" />
       </StatusEffect>
       <StatusEffect target="Character" targetlimbs="Head" duration="1">
         <ParticleEmitter particle="bloodsplash" copyentityangle="true" anglemin="-20" anglemax="5" particlespersecond="100" velocitymin="60" velocitymax="250" scalemin="0.2" scalemax="0.4" />
         <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="blood" decalsize="1.25" shockwave="false" underwaterbubble="false" />
         <Conditional HideFace="eq False" />
-        <LuaHook name="NT.vomitblood" />
       </StatusEffect>
     </PeriodicEffect>
 
@@ -4844,6 +4844,79 @@ thats what the vomiting symptom is for -->
     </Effect>
     <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="2,6" sheetelementsize="128,128" color="10,193,114,255" origin="0,0"/>
   </Affliction>
+  </Override>
+  <!-- vanilla nausea override -->
+  <!-- previously this wasnt a thing because it crashed the game for some reason when overridden -->
+  <!-- but i kinda need to override it now to detect vanilla vomiting -->
+  <!-- lets hope it no longer crashes! --> 
+  <Override>
+    <Affliction
+      name="Nausea"
+      identifier="nausea"
+      description="The skin is clammy and the patient is vomiting periodically."
+      type="nausea"
+      causeofdeathdescription="Choked on vomit."
+      selfcauseofdeathdescription="You have choked on your own vomit."
+      limbspecific="false"
+      maxstrength="100"
+      affectmachines="false"
+      treatmentthreshold="1000"
+      karmachangeonapplied="-0.1"
+      damageoverlayalpha="0"
+      healcostmultiplier="2.25">
+      <Description
+        textidentifier="afflictiondescription.nausea"
+        target="OtherCharacter"
+        minstrength="0"
+        maxstrength="100"/>
+      <Description
+        textidentifier="afflictiondescription.nausea.low"
+        target="Self"
+        minstrength="0"
+        maxstrength="50"/>
+      <Description
+        textidentifier="afflictiondescription.nausea.high"
+        target="Self"
+        minstrength="50"
+        maxstrength="100"/>
+      <Effect minstrength="0" maxstrength="100" strengthchange="-1.0"
+        minfacetint="230,255,230,0"
+        maxfacetint="230,255,230,100"
+        minbodytint="230,255,230,0"
+        maxbodytint="230,255,230,50"
+        minspeedmultiplier="1.0"
+        maxspeedmultiplier="0.6">
+      </Effect>
+      <PeriodicEffect mininterval="12" maxinterval="16">
+        <StatusEffect target="Character" SpeedMultiplier="0.0" setvalue="true" duration="1.7" />
+        <StatusEffect target="Character" comparison="and">
+          <Conditional ishuman="true" />
+          <Conditional hasspecifiertag="male"/>
+          <Sound file="Content/Sounds/HUMAN_chokeMale1.ogg" selectionmode="Random" />
+          <Sound file="Content/Sounds/HUMAN_chokeMale2.ogg" />
+          <Sound file="Content/Sounds/HUMAN_chokeMale3.ogg" />
+        </StatusEffect>
+        <StatusEffect target="Character" comparison="and">
+          <Conditional ishuman="true" />
+          <Conditional hasspecifiertag="female"/>
+          <Sound file="Content/Sounds/HUMAN_chokeFemale1.ogg" selectionmode="Random" />
+          <Sound file="Content/Sounds/HUMAN_chokeFemale2.ogg" />
+          <Sound file="Content/Sounds/HUMAN_chokeFemale3.ogg" />
+        </StatusEffect>
+        <StatusEffect target="Character">
+          <Affliction identifier="stun" strength="0.1"/>
+          <Affliction identifier="organdamage" strength="0.5"/>
+          <LuaHook name="NT.vomit" />
+        </StatusEffect>
+        <StatusEffect target="Character" targetlimbs="Head" duration="1">
+          <ParticleEmitter particle="vomitsplash" copyentityangle="true" anglemin="-10" anglemax="10" particlespersecond="50" velocitymin="50" velocitymax="200" scalemin="0.1" scalemax="0.2" />
+          <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="vomitsplatter" decalsize="1.25" shockwave="false" underwaterbubble="false" />
+          <Conditional HideFace="eq False" />
+        </StatusEffect>
+      </PeriodicEffect>
+
+      <icon texture="Content/UI/CommandUIAtlas.png" sourcerect="896,896,128,128" origin="0,0"/>
+    </Affliction>
   </Override>
   <!-- /// Override section ends /// -->
 
