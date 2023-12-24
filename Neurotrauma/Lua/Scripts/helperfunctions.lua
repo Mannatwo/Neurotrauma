@@ -683,6 +683,7 @@ function HF.GameIsPaused()
 end
 
 function HF.TableContains(table, value)
+    if not table then return end
     for i, v in ipairs(table) do
         if v == value then
             return true
@@ -910,9 +911,7 @@ function HF.Explode(entity,range,force,damage,structureDamage,itemDamage,empStre
     empStrength = empStrength or 0
     ballastFloraStrength = ballastFloraStrength or 0
 
-    local explosion = Explosion(range, force, damage, structureDamage,
-        itemDamage, empStrength, ballastFloraStrength)
-    explosion.Explode(entity.WorldPosition, nil);
+    Game.Explode(entity.WorldPosition, range, force, damage, structureDamage, itemDamage, empStrength, ballastFloraStrength)
 
     HF.SpawnItemAt("ntvfx_explosion",entity.WorldPosition)
 end
@@ -925,4 +924,33 @@ end
 
 function HF.Magnitude(vector)
     return ((vector.X^2)+(vector.Y^2))^0.5
+end
+
+function HF.Clone(object)
+    return json.parse(json.serialize(object))
+end
+
+function HF.ReplaceItemIdentifier(item,newIdentifier,keepCondition)
+    -- keep track of where to put the new item
+    local previousSpot = nil
+    local previousInventory = item.ParentInventory
+    if previousInventory then
+        previousSpot = previousInventory.FindIndex(item)
+    end
+
+    -- make sure to transfer over contained items into the new item
+    local containedItems = {}
+    for containedItem in item.OwnInventory.AllItems do
+        table.insert(containedItems,{item=containedItem,slot=item.OwnInventory.FindIndex(containedItem)})
+    end
+
+    Timer.Wait(function()
+        HF.SpawnItemPlusFunction(newIdentifier,function(params)
+            for containedItem in params.containedItems do
+                params.item.OwnInventory.TryPutItem(containedItem.item,containedItem.slot,true,false,nil)
+            end
+        end,{containedItems=containedItems},previousInventory,previousSpot,item.WorldPosition)
+        HF.RemoveItem(item)
+    end,1)
+
 end
