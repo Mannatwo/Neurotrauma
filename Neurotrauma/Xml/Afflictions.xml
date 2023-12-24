@@ -603,25 +603,6 @@
     <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,384,128,128" color="195,136,60,255" origin="0,0"/>
   </Affliction>
 
-  <!-- Osteonecrosis / Bone death
-  Scanned Symptom, causes fractures -->
-  <Affliction
-    name=""
-    identifier="bonedeath"
-    description=""
-    healableinmedicalclinic="false"
-    type="gaze"
-    isbuff="false"
-    targets="human"
-    limbspecific="false"
-    indicatorlimb="Torso"
-    showiconthreshold="500"
-    showinhealthscannerthreshold="1"
-    maxstrength="2">
-
-    <icon texture="%ModDir%/Images/AfflictionIcons.png" sourcerect="0,128,128,128" color="0,255,0,255" origin="0,0"/>
-  </Affliction>
-
   <!-- Stimulated bone growth / the thing that cures bonedeath / bonedamage
   Scanned Symptom -->
   <Affliction
@@ -963,13 +944,13 @@
     name=""
     identifier="ra_fracture"
     description=""
-    healcostmultiplier="10"
     targets="human"
     limbspecific="false"
     indicatorlimb="RightArm"
     type="fractures"
     showinhealthscannerthreshold="5"
     showiconthreshold="90"
+    healableinmedicalclinic="false"
     maxstrength="100">
     
     <Effect minstrength="0" maxstrength="6">
@@ -989,13 +970,13 @@
     name=""
     identifier="la_fracture"
     description=""
-    healcostmultiplier="10"
     targets="human"
     limbspecific="false"
     indicatorlimb="LeftArm"
     type="fractures"
     showinhealthscannerthreshold="5"
     showiconthreshold="90"
+    healableinmedicalclinic="false"
     maxstrength="100">
 
     <Effect minstrength="0" maxstrength="6">
@@ -1016,7 +997,7 @@
     name=""
     identifier="rl_fracture"
     description=""
-    healcostmultiplier="10"
+    healableinmedicalclinic="false"
     targets="human"
     limbspecific="false"
     indicatorlimb="RightLeg"
@@ -1043,7 +1024,7 @@
     name=""
     identifier="ll_fracture"
     description=""
-    healcostmultiplier="10"
+    healableinmedicalclinic="false"
     targets="human"
     limbspecific="false"
     indicatorlimb="LeftLeg"
@@ -1071,7 +1052,7 @@
     name=""
     identifier="t_fracture"
     description=""
-    healcostmultiplier="10"
+    healableinmedicalclinic="false"
     targets="human"
     limbspecific="false"
     indicatorlimb="Torso"
@@ -1103,7 +1084,7 @@
     name=""
     identifier="n_fracture"
     description=""
-    healcostmultiplier="10"
+    healableinmedicalclinic="false"
     targets="human"
     limbspecific="false"
     indicatorlimb="Head"
@@ -1140,7 +1121,7 @@
     name=""
     identifier="h_fracture"
     description=""
-    healcostmultiplier="10"
+    healableinmedicalclinic="false"
     targets="human"
     limbspecific="false"
     indicatorlimb="Head"
@@ -1173,7 +1154,7 @@
     name=""
     identifier="dislocation1"
     description=""
-    healcostmultiplier="5"
+    healableinmedicalclinic="false"
     targets="human"
     limbspecific="false"
     indicatorlimb="RightLeg"
@@ -1206,7 +1187,7 @@
     name=""
     identifier="dislocation2"
     description=""
-    healcostmultiplier="5"
+    healableinmedicalclinic="false"
     targets="human"
     limbspecific="false"
     indicatorlimb="LeftLeg"
@@ -1239,7 +1220,7 @@
     name=""
     identifier="dislocation3"
     description=""
-    healcostmultiplier="5"
+    healableinmedicalclinic="false"
     targets="human"
     limbspecific="false"
     indicatorlimb="RightArm"
@@ -1270,7 +1251,7 @@
     name=""
     identifier="dislocation4"
     description=""
-    healcostmultiplier="5"
+    healableinmedicalclinic="false"
     targets="human"
     limbspecific="false"
     indicatorlimb="LeftArm"
@@ -1533,33 +1514,6 @@
     <icon texture="%ModDir%/Images/AfflictionIcons.png" sourcerect="768,0,128,128" color="139,60,42,255" origin="0,0"/>
   </Affliction>
 
-  <!-- Necrosis / Cell death caused by infection among other things
-  Currently unused
-  Scanned Symptom -->
-  <Affliction
-    name=""
-    identifier="necrosis"
-    description=""
-    healableinmedicalclinic="false"
-    targets="human"
-    type="gaze"
-    isbuff="false"
-    limbspecific="True"
-    showinhealthscannerthreshold="5"
-    showiconthreshold="75"
-    maxstrength="100"> 
-    <Effect minstrength="0" maxstrength="15"
-      minvitalitydecrease="0"
-      maxvitalitydecrease="3"/>
-    <Effect minstrength="15" maxstrength="50"
-      minvitalitydecrease="3"
-      maxvitalitydecrease="15"/>
-    <Effect minstrength="50" maxstrength="100"
-      minvitalitydecrease="15"
-      maxvitalitydecrease="25"/>
-    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="7,3" sheetelementsize="128,128" origin="0,0"/>
-  </Affliction>
-
   <!-- Gangrene / Cell death caused by cut off bloodflow.
   causes sepsis.
   can't be cured. the affected limbs must be amputated.
@@ -1790,7 +1744,8 @@
 
   <!-- Lets you drag people around at full speed
   Invisible -->
-  <Affliction name="" identifier="stretchers" isbuff="True" limbspecific="False" type="ambulance" showinhealthscannerthreshold="200" showiconthreshold="200" maxstrength="100"
+  <Affliction name="" identifier="stretchers" isbuff="True" limbspecific="False" type="ambulance"
+  showinhealthscannerthreshold="200" showiconthreshold="200" maxstrength="100"
     healableinmedicalclinic="false">
     <Effect minstrength="0" maxstrength="100" strengthchange="-50">
       <AbilityFlag flagtype="MoveNormallyWhileDragging" />
@@ -1799,14 +1754,16 @@
   </Affliction>
 
   <!-- stasis -->
-  <Affliction name="" identifier="stasis" isbuff="True" limbspecific="False" type="ambulance" showinhealthscannerthreshold="100" showiconthreshold="100" maxstrength="3"
+  <Affliction name="" identifier="stasis" isbuff="True" limbspecific="False" type="ambulance"
+  showinhealthscannerthreshold="100" showiconthreshold="100" maxstrength="3"
     healableinmedicalclinic="false">
     <Effect minstrength="0" maxstrength="3" strengthchange="-1"/>
   </Affliction>
 
   <!-- Locked hands / used as a symptom if both hands have gone unusable
   Invisible -->
-  <Affliction name="" identifier="lockedhands" isbuff="False" limbspecific="False" type="" showinhealthscannerthreshold="200" showiconthreshold="200" maxstrength="100"
+  <Affliction name="" identifier="lockedhands" isbuff="False" limbspecific="False" type=""
+  showinhealthscannerthreshold="200" showiconthreshold="200" maxstrength="100"
     healableinmedicalclinic="false">
     <Effect minstrength="0" maxstrength="10">
       <StatusEffect target="Character" lockhands="true" setvalue="true"/>
@@ -2008,6 +1965,7 @@
   <Affliction
     name=""
     identifier="foreignbody"
+    healableinmedicalclinic="false"
     description=""
     targets="human"
     causeofdeathdescription=""
@@ -2753,7 +2711,6 @@
     identifier="sym_vomiting"
     description=""
     healableinmedicalclinic="false"
-    type="gaze"
     isbuff="false"
     causeofdeathdescription="Choked on vomit."
     selfcauseofdeathdescription="You have choked on your own vomit."
@@ -2796,6 +2753,7 @@
         <ParticleEmitter particle="vomitsplash" copyentityangle="true" anglemin="-10" anglemax="10" particlespersecond="50" velocitymin="50" velocitymax="200" scalemin="0.1" scalemax="0.2" />
         <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="vomitsplatter" decalsize="1.25" shockwave="false" underwaterbubble="false" />
         <Conditional HideFace="eq False" />
+        <LuaHook name="NT.vomit" />
       </StatusEffect>
     </PeriodicEffect>
 
@@ -2844,6 +2802,7 @@
         <ParticleEmitter particle="bloodsplash" copyentityangle="true" anglemin="-20" anglemax="5" particlespersecond="100" velocitymin="60" velocitymax="250" scalemin="0.2" scalemax="0.4" />
         <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="blood" decalsize="1.25" shockwave="false" underwaterbubble="false" />
         <Conditional HideFace="eq False" />
+        <LuaHook name="NT.vomitblood" />
       </StatusEffect>
     </PeriodicEffect>
 
@@ -3540,7 +3499,7 @@ thats what the vomiting symptom is for -->
     name=""
     identifier="bonecut"
     description=""
-    healableinmedicalclinic="false"
+    healableinmedicalclinic="true"
     type="gaze"
     isbuff="true"
     limbspecific="true"
