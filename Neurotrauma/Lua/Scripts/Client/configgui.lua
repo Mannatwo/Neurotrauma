@@ -117,7 +117,9 @@ NT.ShowGUI = function ()
         if entry.type=="float" then
 
             -- scalar value
-            GUI.TextBlock(GUI.RectTransform(Vector2(1, 0.05), config.Content.RectTransform), entry.name, nil, nil, GUI.Alignment.Center, true)
+            local rect = GUI.RectTransform(Vector2(1, 0.05), config.Content.RectTransform)
+            local textBlock = GUI.TextBlock(rect, entry.name, nil, nil, GUI.Alignment.Center, true)
+            if entry.description then textBlock.ToolTip = entry.description end
             local scalar = GUI.NumberInput(GUI.RectTransform(Vector2(1, 0.1), config.Content.RectTransform), NumberType.Float)
             local key2 = key
             scalar.valueStep = 0.1
@@ -136,7 +138,9 @@ NT.ShowGUI = function ()
         elseif entry.type=="bool" then
 
             -- toggle
-            local toggle = GUI.TickBox(GUI.RectTransform(Vector2(1, 0.2), config.Content.RectTransform), entry.name)
+            local rect=GUI.RectTransform(Vector2(1, 0.2), config.Content.RectTransform)
+            local toggle = GUI.TickBox(rect, entry.name)
+            if entry.description then toggle.ToolTip = entry.description end
             local key2 = key
             toggle.Selected = NTConfig.Get(key2,false)
             toggle.OnSelected = function ()
