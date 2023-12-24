@@ -1690,12 +1690,12 @@
 
     <ItemContainer capacity="1" maxstacksize="1" canbeselected="false" hideitems="true" drawinventory="true">
       <Containable
-              items="bloodcollector, ominuscard, opluscard, aminuscard ,apluscard ,bminuscard ,bpluscard ,abminuscard , abpluscard"/>
+              items="bloodcollector, ominuscard, opluscard, aminuscard ,apluscard ,bminuscard ,bpluscard ,abminuscard , abpluscard, bloodscannercard, donorCard"/>
     </ItemContainer>
     <SkillRequirementHint identifier="medical" level="30"/>
   </Item>
   <Item name="" identifier="bloodcollector" category="Equipment" description=""
-          cargocontaineridentifier="mediccrate" Tags="smallitem,Material,vial,medical" useinhealthinterface="true" scale="0.170"
+          cargocontaineridentifier="mediccrate" Tags="smallitem,Material,vial,medical,bloodscannercard" useinhealthinterface="true" scale="0.170"
           impactsoundtag="impact_metal_light" maxstacksize="32" maxstacksizecharacterinventory="8">
     <PreferredContainer primary="medcab" minamount="1" maxamount="8" spawnprobability="1"/>
     <Price baseprice="5">
