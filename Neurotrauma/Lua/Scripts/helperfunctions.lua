@@ -954,3 +954,12 @@ function HF.ReplaceItemIdentifier(item,newIdentifier,keepCondition)
     end,1)
 
 end
+
+function HF.GetVelocity(character)
+    if (not character)
+    or (not character.AnimController)
+    or (not character.AnimController.MainLimb)
+    or (not character.AnimController.MainLimb.body) then return Vector2(0,0) end
+    
+    return character.AnimController.MainLimb.body.LinearVelocity
+end
