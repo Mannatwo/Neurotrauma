@@ -597,6 +597,24 @@ function HF.RemoveItem(item)
     end
 end
 
+function HF.RemoveCharacter(character)
+    -- this is the entirely same function as RemoveItem right now
+    HF.RemoveItem(character)
+    
+--[[
+    if character == nil or character.Removed then return end
+    
+    if SERVER then
+        -- use server remove method
+        Entity.Spawner.AddEntityToRemoveQueue(character)
+    else
+        -- use client remove method
+        character.Remove()
+    end
+]]
+    
+end
+
 function HF.StartsWith(String,Start)
     return string.sub(String,1,string.len(Start))==Start
 end
@@ -940,8 +958,15 @@ function HF.ReplaceItemIdentifier(item,newIdentifier,keepCondition)
 
     -- make sure to transfer over contained items into the new item
     local containedItems = {}
-    for containedItem in item.OwnInventory.AllItems do
-        table.insert(containedItems,{item=containedItem,slot=item.OwnInventory.FindIndex(containedItem)})
+    if item.OwnInventory ~= nil then
+        for containedItem in item.OwnInventory.AllItems do
+            table.insert(containedItems,{item=containedItem,slot=item.OwnInventory.FindIndex(containedItem)})
+        end
+    end
+    
+    local funcParams = {containedItems=containedItems}
+    if keepCondition then
+        funcParams.condition = item.Condition
     end
 
     Timer.Wait(function()
@@ -949,7 +974,8 @@ function HF.ReplaceItemIdentifier(item,newIdentifier,keepCondition)
             for containedItem in params.containedItems do
                 params.item.OwnInventory.TryPutItem(containedItem.item,containedItem.slot,true,false,nil)
             end
-        end,{containedItems=containedItems},previousInventory,previousSpot,item.WorldPosition)
+            if params.condition ~= nil then params.item.Condition = params.condition end
+        end,funcParams,previousInventory,previousSpot,item.WorldPosition)
         HF.RemoveItem(item)
     end,1)
 
