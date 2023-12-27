@@ -1409,3 +1409,9 @@ NT.ItemStartsWithMethods.bloodpack = function(item, usingCharacter, targetCharac
     local packtype = string.sub(identifier, string.len("bloodpack")+1)
     InfuseBloodpack(item,packtype,usingCharacter,targetCharacter,limb)
 end
+
+-- this exists purely for NT metabolism
+Hook.Add("NT.RotOrgan", "NT.RotOrgan", function(effect, deltaTime, item, targets, worldPosition)
+    if item then NT.RotOrgan(item) end
+end)
+function NT.RotOrgan(item) HF.RemoveItem(item) end

@@ -2044,7 +2044,7 @@
             <Affliction identifier="nausea" amount="0.2"/>
           </StatusEffect>-->
           <StatusEffect type="OnBroken" target="This">
-            <Remove/>
+            <LuaHook name="NT.RotOrgan" />
           </StatusEffect>
         </Throwable>
     </Item>
@@ -2076,7 +2076,7 @@
             <Affliction identifier="nausea" amount="0.2"/>
           </StatusEffect>-->
           <StatusEffect type="OnBroken" target="This">
-            <Remove/>
+            <LuaHook name="NT.RotOrgan" />
           </StatusEffect>
         </Throwable>
     </Item>
@@ -2108,7 +2108,7 @@
             <Affliction identifier="nausea" amount="0.2"/>
           </StatusEffect>-->
           <StatusEffect type="OnBroken" target="This">
-            <Remove/>
+            <LuaHook name="NT.RotOrgan" />
           </StatusEffect>
         </Throwable>
     </Item>
@@ -2140,7 +2140,7 @@
             <Affliction identifier="nausea" amount="0.2"/>
           </StatusEffect>-->
           <StatusEffect type="OnBroken" target="This">
-            <Remove/>
+            <LuaHook name="NT.RotOrgan" />
           </StatusEffect>
         </Throwable>
     </Item>
@@ -2238,7 +2238,7 @@
         <Affliction identifier="nausea" amount="0.2"/>
       </StatusEffect>
       <StatusEffect type="OnBroken" target="This">
-        <Remove/>
+        <LuaHook name="NT.RotOrgan" />
       </StatusEffect>
     </Throwable>
     <SkillRequirementHint identifier="medical" level="40"/>
@@ -2280,7 +2280,7 @@
         <Affliction identifier="nausea" amount="0.2"/>
       </StatusEffect>
       <StatusEffect type="OnBroken" target="This">
-        <Remove/>
+        <LuaHook name="NT.RotOrgan" />
       </StatusEffect>
     </Throwable>
     <SkillRequirementHint identifier="medical" level="40"/>
@@ -2322,7 +2322,7 @@
         <Affliction identifier="nausea" amount="0.1"/>
       </StatusEffect>
       <StatusEffect type="OnBroken" target="This">
-        <Remove/>
+        <LuaHook name="NT.RotOrgan" />
       </StatusEffect>
     </Throwable>
     <SkillRequirementHint identifier="medical" level="40"/>
@@ -2364,7 +2364,7 @@
         <Affliction identifier="nausea" amount="0.2"/>
       </StatusEffect>
       <StatusEffect type="OnBroken" target="This">
-        <Remove/>
+        <LuaHook name="NT.RotOrgan" />
       </StatusEffect>
     </Throwable>
     <SkillRequirementHint identifier="medical" level="40"/>
@@ -2410,7 +2410,7 @@
         <Affliction identifier="nausea" amount="0.2"/>
       </StatusEffect>
       <StatusEffect type="OnBroken" target="This">
-        <Remove/>
+        <LuaHook name="NT.RotOrgan" />
       </StatusEffect>
     </Throwable>
     <SkillRequirementHint identifier="medical" level="100"/>
