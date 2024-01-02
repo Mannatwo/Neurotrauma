@@ -52,6 +52,20 @@ NTP.PillData.items = {
             {type="yieldmult",value=2},
             {type="addeffect",identifier="afmannitol",amount=5}}
     },
+    elastin={types={"binder"},skillrequirement=40,
+        effects={
+            {type="potencymult",value=1.25}},
+        faileffects={
+            {type="potencymult",value=0.9}}
+    },
+    plastic={types={"binder"},skillrequirement=50,
+        effects={
+            {type="yieldmult",value=0.5},
+            {type="potencymult",value=1.6}},
+        faileffects={
+            {type="yieldmult",value=0.5},
+            {type="potencymult",value=1}}
+    },
 
     -- /// active ingredients ///
     opium={types={"active"},skillrequirement=15,
@@ -421,6 +435,22 @@ NTP.PillData.items = {
             {type="sprite",value="horsepill"},
             {type="potencymult",value=1.3},
             {type="yieldmult",value=0.5}}
+    },
+    calcium={types={"filler"},skillrequirement=25,
+        effects={
+            {type="potencymult",value=0.35},
+            {type="yieldmult",value=3}},
+        faileffects={
+            {type="potencymult",value=0.20},
+            {type="yieldmult",value=3}}
+    },
+    chlorine={types={"filler"},skillrequirement=50,
+        effects={
+            {type="potencymult",value=1.3},
+            {type="addeffect",identifier="burn",amount=2}},
+        faileffects={
+            {type="potencymult",value=0.7},
+            {type="addeffect",identifier="burn",amount=8}}
     },
 
     -- /// dyes ///
