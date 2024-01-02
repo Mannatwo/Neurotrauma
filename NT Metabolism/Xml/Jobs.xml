@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Jobs>
+  <Job identifier="chef"
+       minkarma="40"
+       uicolor="0.90,0.45,0.0"
+       vitalitymodifier="0"
+       pricemultiplier="1"
+       idlebehavior="StayInHull">
+    <Jobicon>
+      <sprite texture="%ModDir%/Images/MainAtlas.png" sourcerect="0,0,128,128" origin="0.5,0.5"/>
+    </Jobicon>
+    <JobiconSmall>
+      <sprite texture="%ModDir%/Images/MainAtlas.png" sourcerect="128,0,30,30" origin="0.5,0.5"/>
+    </JobiconSmall>
+    <Skills>
+      <Skill identifier="cooking" level="35,40" primary="true"/>
+      <Skill identifier="weapons" level="20,25"/>
+      <Skill identifier="medical" level="15,20"/>
+      <Skill identifier="mechanical" level="5,10"/>
+      <Skill identifier="electrical" level="5,10"/>
+      <Skill identifier="helm" level="5,10"/>
+    </Skills>
+    <ItemSet>
+      <Item identifier="idcard" equip="true" showpreview="false" />
+      <Item identifier="chefscap1" equip="true" />
+      <Item identifier="chefsuniform1" equip="true" outfit="true" />
+      <Item identifier="headset" equip="true" showpreview="false" />
+      <Item identifier="cleaver" equip="false" />
+    </ItemSet>
+    <ItemSet>
+      <Item identifier="idcard" equip="true" showpreview="false" />
+      <Item identifier="chefscap2" equip="true" />
+      <Item identifier="chefsuniform2" equip="true" outfit="true" />
+      <Item identifier="headset" equip="true" showpreview="false" />
+      <Item identifier="cleaver" equip="false" />
+    </ItemSet>
+    <AutonomousObjectives>
+      <Order identifier="rescue" prioritymodifier="1" />
+      <Order identifier="steer" option="maintainposition" prioritymodifier="0.1" />
+      <Order identifier="operatereactor" option="powerup" prioritymodifier="0.1" />
+      <Order identifier="fixleaks" prioritymodifier="0.1" />
+      <Order identifier="extinguishfires" prioritymodifier ="1.5"/>
+    </AutonomousObjectives>
+    <AppropriateOrders>
+      <Order identifier="fightintruders" prioritymodifier="1" />
+      <Order identifier="extinguishfires" prioritymodifier="1" />
+    </AppropriateOrders>
+    <PortraitClothing>
+      <sprite name="Portrait Clothing Chef" texture="Content/Items/Jobgear/PortraitClothing.png" sheetindex="0,1"/>
+    </PortraitClothing>
+  </Job>
+</Jobs>

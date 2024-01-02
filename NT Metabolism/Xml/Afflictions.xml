@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Afflictions>
+  <Affliction
+    name="ID"
+    identifier="ntmb_id"
+    description="this message should not appear"
+    healableinmedicalclinic="false"
+    targets="human"
+    type="resistance"
+    isbuff="true"
+    limbspecific="false"
+    showinhealthscannerthreshold="100000000"
+    showiconthreshold="100000000"
+    maxstrength="100000000">
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="256,896,128,128" color="10,193,114,255" origin="0,0"/>
+  </Affliction>
+
+  <!-- Thirsty / Exposed Symptom -->
+  <Affliction
+    name=""
+    identifier="sym_thirst"
+    description=""
+    healableinmedicalclinic="false"
+    isbuff="false"
+    limbspecific="false"
+    indicatorlimb="Head"
+    showiconthreshold="0.1"
+    showinhealthscannerthreshold="1000"
+    maxstrength="100"
+    iconcolors="255,255,255,255;255,0,0,255">
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="0,6" sheetelementsize="128,128" origin="0,0"/>
+
+    <Description
+      textidentifier="afflictiondescription.sym_thirst.self.low"
+      target="Self"
+      minstrength="0"
+      maxstrength="33"/>
+    <Description
+      textidentifier="afflictiondescription.sym_thirst.low"
+      target="OtherCharacter"
+      minstrength="0"
+      maxstrength="33"/>
+    <Description
+      textidentifier="afflictiondescription.sym_thirst.self.medium"
+      target="Self"
+      minstrength="33"
+      maxstrength="66"/>
+    <Description
+      textidentifier="afflictiondescription.sym_thirst.medium"
+      target="OtherCharacter"
+      minstrength="33"
+      maxstrength="66"/>
+    <Description
+      textidentifier="afflictiondescription.sym_thirst.self.high"
+      target="Self"
+      minstrength="66"
+      maxstrength="100"/>
+    <Description
+      textidentifier="afflictiondescription.sym_thirst.high"
+      target="OtherCharacter"
+      minstrength="66"
+      maxstrength="100"/>
+
+  </Affliction>
+
+  <!-- Hungry / Exposed Symptom -->
+  <Affliction
+    name=""
+    identifier="sym_hunger"
+    description=""
+    healableinmedicalclinic="false"
+    isbuff="false"
+    limbspecific="false"
+    indicatorlimb="Head"
+    showiconthreshold="0.1"
+    showinhealthscannerthreshold="1000"
+    maxstrength="100"
+    iconcolors="255,255,255,255;255,0,0,255">
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="1,6" sheetelementsize="128,128" origin="0,0"/>
+
+    <Description
+      textidentifier="afflictiondescription.sym_hunger.self.low"
+      target="Self"
+      minstrength="0"
+      maxstrength="33"/>
+    <Description
+      textidentifier="afflictiondescription.sym_hunger.low"
+      target="OtherCharacter"
+      minstrength="0"
+      maxstrength="33"/>
+    <Description
+      textidentifier="afflictiondescription.sym_hunger.self.medium"
+      target="Self"
+      minstrength="33"
+      maxstrength="66"/>
+    <Description
+      textidentifier="afflictiondescription.sym_hunger.medium"
+      target="OtherCharacter"
+      minstrength="33"
+      maxstrength="66"/>
+    <Description
+      textidentifier="afflictiondescription.sym_hunger.self.high"
+      target="Self"
+      minstrength="66"
+      maxstrength="100"/>
+    <Description
+      textidentifier="afflictiondescription.sym_hunger.high"
+      target="OtherCharacter"
+      minstrength="66"
+      maxstrength="100"/>
+
+  </Affliction>
+
+  <!-- Stuffed / Exposed Symptom -->
+  <Affliction
+    name=""
+    identifier="sym_stuffed"
+    description=""
+    healableinmedicalclinic="false"
+    isbuff="false"
+    limbspecific="false"
+    indicatorlimb="Head"
+    showiconthreshold="0.1"
+    showinhealthscannerthreshold="1000"
+    maxstrength="100"
+    iconcolors="255,255,255,255;255,0,0,255">
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="2,6" sheetelementsize="128,128" origin="0,0"/>
+
+    <Description
+      textidentifier="afflictiondescription.sym_stuffed.self"
+      target="Self"
+      minstrength="0"
+      maxstrength="100"/>
+    <Description
+      textidentifier="afflictiondescription.sym_stuffed"
+      target="OtherCharacter"
+      minstrength="0"
+      maxstrength="100"/>
+  </Affliction>
+
+  <!-- loss of appetite / Exposed Symptom -->
+  <Affliction
+    name=""
+    identifier="sym_noappetite"
+    description=""
+    healableinmedicalclinic="false"
+    isbuff="false"
+    limbspecific="false"
+    indicatorlimb="Head"
+    showiconthreshold="0.1"
+    showinhealthscannerthreshold="1000"
+    maxstrength="100"
+    iconcolors="255,90,0,255;255,90,0,255">
+    <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,6" sheetelementsize="128,128" origin="0,0"/>
+
+    <Description
+      textidentifier="afflictiondescription.sym_noappetite.self"
+      target="Self"
+      minstrength="0"
+      maxstrength="100"/>
+    <Description
+      textidentifier="afflictiondescription.sym_noappetite"
+      target="OtherCharacter"
+      minstrength="0"
+      maxstrength="100"/>
+  </Affliction>
+
+<!-- Vomiting once -->
+  <Affliction
+    name=""
+    identifier="nausea_instant"
+    description=""
+    type="nausea"
+    causeofdeathdescription="Choked on vomit."
+    selfcauseofdeathdescription="You have choked on your own vomit."
+    limbspecific="false"
+    maxstrength="1"
+    affectmachines="false"
+    treatmentthreshold="1000"
+    karmachangeonapplied="-0.1"
+    damageoverlayalpha="0"
+    healableinmedicalclinic="false"
+    showiconthreshold="1000"
+    showinhealthscannerthreshold="1000">
+    <Effect minstrength="0" maxstrength="1" strengthchange="-1000000">
+      <StatusEffect target="Character" SpeedMultiplier="0.0" setvalue="true" duration="1.7" />
+      <StatusEffect target="Character" comparison="and">
+        <Conditional ishuman="true" />
+        <Conditional hasspecifiertag="male"/>
+        <Sound file="Content/Sounds/HUMAN_chokeMale1.ogg" selectionmode="Random" />
+        <Sound file="Content/Sounds/HUMAN_chokeMale2.ogg" />
+        <Sound file="Content/Sounds/HUMAN_chokeMale3.ogg" />
+      </StatusEffect>
+      <StatusEffect target="Character" comparison="and">
+        <Conditional ishuman="true" />
+        <Conditional hasspecifiertag="female"/>
+        <Sound file="Content/Sounds/HUMAN_chokeFemale1.ogg" selectionmode="Random" />
+        <Sound file="Content/Sounds/HUMAN_chokeFemale2.ogg" />
+        <Sound file="Content/Sounds/HUMAN_chokeFemale3.ogg" />
+      </StatusEffect>
+      <StatusEffect target="Character">
+        <Affliction identifier="stun" strength="0.1"/>
+        <Affliction identifier="organdamage" strength="0.5"/>
+        <LuaHook name="NT.vomit" />
+      </StatusEffect>
+      <StatusEffect target="Character" targetlimbs="Head" duration="1">
+        <ParticleEmitter particle="vomitsplash" copyentityangle="true" anglemin="-10" anglemax="10" particlespersecond="50" velocitymin="50" velocitymax="200" scalemin="0.1" scalemax="0.2" />
+        <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="vomitsplatter" decalsize="1.25" shockwave="false" underwaterbubble="false" />
+        <Conditional HideFace="eq False" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="Content/UI/CommandUIAtlas.png" sourcerect="896,896,128,128" origin="0,0"/>
+  </Affliction>
+
+
+
+</Afflictions>

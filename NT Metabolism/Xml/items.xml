@@ -1,0 +1,1283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+
+  <Item name="" identifier="nutricard" category="Material,Equipment" description=""
+          cargocontaineridentifier="mediccrate" Tags="smallitem,medical,bloodscannercard" useinhealthinterface="true" scale="0.170"
+          impactsoundtag="impact_metal_light" maxstacksize="32" maxstacksizecharacterinventory="8">
+    <PreferredContainer primary="medcab" minamount="1" maxamount="8" spawnprobability="1"/>
+    <Price baseprice="5">
+      <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="8"/>
+    </Price>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="5">
+      <RequiredSkill identifier="medical" level="30"/>
+      <RequiredItem identifier="plastic" mincondition="0.25" usecondition="true"/>
+    </Fabricate>
+    <Deconstruct/>
+
+    <InventoryIcon texture="%ModDir%/Images/InventoryItemIconAtlas.png" sourcerect="0,0,64,64" origin="0.5,0.5"/>
+    <Sprite texture="Content/Items/idcard.png" depth="0.8" sourcerect="0,0,16,16"/>
+    <Body width="16" height="12" density="20"/>
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="50,0"
+              handle1="-5,0" reload="1.0" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnBroken" target="This">
+        <Remove/>
+      </StatusEffect>
+    </Holdable>
+  </Item>
+
+
+  <Item name="" identifier="cleaver" category="Equipment" Tags="smallitem,weapon,tool,cookingtool,mountableweapon" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <PreferredContainer secondary="wreckarmcab,abandonedarmcab" amount="1" spawnprobability="0.25" />
+    <PreferredContainer secondary="abandonedstoragecab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="beaconsupplycab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer primary="secarmcab" secondary="armcab" />
+    <Deconstruct time="10">
+      <Item identifier="plastic" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredSkill identifier="weapons" level="30" />
+      <RequiredItem identifier="plastic" amount="1" />
+      <RequiredItem identifier="steel" amount="1" />
+    </Fabricate>
+    <InventoryIcon texture="%ModDir%/Images/Tools.png" sourcerect="1,1,75,26" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/Tools.png" sourcerect="1,1,75,26" depth="0.55" origin="0.5,0.5" />
+    <Body width="65" height="15" density="25" />
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="50,0" handle1="-16,5" holdangle="30" reload="0.75" range="50" combatPriority="25" msg="ItemMsgPickUpSelect" HitOnlyCharacters="false">
+      <RequiredSkill identifier="weapons" level="30" />
+      <Attack targetimpulse="2" severlimbsprobability="0.8" itemdamage="10" structuredamage="0" structuresoundtype="StructureSlash">
+        <Affliction identifier="lacerations" strength="5" />
+        <Affliction identifier="bleeding" strength="10" />
+        <Affliction identifier="stun" strength="0.2" />
+        <StatusEffect type="OnUse" target="UseTarget">
+          <Conditional entitytype="eq Character" />
+          <Sound file="Content/Sounds/Damage/LimbSlash1.ogg" selectionmode="random" range="200" />
+          <Sound file="Content/Sounds/Damage/LimbSlash2.ogg" range="200" />
+          <Sound file="Content/Sounds/Damage/LimbSlash3.ogg" range="200" />
+          <Sound file="Content/Sounds/Damage/LimbSlash4.ogg" range="200" />
+          <Sound file="Content/Sounds/Damage/LimbSlash5.ogg" range="200" />
+          <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="200" />
+        </StatusEffect>
+      </Attack>
+      <!-- butchering -->
+      <StatusEffect tags="butchery" type="OnFailure" target="UseTarget" comparison="And">
+        <Conditional isdead="true" />
+        <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="blood" decalsize="1.8" shockwave="false" underwaterbubble="false" />
+        <LuaHook name="ntmb.butcher.progress" />
+      </StatusEffect>
+      <StatusEffect tags="butchery" type="OnSuccess" target="UseTarget" comparison="And">
+        <Conditional isdead="true" />
+        <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="blood" decalsize="1.8" shockwave="false" underwaterbubble="false" />
+        <LuaHook name="ntmb.butcher.progress" />
+      </StatusEffect>
+    </MeleeWeapon>
+    <aitarget sightrange="500" soundrange="250" fadeouttime="1" />
+    <Quality>
+      <QualityStat stattype="StrikingPowerMultiplier" value="0.1" />
+    </Quality>
+    <SkillRequirementHint identifier="weapons" level="30" />
+  </Item>
+
+  <Item name="" identifier="fryingpan" category="Equipment" Tags="smallitem,weapon,tool,cookingtool,mountableweapon" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <PreferredContainer primary="engcab"/>
+    <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" amount="1" spawnprobability="0.1"/>
+    <PreferredContainer primary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.2"/>
+    <PreferredContainer secondary="outpostcrewcabinet" amount="1" spawnprobability="0.2"/>
+    <Price baseprice="20">
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantresearch" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.25" />
+    </Price>
+    <Deconstruct time="10">
+      <Item identifier="iron" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="mechanical" level="30" />
+      <RequiredItem identifier="iron" amount="2" />
+    </Fabricate>
+    <Sprite texture="%ModDir%/Images/Tools.png" sourcerect="0,30,163,51" depth="0.55" origin="0.5,0.5" />
+    <Body width="120" height="20" density="30" />
+    <MeleeWeapon slots="RightHand+LeftHand,Any" controlpose="true" aimpos="45,10" handle1="-25,0" handle2="-15,5" holdangle="60" reload="1.5" range="100" combatpriority="20" msg="ItemMsgPickUpSelect">
+      <Attack structuredamage="8" itemdamage="8" targetimpulse="15">
+        <Affliction identifier="blunttrauma" strength="15" />
+        <Affliction identifier="stun" strength="0.75" />
+        <StatusEffect type="OnUse" target="UseTarget">
+          <Conditional entitytype="eq Character"/>
+          <Sound file="%ModDir%/Sound/pan_impact_world1.ogg" selectionmode="random" range="500"/>
+          <Sound file="%ModDir%/Sound/pan_impact_world2.ogg" range="500" />
+          <Sound file="%ModDir%/Sound/pan_impact_world3.ogg" range="500" />
+          <Sound file="%ModDir%/Sound/pan_hit.ogg" range="500" />
+        </StatusEffect>
+      </Attack>
+    </MeleeWeapon>
+    <aitarget sightrange="1000" soundrange="500" fadeouttime="1" />
+    <Quality>
+      <QualityStat stattype="StrikingPowerMultiplier" value="0.1"/>
+    </Quality>
+    <ItemContainer capacity="1" keepopenwhenequipped="true" movableframe="true" maxstacksize="1">
+      <Containable items="smallitem,food" excludeditems="toolbelt,toolbox,mobilecontainer" />
+    </ItemContainer>
+  </Item>
+
+  <!-- HATS START -->
+  <Item name="Chef's Hat" identifier="chefscap1" aliases="chefscap" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" scale="0.4">
+    <PreferredContainer primary="crewcab" amount="1" spawnprobability="0.1" notcampaign="true" />
+    <Price baseprice="75" sold="false">
+      <Price storeidentifier="merchantoutpost" minavailable="1" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="1" />
+      <Price storeidentifier="merchantresearch" minavailable="1" />
+      <Price storeidentifier="merchantmilitary" minavailable="1" />
+      <Price storeidentifier="merchantmine" minavailable="1" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="false">
+      <RequiredItem identifier="organicfiber" amount="1" />
+    </Fabricate>
+    <Deconstruct time="10" />
+    <Sprite name="Chef's Cap 1" texture="%ModDir%/Jobgear/headgears.png" depth="0.6" sourcerect="0,0,94,86" origin="0.5,0.5" />
+    <Body width="94" height="86" density="9" />
+    <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect">
+      <sprite name="Chef's Cap 1 Wearable" texture="%ModDir%/Jobgear/headgears.png" limb="Head" hidewearablesoftype="Hair" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidelimb="false" sourcerect="0,0,94,86" origin="0.65,1.0" />
+      <damagemodifier afflictionidentifiers="blunttrauma,lacerations,bitewounds" armorsector="0.0,360.0" damagemultiplier="0.9" />
+    </Wearable>
+  </Item>
+  <Item name="Chef's Hat" identifier="chefscap2" aliases="chefscap" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" scale="0.4">
+    <PreferredContainer primary="crewcab" amount="1" spawnprobability="0.1" notcampaign="true" />
+    <Price baseprice="75" sold="false">
+      <Price storeidentifier="merchantoutpost" minavailable="1" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="1" />
+      <Price storeidentifier="merchantresearch" minavailable="1" />
+      <Price storeidentifier="merchantmilitary" minavailable="1" />
+      <Price storeidentifier="merchantmine" minavailable="1" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="false">
+      <RequiredItem identifier="organicfiber" amount="1" />
+    </Fabricate>
+    <Deconstruct time="10" />
+    <Sprite name="Chef's Cap 2" texture="%ModDir%/Jobgear/headgears.png" depth="0.6" sourcerect="188,0,73,52" origin="0.5,0.5" />
+    <Body width="94" height="86" density="9" />
+    <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect">
+      <sprite name="Chef's Cap 2 Wearable" texture="%ModDir%/Jobgear/headgears.png" limb="Head" hidewearablesoftype="Hair" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.75" hidelimb="false" sourcerect="188,0,73,62" origin="0.6,1.0" />
+      <damagemodifier afflictionidentifiers="blunttrauma,lacerations,bitewounds" armorsector="0.0,360.0" damagemultiplier="0.9" />
+    </Wearable>
+  </Item>
+  <Item name="Master Chef's Hat" identifier="chefscapmaster1" aliases="chefscap" category="Equipment" tags="smallitem,clothing" cargocontaineridentifier="metalcrate" description="" scale="0.4">
+    <PreferredContainer primary="crewcab" amount="1" spawnprobability="0.1" notcampaign="true" />
+    <Price baseprice="275" sold="false">
+      <Price storeidentifier="merchantoutpost" minavailable="1" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="1" />
+      <Price storeidentifier="merchantresearch" minavailable="1" />
+      <Price storeidentifier="merchantmilitary" minavailable="1" />
+      <Price storeidentifier="merchantmine" minavailable="1" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="true">
+      <RequiredItem identifier="organicfiber" amount="2" />
+    </Fabricate>
+    <Deconstruct time="10" />
+    <Sprite name="Master Chef's Cap 1" texture="%ModDir%/Jobgear/headgears.png" depth="0.6" sourcerect="94,0,94,86" origin="0.5,0.5" />
+    <Body width="94" height="86" density="9" />
+    <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect">
+      <sprite name="Master Chef's Cap 1 Wearable" texture="%ModDir%/Jobgear/headgears.png" limb="Head" hidewearablesoftype="Hair" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidelimb="false" sourcerect="94,0,94,86" origin="0.65,1.0" />
+      <damagemodifier afflictionidentifiers="blunttrauma,lacerations,bitewounds" armorsector="0.0,360.0" damagemultiplier="0.9" />
+    </Wearable>
+  </Item>
+  <!-- HATS END -->
+  <!-- UNIFORMS START -->
+  <Item name="Chef's Uniform" identifier="chefsuniform1" aliases="chefsuniform" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,clothing" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer primary="crewcab" />
+    <Price baseprice="150" sold="false">
+      <Price storeidentifier="merchantoutpost" minavailable="1" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="1" />
+      <Price storeidentifier="merchantresearch" maxavailable="1" sold="false" />
+      <Price storeidentifier="merchantmilitary" maxavailable="1" sold="false" />
+      <Price storeidentifier="merchantmine" maxavailable="1" sold="false" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="30" requiresrecipe="false">
+      <RequiredItem identifier="organicfiber" amount="2" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="organicfiber" />
+    </Deconstruct>
+    <InventoryIcon name="Chef's Uniform 1 Icon" texture="%ModDir%/Jobgear/OutfitIcons.png" sourcerect="131,42,123,86" origin="0.5,0.5" />
+    <Sprite name="Chef's Uniform 1" texture="%ModDir%/Jobgear/MiscJobGear.png" sourcerect="376,227,117,56" depth="0.6" origin="0.5,0.5" />
+    <Body width="117" height="50" density="15" friction="0.8" restitution="0.01" />
+    <Wearable slots="Any,InnerClothes" msg="ItemMsgPickUpSelect">
+      <sprite name="Chef's Uniform 1 Torso" texture="%ModDir%/Jobgear/chef1.png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 1 Right Hand" texture="%ModDir%/Jobgear/chef1.png" limb="RightHand" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 1 Left Hand" texture="%ModDir%/Jobgear/chef1.png" limb="LeftHand" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 1 Right Lower Arm" texture="%ModDir%/Jobgear/chef1.png" limb="RightArm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 1 Left Lower Arm" texture="%ModDir%/Jobgear/chef1.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 1 Right Upper Arm" texture="%ModDir%/Jobgear/chef1.png" limb="RightForearm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 1 Left Upper Arm" texture="%ModDir%/Jobgear/chef1.png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 1 Waist" texture="%ModDir%/Jobgear/chef1.png" limb="Waist" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 1 Right Thigh" texture="%ModDir%/Jobgear/chef1.png" limb="RightThigh" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 1 Left Thigh" texture="%ModDir%/Jobgear/chef1.png" limb="LeftThigh" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 1 Right Leg" texture="%ModDir%/Jobgear/chef1.png" limb="RightLeg" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 1 Left Leg" texture="%ModDir%/Jobgear/chef1.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 1 Left Shoe" texture="%ModDir%/Jobgear/chef1.png" limb="LeftFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 1 Right Shoe" texture="%ModDir%/Jobgear/chef1.png" limb="RightFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="lacerations" damagemultiplier="0.9" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="bitewounds, blunttrauma" damagemultiplier="0.95" />
+    </Wearable>
+  </Item>
+  <Item name="Chef's Uniform" identifier="chefsuniform2" aliases="chefsuniform" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,clothing" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer primary="crewcab" />
+    <Price baseprice="150" sold="false">
+      <Price storeidentifier="merchantoutpost" minavailable="1" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="1" />
+      <Price storeidentifier="merchantresearch" maxavailable="1" sold="false" />
+      <Price storeidentifier="merchantmilitary" maxavailable="1" sold="false" />
+      <Price storeidentifier="merchantmine" maxavailable="1" sold="false" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="30" requiresrecipe="false">
+      <RequiredItem identifier="organicfiber" amount="2" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="organicfiber" />
+    </Deconstruct>
+    <InventoryIcon name="Chef's Uniform 2 Icon" texture="%ModDir%/Jobgear/OutfitIcons.png" sourcerect="260,42,121,86" origin="0.5,0.5" />
+    <Sprite name="Chef's Uniform 2" texture="%ModDir%/Jobgear/MiscJobGear.png" sourcerect="376,227,117,56" depth="0.6" origin="0.5,0.5" />
+    <Body width="117" height="50" density="15" friction="0.8" restitution="0.01" />
+    <Wearable slots="Any,InnerClothes" msg="ItemMsgPickUpSelect">
+      <sprite name="Chef's Uniform 2 Torso" texture="%ModDir%/Jobgear/Chef2[GENDER].png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 2 Right Hand" texture="%ModDir%/Jobgear/Chef2[GENDER].png" limb="RightHand" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 2 Left Hand" texture="%ModDir%/Jobgear/Chef2[GENDER].png" limb="LeftHand" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 2 Right Lower Arm" texture="%ModDir%/Jobgear/Chef2[GENDER].png" limb="RightArm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 2 Left Lower Arm" texture="%ModDir%/Jobgear/Chef2[GENDER].png" limb="LeftArm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 2 Right Upper Arm" texture="%ModDir%/Jobgear/Chef2[GENDER].png" limb="RightForearm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 2 Left Upper Arm" texture="%ModDir%/Jobgear/Chef2[GENDER].png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 2 Waist" texture="%ModDir%/Jobgear/Chef2[GENDER].png" limb="Waist" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 2 Right Thigh" texture="%ModDir%/Jobgear/Chef2[GENDER].png" limb="RightThigh" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 2 Left Thigh" texture="%ModDir%/Jobgear/Chef2[GENDER].png" limb="LeftThigh" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 2 Right Leg" texture="%ModDir%/Jobgear/Chef2[GENDER].png" limb="RightLeg" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 2 Left Leg" texture="%ModDir%/Jobgear/Chef2[GENDER].png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 2 Left Shoe" texture="%ModDir%/Jobgear/Chef2[GENDER].png" limb="LeftFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Chef's Uniform 2 Right Shoe" texture="%ModDir%/Jobgear/Chef2[GENDER].png" limb="RightFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="lacerations" damagemultiplier="0.9" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="bitewounds, blunttrauma" damagemultiplier="0.95" />
+    </Wearable>
+  </Item>
+  <Item name="Master Chef's Uniform" identifier="chefsuniformmaster1" aliases="chefsuniform" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,clothing" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer primary="crewcab" />
+    <Price baseprice="350" sold="false">
+      <Price storeidentifier="merchantoutpost" minavailable="1" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="1" />
+      <Price storeidentifier="merchantresearch" maxavailable="1" sold="false" />
+      <Price storeidentifier="merchantmilitary" maxavailable="1" sold="false" />
+      <Price storeidentifier="merchantmine" maxavailable="1" sold="false" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="30" requiresrecipe="true">
+      <RequiredItem identifier="organicfiber" amount="3" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="organicfiber" />
+    </Deconstruct>
+    <InventoryIcon name="Master Chef's Uniform 1 Icon" texture="%ModDir%/Jobgear/OutfitIcons.png" sourcerect="2,42,123,86" origin="0.5,0.5" />
+    <Sprite name="Master Chef's Uniform 1" texture="%ModDir%/Jobgear/MiscJobGear.png" sourcerect="251,227,117,56" depth="0.6" origin="0.5,0.5" />
+    <Body width="117" height="50" density="15" friction="0.8" restitution="0.01" />
+    <Wearable slots="Any,InnerClothes" msg="ItemMsgPickUpSelect">
+      <sprite name="Master Chef's Uniform 1 Torso" texture="%ModDir%/Jobgear/chefmaster1.png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Master Chef's Uniform 1 Right Hand" texture="%ModDir%/Jobgear/chefmaster1.png" limb="RightHand" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Master Chef's Uniform 1 Left Hand" texture="%ModDir%/Jobgear/chefmaster1.png" limb="LeftHand" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Master Chef's Uniform 1 Right Lower Arm" texture="%ModDir%/Jobgear/chefmaster1.png" limb="RightArm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Master Chef's Uniform 1 Left Lower Arm" texture="%ModDir%/Jobgear/chefmaster1.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Master Chef's Uniform 1 Right Upper Arm" texture="%ModDir%/Jobgear/chefmaster1.png" limb="RightForearm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Master Chef's Uniform 1 Left Upper Arm" texture="%ModDir%/Jobgear/chefmaster1.png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Master Chef's Uniform 1 Waist" texture="%ModDir%/Jobgear/chefmaster1.png" limb="Waist" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Master Chef's Uniform 1 Right Thigh" texture="%ModDir%/Jobgear/chefmaster1.png" limb="RightThigh" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Master Chef's Uniform 1 Left Thigh" texture="%ModDir%/Jobgear/chefmaster1.png" limb="LeftThigh" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Master Chef's Uniform 1 Right Leg" texture="%ModDir%/Jobgear/chefmaster1.png" limb="RightLeg" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Master Chef's Uniform 1 Left Leg" texture="%ModDir%/Jobgear/chefmaster1.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Master Chef's Uniform 1 Left Shoe" texture="%ModDir%/Jobgear/chefmaster1.png" limb="LeftFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Master Chef's Uniform 1 Right Shoe" texture="%ModDir%/Jobgear/chefmaster1.png" limb="RightFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="lacerations" damagemultiplier="0.9" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="bitewounds, blunttrauma" damagemultiplier="0.95" />
+    </Wearable>
+  </Item>
+  <!-- UNIFORMS END -->
+  <Override>
+    <Item name="Stove" identifier="stove" tags="stove,kitchen,kitchenfabricator,donttakeitems,dontsellitems" category="Machine" subcategory="Kitchen" linkable="true" allowedlinks="medcabinet,locker,kitchen" description="Used for cooking. Needs power." isshootable="true" scale="0.5" damagedbyexplosions="true" explosiondamagemultiplier="0.2">
+      <Deconstruct time="10">
+        <Item identifier="steel" amount="2" />
+        <Item identifier="titaniumaluminiumalloy" amount="2" />
+        <Item identifier="fpgacircuit" amount="1" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="60" requiresrecipe="false" amount="1">
+        <RequiredSkill identifier="mechanical" level="65" />
+        <RequiredItem identifier="steel" amount="5" />
+        <RequiredItem identifier="titaniumaluminiumalloy" amount="6" />
+        <RequiredItem identifier="fpgacircuit" amount="2" />
+        <RequiredItem identifier="plastic" amount="1" />
+      </Fabricate>
+      <Price baseprice="1199" sold="true">
+        <Price storeidentifier="merchantoutpost" multiplier="1.7" minavailable="0" maxavailable="1" />
+        <Price storeidentifier="merchantcity" multiplier="1.0" minavailable="1" maxavailable="3" />
+      </Price>
+      <UpgradePreviewSprite scale="2.5" texture="Content/UI/WeaponUI.png" sourcerect="256,960,64,64" origin="0.5,0.46" />
+      <Sprite texture="%ModDir%/Images/Fabricators.png" sourcerect="1886,68,161,53" depth="0.796" origin="0.47,0.86" />
+      <BrokenSprite texture="%ModDir%/Images/Fabricators.png" sourcerect="1886,121,161,53" depth="0.795" origin="0.47,0.86" maxcondition="80" fadein="true" />
+      <BrokenSprite texture="%ModDir%/Images/Fabricators.png" sourcerect="1886,174,161,53" depth="0.794" origin="0.47,0.86" maxcondition="0" fadein="false" />
+      <ConnectionPanel selectkey="Action" canbeselected="true" hudpriority="10" msg="ItemMsgRewireScrewdriver">
+        <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+        <RequiredSkill identifier="electrical" level="55" />
+        <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+          <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
+          <Explosion range="100.0" stun="0" force="5.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+          <Affliction identifier="stun" strength="4" />
+          <Affliction identifier="burn" strength="5" />
+        </StatusEffect>
+        <StatusEffect type="OnPicked" target="this">
+          <!--<Sound file="Content/Sounds/Items/Electricity/junctionbox_interact.ogg" volume="1" range="300" />-->
+        </StatusEffect>
+        <RequiredItem items="screwdriver" type="Equipped" />
+        <input name="power" displayname="connection.power" />
+        <input name="toggle" displayname="connection.togglestate" />
+        <input name="set_state" displayname="connection.setstate" />
+        <output name="condition_out" displayname="connection.conditionout" />
+      </ConnectionPanel>
+      <Body width="161" height="53" density="30" />
+      <Holdable canbepicked="true" selectkey="Select" pickkey="Action" slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,-20" handle2="10,-20" holdangle="45" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" attachable="true" aimable="true">
+        <RequiredItem items="wrench" type="Equipped" />
+        <StatusEffect target="This" type="OnContained">
+          <Conditional attached="false" targetitemcomponentname="Holdable" />
+          <DropContainedItems />
+        </StatusEffect>
+      </Holdable>
+      <Repairable selectkey="Action" header="electricalrepairsheader" deteriorationspeed="0.00" mindeteriorationdelay="60" maxdeteriorationdelay="120" RepairThreshold="70" fixDurationHighSkill="5" fixDurationLowSkill="25" msg="ItemMsgRepairScrewdriver" hudpriority="10">
+        <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="0.1,0.27" style="ItemUI" />
+        <RequiredSkill identifier="electrical" level="55" />
+        <RequiredItem items="screwdriver" type="Equipped" />
+        <ParticleEmitter particle="damagebubbles" particleburstamount="2" particleburstinterval="2.0" particlespersecond="2" scalemin="0.5" scalemax="1.5" anglemin="0" anglemax="359" velocitymin="-10" velocitymax="10" mincondition="0.0" maxcondition="50.0" />
+        <ParticleEmitter particle="MistSmoke" particlespersecond="60" anglemin="0" anglemax="360" distancemin="0" distancemax="30" velocitymin="0" velocitymax="20" mincondition="0.0" maxcondition="50.0" />
+        <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
+        <ParticleEmitter particle="fleshsmoke" particlespersecond="2" scalemin="1" scalemax="2" mincondition="0.0" maxcondition="50.0" />
+        <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+          <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
+          <Affliction identifier="stun" strength="4" />
+          <Affliction identifier="burn" strength="5" />
+        </StatusEffect>
+      </Repairable>
+      <ItemContainer selectkey="Select" capacity="4" canbeselected="true" hideitems="true" slotsperrow="2" allowuioverlap="true" maxstacksize="1">
+        <GuiFrame relativesize="0.225,0.4" anchor="Center" style="ItemUI" />
+      </ItemContainer>
+      <LightComponent lightcolor="1.0,1.0,1.0,0.5" range="0.0" powerconsumption="500" allowingameediting="false">
+      </LightComponent>
+      <ItemComponent>
+        <StatusEffect type="Always" target="This" interval="5"> 
+          <LuaHook name="NTMB.Stove.update" />
+        </StatusEffect>
+      </ItemComponent>
+    </Item>
+  </Override>
+  <Override>
+    <Item name="Oven" identifier="oven" tags="oven,kitchen,kitchenfabricator,donttakeitems,dontsellitems" category="Machine" subcategory="Kitchen" linkable="true" allowedlinks="medcabinet,locker,kitchen" isshootable="true" scale="0.5" description="Used for baking. Needs power." damagedbyexplosions="true" explosiondamagemultiplier="0.2">
+      <Upgrade gameversion="0.10.4.0">
+        <Repairable Msg="ItemMsgRepairWrench" />
+      </Upgrade>
+      <Deconstruct time="10">
+        <Item identifier="steel" amount="4" />
+        <Item identifier="titaniumaluminiumalloy" amount="3" />
+        <Item identifier="fpgacircuit" amount="1" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="60" requiresrecipe="false" amount="1">
+        <RequiredSkill identifier="mechanical" level="65" />
+        <RequiredItem identifier="steel" amount="8" />
+        <RequiredItem identifier="titaniumaluminiumalloy" amount="7" />
+        <RequiredItem identifier="fpgacircuit" amount="2" />
+      </Fabricate>
+      <Price baseprice="1299" sold="true">
+        <Price storeidentifier="merchantoutpost" multiplier="1.7" minavailable="0" maxavailable="1" />
+        <Price storeidentifier="merchantcity" multiplier="1.0" minavailable="1" maxavailable="3" />
+      </Price>
+      <UpgradePreviewSprite scale="2.5" texture="Content/UI/WeaponUI.png" sourcerect="256,960,64,64" origin="0.5,0.45" />
+      <Sprite texture="%ModDir%/Images/Fabricators.png" depth="0.797" sourcerect="1882,429,165,188" origin="0.45,0.404" />
+      <BrokenSprite texture="%ModDir%/Images/Fabricators.png" depth="0.795" sourcerect="1882,618,165,188" origin="0.45,0.404" maxcondition="80" fadein="true" />
+      <BrokenSprite texture="%ModDir%/Images/Fabricators.png" depth="0.794" sourcerect="1882,807,165,188" origin="0.45,0.404" maxcondition="0" />
+      <ConnectionPanel selectkey="Action" canbeselected="true" hudpriority="10" msg="ItemMsgRewireScrewdriver">
+        <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+        <RequiredSkill identifier="electrical" level="55" />
+        <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+          <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
+          <Explosion range="100.0" stun="0" force="5.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+          <Affliction identifier="stun" strength="4" />
+          <Affliction identifier="burn" strength="5" />
+        </StatusEffect>
+        <StatusEffect type="OnPicked" target="this">
+          <!--<Sound file="Content/Sounds/Items/Electricity/junctionbox_interact.ogg" volume="1" range="300" />-->
+        </StatusEffect>
+        <RequiredItem items="screwdriver" type="Equipped" />
+        <input name="power" displayname="connection.power" />
+        <input name="toggle" displayname="connection.togglestate" />
+        <input name="set_state" displayname="connection.setstate" />
+        <output name="condition_out" displayname="connection.conditionout" />
+      </ConnectionPanel>
+      <Body width="165" height="188" density="30" />
+      <Holdable canbepicked="true" selectkey="Select" pickkey="Action" slots="RightHand+LeftHand" msg="[Right mouse] Detach (Wrench)" PickingTime="20.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
+        <requireditem items="wrench" type="Equipped" />
+        <StatusEffect target="This" type="OnContained">
+          <Conditional attached="false" targetitemcomponentname="Holdable" />
+          <DropContainedItems />
+        </StatusEffect>
+      </Holdable>
+      <Repairable selectkey="Select" header="mechanicalrepairsheader" deteriorationspeed="0.00" mindeteriorationdelay="60" maxdeteriorationdelay="120" RepairThreshold="70" fixDurationHighSkill="5" fixDurationLowSkill="25" msg="ItemMsgRepairWrench" hudpriority="10">
+        <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="0.1,0.27" style="ItemUI" />
+        <RequiredSkill identifier="mechanical" level="55" />
+        <RequiredItem items="wrench" type="Equipped" />
+        <ParticleEmitter particle="damagebubbles" particleburstamount="2" particleburstinterval="2.0" particlespersecond="2" scalemin="0.5" scalemax="1.5" anglemin="0" anglemax="359" velocitymin="-10" velocitymax="10" mincondition="0.0" maxcondition="50.0" />
+        <ParticleEmitter particle="smoke" particleburstamount="3" particleburstinterval="0.5" particlespersecond="2" scalemin="1" scalemax="2.5" anglemin="0" anglemax="359" velocitymin="-50" velocitymax="50" mincondition="15.0" maxcondition="50.0" />
+        <ParticleEmitter particle="heavysmoke" particleburstinterval="0.25" particlespersecond="2" scalemin="2.5" scalemax="5.0" mincondition="0.0" maxcondition="15.0" />
+        <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
+          <Sound file="Content/Items/MechanicalRepairFail.ogg" range="1000" />
+          <Affliction identifier="lacerations" strength="5" />
+          <Affliction identifier="stun" strength="4" />
+        </StatusEffect>
+      </Repairable>
+      <ItemContainer selectkey="Select" capacity="10" canbeselected="true" hideitems="true" slotsperrow="5" allowuioverlap="true" maxstacksize="1">
+        <GuiFrame relativesize="0.4,0.3" anchor="Center" style="ItemUI" />
+      </ItemContainer>
+      <LightComponent lightcolor="1.0,1.0,1.0,0.5" range="0.0" powerconsumption="1000" allowingameediting="false">
+        <sprite texture="%ModDir%/Images/Fabricators.png" depth="0.796" sourcerect="1882,996,165,188" alpha="1.0" origin="0.45,0.404" />
+      </LightComponent>
+    </Item>
+  </Override>
+  <Override>
+    <Item name="Fryer" identifier="fryer" tags="fryer,kitchen,kitchenfabricator,donttakeitems,dontsellitems" category="Machine" subcategory="Kitchen" linkable="true" allowedlinks="medcabinet,locker,kitchen" isshootable="true" scale="0.5" description="Used for frying stuff. Needs power." damagedbyexplosions="true" explosiondamagemultiplier="0.2">
+      <Upgrade gameversion="0.10.4.0">
+        <Repairable Msg="ItemMsgRepairWrench" />
+      </Upgrade>
+      <Deconstruct time="10">
+        <Item identifier="titaniumaluminiumalloy" amount="2" />
+        <Item identifier="fpgacircuit" amount="1" />
+      </Deconstruct>
+      <Fabricate selectkey="Select" suitablefabricators="fabricator" requiredtime="60" requiresrecipe="false" amount="1">
+        <RequiredSkill identifier="mechanical" level="65" />
+        <RequiredItem identifier="steel" amount="1" />
+        <RequiredItem identifier="titaniumaluminiumalloy" amount="5" />
+        <RequiredItem identifier="fpgacircuit" amount="2" />
+        <RequiredItem identifier="plastic" amount="1" />
+      </Fabricate>
+      <Price baseprice="999" sold="true">
+        <Price storeidentifier="merchantoutpost" multiplier="1.7" minavailable="0" maxavailable="1" />
+        <Price storeidentifier="merchantcity" multiplier="1.0" minavailable="1" maxavailable="3" />
+      </Price>
+      <UpgradePreviewSprite scale="2.5" texture="Content/UI/WeaponUI.png" sourcerect="256,960,64,64" origin="0.5,0.45" />
+      <Sprite texture="%ModDir%/Images/Fabricators.png" depth="0.797" sourcerect="1975,228,72,66" origin="0.45,0.404" />
+      <BrokenSprite texture="%ModDir%/Images/Fabricators.png" depth="0.795" sourcerect="1975,295,72,66" origin="0.45,0.404" maxcondition="80" fadein="true" />
+      <BrokenSprite texture="%ModDir%/Images/Fabricators.png" depth="0.794" sourcerect="1975,362,72,66" origin="0.45,0.404" maxcondition="0" />
+      <ConnectionPanel selectkey="Action" canbeselected="true" hudpriority="10" msg="ItemMsgRewireScrewdriver">
+        <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+        <RequiredSkill identifier="electrical" level="55" />
+        <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+          <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
+          <Explosion range="100.0" stun="0" force="5.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+          <Affliction identifier="stun" strength="4" />
+          <Affliction identifier="burn" strength="5" />
+        </StatusEffect>
+        <StatusEffect type="OnPicked" target="this">
+          <!--<Sound file="Content/Sounds/Items/Electricity/junctionbox_interact.ogg" volume="1" range="300" />-->
+        </StatusEffect>
+        <RequiredItem items="screwdriver" type="Equipped" />
+        <input name="power" displayname="connection.power" />
+        <input name="toggle" displayname="connection.togglestate" />
+        <input name="set_state" displayname="connection.setstate" />
+        <output name="condition_out" displayname="connection.conditionout" />
+      </ConnectionPanel>
+      <Body width="72" height="66" density="30" />
+      <Holdable canbepicked="true" selectkey="Select" pickkey="Action" slots="RightHand+LeftHand" msg="[Right mouse] Detach (Wrench)" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
+        <requireditem items="wrench" type="Equipped" />
+        <StatusEffect target="This" type="OnContained">
+          <Conditional attached="false" targetitemcomponentname="Holdable" />
+          <DropContainedItems />
+        </StatusEffect>
+      </Holdable>
+      <Repairable selectkey="Select" header="electricalrepairsheader" deteriorationspeed="0.00" mindeteriorationdelay="60" maxdeteriorationdelay="120" RepairThreshold="70" fixDurationHighSkill="5" fixDurationLowSkill="25" msg="ItemMsgRepairScrewdriver" hudpriority="10">
+        <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="0.1,0.27" style="ItemUI" />
+        <RequiredSkill identifier="electrical" level="55" />
+        <RequiredItem items="screwdriver" type="Equipped" />
+        <ParticleEmitter particle="damagebubbles" particleburstamount="2" particleburstinterval="2.0" particlespersecond="2" scalemin="0.5" scalemax="1.5" anglemin="0" anglemax="359" velocitymin="-10" velocitymax="10" mincondition="0.0" maxcondition="50.0" />
+        <ParticleEmitter particle="MistSmoke" particlespersecond="60" anglemin="0" anglemax="360" distancemin="0" distancemax="30" velocitymin="0" velocitymax="20" mincondition="0.0" maxcondition="50.0" />
+        <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
+        <ParticleEmitter particle="fleshsmoke" particlespersecond="2" scalemin="1" scalemax="2" mincondition="0.0" maxcondition="50.0" />
+        <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+          <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
+          <Affliction identifier="stun" strength="4" />
+          <Affliction identifier="burn" strength="5" />
+        </StatusEffect>
+      </Repairable>
+      <ItemContainer selectkey="Select" capacity="5" canbeselected="true" hideitems="true" slotsperrow="5" allowuioverlap="true" maxstacksize="1">
+        <GuiFrame relativesize="0.4,0.2" anchor="Center" style="ItemUI" />
+      </ItemContainer>
+      <LightComponent lightcolor="1.0,1.0,1.0,0.5" range="0.0" powerconsumption="1000" allowingameediting="false">
+        <sprite texture="%ModDir%/Images/Fabricators.png" depth="0.796" sourcerect="1902,228,72,66" alpha="1.0" origin="0.45,0.404" />
+      </LightComponent>
+    </Item>
+  </Override>
+  <Override>
+    <Item name="Cutting Board" identifier="cuttingboard" tags="cuttingboard,kitchen,kitchenfabricator,donttakeitems,dontsellitems" category="Machine" subcategory="Kitchen" linkable="true" allowedlinks="medcabinet,locker,kitchen" description="" isshootable="true" scale="0.5" damagedbyexplosions="false">
+      <UpgradePreviewSprite scale="2.5" texture="Content/UI/WeaponUI.png" sourcerect="256,960,64,64" origin="0.5,0.45" />
+      <Sprite texture="%ModDir%/Images/Fabricators.png" sourcerect="1924,1,123,66" depth="0.797" origin="0.45,0.44" />
+      <Price baseprice="99" sold="true">
+        <Price storeidentifier="merchantoutpost" multiplier="1.7" minavailable="0" maxavailable="1" />
+        <Price storeidentifier="merchantcity" multiplier="1.0" minavailable="1" maxavailable="3" />
+      </Price>
+      <Fabricate suitablefabricators="fabricator" requiredtime="40">
+        <RequiredItem identifier="iron" amount="1" />
+        <RequiredItem identifier="plastic" amount="3" />
+      </Fabricate>
+      <Body width="123" height="66" density="30" />
+      <Holdable canbepicked="true" selectkey="Select" pickkey="Action" slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,-20" handle2="10,-20" holdangle="45" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" attachable="true" aimable="true">
+        <RequiredItem items="wrench" type="Equipped" />
+        <StatusEffect target="This" type="OnContained">
+          <Conditional attached="false" targetitemcomponentname="Holdable" />
+          <DropContainedItems />
+        </StatusEffect>
+      </Holdable>
+      <ItemContainer selectkey="Select" capacity="10" canbeselected="true" hideitems="true" slotsperrow="5" allowuioverlap="true" maxstacksize="1">
+        <GuiFrame relativesize="0.4,0.25" anchor="Center" style="ItemUI" />
+        <SlotIcon slotindex="0" texture="%ModDir%/Images/MainAtlas.png" sourcerect="0,960,64,64" origin="0.5,0.45" />
+        <SlotIcon slotindex="5" texture="%ModDir%/Images/MainAtlas.png" sourcerect="64,960,64,64" origin="0.5,0.45" />
+      </ItemContainer>
+      <CustomInterface canbeselected="true" allowuioverlap="true">
+        <GuiFrame relativesize="0.2,0.2" anchor="CenterRight" pivot="CenterLeft" relativeoffset="0.3,0.001" style="ItemUI" linkuitocomponent="ItemContainer"/>
+        <Button text="label.ntmb.cuttingboard.process">
+          <StatusEffect type="OnUse"><LuaHook name="ntmb.cuttingboard.process" /></StatusEffect>
+        </Button>
+        <Button text="label.ntmb.cuttingboard.analyze">
+          <StatusEffect type="OnUse"><LuaHook name="ntmb.cuttingboard.analyze" /></StatusEffect>
+        </Button>
+        <TextBox text="label.cuttingboard_description" propertyname="OriginalOutpost" maxtextlength="64"/>
+      </CustomInterface>
+    </Item>
+  </Override>
+
+  <Item name="" identifier="fridge" tags="locker,container,refrigerated,foodcontainer" linkable="true" pickdistance="150" waterproof="true" scale="0.5">
+    <Sprite texture="%ModDir%/Images/Fabricators.png" depth="0.84" sourcerect="0,1738,153,310" origin="0.5,0.5" />
+    <ItemContainer capacity="20" slotsperrow="5" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
+      <GuiFrame relativesize="0.25,0.45" anchor="Center" style="ItemUI" />
+      <Containable items="smallitem,mediumitem" excludedidentifiers="mobilecontainer" />
+      <SubContainer capacity="3" maxstacksize="1">
+        <SlotIcon texture="Content/UI/CommandUIAtlas.png" sourcerect="639,926,128,80" origin="0.5,0.5" />
+        <Containable items="mobilecontainer" />
+      </SubContainer>
+    </ItemContainer>
+  </Item>
+
+  <Item name="" identifier="plate" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" Tags="smallitem,plateitem" cargocontaineridentifier="metalcrate" scale="0.25" impactsoundtag="impact_metal_light" impacttolerance="8" allowasextracargo="true">
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" depth="0.2" sourcerect="2,68,162,34" origin="0.5,0.5" />
+    <Body width="30" height="5" density="20" />
+    <Price baseprice="20" sold="false">
+      <Price storeidentifier="merchantoutpost" minavailable="10"/>
+      <Price storeidentifier="merchantcity" multiplier="1.2" minavailable="20"/>
+      <Price storeidentifier="merchantresearch" multiplier="1.1" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.8" />
+      <Price storeidentifier="merchantmine" multiplier="0.75" />
+    </Price>
+      <Body width="21" height="58" density="8" />
+      <Deconstruct time="2">
+        <Item identifier="silicon" amount="1" outcondition="0.5" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="5" requiresrecipe="false" amount="1">
+        <RequiredSkill identifier="mechanical" level="25" />
+        <RequiredItem identifier="silicon" amount="1" UseCondition="True" MinCondition="1.0" />
+      </Fabricate>
+      <Throwable canbepicked="true" characterusable="true" canBeCombined="false" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnImpact" target="This" Condition="0.0" setvalue="true">
+          <ParticleEmitter particle="whitegoosplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="0.5" scalemax="1" />
+          <Sound file="Content/Sounds/Damage/GlassImpact1.ogg" selectionmode="Random" range="600" />
+          <Sound file="Content/Sounds/Damage/GlassImpact2.ogg" selectionmode="Random" range="600" />
+          <Sound file="Content/Sounds/Damage/GlassImpact3.ogg" selectionmode="Random" range="600" />
+          <Sound file="Content/Sounds/Damage/GlassImpact4.ogg" selectionmode="Random" range="600" />
+        </StatusEffect>
+      </Throwable>
+      <Projectile characterusable="false" launchimpulse="0" impulsespread="0.0" sticktocharacters="true" sticktoitems="true" sticktostructures="true" sticktodoors="true">
+        <Attack targetimpulse="3" severlimbsprobability="0.1" itemdamage="1" structuredamage="0" structuresoundtype="StructureSlash">
+          <Affliction identifier="lacerations" strength="2" />
+          <Affliction identifier="blunttrauma" strength="2" />
+          <Affliction identifier="lacerations" strength="2" probability="0.25" />
+          <Affliction identifier="bleeding" strength="2" />
+          <Affliction identifier="bleeding" strength="2" probability="0.5" />
+          <Affliction identifier="stun" strength="0.2" />
+        </Attack>
+        <StatusEffect type="OnImpact" target="UseTarget">
+          <Conditional entitytype="Character" />
+          <Sound file="Content/Sounds/Damage/LimbSlash1.ogg" selectionmode="random" range="1000" />
+          <Sound file="Content/Sounds/Damage/LimbSlash2.ogg" range="1000" />
+          <Sound file="Content/Sounds/Damage/LimbSlash3.ogg" range="1000" />
+          <Sound file="Content/Sounds/Damage/LimbSlash4.ogg" range="1000" />
+          <Sound file="Content/Sounds/Damage/LimbSlash5.ogg" range="1000" />
+          <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="1000" />
+        </StatusEffect>
+        <StatusEffect type="OnImpact" target="This" Condition="0.0" setvalue="true">
+          <ParticleEmitter particle="whitegoosplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="0.5" scalemax="1" />
+          <Sound file="Content/Sounds/Damage/GlassImpact1.ogg" selectionmode="Random" range="600" />
+          <Sound file="Content/Sounds/Damage/GlassImpact2.ogg" selectionmode="Random" range="600" />
+          <Sound file="Content/Sounds/Damage/GlassImpact3.ogg" selectionmode="Random" range="600" />
+          <Sound file="Content/Sounds/Damage/GlassImpact4.ogg" selectionmode="Random" range="600" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+      </Projectile>
+  </Item>
+
+  <Item name="" identifier="takeoutbag" category="Equipment" tags="smallitem,mobilecontainer,toolbox" cargocontaineridentifier="" showcontentsintooltip="true" Scale="0.5" impactsoundtag="impact_soft" RequireAimToUse="True"
+        description="">
+    <PreferredContainer secondary="locker"/>
+    <Deconstruct time="1"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" depth="0.2" sourcerect="846,0,64,78" origin="0.5,0.5" />
+    <Body width="30" height="35" density="20" />
+    <MeleeWeapon slots="RightHand,LeftHand,Any" controlpose="true" aimpos="45,10" handle1="0,18" holdangle="90" reload="1" range="50" combatpriority="6" msg="ItemMsgPickUpSelect">
+      <Attack structuredamage="0" itemdamage="1" targetimpulse="2">
+        <Affliction identifier="blunttrauma" strength="0.1" />
+        <Affliction identifier="stun" strength="0.6" />
+        <Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
+      </Attack>
+    </MeleeWeapon>
+    <ItemContainer capacity="2" keepopenwhenequipped="true" movableframe="true">
+      <Containable items="food,dishItem" excludeditems="toolbelt,toolbox" />
+    </ItemContainer>
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame style="ItemUI" absoluteoffset="0,0" anchor="BottomCenter" relativesize="0.12,0.08" />
+      <Button text="interaction.crumplebag">
+        <StatusEffect type="OnUse" target="This">
+          <LuaHook name="ntmb.crumplebag" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+  </Item>
+
+  <Item name="" identifier="emptypot" Tags="smallitem,fluidcontainer,mobilecontainer" category="Misc" subcategory="Ingredients" maxstacksize="1" cargocontaineridentifier="metalcrate" description="" useinhealthinterface="false" scale="0.5" impactsoundtag="impact_bottle_glass">
+    <Price baseprice="50">
+      <Price storeidentifier="merchantoutpost" multiplier="0.5" minavailable="1" />
+      <Price storeidentifier="merchantcity" multiplier="0.5" minavailable="3" />
+      <Price storeidentifier="merchantresearch" sold="false" multiplier="0.5" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="0.5" />
+      <Price storeidentifier="merchantmedical" sold="false" multiplier="0.5" />
+    </Price>
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="914,67,109,59" depth="0.499" origin="0.5,0.5" />
+    <Body width="50" height="30" density="2" />
+    <Deconstruct time="2">
+      <Item identifier="steel" amount="1" outcondition="0.5" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="5" requiresrecipe="false" amount="1">
+      <RequiredSkill identifier="mechanical" level="35" />
+      <RequiredItem identifier="steel" amount="1" UseCondition="True" MinCondition="1.0" />
+    </Fabricate>
+    <Holdable canbepicked="true" characterusable="true" canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+      <!-- refill if in water -->
+      <StatusEffect type="Always" target="This" interval="1">
+        <LuaHook name="ntmb.emptypot.update" />
+      </StatusEffect>
+    </Holdable>
+    <ItemContainer capacity="4" keepopenwhenequipped="true" movableframe="true" maxstacksize="1">
+      <Containable items="smallitem,food" excludeditems="toolbelt,toolbox,mobilecontainer" />
+    </ItemContainer>
+  </Item>
+
+  <Item name="" identifier="pot_tainted" Tags="smallitem,fluidcontainer,mobilecontainer" category="Misc" subcategory="Ingredients" maxstacksize="1" cargocontaineridentifier="metalcrate" description="" useinhealthinterface="false" scale="0.5" impactsoundtag="impact_bottle_glass">
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="914,132,109,59" depth="0.499" origin="0.5,0.5" />
+    <Body width="50" height="30" density="15" />
+    <Deconstruct time="2">
+      <Item identifier="steel" amount="1" outcondition="0.5" />
+    </Deconstruct>
+    <Holdable canbepicked="true" characterusable="true" canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+    </Holdable>
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame style="ItemUI" absoluteoffset="0,0" anchor="BottomCenter" relativesize="0.12,0.08" />
+      <Button text="interaction.emptypot">
+        <StatusEffect type="OnUse" target="This">
+          <LuaHook name="ntmb.emptypot" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+    <ItemContainer capacity="4" keepopenwhenequipped="true" movableframe="true" maxstacksize="1">
+      <Containable items="smallitem,food" excludeditems="toolbelt,toolbox,mobilecontainer" />
+    </ItemContainer>
+  </Item>
+
+  <Item name="" identifier="pot_water" Tags="smallitem,fluidcontainer,mobilecontainer" category="Misc" subcategory="Ingredients" maxstacksize="1" cargocontaineridentifier="metalcrate" description="" useinhealthinterface="false" scale="0.5" impactsoundtag="impact_bottle_glass">
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="914,132,109,59" depth="0.499" origin="0.5,0.5" />
+    <Body width="50" height="30" density="15" />
+    <Deconstruct time="2">
+      <Item identifier="steel" amount="1" outcondition="0.5" />
+    </Deconstruct>
+    <Holdable canbepicked="true" characterusable="true" canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+    </Holdable>
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame style="ItemUI" absoluteoffset="0,0" anchor="BottomCenter" relativesize="0.12,0.08" />
+      <Button text="interaction.emptypot">
+        <StatusEffect type="OnUse" target="This">
+          <LuaHook name="ntmb.emptypot" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+    <ItemContainer capacity="4" keepopenwhenequipped="true" movableframe="true" maxstacksize="1">
+      <Containable items="smallitem,food" excludeditems="toolbelt,toolbox,mobilecontainer" />
+    </ItemContainer>
+  </Item>
+
+  <Item name="" identifier="pot_tomatosauce" Tags="smallitem,fluidcontainer,mobilecontainer" category="Misc" subcategory="Ingredients" maxstacksize="1" cargocontaineridentifier="metalcrate" description="" useinhealthinterface="false" scale="0.5" impactsoundtag="impact_bottle_glass">
+    <PreferredContainer primary="kitchen" secondary="crewcab" />
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="914,197,109,59" depth="0.499" origin="0.5,0.5" />
+    <Body width="50" height="30" density="15" />
+    <Deconstruct time="2">
+      <Item identifier="steel" amount="1" outcondition="0.5" />
+    </Deconstruct>
+    <Holdable canbepicked="true" characterusable="true" canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+    </Holdable>
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame style="ItemUI" absoluteoffset="0,0" anchor="BottomCenter" relativesize="0.12,0.08" />
+      <Button text="interaction.emptypot">
+        <StatusEffect type="OnUse" target="This">
+          <LuaHook name="ntmb.emptypot" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+    <ItemContainer capacity="4" keepopenwhenequipped="true" movableframe="true" maxstacksize="1">
+      <Containable items="smallitem,food" excludeditems="toolbelt,toolbox,mobilecontainer" />
+    </ItemContainer>
+    <Quality/>
+  </Item>
+  
+<!-- Foodstuff -->
+
+  <Item name="" identifier="friedblob" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" Tags="smallitem,food,finalFryerResult" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.1" />
+    <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="2" spawnprobability="0.15" />
+    <PreferredContainer primary="foodcontainer"/>
+    <!--<Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="40" fabricationlimitmin="5" fabricationlimitmax="10"/>-->
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="0,0,64,64" depth="0.6" origin="0.5,0.5" />
+    <Body width="35" height="50" density="10.1" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect">
+    </Holdable>
+  </Item>
+
+  <Item name="" identifier="carrot" Tags="smallitem,food,saladIngredient,seed,plantitem" canbecombined="true" removeoncombined="true" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.25" impactsoundtag="impact_soft">
+    <Price baseprice="15">
+      <Price storeidentifier="merchantoutpost" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="8" />
+      <Price storeidentifier="merchantresearch" sold="false" multiplier="0.9" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="0.9" />
+      <Price storeidentifier="merchantmedical" sold="false" multiplier="0.9" />
+    </Price>
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="64,0,118,47" depth="0.6" origin="0.5,0.5" />
+    <Body width="25" height="10" density="9" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+    <Quality/>
+    <Growable growthspeed="0.070" pickingtime="3" maximumvines="2" maxhealth="500" hardiness="0.15" floodtolerance="0.4" seedrate="0" productrate="0.022" flowertint="255,54,0,255" flowerquantity="1" baseflowerscale="0.001" vinescale="0.25" vinetint="244,172,132,255">
+      <ProducedItem identifier="carrot" probability="1" />
+      <VineSprites vineatlas="Content/Items/Gardening/branches.png" decayatlas="Content/Items/Gardening/branches_overlay.png">
+        <LeafSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="0,0,256,256" />
+        <LeafSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="256,0,256,256" />
+        <FlowerSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="0,768,128,128" />
+        <FlowerSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="128,768,128,128" />
+        <FlowerSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="256,768,128,128" />
+        <VineSprite type="Stem" sourcerect="640,128,128,128" />
+        <VineSprite type="CrossJunction" sourcerect="512,128,128,128" />
+        <VineSprite type="VerticalLane" sourcerect="512,0,128,128" />
+        <VineSprite type="HorizontalLane" sourcerect="640,0,128,128" />
+        <VineSprite type="TurnTopRight" sourcerect="0,0,128,128" />
+        <VineSprite type="TurnTopLeft" sourcerect="384,0,128,128" />
+        <VineSprite type="TurnBottomLeft" sourcerect="256,0,128,128" />
+        <VineSprite type="TurnBottomRight" sourcerect="128,0,128,128" />
+        <VineSprite type="TSectionTop" sourcerect="128,128,128,128" />
+        <VineSprite type="TSectionLeft" sourcerect="256,128,128,128" />
+        <VineSprite type="TSectionBottom" sourcerect="384,128,128,128" />
+        <VineSprite type="TSectionRight" sourcerect="0,128,128,128" />
+        <VineSprite type="StumpTop" sourcerect="768,0,128,128" />
+        <VineSprite type="StumpLeft" sourcerect="896,0,128,128" />
+        <VineSprite type="StumpBottom" sourcerect="768,128,128,128" />
+        <VineSprite type="StumpRight" sourcerect="896,128,128,128" />
+      </VineSprites>
+    </Growable>
+  </Item>
+
+  <Item name="" identifier="potato" Tags="smallitem,food,saladIngredient,seed,plantitem" category="Material" canbecombined="true" removeoncombined="true" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.25" impactsoundtag="impact_soft">
+    <Price baseprice="17">
+      <Price storeidentifier="merchantoutpost" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="8" />
+      <Price storeidentifier="merchantresearch" sold="false" multiplier="0.9" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="0.9" />
+      <Price storeidentifier="merchantmedical" sold="false" multiplier="0.9" />
+    </Price>
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="187,0,64,36" depth="0.6" origin="0.5,0.5" />
+    <Body width="15" height="10" density="9" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+    <Quality/>
+    <Growable growthspeed="0.070" pickingtime="3" maximumvines="2" maxhealth="500" hardiness="0.15" floodtolerance="0.4" seedrate="0" productrate="0.022" flowertint="255,54,0,255" flowerquantity="1" baseflowerscale="0.001" vinescale="0.25" vinetint="244,172,132,255">
+      <ProducedItem identifier="potato" probability="1" />
+      <VineSprites vineatlas="Content/Items/Gardening/branches.png" decayatlas="Content/Items/Gardening/branches_overlay.png">
+        <LeafSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="0,0,256,256" />
+        <LeafSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="256,0,256,256" />
+        <FlowerSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="0,768,128,128" />
+        <FlowerSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="128,768,128,128" />
+        <FlowerSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="256,768,128,128" />
+        <VineSprite type="Stem" sourcerect="640,128,128,128" />
+        <VineSprite type="CrossJunction" sourcerect="512,128,128,128" />
+        <VineSprite type="VerticalLane" sourcerect="512,0,128,128" />
+        <VineSprite type="HorizontalLane" sourcerect="640,0,128,128" />
+        <VineSprite type="TurnTopRight" sourcerect="0,0,128,128" />
+        <VineSprite type="TurnTopLeft" sourcerect="384,0,128,128" />
+        <VineSprite type="TurnBottomLeft" sourcerect="256,0,128,128" />
+        <VineSprite type="TurnBottomRight" sourcerect="128,0,128,128" />
+        <VineSprite type="TSectionTop" sourcerect="128,128,128,128" />
+        <VineSprite type="TSectionLeft" sourcerect="256,128,128,128" />
+        <VineSprite type="TSectionBottom" sourcerect="384,128,128,128" />
+        <VineSprite type="TSectionRight" sourcerect="0,128,128,128" />
+        <VineSprite type="StumpTop" sourcerect="768,0,128,128" />
+        <VineSprite type="StumpLeft" sourcerect="896,0,128,128" />
+        <VineSprite type="StumpBottom" sourcerect="768,128,128,128" />
+        <VineSprite type="StumpRight" sourcerect="896,128,128,128" />
+      </VineSprites>
+    </Growable>
+  </Item>
+
+  <Item name="" identifier="tomato" Tags="smallitem,food,saladIngredient,seed,plantitem" category="Material" canbecombined="true" removeoncombined="true" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.25" impactsoundtag="impact_soft">
+    <Price baseprice="10">
+      <Price storeidentifier="merchantoutpost" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="8" />
+      <Price storeidentifier="merchantresearch" sold="false" multiplier="0.9" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="0.9" />
+      <Price storeidentifier="merchantmedical" sold="false" multiplier="0.9" />
+    </Price>
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="256,0,64,64" depth="0.6" origin="0.5,0.5" />
+    <Body width="15" height="10" density="7" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+    <Quality/>
+    <Growable growthspeed="0.070" pickingtime="3" maximumvines="2" maxhealth="500" hardiness="0.15" floodtolerance="0.4" seedrate="0" productrate="0.022" flowertint="255,54,0,255" flowerquantity="1" baseflowerscale="0.001" vinescale="0.25" vinetint="244,172,132,255">
+      <ProducedItem identifier="tomato" probability="1" />
+      <VineSprites vineatlas="Content/Items/Gardening/branches.png" decayatlas="Content/Items/Gardening/branches_overlay.png">
+        <LeafSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="0,0,256,256" />
+        <LeafSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="256,0,256,256" />
+        <FlowerSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="0,768,128,128" />
+        <FlowerSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="128,768,128,128" />
+        <FlowerSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="256,768,128,128" />
+        <VineSprite type="Stem" sourcerect="640,128,128,128" />
+        <VineSprite type="CrossJunction" sourcerect="512,128,128,128" />
+        <VineSprite type="VerticalLane" sourcerect="512,0,128,128" />
+        <VineSprite type="HorizontalLane" sourcerect="640,0,128,128" />
+        <VineSprite type="TurnTopRight" sourcerect="0,0,128,128" />
+        <VineSprite type="TurnTopLeft" sourcerect="384,0,128,128" />
+        <VineSprite type="TurnBottomLeft" sourcerect="256,0,128,128" />
+        <VineSprite type="TurnBottomRight" sourcerect="128,0,128,128" />
+        <VineSprite type="TSectionTop" sourcerect="128,128,128,128" />
+        <VineSprite type="TSectionLeft" sourcerect="256,128,128,128" />
+        <VineSprite type="TSectionBottom" sourcerect="384,128,128,128" />
+        <VineSprite type="TSectionRight" sourcerect="0,128,128,128" />
+        <VineSprite type="StumpTop" sourcerect="768,0,128,128" />
+        <VineSprite type="StumpLeft" sourcerect="896,0,128,128" />
+        <VineSprite type="StumpBottom" sourcerect="768,128,128,128" />
+        <VineSprite type="StumpRight" sourcerect="896,128,128,128" />
+      </VineSprites>
+    </Growable>
+  </Item>
+
+  <Item name="" identifier="lettuce" Tags="smallitem,food,saladIngredient,seed,plantitem" category="Material" canbecombined="true" removeoncombined="true" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.4" impactsoundtag="impact_soft">
+    <Price baseprice="15">
+      <Price storeidentifier="merchantoutpost" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="8" />
+      <Price storeidentifier="merchantresearch" sold="false" multiplier="0.9" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="0.9" />
+      <Price storeidentifier="merchantmedical" sold="false" multiplier="0.9" />
+    </Price>
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="322,0,128,100" depth="0.6" origin="0.5,0.5" />
+    <Body width="50" height="30" density="9" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+    <Quality/>
+    <Growable growthspeed="0.070" pickingtime="3" maximumvines="2" maxhealth="500" hardiness="0.15" floodtolerance="0.4" seedrate="0" productrate="0.022" flowertint="255,54,0,255" flowerquantity="1" baseflowerscale="0.001" vinescale="0.25" vinetint="244,172,132,255">
+      <ProducedItem identifier="lettuce" probability="1" />
+      <VineSprites vineatlas="Content/Items/Gardening/branches.png" decayatlas="Content/Items/Gardening/branches_overlay.png">
+        <LeafSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="0,0,256,256" />
+        <LeafSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="256,0,256,256" />
+        <FlowerSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="0,768,128,128" />
+        <FlowerSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="128,768,128,128" />
+        <FlowerSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="256,768,128,128" />
+        <VineSprite type="Stem" sourcerect="640,128,128,128" />
+        <VineSprite type="CrossJunction" sourcerect="512,128,128,128" />
+        <VineSprite type="VerticalLane" sourcerect="512,0,128,128" />
+        <VineSprite type="HorizontalLane" sourcerect="640,0,128,128" />
+        <VineSprite type="TurnTopRight" sourcerect="0,0,128,128" />
+        <VineSprite type="TurnTopLeft" sourcerect="384,0,128,128" />
+        <VineSprite type="TurnBottomLeft" sourcerect="256,0,128,128" />
+        <VineSprite type="TurnBottomRight" sourcerect="128,0,128,128" />
+        <VineSprite type="TSectionTop" sourcerect="128,128,128,128" />
+        <VineSprite type="TSectionLeft" sourcerect="256,128,128,128" />
+        <VineSprite type="TSectionBottom" sourcerect="384,128,128,128" />
+        <VineSprite type="TSectionRight" sourcerect="0,128,128,128" />
+        <VineSprite type="StumpTop" sourcerect="768,0,128,128" />
+        <VineSprite type="StumpLeft" sourcerect="896,0,128,128" />
+        <VineSprite type="StumpBottom" sourcerect="768,128,128,128" />
+        <VineSprite type="StumpRight" sourcerect="896,128,128,128" />
+      </VineSprites>
+    </Growable>
+  </Item>
+
+  <Item name="" identifier="pickle" Tags="smallitem,food,saladIngredient,seed,plantitem" category="Material" canbecombined="true" removeoncombined="true" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.25" impactsoundtag="impact_soft">
+    <Price baseprice="20">
+      <Price storeidentifier="merchantoutpost" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="8" />
+      <Price storeidentifier="merchantresearch" sold="false" multiplier="0.9" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="0.9" />
+      <Price storeidentifier="merchantmedical" sold="false" multiplier="0.9" />
+    </Price>
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="188,38,64,21" depth="0.6" origin="0.5,0.5" />
+    <Body width="15" height="10" density="9" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+    <Quality/>
+    <Growable growthspeed="0.070" pickingtime="3" maximumvines="2" maxhealth="500" hardiness="0.15" floodtolerance="0.4" seedrate="0" productrate="0.022" flowertint="255,54,0,255" flowerquantity="1" baseflowerscale="0.001" vinescale="0.25" vinetint="244,172,132,255">
+      <ProducedItem identifier="pickle" probability="1" />
+      <VineSprites vineatlas="Content/Items/Gardening/branches.png" decayatlas="Content/Items/Gardening/branches_overlay.png">
+        <LeafSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="0,0,256,256" />
+        <LeafSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="256,0,256,256" />
+        <FlowerSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="0,768,128,128" />
+        <FlowerSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="128,768,128,128" />
+        <FlowerSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="256,768,128,128" />
+        <VineSprite type="Stem" sourcerect="640,128,128,128" />
+        <VineSprite type="CrossJunction" sourcerect="512,128,128,128" />
+        <VineSprite type="VerticalLane" sourcerect="512,0,128,128" />
+        <VineSprite type="HorizontalLane" sourcerect="640,0,128,128" />
+        <VineSprite type="TurnTopRight" sourcerect="0,0,128,128" />
+        <VineSprite type="TurnTopLeft" sourcerect="384,0,128,128" />
+        <VineSprite type="TurnBottomLeft" sourcerect="256,0,128,128" />
+        <VineSprite type="TurnBottomRight" sourcerect="128,0,128,128" />
+        <VineSprite type="TSectionTop" sourcerect="128,128,128,128" />
+        <VineSprite type="TSectionLeft" sourcerect="256,128,128,128" />
+        <VineSprite type="TSectionBottom" sourcerect="384,128,128,128" />
+        <VineSprite type="TSectionRight" sourcerect="0,128,128,128" />
+        <VineSprite type="StumpTop" sourcerect="768,0,128,128" />
+        <VineSprite type="StumpLeft" sourcerect="896,0,128,128" />
+        <VineSprite type="StumpBottom" sourcerect="768,128,128,128" />
+        <VineSprite type="StumpRight" sourcerect="896,128,128,128" />
+      </VineSprites>
+    </Growable>
+  </Item>
+
+  <Item name="" identifier="onion" Tags="smallitem,food,saladIngredient,seed,plantitem" category="Material" canbecombined="true" removeoncombined="true" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.25" impactsoundtag="impact_soft">
+    <Price baseprice="20">
+      <Price storeidentifier="merchantoutpost" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="8" />
+      <Price storeidentifier="merchantresearch" sold="false" multiplier="0.9" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="0.9" />
+      <Price storeidentifier="merchantmedical" sold="false" multiplier="0.9" />
+    </Price>
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="190,60,54,64" depth="0.6" origin="0.5,0.5" />
+    <Body width="15" height="10" density="9" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+    <Quality/>
+    <Growable growthspeed="0.070" pickingtime="3" maximumvines="2" maxhealth="500" hardiness="0.15" floodtolerance="0.4" seedrate="0" productrate="0.022" flowertint="255,54,0,255" flowerquantity="1" baseflowerscale="0.001" vinescale="0.25" vinetint="244,172,132,255">
+      <ProducedItem identifier="onion" probability="1" />
+      <VineSprites vineatlas="Content/Items/Gardening/branches.png" decayatlas="Content/Items/Gardening/branches_overlay.png">
+        <LeafSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="0,0,256,256" />
+        <LeafSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="256,0,256,256" />
+        <FlowerSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="0,768,128,128" />
+        <FlowerSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="128,768,128,128" />
+        <FlowerSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="256,768,128,128" />
+        <VineSprite type="Stem" sourcerect="640,128,128,128" />
+        <VineSprite type="CrossJunction" sourcerect="512,128,128,128" />
+        <VineSprite type="VerticalLane" sourcerect="512,0,128,128" />
+        <VineSprite type="HorizontalLane" sourcerect="640,0,128,128" />
+        <VineSprite type="TurnTopRight" sourcerect="0,0,128,128" />
+        <VineSprite type="TurnTopLeft" sourcerect="384,0,128,128" />
+        <VineSprite type="TurnBottomLeft" sourcerect="256,0,128,128" />
+        <VineSprite type="TurnBottomRight" sourcerect="128,0,128,128" />
+        <VineSprite type="TSectionTop" sourcerect="128,128,128,128" />
+        <VineSprite type="TSectionLeft" sourcerect="256,128,128,128" />
+        <VineSprite type="TSectionBottom" sourcerect="384,128,128,128" />
+        <VineSprite type="TSectionRight" sourcerect="0,128,128,128" />
+        <VineSprite type="StumpTop" sourcerect="768,0,128,128" />
+        <VineSprite type="StumpLeft" sourcerect="896,0,128,128" />
+        <VineSprite type="StumpBottom" sourcerect="768,128,128,128" />
+        <VineSprite type="StumpRight" sourcerect="896,128,128,128" />
+      </VineSprites>
+    </Growable>
+  </Item>
+
+  <Item name="" identifier="flour" Tags="smallitem,food" category="Material" canbecombined="true" removeoncombined="true" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.3" impactsoundtag="impact_soft">
+    <Price baseprice="30">
+      <Price storeidentifier="merchantoutpost" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="8" />
+      <Price storeidentifier="merchantresearch" sold="false" multiplier="0.9" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="0.9" />
+      <Price storeidentifier="merchantmedical" sold="false" multiplier="0.9" />
+    </Price>
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="452,0,64,72" depth="0.6" origin="0.5,0.5" />
+    <Body width="25" height="20" density="20" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+    <Quality/>
+  </Item>
+
+  <Item name="" identifier="salt" Tags="smallitem,food" category="Material" canbecombined="true" removeoncombined="true" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.25" impactsoundtag="impact_soft">
+    <Price baseprice="15">
+      <Price storeidentifier="merchantoutpost" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="8" />
+      <Price storeidentifier="merchantresearch" sold="false" multiplier="0.9" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="0.9" />
+      <Price storeidentifier="merchantmedical" sold="false" multiplier="0.9" />
+    </Price>
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="520,0,40,75" depth="0.6" origin="0.5,0.5" />
+    <Body width="15" height="18" density="11" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+    <Quality/>
+  </Item>
+
+  <Item name="" identifier="breaddough" Tags="smallitem,food" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.3" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="566,0,91,47" depth="0.6" origin="0.5,0.5" />
+    <Body width="30" height="15" density="15" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+    <Quality/>
+  </Item>
+
+  <Item name="" identifier="bread" Tags="smallitem,food" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.3" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="0,170,118,64" depth="0.6" origin="0.5,0.5" />
+    <Body width="30" height="15" density="20" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+    <Quality/>
+  </Item>
+
+  <Item name="" identifier="pizza" Tags="smallitem,food,dishItem" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.3" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="0,239,173,71" depth="0.6" origin="0.5,0.5" />
+    <Body width="50" height="22" density="20" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+    <Quality/>
+  </Item>
+
+  <Item name="" identifier="rawpizza" Tags="smallitem,food,dishItem" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.3" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="0,239,173,71" depth="0.6" origin="0.5,0.5" />
+    <Body width="50" height="22" density="20" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+    <Quality/>
+  </Item>
+
+  <Item name="" identifier="pizzaslice" Tags="smallitem,food,dishItem" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.3" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="0,316,64,64" depth="0.6" origin="0.5,0.5" />
+    <Body width="30" height="20" density="20" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+    <Quality/>
+  </Item>
+
+  <Item name="" identifier="salad" Tags="smallitem,food,dishItem" category="Material" maxstacksize="8" maxstacksizecharacterinventory="2" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.3" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="0,104,95,64" depth="0.6" origin="0.5,0.5" />
+    <Body width="40" height="20" density="13" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+    <Quality/>
+  </Item>
+
+  <Item name="" identifier="ntrib" Tags="smallitem,food,dishItem" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.3" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="0,480,120,64" depth="0.6" origin="0.5,0.5" />
+    <Body width="50" height="22" density="9" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+    <Quality/>
+  </Item>
+
+  <Item name="" identifier="friedliver" Tags="smallitem,food,dishItem" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.3" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="2,384,81,57" depth="0.6" origin="0.5,0.5" />
+    <Body width="50" height="22" density="10.5" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+    <Quality/>
+  </Item>
+
+  <Item name="" identifier="deepfriedliver" Tags="smallitem,food,dishItem,finalFryerResult" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.3" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="85,384,81,57" depth="0.6" origin="0.5,0.5" />
+    <Body width="50" height="22" density="10.5" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+    <Quality/>
+  </Item>
+
+  <Item name="" identifier="processedbread" Tags="smallitem,food,dishItem" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.3" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="658,0,99,64" depth="0.6" origin="0.5,0.5" />
+    <Body width="50" height="22" density="20" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+    <Quality/>
+  </Item>
+
+  <Item name="" identifier="fries" Tags="smallitem,food,dishItem,finalFryerResult" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.3" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="247,67,64,94" depth="0.6" origin="0.5,0.5" />
+    <Body width="50" height="22" density="20" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+    <Quality/>
+  </Item>
+
+  <Item name="" identifier="burger" Tags="smallitem,food,dishItem" category="Material" maxstacksize="8" maxstacksizecharacterinventory="2" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="1" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="0,550,44,26" depth="0.6" origin="0.5,0.5" />
+    <Body width="40" height="20" density="13" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+    <Quality/>
+  </Item>
+
+  <Item name="" identifier="veggieburger" Tags="smallitem,food,dishItem" category="Material" maxstacksize="8" maxstacksizecharacterinventory="2" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="1" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/InGameItemIconAtlas.png" sourcerect="0,550,44,26" depth="0.6" origin="0.5,0.5" />
+    <Body width="40" height="20" density="13" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+    <Quality/>
+  </Item>
+
+<!-- creature meat -->
+
+  <Override><Item name="" identifier="hammerheadribs" sonarsize="2" tags="mediumitem,food,meat,pizzaTopping" canbecombined="true" removeoncombined="true" category="Misc" canbepicked="true" scale="0.5" impactsoundtag="impact_soft" useinhealthinterface="true">
+    <PreferredContainer primary="foodcontainer" secondary="mineralcab" />
+    <Price baseprice="200" sold="false">
+      <Price storeidentifier="merchantoutpost" multiplier="1" />
+      <Price storeidentifier="merchantcity" multiplier="2" />
+      <Price storeidentifier="merchantresearch" multiplier="0.75" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.75" />
+      <Price storeidentifier="merchantmine" multiplier="0.5" />
+    </Price>
+    <Deconstruct time="10">
+      <Item identifier="carbon" />
+      <Item identifier="phosphorus" amount="2" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/CreatureLoot/CreatureLoot.png" depth="0.18" sourcerect="493,354,274,158" origin="0.5,0.5" />
+    <Body width="274" height="148" density="15" friction="1.0" restitution="0.01" angulardamping="1.0" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+  </Item></Override>
+
+  <!-- human organs (but theyre food!) -->
+  <Item name="" identifier="livertransplant_food" Tags="smallitem,food,pizzaTopping" category="Material" canbecombined="true" removeoncombined="true" maxstacksize="4" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.25" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/OrganAtlas.png" sourcerect="5,479,79,52" depth="0.6" origin="0.5,0.5"/>
+    <Body width="39" height="18" density="10"/>
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+  </Item>
+  <Item name="" identifier="lungtransplant_food" Tags="smallitem,food,pizzaTopping" category="Material" canbecombined="true" removeoncombined="true" maxstacksize="4" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.25" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/OrganAtlas.png" sourcerect="91,480,84,84" depth="0.6" origin="0.5,0.5"/>
+    <Body width="30" height="30" density="10"/>
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+  </Item>
+  <Item name="" identifier="kidneytransplant_food" Tags="smallitem,food,pizzaTopping" category="Material" canbecombined="true" removeoncombined="true" maxstacksize="4" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.25" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/OrganAtlas.png" sourcerect="193,481,32,47" depth="0.6" origin="0.5,0.5"/>
+    <Body width="14" height="20" density="10"/>
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+  </Item>
+  <Item name="" identifier="hearttransplant_food" Tags="smallitem,food,pizzaTopping" category="Material" canbecombined="true" removeoncombined="true" maxstacksize="4" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.25" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/OrganAtlas.png" sourcerect="238,479,28,54" depth="0.6" origin="0.5,0.5"/>
+    <Body width="14" height="22" density="10"/>
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+  </Item>
+  <Item name="" identifier="braintransplant_food" Tags="smallitem,food,pizzaTopping" category="Material" canbecombined="true" removeoncombined="true" maxstacksize="4" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" useinhealthinterface="true" scale="0.25" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer"/>
+    <Sprite texture="%ModDir%/Images/OrganAtlas.png" sourcerect="272,480,78,60" depth="0.6" origin="0.5,0.5"/>
+    <Body width="39" height="25" density="10"/>
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+  </Item>
+
+  <Item name="" identifier="crawlermeat" Tags="smallitem,meat,food,pizzaTopping" canbecombined="true" removeoncombined="true" category="Misc" subcategory="Ingredients" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer" secondary="refrigeratedcontainer" />
+    <Sprite texture="%ModDir%/Images/Meat.png" sourcerect="311,446,199,66" depth="0.6" origin="0.5,0.5" />
+    <Deconstruct time="3"><Item identifier="alienblood" amount="1" /></Deconstruct>
+    <Body width="150" radius="15" density="9" />
+    <Price baseprice="55" sold="false"/>
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+  </Item>
+  <Item name="" identifier="humanmeat" Tags="smallitem,meat,humanmeat,food,pizzaTopping" canbecombined="true" removeoncombined="true" category="Misc" subcategory="Ingredients" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer" secondary="refrigeratedcontainer" />
+    <Sprite texture="%ModDir%/Images/Meat.png" sourcerect="379,344,132,46" depth="0.6" origin="0.5,0.5" />
+    <Deconstruct time="3" />
+    <Body width="51" radius="8" density="15" />
+    <Price baseprice="55" sold="false"/>
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+  </Item>
+  <Item name="" identifier="huskmeat" Tags="smallitem,meat,humanmeat,food,pizzaTopping" canbecombined="true" removeoncombined="true" category="Misc" subcategory="Ingredients" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer" secondary="refrigeratedcontainer" />
+    <Sprite texture="%ModDir%/Images/Meat.png" sourcerect="244,51,43,31" depth="0.6" origin="0.5,0.5" />
+    <Deconstruct time="3" />
+    <Body width="28" radius="15" density="15" />
+    <Price baseprice="55" sold="false"/>
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+  </Item>
+  <Item name="" identifier="mudraptormeat" Tags="smallitem,meat,food,pizzaTopping" canbecombined="true" removeoncombined="true" category="Misc" subcategory="Ingredients" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer" secondary="refrigeratedcontainer" />
+    <Body width="52" radius="10" density="12" />
+    <Deconstruct time="3">
+      <Item identifier="alienblood" amount="2" />
+    </Deconstruct>
+    <Price baseprice="82" sold="false"/>
+    <Sprite texture="%ModDir%/Images/Meat.png" sourcerect="325,332,52,21" depth="0.6" origin="0.5,0.5" />
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+  </Item>
+  <Item name="" identifier="threshermeat" Tags="smallitem,meat,food,pizzaTopping" canbecombined="true" removeoncombined="true" category="Misc" subcategory="Ingredients" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer" secondary="refrigeratedcontainer" />
+    <Deconstruct time="3">
+      <Item identifier="alienblood" amount="1" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Images/Meat.png" sourcerect="335,392,177,52" depth="0.6" origin="0.5,0.5" />
+    <Body width="150" radius="12" density="15" />
+    <Price baseprice="105" sold="false"/>
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+  </Item>
+  <Item name="" identifier="spinelingmeat" Tags="smallitem,meat,food,pizzaTopping" canbecombined="true" removeoncombined="true" category="Misc" subcategory="Ingredients" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer" secondary="refrigeratedcontainer" />
+    <Sprite texture="%ModDir%/Images/Meat.png" sourcerect="464,1,47,25" depth="0.6" origin="0.5,0.5" />
+    <Body width="35" radius="12" density="12" />
+    <Deconstruct time="3">
+      <Item identifier="alienblood" amount="2" />
+    </Deconstruct>
+    <Price baseprice="82" sold="false"/>
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+  </Item>
+  <Item name="" identifier="molochmeat" Tags="smallitem,meat,food,pizzaTopping" canbecombined="true" removeoncombined="true" category="Misc" subcategory="Ingredients" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer" secondary="refrigeratedcontainer" />
+    <Sprite texture="%ModDir%/Images/Meat.png" sourcerect="305,180,49,25" depth="0.6" origin="0.5,0.5" />
+    <Body width="37" radius="12" density="12" />
+    <Deconstruct time="3">
+      <Item identifier="alienblood" amount="3" />
+    </Deconstruct>
+    <Price baseprice="159" sold="false"/>
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+  </Item>
+  <Item name="" identifier="hammerheadmeat" Tags="smallitem,meat,food,pizzaTopping" canbecombined="true" removeoncombined="true" category="Misc" subcategory="Ingredients" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer" secondary="refrigeratedcontainer" />
+    <Sprite texture="%ModDir%/Images/Meat.png" sourcerect="354,151,158,82" depth="0.6" origin="0.5,0.5" />
+    <Body width="158" radius="41" density="12" />
+    <Deconstruct time="10">
+      <Item identifier="alienblood" amount="8" />
+    </Deconstruct>
+    <Price baseprice="299" sold="false"/>
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+  </Item>
+  <Item name="" identifier="endwormmeat" Tags="smallitem,meat,food,pizzaTopping" canbecombined="true" removeoncombined="true" category="Misc" subcategory="Ingredients" maxstacksize="8" cargocontaineridentifier="metalcrate" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer primary="foodcontainer" secondary="refrigeratedcontainer" />
+    <Sprite texture="%ModDir%/Images/Meat.png" sourcerect="280,266,86,65" depth="0.6" origin="0.5,0.5" />
+    <Body width="86" radius="31" density="15" />
+    <Deconstruct time="6">
+      <Item identifier="alienblood" amount="4" />
+    </Deconstruct>
+    <Price baseprice="699" sold="false"/>
+    <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect"/>
+  </Item>
+      
+</Items>

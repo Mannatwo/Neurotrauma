@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="NT Metabolism" modversion="A1.0" corepackage="False" gameversion="0.21.6.0">
+
+  <Afflictions file="%ModDir%/Xml/Afflictions.xml" />
+  <Item file="%ModDir%/Xml/items.xml" />
+  <Jobs file="%ModDir%/Xml/Jobs.xml" />
+  <Talents file="%ModDir%/Xml/TalentsChef.xml" />
+  <TalentTrees file="%ModDir%/Xml/TalentTrees.xml" />
+
+
+  <Other file="%ModDir%/Images/AfflictionIcons.png" />
+  <Other file="%ModDir%/Images/Fabricators.png" />
+  <Other file="%ModDir%/Images/InGameItemIconAtlas.png" />
+  <Other file="%ModDir%/Images/InventoryItemIconAtlas.png" />
+  <Other file="%ModDir%/Images/MainAtlas.png" />
+  <Other file="%ModDir%/Images/Meat.png" />
+  <Other file="%ModDir%/Images/OrganAtlas.png" />
+  <Other file="%ModDir%/Images/TalentGear.png" />
+  <Other file="%ModDir%/Images/sources.txt" />
+  <Other file="%ModDir%/Images/Tools.png" />
+
+  <Other file="%ModDir%/Jobgear/chef1.png" />
+  <Other file="%ModDir%/Jobgear/Chef2Female.png" />
+  <Other file="%ModDir%/Jobgear/Chef2Male.png" />
+  <Other file="%ModDir%/Jobgear/Chef2Robotfemale.png" />
+  <Other file="%ModDir%/Jobgear/Chef2Robotmale.png" />
+  <Other file="%ModDir%/Jobgear/chefmaster1.png" />
+  <Other file="%ModDir%/Jobgear/headgears.png" />
+  <Other file="%ModDir%/Jobgear/MiscJobGear.png" />
+  <Other file="%ModDir%/Jobgear/OutfitIcons.png" />
+  
+  <Text file="%ModDir%/Localization/English/English.xml" />
+
+  <Other file="%ModDir%/Lua/Autorun/init.lua" />
+  <Other file="%ModDir%/Lua/Scripts/campaignInterface.lua" />
+  <Other file="%ModDir%/Lua/Scripts/configdata.lua" />
+  <Other file="%ModDir%/Lua/Scripts/cuttingboard.lua" />
+  <Other file="%ModDir%/Lua/Scripts/eating.lua" />
+  <Other file="%ModDir%/Lua/Scripts/IDs.lua" />
+  <Other file="%ModDir%/Lua/Scripts/ingredients.lua" />
+  <Other file="%ModDir%/Lua/Scripts/items.lua" />
+  <Other file="%ModDir%/Lua/Scripts/machines.lua" />
+  <Other file="%ModDir%/Lua/Scripts/metabolism.lua" />
+  <Other file="%ModDir%/Lua/Scripts/nutrients.lua" />
+  <Other file="%ModDir%/Lua/Scripts/recipes.lua" />
+
+  <Other file="%ModDir%/Sound/CookingPot.ogg" />
+  <Other file="%ModDir%/Sound/CuttingBoard.ogg" />
+  <Other file="%ModDir%/Sound/Fryer.ogg" />
+  <Other file="%ModDir%/Sound/FryingPan.ogg" />
+  <Other file="%ModDir%/Sound/Oven.ogg" />
+  <Other file="%ModDir%/Sound/OvenInteract.ogg" />
+  <Other file="%ModDir%/Sound/pan_hit.ogg" />
+  <Other file="%ModDir%/Sound/pan_impact_world1.ogg" />
+  <Other file="%ModDir%/Sound/pan_impact_world2.ogg" />
+  <Other file="%ModDir%/Sound/pan_impact_world3.ogg" />
+
+ 
+  
+  
+</contentpackage>

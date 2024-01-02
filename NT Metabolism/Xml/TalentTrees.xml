@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+<!--
+
+
+<TalentTrees>
+
+  <TalentTree jobidentifier="chef">
+    <SubTree identifier="chef_primary" nameidentifier="talenttree.primary" type="primary">
+      <TalentOptions requiredtalents="1" maxchosentalents="4">
+        <TalentOption identifier="ntbp_divinglessions"/>
+        <TalentOption identifier="ntbp_cuddles"/>
+        <TalentOption identifier="ntbp_fluffy"/>
+        <TalentOption identifier="ntbp_mighty"/>
+      </TalentOptions>
+      <TalentOptions requiredtalents="1" maxchosentalents="4">
+        <TalentOption identifier="ntbp_fangs"/>
+        <TalentOption identifier="ntbp_supplyanddemand"/>
+        <TalentOption identifier="ntbp_handholding"/>
+        <TalentOption identifier="ntbp_restock"/>
+      </TalentOptions>
+    </SubTree>
+    <SubTree identifier="shark" type="specialization" requires="chef_primary">
+      <TalentOptions>
+        <TalentOption identifier="ntbp_identitycrisis"/>
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="ntbp_ramventilation"/>
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="ntbp_hajdivingops"/>
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="ntbp_advancedcuddles"/>
+      </TalentOptions>
+    </SubTree>
+    <SubTree identifier="obsession" type="specialization" requires="chef_primary">
+      <TalentOptions>
+        <TalentOption identifier="ntbp_blahajpower"/>
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="ntbp_heprotecc"/>
+        <TalentOption identifier="ntbp_heattacc"/>
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="ntbp_gotbacc"/>
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="ntbp_altar"/>
+      </TalentOptions>
+    </SubTree>
+    <SubTree identifier="posterperson" type="specialization" requires="chef_primary">
+      <TalentOptions>
+        <TalentOption identifier="ntbp_posterascension"/>
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="ntbp_neonpaint"/>
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="ntbp_gimmickbridge"/>
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="ntbp_freehandouts"/>
+      </TalentOptions>
+    </SubTree>
+  </TalentTree>
+  
+</TalentTrees>
+
+  -->
+</Override>

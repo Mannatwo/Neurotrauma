@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="English" nowhitespace="false" translatedname="English">
+
+<!-- ITEMS -->
+
+<entityname.nutricard>Nutricard</entityname.nutricard>
+<entitydescription.nutricard>Slot this into your hematology analyzer to make it print out nutritional information of the patient</entitydescription.nutricard>
+
+<entityname.cleaver>Cleaver</entityname.cleaver>
+<entitydescription.cleaver>Can be used to chop up the recently deceased. Alternatively, can be used to turn the living into the recently deceased.</entitydescription.cleaver>
+
+<entityname.fryingpan>Frying pan</entityname.fryingpan>
+<entitydescription.fryingpan>Can be used to make fried eggs, or to bash skulls in.</entitydescription.fryingpan>
+
+<entityname.chefscap1>Chef's hat</entityname.chefscap1>
+<entitydescription.chefscap1></entitydescription.chefscap1>
+
+<entityname.chefscap2>Chef's hat</entityname.chefscap2>
+<entitydescription.chefscap2></entitydescription.chefscap2>
+
+<entityname.chefscapmaster1>Master chef's hat</entityname.chefscapmaster1>
+<entitydescription.chefscapmaster1></entitydescription.chefscapmaster1>
+
+<entityname.chefsuniform1>Chef's uniform</entityname.chefsuniform1>
+<entitydescription.chefsuniform1></entitydescription.chefsuniform1>
+
+<entityname.chefsuniform2>Chef's uniform</entityname.chefsuniform2>
+<entitydescription.chefsuniform2></entitydescription.chefsuniform2>
+
+<entityname.chefsuniformmaster1>Master chef's uniform</entityname.chefsuniformmaster1>
+<entitydescription.chefsuniformmaster1></entitydescription.chefsuniformmaster1>
+
+<entityname.stove>Stove</entityname.stove>
+<entitydescription.stove>The home of the frying pan</entitydescription.stove>
+
+<entityname.oven>Oven</entityname.oven>
+<entitydescription.oven>Can be used to heat up many things</entitydescription.oven>
+
+<entityname.fryer>Fryer</entityname.fryer>
+<entitydescription.fryer></entitydescription.fryer>
+
+<entityname.cuttingboard>Cutting board</entityname.cuttingboard>
+<entitydescription.cuttingboard>Chop up all sorts of food here, or combine ingredients into a completed dish.</entitydescription.cuttingboard>
+<label.ntmb.cuttingboard.process>Process</label.ntmb.cuttingboard.process>
+<label.ntmb.cuttingboard.analyze>Analyze dish</label.ntmb.cuttingboard.analyze>
+<label.cuttingboard_description>Name your dish!</label.cuttingboard_description>
+<entityname.fridge>Fridge</entityname.fridge>
+<entitydescription.fridge>Can be used to store perishable food. Or organs.</entitydescription.fridge>
+
+
+<entityname.plate>Plate</entityname.plate>
+<entitydescription.plate>Use these to finish assorted dishes at the cutting board</entitydescription.plate>
+
+<entityname.takeoutbag>Takeout bag</entityname.takeoutbag>
+<entitydescription.takeoutbag>Always bring lunch!</entitydescription.takeoutbag>
+
+<entityname.emptypot>Empty Pot</entityname.emptypot>
+<entitydescription.emptypot>Can be filled with water by submerging it</entitydescription.emptypot>
+
+<entityname.pot_tainted>Pot with tainted water</entityname.pot_tainted>
+<entitydescription.pot_tainted>Not safe for consumption. Put on the stove or in the oven to sterilize.</entitydescription.pot_tainted>
+
+<entityname.pot_water>Pot with water</entityname.pot_water>
+<entitydescription.pot_water>Safe for consumption. Can be used to make stews or soup.</entitydescription.pot_water>
+
+<entityname.pot_tomatosauce>Pot with tomato sauce</entityname.pot_tomatosauce>
+<entitydescription.pot_tomatosauce>Safe for consumption. Used for pizza.</entitydescription.pot_tomatosauce>
+
+<!-- foodstuffs -->
+
+<entityname.friedblob>Fried blob</entityname.friedblob>
+<entitydescription.friedblob>Looks like someone put something in the deep fryer they weren't supposed to...</entitydescription.friedblob>
+
+<entityname.carrot>Carrot</entityname.carrot>
+<entitydescription.carrot>Can be used as a seedling for planters.</entitydescription.carrot>
+
+<entityname.potato>Potato</entityname.potato>
+<entitydescription.potato>Can be used as a seedling for planters.</entitydescription.potato>
+
+<entityname.tomato>Tomato</entityname.tomato>
+<entitydescription.tomato>Can be used as a seedling for planters.</entitydescription.tomato>
+
+<entityname.lettuce>Lettuce</entityname.lettuce>
+<entitydescription.lettuce>Can be used as a seedling for planters.</entitydescription.lettuce>
+
+<entityname.pickle>Pickle</entityname.pickle>
+<entitydescription.pickle>Can be used as a seedling for planters.</entitydescription.pickle>
+
+<entityname.onion>Onion</entityname.onion>
+<entitydescription.onion>It has layers. Can be used as a seedling for planters.</entitydescription.onion>
+
+<entityname.flour>Flour</entityname.flour>
+<entitydescription.flour></entitydescription.flour>
+
+<entityname.salt>Salt</entityname.salt>
+<entitydescription.salt></entitydescription.salt>
+
+<entityname.breaddough>Bread dough</entityname.breaddough>
+<entitydescription.breaddough></entitydescription.breaddough>
+
+<entityname.bread>Bread</entityname.bread>
+<entitydescription.bread></entitydescription.bread>
+
+<entityname.rawpizza>Raw pizza</entityname.rawpizza>
+<entitydescription.rawpizza></entitydescription.rawpizza>
+
+<entityname.pizza>Pizza</entityname.pizza>
+<entitydescription.pizza></entitydescription.pizza>
+
+<entityname.pizzaslice>Pizza slice</entityname.pizzaslice>
+<entitydescription.pizzaslice></entitydescription.pizzaslice>
+
+<entityname.salad>Salad</entityname.salad>
+<entitydescription.salad></entitydescription.salad>
+
+<entityname.ntrib>NT Rib</entityname.ntrib>
+<entitydescription.ntrib></entitydescription.ntrib>
+
+<entityname.friedliver>Fried liver</entityname.friedliver>
+<entitydescription.friedliver></entitydescription.friedliver>
+
+<entityname.deepfriedliver>Deepfried liver</entityname.deepfriedliver>
+<entitydescription.deepfriedliver></entitydescription.deepfriedliver>
+
+<entityname.processedbread>Processed bread</entityname.processedbread>
+<entitydescription.processedbread></entitydescription.processedbread>
+
+<entityname.fries>Fries</entityname.fries>
+<entitydescription.fries></entitydescription.fries>
+
+<entityname.burger>Burger</entityname.burger>
+<entitydescription.burger></entitydescription.burger>
+
+<entityname.veggieburger>Veggieburger</entityname.veggieburger>
+<entitydescription.veggieburger></entitydescription.veggieburger>
+
+<entityname.livertransplant_food>Human liver (food)</entityname.livertransplant_food>
+<entitydescription.livertransplant_food>This liver is dead and can no longer be used as a transplant.</entitydescription.livertransplant_food>
+
+<entityname.lungtransplant_food>Human lungs (food)</entityname.lungtransplant_food>
+<entitydescription.lungtransplant_food>These lungs are dead and can no longer be used as a transplant.</entitydescription.lungtransplant_food>
+
+<entityname.hearttransplant_food>Human heart (food)</entityname.hearttransplant_food>
+<entitydescription.hearttransplant_food>This heart is dead and can no longer be used as a transplant.</entitydescription.hearttransplant_food>
+
+<entityname.kidneytransplant_food>Human kidney (food)</entityname.kidneytransplant_food>
+<entitydescription.kidneytransplant_food>This kidney is dead and can no longer be used as a transplant.</entitydescription.kidneytransplant_food>
+
+<entityname.braintransplant_food>Human brain (food)</entityname.braintransplant_food>
+<entitydescription.braintransplant_food>This brain is dead and can no longer be used as a transplant.</entitydescription.braintransplant_food>
+
+<entityname.crawlermeat>Crawler meat</entityname.crawlermeat>
+<entitydescription.crawlermeat></entitydescription.crawlermeat>
+<entityname.humanmeat>Human meat</entityname.humanmeat>
+<entitydescription.humanmeat></entitydescription.humanmeat>
+<entityname.huskmeat>Husk meat</entityname.huskmeat>
+<entitydescription.huskmeat></entitydescription.huskmeat>
+<entityname.mudraptormeat>Mudraptor meat</entityname.mudraptormeat>
+<entitydescription.mudraptormeat></entitydescription.mudraptormeat>
+<entityname.threshermeat>Thresher meat</entityname.threshermeat>
+<entitydescription.threshermeat></entitydescription.threshermeat>
+<entityname.spinelingmeat>Spineling meat</entityname.spinelingmeat>
+<entitydescription.spinelingmeat></entitydescription.spinelingmeat>
+<entityname.molochmeat>Moloch meat</entityname.molochmeat>
+<entitydescription.molochmeat></entitydescription.molochmeat>
+<entityname.hammerheadmeat>Hammerhead meat</entityname.hammerheadmeat>
+<entitydescription.hammerheadmeat></entitydescription.hammerheadmeat>
+<entityname.endwormmeat>Endworm meat</entityname.endwormmeat>
+<entitydescription.endwormmeat></entitydescription.endwormmeat>
+
+<!-- AFFLICTIONS -->
+
+<afflictionname.ntmb_id>ID</afflictionname.ntmb_id>
+<afflictiondescription.ntmb_id>this message should not appear</afflictiondescription.ntmb_id>
+
+<afflictionname.nausea_instant>Vomiting</afflictionname.nausea_instant>
+<afflictiondescription.nausea_instant>This messages should not appear</afflictiondescription.nausea_instant>
+
+<afflictionname.sym_thirst>Thirst</afflictionname.sym_thirst>
+<afflictiondescription.sym_thirst.low>The patient is expressing thirst.</afflictiondescription.sym_thirst.low>
+<afflictiondescription.sym_thirst.self.low>You're feeling a little thirsty.</afflictiondescription.sym_thirst.self.low>
+<afflictiondescription.sym_thirst.medium>The patient is expressing severe thirst.</afflictiondescription.sym_thirst.medium>
+<afflictiondescription.sym_thirst.self.medium>You're feeling quite parched.</afflictiondescription.sym_thirst.self.medium>
+<afflictiondescription.sym_thirst.high>The patients lips are dry and their fingernails are purple.</afflictiondescription.sym_thirst.high>
+<afflictiondescription.sym_thirst.self.high>Your lips are dry, your fingernails are purple, you're in great pain and you feel like you could faint any minute.</afflictiondescription.sym_thirst.self.high>
+
+<afflictionname.sym_hunger>Hunger</afflictionname.sym_hunger>
+<afflictiondescription.sym_hunger.low>The patient has a rumbly tummy.</afflictiondescription.sym_hunger.low>
+<afflictiondescription.sym_hunger.self.low>You could go for a snack.</afflictiondescription.sym_hunger.self.low>
+<afflictiondescription.sym_hunger.medium>The patient is expressing severe hunger.</afflictiondescription.sym_hunger.medium>
+<afflictiondescription.sym_hunger.self.medium>You feel like you haven't eaten in days.</afflictiondescription.sym_hunger.self.medium>
+<afflictiondescription.sym_hunger.high>The patient seems unable to think of anything other than food.</afflictiondescription.sym_hunger.high>
+<afflictiondescription.sym_hunger.self.high>You feel like you're about to starve. Your stomach has been empty for far too long. Food is all you can think of.</afflictiondescription.sym_hunger.self.high>
+
+<afflictionname.sym_stuffed>Stuffed</afflictionname.sym_stuffed>
+<afflictiondescription.sym_stuffed>The patients stomach is full. Giving them something to eat now would likely be a regrettable decision.</afflictiondescription.sym_stuffed>
+<afflictiondescription.sym_stuffed.self>Your stomach is full. Eating now would likely be a regrettable decision.</afflictiondescription.sym_stuffed.self>
+
+<afflictionname.sym_noappetite>No appetite</afflictionname.sym_noappetite>
+<afflictiondescription.sym_noappetite>The patient is expressing lack of appetite. Doesn't mean you can't force them to eat, at a cost.</afflictiondescription.sym_noappetite>
+<afflictiondescription.sym_noappetite.self>You really don't feel like eating right now. Eating is slower.</afflictiondescription.sym_noappetite.self>
+
+
+
+
+<!-- JOBS -->
+
+<jobname.chef>Chef</jobname.chef>
+<jobdescription.chef>Humans are machines, and machines require maintenance. As the chef, your job is maintaining the crew. With tasty little treats.</jobdescription.chef>
+
+<skillname.cooking>Cooking</skillname.cooking>
+
+<!-- TALENTS -->
+
+<!-- MISC -->
+
+<interaction.emptypot>Empty pot</interaction.emptypot>
+<interaction.crumplebag>Crumple bag</interaction.crumplebag>
+
+<!-- NUTRIENTS -->
+
+<ntmb.nutrients.water>Body water</ntmb.nutrients.water>
+
+<ntmb.nutrients.fat>Fat</ntmb.nutrients.fat>
+<ntmb.nutrients.carbohydrates>Carbohydrates</ntmb.nutrients.carbohydrates>
+<ntmb.nutrients.protein>Protein</ntmb.nutrients.protein>
+
+<ntmb.nutrients.potassium>Potassium</ntmb.nutrients.potassium>
+<ntmb.nutrients.sodium>Sodium</ntmb.nutrients.sodium>
+<ntmb.nutrients.magnesium>Magnesium</ntmb.nutrients.magnesium>
+
+<ntmb.nutrients.vitaminB1>Vitamin B1</ntmb.nutrients.vitaminB1>
+<ntmb.nutrients.vitaminB12>Vitamin B12</ntmb.nutrients.vitaminB12>
+<ntmb.nutrients.vitaminC>Vitamin C</ntmb.nutrients.vitaminC>
+<ntmb.nutrients.vitaminD>Vitamin D</ntmb.nutrients.vitaminD>
+<ntmb.nutrients.vitaminK>Vitamin K</ntmb.nutrients.vitaminK>
+
+<!-- loading screen tips -->
+
+<loadingscreentip>test</loadingscreentip>
+
+</infotexts>
