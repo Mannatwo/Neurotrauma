@@ -72,10 +72,12 @@ NTP.PillData.items = {
     },
     plastic={types={"binder"},skillrequirement=50,
         effects={
+            {type="sprite",value="horsepill"},
             {type="potencymult",value=1.6},
             {type="yieldmult",value=0.5}
         },
         faileffects={
+            {type="sprite",value="horsepill"},
             {type="potencymult",value=1},
             {type="yieldmult",value=0.5}
         }
@@ -511,10 +513,12 @@ NTP.PillData.items = {
     },
     calcium={types={"filler"},skillrequirement=25,
         effects={
+            {type="sprite",value="tablets"},
             {type="potencymult",value=0.35},
             {type="yieldmult",value=3}
         },
         faileffects={
+            {type="sprite",value="tablets"},
             {type="potencymult",value=0.20},
             {type="yieldmult",value=3}
         }
