@@ -43,6 +43,18 @@ NTP.PillData.items = {
     bloodpackbplus={variantof="antibloodloss2"},
     bloodpackabminus={variantof="antibloodloss2"},
     bloodpackabplus={variantof="antibloodloss2"},
+    energydrink={types={"base"},skillrequirement=30,
+        effects={
+            {type="capacity",value=1},
+            {type="potencymult",value=1.2},
+            {type="addeffect",identifier="haste",amount=6}
+        },
+        faileffects={
+            {type="capacity",value=1},
+            {type="potencymult",value=0.8},
+            {type="addeffect",identifier="haste",amount=4}
+        }
+    },
 
     -- /// binders ///
     ethanol={types={"binder"},weight=2,skillrequirement=20,
@@ -437,6 +449,11 @@ NTP.PillData.items = {
             {type="addeffect",identifier="psychosis",amount=10}
         }
     },
+    iron={types={"active"},skillrequirement=0,
+        effects={
+            {type="addeffect",identifier="bloodloss",amount=-20}
+        }
+    },
     -- poisons
     morbusine={types={"active"},weight=0.4,skillrequirement=50,
         effects={
@@ -538,6 +555,22 @@ NTP.PillData.items = {
             {type="addeffect",identifier="acidburn",amount=7.5}
         }
     },
+    sulphuricacidsyringe={types={"active"},skillrequirement=0,
+        effects={
+            {type="addeffect",identifier="acidburn",amount=15}
+        }
+    },
+    europabrew={types={"active"},skillrequirement=0,
+        effects={
+            {type="addeffect",identifier="acidreaction",amount=25}
+        }
+    },
+    huskeggs={types={"active"},skillrequirement=0,
+        effects={
+            {type="addeffect",identifier="huskinfection",amount=1}
+        }
+    },
+    huskeggsbasic={variantof="huskeggs"},
     
     -- /// exipients ///
     sodium={types={"filler"},skillrequirement=15,
