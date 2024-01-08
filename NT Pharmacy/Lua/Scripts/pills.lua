@@ -88,7 +88,7 @@ NTP.PillData.items = {
         effects={
             {type="addeffect",identifier="analgesia",amount=10},
             {type="addeffect",identifier="opiateaddiction",amount=2.5},
-            {type="addeffect",identifier="opiateoverdose",amount=4.37},
+            {type="addeffect",identifier="opiateoverdose",amount=4.375},
             {type="addeffect",identifier="opiatewithdrawal",amount=-7.5}
         },
         faileffects={
@@ -106,13 +106,13 @@ NTP.PillData.items = {
             {type="addeffect",identifier="opiatewithdrawal",amount=-15}
         },
         faileffects={
-            {type="addeffect",identifier="analgesia",amount=12.5},
+            {type="addeffect",identifier="analgesia",amount=15},
             {type="addeffect",identifier="opiateaddiction",amount=12.5},
             {type="addeffect",identifier="opiateoverdose",amount=10},
             {type="addeffect",identifier="opiatewithdrawal",amount=-15}
         }
     },
-    antidama2={types={"active"},skillrequirement=45,
+    antidama2={types={"active"},skillrequirement=72,
         effects={
             {type="addeffect",identifier="analgesia",amount=37.5},
             {type="addeffect",identifier="opiateaddiction",amount=7.5},
@@ -126,14 +126,14 @@ NTP.PillData.items = {
             {type="addeffect",identifier="opiatewithdrawal",amount=-50}
         }
     },
-    antinarc={types={"active"},skillrequirement=40,
+    antinarc={types={"active"},skillrequirement=39,
         effects={
             {type="addeffect",identifier="analgesia",amount=-30},
             {type="addeffect",identifier="opiateoverdose",amount=-30},
             {type="addeffect",identifier="opiatewithdrawal",amount=-30}
         },
         faileffects={
-            {type="addeffect",identifier="coma",amount=8,chance=0.5},
+            {type="addeffect",identifier="coma",amount=7.5,chance=0.5},
             {type="addeffect",identifier="analgesia",amount=-30},
             {type="addeffect",identifier="opiateoverdose",amount=-15},
             {type="addeffect",identifier="opiatewithdrawal",amount=-15}
@@ -141,15 +141,19 @@ NTP.PillData.items = {
     },
     antibiotics={types={"active"},skillrequirement=25,
         effects={
-            {type="addeffect",identifier="afantibiotics",amount=25}
+            {type="addeffect",identifier="afantibiotics",amount=25},
+            {type="addeffect",identifier="huskinfectionresistance",amount=300},
+            {type="addeffect",identifier="bloodpressure",amount=10}
         },
         faileffects={
-            {type="addeffect",identifier="afantibiotics",amount=15}
+            {type="addeffect",identifier="afantibiotics",amount=15},
+            {type="addeffect",identifier="huskinfectionresistance",amount=150},
+            {type="addeffect",identifier="bloodpressure",amount=10}
         }
     },
     adrenaline={types={"active"},skillrequirement=0,
         effects={
-            {type="addeffect",identifier="afadrenaline",amount=30}
+            {type="addeffect",identifier="afadrenaline",amount=27.5}
         }
     },
     liquidoxygenite={types={"active"},skillrequirement=72,
@@ -176,6 +180,7 @@ NTP.PillData.items = {
             {type="addeffect",identifier="organdamage",amount=-20},
             {type="addeffect",identifier="internaldamage",amount=-20},
             {type="addeffect",identifier="bloodloss",amount=-20},
+            {type="addeffect",identifier="bloodpressure",amount=20},
             {type="addeffect",identifier="hypoxemia",amount=-50}
         },
         faileffects={
@@ -183,23 +188,24 @@ NTP.PillData.items = {
             {type="addeffect",identifier="organdamage",amount=-10},
             {type="addeffect",identifier="internaldamage",amount=-10},
             {type="addeffect",identifier="bloodloss",amount=-10},
+            {type="addeffect",identifier="bloodpressure",amount=10},
             {type="addeffect",identifier="hypoxemia",amount=-20}
         }
     },
     meth={types={"active"},skillrequirement=35,
         effects={
             {type="addeffect",identifier="haste",amount=210},
-            {type="addeffect",identifier="organdamage",amount=7},
-            {type="addeffect",identifier="cerebralhypoxia",amount=7},
+            {type="addeffect",identifier="organdamage",amount=7.5},
+            {type="addeffect",identifier="cerebralhypoxia",amount=7.5},
             {type="addeffect",identifier="psychosis",amount=15},
-            {type="addeffect",identifier="chemaddiction",amount=7},
+            {type="addeffect",identifier="chemaddiction",amount=7.5},
             {type="addeffect",identifier="chemwithdrawal",amount=-45}
         },
         faileffects={
             {type="addeffect",identifier="haste",amount=150},
             {type="addeffect",identifier="organdamage",amount=15},
             {type="addeffect",identifier="cerebralhypoxia",amount=15},
-            {type="addeffect",identifier="psychosis",amount=22},
+            {type="addeffect",identifier="psychosis",amount=22.5},
             {type="addeffect",identifier="chemaddiction",amount=15},
             {type="addeffect",identifier="chemwithdrawal",amount=-45}
         }
@@ -207,39 +213,36 @@ NTP.PillData.items = {
     steroids={types={"active"},skillrequirement=35,
         effects={
             {type="addeffect",identifier="strengthen",amount=210},
-            {type="addeffect",identifier="organdamage",amount=7},
-            {type="addeffect",identifier="cerebralhypoxia",amount=7},
-            {type="addeffect",identifier="psychosis",amount=15},
-            {type="addeffect",identifier="chemaddiction",amount=7},
-            {type="addeffect",identifier="chemwithdrawal",amount=-45}
+            {type="addeffect",identifier="chemaddiction",amount=7.5},
+            {type="addeffect",identifier="chemwithdrawal",amount=-45},
+            {type="addeffect",identifier="oxygenlow",amount=-6}
         },
         faileffects={
             {type="addeffect",identifier="strengthen",amount=150},
-            {type="addeffect",identifier="organdamage",amount=15},
-            {type="addeffect",identifier="cerebralhypoxia",amount=15},
-            {type="addeffect",identifier="psychosis",amount=22},
             {type="addeffect",identifier="chemaddiction",amount=15},
-            {type="addeffect",identifier="chemwithdrawal",amount=-45}
+            {type="addeffect",identifier="chemwithdrawal",amount=-45},
+            {type="addeffect",identifier="oxygenlow",amount=-6}
         }
     },
     hyperzine={types={"active"},skillrequirement=50,
         effects={
             {type="addeffect",identifier="haste",amount=200},
             {type="addeffect",identifier="strengthen",amount=200},
-            {type="addeffect",identifier="organdamage",amount=5},
-            {type="addeffect",identifier="cerebralhypoxia",amount=5},
+            {type="addeffect",identifier="cerebralhypoxia",amount=9},
             {type="addeffect",identifier="psychosis",amount=15},
-            {type="addeffect",identifier="chemaddiction",amount=10},
-            {type="addeffect",identifier="chemwithdrawal",amount=-45}
+            {type="addeffect",identifier="chemaddiction",amount=9},
+            {type="addeffect",identifier="chemwithdrawal",amount=-45},
+            {type="addeffect",identifier="internaldamage",amount=-6}
         },
         faileffects={
             {type="addeffect",identifier="haste",amount=200},
             {type="addeffect",identifier="strengthen",amount=200},
-            {type="addeffect",identifier="organdamage",amount=10},
-            {type="addeffect",identifier="cerebralhypoxia",amount=10},
+            {type="addeffect",identifier="cerebralhypoxia",amount=18},
             {type="addeffect",identifier="psychosis",amount=30},
-            {type="addeffect",identifier="chemaddiction",amount=10},
-            {type="addeffect",identifier="chemwithdrawal",amount=-45}
+            {type="addeffect",identifier="chemaddiction",amount=18},
+            {type="addeffect",identifier="chemwithdrawal",amount=-45},
+            {type="addeffect",identifier="internaldamage",amount=-3},
+            {type="addeffect",identifier="burn",amount=3.75}
         }
     },
     antipsychosis={types={"active"},skillrequirement=37,
@@ -249,21 +252,21 @@ NTP.PillData.items = {
             {type="addeffect",identifier="alcoholwithdrawal",amount=-50}
         },
         faileffects={
-            {type="addeffect",identifier="psychosis",amount=-12},
-            {type="addeffect",identifier="hallucinating",amount=-12},
-            {type="addeffect",identifier="alcoholwithdrawal",amount=-12}
+            {type="addeffect",identifier="psychosis",amount=-12.5},
+            {type="addeffect",identifier="hallucinating",amount=-12.5},
+            {type="addeffect",identifier="alcoholwithdrawal",amount=-12.5}
         }
     },
     antiparalysis={types={"active"},skillrequirement=64,
         effects={
             {type="addeffect",identifier="paralysisresistance",amount=400},
             {type="addeffect",identifier="psychosis",amount=2.5},
-            {type="addeffect",identifier="anesthesia",amount=-200}
+            {type="addeffect",identifier="anesthesia",amount=-100}
         },
         faileffects={
-            {type="addeffect",identifier="paralysisresistance",amount=200},
-            {type="addeffect",identifier="psychosis",amount=20},
-            {type="addeffect",identifier="anesthesia",amount=-200}
+            {type="addeffect",identifier="paralysisresistance",amount=195},
+            {type="addeffect",identifier="psychosis",amount=22.5},
+            {type="addeffect",identifier="anesthesia",amount=-90}
         }
     },
     propofol={types={"active"},skillrequirement=0,
@@ -273,12 +276,12 @@ NTP.PillData.items = {
     },
     streptokinase={types={"active"},skillrequirement=0,
         effects={
-            {type="addeffect",identifier="heartattack",amount=-20},
+            {type="addeffect",identifier="heartattack",amount=-50},
             {type="addeffect",identifier="hemotransfusionshock",amount=-50},
             {type="addeffect",identifier="afstreptokinase",amount=25}
         }
     },
-    thiamine={types={"active"},skillrequirement=20,
+    thiamine={types={"active"},skillrequirement=10,
         effects={
             {type="addeffect",identifier="afthiamine",amount=25}
         },
@@ -286,7 +289,7 @@ NTP.PillData.items = {
             {type="addeffect",identifier="afthiamine",amount=15}
         }
     },
-    immunosuppressant={types={"active"},skillrequirement=40,
+    immunosuppressant={types={"active"},skillrequirement=10,
         effects={
             {type="addeffect",identifier="afimmunosuppressant",amount=25}
         },
@@ -303,33 +306,47 @@ NTP.PillData.items = {
             {type="addeffect",identifier="huskinfection",amount=-30}
         }
     },
-    morbusineantidote={types={"active"},skillrequirement=0,
+    morbusineantidote={types={"active"},skillrequirement=40,
         effects={
             {type="addeffect",identifier="morbusinepoisoning",amount=-50}
+        },
+        faileffects={
+            {type="addeffect",identifier="morbusinepoisoning",amount=-25}
         }
     },
-    cyanideantidote={types={"active"},skillrequirement=0,
+    cyanideantidote={types={"active"},skillrequirement=40,
         effects={
             {type="addeffect",identifier="cyanidepoisoning",amount=-50}
+        },
+        faileffects={
+            {type="addeffect",identifier="cyanidepoisoning",amount=-25}
         }
     },
-    sufforinantidote={types={"active"},skillrequirement=0,
+    sufforinantidote={types={"active"},skillrequirement=40,
         effects={
             {type="addeffect",identifier="sufforinpoisoning",amount=-50}
+        },
+        faileffects={
+            {type="addeffect",identifier="sufforinpoisoning",amount=-25}
         }
     },
-    deliriumineantidote={types={"active"},skillrequirement=0,
+    deliriumineantidote={types={"active"},skillrequirement=40,
         effects={
-            {type="addeffect",identifier="deliriuminepoisoning",amount=-50},
-            {type="addeffect",identifier="psychosis",amount=-7}
+            {type="addeffect",identifier="deliriuminepoisoning",amount=-100}
+        },
+        faileffects={
+            {type="addeffect",identifier="deliriuminepoisoning",amount=-50}
         }
     },
-    antirad={types={"active"},skillrequirement=0,
+    antirad={types={"active"},skillrequirement=25,
         effects={
             {type="addeffect",identifier="radiationsickness",amount=-50}
+        },
+        faileffects={
+            {type="addeffect",identifier="radiationsickness",amount=-12.5}
         }
     },
-    stabilozine={types={"active"},skillrequirement=0,
+    stabilozine={types={"active"},skillrequirement=25,
         effects={
             {type="addeffect",identifier="drunk",amount=-15},
             {type="addeffect",identifier="morbusinepoisoning",amount=-15},
@@ -340,18 +357,39 @@ NTP.PillData.items = {
             {type="addeffect",identifier="chemwithdrawal",amount=-15},
             {type="addeffect",identifier="alcoholwithdrawal",amount=-15},
             {type="addeffect",identifier="radiationsickness",amount=-15},
-            {type="addeffect",identifier="paralysis",amount=-15}
+            {type="addeffect",identifier="opiateaddiction",amount=-15},
+            {type="addeffect",identifier="opiateoverdose",amount=-15},
+            {type="addeffect",identifier="alcoholaddiction",amount=-15}
+        },
+        faileffects={
+            {type="addeffect",identifier="drunk",amount=-7.5},
+            {type="addeffect",identifier="morbusinepoisoning",amount=-7.5},
+            {type="addeffect",identifier="cyanidepoisoning",amount=-7.5},
+            {type="addeffect",identifier="sufforinpoisoning",amount=-7.5},
+            {type="addeffect",identifier="deliriuminepoisoning",amount=-7.5},
+            {type="addeffect",identifier="opiatewithdrawal",amount=-7.5},
+            {type="addeffect",identifier="chemwithdrawal",amount=-7.5},
+            {type="addeffect",identifier="alcoholwithdrawal",amount=-7.5},
+            {type="addeffect",identifier="radiationsickness",amount=-7.5},
+            {type="addeffect",identifier="opiateaddiction",amount=-7.5},
+            {type="addeffect",identifier="opiateoverdose",amount=-7.5},
+            {type="addeffect",identifier="alcoholaddiction",amount=-7.5}
         }
     },
     carbon={types={"active"},skillrequirement=0,
         effects={
-            {type="addeffect",identifier="drunk",amount=-7},
-            {type="addeffect",identifier="morbusinepoisoning",amount=-7},
-            {type="addeffect",identifier="cyanidepoisoning",amount=-7},
-            {type="addeffect",identifier="sufforinpoisoning",amount=-7},
-            {type="addeffect",identifier="deliriuminepoisoning",amount=-7},
-            {type="addeffect",identifier="radiationsickness",amount=-15},
-            {type="addeffect",identifier="paralysis",amount=-7}
+            {type="addeffect",identifier="drunk",amount=-7.5},
+            {type="addeffect",identifier="morbusinepoisoning",amount=-7.5},
+            {type="addeffect",identifier="cyanidepoisoning",amount=-7.5},
+            {type="addeffect",identifier="sufforinpoisoning",amount=-7.5},
+            {type="addeffect",identifier="deliriuminepoisoning",amount=-7.5},
+            {type="addeffect",identifier="opiatewithdrawal",amount=-7.5},
+            {type="addeffect",identifier="chemwithdrawal",amount=-7.5},
+            {type="addeffect",identifier="alcoholwithdrawal",amount=-7.5},
+            {type="addeffect",identifier="radiationsickness",amount=-7.5},
+            {type="addeffect",identifier="opiateaddiction",amount=-7.5},
+            {type="addeffect",identifier="opiateoverdose",amount=-7.5},
+            {type="addeffect",identifier="alcoholaddiction",amount=-7.5}
         }
     },
     nitroglycerin={types={"active"},skillrequirement=0,
@@ -367,11 +405,11 @@ NTP.PillData.items = {
     },
     combatstimulantsyringe={types={"active"},skillrequirement=35,
         effects={
-            {type="addeffect",identifier="combatstimulant",amount=37},
+            {type="addeffect",identifier="combatstimulant",amount=37.5},
             {type="addeffect",identifier="chemaddiction",amount=10}
         },
         faileffects={
-            {type="addeffect",identifier="combatstimulant",amount=37},
+            {type="addeffect",identifier="combatstimulant",amount=37.5},
             {type="addeffect",identifier="chemaddiction",amount=20}
         }
     },
@@ -385,64 +423,89 @@ NTP.PillData.items = {
     },
     mannitolplus={types={"active"},skillrequirement=60,
         effects={
-            {type="addeffect",identifier="afmannitol",amount=30},
-            {type="addeffect",identifier="cerebralhypoxia",amount=-10}
+            {type="addeffect",identifier="afmannitol",amount=25},
+            {type="addeffect",identifier="cerebralhypoxia",amount=-15}
         },
         faileffects={
             {type="addeffect",identifier="afmannitol",amount=15},
-            {type="addeffect",identifier="cerebralhypoxia",amount=-5}
+            {type="addeffect",identifier="cerebralhypoxia",amount=-7.5}
         }
     },
-    hallucinogenicbufotoxin={types={"active"},skillrequirement=30,
+    hallucinogenicbufotoxin={types={"active"},skillrequirement=0,
         effects={
-            {type="addeffect",identifier="paralysis",amount=-30},
-            {type="addeffect",identifier="psychosis",amount=10}
-        },
-        faileffects={
-            {type="addeffect",identifier="paralysis",amount=-15},
+            {type="addeffect",identifier="paralysis",amount=-20},
             {type="addeffect",identifier="psychosis",amount=10}
         }
     },
     -- poisons
-    morbusine={types={"active"},weight=0.4,skillrequirement=0,
+    morbusine={types={"active"},weight=0.4,skillrequirement=50,
         effects={
+            {type="addeffect",identifier="morbusinepoisoning",amount=11}
+        },
+        faileffects={
             {type="addeffect",identifier="morbusinepoisoning",amount=1}
         }
     },
-    cyanide={types={"active"},weight=0.4,skillrequirement=0,
+    cyanide={types={"active"},weight=0.4,skillrequirement=60,
         effects={
+            {type="addeffect",identifier="cyanidepoisoning",amount=11}
+        },
+        faileffects={
             {type="addeffect",identifier="cyanidepoisoning",amount=1}
         }
     },
-    sufforin={types={"active"},weight=0.4,skillrequirement=0,
+    sufforin={types={"active"},weight=0.4,skillrequirement=40,
         effects={
+            {type="addeffect",identifier="sufforinpoisoning",amount=11}
+        },
+        faileffects={
             {type="addeffect",identifier="sufforinpoisoning",amount=1}
         }
     },
-    deliriumine={types={"active"},weight=0.4,skillrequirement=0,
+    deliriumine={types={"active"},weight=0.4,skillrequirement=35,
         effects={
+            {type="addeffect",identifier="deliriuminepoisoning",amount=20}
+        },
+        faileffects={
             {type="addeffect",identifier="deliriuminepoisoning",amount=1}
         }
     },
-    chloralhydrate={types={"active"},skillrequirement=0,
+    chloralhydrate={types={"active"},skillrequirement=30,
         effects={
-            {type="addeffect",identifier="incrementalstun",amount=15}
+            {type="addeffect",identifier="incrementalstun",amount=62.5},
+            {type="addeffect",identifier="organdamage",amount=1.25}
+        },
+        faileffects={
+            {type="addeffect",identifier="incrementalstun",amount=31.25},
+            {type="addeffect",identifier="organdamage",amount=0.625}
         }
     },
-    radiotoxin={types={"active"},weight=0.4,skillrequirement=0,
+    radiotoxin={types={"active"},weight=0.4,skillrequirement=30,
         effects={
             {type="addeffect",identifier="radiationsickness",amount=32}
+        },
+        faileffects={
+            {type="addeffect",identifier="radiationsickness",amount=16}
         }
     },
-    paralyzant={types={"active"},weight=0.2,skillrequirement=0,
+    paralyzant={types={"active"},weight=0.2,skillrequirement=60,
         effects={
+            {type="addeffect",identifier="paralysis",amount=11}
+        },
+        faileffects={
             {type="addeffect",identifier="paralysis",amount=1}
         }
     },
-    paralyxis={variantof="paralyzant"},
-    raptorbaneextract={types={"active"},skillrequirement=0,
+    paralyxis={types={"active"},weight=0.2,skillrequirement=0,
         effects={
-            {type="addeffect",identifier="nausea",amount=25}
+            {type="addeffect",identifier="paralysis",amount=20}
+        }
+    },
+    raptorbaneextract={types={"active"},skillrequirement=35,
+        effects={
+            {type="addeffect",identifier="nausea",amount=50}
+        },
+        faileffects={
         }
     },
     poop={types={"active"},weight=0.4,skillrequirement=0,
@@ -472,7 +535,7 @@ NTP.PillData.items = {
     },
     sulphuricacid={types={"active"},skillrequirement=0,
         effects={
-            {type="addeffect",identifier="burn",amount=7.5}
+            {type="addeffect",identifier="acidburn",amount=7.5}
         }
     },
     
