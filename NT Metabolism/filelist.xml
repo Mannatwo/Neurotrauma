@@ -30,6 +30,7 @@
   <Other file="%ModDir%/Jobgear/OutfitIcons.png" />
   
   <Text file="%ModDir%/Localization/English/English.xml" />
+  <Text file="%ModDir%/Localization/Italian/Italian.xml" />
 
   <Other file="%ModDir%/Lua/Autorun/init.lua" />
   <Other file="%ModDir%/Lua/Scripts/campaignInterface.lua" />
