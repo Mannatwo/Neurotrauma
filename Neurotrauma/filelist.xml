@@ -31,6 +31,7 @@
 	<Text file="%ModDir%/Localization/Portuguese/Portuguese.xml" />
 	<Text file="%ModDir%/Localization/Spanish/Spanish.xml" />
 	<Text file="%ModDir%/Localization/Turkish/Turkish.xml" />
+	<Text file="%ModDir%/Localization/Italian/Italian.xml" />
   <Other file="%ModDir%/Localization/German/German.xml" />
 
   <Other file="%ModDir%/Lua/Autorun/init.lua" />
