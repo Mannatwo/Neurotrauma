@@ -17,7 +17,7 @@ end
 
 end,1)
 
-local function TryCraftPills(chemmaster,user,dontreporterrors)
+function TryCraftPills(chemmaster,user,dontreporterrors)
 
     if chemmaster == nil or user == nil then return false end
     if dontreporterrors == nil then dontreporterrors = false end
@@ -65,7 +65,7 @@ local function TryCraftPills(chemmaster,user,dontreporterrors)
     if chemmaster.OriginalOutpost ~= "" then
         descriptionOverride=chemmaster.OriginalOutpost
     end
-    local config = NTP.PillConfigFromItems(ingredientArray,HF.GetSkillLevel(user,"medical"),descriptionOverride)
+    local config = NTP.PillConfigFromItems(ingredientArray,HF.GetSkillLevel(user,"medical"),descriptionOverride,user)
     local productidentifier = "custompill"
     if config.sprite~=nil then productidentifier="custompill_"..config.sprite end
 
