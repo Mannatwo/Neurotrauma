@@ -573,7 +573,7 @@ function NTP.PillConfigToTags(config)
     
     return res
 end
-function NTP.PillConfigFromItems(components,skill,descriptionOverride)
+function NTP.PillConfigFromItems(components,skill,descriptionOverride,user)
     skill = skill or 30
 
     local res = {fx={},capacity=0,yield=2,tags={},

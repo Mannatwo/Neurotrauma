@@ -17,7 +17,7 @@ end
 
 end,1)
 
-local function TryCraftPills(chemmaster,user,dontreporterrors)
+function NTP.TryCraftPills(chemmaster,user,dontreporterrors)
 
     if chemmaster == nil or user == nil then return false end
     if dontreporterrors == nil then dontreporterrors = false end
@@ -65,7 +65,7 @@ local function TryCraftPills(chemmaster,user,dontreporterrors)
     if chemmaster.OriginalOutpost ~= "" then
         descriptionOverride=chemmaster.OriginalOutpost
     end
-    local config = NTP.PillConfigFromItems(ingredientArray,HF.GetSkillLevel(user,"medical"),descriptionOverride)
+    local config = NTP.PillConfigFromItems(ingredientArray,HF.GetSkillLevel(user,"medical"),descriptionOverride,user)
     local productidentifier = "custompill"
     if config.sprite~=nil then productidentifier="custompill_"..config.sprite end
 
@@ -167,7 +167,7 @@ Hook.Add("NTP.ChemMaster.makeone", "NTP.ChemMaster.makeone", function (effect, d
     end
 
     -- wait 250ms so that the description can update
-    Timer.Wait(function() TryCraftPills(item,user) end,250)
+    Timer.Wait(function() NTP.TryCraftPills(item,user) end,250)
 
 end)
 
@@ -204,7 +204,7 @@ Hook.Add("NTP.ChemMaster.makeall", "NTP.ChemMaster.makeall", function (effect, d
 
     local function recursiveUse(dontReportErrors)
         Timer.Wait(function()
-            if TryCraftPills(item,user,dontReportErrors) then
+            if NTP.TryCraftPills(item,user,dontReportErrors) then
                 recursiveUse(true)
             else
                 -- craftall finished, remove from craftalls
