@@ -1,5 +1,5 @@
 
-local convertedDamageTypes = {"bleeding","blunttrauma","lacerations","burn","gunshotwound","bitewounds","explosiondamage","internaldamage","foreignbody"}
+local convertedDamageTypes = {"bleeding","blunttrauma","lacerations","burn","gunshotwound","bitewounds","explosiondamage","internaldamage","foreignbody", "nervedamage", "muscledamage"}
 
 local damageTypeSFXDict = {}
 damageTypeSFXDict["blunttrauma"]     = "ntcsfx_cyberblunt"
@@ -10,6 +10,8 @@ damageTypeSFXDict["bitewounds"]      = "ntcsfx_cyberbite"
 damageTypeSFXDict["explosiondamage"] = "ntcsfx_cyberblunt"
 damageTypeSFXDict["internaldamage"]  = "ntcsfx_cyberblunt"
 damageTypeSFXDict["foreignbody"]     = "ntcsfx_cyberblunt"
+damageTypeSFXDict["nervedamage"]     = "ntcsfx_cyberblunt"
+damageTypeSFXDict["muscledamage"]    = "ntcsfx_cyberblunt"
 
 Timer.Wait(function() 
 NTC.AddOnDamagedHook(function (characterHealth, attackResult, hitLimb)

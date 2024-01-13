@@ -111,6 +111,10 @@ function NTCyb.ConvertDamageTypes(character,limbtype)
         local internaldamage = HF.GetAfflictionStrengthLimb(character,limbtype,"internaldamage",0)
         local foreignbody = HF.GetAfflictionStrengthLimb(character,limbtype,"foreignbody",0)
 
+        -- other mods compatibility
+        local nervedamage = HF.GetAfflictionStrengthLimb(character,limbtype,"nervedamage",0)
+        local muscledamage = HF.GetAfflictionStrengthLimb(character,limbtype,"muscledamage",0)
+
         -- cyber stats
         local loosescrews = HF.GetAfflictionStrengthLimb(character,limbtype,"ntc_loosescrews",0)
         local prevloosescrews = loosescrews
@@ -134,7 +138,9 @@ function NTCyb.ConvertDamageTypes(character,limbtype)
             0.5*damageChance(blunttrauma,0.5)+
             1*damageChance(internaldamage,0.75)+
             0.5*damageChance(bitewounds,0.5)+
-            0.75*damageChance(foreignbody,0.75))
+            0.75*damageChance(foreignbody,0.75))+
+            1*damageChance(nervedamage,0.75)+
+            1*damageChance(muscledamage,0.75)
 
         damagedelectronics = damagedelectronics + 0.5*(1+prevmaterialloss/50)*(
             2*damageChance(burn,0.75)+
@@ -143,7 +149,9 @@ function NTCyb.ConvertDamageTypes(character,limbtype)
             0.5*damageChance(explosiondamage,0.5)+
             1*damageChance(blunttrauma,0.5)+
             1*damageChance(internaldamage,0.75)+
-            0.75*damageChance(foreignbody,0.75))
+            0.75*damageChance(foreignbody,0.75))+
+            1*damageChance(nervedamage,0.75)+
+            1*damageChance(muscledamage,0.75)
 
         bentmetal = bentmetal + 1*(
             0.25*damageChance(burn,0.85)+
@@ -171,6 +179,9 @@ function NTCyb.ConvertDamageTypes(character,limbtype)
         HF.ApplyAfflictionChangeLimb(character,limbtype,"blunttrauma",0,blunttrauma,0,200)
         HF.ApplyAfflictionChangeLimb(character,limbtype,"internaldamage",0,internaldamage,0,200)
         HF.ApplyAfflictionChangeLimb(character,limbtype,"foreignbody",0,foreignbody,0,100)
+
+        HF.ApplyAfflictionChangeLimb(character,limbtype,"nervedamage",0,nervedamage,0,100)
+        HF.ApplyAfflictionChangeLimb(character,limbtype,"muscledamage",0,muscledamage,0,100)
         
         HF.ApplyAfflictionChangeLimb(character,limbtype,"ntc_loosescrews",loosescrews,prevloosescrews,0,100)
         HF.ApplyAfflictionChangeLimb(character,limbtype,"ntc_damagedelectronics",damagedelectronics,prevdamagedelectronics,0,100)
