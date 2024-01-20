@@ -20,7 +20,7 @@
 <entitydescription.bloodcollector>Leere Blutsammelpatrone. Vom hematologischen Analysator verwendet.</entitydescription.bloodcollector>
 
 <Override>
-<entityname.healthscanner>Vitalitätsscanner</entityname.healthscanner>
+<entityname.healthscanner-override>Vitalitätsscanner</entityname.healthscanner>
 <entitydescription.healthscanner>Verwendet um die Ursachen von Symptomen zu erkennen.</entitydescription.healthscanner>
 </Override>
 

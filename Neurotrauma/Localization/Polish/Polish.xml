@@ -32,7 +32,7 @@
 <entityname.blahaj>Żarłacz błękitny</entityname.blahaj>
 
 <Override>
-<entityname.healthscanner>Skaner zdrowia</entityname.healthscanner>
+<entityname.healthscanner-override>Skaner zdrowia</entityname.healthscanner>
 <entitydescription.healthscanner>Podobnie jak analizator krwi, służy do diagnozowania przyczyn objawów. UWAGA: promieniowanie rentgenowskie.</entitydescription.healthscanner>
 </Override>
 

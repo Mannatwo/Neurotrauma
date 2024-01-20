@@ -32,7 +32,7 @@
 <entityname.blahaj>Requin bleu</entityname.blahaj>
 
 <Override>
-<entityname.healthscanner>Scanneur de santé</entityname.healthscanner>
+<entityname.healthscanner-override>Scanneur de santé</entityname.healthscanner>
 <entitydescription.healthscanner>Utilisé pour identifier les causes sous-jacentes de symptômes.</entitydescription.healthscanner>
 </Override>
 

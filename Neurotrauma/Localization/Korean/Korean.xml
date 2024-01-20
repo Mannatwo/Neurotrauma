@@ -20,7 +20,7 @@
   <entitydescription.wheelchair>움직임을 위해 다리 대신 팔에 의존하게 만듭니다.</entitydescription.wheelchair>
   <entityname.blahaj>청상어</entityname.blahaj>
   <Override>
-    <entityname.healthscanner>건강 진단기</entityname.healthscanner>
+    <entityname.healthscanner-override>건강 진단기</entityname.healthscanner>
     <entitydescription.healthscanner>증상의 근본 원인을 진단하는 데 사용됩니다.</entitydescription.healthscanner>
   </Override>
   <stasisbagequipconfirmation>이것을 장착하면 의식을 잃게 됩니다. 확실합니까?</stasisbagequipconfirmation>

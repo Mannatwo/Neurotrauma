@@ -31,7 +31,7 @@
 <entityname.blahaj>Синяя акула</entityname.blahaj>
 
 <Override>
-<entityname.healthscanner>Сканер здоровья</entityname.healthscanner>
+<entityname.healthscanner-override>Сканер здоровья</entityname.healthscanner>
 <entitydescription.healthscanner>Используется для выявления скрытых причин симптомов</entitydescription.healthscanner>
 </Override>
 

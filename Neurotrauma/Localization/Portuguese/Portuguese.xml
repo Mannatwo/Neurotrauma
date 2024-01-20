@@ -22,7 +22,7 @@
 <entitydescription.wheelchair>Faz você depender de seus braços ao invés de suas pernas para a movimentação.</entitydescription.wheelchair>
 <entityname.blahaj>Tubarão Azul</entityname.blahaj>
 <Override>
-<entityname.healthscanner>Visor de Saúde</entityname.healthscanner>
+<entityname.healthscanner-override>Visor de Saúde</entityname.healthscanner>
 <entitydescription.healthscanner>Usado para diagnosticar as causas subjacentes dos sintomas.</entitydescription.healthscanner>
 </Override>
 <stasisbagequipconfirmation>Equipar isso vai te deixar inconsciente. Você tem certeza?</stasisbagequipconfirmation>

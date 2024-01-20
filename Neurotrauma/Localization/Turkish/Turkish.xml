@@ -32,7 +32,7 @@
 <entityname.blahaj>Mavi köpek balığı</entityname.blahaj>
 
 <Override>
-<entityname.healthscanner>Sağlık Tarayıcısı</entityname.healthscanner>
+<entityname.healthscanner-override>Sağlık Tarayıcısı</entityname.healthscanner>
 <entitydescription.healthscanner>Semptomların altında yatan nedenleri teşhis etmek için kullanılır.</entitydescription.healthscanner>
 </Override>
 

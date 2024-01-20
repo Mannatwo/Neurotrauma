@@ -32,7 +32,7 @@
 <entityname.blahaj>Tiburón azul</entityname.blahaj>
 
 <Override>
-<entityname.healthscanner>Escáner de Salud</entityname.healthscanner>
+<entityname.healthscanner-override>Escáner de Salud</entityname.healthscanner>
 <entitydescription.healthscanner>Se utiliza para diagnosticar las causas subyacentes de los síntomas.</entitydescription.healthscanner>
 </Override>
 
