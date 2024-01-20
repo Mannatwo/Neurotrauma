@@ -19,10 +19,10 @@
   <entityname.wheelchair>Wheelchair</entityname.wheelchair>
   <entitydescription.wheelchair>Makes you depend on your arms instead of your legs for movement.</entitydescription.wheelchair>
   <entityname.blahaj>Blue Shark</entityname.blahaj>
-  <!-- <Override> -->
+  <!--<Override>-->
     <entityname.healthscanner-override>Health scanner</entityname.healthscanner-override>
     <entitydescription.healthscanner-override>Used to diagnose underlying causes of symptoms.</entitydescription.healthscanner-override>
-  <!-- </Override> -->
+  <!--</Override>-->
   <stasisbagequipconfirmation>Equipping this will cause you to go unconscious. Are you sure?</stasisbagequipconfirmation>
   <!-- /// Surgery /// -->
   <entityname.advscalpel>Scalpel</entityname.advscalpel>
@@ -130,10 +130,10 @@
   <entitydescription.bloodpackbminus>Administerable to: B-, B+, AB-, AB+</entitydescription.bloodpackbminus>
   <entityname.bloodpackabminus>Blood Pack AB-</entityname.bloodpackabminus>
   <entitydescription.bloodpackabminus>Administerable to: AB-, AB+</entitydescription.bloodpackabminus>
-  <!-- <Override> -->
+  <!--<Override>-->
     <entityname.antibloodloss2-override>Blood Pack O-</entityname.antibloodloss2-override>
     <entitydescription.antibloodloss2-override>A blood pack that can be used on any patient.</entitydescription.antibloodloss2-override>
-  <!-- </Override> -->
+  <!--</Override>-->
   <entityname.ominuscard>Donor card O-</entityname.ominuscard>
   <entitydescription.ominuscard>Can take blood from: O-
 Can give blood to: all of them</entitydescription.ominuscard>

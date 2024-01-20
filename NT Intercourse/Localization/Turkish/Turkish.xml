@@ -31,8 +31,8 @@
 
 
 <Override>
-<entityname.healthscanner>Sağlık Tarayıcısı</entityname.healthscanner>
-<entitydescription.healthscanner>Semptomların altında yatan nedenleri teşhis etmek için kullanılır.</entitydescription.healthscanner>
+<entityname.healthscanner-override>Sağlık Tarayıcısı</entityname.healthscanner-override>
+<entitydescription.healthscanner-override>Semptomların altında yatan nedenleri teşhis etmek için kullanılır.</entitydescription.healthscanner-override>
 </Override>
 
 <stasisbagequipconfirmation>Bunu kuşanmak bilincini kaybetmene neden olacak. Emin misin?</stasisbagequipconfirmation>
@@ -165,8 +165,8 @@
 <entitydescription.bloodpackabminus>Administerable to: AB-, AB+</entitydescription.bloodpackabminus>
 
 <Override>
-<entityname.antibloodloss2>Blood Pack O-</entityname.antibloodloss2>
-<entitydescription.antibloodloss2>A blood pack that can be used on any patient.</entitydescription.antibloodloss2>
+<entityname.antibloodloss2-override>Blood Pack O-</entityname.antibloodloss2-override>
+<entitydescription.antibloodloss2-override>A blood pack that can be used on any patient.</entitydescription.antibloodloss2-override>
 </Override>
 
 <entityname.ominuscard>Donor card O-</entityname.ominuscard>

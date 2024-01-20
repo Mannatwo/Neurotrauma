@@ -31,8 +31,8 @@
 
 
 <Override>
-<entityname.healthscanner>Health scanner</entityname.healthscanner>
-<entitydescription.healthscanner>Used to diagnose underlying causes of symptoms.</entitydescription.healthscanner>
+<entityname.healthscanner-override>Health scanner</entityname.healthscanner-override>
+<entitydescription.healthscanner-override>Used to diagnose underlying causes of symptoms.</entitydescription.healthscanner-override>
 </Override>
 
 <stasisbagequipconfirmation>Equipping this will cause you to go unconscious. Are you sure?</stasisbagequipconfirmation>
@@ -168,8 +168,8 @@
 <entitydescription.bloodpackabminus>Administerable to: AB-, AB+</entitydescription.bloodpackabminus>
 
 <Override>
-<entityname.antibloodloss2>Blood Pack O-</entityname.antibloodloss2>
-<entitydescription.antibloodloss2>A blood pack that can be used on any patient.</entitydescription.antibloodloss2>
+<entityname.antibloodloss2-override>Blood Pack O-</entityname.antibloodloss2-override>
+<entitydescription.antibloodloss2-override>A blood pack that can be used on any patient.</entitydescription.antibloodloss2-override>
 </Override>
 
 <entityname.ominuscard>Donor card O-</entityname.ominuscard>

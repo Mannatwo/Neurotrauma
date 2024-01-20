@@ -21,10 +21,10 @@
 <entityname.wheelchair>Cadeira de Rodas</entityname.wheelchair>
 <entitydescription.wheelchair>Faz você depender de seus braços ao invés de suas pernas para a movimentação.</entitydescription.wheelchair>
 <entityname.blahaj>Tubarão Azul</entityname.blahaj>
-<Override>
-<entityname.healthscanner-override>Visor de Saúde</entityname.healthscanner>
-<entitydescription.healthscanner>Usado para diagnosticar as causas subjacentes dos sintomas.</entitydescription.healthscanner>
-</Override>
+<!--<Override>-->
+<entityname.healthscanner-override>Visor de Saúde</entityname.healthscanner-override>
+<entitydescription.healthscanner-override>Usado para diagnosticar as causas subjacentes dos sintomas.</entitydescription.healthscanner-override>
+<!--</Override>-->
 <stasisbagequipconfirmation>Equipar isso vai te deixar inconsciente. Você tem certeza?</stasisbagequipconfirmation>
 <!-- /// Surgery /// -->
 <entityname.advscalpel>Bisturi</entityname.advscalpel>
@@ -109,10 +109,10 @@
 <entitydescription.bloodpackbminus>Administrado para: B-, B+, AB-, AB+</entitydescription.bloodpackbminus>
 <entityname.bloodpackabminus>Bolsa de Sangue AB-</entityname.bloodpackabminus>
 <entitydescription.bloodpackabminus>Administrado para: AB-, AB+</entitydescription.bloodpackabminus>
-<Override>
-<entityname.antibloodloss2>Bolsa de Sangue O-</entityname.antibloodloss2>
-<entitydescription.antibloodloss2>Um pacote de sangue que pode ser usado em qualquer paciente.</entitydescription.antibloodloss2>
-</Override>
+<!--<Override>-->
+<entityname.antibloodloss2-override>Bolsa de Sangue O-</entityname.antibloodloss2-override>
+<entitydescription.antibloodloss2-override>Um pacote de sangue que pode ser usado em qualquer paciente.</entitydescription.antibloodloss2-override>
+<!--</Override>-->
 <entityname.ominuscard>Cartão de Doador de Sangue O-</entityname.ominuscard>
 <entitydescription.ominuscard>Pode receber sangue de: O-
 Pode dar sangue para: Todos tipos</entitydescription.ominuscard>

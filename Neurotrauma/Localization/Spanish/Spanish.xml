@@ -31,10 +31,10 @@
 
 <entityname.blahaj>Tiburón azul</entityname.blahaj>
 
-<Override>
-<entityname.healthscanner-override>Escáner de Salud</entityname.healthscanner>
-<entitydescription.healthscanner>Se utiliza para diagnosticar las causas subyacentes de los síntomas.</entitydescription.healthscanner>
-</Override>
+<!--<Override>-->
+<entityname.healthscanner-override>Escáner de Salud</entityname.healthscanner-override>
+<entitydescription.healthscanner-override>Se utiliza para diagnosticar las causas subyacentes de los síntomas.</entitydescription.healthscanner-override>
+<!--</Override>-->
 
 <stasisbagequipconfirmation>Equipar esto hará que quedes inconsciente. ¿Está seguro?</stasisbagequipconfirmation>
 
@@ -165,10 +165,10 @@
 <entityname.bloodpackabminus>Paquete de sangre AB-</entityname.bloodpackabminus>
 <entitydescription.bloodpackabminus>Administrable a: AB-, AB+</entitydescription.bloodpackabminus>
 
-<Override>
-<entityname.antibloodloss2>Paquete de sangre O-</entityname.antibloodloss2>
-<entitydescription.antibloodloss2>Un paquete de sangre que se puede utilizar en cualquier paciente.</entitydescription.antibloodloss2>
-</Override>
+<!--<Override>-->
+<entityname.antibloodloss2-override>Paquete de sangre O-</entityname.antibloodloss2-override>
+<entitydescription.antibloodloss2-override>Un paquete de sangre que se puede utilizar en cualquier paciente.</entitydescription.antibloodloss2-override>
+<!--</Override>-->
 
 <entityname.ominuscard>Tarjeta de donante O-</entityname.ominuscard>
 <entitydescription.ominuscard>Puede tomar sangre de: O-
