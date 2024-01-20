@@ -31,10 +31,10 @@
 
 <entityname.blahaj>Requin bleu</entityname.blahaj>
 
-<Override>
-<entityname.healthscanner>Scanneur de santé</entityname.healthscanner>
-<entitydescription.healthscanner>Utilisé pour identifier les causes sous-jacentes de symptômes.</entitydescription.healthscanner>
-</Override>
+<!--<Override>-->
+<entityname.healthscanner-override>Scanneur de santé</entityname.healthscanner-override>
+<entitydescription.healthscanner-override>Utilisé pour identifier les causes sous-jacentes de symptômes.</entitydescription.healthscanner-override>
+<!--</Override>-->
 
 <stasisbagequipconfirmation>Équiper cela vous fera perdre connaissance. En êtes-vous sûr(e)?</stasisbagequipconfirmation>
 
@@ -165,10 +165,10 @@
 <entityname.bloodpackabminus>Poche de sang AB-</entityname.bloodpackabminus>
 <entitydescription.bloodpackabminus>Peut être donné à: AB-, AB+</entitydescription.bloodpackabminus>
 
-<Override>
-<entityname.antibloodloss2>Poche de sang O-</entityname.antibloodloss2>
-<entitydescription.antibloodloss2>Une poche de sang qui peut être utilisée sur n'importe quel patient.</entitydescription.antibloodloss2>
-</Override>
+<!--<Override>-->
+<entityname.antibloodloss2-override>Poche de sang O-</entityname.antibloodloss2-override>
+<entitydescription.antibloodloss2-override>Une poche de sang qui peut être utilisée sur n'importe quel patient.</entitydescription.antibloodloss2-override>
+<!--</Override>-->
 
 <entityname.ominuscard>Carte de donneur O-</entityname.ominuscard>
 <entitydescription.ominuscard>Peut recevoir du sang de: O-

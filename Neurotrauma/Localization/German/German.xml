@@ -12,17 +12,17 @@
 
 <entityname.autocpr>AutoPuls</entityname.autocpr>
 <entitydescription.autocpr>Eine automatisierte, batteriebetriebene Herz-lungen-wiederbelebungsvorrichtung.</entitydescription.autocpr>
-
+z
 <entityname.bloodanalyzer>Hematologischer Analysator</entityname.bloodanalyzer>
 <entitydescription.bloodanalyzer>Blutgruppenscanner. Vollautomatisch. Benötigt Blutsammelpatronen.</entitydescription.bloodanalyzer>
 
 <entityname.bloodcollector>Blutsammelpatrone</entityname.bloodcollector>
 <entitydescription.bloodcollector>Leere Blutsammelpatrone. Vom hematologischen Analysator verwendet.</entitydescription.bloodcollector>
 
-<Override>
-<entityname.healthscanner>Vitalitätsscanner</entityname.healthscanner>
-<entitydescription.healthscanner>Verwendet um die Ursachen von Symptomen zu erkennen.</entitydescription.healthscanner>
-</Override>
+<!--<Override>-->
+<entityname.healthscanner-override>Vitalitätsscanner</entityname.healthscanner-override>
+<entitydescription.healthscanner-override>Verwendet um die Ursachen von Symptomen zu erkennen.</entitydescription.healthscanner-override>
+<!--</Override>-->
 
 <stasisbagequipconfirmation>Wenn du das ausrüstest wirst du bewusstlos. Bist du sicher?</stasisbagequipconfirmation>
 
@@ -139,10 +139,10 @@
 <entityname.bloodpackabminus>Blutpaket AB-</entityname.bloodpackabminus>
 <entitydescription.bloodpackabminus>Administerable to: AB-, AB+</entitydescription.bloodpackabminus>
 
-<Override>
-<entityname.antibloodloss2>Blutpaket O-</entityname.antibloodloss2>
-<entitydescription.antibloodloss2>A blood pack that can be used on any patient.</entitydescription.antibloodloss2>
-</Override>
+<!--<Override>-->
+<entityname.antibloodloss2-override>Blutpaket O-</entityname.antibloodloss2-override>
+<entitydescription.antibloodloss2-override>A blood pack that can be used on any patient.</entitydescription.antibloodloss2-override>
+<!--</Override>-->
 
 <entityname.ominuscard>Spenderkarte O-</entityname.ominuscard>
 <entitydescription.ominuscard>Kann nehmen von: O-
