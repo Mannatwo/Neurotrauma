@@ -466,135 +466,178 @@ function HF.GiveSkillScaled(character,skilltype,amount)
 end
 
 function HF.GiveItem(character,identifier)
-    if SERVER then
-        -- use server spawn method
-        Game.SpawnItem(identifier,character.WorldPosition,true,character)
-    else
-        -- use client spawn method
-        Timer.Wait(function()
-            character.Inventory.TryPutItem(Item(ItemPrefab.GetItemPrefab(identifier), character.WorldPosition), nil, {InvSlotType.Any})
-        end,1)
-    end
+	-- hostside only
+	if Game.IsMultiplayer and CLIENT then return end
+	-- XXX: this is a workaround for a race condition where `Entity.Spawner` is
+	-- initialized after Luatrauma invokes our `<LuaHook>`s.
+	if not Entity.Spawner then
+		-- Reschedule it to run on the next frame... hopefully it will be initialized then
+		Timer.Wait(function()
+			HF.GiveItem(character,identifier)
+		end, 35)
+		return
+	end
+	
+	-- HF.GiveItem is used in items that spawn sound FX items
+	-- we will call a different overload of AddItemToSpawnQueue function 
+	-- with a character.WorldPosition argument instead of Inventory
+	if HF.StartsWith(identifier,"ntsfx_") then
+		-- This needs to be done on the next tick because Barotrauma processes
+		-- the spawn queue before the remove queue, which could result in the
+		-- item container overflowing.
+		Timer.Wait(function()
+			local prefab = ItemPrefab.GetItemPrefab(identifier)
+			Entity.Spawner.AddItemToSpawnQueue(prefab, character.WorldPosition, nil, nil, nil)
+		end,35)
+	else
+		Timer.Wait(function()
+			local prefab = ItemPrefab.GetItemPrefab(identifier)
+			Entity.Spawner.AddItemToSpawnQueue(prefab, character.Inventory, nil, nil, nil, true, true, InvSlotType.Any)
+		end,35)
+	end
 end
 
 function HF.GiveItemAtCondition(character,identifier,condition)
-    if SERVER then
-        -- use server spawn method
-        local prefab = ItemPrefab.GetItemPrefab(identifier)
-        Entity.Spawner.AddItemToSpawnQueue(prefab, character.WorldPosition, nil, nil, function(item)
-            item.Condition = condition
-            character.Inventory.TryPutItem(item, nil, {InvSlotType.Any})
-        end)
-    else
-        -- use client spawn method
-        Timer.Wait(function()
-            local item = Item(ItemPrefab.GetItemPrefab(identifier), character.WorldPosition)
-            item.Condition = condition
-            character.Inventory.TryPutItem(item, nil, {InvSlotType.Any})
-        end,1)
-    end
+	-- hostside only
+	if Game.IsMultiplayer and CLIENT then return end
+	if not Entity.Spawner then
+		Timer.Wait(function()
+			HF.GiveItemAtCondition(character,identifier,condition)
+		end, 35)
+		return
+	end
+	
+	-- use server spawn method
+	Timer.Wait(function()
+		local prefab = ItemPrefab.GetItemPrefab(identifier)
+		Entity.Spawner.AddItemToSpawnQueue(prefab, character.WorldPosition, nil, nil, function(item)
+			item.Condition = condition
+			character.Inventory.TryPutItem(item, nil, {InvSlotType.Any})
+		end)
+	end, 35)
 end
 
 -- for use with items
 function HF.SpawnItemPlusFunction(identifier,func,params,inventory,targetslot,position)
-    local prefab = ItemPrefab.GetItemPrefab(identifier)
+	-- hostside only
+	if Game.IsMultiplayer and CLIENT then return end
+	
+	if not Entity.Spawner then
+		Timer.Wait(function()
+			HF.SpawnItemPlusFunction(identifier,func,params,inventory,targetslot,position)
+		end, 35)
+		return
+	end
     if params == nil then params = {} end
     
-    if SERVER then
-        Entity.Spawner.AddItemToSpawnQueue(prefab, position or inventory.Container.Item.WorldPosition, nil, nil, function(newitem)
+	-- use server spawn method
+	Timer.Wait(function()
+		local prefab = ItemPrefab.GetItemPrefab(identifier)
+		Entity.Spawner.AddItemToSpawnQueue(prefab, position or inventory.Container.Item.WorldPosition, nil, nil, function(newitem)
             if inventory~=nil then
                 inventory.TryPutItem(newitem, targetslot,true,true,nil)
             end
             params["item"]=newitem
             if func ~= nil then func(params) end
         end)
-    else
-        Timer.Wait(function()
-            local newitem = Item(prefab, position or inventory.Container.Item.WorldPosition)
-            if inventory~=nil then
-                inventory.TryPutItem(newitem, targetslot,true,true,nil)
-            end
-            params["item"]=newitem
-            if func ~= nil then func(params) end
-        end,1)
-    end
+	end,35)
 end
 
 -- for use with characters
 function HF.GiveItemPlusFunction(identifier,func,params,character)
-    local prefab = ItemPrefab.GetItemPrefab(identifier)
+	-- hostside only
+	if Game.IsMultiplayer and CLIENT then return end
+	
+	if not Entity.Spawner then
+		Timer.Wait(function()
+			local prefab = ItemPrefab.GetItemPrefab(identifier)
+			HF.GiveItemPlusFunction(identifier,func,params,character)
+		end, 35)
+		return
+	end
+	
     if params == nil then params = {} end
-    
-    if SERVER then
-        Entity.Spawner.AddItemToSpawnQueue(prefab, character.WorldPosition, nil, nil, function(newitem)
+
+	-- use server spawn method
+	Timer.Wait(function()
+		local prefab = ItemPrefab.GetItemPrefab(identifier)
+		Entity.Spawner.AddItemToSpawnQueue(prefab, character.WorldPosition, nil, nil, function(newitem)
             if character.Inventory~=nil then
                 character.Inventory.TryPutItem(newitem, nil, {InvSlotType.Any})
             end
             params["item"]=newitem
             func(params)
         end)
-    else
-        Timer.Wait(function()
-            local newitem = Item(prefab, character.WorldPosition)
-            if character.Inventory~=nil then
-                character.Inventory.TryPutItem(newitem, nil, {InvSlotType.Any})
-            end
-            params["item"]=newitem
-            func(params)
-        end,1)
-    end
+	end,35)
 end
 
 function HF.SpawnItemAt(identifier,position)
-    if SERVER then
-        -- use server spawn method
-        Game.SpawnItem(identifier,position,false,nil)
-    else
-        -- use client spawn method
-        Timer.Wait(function()
-            Item(ItemPrefab.GetItemPrefab(identifier), position)
-        end,1)
-    end
+	-- hostside only
+	if Game.IsMultiplayer and CLIENT then return end
+	
+	if not Entity.Spawner then
+		Timer.Wait(function()
+			HF.SpawnItemAt(identifier,position)
+		end, 35)
+		return
+	end
+	
+	local prefab = ItemPrefab.GetItemPrefab(identifier)
+	
+	-- use server spawn method
+	Timer.Wait(function()
+		local prefab = ItemPrefab.GetItemPrefab(identifier)
+		Entity.Spawner.AddItemToSpawnQueue(prefab, position, nil, nil, nil)
+	end,35)
 end
 
 function HF.ForceArmLock(character,identifier)
 
+	-- hostside only
+	if Game.IsMultiplayer and CLIENT then return end
+	
+	if not Entity.Spawner then
+		Timer.Wait(function()
+			HF.ForceArmLock(character,identifier)
+		end, 35)
+		return
+	end
+	
     local handindex = 6
     if(identifier=="armlock2") then handindex = 5 end
-
-    if SERVER then
-        -- drop previously held item
-        local previtem = character.Inventory.GetItemAt(handindex)
-        if(previtem ~= nil) then 
-            previtem.Drop(character,true)
-        end
-
-        HF.GiveItem(character,identifier)
-    else
-        Timer.Wait(function()
-            local item = Item(ItemPrefab.GetItemPrefab(identifier), character.WorldPosition)
-
-            -- drop previously held item
-            local previtem = character.Inventory.GetItemAt(handindex)
-            if(previtem ~= nil) then 
-                previtem.Drop(character,true)
-            end
-        
-            character.Inventory.ForceToSlot(item,handindex)
-        end,1)
+    
+    -- drop previously held item
+    local previtem = character.Inventory.GetItemAt(handindex)
+    if(previtem ~= nil) then 
+        previtem.Drop(character,true)
     end
+
+    Timer.Wait(function()
+		local prefab = ItemPrefab.GetItemPrefab(identifier)
+		Entity.Spawner.AddItemToSpawnQueue(prefab, character.WorldPosition, nil, nil, function(newitem)
+            if character.Inventory~=nil and identifier == "armlock1" then
+                character.Inventory.TryPutItem(newitem, nil, {InvSlotType.RightHand})
+            elseif character.Inventory~=nil and identifier == "armlock2" then
+                character.Inventory.TryPutItem(newitem, nil, {InvSlotType.LeftHand})
+            end
+        end)
+	end,35)
 end
 
 function HF.RemoveItem(item)
+	-- hostside only
+	if Game.IsMultiplayer and CLIENT then return end
+	
     if item == nil or item.Removed then return end
-    
-    if SERVER then
-        -- use server remove method
-        Entity.Spawner.AddEntityToRemoveQueue(item)
-    else
-        -- use client remove method
-        item.Remove()
-    end
+	
+	if not Entity.Spawner then
+		Timer.Wait(function()
+			HF.RemoveItem(item)
+		end, 35)
+    return end
+	
+	-- use server remove method
+	Entity.Spawner.AddEntityToRemoveQueue(item)
 end
 
 function HF.RemoveCharacter(character)
@@ -712,6 +755,15 @@ function HF.TableContains(table, value)
 end
 
 function HF.PutItemInsideItem(container,identifier,index)
+	-- hostside only
+	if Game.IsMultiplayer and CLIENT then return end
+	
+	if not Entity.Spawner then
+		Timer.Wait(function()
+			HF.PutItemInsideItem(container,identifier,index)
+		end, 35)
+    return end
+	
     if index==nil then index = 0 end
 
     local inv = container.OwnInventory
@@ -722,21 +774,13 @@ function HF.PutItemInsideItem(container,identifier,index)
         inv.ForceRemoveFromSlot(previtem, index)
         previtem.Drop()
     end
-
-    Timer.Wait(function() 
-        if SERVER then
-            -- use server spawn method
-            local prefab = ItemPrefab.GetItemPrefab(identifier)
-            Entity.Spawner.AddItemToSpawnQueue(prefab, container.WorldPosition, nil, nil, function(item)
-                inv.TryPutItem(item, nil, {index}, true, true)
-            end)
-        else
-            -- use client spawn method
-            local item = Item(ItemPrefab.GetItemPrefab(identifier), container.WorldPosition)
+	-- use server spawn method
+    Timer.Wait(function()
+        local prefab = ItemPrefab.GetItemPrefab(identifier)
+        Entity.Spawner.AddItemToSpawnQueue(prefab, container.WorldPosition, nil, nil, function(item)
             inv.TryPutItem(item, nil, {index}, true, true)
-        end
-    end,
-    10)
+        end)
+    end,35)
 end
 
 function HF.CanPerformSurgeryOn(character)
