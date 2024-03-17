@@ -697,7 +697,6 @@ NT.ItemMethods.tweezers = function(item, usingCharacter, targetCharacter, limb)
             if usecase=="surgery" then
                 healAfflictionGiveSkill("internaldamage",5,3)
                 healAfflictionGiveSkill("blunttrauma",5,3)
-                healAfflictionGiveSkill("necrosis",5,1)
             end
         else
             HF.AddAfflictionLimb(targetCharacter,"internaldamage",limbtype,6,usingCharacter)
