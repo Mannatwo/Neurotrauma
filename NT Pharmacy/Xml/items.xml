@@ -2,7 +2,7 @@
 <Items>
   <Item name="" identifier="custompill" category="Medical" cargocontaineridentifier="mediccrate"
       Tags="smallitem,chem,medical,pill" description="" useinhealthinterface="true" scale="0.3"
-      impactsoundtag="impact_metal_light" maxstacksize="16">
+      impactsoundtag="impact_metal_light" maxstacksize="32" maxstacksizecharacterinventory="16">
     <PreferredContainer primary="medcab" spawnprobability="0"/>
     <PreferredContainer primary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="8" spawnprobability="0.9"/>
     <PreferredContainer primary="outposttrashcan" minamount="0" maxamount="2" spawnprobability="0.1"/>
@@ -25,11 +25,11 @@
       </StatusEffect>
     </Holdable>
   </Item>
-  <Item name="" identifier="custompill_horsepill" variantof="custompill" maxstacksize="8">
+  <Item name="" identifier="custompill_horsepill" variantof="custompill" maxstacksize="16" maxstacksizecharacterinventory="8">
     <InventoryIcon texture="%ModDir%/Images/InventoryItemIconAtlas.png" sourcerect="64,0,64,64" origin="0.5,0.5"/>
     <Sprite texture="%ModDir%/Images/InventoryItemIconAtlas.png" sourcerect="64,0,64,64" depth="0.6" origin="0.5,0.5"/>
   </Item>
-  <Item name="" identifier="custompill_tablets" variantof="custompill" maxstacksize="32">
+  <Item name="" identifier="custompill_tablets" variantof="custompill" maxstacksize="63" maxstacksizecharacterinventory="32">
     <InventoryIcon texture="%ModDir%/Images/InventoryItemIconAtlas.png" sourcerect="128,0,64,64" origin="0.5,0.5"/>
     <Sprite texture="%ModDir%/Images/InventoryItemIconAtlas.png" sourcerect="128,0,64,64" depth="0.6" origin="0.5,0.5"/>
   </Item>
