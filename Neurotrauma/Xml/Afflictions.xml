@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<Override>
+
 <Afflictions>
 
   <!-- /// Meta /// -->
@@ -3729,7 +3731,7 @@ thats what the vomiting symptom is for -->
 
 
   <!-- /// Override section begins /// -->
-  <Override>
+  <!-- Vanilla affliction override start -->
     <OxygenLow
       name=""
       identifier="oxygenlow"
@@ -3747,8 +3749,8 @@ thats what the vomiting symptom is for -->
 
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="512,640,128,128" color="68,157,198,255" origin="0,0"/>
     </OxygenLow>
-  </Override>
-  <Override>
+  <!-- Vanilla affliction override end -->
+  <!-- Vanilla affliction override start -->
     <Bloodloss
       identifier="bloodloss"
       type="bloodloss"
@@ -3771,8 +3773,8 @@ thats what the vomiting symptom is for -->
 
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="0,768,128,128" color="139,60,42,255" origin="0,0"/>
     </Bloodloss>
-  </Override>
-  <Override>
+  <!-- Vanilla affliction override end -->
+  <!-- Vanilla affliction override start -->
     <CPRSettings
       revivechanceperskill="0.007"
       revivechanceexponent="2"
@@ -3785,8 +3787,8 @@ thats what the vomiting symptom is for -->
       damageskillmultiplier="0.05"
       insufficientskillaffliction="blunttrauma">
     </CPRSettings>
-  </Override>
-  <Override>
+  <!-- Vanilla affliction override end -->
+  <!-- Vanilla affliction override start -->
     <Affliction
       name="Morbusine poisoning"
       identifier="morbusinepoisoning"
@@ -3921,8 +3923,8 @@ thats what the vomiting symptom is for -->
       </PeriodicEffect>
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="640,640,128,128" color="106,106,106,255" origin="0,0"/>
     </Affliction>
-  </Override>
-  <Override>
+  <!-- Vanilla affliction override end -->
+  <!-- Vanilla affliction override start -->
     <Affliction
     name="Cyanide poisoning"
     identifier="cyanidepoisoning"
@@ -4069,8 +4071,8 @@ thats what the vomiting symptom is for -->
     </Effect>
     <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="640,640,128,128" color="106,106,106,255" origin="0,0"/>
     </Affliction>
-  </Override>
-  <Override>
+  <!-- Vanilla affliction override end -->
+  <!-- Vanilla affliction override start -->
     <Affliction
     name="Sufforin Poisoning"
     identifier="sufforinpoisoning"
@@ -4178,8 +4180,8 @@ thats what the vomiting symptom is for -->
     </PeriodicEffect>
     <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="640,640,128,128" color="106,106,106,255" origin="0,0"/>
     </Affliction>
-  </Override>
-  <Override>
+  <!-- Vanilla affliction override end -->
+  <!-- Vanilla affliction override start -->
     <InternalDamage
       name=""
       identifier="internaldamage"
@@ -4197,8 +4199,8 @@ thats what the vomiting symptom is for -->
         maxvitalitydecrease="2"/>
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,768,128,128" color="195,136,60,255" origin="0,0"/>
     </InternalDamage>
-  </Override>
-  <Override>
+  <!-- Vanilla affliction override end -->
+  <!-- Vanilla affliction override start -->
     <InternalDamage
       name=""
       identifier="blunttrauma"
@@ -4223,8 +4225,8 @@ thats what the vomiting symptom is for -->
           maxvitalitydecrease="2"/>
       <icon texture="%ModDir%/Images/AfflictionIcons2.png" sheetindex="4,0" sheetelementsize="128,128" origin="0,0"/>
     </InternalDamage>
-  </Override>
-  <Override>
+  <!-- Vanilla affliction override end -->
+  <!-- Vanilla affliction override start -->
     <InternalDamage
       name=""
       identifier="organdamage"
@@ -4247,8 +4249,8 @@ thats what the vomiting symptom is for -->
         maxvitalitydecrease="2"/>
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,384,128,128" color="195,136,60,255" origin="0,0"/>
     </InternalDamage>
-  </Override>
-  <Override>
+  <!-- Vanilla affliction override end -->
+  <!-- Vanilla affliction override start -->
     <Burn
       name=""
       identifier="burn"
@@ -4272,8 +4274,8 @@ thats what the vomiting symptom is for -->
 
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="768,640,128,128" color="195,104,60,255" origin="0,0"/>
     </Burn>
-  </Override>
-  <Override>
+  <!-- Vanilla affliction override end -->
+  <!-- Vanilla affliction override start -->
     <AcidBurn
       identifier="acidburn"
       type="burn"
@@ -4290,8 +4292,8 @@ thats what the vomiting symptom is for -->
         maxvitalitydecrease="2"/>
       <icon texture="Content/UI/CommandUIBackground.png" sourcerect="640,768,128,128" color="84,171,90,255" origin="0,0"/>
     </AcidBurn>
-  </Override>
-  <Override>
+  <!-- Vanilla affliction override end -->
+  <!-- Vanilla affliction override start -->
     <!-- Gradually applies the "opiate withdrawal" affliction to the character -->
     <Affliction
       name=""
@@ -4334,8 +4336,8 @@ thats what the vomiting symptom is for -->
 
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="384,768,128,128" color="195,180,60,255" origin="0,0"/>
     </Affliction>
-  </Override>
-  <Override>
+  <!-- Vanilla affliction override end -->
+  <!-- Vanilla affliction override start -->
     <Affliction
       name=""
       identifier="opiateoverdose"
@@ -4367,8 +4369,8 @@ thats what the vomiting symptom is for -->
         maxradialdistort="10.0"/>
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="640,768,128,128" color="103,103,103,255" origin="0,0"/>
     </Affliction>
-  </Override>
-  <Override>
+  <!-- Vanilla affliction override end -->
+  <!-- Vanilla affliction override start -->
     <Affliction
       name=""
       identifier="opiatewithdrawal"
@@ -4424,8 +4426,8 @@ thats what the vomiting symptom is for -->
 
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="512,768,128,128" color="209,121,84,255" origin="0,0"/>
     </Affliction>
-  </Override>
-  <Override>
+  <!-- Vanilla affliction override end -->
+  <!-- Vanilla affliction override start -->
     <Affliction
     name=""
     identifier="chemaddiction"
@@ -4465,8 +4467,8 @@ thats what the vomiting symptom is for -->
       </Effect>
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="384,768,128,128" color="195,180,60,255" origin="0,0"/>
     </Affliction>
-  </Override>
-  <Override>
+  <!-- Vanilla affliction override end -->
+  <!-- Vanilla affliction override start -->
     <Affliction
       name=""
       identifier="chemwithdrawal"
@@ -4521,8 +4523,8 @@ thats what the vomiting symptom is for -->
 
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="512,768,128,128" color="209,121,84,255" origin="0,0"/>
     </Affliction>
-  </Override>
-  <Override>
+  <!-- Vanilla affliction override end -->
+  <!-- Vanilla affliction override start -->
     <Affliction
       name=""
       identifier="invertcontrols"
@@ -4542,8 +4544,8 @@ thats what the vomiting symptom is for -->
         <StatusEffect target="Character" SpeedMultiplier="0.7" setvalue="true"/>
       </Effect>
     </Affliction>
-  </Override>
-  <Override>
+  <!-- Vanilla affliction override end -->
+  <!-- Vanilla affliction override start -->
     <Affliction
     identifier="drunk"
     description=""
@@ -4677,8 +4679,8 @@ thats what the vomiting symptom is for -->
 
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="384,640,128,128" color="170,194,147,255" origin="0,0"/>
     </Affliction>
-  </Override>
-  <Override>
+  <!-- Vanilla affliction override end -->
+  <!-- Vanilla affliction override start -->
     <Affliction
       name=""
       identifier="radiationsickness"
@@ -4764,8 +4766,8 @@ thats what the vomiting symptom is for -->
       
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="896,768,128,128" color="195,136,60,255" origin="0,0"/>
     </Affliction>
-  </Override>
-  <Override>
+  <!-- Vanilla affliction override end -->
+  <!-- Vanilla affliction override start -->
     <Affliction
       name=""
       identifier="concussion"
@@ -4785,8 +4787,8 @@ thats what the vomiting symptom is for -->
         screeneffectfluctuationfrequency="0.05"/>
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,640,128,128" color="195,177,60,255" origin="0,0"/>
     </Affliction>
-  </Override>
-  <Override>
+  <!-- Vanilla affliction override end -->
+  <!-- Vanilla affliction override start -->
     <Affliction
       identifier="implacable"
       type="talentbuff"
@@ -4802,9 +4804,9 @@ thats what the vomiting symptom is for -->
       </Effect>
       <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="0,0" sheetelementsize="128,128" color="10,193,114,255" origin="0,0"/>
     </Affliction>
-  </Override>
+  <!-- Vanilla affliction override end -->
 
-  <Override>
+  <!-- Vanilla affliction override start -->
     <Affliction
     identifier="combatstimulant"
     type="talentbuff"
@@ -4844,12 +4846,12 @@ thats what the vomiting symptom is for -->
     </Effect>
     <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="2,6" sheetelementsize="128,128" color="10,193,114,255" origin="0,0"/>
   </Affliction>
-  </Override>
+  <!-- Vanilla affliction override end -->
   <!-- vanilla nausea override -->
   <!-- previously this wasnt a thing because it crashed the game for some reason when overridden -->
   <!-- but i kinda need to override it now to detect vanilla vomiting -->
   <!-- lets hope it no longer crashes! --> 
-  <Override>
+  <!-- Vanilla affliction override start -->
     <Affliction
       name="Nausea"
       identifier="nausea"
@@ -4917,7 +4919,9 @@ thats what the vomiting symptom is for -->
 
       <icon texture="Content/UI/CommandUIAtlas.png" sourcerect="896,896,128,128" origin="0,0"/>
     </Affliction>
-  </Override>
+  <!-- Vanilla affliction override end -->
   <!-- /// Override section ends /// -->
 
 </Afflictions>
+
+</Override>
