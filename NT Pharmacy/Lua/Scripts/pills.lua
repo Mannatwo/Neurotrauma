@@ -154,13 +154,11 @@ NTP.PillData.items = {
     antibiotics={types={"active"},skillrequirement=25,
         effects={
             {type="addeffect",identifier="afantibiotics",amount=25},
-            {type="addeffect",identifier="huskinfectionresistance",amount=300},
-            {type="addeffect",identifier="bloodpressure",amount=10}
+            {type="addeffect",identifier="huskinfectionresistance",amount=300}
         },
         faileffects={
             {type="addeffect",identifier="afantibiotics",amount=15},
-            {type="addeffect",identifier="huskinfectionresistance",amount=150},
-            {type="addeffect",identifier="bloodpressure",amount=10}
+            {type="addeffect",identifier="huskinfectionresistance",amount=150}
         }
     },
     adrenaline={types={"active"},skillrequirement=0,
@@ -192,7 +190,6 @@ NTP.PillData.items = {
             {type="addeffect",identifier="organdamage",amount=-20},
             {type="addeffect",identifier="internaldamage",amount=-20},
             {type="addeffect",identifier="bloodloss",amount=-20},
-            {type="addeffect",identifier="bloodpressure",amount=20},
             {type="addeffect",identifier="hypoxemia",amount=-50}
         },
         faileffects={
@@ -200,7 +197,6 @@ NTP.PillData.items = {
             {type="addeffect",identifier="organdamage",amount=-10},
             {type="addeffect",identifier="internaldamage",amount=-10},
             {type="addeffect",identifier="bloodloss",amount=-10},
-            {type="addeffect",identifier="bloodpressure",amount=10},
             {type="addeffect",identifier="hypoxemia",amount=-20}
         }
     },
@@ -226,14 +222,12 @@ NTP.PillData.items = {
         effects={
             {type="addeffect",identifier="strengthen",amount=210},
             {type="addeffect",identifier="chemaddiction",amount=7.5},
-            {type="addeffect",identifier="chemwithdrawal",amount=-45},
-            {type="addeffect",identifier="oxygenlow",amount=-6}
+            {type="addeffect",identifier="chemwithdrawal",amount=-45}
         },
         faileffects={
             {type="addeffect",identifier="strengthen",amount=150},
             {type="addeffect",identifier="chemaddiction",amount=15},
-            {type="addeffect",identifier="chemwithdrawal",amount=-45},
-            {type="addeffect",identifier="oxygenlow",amount=-6}
+            {type="addeffect",identifier="chemwithdrawal",amount=-45}
         }
     },
     hyperzine={types={"active"},skillrequirement=50,
@@ -451,7 +445,7 @@ NTP.PillData.items = {
     },
     iron={types={"active"},skillrequirement=0,
         effects={
-            {type="addeffect",identifier="bloodloss",amount=-20}
+            {type="addeffect",identifier="bloodloss",amount=-10}
         }
     },
     -- poisons
