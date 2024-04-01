@@ -22,6 +22,14 @@ end
 
 function NT.RefreshScalpelDescription(item)
     -- if not HF.ItemHasTag(item,"init") then return end
+	-- hostside only
+	if Game.IsMultiplayer and CLIENT then return end
+	
+	if not Entity.Spawner then
+		Timer.Wait(function()
+			NT.RefreshScalpelDescription(item)
+		end, 35)
+    return end
 
     local functiontag = GetMultiscalpelMode(item)
 
@@ -33,7 +41,6 @@ function NT.RefreshScalpelDescription(item)
 
     if description == "" then return end
 
-    local prefab = item.Prefab
     local targetinventory = item.ParentInventory
     local targetslot = 0
     if targetinventory ~= nil then targetslot = targetinventory.FindIndex(item) end
@@ -46,19 +53,13 @@ function NT.RefreshScalpelDescription(item)
         newscalpelitem.Description = description
         newscalpelitem.Tags = "multiscalpel_"..functiontag
     end
-
-    if SERVER then
-        item.Drop()
+	HF.RemoveItem(item)
+	Timer.Wait(function()
+		local prefab = item.Prefab
         Entity.Spawner.AddItemToSpawnQueue(prefab, item.WorldPosition, nil, nil, function(newscalpelitem)
-            HF.RemoveItem(item)
             SpawnFunc(newscalpelitem,targetinventory)
         end)
-    else
-        -- use client spawn method
-        HF.RemoveItem(item)
-        local newscalpelitem = Item(prefab, item.WorldPosition)
-        SpawnFunc(newscalpelitem,targetinventory)
-    end
+	end,35)
 end
 
 Hook.Add("roundStart", "NT.RoundStart.Multiscalpels", function()
