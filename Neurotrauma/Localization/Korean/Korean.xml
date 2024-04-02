@@ -19,10 +19,10 @@
   <entityname.wheelchair>휠체어</entityname.wheelchair>
   <entitydescription.wheelchair>움직임을 위해 다리 대신 팔에 의존하게 만듭니다.</entitydescription.wheelchair>
   <entityname.blahaj>청상어</entityname.blahaj>
-  <Override>
-    <entityname.healthscanner>건강 진단기</entityname.healthscanner>
-    <entitydescription.healthscanner>증상의 근본 원인을 진단하는 데 사용됩니다.</entitydescription.healthscanner>
-  </Override>
+  <!--<Override>-->
+    <entityname.healthscanner-override>건강 진단기</entityname.healthscanner-override>
+    <entitydescription.healthscanner-override>증상의 근본 원인을 진단하는 데 사용됩니다.</entitydescription.healthscanner-override>
+  <!--</Override>-->
   <stasisbagequipconfirmation>이것을 장착하면 의식을 잃게 됩니다. 확실합니까?</stasisbagequipconfirmation>
   <!-- /// Surgery /// -->
   <entityname.advscalpel>메스</entityname.advscalpel>
@@ -115,10 +115,10 @@
 <entityname.bloodpackabminus>AB- 혈액 팩</entityname.bloodpackabminus>
 <entitydescription.bloodpackabminus>수혈 가능한 환자의 혈액형: AB-, AB+</entitydescription.bloodpackabminus>
 
-<Override>
-<entityname.antibloodloss2>O- 혈액 팩</entityname.antibloodloss2>
-<entitydescription.antibloodloss2>모든 환자에게 사용할 수 있는 혈액 팩.</entitydescription.antibloodloss2>
-</Override>
+<!--<Override>-->
+<entityname.antibloodloss2-override>O- 혈액 팩</entityname.antibloodloss2-override>
+<entitydescription.antibloodloss2-override>모든 환자에게 사용할 수 있는 혈액 팩.</entitydescription.antibloodloss2-override>
+<!--</Override>-->
 
 <entityname.ominuscard>O- 혈액 기증자 카드</entityname.ominuscard>
 <entitydescription.ominuscard>이 혈액형으로부터 수혈받을 수 있음: O-

@@ -31,10 +31,10 @@
 
 <entityname.blahaj>Żarłacz błękitny</entityname.blahaj>
 
-<Override>
-<entityname.healthscanner>Skaner zdrowia</entityname.healthscanner>
-<entitydescription.healthscanner>Podobnie jak analizator krwi, służy do diagnozowania przyczyn objawów. UWAGA: promieniowanie rentgenowskie.</entitydescription.healthscanner>
-</Override>
+<!--<Override>-->
+<entityname.healthscanner-override>Skaner zdrowia</entityname.healthscanner-override>
+<entitydescription.healthscanner-override>Podobnie jak analizator krwi, służy do diagnozowania przyczyn objawów. UWAGA: promieniowanie rentgenowskie.</entitydescription.healthscanner-override>
+<!--</Override>-->
 
 <stasisbagequipconfirmation>Założenie spowoduje utratę przytomności. Czy na pewno chcesz to założyć?</stasisbagequipconfirmation>
 
@@ -165,10 +165,10 @@
 <entityname.bloodpackabminus>Worek krwi AB-</entityname.bloodpackabminus>
 <entitydescription.bloodpackabminus>Biorcy: AB-, AB+</entitydescription.bloodpackabminus>
 
-<Override>
-<entityname.antibloodloss2>Worek krwi O-</entityname.antibloodloss2>
-<entitydescription.antibloodloss2>Biorcy: wszyscy.</entitydescription.antibloodloss2>
-</Override>
+<!--<Override>-->
+<entityname.antibloodloss2-override>Worek krwi O-</entityname.antibloodloss2-override>
+<entitydescription.antibloodloss2-override>Biorcy: wszyscy.</entitydescription.antibloodloss2-override>
+<!--</Override>-->
 
 <entityname.ominuscard>Karta dawcy O-</entityname.ominuscard>
 <entitydescription.ominuscard>Może pobrać krew od: O-
