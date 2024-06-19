@@ -1326,7 +1326,7 @@
         <Deconstruct time="20">
             <Item identifier="stabilozine" mincondition="0.1" outcondition="0.25"/>
         </Deconstruct>
-        <SuitableTreatment identifier="infectedwound" suitability="20"/>
+        <SuitableTreatment identifier="infection" suitability="20"/>
         <SuitableTreatment identifier="burn" suitability="15"/>
         <InventoryIcon texture="%ModDir%/Images/InventoryItemIconAtlas.png" sourcerect="64,64,64,64"
                        origin="0.5,0.5"/>
@@ -1364,7 +1364,7 @@
             <RequiredItem identifier="plastic"/>
         </Fabricate>
         <Body width="150" height="60" density="40"/>
-        <SuitableTreatment identifier="infectedwound" suitability="45"/>
+        <SuitableTreatment identifier="infection" suitability="45"/>
         <Pickable slots="Any,RightHand,LeftHand" msg="ItemMsgPickUpSelect"/>
         <Holdable slots="Any,RightHand,LeftHand" controlpose="true" aimpos="30,0" handle1="0,-7" handle2="95, 10"
                   msg="ItemMsgPickUpSelect"/>
@@ -1380,7 +1380,7 @@
                           Condition="-10.0"/>
             <StatusEffect tags="medical" type="OnUse" target="Limb" disabledeltatime="true">
                 <Sound file="%ModDir%/Sound/spray.ogg" range="500"/>
-                <ReduceAffliction identifier="infectedwound" amount="100"/>
+                <ReduceAffliction identifier="infection" amount="100"/>
                 <Affliction identifier="ointmented" amount="5"/>
             </StatusEffect>
         </RepairTool>
@@ -2933,7 +2933,7 @@
       <Body width="25" height="40" density="10.05" />
       <SuitableTreatment identifier="bleeding" suitability="32"/>
       <SuitableTreatment identifier="burn" suitability="35"/>
-      <SuitableTreatment identifier="infectedwound" suitability="6"/>
+      <SuitableTreatment identifier="infection" suitability="6"/>
       <SuitableTreatment identifier="dirtybandage" suitability="100"/>
       <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5"
                    handle1="0,0" holdangle="10" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">

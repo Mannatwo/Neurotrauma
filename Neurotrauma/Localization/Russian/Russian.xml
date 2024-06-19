@@ -512,8 +512,8 @@
 <afflictionname.immunity>Иммунитет</afflictionname.immunity>
 <afflictiondescription.immunity></afflictiondescription.immunity>
 
-<afflictionname.infectedwound>Заражённая рана</afflictionname.infectedwound>
-<afflictiondescription.infectedwound></afflictiondescription.infectedwound>
+<afflictionname.infection>Заражённая рана</afflictionname.infection>
+<afflictiondescription.infection></afflictiondescription.infection>
 
 <afflictionname.sepsis>Сепсис</afflictionname.sepsis>
 <afflictiondescription.sepsis></afflictiondescription.sepsis>

@@ -360,8 +360,8 @@ Pode dar sangue para: AB+</entitydescription.abpluscard>
 <afflictiondescription.suturedw>As feridas foram suturadas.</afflictiondescription.suturedw>
 <afflictionname.immunity>Imunidade</afflictionname.immunity>
 <afflictiondescription.immunity></afflictiondescription.immunity>
-<afflictionname.infectedwound>Ferida Infectada</afflictionname.infectedwound>
-<afflictiondescription.infectedwound></afflictiondescription.infectedwound>
+<afflictionname.infection>Ferida Infectada</afflictionname.infection>
+<afflictiondescription.infection></afflictiondescription.infection>
 <afflictionname.sepsis>Infeção Sanguínea</afflictionname.sepsis>
 <afflictiondescription.sepsis></afflictiondescription.sepsis>
 <afflictionname.necrosis>Necrose</afflictionname.necrosis>

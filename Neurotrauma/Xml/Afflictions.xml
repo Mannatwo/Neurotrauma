@@ -933,8 +933,8 @@
     isbuff="true"> 
     <Effect minstrength="0" maxstrength="100" strengthchange="-0.3">
 		<StatusEffect target="Limb">
-      <Conditional infectedwound="lte 60"/>
-			<ReduceAffliction identifier="infectedwound" amount="1.5"/>
+      <Conditional infection="lte 60"/>
+			<ReduceAffliction identifier="infection" amount="1.5"/>
 		</StatusEffect>
     </Effect>
 		<icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="3,4" sheetelementsize="128,128" origin="0,0"/>
@@ -1483,7 +1483,7 @@
   Scanned Symptom -->
   <Affliction
     name=""
-    identifier="infectedwound"
+    identifier="infection"
     description=""
     healableinmedicalclinic="false"
     targets="human"

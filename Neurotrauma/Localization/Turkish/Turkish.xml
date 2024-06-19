@@ -519,8 +519,8 @@ Can give blood to: AB+</entitydescription.abpluscard>
 <afflictionname.immunity>Bağışıklık</afflictionname.immunity>
 <afflictiondescription.immunity></afflictiondescription.immunity>
 
-<afflictionname.infectedwound>Enfekte Yara</afflictionname.infectedwound>
-<afflictiondescription.infectedwound></afflictiondescription.infectedwound>
+<afflictionname.infection>Enfekte Yara</afflictionname.infection>
+<afflictiondescription.infection></afflictiondescription.infection>
 
 <afflictionname.sepsis>Septisemi</afflictionname.sepsis>
 <afflictiondescription.sepsis></afflictiondescription.sepsis>
