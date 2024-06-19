@@ -515,8 +515,8 @@ Puede dar sangre a: AB+</entitydescription.abpluscard>
 <afflictionname.immunity>Inmunidad</afflictionname.immunity>
 <afflictiondescription.immunity></afflictiondescription.immunity>
 
-<afflictionname.infectedwound>Herida infectada</afflictionname.infectedwound>
-<afflictiondescription.infectedwound></afflictiondescription.infectedwound>
+<afflictionname.infection>Herida infectada</afflictionname.infection>
+<afflictiondescription.infection></afflictiondescription.infection>
 
 <afflictionname.sepsis>Septicemia</afflictionname.sepsis>
 <afflictiondescription.sepsis></afflictiondescription.sepsis>

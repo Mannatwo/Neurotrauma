@@ -515,8 +515,8 @@ Peut donner du sang à: AB+</entitydescription.abpluscard>
 <afflictionname.immunity>Immunité</afflictionname.immunity>
 <afflictiondescription.immunity></afflictiondescription.immunity>
 
-<afflictionname.infectedwound>Plaie infectée</afflictionname.infectedwound>
-<afflictiondescription.infectedwound></afflictiondescription.infectedwound>
+<afflictionname.infection>Plaie infectée</afflictionname.infection>
+<afflictiondescription.infection></afflictiondescription.infection>
 
 <afflictionname.sepsis>Sepsis</afflictionname.sepsis>
 <afflictiondescription.sepsis></afflictiondescription.sepsis>

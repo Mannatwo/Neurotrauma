@@ -475,7 +475,7 @@ NT.ItemMethods.ointment = function(item, usingCharacter, targetCharacter, limb)
     HF.AddAfflictionLimb(targetCharacter,"ointmented",limbtype,60*(success+1),usingCharacter)
     if not limbHasThirdDegreeBurns(targetCharacter,limbtype) then
     HF.AddAfflictionLimb(targetCharacter,"burn",limbtype,-7.2-success*4.8,usingCharacter) end
-    HF.AddAfflictionLimb(targetCharacter,"infectedwound",limbtype,-24-success*48,usingCharacter)
+    HF.AddAfflictionLimb(targetCharacter,"infection",limbtype,-24-success*48,usingCharacter)
 
     HF.RemoveItem(item)
     HF.GiveItem(targetCharacter,"ntsfx_ointment")

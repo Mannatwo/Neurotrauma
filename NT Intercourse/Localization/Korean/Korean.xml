@@ -389,8 +389,8 @@
 <afflictiondescription.suturedw>상처를 봉합했습니다.</afflictiondescription.suturedw>
 <afflictionname.immunity>면역</afflictionname.immunity>
 <afflictiondescription.immunity></afflictiondescription.immunity>
-<afflictionname.infectedwound>감염된 상처</afflictionname.infectedwound>
-<afflictiondescription.infectedwound></afflictiondescription.infectedwound>
+<afflictionname.infection>감염된 상처</afflictionname.infection>
+<afflictiondescription.infection></afflictiondescription.infection>
 <afflictionname.sepsis>패혈</afflictionname.sepsis>
 <afflictiondescription.sepsis></afflictiondescription.sepsis>
 <afflictionname.necrosis>괴사</afflictionname.necrosis>

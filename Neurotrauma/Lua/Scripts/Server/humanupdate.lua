@@ -904,7 +904,7 @@ NT.LimbAfflictions = {
     end
     },
     -- other
-    infectedwound={update=function(c,limbaff,i)
+    infection={update=function(c,limbaff,i)
         if c.stats.stasis then return end
         local infectindex = ( -c.afflictions.immunity.prev/200 - HF.Clamp(limbaff.bandaged.strength,0,1)*1.5 - limbaff.ointmented.strength*3
             + limbaff.burn.strength/20
@@ -944,7 +944,7 @@ NT.LimbAfflictions = {
         end
 
         -- sepsis
-        local sepsischance = HF.Minimum(limbaff.gangrene.strength,15,0) / 400 + HF.Minimum(limbaff.infectedwound.strength,50) / 1000 + foreignbodycutchance
+        local sepsischance = HF.Minimum(limbaff.gangrene.strength,15,0) / 400 + HF.Minimum(limbaff.infection.strength,50) / 1000 + foreignbodycutchance
         if(HF.Chance(sepsischance)) then
             c.afflictions.sepsis.strength = c.afflictions.sepsis.strength + NT.Deltatime
         end
@@ -983,7 +983,7 @@ NT.LimbAfflictions = {
     -- limb symptoms
     inflammation={update=function(c,limbaff,i)
         limbaff[i].strength = limbaff[i].strength + (-0.1+
-            HF.BoolToNum(limbaff.infectedwound.strength > 10 or limbaff.foreignbody.strength > 15,0.15)) * NT.Deltatime
+            HF.BoolToNum(limbaff.infection.strength > 10 or limbaff.foreignbody.strength > 15,0.15)) * NT.Deltatime
     end
     },
     burn_deg1={update=function(c,limbaff,i)

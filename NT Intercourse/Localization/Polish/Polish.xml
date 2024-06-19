@@ -515,8 +515,8 @@ Biorcy: AB+</entitydescription.abpluscard>
 <afflictionname.immunity>Odporność</afflictionname.immunity>
 <afflictiondescription.immunity></afflictiondescription.immunity>
 
-<afflictionname.infectedwound>Zainfekowana rana</afflictionname.infectedwound>
-<afflictiondescription.infectedwound></afflictiondescription.infectedwound>
+<afflictionname.infection>Zainfekowana rana</afflictionname.infection>
+<afflictiondescription.infection></afflictiondescription.infection>
 
 <afflictionname.sepsis>Posocznica (Sepsa)</afflictionname.sepsis>
 <afflictiondescription.sepsis></afflictiondescription.sepsis>

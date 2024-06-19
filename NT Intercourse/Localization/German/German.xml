@@ -473,8 +473,8 @@ Kann geben für: AB+</entitydescription.abpluscard>
 <afflictionname.immunity>Immunity</afflictionname.immunity>
 <afflictiondescription.immunity></afflictiondescription.immunity>
 
-<afflictionname.infectedwound>Infected wound</afflictionname.infectedwound>
-<afflictiondescription.infectedwound></afflictiondescription.infectedwound>
+<afflictionname.infection>Infected wound</afflictionname.infection>
+<afflictiondescription.infection></afflictiondescription.infection>
 
 <afflictionname.sepsis>Sepsis</afflictionname.sepsis>
 <afflictiondescription.sepsis></afflictiondescription.sepsis>
